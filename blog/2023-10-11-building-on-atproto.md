@@ -33,4 +33,4 @@ You can read about more third-party projects and check them out [here](https://a
 
 We’ve still only scratched the surface of what’s possible on atproto. Currently, microblogging is the only content type that’s integrated, but we’re excited to for apps for forums, photo-centric platforms, long-form writing, and more to exist on atproto. 
 
-In the meantime, we’ve published a [protocol roadmap here](/blog/2023-protocol-roadmap) to give you a sense of our priorities and what’s coming in the future.  
+In the meantime, we’ve published a [protocol roadmap here](https://docs.bsky.app/blog/2023-protocol-roadmap) to give you a sense of our priorities and what’s coming in the future.  
