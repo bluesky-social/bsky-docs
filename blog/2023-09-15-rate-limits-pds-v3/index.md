@@ -14,28 +14,20 @@ We’re adding a rate limit for the number of created actions per DID. **These n
 
 <table>
   <tr>
-   <td><strong>Action Type</strong>
-   </td>
-   <td><strong>Value</strong>
-   </td>
+   <td><strong>Action Type</strong></td>
+   <td><strong>Value</strong></td>
   </tr>
   <tr>
-   <td>CREATE
-   </td>
-   <td>3 points
-   </td>
+   <td>CREATE</td>
+   <td>3 points</td>
   </tr>
   <tr>
-   <td>UPDATE
-   </td>
-   <td>2 points
-   </td>
+   <td>UPDATE</td>
+   <td>2 points</td>
   </tr>
   <tr>
-   <td>DELETE
-   </td>
-   <td>1 point
-   </td>
+   <td>DELETE</td>
+   <td>1 point</td>
   </tr>
 </table>
 
