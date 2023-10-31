@@ -4,32 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Federated Social',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Connect with anyone on any service that's using the AT Protocol.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Algorithmic Choice',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Control how you see the world through an open market of algorithms.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Portable Accounts',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Change hosts without losing your content, your follows, or your identity.
       </>
     ),
   },
