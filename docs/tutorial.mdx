@@ -1,0 +1,93 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Tutorial
+
+Let's get started by making your first post to the Bluesky app via the API in under 5 minutes.
+
+## Getting Started
+
+To create a post on Bluesky, you'll need an account. If you don't have an invite code yet, sign up for the waitlist [here](https://forms.gle/PxicYPHmffAVteFV9). 
+
+Have your username and password handy.
+
+:::tip
+
+For your security, use an App Password. You can generate an App Password in Settings > Advanced > App passwords.
+
+App passwords have most of the same abilities as the user's account password, but they're restricted from destructive actions such as account deletion or account migration. They are also restricted from creating additional app passwords.
+
+:::
+
+## Post via the API
+
+### Create a session
+
+This creates an authentication session with your username and password.
+
+Replace `$BLUESKY_HANDLE` and `$BLUESKY_APP_PASSWORD` with your credentials.
+
+```bash
+curl -X POST https://bsky.social/xrpc/com.atproto.server.createSession \
+     -H "Content-Type: application/json" \
+     -d '{"identifier": "'"$BLUESKY_HANDLE"'", "password": "'"$BLUESKY_APP_PASSWORD"'"}'
+```
+
+The `com.atproto.server.createSession` API endpoint returns a session object containing two API tokens:
+* `accessJwt`: an access token which is used to authenticate requests but expires after a few minutes
+* `refreshJwt`: a refresh token which lasts longer and is used only to update the session with a new access token
+
+```json
+{
+  "did": "did:plc:abc123...",
+  "handle": "username.bsky.social",
+  "email": "email@example.com",
+  "emailConfirmed": true,
+  "accessJwt": "xyz...",
+  "refreshJwt":"xyz..."
+}
+```
+
+:::note
+
+The `did` is your persistent, long-term account identifier. Even if your handle changes, your DID will stay the same.
+
+:::
+Since we're just publishing a single post, we can get away with a single session and not bother with refreshing.
+
+You can export the `accessJwt` token to an environment variable for use in subsequent requests.
+
+### Create a post 
+Now you can create a post by sending a POST request to the createRecord endpoint.
+
+```bash
+curl -X POST https://bsky.social/xrpc/com.atproto.repo.createRecord \
+     -H "Authorization: Bearer $AUTH_TOKEN" \
+     -H "Content-Type: application/json" \
+     -d "{\"repo\": \"$BLUESKY_HANDLE\", \"collection\": \"app.bsky.feed.post\", \"record\": {\"text\": \"Hello world! I posted this via the API.\", \"createdAt\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}}"
+
+```
+
+This will return an object containing the post's URI and [CID](https://docs.ipfs.tech/concepts/content-addressing/#identifier-formats), or content identifier. 
+
+```json
+{
+  "uri": "at://did:plc:abc123..../app.bsky.feed.post/xyz...",
+  "cid": "abc..."
+}
+```
+
+Check out your profile to see the post you just created!
+
+Alternatively, you can use the URI in the above returned object to find the post on the Bluesky app. The URL will be in this format: 
+`https://bsky.app/profile/did:plc:abc123..../app.bsky.feed.post/xyz...`
+
+### Next Steps
+
+Posts can get a lot more complicated with replies, mentions, embedding images, and more. 
+
+TODO: add next steps and point to docs
