@@ -19,7 +19,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'bluesky-social', // Usually your GitHub org/user name.
-  projectName: 'bluesky-docs', // Usually your repo name.
+  projectName: 'bsky-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -49,7 +49,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/bluesky-social/bluesky-docs/tree/main/',
+            'https://github.com/bluesky-social/bsky-docs/tree/main/',
           blogSidebarCount: 'ALL',
         },
         theme: {
