@@ -1,6 +1,7 @@
 ---
 slug: rate-limits-pds-v3
 title: Rate Limits, PDS Distribution v3, and More
+tags: ['updates']
 ---
 
 To get future blog posts directly in your email, you can now subscribe to Bluesky’s Developer Mailing List [here](/blog/rate-limits-pds-v3#subscribe-for-developer-updates).

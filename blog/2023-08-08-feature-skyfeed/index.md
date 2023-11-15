@@ -1,6 +1,7 @@
 ---
 slug: feature-skyfeed
 title: "Featured Community Project: Skyfeed"
+tags: ['community']
 ---
 
 SkyFeed is a third-party client built by [redsolver](https://bsky.app/profile/redsolver.dev). Users can create a dashboard out of their feeds, profiles, and more. Additionally, while custom feeds currently take some developer familiarity to build from scratch, SkyFeed allows Bluesky users to easily build their own custom feeds based off of regexes or lists.

@@ -1,6 +1,7 @@
 ---
 slug: federation-sandbox
 title: Federation Developer Sandbox Guidelines
+tags: ['federation']
 ---
 
 Welcome to the atproto federation developer sandbox! ✨
