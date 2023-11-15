@@ -95,8 +95,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Starter Templates',
+                to: '/docs/category/starter-templates',
               },
               {
                 label: 'AT Protocol',

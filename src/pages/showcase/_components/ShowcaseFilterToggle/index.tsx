@@ -9,7 +9,7 @@ import React, {useState, useEffect, useCallback} from 'react';
 import clsx from 'clsx';
 import {useHistory, useLocation} from '@docusaurus/router';
 
-import {prepareUserState} from '@site/src/pages/showcase/index';
+import {prepareUserState} from '../../index';
 
 import styles from './styles.module.css';
 

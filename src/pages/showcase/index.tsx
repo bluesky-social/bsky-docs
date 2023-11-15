@@ -14,7 +14,7 @@ import {usePluralForm} from '@docusaurus/theme-common';
 
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import FavoriteIcon from '@site/src/components/FavoriteIcon';
+import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon';
 import {
   sortedUsers,
   Tags,
@@ -25,19 +25,19 @@ import {
 import Heading from '@theme/Heading';
 import ShowcaseTagSelect, {
   readSearchTags,
-} from './ShowcaseTagSelect';
+} from './_components/ShowcaseTagSelect';
 import ShowcaseFilterToggle, {
   type Operator,
   readOperator,
-} from './ShowcaseFilterToggle';
-import ShowcaseCard from './ShowcaseCard';
-import ShowcaseTooltip from './ShowcaseTooltip';
+} from './_components/ShowcaseFilterToggle';
+import ShowcaseCard from './_components/ShowcaseCard';
+import ShowcaseTooltip from './_components/ShowcaseTooltip';
 
 import styles from './styles.module.css';
 
-const TITLE = translate({message: 'Showcase'});
+const TITLE = translate({message: 'Community Showcase'});
 const DESCRIPTION = translate({
-  message: 'Projects built with the Bluesky API',
+  message: 'Community projects built on the Bluesky API.',
 });
 const SUBMIT_URL = 'https://github.com/facebook/docusaurus/discussions/7826';
 
@@ -51,6 +51,7 @@ function restoreUserState(userState: UserState | null) {
     scrollTopPosition: 0,
     focusedElementId: undefined,
   };
+  // @ts-expect-error: if focusedElementId is undefined it returns null
   document.getElementById(focusedElementId)?.focus();
   window.scrollTo({top: scrollTopPosition});
 }
@@ -126,7 +127,7 @@ function ShowcaseHeader() {
       <p>{DESCRIPTION}</p>
       <Link className="button button--primary" to={SUBMIT_URL}>
         <Translate id="showcase.header.button">
-          Add your project
+          Submit your project here
         </Translate>
       </Link>
     </section>

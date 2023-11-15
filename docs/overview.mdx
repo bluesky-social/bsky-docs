@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Overview
 
+## TODO: fix links
+
 Bluesky is a microblogging app built on the AT Protocol.
 
 The Authenticated Transfer Protocol, or atproto, is a federated protocol for large-scale distributed social applications. In the near future, social apps primarily for photos, videos, longform blogging, etc. can be built on atproto as well.
@@ -22,7 +24,7 @@ User data is exchanged in signed data repositories. These repositories are colle
 
 ## Federation
 
-The AT Protocol syncs the repositories in a federated networking model. Federation was chosen to ensure the network is convenient to use and reliably available. Repository data is synchronized between servers over standard web technologies ([HTTP](/specs/xrpc) and [WebSockets](/specs/event-stream)).
+The AT Protocol syncs the repositories in a federated networking model. Federation was chosen to ensure the network is convenient to use and reliably available. Repository data is synchronized between servers over standard web technologies ([HTTP] and [WebSockets]).
 
 The three core services in our network are Personal Data Servers (PDS), Big Graph Services (BGS), and App Views. We're also working on feed generators and labelers.
 
@@ -30,7 +32,8 @@ The lower-level primitives that can get stacked together differently are the rep
 
 ## Interoperation
 
-A global schemas network called [Lexicon](/specs/lexicon) is used to unify the names and behaviors of the calls across the servers. Servers implement "lexicons" to support featuresets, including the core [ATP Lexicon](/lexicons/com-atproto-identity) for syncing user repositories and the [Bsky Lexicon](/lexicons/app-bsky-actor) to provide basic social behaviors.
+A global schemas network called [Lexicon] is used to unify the names and behaviors of the calls across the servers. Servers implement "lexicons" to support featuresets, including the core [ATP Lexicon] for syncing user repositories and the [Bsky Lexicon] to provide basic social behaviors.
+
 
 
 While the Web exchanges documents, the AT Protocol exchanges schematic and semantic information, enabling the software from different orgs to understand each others' data. This gives atproto clients freedom to produce user interfaces independently of the servers, and removes the need to exchange rendering code (HTML/JS/CSS) while browsing content.
@@ -53,7 +56,7 @@ As with Web search engines, users are free to select their aggregators. Feeds, A
 
 We assume that a Personal Data Server may fail at any time, either by going offline in its entirety, or by ceasing service for specific users. The goal of the AT Protocol is to ensure that a user can migrate their account to a new PDS without the server's involvement.
 
-User data is stored in [signed data repositories](/guides/data-repos) and verified by [DIDs](/guides/identity). Signed data repositories are like Git repos but for database records, and DIDs are essentially registries of user certificates, similar in some ways to the TLS certificate system. They are expected to be secure, reliable, and independent of the user's PDS.
+User data is stored in [signed data repositories] and verified by [DIDs]. Signed data repositories are like Git repos but for database records, and DIDs are essentially registries of user certificates, similar in some ways to the TLS certificate system. They are expected to be secure, reliable, and independent of the user's PDS.
 
 
 Each DID document publishes two public keys: a signing key and a recovery key.
@@ -77,11 +80,11 @@ The base layer of atproto (personal data repositories and federated networking) 
 
 Some of the primary specifications comprising the initial version of the AT Protocol are:
 
-- [Authenticated Transfer Protocol](/specs/atp)
-- [DIDs](/specs/did) and [Handles](/specs/handle)
-- [Repository](/specs/repository) and [Data Model](/specs/data-model)
-- [Lexicon](/specs/lexicon) 
-- [HTTP API (XRPC)](/specs/xrpc) and [Event Streams](/specs/event-stream)
+- [Authenticated Transfer Protocol]
+- [DIDs] and [Handles]
+- [Repository] and [Data Model]
+- [Lexicon]
+- [HTTP API (XRPC)] and [Event Streams]
 
 These specs can be organized into three layers of dependency:
 
