@@ -7,7 +7,7 @@ The [atproto.com](https://atproto.com) website, including the AT Protocol specif
 
 ## Docs Development
 
-This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator. 
 
 For live-reloading development:
 
@@ -22,6 +22,13 @@ To output a build:
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+### Generate OpenAPI to Docusaurus MDX
+
+We use the [`docusaurus-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) plugin.
+
+Run `npx docusaurus-mdx-checker` to see MDX compatability.
+
+Run `npm run docusaurus gen-api-docs <id>` to generate MDX docs from an OpenAPI spec.
 
 ## Are you a developer interested in building on atproto?
 

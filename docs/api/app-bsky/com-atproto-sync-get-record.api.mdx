@@ -1,0 +1,144 @@
+---
+id: com-atproto-sync-get-record
+title: "Get blocks needed for existence or non-existence of record."
+description: "Get blocks needed for existence or non-existence of record."
+sidebar_label: "Get blocks needed for existence or non-existence of record."
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VMGO2jAQ/RXLp1aiCe2RG12qFepWi1gqVao4GGcgFo7ttR1EFPHvnUmyNECX3W5VLsT2zJvnec9T8yg2gY9+cmmLRETnbbRJqIzkywG3DryIypppxkcXEckG4hyk9RkfcCe8KCCCJ7CaG1xgSqboTBn8fCzBV7jIIEivHKHi7iIHNplOmF2ziJ8enE0wyMNjqTxg1ehLGPAgcygEH9U8Vo6AQ/TKbF4Lt7a+ELHjczgMjvyk1Rpkk3xG8/UMjuAmnKH7LVRvxT1lWRQqXm/k2DDbfAvNnAiRtUnsZjo5beha6PAXHX0B93h52dx9SZWCsyZAIOxPwyH9nULef8VEaU0EE+lUOKeVbHyW7kyWKKezRAqPZwf8nTO6hchW2sptYAYgg4whCQZ7FRBQAsOFseZDb2ONRiCbEmH0aG7JzWjexrYxx0V61dsB/O7J2KXXGJ/H6MIoTVdhWyXBSiV0uvdOppf9W7AZoaLT2GzywH7MZzesBeTUrgCy9CpWD6RH27TPIDz4njRUjXeS0XrVBlBrlFnbJlJFDWflmlLj2ZRSy6IQ6JrTgDvsEeoQ2L0D0wbSPVviH5NhMsQdlAZQTirS2fHbdMHuul1kkKGMaq2IMR01tJwNsRCml/Rvqp309NiXCPuYOi3wWWDNRpm6U/RynvUUxbbnSJCi6nolAnz3+nCg7fZtkc6ZCmKlew/mjMLRv/zdvHtb79kz4+ePdGk2PA3IndAlRXB69G+qfL3KyZj738W6qffGMi/Mm6uX7Kbk78pLWnhFpVHUJYbmIDJyKircZo2lBNfPenYaEdpxetx+IaP/AqeodCI=
+sidebar_class_name: "get api-method"
+info_path: docs/api/app-bsky/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  Get blocks needed for existence or non-existence of record.
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.sync.getRecord"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get blocks needed for existence or non-existence of record.
+
+## Request
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"did","in":"query","description":"The DID of the repo.","required":true,"schema":{"type":"string","description":"The DID of the repo.","format":"did"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"collection","in":"query","required":true,"schema":{"type":"string","format":"nsid"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"rkey","in":"query","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"commit","in":"query","description":"An optional past commit CID.","required":false,"schema":{"type":"string","description":"An optional past commit CID.","format":"cid"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/vnd.ipld.car"}
+              value={"application/vnd.ipld.car"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

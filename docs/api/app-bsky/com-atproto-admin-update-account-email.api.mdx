@@ -1,0 +1,119 @@
+---
+id: com-atproto-admin-update-account-email
+title: "Administrative action to update an account's email."
+description: "Administrative action to update an account's email."
+sidebar_label: "Administrative action to update an account's email."
+hide_title: true
+hide_table_of_contents: true
+api: eJydVE1vGjEQ/SuWL72QXdojqiqRjwNqqqCESpXSHIbdgXWya7v2bApa8d87410glByqggT2eDzz/N6zO02wjnryqAvXZEA+OHIZlI2x+mmknccAZJydlXpynpK1vgTCaVG41tJNA6bWIx2xaIOhLVft9CVCwMDDpx3XC/irxUiXruTVLk1NQK5NocURN7CElmQJvK9NkXrnz9FZicWiwgZkRFuPDMgtn7EgPXpT6FFDj4ajmABxW4bMByGDMZUeEo51IgVj17yjxFgE46UrhxcVqgpsWaNyQV3PrpVbKeJgQO8yTl+50AAX0kAXpmTkZmX4sLt967MOu/QRvNE7G3s8n8Zj+TvtffdVS+JpcCqkG67FvLyigkLiipzqdVBg1XC4D1ElCIKyQaqc6OddFFo8UMWz/J/lDK8YYlKzDXwoXRH5OMnzZXzZZtEVBup8E3yRnzE4Xai51C9crebXD+rH/fxK9QW1+GFvlQdRtmdjb5gDddJNYKQUni/7BGFHjHF/tNTNBhpf44nGR20HSQ5SjLSxK5caGZJdJ2gT0ul8Jp3bpoGw/SvhFjeG/RrVnUfbJwpN/bk/ZuNszBG2MLLM0sRCQv9ttlC3Q5QRHE2TltKpRKYG7JtN/6f7iRQHOgk3lPsa+IJzryRoN1jinUfgPUuwbpU4ifO7bgkRv4d6t5MwKyE8PfLwFYKBpdDKN583IJTpGej0CwqVV/1Vv1gIKkmvW0F3du3FJQcDz+8eFpy8HJ6PxpWyJ8BveQL4d6J/8lfLuyUVkp9SvNM12HULa8nv6wrT0MqxD9QMzhrtB4J2WAK7fYPyc29StXAvaL/wQn8mkikj5tp/AEDO1Us=
+sidebar_class_name: "post api-method"
+info_path: docs/api/app-bsky/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  Administrative action to update an account's email.
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/com.atproto.admin.updateAccountEmail"}
+>
+  
+</MethodEndpoint>
+
+
+
+Administrative action to update an account's email.
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"account"}
+          required={true}
+          schemaName={"at-identifier"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"The handle or DID of the repo.","format":"at-identifier"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"email"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

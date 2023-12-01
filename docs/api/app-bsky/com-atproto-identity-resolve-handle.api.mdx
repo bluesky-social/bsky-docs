@@ -1,0 +1,148 @@
+---
+id: com-atproto-identity-resolve-handle
+title: "Provides the DID of a repo."
+description: "Provides the DID of a repo."
+sidebar_label: "Provides the DID of a repo."
+hide_title: true
+hide_table_of_contents: true
+api: eJyNU01v2zAM/SuCTisQ2OmOuWXLsAXr0KDNgAFFDorMxGplSZXoIIGR/z7SdtN8bagvhqRH8vE9spGo1kmOnqT2VaYwRI8+MwU4NLiTi4H0AaJC4920kKOrqCxC8nYDP5QrLMiBDCqqChAiJ26kowOFlm/PxtHptYa4o0MBSUcTuADdzksQHU6gF33ejGARXmsTgShgrGEgky6hUnLUSNwFzp4wGrf+eMKVj5XCd1r7/YKrpOBdgsSJPw+H/DvNd/+TYrV3SK3zqwrBGt3qkz8nhjSX3PzyGTSedPEkC1OwvCQlCYymq8mXV3o6kOX3ffeddzqLfkOOJIHU8mQ6EX4lFHUcPLdLdpSeDVwDtg5hSYf8Q3YmiJs3L+toWTPEkEZ5vkwvuyx5bZTNtzHo/EL/8VzMOLv2Vswmj+LPw+yr6BJKVjyBriMVfWTNOg2+gIr0+i4DV5O95XxedgCWwLiVb5EGLZyVa0uNZ1MOratK0bidAu5ga8jKJO4DuA7IfXbEb7NhNqQbchdoIrhIP8e/pnNx198Sg1a1lWHG/NTSCj5hpdxR0P/dOdHs0DfCFvNgFe0L5WyVb3rnrq/rmXMkb0lEGN00S5Xgd7T7PV93y8d+FiappeWJXCmb4ILKYdTlp4d+eG/EP5fqKvEX2B1v/0bZmkGt/RsVDdcnLguClqAKFpKIdVFjrSHgUdTFvnGWw3B//8b6/wXE2KXK
+sidebar_class_name: "get api-method"
+info_path: docs/api/app-bsky/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  Provides the DID of a repo.
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.identity.resolveHandle"}
+>
+  
+</MethodEndpoint>
+
+
+
+Provides the DID of a repo.
+
+## Request
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"handle","in":"query","description":"The handle to resolve.","required":true,"schema":{"type":"string","description":"The handle to resolve.","format":"handle"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"did"}
+                        required={true}
+                        schemaName={"did"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"did"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"did\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

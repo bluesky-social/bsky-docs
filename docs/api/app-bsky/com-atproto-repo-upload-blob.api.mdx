@@ -1,0 +1,161 @@
+---
+id: com-atproto-repo-upload-blob
+title: "Upload a new blob to be added to repo in a later request."
+description: "Upload a new blob to be added to repo in a later request."
+sidebar_label: "Upload a new blob to be added to repo in a later request."
+hide_title: true
+hide_table_of_contents: true
+api: eJylU01v2zAM/SuCjoVnZzsGw4C0uwTrkGBJgQFZD7TNNGpsSZPoNoHh/z7STrJ8HHZYDMSy+Eg+PpKtJniJerzShatTIB8cuTSgd/o50c5jADLOTks9vkGkja8clPeVy3WiIxZNMLTnWK2+RwgY+PjccZiAvxuMdO9Ktrb9pwnIISk0mHBcS2hJTHfZHb+6rhOn6J2NGOX+02gkrxJjEYwXRsxn9k1fOIP3lSl6vtlrFEirY7HBGuREe4/s5PJXLEgnZyxWOpcSmCjXxhWTGZL2t389IwVjX9hz7UINnFHnxkLY6274JVf0nnp1FCiL70piKXIqRwVliaWcRUNlLCMqIAzqIFPKKWqkjRPNvYtC1gNt+Cv7VwvCG4bYd6AJFTtsiHwcZ1ket/s0usJAle2CLzJ9zXayVHMJW7hKzb8u1M8f8wc1BNTSw2N7FyLooM+xySeFJJvQ6CGizwAQaYxdux5pqMKrdH2qyXwqrk1di6SXgEfcGe5zVDOPdgBKnQPxj+koHfENtx55XCSJhT799+lSPR5umUHJY2LWRhiLqacl8tZgz5z+p2sXip5UIdxR5iswVnPGvi/toaG3W3feUFZ9I+1nWNvmEPEpVF0n15xRRFrx8Q2CgVw05V1jB4SyX7xWb1F0fBj248NSyAi8aoSULFqXHEGTokBPZ+abVZIROA3lfLZYMjg/7HPtSvEJ8C5rxf9j/YsfqRYaKfMkxWEgkuNBaB5MYPdn+T8Ps6WWbov2CxsGniSfzIW37Q8SAZhQ
+sidebar_class_name: "post api-method"
+info_path: docs/api/app-bsky/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  Upload a new blob to be added to repo in a later request.
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/com.atproto.repo.uploadBlob"}
+>
+  
+</MethodEndpoint>
+
+
+
+Upload a new blob to be added to repo in a later request.
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"*/*"}
+    value={"*/*-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        any
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"blob"}
+                        required={true}
+                        schemaName={"binary"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"binary"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"blob\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

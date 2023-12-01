@@ -1,0 +1,134 @@
+---
+id: com-atproto-sync-get-repo
+title: "Gets the DID's repo, optionally catching up from a specific revision."
+description: "Gets the DID's repo, optionally catching up from a specific revision."
+sidebar_label: "Gets the DID's repo, optionally catching up from a specific revision."
+hide_title: true
+hide_table_of_contents: true
+api: eJytVFFv2jAQ/iuWX7ZJKGF75I2NqULrVNQyadLEg3GOxqpju/YFNUL577tLIAO6dlQaL+Ts83efv+/OO4nqPsnJL6l9lSkM0aPPUuO0XI2kDxAVGu/mhZw8y8juAW8heDmSQUVVAUJkqJ10FNCBwhS0Zxx9PtYQGwoKSDqawJi0uixBzOYz4TcC6TMSWEZJER5rE4FqYqxhJJMuoVJyspPYBAZOGI27vxRu42OlcM+nbUcDv2Schn8zjLA1icJjXIFeaIW6FHUQm0jKnPDeKJveSPzCKm274kIpeJcgMfSn8Zj/ThFvvlER7R2CQ95VIVijOy/zrSsyE2yRaRVpr6XfOaErwNSxIDnfpY7LSPhuV1nb9KToJgdeQokUQJuN0cNFWBHqidJz71CrdG2CJQX5K52UIG4PbVRHS9klYkiTPF+nhyZLXhtl86cYdP5MxulSLBhTeysWszvx83bxRfSAkmVLoOtosLljW3rxPoOKEI8c4mpy7xzH6z6BJTJu47tMgxbOynWlpos5H62rSlErnSZcw5MhP5K4CeD6RL5nT/xjNs7GtEIWAdnKRfYt+n2+FNf7VWJQkJ0kMjPmrY5W8Akr5Y4O/S/3TtQdFEJ4wjxYRVND1TuPdntnn78ig7Mkf0lEOWe3W6sEP6JtW17uB4/9LkxSa3s0P2cEhn6W72/3o/ZBvDD0fyX7AM3wLG2VrTlD8oNweeU3PQivkDi8PX9orDiIhnmQGivKLEEVbDVJ0x+aag0Bj069ONaMNgzf1VfulN8+1wLq
+sidebar_class_name: "get api-method"
+info_path: docs/api/app-bsky/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  Gets the DID's repo, optionally catching up from a specific revision.
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.sync.getRepo"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gets the DID's repo, optionally catching up from a specific revision.
+
+## Request
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"did","in":"query","description":"The DID of the repo.","required":true,"schema":{"type":"string","description":"The DID of the repo.","format":"did"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"since","in":"query","description":"The revision of the repo to catch up from.","required":false,"schema":{"type":"string","description":"The revision of the repo to catch up from."}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/vnd.ipld.car"}
+              value={"application/vnd.ipld.car"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

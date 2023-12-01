@@ -1,0 +1,158 @@
+---
+id: com-atproto-sync-get-commit-path
+title: "Gets the path of repo commits"
+description: "Gets the path of repo commits"
+sidebar_label: "Gets the path of repo commits"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVE1v2zAM/SuCThsQ2NmOuWVtUQTr0KDtgAFDDopMx2ptS5XoooGR/z7SdpzESZsOzSWWxI9H8j3WEtUqyMlfqW0RKXTeoo3CutRyMZLWgVdobDlL5OTIIloBXtiiMDhXmMmRdMqrAhA8B6xlSQdyS0xCb6akz+cK/JoOCQTtjePIdPuQgbicXQqbCqRPD85GZOThuTIeKDP6CkYy6AwKJSe1xLXjwAG9KVcfDZdaXyjs8Gw2ox5frhACnodY2IAUTUOJQjdlH4BMVR7+E+XJiD1OPcAJyufmQ0i3ll1QgVYEVB5F6m3xWdDngg/wLzhdcLYMEDjB9/GY/w7j3v4kR21LpE7wq3IuN7phXvwY2KQ+xmiXj6APZ9CwmEAFJi8RleiLps27fdj5K+8V988gFOFU7YNK2t+wJdeAoeGZIw0w55hvYpttJEkPmWX1kFgaiZBSJjI+q6UA/mUrpMrn5JMhujCJ42V4WkfBaqPy+NU7HR+Nafog5hxZ21zML+/Fn7v5hWgDSh5IAF15g+t7bmnbnh80VnrddYGzyY4ZfF62BtwAU6a2sTSYwyBdk2o6n7FrVRSKGHpocAOvhiYdxK2DsjXkOlvg36JxNKYbGj4QYThJR/5fswdx090SgoSIYlLDiPmpgeVITYUq95zOzeaga33lCK8Yu1yRyChq0/u6m9vxlhzMjZqbEQy2rOulCvDb55sNX7dq5WkmJqhlvqe+AYxeB/LLXcfsr+KNpXYS8hOs+7X7ovKKLSQvko9nfnM7vZOw36OfyHluubyTfm897gAs+OANI6DeL8g4A5UwbWgQrd9Ua3D7XkfLh6P0Mr6+Yrb9A6u9dmw=
+sidebar_class_name: "get api-method"
+info_path: docs/api/app-bsky/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  Gets the path of repo commits
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.sync.getCommitPath"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gets the path of repo commits
+
+## Request
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"did","in":"query","description":"The DID of the repo.","required":true,"schema":{"type":"string","description":"The DID of the repo.","format":"did"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"latest","in":"query","description":"The most recent commit","required":false,"schema":{"type":"string","description":"The most recent commit","format":"cid"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"earliest","in":"query","description":"The earliest commit to start from","required":false,"schema":{"type":"string","description":"The earliest commit to start from","format":"cid"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"commits"}
+                        required={true}
+                        schemaName={"cid[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","items":{"type":"string","format":"cid"}}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"commits\": [\n    \"string\"\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
