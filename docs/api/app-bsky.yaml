@@ -19,7 +19,7 @@ paths:
       security:
         - Bearer: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -29,7 +29,25 @@ paths:
                   - preferences
                 properties:
                   preferences:
-                    $ref: '#/components/schemas/app.bsky.actor.defs.preferences'
+                    $ref: "#/components/schemas/app.bsky.actor.defs.preferences"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                      type: object
+                      required:
+                        - error
+                        - message
+                      properties:
+                        error:
+                          type: string
+                          enum:
+                            - "InvalidRequest"
+                            - "ExpiredToken"
+                            - "InvalidToken"
+                        message:
+                          type: string
   /app.bsky.actor.getProfile:
     get:
       tags:
@@ -46,12 +64,12 @@ paths:
             type: string
             format: at-identifier
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/app.bsky.actor.defs.profileViewDetailed'
+                $ref: "#/components/schemas/app.bsky.actor.defs.profileViewDetailed"
   /app.bsky.actor.getProfiles:
     get:
       tags:
@@ -71,7 +89,7 @@ paths:
               format: at-identifier
             maxItems: 25
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -108,7 +126,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -122,7 +140,7 @@ paths:
                   actors:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                      $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
   /app.bsky.actor.putPreferences:
     post:
       tags:
@@ -141,9 +159,9 @@ paths:
                 - preferences
               properties:
                 preferences:
-                  $ref: '#/components/schemas/app.bsky.actor.defs.preferences'
+                  $ref: "#/components/schemas/app.bsky.actor.defs.preferences"
       responses:
-        '200':
+        "200":
           description: OK
   /app.bsky.actor.searchActors:
     get:
@@ -156,11 +174,11 @@ paths:
       parameters:
         - name: term
           in: query
-          description: 'DEPRECATED: use ''q'' instead.'
+          description: "DEPRECATED: use 'q' instead."
           required: false
           schema:
             type: string
-            description: 'DEPRECATED: use ''q'' instead.'
+            description: "DEPRECATED: use 'q' instead."
         - name: q
           in: query
           description: >-
@@ -186,7 +204,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -200,7 +218,7 @@ paths:
                   actors:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                      $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
   /app.bsky.actor.searchActorsTypeahead:
     get:
       tags:
@@ -212,11 +230,11 @@ paths:
       parameters:
         - name: term
           in: query
-          description: 'DEPRECATED: use ''q'' instead.'
+          description: "DEPRECATED: use 'q' instead."
           required: false
           schema:
             type: string
-            description: 'DEPRECATED: use ''q'' instead.'
+            description: "DEPRECATED: use 'q' instead."
         - name: q
           in: query
           description: Search query prefix; not a full query string.
@@ -233,7 +251,7 @@ paths:
             maximum: 100
             default: 10
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -276,7 +294,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -290,7 +308,7 @@ paths:
                   feeds:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.generatorView'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.generatorView"
   /app.bsky.feed.getActorLikes:
     get:
       tags:
@@ -320,7 +338,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -334,7 +352,7 @@ paths:
                   feed:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.feedViewPost'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.feedViewPost"
   /app.bsky.feed.getAuthorFeed:
     get:
       tags:
@@ -374,7 +392,7 @@ paths:
               - posts_no_replies
               - posts_with_media
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -388,7 +406,7 @@ paths:
                   feed:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.feedViewPost'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.feedViewPost"
   /app.bsky.feed.getFeed:
     get:
       tags:
@@ -418,7 +436,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -432,7 +450,7 @@ paths:
                   feed:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.feedViewPost'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.feedViewPost"
   /app.bsky.feed.getFeedGenerator:
     get:
       tags:
@@ -449,7 +467,7 @@ paths:
             type: string
             format: at-uri
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -461,7 +479,7 @@ paths:
                   - isValid
                 properties:
                   view:
-                    $ref: '#/components/schemas/app.bsky.feed.defs.generatorView'
+                    $ref: "#/components/schemas/app.bsky.feed.defs.generatorView"
                   isOnline:
                     type: boolean
                   isValid:
@@ -484,7 +502,7 @@ paths:
               type: string
               format: at-uri
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -496,7 +514,7 @@ paths:
                   feeds:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.generatorView'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.generatorView"
   /app.bsky.feed.getLikes:
     get:
       tags:
@@ -532,7 +550,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -553,7 +571,7 @@ paths:
                   likes:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.getLikes.like'
+                      $ref: "#/components/schemas/app.bsky.feed.getLikes.like"
   /app.bsky.feed.getListFeed:
     get:
       tags:
@@ -583,7 +601,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -597,7 +615,7 @@ paths:
                   feed:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.feedViewPost'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.feedViewPost"
   /app.bsky.feed.getPostThread:
     get:
       tags:
@@ -630,7 +648,7 @@ paths:
             maximum: 1000
             default: 80
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -641,9 +659,9 @@ paths:
                 properties:
                   thread:
                     oneOf:
-                      - $ref: '#/components/schemas/app.bsky.feed.defs.threadViewPost'
-                      - $ref: '#/components/schemas/app.bsky.feed.defs.notFoundPost'
-                      - $ref: '#/components/schemas/app.bsky.feed.defs.blockedPost'
+                      - $ref: "#/components/schemas/app.bsky.feed.defs.threadViewPost"
+                      - $ref: "#/components/schemas/app.bsky.feed.defs.notFoundPost"
+                      - $ref: "#/components/schemas/app.bsky.feed.defs.blockedPost"
   /app.bsky.feed.getPosts:
     get:
       tags:
@@ -663,7 +681,7 @@ paths:
               format: at-uri
             maxItems: 25
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -675,7 +693,7 @@ paths:
                   posts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.postView'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.postView"
   /app.bsky.feed.getRepostedBy:
     get:
       tags:
@@ -711,7 +729,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -732,7 +750,7 @@ paths:
                   repostedBy:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                      $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
   /app.bsky.feed.getSuggestedFeeds:
     get:
       tags:
@@ -756,7 +774,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -770,7 +788,7 @@ paths:
                   feeds:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.generatorView'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.generatorView"
   /app.bsky.feed.getTimeline:
     get:
       tags:
@@ -799,7 +817,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -813,7 +831,7 @@ paths:
                   feed:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.feedViewPost'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.feedViewPost"
   /app.bsky.feed.searchPosts:
     get:
       tags:
@@ -854,7 +872,7 @@ paths:
               Optional pagination mechanism; may not necessarily allow scrolling
               through entire result set.
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -870,7 +888,7 @@ paths:
                   posts:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.postView'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.postView"
   /app.bsky.graph.getBlocks:
     get:
       tags:
@@ -894,7 +912,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -908,7 +926,7 @@ paths:
                   blocks:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                      $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
   /app.bsky.graph.getFollowers:
     get:
       tags:
@@ -938,7 +956,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -949,13 +967,13 @@ paths:
                   - followers
                 properties:
                   subject:
-                    $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                    $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
                   cursor:
                     type: string
                   followers:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                      $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
   /app.bsky.graph.getFollows:
     get:
       tags:
@@ -985,7 +1003,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -996,13 +1014,13 @@ paths:
                   - follows
                 properties:
                   subject:
-                    $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                    $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
                   cursor:
                     type: string
                   follows:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                      $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
   /app.bsky.graph.getList:
     get:
       tags:
@@ -1032,7 +1050,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1045,11 +1063,11 @@ paths:
                   cursor:
                     type: string
                   list:
-                    $ref: '#/components/schemas/app.bsky.graph.defs.listView'
+                    $ref: "#/components/schemas/app.bsky.graph.defs.listView"
                   items:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.graph.defs.listItemView'
+                      $ref: "#/components/schemas/app.bsky.graph.defs.listItemView"
   /app.bsky.graph.getListBlocks:
     get:
       tags:
@@ -1073,7 +1091,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1087,7 +1105,7 @@ paths:
                   lists:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.graph.defs.listView'
+                      $ref: "#/components/schemas/app.bsky.graph.defs.listView"
   /app.bsky.graph.getListMutes:
     get:
       tags:
@@ -1111,7 +1129,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1125,7 +1143,7 @@ paths:
                   lists:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.graph.defs.listView'
+                      $ref: "#/components/schemas/app.bsky.graph.defs.listView"
   /app.bsky.graph.getLists:
     get:
       tags:
@@ -1155,7 +1173,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1169,7 +1187,7 @@ paths:
                   lists:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.graph.defs.listView'
+                      $ref: "#/components/schemas/app.bsky.graph.defs.listView"
   /app.bsky.graph.getMutes:
     get:
       tags:
@@ -1193,7 +1211,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1207,7 +1225,7 @@ paths:
                   mutes:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                      $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
   /app.bsky.graph.getSuggestedFollowsByActor:
     get:
       tags:
@@ -1224,7 +1242,7 @@ paths:
             type: string
             format: at-identifier
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1236,7 +1254,7 @@ paths:
                   suggestions:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+                      $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
   /app.bsky.graph.muteActor:
     post:
       tags:
@@ -1258,7 +1276,7 @@ paths:
                   type: string
                   format: at-identifier
       responses:
-        '200':
+        "200":
           description: OK
   /app.bsky.graph.muteActorList:
     post:
@@ -1281,7 +1299,7 @@ paths:
                   type: string
                   format: at-uri
       responses:
-        '200':
+        "200":
           description: OK
   /app.bsky.graph.unmuteActor:
     post:
@@ -1304,7 +1322,7 @@ paths:
                   type: string
                   format: at-identifier
       responses:
-        '200':
+        "200":
           description: OK
   /app.bsky.graph.unmuteActorList:
     post:
@@ -1327,7 +1345,7 @@ paths:
                   type: string
                   format: at-uri
       responses:
-        '200':
+        "200":
           description: OK
   /app.bsky.notification.getUnreadCount:
     get:
@@ -1345,7 +1363,7 @@ paths:
             type: string
             format: date-time
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1385,7 +1403,7 @@ paths:
             type: string
             format: date-time
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1435,7 +1453,7 @@ paths:
                 appId:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
   /app.bsky.notification.updateSeen:
     post:
@@ -1458,7 +1476,7 @@ paths:
                   type: string
                   format: date-time
       responses:
-        '200':
+        "200":
           description: OK
   /app.bsky.unspecced.applyLabels:
     post:
@@ -1478,15 +1496,15 @@ paths:
                 labels:
                   type: array
                   items:
-                    $ref: '#/components/schemas/com.atproto.label.defs.label'
+                    $ref: "#/components/schemas/com.atproto.label.defs.label"
       responses:
-        '200':
+        "200":
           description: OK
   /app.bsky.unspecced.getPopular:
     get:
       tags:
         - app.bsky.unspecced
-      summary: 'DEPRECATED: will be removed soon. Use a feed generator alternative.'
+      summary: "DEPRECATED: will be removed soon. Use a feed generator alternative."
       operationId: app.bsky.unspecced.getPopular
       security:
         - Bearer: []
@@ -1510,7 +1528,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1524,7 +1542,7 @@ paths:
                   feed:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.feedViewPost'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.feedViewPost"
   /app.bsky.unspecced.getPopularFeedGenerators:
     get:
       tags:
@@ -1553,7 +1571,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1567,7 +1585,7 @@ paths:
                   feeds:
                     type: array
                     items:
-                      $ref: '#/components/schemas/app.bsky.feed.defs.generatorView'
+                      $ref: "#/components/schemas/app.bsky.feed.defs.generatorView"
   /com.atproto.admin.disableAccountInvites:
     post:
       tags:
@@ -1594,7 +1612,7 @@ paths:
                   type: string
                   description: Optional reason for disabled invites.
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.admin.disableInviteCodes:
     post:
@@ -1622,7 +1640,7 @@ paths:
                   items:
                     type: string
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.admin.emitModerationEvent:
     post:
@@ -1657,7 +1675,7 @@ paths:
                         #/components/schemas/com.atproto.admin.defs.modEventLabel
                     - $ref: >-
                         #/components/schemas/com.atproto.admin.defs.modEventReport
-                    - $ref: '#/components/schemas/com.atproto.admin.defs.modEventMute'
+                    - $ref: "#/components/schemas/com.atproto.admin.defs.modEventMute"
                     - $ref: >-
                         #/components/schemas/com.atproto.admin.defs.modEventReverseTakedown
                     - $ref: >-
@@ -1666,8 +1684,8 @@ paths:
                         #/components/schemas/com.atproto.admin.defs.modEventEmail
                 subject:
                   oneOf:
-                    - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-                    - $ref: '#/components/schemas/com.atproto.repo.strongRef'
+                    - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+                    - $ref: "#/components/schemas/com.atproto.repo.strongRef"
                 subjectBlobCids:
                   type: array
                   items:
@@ -1677,12 +1695,12 @@ paths:
                   type: string
                   format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/com.atproto.admin.defs.modEventView'
+                $ref: "#/components/schemas/com.atproto.admin.defs.modEventView"
   /com.atproto.admin.enableAccountInvites:
     post:
       tags:
@@ -1707,7 +1725,7 @@ paths:
                   type: string
                   description: Optional reason for enabled invites.
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.admin.getAccountInfo:
     get:
@@ -1725,12 +1743,12 @@ paths:
             type: string
             format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/com.atproto.admin.defs.accountView'
+                $ref: "#/components/schemas/com.atproto.admin.defs.accountView"
   /com.atproto.admin.getInviteCodes:
     get:
       tags:
@@ -1763,7 +1781,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1777,7 +1795,7 @@ paths:
                   codes:
                     type: array
                     items:
-                      $ref: '#/components/schemas/com.atproto.server.defs.inviteCode'
+                      $ref: "#/components/schemas/com.atproto.server.defs.inviteCode"
   /com.atproto.admin.getModerationEvent:
     get:
       tags:
@@ -1793,12 +1811,12 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/com.atproto.admin.defs.modEventViewDetail'
+                $ref: "#/components/schemas/com.atproto.admin.defs.modEventViewDetail"
   /com.atproto.admin.getModerationReport:
     get:
       tags:
@@ -1812,12 +1830,12 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/com.atproto.admin.defs.reportViewDetail'
+                $ref: "#/components/schemas/com.atproto.admin.defs.reportViewDetail"
   /com.atproto.admin.getModerationReports:
     get:
       tags:
@@ -1893,7 +1911,7 @@ paths:
               Reverse the order of the returned records. When true, returns
               reports in chronological order.
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1907,7 +1925,7 @@ paths:
                   reports:
                     type: array
                     items:
-                      $ref: '#/components/schemas/com.atproto.admin.defs.reportView'
+                      $ref: "#/components/schemas/com.atproto.admin.defs.reportView"
   /com.atproto.admin.getRecord:
     get:
       tags:
@@ -1930,12 +1948,12 @@ paths:
             type: string
             format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/com.atproto.admin.defs.recordViewDetail'
+                $ref: "#/components/schemas/com.atproto.admin.defs.recordViewDetail"
   /com.atproto.admin.getRepo:
     get:
       tags:
@@ -1952,12 +1970,12 @@ paths:
             type: string
             format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/com.atproto.admin.defs.repoViewDetail'
+                $ref: "#/components/schemas/com.atproto.admin.defs.repoViewDetail"
   /com.atproto.admin.getSubjectStatus:
     get:
       tags:
@@ -1988,7 +2006,7 @@ paths:
             type: string
             format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1999,12 +2017,12 @@ paths:
                 properties:
                   subject:
                     oneOf:
-                      - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-                      - $ref: '#/components/schemas/com.atproto.repo.strongRef'
+                      - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+                      - $ref: "#/components/schemas/com.atproto.repo.strongRef"
                       - $ref: >-
                           #/components/schemas/com.atproto.admin.defs.repoBlobRef
                   takedown:
-                    $ref: '#/components/schemas/com.atproto.admin.defs.statusAttr'
+                    $ref: "#/components/schemas/com.atproto.admin.defs.statusAttr"
   /com.atproto.admin.queryModerationEvents:
     get:
       tags:
@@ -2074,7 +2092,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2088,7 +2106,7 @@ paths:
                   events:
                     type: array
                     items:
-                      $ref: '#/components/schemas/com.atproto.admin.defs.modEventView'
+                      $ref: "#/components/schemas/com.atproto.admin.defs.modEventView"
   /com.atproto.admin.queryModerationStatuses:
     get:
       tags:
@@ -2212,7 +2230,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2252,7 +2270,7 @@ paths:
                   description: Compare and swap with the previous commit by cid.
                   format: cid
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.admin.searchRepos:
     get:
@@ -2265,11 +2283,11 @@ paths:
       parameters:
         - name: term
           in: query
-          description: 'DEPRECATED: use ''q'' instead'
+          description: "DEPRECATED: use 'q' instead"
           required: false
           schema:
             type: string
-            description: 'DEPRECATED: use ''q'' instead'
+            description: "DEPRECATED: use 'q' instead"
         - name: q
           in: query
           required: false
@@ -2289,7 +2307,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2303,7 +2321,7 @@ paths:
                   repos:
                     type: array
                     items:
-                      $ref: '#/components/schemas/com.atproto.admin.defs.repoView'
+                      $ref: "#/components/schemas/com.atproto.admin.defs.repoView"
   /com.atproto.admin.sendEmail:
     post:
       tags:
@@ -2334,7 +2352,7 @@ paths:
                   type: string
                   format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2370,7 +2388,7 @@ paths:
                 email:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.admin.updateAccountHandle:
     post:
@@ -2397,7 +2415,7 @@ paths:
                   type: string
                   format: handle
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.admin.updateSubjectStatus:
     post:
@@ -2420,13 +2438,13 @@ paths:
               properties:
                 subject:
                   oneOf:
-                    - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-                    - $ref: '#/components/schemas/com.atproto.repo.strongRef'
-                    - $ref: '#/components/schemas/com.atproto.admin.defs.repoBlobRef'
+                    - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+                    - $ref: "#/components/schemas/com.atproto.repo.strongRef"
+                    - $ref: "#/components/schemas/com.atproto.admin.defs.repoBlobRef"
                 takedown:
-                  $ref: '#/components/schemas/com.atproto.admin.defs.statusAttr'
+                  $ref: "#/components/schemas/com.atproto.admin.defs.statusAttr"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2437,12 +2455,12 @@ paths:
                 properties:
                   subject:
                     oneOf:
-                      - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-                      - $ref: '#/components/schemas/com.atproto.repo.strongRef'
+                      - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+                      - $ref: "#/components/schemas/com.atproto.repo.strongRef"
                       - $ref: >-
                           #/components/schemas/com.atproto.admin.defs.repoBlobRef
                   takedown:
-                    $ref: '#/components/schemas/com.atproto.admin.defs.statusAttr'
+                    $ref: "#/components/schemas/com.atproto.admin.defs.statusAttr"
   /com.atproto.identity.resolveHandle:
     get:
       tags:
@@ -2459,7 +2477,7 @@ paths:
             description: The handle to resolve.
             format: handle
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2492,7 +2510,7 @@ paths:
                   type: string
                   format: handle
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.moderation.createReport:
     post:
@@ -2513,15 +2531,15 @@ paths:
                 - subject
               properties:
                 reasonType:
-                  $ref: '#/components/schemas/com.atproto.moderation.defs.reasonType'
+                  $ref: "#/components/schemas/com.atproto.moderation.defs.reasonType"
                 reason:
                   type: string
                 subject:
                   oneOf:
-                    - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-                    - $ref: '#/components/schemas/com.atproto.repo.strongRef'
+                    - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+                    - $ref: "#/components/schemas/com.atproto.repo.strongRef"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2544,8 +2562,8 @@ paths:
                     maxLength: 20000
                   subject:
                     oneOf:
-                      - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-                      - $ref: '#/components/schemas/com.atproto.repo.strongRef'
+                      - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+                      - $ref: "#/components/schemas/com.atproto.repo.strongRef"
                   reportedBy:
                     type: string
                     format: did
@@ -2592,7 +2610,7 @@ paths:
                   type: string
                   format: cid
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.repo.createRecord:
     post:
@@ -2635,7 +2653,7 @@ paths:
                   description: Compare and swap with the previous commit by CID.
                   format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2690,7 +2708,7 @@ paths:
                   description: Compare and swap with the previous commit by CID.
                   format: cid
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.repo.describeRepo:
     get:
@@ -2708,7 +2726,7 @@ paths:
             description: The handle or DID of the repo.
             format: at-identifier
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2778,7 +2796,7 @@ paths:
               return the most recent version.
             format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2834,18 +2852,18 @@ paths:
             type: string
         - name: rkeyStart
           in: query
-          description: 'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)'
+          description: "DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)"
           required: false
           schema:
             type: string
-            description: 'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)'
+            description: "DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)"
         - name: rkeyEnd
           in: query
-          description: 'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)'
+          description: "DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)"
           required: false
           schema:
             type: string
-            description: 'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)'
+            description: "DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)"
         - name: reverse
           in: query
           description: Flag to reverse the order of the returned records.
@@ -2854,7 +2872,7 @@ paths:
             type: boolean
             description: Flag to reverse the order of the returned records.
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2868,7 +2886,7 @@ paths:
                   records:
                     type: array
                     items:
-                      $ref: '#/components/schemas/com.atproto.repo.listRecords.record'
+                      $ref: "#/components/schemas/com.atproto.repo.listRecords.record"
   /com.atproto.repo.putRecord:
     post:
       tags:
@@ -2915,7 +2933,7 @@ paths:
                   description: Compare and swap with the previous commit by CID.
                   format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2955,7 +2973,7 @@ paths:
                   description: Compare and swap with the previous commit by cid.
                   format: cid
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.repo.uploadBlob:
     post:
@@ -2968,9 +2986,9 @@ paths:
       requestBody:
         required: true
         content:
-          '*/*': {}
+          "*/*": {}
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3007,7 +3025,7 @@ paths:
                 token:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.server.createAccount:
     post:
@@ -3040,7 +3058,7 @@ paths:
                   type: string
                 plcOp: {}
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3083,7 +3101,7 @@ paths:
                 name:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3113,7 +3131,7 @@ paths:
                   type: string
                   format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3153,7 +3171,7 @@ paths:
                     type: string
                     format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3191,7 +3209,7 @@ paths:
                 password:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3243,7 +3261,7 @@ paths:
                 token:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.server.deleteSession:
     post:
@@ -3254,7 +3272,7 @@ paths:
       security:
         - Bearer: []
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.server.describeServer:
     get:
@@ -3263,7 +3281,7 @@ paths:
       summary: Get a document describing the service's accounts configuration.
       operationId: com.atproto.server.describeServer
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3303,7 +3321,7 @@ paths:
             type: boolean
             default: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3315,7 +3333,7 @@ paths:
                   codes:
                     type: array
                     items:
-                      $ref: '#/components/schemas/com.atproto.server.defs.inviteCode'
+                      $ref: "#/components/schemas/com.atproto.server.defs.inviteCode"
   /com.atproto.server.getSession:
     get:
       tags:
@@ -3325,7 +3343,7 @@ paths:
       security:
         - Bearer: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3355,7 +3373,7 @@ paths:
       security:
         - Bearer: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3378,7 +3396,7 @@ paths:
       security:
         - Bearer: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3410,7 +3428,7 @@ paths:
       security:
         - Bearer: []
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.server.requestEmailConfirmation:
     post:
@@ -3421,7 +3439,7 @@ paths:
       security:
         - Bearer: []
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.server.requestEmailUpdate:
     post:
@@ -3432,7 +3450,7 @@ paths:
       security:
         - Bearer: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3461,7 +3479,7 @@ paths:
                 email:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.server.reserveSigningKey:
     post:
@@ -3480,7 +3498,7 @@ paths:
                   type: string
                   description: The did to reserve a new did:key for
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3513,7 +3531,7 @@ paths:
                 password:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.server.revokeAppPassword:
     post:
@@ -3535,7 +3553,7 @@ paths:
                 name:
                   type: string
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.server.updateEmail:
     post:
@@ -3562,7 +3580,7 @@ paths:
                     Requires a token from com.atproto.sever.requestEmailUpdate
                     if the account's email has been confirmed.
       responses:
-        '200':
+        "200":
           description: OK
   /com.atproto.sync.getBlob:
     get:
@@ -3588,10 +3606,10 @@ paths:
             description: The CID of the blob to fetch
             format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
-            '*/*': {}
+            "*/*": {}
   /com.atproto.sync.getBlocks:
     get:
       tags:
@@ -3616,7 +3634,7 @@ paths:
               type: string
               format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/vnd.ipld.car: {}
@@ -3636,7 +3654,7 @@ paths:
             description: The DID of the repo.
             format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/vnd.ipld.car: {}
@@ -3672,7 +3690,7 @@ paths:
             description: The earliest commit to start from
             format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3702,7 +3720,7 @@ paths:
             description: The DID of the repo.
             format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3730,7 +3748,7 @@ paths:
             description: The DID of the repo.
             format: did
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3780,7 +3798,7 @@ paths:
             description: An optional past commit CID.
             format: cid
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/vnd.ipld.car: {}
@@ -3807,7 +3825,7 @@ paths:
             type: string
             description: The revision of the repo to catch up from.
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/vnd.ipld.car: {}
@@ -3847,7 +3865,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3884,7 +3902,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -3898,7 +3916,7 @@ paths:
                   repos:
                     type: array
                     items:
-                      $ref: '#/components/schemas/com.atproto.sync.listRepos.repo'
+                      $ref: "#/components/schemas/com.atproto.sync.listRepos.repo"
   /com.atproto.temp.upgradeRepoVersion:
     post:
       tags:
@@ -3920,7 +3938,7 @@ paths:
                 force:
                   type: boolean
       responses:
-        '200':
+        "200":
           description: OK
 components:
   schemas:
@@ -3942,11 +3960,11 @@ components:
         avatar:
           type: string
         viewer:
-          $ref: '#/components/schemas/app.bsky.actor.defs.viewerState'
+          $ref: "#/components/schemas/app.bsky.actor.defs.viewerState"
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
     app.bsky.actor.defs.profileView:
       type: object
       required:
@@ -3971,11 +3989,11 @@ components:
           type: string
           format: date-time
         viewer:
-          $ref: '#/components/schemas/app.bsky.actor.defs.viewerState'
+          $ref: "#/components/schemas/app.bsky.actor.defs.viewerState"
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
     app.bsky.actor.defs.profileViewDetailed:
       type: object
       required:
@@ -4008,25 +4026,25 @@ components:
           type: string
           format: date-time
         viewer:
-          $ref: '#/components/schemas/app.bsky.actor.defs.viewerState'
+          $ref: "#/components/schemas/app.bsky.actor.defs.viewerState"
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
     app.bsky.actor.defs.viewerState:
       type: object
       properties:
         muted:
           type: boolean
         mutedByList:
-          $ref: '#/components/schemas/app.bsky.graph.defs.listViewBasic'
+          $ref: "#/components/schemas/app.bsky.graph.defs.listViewBasic"
         blockedBy:
           type: boolean
         blocking:
           type: string
           format: at-uri
         blockingByList:
-          $ref: '#/components/schemas/app.bsky.graph.defs.listViewBasic'
+          $ref: "#/components/schemas/app.bsky.graph.defs.listViewBasic"
         following:
           type: string
           format: at-uri
@@ -4037,12 +4055,12 @@ components:
       type: array
       items:
         oneOf:
-          - $ref: '#/components/schemas/app.bsky.actor.defs.adultContentPref'
-          - $ref: '#/components/schemas/app.bsky.actor.defs.contentLabelPref'
-          - $ref: '#/components/schemas/app.bsky.actor.defs.savedFeedsPref'
-          - $ref: '#/components/schemas/app.bsky.actor.defs.personalDetailsPref'
-          - $ref: '#/components/schemas/app.bsky.actor.defs.feedViewPref'
-          - $ref: '#/components/schemas/app.bsky.actor.defs.threadViewPref'
+          - $ref: "#/components/schemas/app.bsky.actor.defs.adultContentPref"
+          - $ref: "#/components/schemas/app.bsky.actor.defs.contentLabelPref"
+          - $ref: "#/components/schemas/app.bsky.actor.defs.savedFeedsPref"
+          - $ref: "#/components/schemas/app.bsky.actor.defs.personalDetailsPref"
+          - $ref: "#/components/schemas/app.bsky.actor.defs.feedViewPref"
+          - $ref: "#/components/schemas/app.bsky.actor.defs.threadViewPref"
     app.bsky.actor.defs.adultContentPref:
       type: object
       required:
@@ -4142,14 +4160,14 @@ components:
           maxLength: 1000000
         labels:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.label.defs.selfLabels'
+            - $ref: "#/components/schemas/com.atproto.label.defs.selfLabels"
     app.bsky.embed.external:
       type: object
       required:
         - external
       properties:
         external:
-          $ref: '#/components/schemas/app.bsky.embed.external.external'
+          $ref: "#/components/schemas/app.bsky.embed.external.external"
     app.bsky.embed.external.external:
       type: object
       required:
@@ -4174,7 +4192,7 @@ components:
         - external
       properties:
         external:
-          $ref: '#/components/schemas/app.bsky.embed.external.viewExternal'
+          $ref: "#/components/schemas/app.bsky.embed.external.viewExternal"
     app.bsky.embed.external.viewExternal:
       type: object
       required:
@@ -4199,7 +4217,7 @@ components:
         images:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.embed.images.image'
+            $ref: "#/components/schemas/app.bsky.embed.images.image"
           maxItems: 4
     app.bsky.embed.images.image:
       type: object
@@ -4214,7 +4232,7 @@ components:
         alt:
           type: string
         aspectRatio:
-          $ref: '#/components/schemas/app.bsky.embed.images.aspectRatio'
+          $ref: "#/components/schemas/app.bsky.embed.images.aspectRatio"
     app.bsky.embed.images.aspectRatio:
       type: object
       description: >-
@@ -4238,7 +4256,7 @@ components:
         images:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.embed.images.viewImage'
+            $ref: "#/components/schemas/app.bsky.embed.images.viewImage"
           maxItems: 4
     app.bsky.embed.images.viewImage:
       type: object
@@ -4254,14 +4272,14 @@ components:
         alt:
           type: string
         aspectRatio:
-          $ref: '#/components/schemas/app.bsky.embed.images.aspectRatio'
+          $ref: "#/components/schemas/app.bsky.embed.images.aspectRatio"
     app.bsky.embed.record:
       type: object
       required:
         - record
       properties:
         record:
-          $ref: '#/components/schemas/com.atproto.repo.strongRef'
+          $ref: "#/components/schemas/com.atproto.repo.strongRef"
     app.bsky.embed.record.view:
       type: object
       required:
@@ -4269,11 +4287,11 @@ components:
       properties:
         record:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.embed.record.viewRecord'
-            - $ref: '#/components/schemas/app.bsky.embed.record.viewNotFound'
-            - $ref: '#/components/schemas/app.bsky.embed.record.viewBlocked'
-            - $ref: '#/components/schemas/app.bsky.feed.defs.generatorView'
-            - $ref: '#/components/schemas/app.bsky.graph.defs.listView'
+            - $ref: "#/components/schemas/app.bsky.embed.record.viewRecord"
+            - $ref: "#/components/schemas/app.bsky.embed.record.viewNotFound"
+            - $ref: "#/components/schemas/app.bsky.embed.record.viewBlocked"
+            - $ref: "#/components/schemas/app.bsky.feed.defs.generatorView"
+            - $ref: "#/components/schemas/app.bsky.graph.defs.listView"
     app.bsky.embed.record.viewRecord:
       type: object
       required:
@@ -4290,20 +4308,20 @@ components:
           type: string
           format: cid
         author:
-          $ref: '#/components/schemas/app.bsky.actor.defs.profileViewBasic'
+          $ref: "#/components/schemas/app.bsky.actor.defs.profileViewBasic"
         value: {}
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
         embeds:
           type: array
           items:
             oneOf:
-              - $ref: '#/components/schemas/app.bsky.embed.images.view'
-              - $ref: '#/components/schemas/app.bsky.embed.external.view'
-              - $ref: '#/components/schemas/app.bsky.embed.record.view'
-              - $ref: '#/components/schemas/app.bsky.embed.recordWithMedia.view'
+              - $ref: "#/components/schemas/app.bsky.embed.images.view"
+              - $ref: "#/components/schemas/app.bsky.embed.external.view"
+              - $ref: "#/components/schemas/app.bsky.embed.record.view"
+              - $ref: "#/components/schemas/app.bsky.embed.recordWithMedia.view"
         indexedAt:
           type: string
           format: date-time
@@ -4333,7 +4351,7 @@ components:
           type: boolean
           default: true
         author:
-          $ref: '#/components/schemas/app.bsky.feed.defs.blockedAuthor'
+          $ref: "#/components/schemas/app.bsky.feed.defs.blockedAuthor"
     app.bsky.embed.recordWithMedia:
       type: object
       required:
@@ -4341,11 +4359,11 @@ components:
         - media
       properties:
         record:
-          $ref: '#/components/schemas/app.bsky.embed.record'
+          $ref: "#/components/schemas/app.bsky.embed.record"
         media:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.embed.images'
-            - $ref: '#/components/schemas/app.bsky.embed.external'
+            - $ref: "#/components/schemas/app.bsky.embed.images"
+            - $ref: "#/components/schemas/app.bsky.embed.external"
     app.bsky.embed.recordWithMedia.view:
       type: object
       required:
@@ -4353,11 +4371,11 @@ components:
         - media
       properties:
         record:
-          $ref: '#/components/schemas/app.bsky.embed.record.view'
+          $ref: "#/components/schemas/app.bsky.embed.record.view"
         media:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.embed.images.view'
-            - $ref: '#/components/schemas/app.bsky.embed.external.view'
+            - $ref: "#/components/schemas/app.bsky.embed.images.view"
+            - $ref: "#/components/schemas/app.bsky.embed.external.view"
     app.bsky.feed.defs.postView:
       type: object
       required:
@@ -4374,14 +4392,14 @@ components:
           type: string
           format: cid
         author:
-          $ref: '#/components/schemas/app.bsky.actor.defs.profileViewBasic'
+          $ref: "#/components/schemas/app.bsky.actor.defs.profileViewBasic"
         record: {}
         embed:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.embed.images.view'
-            - $ref: '#/components/schemas/app.bsky.embed.external.view'
-            - $ref: '#/components/schemas/app.bsky.embed.record.view'
-            - $ref: '#/components/schemas/app.bsky.embed.recordWithMedia.view'
+            - $ref: "#/components/schemas/app.bsky.embed.images.view"
+            - $ref: "#/components/schemas/app.bsky.embed.external.view"
+            - $ref: "#/components/schemas/app.bsky.embed.record.view"
+            - $ref: "#/components/schemas/app.bsky.embed.recordWithMedia.view"
         replyCount:
           type: integer
         repostCount:
@@ -4392,13 +4410,13 @@ components:
           type: string
           format: date-time
         viewer:
-          $ref: '#/components/schemas/app.bsky.feed.defs.viewerState'
+          $ref: "#/components/schemas/app.bsky.feed.defs.viewerState"
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
         threadgate:
-          $ref: '#/components/schemas/app.bsky.feed.defs.threadgateView'
+          $ref: "#/components/schemas/app.bsky.feed.defs.threadgateView"
     app.bsky.feed.defs.viewerState:
       type: object
       properties:
@@ -4416,12 +4434,12 @@ components:
         - post
       properties:
         post:
-          $ref: '#/components/schemas/app.bsky.feed.defs.postView'
+          $ref: "#/components/schemas/app.bsky.feed.defs.postView"
         reply:
-          $ref: '#/components/schemas/app.bsky.feed.defs.replyRef'
+          $ref: "#/components/schemas/app.bsky.feed.defs.replyRef"
         reason:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.feed.defs.reasonRepost'
+            - $ref: "#/components/schemas/app.bsky.feed.defs.reasonRepost"
     app.bsky.feed.defs.replyRef:
       type: object
       required:
@@ -4430,14 +4448,14 @@ components:
       properties:
         root:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.feed.defs.postView'
-            - $ref: '#/components/schemas/app.bsky.feed.defs.notFoundPost'
-            - $ref: '#/components/schemas/app.bsky.feed.defs.blockedPost'
+            - $ref: "#/components/schemas/app.bsky.feed.defs.postView"
+            - $ref: "#/components/schemas/app.bsky.feed.defs.notFoundPost"
+            - $ref: "#/components/schemas/app.bsky.feed.defs.blockedPost"
         parent:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.feed.defs.postView'
-            - $ref: '#/components/schemas/app.bsky.feed.defs.notFoundPost'
-            - $ref: '#/components/schemas/app.bsky.feed.defs.blockedPost'
+            - $ref: "#/components/schemas/app.bsky.feed.defs.postView"
+            - $ref: "#/components/schemas/app.bsky.feed.defs.notFoundPost"
+            - $ref: "#/components/schemas/app.bsky.feed.defs.blockedPost"
     app.bsky.feed.defs.reasonRepost:
       type: object
       required:
@@ -4445,7 +4463,7 @@ components:
         - indexedAt
       properties:
         by:
-          $ref: '#/components/schemas/app.bsky.actor.defs.profileViewBasic'
+          $ref: "#/components/schemas/app.bsky.actor.defs.profileViewBasic"
         indexedAt:
           type: string
           format: date-time
@@ -4455,19 +4473,19 @@ components:
         - post
       properties:
         post:
-          $ref: '#/components/schemas/app.bsky.feed.defs.postView'
+          $ref: "#/components/schemas/app.bsky.feed.defs.postView"
         parent:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.feed.defs.threadViewPost'
-            - $ref: '#/components/schemas/app.bsky.feed.defs.notFoundPost'
-            - $ref: '#/components/schemas/app.bsky.feed.defs.blockedPost'
+            - $ref: "#/components/schemas/app.bsky.feed.defs.threadViewPost"
+            - $ref: "#/components/schemas/app.bsky.feed.defs.notFoundPost"
+            - $ref: "#/components/schemas/app.bsky.feed.defs.blockedPost"
         replies:
           type: array
           items:
             oneOf:
-              - $ref: '#/components/schemas/app.bsky.feed.defs.threadViewPost'
-              - $ref: '#/components/schemas/app.bsky.feed.defs.notFoundPost'
-              - $ref: '#/components/schemas/app.bsky.feed.defs.blockedPost'
+              - $ref: "#/components/schemas/app.bsky.feed.defs.threadViewPost"
+              - $ref: "#/components/schemas/app.bsky.feed.defs.notFoundPost"
+              - $ref: "#/components/schemas/app.bsky.feed.defs.blockedPost"
     app.bsky.feed.defs.notFoundPost:
       type: object
       required:
@@ -4494,7 +4512,7 @@ components:
           type: boolean
           default: true
         author:
-          $ref: '#/components/schemas/app.bsky.feed.defs.blockedAuthor'
+          $ref: "#/components/schemas/app.bsky.feed.defs.blockedAuthor"
     app.bsky.feed.defs.blockedAuthor:
       type: object
       required:
@@ -4504,7 +4522,7 @@ components:
           type: string
           format: did
         viewer:
-          $ref: '#/components/schemas/app.bsky.actor.defs.viewerState'
+          $ref: "#/components/schemas/app.bsky.actor.defs.viewerState"
     app.bsky.feed.defs.generatorView:
       type: object
       required:
@@ -4525,7 +4543,7 @@ components:
           type: string
           format: did
         creator:
-          $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+          $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
         displayName:
           type: string
         description:
@@ -4534,14 +4552,14 @@ components:
         descriptionFacets:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.richtext.facet'
+            $ref: "#/components/schemas/app.bsky.richtext.facet"
         avatar:
           type: string
         likeCount:
           type: integer
           minimum: 0
         viewer:
-          $ref: '#/components/schemas/app.bsky.feed.defs.generatorViewerState'
+          $ref: "#/components/schemas/app.bsky.feed.defs.generatorViewerState"
         indexedAt:
           type: string
           format: date-time
@@ -4561,7 +4579,7 @@ components:
           format: at-uri
         reason:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.feed.defs.skeletonReasonRepost'
+            - $ref: "#/components/schemas/app.bsky.feed.defs.skeletonReasonRepost"
     app.bsky.feed.defs.skeletonReasonRepost:
       type: object
       required:
@@ -4583,7 +4601,7 @@ components:
         lists:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.graph.defs.listViewBasic'
+            $ref: "#/components/schemas/app.bsky.graph.defs.listViewBasic"
     app.bsky.feed.describeFeedGenerator.feed:
       type: object
       required:
@@ -4618,14 +4636,14 @@ components:
         descriptionFacets:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.richtext.facet'
+            $ref: "#/components/schemas/app.bsky.richtext.facet"
         avatar:
           type: string
           format: binary
           maxLength: 1000000
         labels:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.label.defs.selfLabels'
+            - $ref: "#/components/schemas/com.atproto.label.defs.selfLabels"
         createdAt:
           type: string
           format: date-time
@@ -4643,7 +4661,7 @@ components:
           type: string
           format: date-time
         actor:
-          $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+          $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
     app.bsky.feed.like:
       type: object
       required:
@@ -4651,7 +4669,7 @@ components:
         - createdAt
       properties:
         subject:
-          $ref: '#/components/schemas/com.atproto.repo.strongRef'
+          $ref: "#/components/schemas/com.atproto.repo.strongRef"
         createdAt:
           type: string
           format: date-time
@@ -4667,19 +4685,19 @@ components:
         entities:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.feed.post.entity'
+            $ref: "#/components/schemas/app.bsky.feed.post.entity"
         facets:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.richtext.facet'
+            $ref: "#/components/schemas/app.bsky.richtext.facet"
         reply:
-          $ref: '#/components/schemas/app.bsky.feed.post.replyRef'
+          $ref: "#/components/schemas/app.bsky.feed.post.replyRef"
         embed:
           oneOf:
-            - $ref: '#/components/schemas/app.bsky.embed.images'
-            - $ref: '#/components/schemas/app.bsky.embed.external'
-            - $ref: '#/components/schemas/app.bsky.embed.record'
-            - $ref: '#/components/schemas/app.bsky.embed.recordWithMedia'
+            - $ref: "#/components/schemas/app.bsky.embed.images"
+            - $ref: "#/components/schemas/app.bsky.embed.external"
+            - $ref: "#/components/schemas/app.bsky.embed.record"
+            - $ref: "#/components/schemas/app.bsky.embed.recordWithMedia"
         langs:
           type: array
           items:
@@ -4688,7 +4706,7 @@ components:
           maxItems: 3
         labels:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.label.defs.selfLabels'
+            - $ref: "#/components/schemas/com.atproto.label.defs.selfLabels"
         tags:
           type: array
           items:
@@ -4705,19 +4723,19 @@ components:
         - parent
       properties:
         root:
-          $ref: '#/components/schemas/com.atproto.repo.strongRef'
+          $ref: "#/components/schemas/com.atproto.repo.strongRef"
         parent:
-          $ref: '#/components/schemas/com.atproto.repo.strongRef'
+          $ref: "#/components/schemas/com.atproto.repo.strongRef"
     app.bsky.feed.post.entity:
       type: object
-      description: 'Deprecated: use facets instead.'
+      description: "Deprecated: use facets instead."
       required:
         - index
         - type
         - value
       properties:
         index:
-          $ref: '#/components/schemas/app.bsky.feed.post.textSlice'
+          $ref: "#/components/schemas/app.bsky.feed.post.textSlice"
         type:
           type: string
           description: Expected values are 'mention' and 'link'.
@@ -4745,7 +4763,7 @@ components:
         - createdAt
       properties:
         subject:
-          $ref: '#/components/schemas/com.atproto.repo.strongRef'
+          $ref: "#/components/schemas/com.atproto.repo.strongRef"
         createdAt:
           type: string
           format: date-time
@@ -4762,9 +4780,9 @@ components:
           type: array
           items:
             oneOf:
-              - $ref: '#/components/schemas/app.bsky.feed.threadgate.mentionRule'
-              - $ref: '#/components/schemas/app.bsky.feed.threadgate.followingRule'
-              - $ref: '#/components/schemas/app.bsky.feed.threadgate.listRule'
+              - $ref: "#/components/schemas/app.bsky.feed.threadgate.mentionRule"
+              - $ref: "#/components/schemas/app.bsky.feed.threadgate.followingRule"
+              - $ref: "#/components/schemas/app.bsky.feed.threadgate.listRule"
           maxItems: 5
         createdAt:
           type: string
@@ -4817,11 +4835,11 @@ components:
           minLength: 1
           maxLength: 64
         purpose:
-          $ref: '#/components/schemas/app.bsky.graph.defs.listPurpose'
+          $ref: "#/components/schemas/app.bsky.graph.defs.listPurpose"
         avatar:
           type: string
         viewer:
-          $ref: '#/components/schemas/app.bsky.graph.defs.listViewerState'
+          $ref: "#/components/schemas/app.bsky.graph.defs.listViewerState"
         indexedAt:
           type: string
           format: date-time
@@ -4842,24 +4860,24 @@ components:
           type: string
           format: cid
         creator:
-          $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+          $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
         name:
           type: string
           minLength: 1
           maxLength: 64
         purpose:
-          $ref: '#/components/schemas/app.bsky.graph.defs.listPurpose'
+          $ref: "#/components/schemas/app.bsky.graph.defs.listPurpose"
         description:
           type: string
           maxLength: 3000
         descriptionFacets:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.richtext.facet'
+            $ref: "#/components/schemas/app.bsky.richtext.facet"
         avatar:
           type: string
         viewer:
-          $ref: '#/components/schemas/app.bsky.graph.defs.listViewerState'
+          $ref: "#/components/schemas/app.bsky.graph.defs.listViewerState"
         indexedAt:
           type: string
           format: date-time
@@ -4869,11 +4887,11 @@ components:
         - subject
       properties:
         subject:
-          $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+          $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
     app.bsky.graph.defs.listPurpose:
       oneOf:
-        - $ref: '#/components/schemas/app.bsky.graph.defs.modlist'
-        - $ref: '#/components/schemas/app.bsky.graph.defs.curatelist'
+        - $ref: "#/components/schemas/app.bsky.graph.defs.modlist"
+        - $ref: "#/components/schemas/app.bsky.graph.defs.curatelist"
     app.bsky.graph.defs.modlist:
       type: string
       format: token
@@ -4914,7 +4932,7 @@ components:
         - createdAt
       properties:
         purpose:
-          $ref: '#/components/schemas/app.bsky.graph.defs.listPurpose'
+          $ref: "#/components/schemas/app.bsky.graph.defs.listPurpose"
         name:
           type: string
           minLength: 1
@@ -4925,14 +4943,14 @@ components:
         descriptionFacets:
           type: array
           items:
-            $ref: '#/components/schemas/app.bsky.richtext.facet'
+            $ref: "#/components/schemas/app.bsky.richtext.facet"
         avatar:
           type: string
           format: binary
           maxLength: 1000000
         labels:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.label.defs.selfLabels'
+            - $ref: "#/components/schemas/com.atproto.label.defs.selfLabels"
         createdAt:
           type: string
           format: date-time
@@ -4982,7 +5000,7 @@ components:
           type: string
           format: cid
         author:
-          $ref: '#/components/schemas/app.bsky.actor.defs.profileView'
+          $ref: "#/components/schemas/app.bsky.actor.defs.profileView"
         reason:
           type: string
           description: >-
@@ -5007,7 +5025,7 @@ components:
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
     app.bsky.richtext.facet:
       type: object
       required:
@@ -5015,14 +5033,14 @@ components:
         - features
       properties:
         index:
-          $ref: '#/components/schemas/app.bsky.richtext.facet.byteSlice'
+          $ref: "#/components/schemas/app.bsky.richtext.facet.byteSlice"
         features:
           type: array
           items:
             oneOf:
-              - $ref: '#/components/schemas/app.bsky.richtext.facet.mention'
-              - $ref: '#/components/schemas/app.bsky.richtext.facet.link'
-              - $ref: '#/components/schemas/app.bsky.richtext.facet.tag'
+              - $ref: "#/components/schemas/app.bsky.richtext.facet.mention"
+              - $ref: "#/components/schemas/app.bsky.richtext.facet.link"
+              - $ref: "#/components/schemas/app.bsky.richtext.facet.tag"
     app.bsky.richtext.facet.mention:
       type: object
       description: A facet feature for actor mentions.
@@ -5104,20 +5122,20 @@ components:
           type: integer
         event:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventTakedown'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventTakedown"
             - $ref: >-
                 #/components/schemas/com.atproto.admin.defs.modEventReverseTakedown
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventComment'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventReport'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventLabel'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventAcknowledge'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventEscalate'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventMute'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventEmail'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventComment"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventReport"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventLabel"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventAcknowledge"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventEscalate"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventMute"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventEmail"
         subject:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-            - $ref: '#/components/schemas/com.atproto.repo.strongRef'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+            - $ref: "#/components/schemas/com.atproto.repo.strongRef"
         subjectBlobCids:
           type: array
           items:
@@ -5146,25 +5164,25 @@ components:
           type: integer
         event:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventTakedown'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventTakedown"
             - $ref: >-
                 #/components/schemas/com.atproto.admin.defs.modEventReverseTakedown
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventComment'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventReport'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventLabel'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventAcknowledge'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventEscalate'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.modEventMute'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventComment"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventReport"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventLabel"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventAcknowledge"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventEscalate"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.modEventMute"
         subject:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.admin.defs.repoView'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.repoViewNotFound'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.recordView'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.recordViewNotFound'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.repoView"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.repoViewNotFound"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.recordView"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.recordViewNotFound"
         subjectBlobs:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.admin.defs.blobView'
+            $ref: "#/components/schemas/com.atproto.admin.defs.blobView"
         createdBy:
           type: string
           format: did
@@ -5184,15 +5202,15 @@ components:
         id:
           type: integer
         reasonType:
-          $ref: '#/components/schemas/com.atproto.moderation.defs.reasonType'
+          $ref: "#/components/schemas/com.atproto.moderation.defs.reasonType"
         comment:
           type: string
         subjectRepoHandle:
           type: string
         subject:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-            - $ref: '#/components/schemas/com.atproto.repo.strongRef'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+            - $ref: "#/components/schemas/com.atproto.repo.strongRef"
         reportedBy:
           type: string
           format: did
@@ -5216,8 +5234,8 @@ components:
           type: integer
         subject:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.admin.defs.repoRef'
-            - $ref: '#/components/schemas/com.atproto.repo.strongRef'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.repoRef"
+            - $ref: "#/components/schemas/com.atproto.repo.strongRef"
         subjectBlobCids:
           type: array
           items:
@@ -5238,7 +5256,7 @@ components:
             was emitted on the subject
           format: date-time
         reviewState:
-          $ref: '#/components/schemas/com.atproto.admin.defs.subjectReviewState'
+          $ref: "#/components/schemas/com.atproto.admin.defs.subjectReviewState"
         comment:
           type: string
           description: Sticky comment on the subject.
@@ -5272,17 +5290,17 @@ components:
         id:
           type: integer
         reasonType:
-          $ref: '#/components/schemas/com.atproto.moderation.defs.reasonType'
+          $ref: "#/components/schemas/com.atproto.moderation.defs.reasonType"
         comment:
           type: string
         subject:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.admin.defs.repoView'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.repoViewNotFound'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.recordView'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.recordViewNotFound'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.repoView"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.repoViewNotFound"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.recordView"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.recordViewNotFound"
         subjectStatus:
-          $ref: '#/components/schemas/com.atproto.admin.defs.subjectStatusView'
+          $ref: "#/components/schemas/com.atproto.admin.defs.subjectStatusView"
         reportedBy:
           type: string
           format: did
@@ -5292,7 +5310,7 @@ components:
         resolvedByActions:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.admin.defs.modEventView'
+            $ref: "#/components/schemas/com.atproto.admin.defs.modEventView"
     com.atproto.admin.defs.repoView:
       type: object
       required:
@@ -5317,9 +5335,9 @@ components:
           type: string
           format: date-time
         moderation:
-          $ref: '#/components/schemas/com.atproto.admin.defs.moderation'
+          $ref: "#/components/schemas/com.atproto.admin.defs.moderation"
         invitedBy:
-          $ref: '#/components/schemas/com.atproto.server.defs.inviteCode'
+          $ref: "#/components/schemas/com.atproto.server.defs.inviteCode"
         invitesDisabled:
           type: boolean
         inviteNote:
@@ -5348,17 +5366,17 @@ components:
           type: string
           format: date-time
         moderation:
-          $ref: '#/components/schemas/com.atproto.admin.defs.moderationDetail'
+          $ref: "#/components/schemas/com.atproto.admin.defs.moderationDetail"
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
         invitedBy:
-          $ref: '#/components/schemas/com.atproto.server.defs.inviteCode'
+          $ref: "#/components/schemas/com.atproto.server.defs.inviteCode"
         invites:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.server.defs.inviteCode'
+            $ref: "#/components/schemas/com.atproto.server.defs.inviteCode"
         invitesDisabled:
           type: boolean
         inviteNote:
@@ -5385,11 +5403,11 @@ components:
           type: string
           format: date-time
         invitedBy:
-          $ref: '#/components/schemas/com.atproto.server.defs.inviteCode'
+          $ref: "#/components/schemas/com.atproto.server.defs.inviteCode"
         invites:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.server.defs.inviteCode'
+            $ref: "#/components/schemas/com.atproto.server.defs.inviteCode"
         invitesDisabled:
           type: boolean
         emailConfirmedAt:
@@ -5455,9 +5473,9 @@ components:
           type: string
           format: date-time
         moderation:
-          $ref: '#/components/schemas/com.atproto.admin.defs.moderation'
+          $ref: "#/components/schemas/com.atproto.admin.defs.moderation"
         repo:
-          $ref: '#/components/schemas/com.atproto.admin.defs.repoView'
+          $ref: "#/components/schemas/com.atproto.admin.defs.repoView"
     com.atproto.admin.defs.recordViewDetail:
       type: object
       required:
@@ -5479,18 +5497,18 @@ components:
         blobs:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.admin.defs.blobView'
+            $ref: "#/components/schemas/com.atproto.admin.defs.blobView"
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
         indexedAt:
           type: string
           format: date-time
         moderation:
-          $ref: '#/components/schemas/com.atproto.admin.defs.moderationDetail'
+          $ref: "#/components/schemas/com.atproto.admin.defs.moderationDetail"
         repo:
-          $ref: '#/components/schemas/com.atproto.admin.defs.repoView'
+          $ref: "#/components/schemas/com.atproto.admin.defs.repoView"
     com.atproto.admin.defs.recordViewNotFound:
       type: object
       required:
@@ -5503,12 +5521,12 @@ components:
       type: object
       properties:
         subjectStatus:
-          $ref: '#/components/schemas/com.atproto.admin.defs.subjectStatusView'
+          $ref: "#/components/schemas/com.atproto.admin.defs.subjectStatusView"
     com.atproto.admin.defs.moderationDetail:
       type: object
       properties:
         subjectStatus:
-          $ref: '#/components/schemas/com.atproto.admin.defs.subjectStatusView'
+          $ref: "#/components/schemas/com.atproto.admin.defs.subjectStatusView"
     com.atproto.admin.defs.blobView:
       type: object
       required:
@@ -5529,10 +5547,10 @@ components:
           format: date-time
         details:
           oneOf:
-            - $ref: '#/components/schemas/com.atproto.admin.defs.imageDetails'
-            - $ref: '#/components/schemas/com.atproto.admin.defs.videoDetails'
+            - $ref: "#/components/schemas/com.atproto.admin.defs.imageDetails"
+            - $ref: "#/components/schemas/com.atproto.admin.defs.videoDetails"
         moderation:
-          $ref: '#/components/schemas/com.atproto.admin.defs.moderation'
+          $ref: "#/components/schemas/com.atproto.admin.defs.moderation"
     com.atproto.admin.defs.imageDetails:
       type: object
       required:
@@ -5559,9 +5577,9 @@ components:
     com.atproto.admin.defs.subjectReviewState:
       type: string
       enum:
-        - '#reviewOpen'
-        - '#reviewEscalated'
-        - '#reviewClosed'
+        - "#reviewOpen"
+        - "#reviewEscalated"
+        - "#reviewClosed"
     com.atproto.admin.defs.reviewOpen:
       type: string
       format: token
@@ -5615,7 +5633,7 @@ components:
         comment:
           type: string
         reportType:
-          $ref: '#/components/schemas/com.atproto.moderation.defs.reasonType'
+          $ref: "#/components/schemas/com.atproto.moderation.defs.reasonType"
     com.atproto.admin.defs.modEventLabel:
       type: object
       description: Apply/Negate labels on a subject
@@ -5716,7 +5734,7 @@ components:
         values:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.selfLabel'
+            $ref: "#/components/schemas/com.atproto.label.defs.selfLabel"
           maxItems: 10
     com.atproto.label.defs.selfLabel:
       type: object
@@ -5741,7 +5759,7 @@ components:
         labels:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.label.defs.label'
+            $ref: "#/components/schemas/com.atproto.label.defs.label"
     com.atproto.label.subscribeLabels.info:
       type: object
       required:
@@ -5755,16 +5773,16 @@ components:
           type: string
     com.atproto.moderation.defs.reasonType:
       oneOf:
-        - $ref: '#/components/schemas/com.atproto.moderation.defs.reasonSpam'
-        - $ref: '#/components/schemas/com.atproto.moderation.defs.reasonViolation'
-        - $ref: '#/components/schemas/com.atproto.moderation.defs.reasonMisleading'
-        - $ref: '#/components/schemas/com.atproto.moderation.defs.reasonSexual'
-        - $ref: '#/components/schemas/com.atproto.moderation.defs.reasonRude'
-        - $ref: '#/components/schemas/com.atproto.moderation.defs.reasonOther'
+        - $ref: "#/components/schemas/com.atproto.moderation.defs.reasonSpam"
+        - $ref: "#/components/schemas/com.atproto.moderation.defs.reasonViolation"
+        - $ref: "#/components/schemas/com.atproto.moderation.defs.reasonMisleading"
+        - $ref: "#/components/schemas/com.atproto.moderation.defs.reasonSexual"
+        - $ref: "#/components/schemas/com.atproto.moderation.defs.reasonRude"
+        - $ref: "#/components/schemas/com.atproto.moderation.defs.reasonOther"
     com.atproto.moderation.defs.reasonSpam:
       type: string
       format: token
-      description: 'Spam: frequent unwanted promotion, replies, mentions'
+      description: "Spam: frequent unwanted promotion, replies, mentions"
     com.atproto.moderation.defs.reasonViolation:
       type: string
       format: token
@@ -5784,7 +5802,7 @@ components:
     com.atproto.moderation.defs.reasonOther:
       type: string
       format: token
-      description: 'Other: reports not falling under another report category'
+      description: "Other: reports not falling under another report category"
     com.atproto.repo.applyWrites.create:
       type: object
       description: Create a new record.
@@ -5904,7 +5922,7 @@ components:
         uses:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.server.defs.inviteCodeUse'
+            $ref: "#/components/schemas/com.atproto.server.defs.inviteCodeUse"
     com.atproto.server.defs.inviteCodeUse:
       type: object
       required:
@@ -5994,7 +6012,7 @@ components:
         ops:
           type: array
           items:
-            $ref: '#/components/schemas/com.atproto.sync.subscribeRepos.repoOp'
+            $ref: "#/components/schemas/com.atproto.sync.subscribeRepos.repoOp"
           maxItems: 200
         blobs:
           type: array
