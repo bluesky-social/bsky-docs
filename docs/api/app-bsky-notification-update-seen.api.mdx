@@ -1,0 +1,274 @@
+---
+id: app-bsky-notification-update-seen
+title: "Notify server that the user has seen notifications."
+description: "Notify server that the user has seen notifications."
+sidebar_label: "Notify server that the user has seen notifications."
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v2zAM/SsCL72oiZu1AyYMA9Kth2DrGjTpMCzzQbGZWq0tqZLcJgv83wfK7uJ+7APDsFxiSSTF9/hIbSHISw9iAdLawdJfbwbaBLVSmQzKaEg5GIsuLiY5iOfNBrXNZcAZogYOHrPaqbABsdjCMUqHDsQibVIODm9q9OHY5BsQ27hUDnMQwdXIITM6oA50JK0tu+jDK2807fmswErSV9hYBAFmeYVZAN4LtACPqMeBMreOcg8KffRu93fePjilL4HDyrhKBhBAIPaDqhCa+KPA3hrt2wijJKG/HH3mlI38CDh7Dw2Hw+eOjmXOzlvE8I/AoXPGAYcKvZeX+BRla/AMSNR1RREm+laWKt/ldbK2FH1urmP1uvN2mTa7q57EvOfoMDl4iv1CyzoUxqlvmP9/8JnRngo6rkNxqryP6f4WSsMfgfhIGt8wj+4WHQuFDCwUyGqPjhXSM5IU6zeCH8T0QmGoV6yJBFsZChAw/KPWoZt87JzalSCgCMF6MRxGR28yJcvh2tlsCI+THc/Z1JlgMlOy6bsZ+3w+fdulDg1/HE9a1SYjrf2DgGNrPym8exg03fX6jArYFuG+439wTFcStmgCApatAdFN9T/fzYSTtaxsif1uhVEyerF/MNo/OJqPRiJ5JZKjwcuDwy9UT6VXJl6kAnk9yDhmOp5O6Oa6qqTbkIFmtTarlSIeWWY0sa2MZmbFes57npW4VqQiFgw7s6jH08meZ61OWTswqNadPwhIBskgAQ6lylD7iEHLiPd0Mmcful0OKkdN5SeK6CjyQEqppO45/Z30HhTwRwECrsPQllJpIi3qYNup8idzv6/KlENBQhYL2G6X0uOFK5uGtm9qJFYXKYdb6ZRcUhEWNDMKlHmc+lu4RiL+bdv/+3PKiMzLGtvX5OEsIKG2HuMsQxt+aZv2em16NpsDh2X3slQmJx8n72iGyDsQ8BW+AtBzFtmKzw/tb6GU+rKOYwHauFQRml49CjvN8vsPQtYdSb3pZfm6lT+L8/MN8A5NiOO0SZum+Q70vI7W
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  Notify server that the user has seen notifications.
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/app.bsky.notification.updateSeen"}
+>
+  
+</MethodEndpoint>
+
+
+
+Notify server that the user has seen notifications.
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"seenAt"}
+          required={true}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
