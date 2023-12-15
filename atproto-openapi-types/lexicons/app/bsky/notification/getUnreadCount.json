@@ -1,0 +1,26 @@
+{
+  "lexicon": 1,
+  "id": "app.bsky.notification.getUnreadCount",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get the count of unread notifications.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "seenAt": { "type": "string", "format": "datetime" }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["count"],
+          "properties": {
+            "count": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@atproto/lexicon": "https://esm.sh/v133/@atproto/lexicon@0.2.2/dist/types.d.ts",
+    "openapi-types": "https://esm.sh/v133/openapi-types@12.1.3/dist/index.d.ts",
+    "std/fs/": "https://deno.land/std@0.204.0/fs/"
+  },
+  "tasks": {
+    "dev": "deno run --allow-read=./ --allow-write=./atproto-openapi-types/spec/api.json --watch ./atproto-openapi-types/main.ts",
+    "run": "deno run --allow-net=bsky.social --allow-read=./ --allow-write=./atproto-openapi-types/spec/api.json ./atproto-openapi-types/main.ts"
+  },
+  "exclude": ["lexicons", "swagger-assets"]
+}

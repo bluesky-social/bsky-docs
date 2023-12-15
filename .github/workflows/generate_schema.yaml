@@ -1,0 +1,66 @@
+name: Generate OpenAPI Schemas from Atproto Lexicons
+on: push
+
+jobs:
+  generate_openapi_schema:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Cache dependencies
+        run: deno cache ./atproto-openapi-types/main.ts
+
+      - name: Get latest copy of bluesky-social/atproto lexicons
+        run: ./atproto-openapi-types/scripts/get-lexicons.sh
+
+      - name: Convert lexicons to OpenAPI spec
+        run: deno task run
+
+      - name: Commit OpenAPI spec updates
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: atproto-openapi-types/spec/api.json updated
+          file_pattern: atproto-openapi-types/lexicons atproto-openapi-types/spec/api.json
+      
+      - name: Wait for 1 minute
+        run: sleep 60
+
+  convert_to_mdx:
+    runs-on: ubuntu-latest
+    needs: generate_openapi_schema
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout the latest commit
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate Docusaurus API Docs
+        run: npm run docusaurus gen-api-docs bskyApi
+
+      - name: Commit MDX updates
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: MDX documentation updated
+          file_pattern: ./docs/api

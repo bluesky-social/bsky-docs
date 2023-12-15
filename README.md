@@ -29,6 +29,10 @@ We use the [`docusaurus-openapi-docs`](https://github.com/PaloAltoNetworks/docus
 Run `npx docusaurus-mdx-checker` to see MDX compatability.
 
 Run `npm run docusaurus gen-api-docs <id>` to generate MDX docs from an OpenAPI spec.
+In this case, `npm run docusaurus gen-api-docs bskyApi`.
+
+
+Run `deno task run` to generate a fresh OpenAPI spec to `atproto-openapi-types/spec/api.json`.
 
 ## Are you a developer interested in building on atproto?
 
