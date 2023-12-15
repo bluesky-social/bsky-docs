@@ -2,7 +2,7 @@ name: Generate OpenAPI Schemas from Atproto Lexicons
 on: push
 
 jobs:
-  convert:
+  generate_openapi_schema:
     runs-on: ubuntu-latest
 
     permissions:
@@ -31,3 +31,28 @@ jobs:
         with:
           commit_message: spec/api.json updated
           file_pattern: atproto-openapi-types/lexicons/ atproto-openapi-types/spec/api.json
+
+  convert_to_mdx:
+    runs-on: ubuntu-latest
+    needs: generate_openapi_schema
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate Docusaurus API Docs
+        run: npm run docusaurus gen-api-docs bskyApi
+
+      - name: Commit MDX updates
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: MDX documentation updated
+          file_pattern: docs/api
