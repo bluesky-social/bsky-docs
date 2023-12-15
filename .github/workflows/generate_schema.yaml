@@ -30,7 +30,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: spec/api.json updated
-          file_pattern: atproto-openapi-types/lexicons/ atproto-openapi-types/spec/api.json
+          file_pattern: ./atproto-openapi-types/lexicons/ ./atproto-openapi-types/spec/api.json
 
   convert_to_mdx:
     runs-on: ubuntu-latest
@@ -55,4 +55,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: MDX documentation updated
-          file_pattern: docs/api
+          file_pattern: ./docs/api
