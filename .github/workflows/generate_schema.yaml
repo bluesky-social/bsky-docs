@@ -36,6 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: generate_openapi_schema
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
