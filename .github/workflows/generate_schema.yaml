@@ -17,12 +17,6 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Check formatting
-        run: deno fmt --check
-
-      - name: Run linter
-        run: deno lint
-
       - name: Cache dependencies
         run: deno cache main.ts
 
