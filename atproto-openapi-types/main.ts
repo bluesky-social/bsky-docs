@@ -12,7 +12,7 @@ import {
 
 import type { OpenAPIV3_1 } from "openapi-types";
 
-const entries = expandGlob("./lexicons/**/*.json");
+const entries = expandGlob("./atproto-openapi-types/lexicons/**/*.json");
 
 const paths: OpenAPIV3_1.PathsObject = {};
 const components: OpenAPIV3_1.ComponentsObject = {
@@ -108,4 +108,4 @@ const api: OpenAPIV3_1.Document = {
   tags: Array.from(tagNames).map((name) => ({ name })),
 };
 
-Deno.writeTextFile("./spec/api.json", JSON.stringify(api, null, 2) + "\n");
+Deno.writeTextFile("./atproto-openapi-types/spec/api.json", JSON.stringify(api, null, 2) + "\n");

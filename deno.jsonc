@@ -5,8 +5,8 @@
     "std/fs/": "https://deno.land/std@0.204.0/fs/"
   },
   "tasks": {
-    "dev": "deno run --allow-read=./ --allow-write=./spec/api.json --watch main.ts",
-    "run": "deno run --allow-net=bsky.social --allow-read=./ --allow-write=./spec/api.json main.ts"
+    "dev": "deno run --allow-read=./ --allow-write=./atproto-openapi-types/spec/api.json --watch ./atproto-openapi-types/main.ts",
+    "run": "deno run --allow-net=bsky.social --allow-read=./ --allow-write=./atproto-openapi-types/spec/api.json ./atproto-openapi-types/main.ts"
   },
   "exclude": ["lexicons", "swagger-assets"]
 }
