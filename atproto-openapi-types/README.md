@@ -1,13 +1,8 @@
 # AT Protocol OpenAPI Types
 
-This repository contains OpenAPI types for the AT Protocol. They are generated
-according to the [AT Protocol Specification](https://atproto.com/specs/lexicon)
-by converting/translating the lexicon specs into OpenAPI types.
+This folder contains OpenAPI types for the AT Protocol. This was forked from this repo: [atproto-openapi-types](https://github.com/rdmurphy/atproto-openapi-types/)
 
-My hope is for this repository to serve as a live representation of the current
-state of the AT Protocol viewed through the lens of OpenAPI. This could enable
-the generation of client and server code for the AT Protocol in a variety of
-languages.
+Below is the README from the original repo from @rdmurphy.
 
 ## How to use
 

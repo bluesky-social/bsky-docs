@@ -30,6 +30,9 @@ Run `npx docusaurus-mdx-checker` to see MDX compatability.
 
 Run `npm run docusaurus gen-api-docs <id>` to generate MDX docs from an OpenAPI spec.
 
+
+Run `deno task run` to generate a fresh OpenAPI spec to `atproto-openapi-types/spec/api.json`.
+
 ## Are you a developer interested in building on atproto?
 
 Bluesky is an open social network built on the AT Protocol, a flexible technology that will never lock developers out of the ecosystems that they help build. With atproto, third-party can be as seamless as first-party through custom feeds, federated services, clients, and more.

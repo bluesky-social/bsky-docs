@@ -40,8 +40,8 @@ const config = {
         docsPluginId: "classic", // id of plugin-content-docs or preset for rendering docs
         config: {
           appbsky: { // the <id> referenced when running CLI commands
-            specPath: "docs/api/app-bsky.json", // path to OpenAPI spec, URLs supported
-            outputDir: "docs/api/app-bsky", // output directory for generated files
+            specPath: "atproto-openapi-types/spec/api.json", // path to OpenAPI spec, URLs supported
+            outputDir: "docs/api", // output directory for generated files
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
             },
