@@ -1,0 +1,263 @@
+---
+id: com-atproto-server-describe-server
+title: "Get a document describing the service's accounts configuration."
+description: "Get a document describing the service's accounts configuration."
+sidebar_label: "Get a document describing the service's accounts configuration."
+hide_title: true
+hide_table_of_contents: true
+api: eJytVE1v2zAM/SsCL70YTjDs5FvaDUWwDQ36MQwocmBkOlFrS6pEZw0M//eBcpYmqQ8FNl/iyOTj43ukOmBcRygeQbsmR/bBscsjhS0FWGbgPAVk4+y8hGIkJi8p6mBWdDekZBAoemcjRSg6+DSdys8Q5AUHCrj5BhloZ5ksy1f0vjY6VZk8RQnpIOoNNShvvPMEBbjVE2lO+C+tCVQKZ9yiqXFV00Ok8MU1aGwU1j4IbzYDCWO3hunKlXR7yD3grpyrCS302TjaWySGgDvIwDA1x+eRg7Fr6PsMamOf4xjpU0I+mC3q3cLVRu9GkDJgCk28qURUo2m8GBuu6SOm5AOtPj0ZfB7z5BJLJepQ5P9lDoXgZCAaihHX9N6XIeBdbxmQbRtBmNst1qb8y2vZv4GNKLJv77Sva2KFqnS6bciy2gtj7FrxhlQc9L2ICrV2reWotLOVWbfD0OeJPm+cDP+akpPIGyhg8pFVGM5luzpoQw0FbJh9LCaTVXze5dFpg/XkNXg9gXPis3u1EHDtarX4cqd+3S6u1H4v++wcD73JEyZ6/wHAmfc/Df0+BV0KYd0Gw7s7MXgw6ZIw0LFLUlJ6SyGyQEOASG9s5VLkfjKPS6ZSs8VcUtumwbCTAKta66rKiBAivchlnFWuUkfJF1HV9Gq0s1GxUzee7Gwxv4hqGERVudAgi1n7fChgmk/zKchKarIxDYzFRPjH/F59359mYEqybCojPcqn1Ih3kRu0R0n/PkcnbhzUZHrlia/RpBsomdrtZ2zsSj6fsWUGGxdZgrtuhZEeQt33cvzSkkj8uMxgi8HItSb/+gw2hKV0+9jBMyUXtCYvs73Fuk033fnOy2wc9uD6q4j0B521LIw=
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  Get a document describing the service's accounts configuration.
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.server.describeServer"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get a document describing the service's accounts configuration.
+
+## Request
+
+<div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"inviteCodeRequired"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"availableUserDomains"}
+                        required={true}
+                        schemaName={"string[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","items":{"type":"string"}}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                links
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"privacyPolicy"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"termsOfService"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"inviteCodeRequired\": true,\n  \"availableUserDomains\": [\n    \"string\"\n  ],\n  \"links\": {\n    \"privacyPolicy\": \"string\",\n    \"termsOfService\": \"string\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
+                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
