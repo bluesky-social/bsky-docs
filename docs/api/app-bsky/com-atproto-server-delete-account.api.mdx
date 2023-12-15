@@ -5,7 +5,7 @@ description: "Delete an actor's account with a token and password."
 sidebar_label: "Delete an actor's account with a token and password."
 hide_title: true
 hide_table_of_contents: true
-api: eJydVE2P2jAQ/SuWL73QhPbIjd3tAXUr0EKlSpTDJJklXhLbtZ0FFPHfO+MA4WMPVYNE7PHzzPN747QywNrL0VLmpk4gWGeCSTy6d3RyNZDGooOgjJ4UcvQBJimwwoDjPDeNDnIgHf5p0IcHU+zlqI1T5ZA2B9fggDLogASkJbC2UnlMnr55oznm8xJr4FHYW6SKJnvD/JS3S7SUhSooYsH7rXE8DGaDmukSNSIcFHrOwbg+lQ9O6TWhX42rgSjE9cNFojvs4ZT6fiU+TMtbo31X7+twGMuiz52yfDDaMP0uGXgdfIqqCdAC8mDcJ0/vqKDYqlAKELEsrRfixC4h5jWG0rAR1vgQJQglzdJ/8KULs9OtbFxFu8oQrB+laeY3+8SbXEGV7pzNU3nLdrwQM86dm0rMnubi18vsURx75LDi3HnjVNjP2b1OigcER6u9blyNaUQIzbMOwNKw+S9923zbQW0rPBvYG9cb1ceO/lw4pvSriYVV4CxX7CPz8WzCTJq6Bre/ATzjTlGPejG1qDsgy9bp8CUZJkOKUNsiec5FNMTT/JgsxPMxSgwKanH1qlgAXoqnZMtq0Beb/rMJrrw56xtwF1JbgdKsQXS4PfbHR3f7pj/IxJJbirBtm4HHn646HDhMtrBISxq+g1OQsabLFdUoEQo+ITXUBlnHx+5uf14wI4ZXDTO7u+fcMudOnk3nCwJnx+9FbQre42DLd57+R/I3/SR/iThDbK4Yb2UFet3AmvFdXn7+ApWIp3Y=
+api: eJytVUtvGjEQ/iuWL73Q3ajqiRtJc0BtFZTQqhLlMOwOrJNd27W9AbTiv3fGhiwEWkVVWQnW8/jm9Y3pZICVl8OZLEyTQbDOBJN5dM/o5HwgjUUHQRk9LuXwgk1WYo0BR0VhWh3kQDr81aIP16bcymEXj8ohOQfX4oAQdEAyJBVYW6sigueP3miW+aLCBvgtbC1SRLN4xOKAm4BmslQlSSx4vzaOX4N5Qs3pUmqUcFDoGYPteigfnNIrsl4a1wClEPW7I6Az290B+lwTP5yWt0b7FO/D1VUMi75wynJh5HD3mWE+XlJdQynuU7/kf2oNOmccyRr0HlZ43pNkcKErqNuGEcb6GWpV9nndbiyjT2MjBgd9Os53fag/9IgsTqv+FBkjQAsognHvPP1G9oi1CpUAEVtO+lIcJpPFikJlmITWxLQshIpO+Rs4mcTM8k62riavKgTrh3m+8E/bzJtCQZ1vnC1y+Trb0VRMGLswtZh8ehA/7ic3Yr8fu8FrPLAqi5g0wTcAjqz9rnB9CjrnhIvWqbB94JmnuV0jODweHIfk2qIJnRfJgPvNlLnv9/B2A42t8WUj+pn3zO9le8IfrYDSSxMDq8AoJxXEzEeTMWfSNg24LRto0WqzXCruqyBec/epemGW4siZJl/jRpHe08zFnUVNSCRNVBdpT3n2e3+CvsroIQmtB9LacVoaYv1fx1PxZS+lnEtaJbVU3DJWxb4wcxrQR07/yMWTib5MJOAm5LYGpblrkRjdnqaXrtdXNKWxV8xssu26BXj85urdjsU0SG7rjF6fwSlY8BRmvHoVQskVEq+fkDt/k+6Q91POiM3rljM7u0+YucmDwqMNf7WdHy3f5O5hSsaL/fXemJJ9HKz5HqLvofxJj+Q/DkaI1I3yTtagV228KGTC5c9vYz49YQ==
 sidebar_class_name: "post api-method"
 info_path: docs/api/app-bsky/at-protocol-xrpc-api
 custom_edit_url: null
@@ -120,6 +120,88 @@ Delete an actor's account with a token and password.
           
         </div><div>
           
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
         </div>
       </TabItem>
     </ApiTabs>
