@@ -1,0 +1,39 @@
+name: Generate OpenAPI Schemas from Atproto Lexicons
+on: push
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Check formatting
+        run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Cache dependencies
+        run: deno cache main.ts
+
+      - name: Get latest copy of bluesky-social/atproto lexicons
+        run: ./atproto-openapi-types/scripts/get-lexicons.sh
+
+      - name: Convert lexicons to OpenAPI spec
+        run: deno task run
+
+      - name: Commit OpenAPI spec updates
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: spec/api.json updated
+          file_pattern: atproto-openapi-types/lexicons/ atproto-openapi-types/spec/api.json
