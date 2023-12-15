@@ -18,7 +18,7 @@ jobs:
           deno-version: v1.x
 
       - name: Cache dependencies
-        run: deno cache main.ts
+        run: deno cache ./atproto-openapi-types/main.ts
 
       - name: Get latest copy of bluesky-social/atproto lexicons
         run: ./atproto-openapi-types/scripts/get-lexicons.sh
