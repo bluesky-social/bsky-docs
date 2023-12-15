@@ -1,0 +1,28 @@
+{
+  "lexicon": 1,
+  "id": "com.atproto.sync.getRepo",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Gets the DID's repo, optionally catching up from a specific revision.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description": "The DID of the repo."
+          },
+          "since": {
+            "type": "string",
+            "description": "The revision of the repo to catch up from."
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/vnd.ipld.car"
+      }
+    }
+  }
+}
