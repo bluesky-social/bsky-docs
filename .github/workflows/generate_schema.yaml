@@ -31,16 +31,9 @@ jobs:
         with:
           commit_message: atproto-openapi-types/spec/api.json updated
           file_pattern: atproto-openapi-types/lexicons atproto-openapi-types/spec/api.json
-
-  delay:
-    needs: generate_openapi_schema
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Wait for commit
-        uses: WyriHaximus/github-action-wait-for-commit@v1
-        with:
-          commit: ${{ github.event.after }}
+      
+      - name: Wait for 1 minute
+        run: sleep 60
 
   convert_to_mdx:
     runs-on: ubuntu-latest
