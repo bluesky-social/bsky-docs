@@ -26,11 +26,11 @@ jobs:
       - name: Convert lexicons to OpenAPI spec
         run: deno task run
 
-      - name: Commit OpenAPI spec updates
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: spec/api.json updated
-          file_pattern: atproto-openapi-types/lexicons atproto-openapi-types/spec/api.json
+      # - name: Commit OpenAPI spec updates
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: atproto-openapi-types/spec/api.json updated
+      #     file_pattern: atproto-openapi-types/lexicons atproto-openapi-types/spec/api.json
 
   convert_to_mdx:
     runs-on: ubuntu-latest

@@ -2,7 +2,7 @@
 
 URL="https://codeload.github.com/bluesky-social/atproto/tar.gz/main"
 
-DEST_PATH="./atproto-openapi-types/lexicons"
+DEST_PATH="atproto-openapi-types/lexicons"
 TAR_PATH="atproto-main/lexicons"
 
 # Delete existing files in the destination folder to remove out-of-date lexicons
