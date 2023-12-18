@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const config = {
   title: 'Bluesky',
   tagline: 'Get started with the Bluesky API.',
-  favicon: 'img/logo-64x64.jpg',
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
@@ -87,7 +87,7 @@ const config = {
         title: 'Bluesky',
         logo: {
           alt: 'Bluesky Logo',
-          src: 'img/logo-64x64.jpg',
+          src: 'img/favicon.png',
         },
         items: [
           {
