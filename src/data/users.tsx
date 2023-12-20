@@ -30,12 +30,44 @@ const Users: User[] = [
     tags: ['opensource', 'favorite'],
   },
   {
-    title: 'bsky bot',
-    description: 'im a bot',
-    preview: require('./showcase/example-2.png'),
-    website: 'https://blueskyweb.xyz',
-    source: 'https://github.com/bluesky-social/social-app',
-    tags: ['opensource'],
+    title: 'Japanese atproto docs',
+    description: 'Japanese documentation for atproto',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website: 'https://github.com/encrypteduse/atproto-website-docs-jp',
+    source: 'https://github.com/encrypteduse/atproto-website-docs-jp',
+    tags: ['tutorial'],
+  },
+  {
+    title: 'TypeScript/Node atproto starter kit',
+    description: 'TypeScript/Node template for atproto',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website: 'https://github.com/aliceisjustplaying/atproto-starter-kit',
+    author: 'https://bsky.app/profile/did:plc:by3jhwdqgbtrcc7q4tkkv3cf',
+    tags: ['tutorial'],
+  },
+  {
+    title: 'Bluesky bot using ATProto and OpenAI API',
+    description: 'Guide on building a Bluesky bot with ATProto and OpenAI API',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website: 'https://ashevat.medium.com/how-to-build-a-bluesky-bot-using-atproto-and-openai-api-77a26a154b',
+    author: 'https://bsky.app/profile/did:plc:ua6usdc4hzvzjsokoenba4zt',
+    tags: ['tutorial'],
+  },
+  {
+    title: 'Bluesky bot tutorial',
+    description: 'Tutorial for creating a Bluesky emoji bot',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website: 'https://github.com/emilyliu7321/bluesky-emoji-bot/blob/main/TUTORIAL.md',
+    author: 'https://bsky.app/profile/did:plc:vjug55kidv6sye7ykr5faxxn',
+    tags: ['tutorial'],
+  },
+  {
+    title: 'Getting started with #atdev',
+    description: 'Introductory guide to ATProto development',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website: 'https://graysky.app/blog/2023-10-17-getting-started-atproto',
+    author: 'https://bsky.app/profile/did:plc:p2cp5gopk7mgjegy6wadk3ep',
+    tags: ['tutorial'],
   },
 ]
 
@@ -44,7 +76,8 @@ export type User = {
   description: string;
   preview: string | null; // null = use our serverless screenshot service
   website: string;
-  source: string | null;
+  source?: string | null;
+  author?: string | null;
   tags: TagType[];
 };
 

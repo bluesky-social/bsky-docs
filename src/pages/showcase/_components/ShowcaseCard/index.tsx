@@ -95,6 +95,16 @@ function ShowcaseCard({user}: {user: User}) {
               <Translate id="showcase.card.sourceLink">source</Translate>
             </Link>
           )}
+          {user.author && (
+            <Link
+              href={user.author}
+              className={clsx(
+                'button button--secondary button--sm',
+                styles.showcaseCardSrcBtn,
+              )}>
+              <Translate id="showcase.card.authorLink">author</Translate>
+            </Link>
+          )}
         </div>
         <p className={styles.showcaseCardBody}>{user.description}</p>
       </div>
