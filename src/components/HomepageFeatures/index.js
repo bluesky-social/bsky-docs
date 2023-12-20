@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Federated Social',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/at-sign.svg').default,
     description: (
       <>
         Connect with anyone on any service that's using the AT Protocol.
@@ -14,7 +14,7 @@ const FeatureList = [
   },
   {
     title: 'Algorithmic Choice',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/light.svg').default,
     description: (
       <>
         Control how you see the world through an open market of algorithms.
@@ -23,7 +23,7 @@ const FeatureList = [
   },
   {
     title: 'Portable Accounts',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/suitcase.svg').default,
     description: (
       <>
         Change hosts without losing your content, your follows, or your identity.
