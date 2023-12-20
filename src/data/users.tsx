@@ -4,22 +4,21 @@ import {sortBy} from '@site/src/utils/jsUtils';
 export type TagType =
   // DO NOT USE THIS TAG: we choose sites to add to favorites
   | 'favorite'
-  // For open-source sites, a link to the source code is required.
-  // The source should be the *website's* source, not the project's source!
-  | 'opensource';
-  // | 'product'
-  // // Feel free to add the 'design' tag as long as there's _some_ level of
-  // // CSS/swizzling.
-  // | 'design'
-  // // Site must have more than one locale.
-  // | 'i18n'
-  // | 'versioning'
-  // // Large sites are defined as those with > 200 pages, excluding versions.
-  // | 'large'
-  // | 'meta'
-  // | 'personal'
-  // // Right-to-left direction.
-  // | 'rtl';
+  | 'opensource' // link to source code required
+  | 'client'
+  | 'web'
+  | 'iOS'
+  | 'Android'
+  | 'macOS'
+  | 'CLI'
+  | 'bridge'
+  | 'customfeed'
+  | 'stats'
+  | 'domains'
+  | 'firehose'
+  | 'protocol'   // Protocol implementations
+  | 'tutorial'
+  | 'othertools';
 
 const Users: User[] = [
   {
@@ -58,13 +57,83 @@ export type Tag = {
 export const Tags: {[type in TagType]: Tag} = {
   favorite: {
     label: 'Favorite',
-    description:'Our favorite Docusaurus sites that you must absolutely check out!',
+    description:'Staff picks',
     color: '#e9669e',
   },
   opensource: {
     label: 'Open-Source',
-    description: 'Open-Source Docusaurus sites can be useful for inspiration!',
+    description: 'Open-Source Bluesky projects',
     color: '#39ca30',
+  },
+  client: {
+    label: 'Client',
+    description: 'Alternative Bluesky clients',
+    color: '#008080',
+  },
+  web: {
+    label: 'Web',
+    description: 'Web-based Bluesky applications',
+    color: '#0066cc',
+  },
+  iOS: {
+    label: 'iOS',
+    description: 'iOS compatible Bluesky applications',
+    color: '#ff9500',
+  },
+  Android: {
+    label: 'Android',
+    description: 'Android compatible Bluesky applications',
+    color: '#a4c639',
+  },
+  macOS: {
+    label: 'macOS',
+    description: 'macOS compatible Bluesky applications',
+    color: '#999999',
+  },
+  CLI: {
+    label: 'CLI',
+    description: 'Command Line Interface tools for Bluesky',
+    color: '#555555',
+  },
+  bridge: {
+    label: 'Bridge',
+    description: 'Bridging tools between Bluesky and other platforms',
+    color: '#1a73e8',
+  },
+  customfeed: {
+    label: 'Custom Feed',
+    description: 'Tools for customizing Bluesky feeds',
+    color: '#fbbc05',
+  },
+  stats: {
+    label: 'Stats',
+    description: 'Statistics and analytics tools for Bluesky',
+    color: '#34a853',
+  },
+  domains: {
+    label: 'Domains',
+    description: 'Domain management tools for Bluesky',
+    color: '#ea4335',
+  },
+  firehose: {
+    label: 'Firehose',
+    description: 'Tools for manipulating the Bluesky firehose',
+    color: '#4285f4',
+  },
+  protocol: {
+    label: 'Protocol',
+    description: 'Protocol implementations for Bluesky',
+    color: '#0f9d58',
+  },
+  tutorial: {
+    label: 'Tutorial',
+    description: 'Resources and tutorials',
+    color: '#f4b400',
+  },
+  othertools: {
+    label: 'Other Tools',
+    description: 'Miscellaneous tools for Bluesky',
+    color: '#e8eaed',
   },
 };
 
