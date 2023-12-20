@@ -60,7 +60,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/bluesky-social/bsky-docs/',
           docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
@@ -99,7 +99,7 @@ const config = {
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: '/showcase', label: 'Showcase', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/bluesky-social',
             label: 'GitHub',
             position: 'right',
           },
