@@ -139,6 +139,41 @@ const Users: User[] = [
     website: 'https://github.com/kiliczsh/gokyuzu',
     tags: ['protocol'],
   },
+  {
+    title: 'atproto (Dart)',
+    description: 'AT Protocol implementation in Dart',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/myConsciousness/atproto.dart/tree/main/packages',
+    tags: ['protocol'],
+  },
+  {
+    title: 'FishyFlip (C#)',
+    description: 'AT Protocol implementation in C#',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/drasticactions/FishyFlip',
+    tags: ['protocol'],
+  },
+  {
+    title: 'bsky4j (Java)',
+    description: 'AT Protocol implementation in Java',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/uakihir0/bsky4j',
+    tags: ['protocol'],
+  },
+  {
+    title: 'socialweb/atproto-lexicon (PHP)',
+    description: 'Parses and resolves Lexicon schemas in PHP; useful for code generation',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/socialweb-php/atproto-lexicon',
+    tags: ['protocol'],
+  },
+  {
+    title: 'phluesky (PHP)',
+    description: 'A small library for posting to Bluesky in PHP',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/potibm/phluesky',
+    tags: ['protocol'],
+  },
 ]
 
 export type User = {
