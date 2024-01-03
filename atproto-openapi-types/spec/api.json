@@ -5759,6 +5759,16 @@
             }
           },
           {
+            "name": "appealed",
+            "in": "query",
+            "description": "Get subjects in unresolved appealed status",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Get subjects in unresolved appealed status"
+            }
+          },
+          {
             "name": "limit",
             "in": "query",
             "required": false,
@@ -10630,10 +10640,12 @@
             "format": "uri"
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 3000
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 10000
           },
           "thumb": {
             "type": "string",
@@ -10666,13 +10678,16 @@
             "format": "uri"
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 3000
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 10000
           },
           "thumb": {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
           }
         }
       },
@@ -10704,7 +10719,8 @@
             "maxLength": 1000000
           },
           "alt": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50000
           },
           "aspectRatio": {
             "$ref": "#/components/schemas/app.bsky.embed.images.aspectRatio"
@@ -10753,13 +10769,16 @@
         ],
         "properties": {
           "thumb": {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
           },
           "fullsize": {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
           },
           "alt": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 50000
           },
           "aspectRatio": {
             "$ref": "#/components/schemas/app.bsky.embed.images.aspectRatio"
@@ -12150,6 +12169,9 @@
               },
               {
                 "$ref": "#/components/schemas/com.atproto.admin.defs.modEventMute"
+              },
+              {
+                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventResolveAppeal"
               }
             ]
           },
@@ -12300,8 +12322,17 @@
             "type": "string",
             "format": "date-time"
           },
+          "lastAppealedAt": {
+            "type": "string",
+            "description": "Timestamp referencing when the author of the subject appealed a moderation action",
+            "format": "date-time"
+          },
           "takendown": {
             "type": "boolean"
+          },
+          "appealed": {
+            "type": "boolean",
+            "description": "True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators."
           },
           "suspendUntil": {
             "type": "string",
@@ -12785,6 +12816,16 @@
           }
         }
       },
+      "com.atproto.admin.defs.modEventResolveAppeal": {
+        "type": "object",
+        "description": "Resolve appeal on a subject",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Describe resolution."
+          }
+        }
+      },
       "com.atproto.admin.defs.modEventComment": {
         "type": "object",
         "description": "Add a comment to a subject",
@@ -13024,6 +13065,9 @@
           },
           {
             "$ref": "#/components/schemas/com.atproto.moderation.defs.reasonOther"
+          },
+          {
+            "$ref": "#/components/schemas/com.atproto.moderation.defs.reasonAppeal"
           }
         ]
       },
@@ -13056,6 +13100,11 @@
         "type": "string",
         "format": "token",
         "description": "Other: reports not falling under another report category"
+      },
+      "com.atproto.moderation.defs.reasonAppeal": {
+        "type": "string",
+        "format": "token",
+        "description": "Appeal: appeal a previously taken moderation action"
       },
       "com.atproto.repo.applyWrites.create": {
         "type": "object",
