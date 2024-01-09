@@ -2,6 +2,6 @@
 sidebar_position: 4
 ---
 
-# Timestamps
+# Liking and reposting
 
-TODO: add content
+TODO
