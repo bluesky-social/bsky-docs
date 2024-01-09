@@ -4,6 +4,8 @@ import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
 import HomepageStarters from '@site/src/components/HomepageStarters'
+import HomepageSDKs from '@site/src/components/HomepageSDKs'
+import HomepageDoclinks from '@site/src/components/HomepageDoclinks'
 import HomepageFeatures from '@site/src/components/HomepageFeatures'
 const Logo = require('@site/static/img/logo.svg').default
 
@@ -45,7 +47,10 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageStarters />
-        <HomepageFeatures />
+        <div className={styles.twoCol}>
+          <HomepageSDKs />
+          <HomepageDoclinks />
+        </div>
       </main>
     </Layout>
   )

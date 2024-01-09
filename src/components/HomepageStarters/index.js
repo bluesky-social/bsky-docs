@@ -29,6 +29,7 @@ function Starter({ href, title, description }) {
     >
       <span className={styles.title}>{title}</span>
       <span className={styles.description}>{description}</span>
+      <span className={styles.slug}>Starter Template</span>
     </Link>
   )
 }

@@ -35,6 +35,27 @@
   --ifm-button-size-multiplier: 1.5;
 }
 
+.twoCol {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto 1rem;
+}
+
+.twoCol > * {
+  flex: 1;
+  padding: 3rem 2rem;
+}
+
+@media screen and (max-width: 996px) {
+  .twoCol {
+    display: block;
+  }
+
+  .twoCol > * {
+    padding: 2rem 2rem 1rem;
+  }
+}
+
 .buttons {
   display: flex;
   align-items: center;
