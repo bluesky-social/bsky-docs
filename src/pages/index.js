@@ -1,9 +1,9 @@
 import React from 'react'
 import clsx from 'clsx'
 import Link from '@docusaurus/Link'
-import Image from '@theme/IdealImage'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
+import HomepageStarters from '@site/src/components/HomepageStarters'
 import HomepageFeatures from '@site/src/components/HomepageFeatures'
 const Logo = require('@site/static/img/logo.svg').default
 
@@ -44,6 +44,7 @@ export default function Home() {
     >
       <HomepageHeader />
       <main>
+        <HomepageStarters />
         <HomepageFeatures />
       </main>
     </Layout>
