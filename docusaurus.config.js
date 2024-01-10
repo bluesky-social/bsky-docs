@@ -142,6 +142,10 @@ const config = {
                 to: '/blog',
               },
               {
+                label: 'GitHub Discussions',
+                href: 'https://github.com/bluesky-social/atproto/discussions',
+              },
+              {
                 label: 'GitHub',
                 href: 'https://github.com/bluesky-social',
               },

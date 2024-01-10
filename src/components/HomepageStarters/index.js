@@ -5,17 +5,17 @@ import styles from './styles.module.css'
 
 const FeatureList = [
   {
-    title: 'App Developers',
+    title: 'Client Apps',
     description: <>Build a client for the Bluesky app.</>,
     href: '/docs/starter-templates/clients',
   },
   {
-    title: 'Feed Developers',
+    title: 'Custom Feeds',
     description: <>Build an algorithm to drive users' feeds.</>,
     href: '/docs/starter-templates/feed-generator',
   },
   {
-    title: 'Bot Developers',
+    title: 'Bots',
     description: <>Build a bot with custom behaviors.</>,
     href: '/docs/starter-templates/bots',
   },
