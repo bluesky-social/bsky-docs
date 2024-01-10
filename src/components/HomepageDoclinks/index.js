@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 
 const FeatureList = [
   {
-    title: 'HTTP reference',
+    title: 'API Reference',
     Svg: require('@site/static/img/http.svg').default,
     description: <>View the complete HTTP API reference.</>,
     href: '/docs/category/bluesky-api',
