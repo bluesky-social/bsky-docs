@@ -5,21 +5,21 @@ import styles from './styles.module.css'
 
 const FeatureList = [
   {
-    title: 'Typescript SDK',
+    title: 'Typescript',
     Svg: require('@site/static/img/languages/typescript.svg').default,
-    description: <>Official SDK maintained by Bluesky.</>,
+    description: <>Official SDK maintained by Bluesky PBC</>,
     href: 'https://github.com/bluesky-social/atproto/tree/main/packages/api',
   },
   {
-    title: 'Python SDK',
+    title: 'Python',
     Svg: require('@site/static/img/languages/python.svg').default,
-    description: <>Community SDK created by Ilya Siamionau.</>,
+    description: <>Community SDK created by @marshal.dev</>,
     href: 'https://atproto.blue/',
   },
   {
-    title: 'Dart SDK',
+    title: 'Dart',
     Svg: require('@site/static/img/languages/dart.svg').default,
-    description: <>Community SDK created by Shinya Kato.</>,
+    description: <>Community SDK created by @shinyakato.dev</>,
     href: 'https://atprotodart.com/',
   },
 ]
