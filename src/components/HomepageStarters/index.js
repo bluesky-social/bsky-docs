@@ -4,20 +4,25 @@ import Link from '@docusaurus/Link'
 import styles from './styles.module.css'
 
 const FeatureList = [
+    {
+    title: 'Bots',
+    description: <>Build a bot with custom behaviors.</>,
+    href: '/docs/starter-templates/bots',
+  },
+  {
+    title: 'Custom Feeds',
+    description: <>Build an algorithm to drive users' feeds.</>,
+    href: '/docs/starter-templates/custom-feeds',
+  },
   {
     title: 'Client Apps',
     description: <>Build a client for the Bluesky app.</>,
     href: '/docs/starter-templates/clients',
   },
   {
-    title: 'Custom Feeds',
-    description: <>Build an algorithm to drive users' feeds.</>,
-    href: '/docs/starter-templates/feed-generator',
-  },
-  {
-    title: 'Bots',
-    description: <>Build a bot with custom behaviors.</>,
-    href: '/docs/starter-templates/bots',
+    title: 'Integrations',
+    description: <>Build integration tools with services like WordPress.</>,
+    href: '/docs/starter-templates/integrations',
   },
 ]
 

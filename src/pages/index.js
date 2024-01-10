@@ -21,7 +21,7 @@ function HomepageHeader() {
           Bluesky Developer APIs
         </h1>
         <p className={clsx('hero__subtitle', styles.heroText)}>
-          Build apps, bots, and feed generators on Bluesky's open social network.
+          Explore Bluesky's open social network.
         </p>
         <div className={styles.buttons}>
           <Link
