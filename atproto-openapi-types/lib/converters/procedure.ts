@@ -19,7 +19,7 @@ export async function convertProcedure(
 
   const post = {
     tags: [calculateTag(id)],
-    ...(procedure.description && { summary: procedure.description }),
+    ...(procedure.description && { description: procedure.description }),
     operationId: id,
     ...(needsAuthentication && { security: [{ Bearer: [] }] }),
   } as OpenAPIV3_1.OperationObject<"POST">;

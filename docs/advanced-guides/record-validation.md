@@ -2,6 +2,6 @@
 sidebar_position: 3
 ---
 
-# Blocks
+# Record validation
 
 TODO: add content

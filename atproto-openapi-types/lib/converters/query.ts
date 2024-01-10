@@ -24,7 +24,7 @@ export async function convertQuery(
 
   const get = {
     tags: [calculateTag(id)],
-    ...(query.description && { summary: query.description }),
+    ...(query.description && { description: query.description }),
     operationId: id,
     ...(needsAuthentication && {
       security: [{ Bearer: [] }],
