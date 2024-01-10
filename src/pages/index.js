@@ -26,7 +26,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className={clsx('button', styles.heroButton)}
-            to="/docs/category/starter-templates"
+            to="/docs/get-started"
           >
             Get Started
           </Link>
