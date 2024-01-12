@@ -1,6 +1,7 @@
 ---
 slug: call-for-developers
 title: Bluesky Call for Developers
+tags: ['community']
 ---
 
 Bluesky is an open social network built on the AT Protocol, a flexible technology that will never lock developers out of the ecosystems that they help build. With atproto, third-party can be as seamless as first-party through custom feeds, federated services, clients, and more.

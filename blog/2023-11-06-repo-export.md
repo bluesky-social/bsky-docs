@@ -1,6 +1,7 @@
 ---
 slug: repo-export
 title: Download and Parse Repository Exports
+tags: ['guide']
 ---
 
 One of the core principles of the AT Protocol is simple access to public data, including posts, multimedia blobs, and social graph metadata. A user's data is stored in a repository, which can be efficiently exported all together as a CAR file (`.car`). This post will describe how to export and parse a data repository.

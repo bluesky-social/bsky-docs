@@ -1,6 +1,7 @@
 ---
 slug: bgs-and-did-doc
 title: Bluesky BGS and DID Document Formatting Changes
+tags: ['updates']
 ---
 
 We have a number of protocol and infrastructure changes rolling out in the next three months, and want to keep everybody in the loop.

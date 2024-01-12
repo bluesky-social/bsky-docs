@@ -1,7 +1,7 @@
 ---
 slug: block-implementation
 title: Why are blocks on Bluesky public?
-tags: ['feature']
+tags: ['guide']
 ---
 
 The technical implementation of public blocks and some possibilities for more privacy preserving block implementations — an area of active research and experimentation. 

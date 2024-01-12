@@ -1,7 +1,7 @@
 ---
 slug: create-post
 title: Posting via the Bluesky API
-tags: ['feature']
+tags: ['feature', 'guide']
 ---
 
 
