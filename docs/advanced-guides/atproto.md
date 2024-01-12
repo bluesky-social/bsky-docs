@@ -1,10 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Overview
-
-## What's Bluesky?
+# The AT Protocol
 
 Bluesky, the company, is building a protocol for public conversation that can make social networks work more like email, blogs, or phone numbers — the open systems that power the rest of our online lives. The Bluesky app is a microblogging client built on top of the AT Protocol.
 

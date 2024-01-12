@@ -1,0 +1,137 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get Started
+
+Let's get started by making your first post to the Bluesky app via the API in under 5 minutes.
+
+## Install the SDK
+
+Choose the SDK you want to work with.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Install [@atproto/api](https://www.npmjs.com/package/@atproto/api) using your preferred package manager.
+
+    ```
+    yarn add @atproto/api
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Follow the instructions for the community-maintained [atproto python package here](https://atproto.blue/en/latest/).
+  </TabItem>
+  <TabItem value="dart" label="Dart">
+    Follow the instructions for the community-maintained [atproto.dart package here](https://atprotodart.com/docs/intro).
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+    Install CURL if you need to.
+  </TabItem>
+</Tabs>
+
+## Create a session
+
+This creates an authentication session with your username and password.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript
+    import { BskyAgent } from '@atproto/api'
+
+    const agent = new BskyAgent({
+      service: 'https://bsky.social'
+    })
+    await agent.login({
+      username: 'bob.com',
+      password: 'hunter2'
+    })
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    TODO
+  </TabItem>
+  <TabItem value="dart" label="Dart">
+    TODO
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+    Replace `$BLUESKY_HANDLE` and `$BLUESKY_PASSWORD` with your credentials.
+
+    ```bash
+    curl -X POST https://bsky.social/xrpc/com.atproto.server.createSession \
+        -H "Content-Type: application/json" \
+        -d '{"identifier": "'"$BLUESKY_HANDLE"'", "password": "'"$BLUESKY_PASSWORD"'"}'
+    ```
+  </TabItem>
+</Tabs>
+
+The `com.atproto.server.createSession` API endpoint returns a session object containing two API tokens:
+* `accessJwt`: an access token which is used to authenticate requests but expires after a few minutes
+* `refreshJwt`: a refresh token which lasts longer and is used only to update the session with a new access token
+
+<Tabs groupId="sdk" className="hiddenTabs">
+  <TabItem value="ts" label="Typescript">
+    The agent object stores this session information for you, and will include it in the headers of its requests.
+  </TabItem>
+  <TabItem value="python" label="Python">
+  </TabItem>
+  <TabItem value="dart" label="Dart">
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+  </TabItem>
+</Tabs>
+
+## Create a post 
+
+Now you can create a post by sending a POST request to the createRecord endpoint.
+
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript
+    await agent.post({
+      text: 'Hello world! I posted this via the API.',
+      createdAt: new Date().toISOString()
+    })
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    TODO
+  </TabItem>
+  <TabItem value="dart" label="Dart">
+    TODO
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+    Replace `$BLUESKY_HANDLE` with your handle and and `$ACCESS_JWT` with the JWT in the response from createSession.
+
+    ```bash
+    curl -X POST https://bsky.social/xrpc/com.atproto.repo.createRecord \
+        -H "Authorization: Bearer $ACCESS_JWT" \
+        -H "Content-Type: application/json" \
+        -d "{\"repo\": \"$BLUESKY_HANDLE\", \"collection\": \"app.bsky.feed.post\", \"record\": {\"text\": \"Hello world! I posted this via the API.\", \"createdAt\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}}"
+    ```
+  </TabItem>
+</Tabs>
+
+This will return an object containing the post's URI and a CID (a hash of the content).
+
+```json
+{
+  "uri": "at://did:plc:abc123..../app.bsky.feed.post/xyz...",
+  "cid": "abc..."
+}
+```
+
+Check out your profile to see the post you just created!
+
+## Next Steps
+
+You may want to jump to one of the [Starter Templates](/docs/category/starter-templates):
+
+- [Bot starter template](/docs/starter-templates/bots)
+- [Feed Generator starter template](/docs/starter-templates/feed-generator)
+- [Client starter template](/docs/starter-templates/clients)
+
+Or continue reading the [Tutorials](/docs/category/tutorials) to learn more.
