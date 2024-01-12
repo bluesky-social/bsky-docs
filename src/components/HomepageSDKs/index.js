@@ -13,14 +13,20 @@ const FeatureList = [
   {
     title: 'Python',
     Svg: require('@site/static/img/languages/python.svg').default,
-    description: <>Community SDK created by @marshal.dev</>,
+    description: <>Community SDK maintained by @marshal.dev</>,
     href: 'https://atproto.blue/',
   },
   {
     title: 'Dart',
     Svg: require('@site/static/img/languages/dart.svg').default,
-    description: <>Community SDK created by @shinyakato.dev</>,
+    description: <>Community SDK maintained by @shinyakato.dev</>,
     href: 'https://atprotodart.com/',
+  },
+  {
+    title: 'Go',
+    Svg: require('@site/static/img/languages/go.svg').default,
+    description: <>SDK maintained by Bluesky PBC</>,
+    href: 'https://github.com/bluesky-social/indigo/tree/main',
   },
 ]
 
