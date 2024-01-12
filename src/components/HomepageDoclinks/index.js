@@ -8,7 +8,7 @@ const FeatureList = [
     title: 'API Reference',
     Svg: require('@site/static/img/http.svg').default,
     description: <>View the complete HTTP API reference.</>,
-    href: '/docs/category/bluesky-api',
+    href: '/docs/category/http-reference',
   },
 ]
 
