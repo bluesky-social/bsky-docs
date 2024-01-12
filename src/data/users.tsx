@@ -967,7 +967,7 @@ export const Tags: {[type in TagType]: Tag} = {
   bot: {
     label: 'Bot',
     description: 'Automated posts to Bluesky',
-    color: '#26FFE6',
+    color: '#7D2E68',
   },
   othertools: {
     label: 'Other Tools',
