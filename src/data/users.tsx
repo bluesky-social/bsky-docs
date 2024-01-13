@@ -75,8 +75,9 @@ const Users: User[] = [
   {
     title: 'atproto (Python)',
     description: 'AT Protocol implementation in Python',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://github.com/MarshalX/atproto',
+    preview: require('./showcase/atproto-python.png'),
+    website: 'https://atproto.blue/',
+    source: 'https://github.com/MarshalX/atproto',
     tags: ['protocol', 'favorite'],
   },
   {
@@ -131,8 +132,9 @@ const Users: User[] = [
   {
     title: 'atproto (Dart)',
     description: 'AT Protocol implementation in Dart',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://github.com/myConsciousness/atproto.dart/tree/main/packages',
+    preview: require('./showcase/atproto-dart.png'),
+    website: 'https://atprotodart.com/',
+    source: 'https://github.com/myConsciousness/atproto.dart/tree/main/packages',
     tags: ['protocol', 'favorite'],
   },
   {
@@ -254,7 +256,7 @@ const Users: User[] = [
   {
     title: 'SkyFeed',
     description: 'Web client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/skyfeed.png'),
     website: 'https://skyfeed.app',
     author: 'https://bsky.app/profile/did:plc:odo2zkpujsgcxtz7ph24djkj',
     tags: ['client', 'favorite', 'opensource', 'customfeed'],
@@ -294,7 +296,7 @@ const Users: User[] = [
   {
     title: 'deck.blue',
     description: 'Web client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/deckblue.jpg'),
     website: 'https://deck.blue',
     author: 'https://bsky.app/profile/did:plc:w342borqxtyo2pul67ec2pwt',
     tags: ['client', 'favorite'],
@@ -318,7 +320,7 @@ const Users: User[] = [
   {
     title: 'Graysky',
     description: 'iOS and Android client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/graysky.png'),
     website: 'https://graysky.app/',
     author: 'https://bsky.app/profile/did:plc:p2cp5gopk7mgjegy6wadk3ep',
     tags: ['client', 'favorite'],
@@ -597,7 +599,7 @@ const Users: User[] = [
   {
     title: 'Firesky',
     description: 'Real-time stream of every Bluesky post',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/firesky.png'),
     website: 'https://firesky.tv',
     author: 'https://bsky.app/profile/did:plc:mceyt3qjswifxtikqqwvnnge',
     tags: ['firehose', 'favorite'],
@@ -637,7 +639,7 @@ const Users: User[] = [
   {
     title: 'Skylink Chrome Extension',
     description: 'Chrome extension to detect DIDs while browsing the web',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/skylink.png'),
     website: 'https://skylinkchrome.com',
     author: 'https://bsky.app/profile/did:plc:f55kfczvcsjlaota4ep2xvhx',
     tags: ['othertools', 'favorite'],
@@ -669,8 +671,9 @@ const Users: User[] = [
   {
     title: 'Bluesky post heatmap generator',
     description: 'Generates a heatmap of Bluesky posts',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/heatmap-generator.png'),
     website: 'https://bluesky-heatmap.fly.dev/',
+    source: 'https://github.com/aliceisjustplaying/bluesky-heatmap',
     author: 'https://bsky.app/profile/did:plc:by3jhwdqgbtrcc7q4tkkv3cf',
     tags: ['othertools', 'favorite'],
   },
