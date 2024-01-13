@@ -77,7 +77,7 @@ const Users: User[] = [
     description: 'AT Protocol implementation in Python',
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/MarshalX/atproto',
-    tags: ['protocol'],
+    tags: ['protocol', 'favorite'],
   },
   {
     title: 'lexrpc',
@@ -133,7 +133,7 @@ const Users: User[] = [
     description: 'AT Protocol implementation in Dart',
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/myConsciousness/atproto.dart/tree/main/packages',
-    tags: ['protocol'],
+    tags: ['protocol', 'favorite'],
   },
   {
     title: 'FishyFlip (C#)',
