@@ -72,9 +72,11 @@ function ShowcaseCard({user}: {user: User}) {
   const image = getCardImage(user);
   return (
     <li key={user.title} className="card shadow--md">
-      <div className={clsx('card__image', styles.showcaseCardImage)}>
-        <Image img={image} alt={user.title} />
-      </div>
+      {user.tags.includes('favorite') && (
+        <div className={clsx('card__image', styles.showcaseCardImage)}>
+          <Image img={image} alt={user.title} />
+        </div>
+      )}
       <div className="card__body">
         <div className={clsx(styles.showcaseCardHeader)}>
           <Heading as="h4" className={styles.showcaseCardTitle}>
