@@ -912,7 +912,7 @@ export const Tags: {[type in TagType]: Tag} = {
   favorite: {
     label: 'Favorite',
     description:'Staff picks',
-    color: '#e9669e',
+    color: '#D00C61',
   },
   opensource: {
     label: 'Open-Source',
