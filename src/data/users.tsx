@@ -14,6 +14,7 @@ export type TagType =
   | 'firehose'
   | 'protocol'   // Protocol implementations
   | 'tutorial'
+  | 'bot'
   | 'othertools';
 
 const Users: User[] = [
@@ -74,9 +75,10 @@ const Users: User[] = [
   {
     title: 'atproto (Python)',
     description: 'AT Protocol implementation in Python',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://github.com/MarshalX/atproto',
-    tags: ['protocol'],
+    preview: require('./showcase/atproto-python.png'),
+    website: 'https://atproto.blue/',
+    source: 'https://github.com/MarshalX/atproto',
+    tags: ['protocol', 'favorite'],
   },
   {
     title: 'lexrpc',
@@ -130,9 +132,10 @@ const Users: User[] = [
   {
     title: 'atproto (Dart)',
     description: 'AT Protocol implementation in Dart',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://github.com/myConsciousness/atproto.dart/tree/main/packages',
-    tags: ['protocol'],
+    preview: require('./showcase/atproto-dart.png'),
+    website: 'https://atprotodart.com/',
+    source: 'https://github.com/myConsciousness/atproto.dart/tree/main/packages',
+    tags: ['protocol', 'favorite'],
   },
   {
     title: 'FishyFlip (C#)',
@@ -253,7 +256,7 @@ const Users: User[] = [
   {
     title: 'SkyFeed',
     description: 'Web client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/skyfeed.png'),
     website: 'https://skyfeed.app',
     author: 'https://bsky.app/profile/did:plc:odo2zkpujsgcxtz7ph24djkj',
     tags: ['client', 'favorite', 'opensource', 'customfeed'],
@@ -293,7 +296,7 @@ const Users: User[] = [
   {
     title: 'deck.blue',
     description: 'Web client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/deckblue.jpg'),
     website: 'https://deck.blue',
     author: 'https://bsky.app/profile/did:plc:w342borqxtyo2pul67ec2pwt',
     tags: ['client', 'favorite'],
@@ -317,7 +320,7 @@ const Users: User[] = [
   {
     title: 'Graysky',
     description: 'iOS and Android client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/graysky.png'),
     website: 'https://graysky.app/',
     author: 'https://bsky.app/profile/did:plc:p2cp5gopk7mgjegy6wadk3ep',
     tags: ['client', 'favorite'],
@@ -596,7 +599,7 @@ const Users: User[] = [
   {
     title: 'Firesky',
     description: 'Real-time stream of every Bluesky post',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/firesky.png'),
     website: 'https://firesky.tv',
     author: 'https://bsky.app/profile/did:plc:mceyt3qjswifxtikqqwvnnge',
     tags: ['firehose', 'favorite'],
@@ -636,7 +639,7 @@ const Users: User[] = [
   {
     title: 'Skylink Chrome Extension',
     description: 'Chrome extension to detect DIDs while browsing the web',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/skylink.png'),
     website: 'https://skylinkchrome.com',
     author: 'https://bsky.app/profile/did:plc:f55kfczvcsjlaota4ep2xvhx',
     tags: ['othertools', 'favorite'],
@@ -668,8 +671,9 @@ const Users: User[] = [
   {
     title: 'Bluesky post heatmap generator',
     description: 'Generates a heatmap of Bluesky posts',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/heatmap-generator.png'),
     website: 'https://bluesky-heatmap.fly.dev/',
+    source: 'https://github.com/aliceisjustplaying/bluesky-heatmap',
     author: 'https://bsky.app/profile/did:plc:by3jhwdqgbtrcc7q4tkkv3cf',
     tags: ['othertools', 'favorite'],
   },
@@ -761,6 +765,134 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ijpidtwscybqhs5fxyzjojmu',
     tags: ['othertools'],
   },
+  {
+    title: 'MTA Alerts',
+    description: 'Bot for MTA Realtime Subway Alerts',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:jvhf36loasspmffobuyfpopz',
+    source: 'https://github.com/skiniks/mta-alerts-bot',
+    author: 'https://bsky.app/profile/did:plc:ubz4oedvsb7dsuncqi5jb7o2',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'Limerick Bot',
+    description: 'Tag this bot to rewrite your post as a limerick',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:kqz6gh5hiukhcfg7i3hgpzzh',
+    author: 'https://bsky.app/profile/did:plc:4r2qco7eb644cpyga5r6vdib',
+    tags: ['bot'],
+  },
+  {
+    title: 'bskybots',
+    description: 'Assorted bots that reply on command',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/QuietImCoding/bskybots',
+    source: 'https://github.com/QuietImCoding/bskybots',
+    author: 'https://bsky.app/profile/did:plc:hsqwcidfez66lwm3gxhfv5in',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'Song of Songs Bot',
+    description: 'Posts a verse every six hours',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:75aqefjj3p45ubompts62agn',
+    source: 'https://github.com/aliceisjustplaying/songofsongs-bot-bsky',
+    author: 'https://bsky.app/profile/did:plc:by3jhwdqgbtrcc7q4tkkv3cf',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'FAQ Bot',
+    description: 'Mention the bot to get Bluesky FAQ',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/faqbot.bsky.social',
+    source: 'https://github.com/dcsan/bsky-faq-bot',
+    author: 'https://bsky.app/profile/did:plc:66exg3ue3crrvms3kltkwy4j',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'GitHub Trending Bot',
+    description: 'Auto-post GitHub trending repos',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:eidn2o5kwuaqcss7zo7ivye5',
+    source: 'https://github.com/kawamataryo/bsky-github-trending-bot',
+    author: 'https://bsky.app/profile/did:plc:hcp53er6pefwijpdceo5x4bp',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'Bsky Weathercam Bot',
+    description: 'Posts a photo every 3 hours',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:n5ddwqolbjpv2czaronz6q3d',
+    author: 'https://bsky.app/profile/did:plc:o2hywbrivbyxugiukoexum57',
+    tags: ['bot'],
+  },
+  {
+    title: 'Get Alt Text Bot',
+    description: 'Tag bot for alt text',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:ck5xa2cgd3negu6usqedzjbf',
+    source: 'https://github.com/hs4man21/bluesky-alt-text-ocr',
+    author: 'https://bsky.app/profile/did:plc:tzq3i67wnarn6x2kbjcprnfx',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'Trend Words Bot',
+    description: 'Bot that displays trending words on the network',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:7ktx3oe2zbompu3cjwthlest',
+    author: 'https://bsky.app/profile/did:plc:wwqlk2n45es2ywkwrf4dwsr2',
+    tags: ['bot'],
+  },
+  {
+    title: 'Most Attention-Grabbing Posts Bot',
+    description: 'Reposts high-engagement posts',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:boopgqnkg2inpleusxo7kj4l',
+    author: 'https://bsky.app/profile/did:plc:wwqlk2n45es2ywkwrf4dwsr2',
+    tags: ['bot'],
+  },
+  {
+    title: 'Linux Kernel Releases Bot',
+    description: 'Posts new kernel releases',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:35c6qworuvguvwnpjwfq3b5p',
+    author: 'https://bsky.app/profile/did:plc:kw6k5btwuh4hazzygvhxygx3',
+    tags: ['bot'],
+  },
+  {
+    title: 'ai Bot',
+    description: 'Reply on command and chat',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:4hqjfn7m6n5hno3doamuhgef',
+    author: 'https://bsky.app/profile/did:plc:uqzpqmrjnptsxezjx4xuh2mn',
+    tags: ['bot'],
+  },
+  {
+    title: 'Score My Wordle Bot',
+    description: 'Provides Wordle stats and scores across Bluesky, Mastodon, and Twitter',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:wems3hfqqjsfenrrd325q6zo',
+    source: 'https://github.com/shaneafsar/wordlescorer/',
+    author: 'https://bsky.app/profile/did:plc:ksl6jmkhz7qli2ywletvvm2z',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'Rijden de Treinen Bot',
+    description: 'Posts train disruptions in the Netherlands',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:ijgkhvxpubqao7yiwtbzpyrm',
+    author: 'https://bsky.app/profile/did:plc:kvbm4te3fersn2nrxukajsql',
+    tags: ['bot'],
+  },
+  {
+    title: 'Adopt a Pet Bot',
+    description: 'Posts an adoptable pet every 10 minutes',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:huey5xufsv67u3fmmtatj2ox',
+    source: 'https://github.com/skiniks/adopt-a-pet-bot',
+    author: 'https://bsky.app/profile/did:plc:ubz4oedvsb7dsuncqi5jb7o2',
+    tags: ['bot', 'opensource'],
+  },
 ]
 
 export type User = {
@@ -783,7 +915,7 @@ export const Tags: {[type in TagType]: Tag} = {
   favorite: {
     label: 'Favorite',
     description:'Staff picks',
-    color: '#e9669e',
+    color: '#D00C61',
   },
   opensource: {
     label: 'Open-Source',
@@ -835,6 +967,11 @@ export const Tags: {[type in TagType]: Tag} = {
     description: 'Resources and tutorials',
     color: '#f4b400',
   },
+  bot: {
+    label: 'Bot',
+    description: 'Automated posts to Bluesky',
+    color: '#7D2E68',
+  },
   othertools: {
     label: 'Other Tools',
     description: 'Miscellaneous tools for Bluesky',
@@ -853,294 +990,3 @@ function sortUsers() {
 }
 
 export const sortedUsers = sortUsers();
-
-// /**
-//  * Copyright (c) Facebook, Inc. and its affiliates.
-//  *
-//  * This source code is licensed under the MIT license found in the
-//  * LICENSE file in the root directory of this source tree.
-//  */
-
-// import React from 'react';
-// import {difference, sortBy} from '../utils/jsUtils';
-// import {
-//   SiJavascript,
-//   SiTypescript,
-//   SiReact,
-//   SiSvelte,
-//   SiPython,
-//   SiDjango,
-//   SiGo,
-//   SiDocker,
-//   SiCelery,
-//   SiRedis,
-//   SiAmazonaws,
-//   SiFlutter,
-//   SiGraphql,
-//   SiLine,
-//   SiPokemon,
-//   SiPostgresql,
-//   SiMysql,
-//   SiWebpack
-// } from 'react-icons/si';
-
-
-
-// /*
-//  * ADD YOUR SITE TO THE DOCUSAURUS SHOWCASE:
-//  *
-//  * Requirements for adding your site to our showcase:
-//  * - It is a production-ready site with real content and decent customizations (different from the init templates)
-//  * - It is NOT a work-in-progress with empty pages
-//  * - It has a stable domain name (a Netlify/Vercel deploy preview is not allowed)
-//  *
-//  * Instructions:
-//  * - Add your site in the json array below
-//  * - Add a local image preview (decent screenshot of your Docusaurus site)
-//  * - Use relevant tags to qualify your site (read the tag descriptions bellow)
-//  * - The image MUST be added to the GitHub repository, and use `require("image")`
-//  * - Open a PR and check for reported CI errors
-//  *
-//  * Example PR: https://github.com/facebook/docusaurus/pull/3976
-//  *
-//  * If you edit this file through the Github interface, you can:
-//  * - Submit first your users.js edit PR
-//  * - This will create a branch on your Docusaurus fork (usually "patch-1")
-//  * - Go to https://github.com/<username>/docusaurus/tree/<branch>/website/src/data/showcase
-//  * - Drag-and-drop an image here to add it to your existing PR
-//  *
-//  * Please help us maintain this showcase page data:
-//  * - Update sites with wrong data
-//  * - Ensure site tags remains correct over time
-//  * - Remove sites not using Docusaurus anymore
-//  * - Add missing Docusaurus sites (if the site owner agreed)
-//  *
-//  */
-
-// export type Tag = {
-//   label: string;
-//   description: string;
-//   icon: JSX.Element;
-// };
-
-// export type TagType =
-//   | 'favorite'
-//   | 'opensource'
-//   | 'bot'
-//   | 'client'
-//   | 'feedgenerator'
-//   ;
-
-// export type User = {
-//   title: string;
-//   description: string;
-//   preview: any;
-//   website: string;
-//   source: string | null;
-//   tags: TagType[];
-// };
-
-// // LIST OF AVAILABLE TAGS
-// // Available tags to assign to your site
-// // Please choose widely, we'll remove unappropriate tags
-// export const Tags: Record<TagType, Tag> = {
-//   // For open-source sites, a link to the source code is required
-//   opensource: {
-//     label: 'Open-Source',
-//     description: 'Open-Source Docusaurus sites can be useful for inspiration!',
-//     icon: <>👨‍💻</>,
-//   },
-//   favorite: {
-//     label: 'Favorite',
-//     description: 'Favorite project',
-//     icon: <>👨‍💻</>,
-//   },
-//   bot: {
-//     label: 'Bot',
-//     description: 'Bot',
-//     icon: <>👨‍💻</>,
-//   },
-//   client: {
-//     label: 'Client',
-//     description: 'client',
-//     icon: <>👨‍💻</>,
-//   },
-//   feedgenerator: {
-//     label: 'Feed Generator',
-//     description: 'feed generator',
-//     icon: <>👨‍💻</>,
-//   },
-// };
-
-// // Add your site to this list
-// // prettier-ignore
-// const Users: User[] = [
-//   {
-//     title: 'one',
-//     description: 'description one',
-//     preview: require('./showcase/7wate-wiki.png'),
-//     website: 'https://timeline.line.me/user/_dVIuvfRKpnIF0fshFbeisWNMXSXo1yCFeUZWwFM',
-//     source: 'https://github.com/pandawa-tech/arjuna',
-//     tags: [
-//       'opensource',
-//     ],
-//   },
-//   {
-//     title: 'Bima',
-//     description: 'Algorithm Visualizer.',
-//     preview: require('./showcase/7wate-wiki.png'),
-//     website: 'https://bima.priambudi.fyi/',
-//     source: 'https://github.com/pandawa-tech/bima',
-//     tags: [
-//       'opensource',
-//       'bot'
-//     ],
-//   },
-//   {
-//     title: 'Pokédex',
-//     description: 'Pokédex and catch Pokémon!',
-//     preview: require('./showcase/7wate-wiki.png'),
-//     website: 'https://pokedex.priambudi.fyi/',
-//     source: 'https://github.com/priambudiLB/pokedex',
-//     tags: [
-//       'opensource',
-//       'favorite'
-//     ],
-//   },
-//   {
-//     title: 'Mood Tracker',
-//     description: 'Mood & Activity Tracker App.',
-//     preview: require('./showcase/7wate-wiki.png'),
-//     website: 'https://play.google.com/store/apps/details?id=id.ac.ui.cs.modi.ModiApp&hl=in&gl=US',
-//     source: null,
-//     tags: [
-//       'client'
-//     ],
-//   }
-
-//   /*
-//   Pro Tip: add your site in alphabetical order.
-//   Appending your site here (at the end) is more likely to produce Git conflicts.
-//    */
-// ];
-
-// export const TagList = Object.keys(Tags) as TagType[];
-// function sortUsers() {
-//   let result = Users;
-//   // Sort by site name
-//   result = sortBy(result, (user) => user.title.toLowerCase());
-//   return result;
-// }
-
-// export const sortedUsers = sortUsers();
-
-// // Fail-fast on common errors
-// function ensureUserValid(user: User) {
-//   function checkFields() {
-//     const keys = Object.keys(user);
-//     const validKeys = [
-//       'title',
-//       'description',
-//       'preview',
-//       'website',
-//       'source',
-//       'tags',
-//     ];
-//     const unknownKeys = difference(keys, validKeys);
-//     if (unknownKeys.length > 0) {
-//       throw new Error(
-//         `Site contains unknown attribute names=[${unknownKeys.join(',')}]`,
-//       );
-//     }
-//   }
-
-//   function checkTitle() {
-//     if (!user.title) {
-//       throw new Error('Site title is missing');
-//     }
-//   }
-
-//   function checkDescription() {
-//     if (!user.description) {
-//       throw new Error('Site description is missing');
-//     }
-//   }
-
-//   function checkWebsite() {
-//     if (!user.website) {
-//       throw new Error('Site website is missing');
-//     }
-//     const isHttpUrl =
-//       user.website.startsWith('http://') || user.website.startsWith('https://');
-//     if (!isHttpUrl) {
-//       throw new Error(
-//         `Site website does not look like a valid url: ${user.website}`,
-//       );
-//     }
-//   }
-
-//   function checkPreview() {
-//     if (
-//       !user.preview ||
-//       (user.preview instanceof String &&
-//         (user.preview.startsWith('http') || user.preview.startsWith('//')))
-//     ) {
-//       throw new Error(
-//         `Site has bad image preview=[${user.preview}].\nThe image should be hosted on Docusaurus site, and not use remote HTTP or HTTPS URLs`,
-//       );
-//     }
-//   }
-
-//   function checkTags() {
-//     if (
-//       !user.tags ||
-//       !(user.tags instanceof Array) ||
-//       (user.tags as string[]).includes('')
-//     ) {
-//       throw new Error(`Bad showcase tags=[${JSON.stringify(user.tags)}]`);
-//     }
-//     const unknownTags = difference(user.tags, TagList);
-//     if (unknownTags.length > 0) {
-//       throw new Error(
-//         `Unknown tags=[${unknownTags.join(
-//           ',',
-//         )}\nThe available tags are ${TagList.join(',')}`,
-//       );
-//     }
-//   }
-
-//   function checkOpenSource() {
-//     if (typeof user.source === 'undefined') {
-//       throw new Error(
-//         "The source attribute is required.\nIf your Docusaurus site is not open-source, please make it explicit with 'source: null'",
-//       );
-//     } else {
-//       const hasOpenSourceTag = user.tags.includes('opensource');
-//       if (user.source === null && hasOpenSourceTag) {
-//         throw new Error(
-//           "You can't add the opensource tag to a site that does not have a link to source code.",
-//         );
-//       } else if (user.source && !hasOpenSourceTag) {
-//         throw new Error(
-//           "For open-source sites, please add the 'opensource' tag",
-//         );
-//       }
-//     }
-//   }
-
-//   try {
-//     checkFields();
-//     checkTitle();
-//     checkDescription();
-//     checkWebsite();
-//     checkPreview();
-//     checkTags();
-//     checkOpenSource();
-//   } catch (e) {
-//     throw new Error(
-//       `Showcase site with title=${user.title} contains errors:\n${e.message}`,
-//     );
-//   }
-// }
-
-// Users.forEach(ensureUserValid);
