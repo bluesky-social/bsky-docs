@@ -38,6 +38,14 @@ for await (const entry of entries) {
   for (const [name, def] of Object.entries(defs)) {
     const identifier = name === "main" ? id : `${id}.${name}`;
 
+    // We don't want public-facing docs for unspecced endpoints
+    const containsUnspecced = identifier.toLowerCase().includes('unspecced');
+    const containsDeprecated = def.description?.toLowerCase().includes('deprecated') ?? false;
+
+    if (containsUnspecced || containsDeprecated) {
+      break;
+    }
+
     switch (def.type) {
       case "array":
         components.schemas![identifier] = convertArray(id, name, def);

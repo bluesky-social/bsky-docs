@@ -500,16 +500,6 @@
         ],
         "parameters": [
           {
-            "name": "term",
-            "in": "query",
-            "description": "DEPRECATED: use 'q' instead.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "DEPRECATED: use 'q' instead."
-            }
-          },
-          {
             "name": "q",
             "in": "query",
             "description": "Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.",
@@ -629,16 +619,6 @@
           }
         ],
         "parameters": [
-          {
-            "name": "term",
-            "in": "query",
-            "description": "DEPRECATED: use 'q' instead.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "DEPRECATED: use 'q' instead."
-            }
-          },
           {
             "name": "q",
             "in": "query",
@@ -4190,124 +4170,6 @@
         }
       }
     },
-    "/app.bsky.unspecced.getPopularFeedGenerators": {
-      "get": {
-        "tags": [
-          "app.bsky.unspecced"
-        ],
-        "description": "An unspecced view of globally popular feed generators.",
-        "operationId": "app.bsky.unspecced.getPopularFeedGenerators",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 50
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "query",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "feeds"
-                  ],
-                  "properties": {
-                    "cursor": {
-                      "type": "string"
-                    },
-                    "feeds": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/app.bsky.feed.defs.generatorView"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/com.atproto.admin.disableAccountInvites": {
       "post": {
         "tags": [
@@ -5761,16 +5623,6 @@
         ],
         "parameters": [
           {
-            "name": "term",
-            "in": "query",
-            "description": "DEPRECATED: use 'q' instead",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "DEPRECATED: use 'q' instead"
-            }
-          },
-          {
             "name": "q",
             "in": "query",
             "required": false,
@@ -7202,26 +7054,6 @@
             "required": false,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "rkeyStart",
-            "in": "query",
-            "description": "DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)"
-            }
-          },
-          {
-            "name": "rkeyEnd",
-            "in": "query",
-            "description": "DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)"
             }
           },
           {
@@ -9447,130 +9279,6 @@
         }
       }
     },
-    "/com.atproto.sync.getCheckout": {
-      "get": {
-        "tags": [
-          "com.atproto.sync"
-        ],
-        "description": "DEPRECATED - please use com.atproto.sync.getRepo instead",
-        "operationId": "com.atproto.sync.getCheckout",
-        "parameters": [
-          {
-            "name": "did",
-            "in": "query",
-            "description": "The DID of the repo.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The DID of the repo.",
-              "format": "did"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/vnd.ipld.car": {}
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/com.atproto.sync.getHead": {
-      "get": {
-        "tags": [
-          "com.atproto.sync"
-        ],
-        "description": "DEPRECATED - please use com.atproto.sync.getLatestCommit instead",
-        "operationId": "com.atproto.sync.getHead",
-        "parameters": [
-          {
-            "name": "did",
-            "in": "query",
-            "description": "The DID of the repo.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The DID of the repo.",
-              "format": "did"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "root"
-                  ],
-                  "properties": {
-                    "root": {
-                      "type": "string",
-                      "format": "cid"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "HeadNotFound"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/com.atproto.sync.getLatestCommit": {
       "get": {
         "tags": [
@@ -11188,45 +10896,6 @@
           }
         }
       },
-      "app.bsky.feed.post.entity": {
-        "type": "object",
-        "description": "Deprecated: use facets instead.",
-        "required": [
-          "index",
-          "type",
-          "value"
-        ],
-        "properties": {
-          "index": {
-            "$ref": "#/components/schemas/app.bsky.feed.post.textSlice"
-          },
-          "type": {
-            "type": "string",
-            "description": "Expected values are 'mention' and 'link'."
-          },
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "app.bsky.feed.post.textSlice": {
-        "type": "object",
-        "description": "Deprecated. Use app.bsky.richtext instead -- A text segment. Start is inclusive, end is exclusive. Indices are for utf16-encoded strings.",
-        "required": [
-          "start",
-          "end"
-        ],
-        "properties": {
-          "start": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "end": {
-            "type": "integer",
-            "minimum": 0
-          }
-        }
-      },
       "app.bsky.feed.repost": {
         "type": "object",
         "required": [
@@ -11691,30 +11360,6 @@
           "byteEnd": {
             "type": "integer",
             "minimum": 0
-          }
-        }
-      },
-      "app.bsky.unspecced.defs.skeletonSearchPost": {
-        "type": "object",
-        "required": [
-          "uri"
-        ],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          }
-        }
-      },
-      "app.bsky.unspecced.defs.skeletonSearchActor": {
-        "type": "object",
-        "required": [
-          "did"
-        ],
-        "properties": {
-          "did": {
-            "type": "string",
-            "format": "did"
           }
         }
       },
