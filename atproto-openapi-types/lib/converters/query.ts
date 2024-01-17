@@ -37,6 +37,10 @@ export async function convertQuery(
     const parameters = [] as OpenAPIV3_1.ParameterObject[];
 
     for (const [name, property] of Object.entries(properties)) {
+      const containsDeprecated = property.description?.toLowerCase().includes('deprecated') ?? false;
+      if (containsDeprecated) {
+        continue;
+      }
       const parameter: OpenAPIV3_1.ParameterObject = {
         name,
         in: "query",
