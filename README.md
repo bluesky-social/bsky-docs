@@ -10,11 +10,10 @@ The [atproto.com](https://atproto.com) website, including the AT Protocol specif
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator. 
 
 For live-reloading development:
-
-- clone this repo
-- run `npm install`
-- run the development server with `npm start`
-- open [http://localhost:3000](http://localhost:3000) with your browser.
+1. Clone this repo
+2. Run `npm install`
+3. Run the development server with `npm start`
+4. Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 To output a build:
 
@@ -24,22 +23,20 @@ This command generates static content into the `build` directory and can be serv
 
 ### Generate OpenAPI to Docusaurus MDX
 
-We use the [`docusaurus-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) plugin.
+We use a forked version of [`atproto-open-api-types`](https://github.com/rdmurphy/atproto-openapi-types) to generate an OpenAPI schema from atproto lexicons. We use the [`docusaurus-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) plugin.
 
-Run `npx docusaurus-mdx-checker` to see MDX compatability.
+To generate OpenAPI types from atproto lexicons:
+1. Run `deno task run` to generate a fresh OpenAPI spec to `atproto-openapi-types/spec/api.json`.
+2. Run `npx docusaurus-mdx-checker` to see MDX compatability.
+3. Run `npm run docusaurus gen-api-docs <id>` to generate MDX docs from an OpenAPI spec. In this case, `npm run docusaurus gen-api-docs bskyApi`.
 
-Run `npm run docusaurus gen-api-docs <id>` to generate MDX docs from an OpenAPI spec.
-In this case, `npm run docusaurus gen-api-docs bskyApi`.
-
-
-Run `deno task run` to generate a fresh OpenAPI spec to `atproto-openapi-types/spec/api.json`.
+The OpenAPI docs auto-update with the latest lexicon changes once a day.
 
 ## Are you a developer interested in building on atproto?
 
 Bluesky is an open social network built on the AT Protocol, a flexible technology that will never lock developers out of the ecosystems that they help build. With atproto, third-party can be as seamless as first-party through custom feeds, federated services, clients, and more.
 
 If you're a developer interested in building on atproto, we'd love to email you a Bluesky invite code. Simply share your GitHub (or similar) profile with us via [this form](https://forms.gle/BF21oxVNZiDjDhXF9).
-
 
 ## License
 
