@@ -61,8 +61,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Generate Docusaurus API Docs
-        run: npm run docusaurus gen-api-docs bskyApi
+      - name: Regenerate Docusaurus API Docs
+        run: npm run clear-and-gen-api-docs
 
       - name: Commit MDX updates
         uses: stefanzweifel/git-auto-commit-action@v4

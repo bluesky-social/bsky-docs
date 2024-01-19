@@ -5,7 +5,7 @@ description: "Get a document describing the service's accounts configuration."
 sidebar_label: "com.atproto.server.describeServer"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVEtvnDAQ/iuWL70giKqecsujilZtlVU2qSpFOcyaYXECtmubbRDiv3cG6L6CqhyyHBbsmW+++ebRyQibIM8fpbJ1CtF5G20a0G/Ry6dE5hiU1y5qa+S5vMEoQORWNTWaKMbLtTYbEUsU7KUVfgoClLKNiUEoawq9aTwwQCoTaR2OH4uc8N7GTCdMXI0UEukxOGsCEslOfj47479jVrffyIwiReLEt+BcpdUQJXsObNLJoEqsgd9i65Cc7PoZVRzwfzfaY84awBZ0BesKH4jNta1Bm8AqEEPiHfVIQputjnhlc7zb+e5w19ZWCEb2yTza3hK8h5YIEFZ9eB6iJ0VlTwiVNi9hjvQxIef1FlS7tJR2O4OUyIi+DrfFaqzQfLCoY4XvKUo60uqHXyK/zNXkEnLB6mCIH1Uc9N5yQ9QYAmzwbV1Ggze5JRJNUzPCwmyh0vk/Xk/9HmxGkSm9GmNpuVk3OCgPsaSP7D2tO57zdHWy8RW5lTG6cJ5l6/DSpsEqDVX26p3K5OmoXdyLJYMrW4nl9Ur8ulteiWku++QUD5xOB0yS9x2AF8791PjnGPSJCavG69iuuCCjqJcIHg9V5ZCc22DCDT8asFTaFHawnDrpMOQQ6mK5YNemrsG3bGBEY2xRaBaClwXLRXSFLcSBM22UCl813QcRrbh1aAiJTsfGEYX1NUReL5M/QZ+l9EgeIYW0PZiWgYHwj8W9+D6dEuecGlMXmnPkqyERZ0OswRw4/afcYlfvI8G7fdd/wN6cxI/4GjNX0SbhqR56oJtacm6Dn7Yklbik1Ni469YQ8MFXfc/HNBFckUd63YLXvLX4i4KUCDmLQz38gkPRlELHo0DD1AyL7HSkuZV2Y3PzlTX9C5rLPbY=
+api: eJytVE1v2zAM/SuCLrsYdjHs1Fs/hiLYhgZNWwwoemBkOlZrS5okZzUM//eRtpcmqVH00PgQWyIfHx8/OhlhE+Tpg1S2TiE6b6NNA/otevmYyByD8tpFbY08lVcYBYjcqqZGE8V4udZmI2KJgr20wi9BgFK2MTEIZU2hN40HBkhlIq3D8WORE97bmOmEiauRQiI9BmdNQCLZya8nJ/x3yOr6B5lRpEic+Bacq7QaomRPgU06GVSJNfBbbB2Sk10/oYoD/p9Ge8xZA9iCrmBd4R2xubQ1aBNYBWJIvKMeSWiz1REvbI43O98d7traCsHInrxKa/AevS4mNu+bzwZ/tQTvoSW+FLrePw/RUwFkTwiVNs9hLsdD/s7rLah2aUmldgYpkRF9Ha6L1VjQ+WBRxwo/UsN0pNUPv0R+myvhOeSC1cEQP6uW6L3l/qkxBNjg2zKOBm9ySySapmaEhdlCpfP/vB77V7AZRab0aoyl5d7e4KA8xJI+so90+njOw9jJxlfkVsbowmmWrcNzmwarNFTZi3cqk8eTeXYrlgyubCWWlyvx+2Z5IaYx7pNjPHA6HTBJ3g8Anjl3r/HvIegjE1aN17FdcUFGUc8RPO6ryiE5t8GEG340YKm0KexgOXXSfsgh1Nlywa5NXYNv2cCIxtiCxomE4N3CchFdYQux50wLqMIXTfdBRCuuHRpCotOxcURhfQ2Rt9HkT9AnKT2SR0ghLRumZWAg/GtxK35Op8Q5p8akgeYc+WpIxNkQazB7Tu+UW+zqfSB499r1n7BmJ/EjvsTMVbRJeKqHHuimlpxb+MctSSUuKTU27ro1BLzzVd/zMU0EV+SBXrfgNW8t/qIgJULO4lAPP+NQNKXQ8SjQMDXDIjseaW6l3dhcfWdN/wFIVk76
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -101,6 +101,15 @@ Get a document describing the service's accounts configuration.
                         
                       </SchemaItem><SchemaItem
                         collapsible={false}
+                        name={"phoneVerificationRequired"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
                         name={"availableUserDomains"}
                         required={true}
                         schemaName={"string[]"}
@@ -164,7 +173,7 @@ Get a document describing the service's accounts configuration.
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"inviteCodeRequired\": true,\n  \"availableUserDomains\": [\n    \"string\"\n  ],\n  \"links\": {\n    \"privacyPolicy\": \"string\",\n    \"termsOfService\": \"string\"\n  }\n}"}
+                    responseExample={"{\n  \"inviteCodeRequired\": true,\n  \"phoneVerificationRequired\": true,\n  \"availableUserDomains\": [\n    \"string\"\n  ],\n  \"links\": {\n    \"privacyPolicy\": \"string\",\n    \"termsOfService\": \"string\"\n  }\n}"}
                     language={"json"}
                   >
                     
