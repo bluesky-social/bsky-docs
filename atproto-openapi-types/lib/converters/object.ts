@@ -35,6 +35,10 @@ function convertProperties(
   const converted: OpenAPIV3_1.SchemaObject["properties"] = {};
 
   for (const [key, property] of Object.entries(properties)) {
+    const containsDeprecated = property.description?.toLowerCase().includes('deprecated') ?? false;
+    if (containsDeprecated) {
+      continue;
+    }
     converted[key] = convertProperty(id, name, property);
   }
 
