@@ -1,12 +1,12 @@
 ---
-id: com-atproto-sync-get-checkout
-title: "com.atproto.sync.getCheckout"
-description: "DEPRECATED - please use com.atproto.sync.getRepo instead"
-sidebar_label: "com.atproto.sync.getCheckout"
+id: com-atproto-temp-request-phone-verification
+title: "com.atproto.temp.requestPhoneVerification"
+description: "Request a verification code to be sent to the supplied phone number"
+sidebar_label: "com.atproto.temp.requestPhoneVerification"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVE1v2zAM/SuCLtuAzC6GnXJLm2AItqFBmg0DihwUmYnV2pIq0VkDw/99pO22+epWYAkCxxL5+Eg+spaoNlEOb6V2ZaLQB4cuiTur5XIgM4g6GI/GWTmU48lsPrkaLSZj8VH4AlQEUdHv2DPZAM7BO2FsRFCZHEjnISiGmWYEdM7hKgd97yokY6+CKgEhMK9aWnohp8wwkGEiDxWEnTymt8hBjKdj4dYC6W8gBgkZBXioTACKi6GCgYw6h1LJYS1x5xk4YjB281a4tQulwp5P0yw5QPTORoiM+enigh+HUNdfyVE7i2CRb5X3hdFtPdKtzRLjiyzRKtBd0zQD+fkcyKXKxJxygYivo91Ftq1Pk3SrO9B4UI5bCSG4QGclxKg2wB2nplCr0HTZdAZnSgW2KhlhareqMNkTr2XzAnbi1XQftsDcsQ6o7W27MaeX9B+qiBC2T5KoQkEeOaKPwzRdxftdEp02qkgfg9fpSS9HCzFjXO0KMRvfiF/z2ZXoAGUzOMZT3iQtJlX2DYAj738a+H0IumTCugoGdzfci66el6AC7BeUQ8pek/y+6gy4SsauXWtpsICjkG2o0WzKrlVZKpoGMrCism69NlwIGkrL5SK6rOA953dRFPBo6D4KdOLagyUkOu00IzqBs9R7f4K+SOhLJ6QzIKUzrX4qv08X4lt/Spwz0qRZG86Rr9pEvItYKrvndK7TYq/VB7WuX7T+PxuoLzjCI6a+ULRHiFrb97pX4OkKPFAgdTSnTNiurlcU+UcomoaPu3XEusxMVKuCh2utigh/yeT9vJ/DD+KVRXOW8D3snlchTV7FFq3YtioYDk00eAhzSpqbQJw6l5HW4HHP69UdxGjPE/plwj38A0KhGPg=
-sidebar_class_name: "get api-method"
+api: eJytVE1v2zAM/SuCLrtkdjHslFva7RDso0GbFQOyHGibidXakibJbQIj/32k5C5f67ABtYFElshH8vFRvQyw9nK8kKVpMwjWmWCygK2Vy5Gs0JdO2aCMlmN5gz879EGAeESnVqoEPhClqVAEIwoUHnXgZahp3VnbKKyErY1Gobu2QCdH0lh00XFaEeZp1MylIDN2ujsIQ57D0aWptnLcx0/lkFCC63BEUDpQfD4CDp388nvPyffSlzW2wKuwtUihTXGPZRhwE9BCxmS/plyJAEqM0g0KPTseHu5xfHBKr+UuPozmrdE+eby7uOC/Yx6vP0mye/+no0uoxECzfKWK0DnDvLfoPazxvKpkcFbPSCL1jBGm+hEaVT3ntdztwV5gIVqE2nCHrYm1WAg1feX/03CPjpTG6uxl5xpyr0OwfpznhX/YZt6UCpp842yZy1OxTuZixkFK04jZh1vx/WZ2JRIgsX+KB1ZlEZN4/gfAibV3Cp+OQZeccNk5Fba33JnE7iWCO5ILh+Taogl9F8mAOePG3uxF/nEDrW3wTHm/uR5JpVcmYqvAhkdJxuQmsykH69oW3JYNtOi0WRHJRB2NrmaCeYrNShw4v/GiwY2ic8/zfG1RExLtJs2JlXEthIygB3+CvsjopR3SKZL+OS0NscQv07n4POxSzhVpmtocS6GjWDqrpAV94PSSUERUijiRylGv+v3kvNKlNfQu4CbktgGlmfwooX5Q9vkF+rKySSk1TwU59X0BHr+5ZrfjbXLgNi1o+QhOQcFdXfDE1QgVM0aj8IDcyatU4ts5p8bmTccpnl0ULPbkMSlLtOGvtsuDwZ1d387JuBiu25YYo10HT3zB0O9Y/qA33uiMENUe93vZgF538X6QCZefXyOyPSQ=
+sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
@@ -25,47 +25,69 @@ import TabItem from "@theme/TabItem";
 <h1
   className={"openapi__heading"}
 >
-  com.atproto.sync.getCheckout
+  com.atproto.temp.requestPhoneVerification
 </h1>
 
 <MethodEndpoint
-  method={"get"}
-  path={"/com.atproto.sync.getCheckout"}
+  method={"post"}
+  path={"/com.atproto.temp.requestPhoneVerification"}
 >
   
 </MethodEndpoint>
 
 
 
-DEPRECATED - please use com.atproto.sync.getRepo instead
+Request a verification code to be sent to the supplied phone number
 
 ## Request
 
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<MimeTabs
+  className={"openapi-tabs__mime"}
 >
-  <summary
-    style={{}}
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
   >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
     >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"did","in":"query","description":"The DID of the repo.","required":true,"schema":{"type":"string","description":"The DID of the repo.","format":"did"}}}
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
       >
         
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"phoneNumber"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
   <div>
     <ApiTabs>
       <TabItem
@@ -79,48 +101,7 @@ DEPRECATED - please use com.atproto.sync.getRepo instead
           
           
         </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/vnd.ipld.car"}
-              value={"application/vnd.ipld.car"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      any
-                    </ul>
-                  </details>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
+          
         </div>
       </TabItem><TabItem
         label={"400"}
