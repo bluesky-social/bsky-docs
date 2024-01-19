@@ -7474,6 +7474,12 @@
                   "inviteCode": {
                     "type": "string"
                   },
+                  "verificationCode": {
+                    "type": "string"
+                  },
+                  "verificationPhone": {
+                    "type": "string"
+                  },
                   "password": {
                     "type": "string"
                   },
@@ -8124,6 +8130,9 @@
                   ],
                   "properties": {
                     "inviteCodeRequired": {
+                      "type": "boolean"
+                    },
+                    "phoneVerificationRequired": {
                       "type": "boolean"
                     },
                     "availableUserDomains": {
@@ -9655,6 +9664,63 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.temp.requestPhoneVerification": {
+      "post": {
+        "tags": [
+          "com.atproto.temp"
+        ],
+        "description": "Request a verification code to be sent to the supplied phone number",
+        "operationId": "com.atproto.temp.requestPhoneVerification",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "phoneNumber"
+                ],
+                "properties": {
+                  "phoneNumber": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request",
