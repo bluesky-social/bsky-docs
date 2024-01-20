@@ -7,11 +7,11 @@ import TabItem from '@theme/TabItem';
 
 # Get Started
 
-Let's get started by making your first post to the Bluesky app via the API in under 5 minutes.
+Make your first post to the Bluesky app via the API in under 5 minutes.
 
 ## Install the SDK
 
-Choose the SDK you want to work with.
+Choose the SDK you want to work with. We'll use Typescript here, but you can follow the instructions for the community-maintained [atproto python package](https://atproto.blue/en/latest/) or [atproto.dart package here](https://atprotodart.com/docs/intro).
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -21,20 +21,14 @@ Choose the SDK you want to work with.
     yarn add @atproto/api
     ```
   </TabItem>
-  <TabItem value="python" label="Python">
-    Follow the instructions for the community-maintained [atproto python package here](https://atproto.blue/en/latest/).
-  </TabItem>
-  <TabItem value="dart" label="Dart">
-    Follow the instructions for the community-maintained [atproto.dart package here](https://atprotodart.com/docs/intro).
-  </TabItem>
   <TabItem value="curl" label="CURL">
-    Install CURL if you need to.
+    Install CURL if you need to. It comes pre-installed on most operation systems.
   </TabItem>
 </Tabs>
 
 ## Create a session
 
-This creates an authentication session with your username and password.
+Create an authentication session with your username and password.
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -45,16 +39,10 @@ This creates an authentication session with your username and password.
       service: 'https://bsky.social'
     })
     await agent.login({
-      username: 'bob.com',
+      username: 'example.com',
       password: 'hunter2'
     })
     ```
-  </TabItem>
-  <TabItem value="python" label="Python">
-    TODO
-  </TabItem>
-  <TabItem value="dart" label="Dart">
-    TODO
   </TabItem>
   <TabItem value="curl" label="CURL">
     Replace `$BLUESKY_HANDLE` and `$BLUESKY_PASSWORD` with your credentials.
@@ -75,10 +63,6 @@ The `com.atproto.server.createSession` API endpoint returns a session object con
   <TabItem value="ts" label="Typescript">
     The agent object stores this session information for you, and will include it in the headers of its requests.
   </TabItem>
-  <TabItem value="python" label="Python">
-  </TabItem>
-  <TabItem value="dart" label="Dart">
-  </TabItem>
   <TabItem value="curl" label="CURL">
   </TabItem>
 </Tabs>
@@ -96,12 +80,6 @@ Now you can create a post by sending a POST request to the createRecord endpoint
       createdAt: new Date().toISOString()
     })
     ```
-  </TabItem>
-  <TabItem value="python" label="Python">
-    TODO
-  </TabItem>
-  <TabItem value="dart" label="Dart">
-    TODO
   </TabItem>
   <TabItem value="curl" label="CURL">
     Replace `$BLUESKY_HANDLE` with your handle and and `$ACCESS_JWT` with the JWT in the response from createSession.
@@ -128,10 +106,8 @@ Check out your profile to see the post you just created!
 
 ## Next Steps
 
-You may want to jump to one of the [Starter Templates](/docs/category/starter-templates):
-
-- [Bot starter template](/docs/starter-templates/bots)
-- [Custom Feed starter template](/docs/starter-templates/custom-feeds)
-- [Client starter template](/docs/starter-templates/clients)
-
-Or continue reading the [Tutorials](/docs/category/tutorials) to learn more.
+- Jump to one of the [Starter Templates](/docs/category/starter-templates):
+  - [Bot starter template](/docs/starter-templates/bots)
+  - [Custom Feed starter template](/docs/starter-templates/custom-feeds)
+  - [Client starter template](/docs/starter-templates/clients)
+- Continue reading [Tutorials](/docs/category/tutorials) to learn more.
