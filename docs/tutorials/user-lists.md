@@ -2,6 +2,338 @@
 sidebar_position: 10
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # User lists
 
-TODO
+User lists are collections of users.
+
+The **app.bsky.graph.list** record type declares the existence of a list.
+
+```js title="at://did:plc:bob123/app.bsky.graph.list/pals"
+{
+  $type: "app.bsky.graph.list",
+  purpose: "app.bsky.graph.defs#curatelist",
+  name: "Pals",
+  description: "My good pals",
+  createdAt: "2024-01-20T21:09:25.326Z"
+}
+```
+
+The **app.bsky.graph.listitem** record type declares the inclusion of a user in a list.
+
+```js title="at://did:plc:bob123/app.bsky.graph.listitem/1"
+{
+  $type: "app.bsky.graph.listitem",
+  subject: "did:plc:alice123", // the user included
+  list: "at://did:plc:bob123/app.bsky.graph.list/pals", // the list declaration above
+  createdAt: "2024-01-20T21:09:25.326Z"
+}
+```
+
+:::note
+Only the creator of a list can declare its members.
+:::
+
+## List purpose
+
+Every list has a "purpose" which expresses how it is expected to be used.
+
+```js
+{
+  $type: "app.bsky.graph.list",
+  // highlight-start
+  purpose: "app.bsky.graph.defs#curatelist", // the purpose
+  // highlight-end
+  name: "Pals",
+  //...
+}
+```
+
+There are two purposes:
+
+- **app.bsky.graph.defs#curatelist**: A list of users to drive feeds or set [threadgates](#TODO).
+- **app.bsky.graph.defs#modlist**: A list of users for muting or blocking.
+
+## Viewing a list
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Call [app.bsky.graph.getList](/docs/api/app-bsky-graph-get-list) to view a list and its members.
+
+    ```ts
+    agent.app.bsky.graph.getList({
+      list: uri,
+      limit: 30,
+    })
+    ```
+
+    The output will match this interface:
+
+    ```ts title="getList() output"
+    {
+      cursor?: string;
+      list: AppBskyGraphDefs.ListView;
+      items: AppBskyGraphDefs.ListItemView[];
+    }
+    ```
+
+    Use the cursor to paginate through the full list.
+
+    ```ts
+    import {AppBskyGraphDefs} from '@atproto/api'
+
+    let cursor: string | undefined
+    let members: AppBskyGraphDefs.ListItemView[] = []
+    do {
+      let res = await agent.app.bsky.graph.getList({
+        list: uri,
+        limit: 30,
+        cursor
+      })
+      cursor = res.data.cursor
+      members = members.concat(res.data.items)
+    } while (cursor)
+    ```
+  </TabItem>
+</Tabs>
+
+## Get created lists
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Call [app.bsky.graph.getLists](/docs/api/app-bsky-graph-get-lists) to view lists created by an actor.
+
+    ```ts
+    agent.app.bsky.graph.getLists({
+      actor: didOrHandle,
+      limit: 30
+    })
+    ```
+
+    The output will match this interface:
+
+    ```ts title="getLists() output"
+    {
+      cursor?: string;
+      lists: AppBskyGraphDefs.ListView[];
+    }
+    ```
+
+    Use the cursor to paginate through the full list, as in [Viewing a list](#viewing-a-list).
+  </TabItem>
+</Tabs>
+
+## Get muted lists
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Call [app.bsky.graph.getListMutes](/docs/api/app-bsky-graph-get-list-mutes) to view lists muted by the current actor.
+
+    ```ts
+    agent.app.bsky.graph.getListMutes({
+      limit: 30
+    })
+    ```
+
+    The output will match this interface:
+
+    ```ts title="getListMutes() output"
+    {
+      cursor?: string;
+      lists: AppBskyGraphDefs.ListView[];
+    }
+    ```
+
+    Use the cursor to paginate through the full list, as in [Viewing a list](#viewing-a-list).
+  </TabItem>
+</Tabs>
+
+## Get blocked lists
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Call [app.bsky.graph.getListBlocks](/docs/api/app-bsky-graph-get-list-blocks) to view lists blocked by the current actor.
+
+    ```ts
+    agent.app.bsky.graph.getListBlocks({
+      limit: 30
+    })
+    ```
+
+    The output will match this interface:
+
+    ```ts title="getListBlocks() output"
+    {
+      cursor?: string;
+      lists: AppBskyGraphDefs.ListView[];
+    }
+    ```
+
+    Use the cursor to paginate through the full list, as in [Viewing a list](#viewing-a-list).
+  </TabItem>
+</Tabs>
+
+## Has a user muted or blocked a list?
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    When you call [app.bsky.graph.getList](/docs/api/app-bsky-graph-get-list) or use any API that returns a **app.bsky.graph.defs#listView** object, you can examine the `viewer` field to determine if the user has muted or blocked the list.
+
+    ```ts title="viewer object"
+    {
+      muted?: boolean; // true if muted
+      blocked?: string; // the URI of the block record if blocking
+    }
+    ```
+    
+    For example:
+
+    ```ts
+    const res = await agent.app.bsky.graph.getList({
+      list: listUri
+    })
+    if (res.data.list.viewer?.muted) {
+      // is muting list
+    }
+    if (res.data.list.viewer?.bloced) {
+      // is blocking list
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Mute/unmute a list
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Call [app.bsky.graph.muteActorList](/docs/api/app-bsky-graph-mute-actor-list) to mute a list. The mute state is private.
+
+    ```ts
+    await agent.muteModList(listUri)
+    ```
+
+    Call [app.bsky.graph.unmuteActorList](/docs/api/app-bsky-graph-unmute-actor-list) to unmute a list.
+
+    ```ts
+    await agent.unmuteModList(listUri)
+    ```
+  </TabItem>
+</Tabs>
+
+## Block/unblock a list
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Blocks are public records. You block a list by creating the **app.bsky.graph.listblock** record.
+
+    This is simplified for you with the `blockModList` method:
+
+    ```ts
+    await agent.blockModList(listUri)
+    ```
+
+    You delete the listblock record to unblock the list. This is also simplified for you with `unblockModList`
+
+    ```ts
+    await agent.unblockModList(listUri)
+    ```
+  </TabItem>
+</Tabs>
+
+## Create a list
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Create a list by creating a **app.bsky.graph.list** record.
+
+    ```ts
+    await agent.com.atproto.repo.createRecord({
+      repo: agent.session.did,
+      collection: 'app.bsky.graph.list',
+      record: {
+        $type: 'app.bsky.graph.list',
+        purpose: 'app.bsky.graph.defs#curatelist',
+        name: 'Pals',
+        description: 'My good pals',
+        createdAt: new Date().toISOString()
+      }
+    })
+    ```
+  </TabItem>
+</Tabs>
+
+## Update a list's metadata
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Update a list by updating its **app.bsky.graph.list** record.
+
+    ```ts
+    const {repo, collection, rkey} = new AtUri(listUri)
+    
+    // get the current record
+    const {value: record} = await agent.com.atproto.repo.getRecord({repo, collection, rkey})
+
+    // modify the fields
+    record.name = newName
+    record.description = newDescription
+    // etc
+    
+    await agent.com.atproto.repo.putRecord({
+      repo: currentAccount.did,
+      collection,
+      rkey,
+      record,
+    })
+    ```
+  </TabItem>
+</Tabs>
+
+## Delete a list
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Delete a list by deleting its **app.bsky.graph.list** record.
+
+    ```ts
+    const {repo, collection, rkey} = new AtUri(listUri)
+    await agent.com.atproto.repo.deleteRecord({repo, collection, rkey})
+    ```
+  </TabItem>
+</Tabs>
+
+## Add a user to a list
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Add a user to a list by creating a **app.bsky.graph.listitem** record.
+
+    ```ts
+    await agent.com.atproto.repo.createRecord({
+      repo: agent.session.did,
+      collection: 'app.bsky.graph.listitem',
+      record: {
+        $type: 'app.bsky.graph.listitem',
+        subject: userDid,
+        list: listUrim
+        createdAt: new Date().toISOString()
+      }
+    })
+    ```
+  </TabItem>
+</Tabs>
+
+## Remove a user from a list
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Remove a user from a list by deleting their **app.bsky.graph.listitem** record.
+
+    ```ts
+    const {repo, collection, rkey} = new AtUri(listItemUri)
+    await agent.com.atproto.repo.deleteRecord({repo, collection, rkey})
+    ```
+  </TabItem>
+</Tabs>
