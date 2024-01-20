@@ -4,8 +4,7 @@ sidebar_position: 1
 
 # Creating a post
 
-
-TODO: update this to work better with the docs (and ideally to include typescript examples).
+This is a Python tutorial that explains in detail how to create a post in Bluesky, including how to add mentions and links with rich-text facets. You can skip the tutorial and get the full script of examples [here](https://github.com/bluesky-social/cookbook/tree/main/python-bsky-post).
 
 ## Post Record Structure
 
@@ -19,7 +18,7 @@ Here is what a basic post record should look like, as a JSON object:
 }
 ```
 
-Bluesky posts are repository records with the [Lexicon type](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json) `app.bsky.feed.post` — this just defines the schema for what a post looks like.
+Bluesky posts are repository records with the [Lexicon type](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json) `app.bsky.feed.post` — this  defines the schema for what a post looks like.
 
 Each post requires these fields: `text` and `createdAt` (a timestamp).
 
@@ -83,13 +82,11 @@ The resulting post record object looks like:
 }
 ```
 
-The `langs` field indicates the post language, which can be an array of strings in BCP-47 format.
-
 You can include multiple values in the array if there are multiple languages present in the post. The Bluesky Social client auto-detects the languages in each post and sets them as the default `langs` value, but a user can override the configuration on a per-post basis.
 
 ## Mentions and Links
 
-Mentions and links are annotations that point into the text of a post. They are actually part of a broader system for rich-text "facets." Facets only support links and mentions for now, but can be extended to support features like bold and italics in the future.
+Mentions and links are annotations that point into the text of a post. They are actually part of a broader system for [rich-text facets](/docs/advanced-guides/post-richtext). Facets only support links and mentions for now, but can be extended to support features like bold and italics in the future.
 
 Suppose we have a post:
 
@@ -220,8 +217,6 @@ post["text"] = "✨ example mentioning @atproto.com to share the URL 👨‍❤�
 post["facets"] = parse_facets(post["text"])
 ```
 
-
-
 ## Replies, Quote Posts, and Embeds
 
 Replies and quote posts contain **strong references** to other records. A strong reference is a combination of:
@@ -251,7 +246,7 @@ A complete reply post record looks like:
   }
 }
 ```
-Since threads of replies can get pretty long, reply posts need to reference both the immediate "parent" post and the original "root" post of the thread.
+Since threads of replies can get pretty long, reply posts need to reference both the immediate parent post and the original root post of the thread.
 
 Here's a Python script to find the parent and root values:
 ```python
@@ -511,6 +506,6 @@ On Bluesky, each client fetches and embeds this card metadata, including blob up
 
 ## Putting It All Together
 
-A complete script, with command-line argument parsing, is available [from this Git repository](https://github.com/bluesky-social/atproto-website/blob/main/examples/create_bsky_post.py).
+A complete script, with command-line argument parsing, is available [here](https://github.com/bluesky-social/cookbook/tree/main/python-bsky-post).
 
-As mentioned at the beginning, we expect most folks will use SDKs or libraries for their programming language of choice to help with most of the details described here. But sometimes it is helpful to see what is actually going on behind the abstractions.
+We expect most folks will use SDKs or libraries for their programming language of choice to help with most of the details described here. But sometimes it is helpful to see what is actually going on behind the abstractions.
