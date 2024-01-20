@@ -4170,6 +4170,143 @@
         }
       }
     },
+    "/com.atproto.admin.createCommunicationTemplate": {
+      "post": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Administrative action to create a new, re-usable communication (email for now) template.",
+        "operationId": "com.atproto.admin.createCommunicationTemplate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "subject",
+                  "contentMarkdown",
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the template."
+                  },
+                  "contentMarkdown": {
+                    "type": "string",
+                    "description": "Content of the template, markdown supported, can contain variable placeholders."
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Subject of the message, used in emails."
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "description": "DID of the user who is creating the template.",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.atproto.admin.defs.communicationTemplateView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.admin.deleteCommunicationTemplate": {
+      "post": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Delete a communication template.",
+        "operationId": "com.atproto.admin.deleteCommunicationTemplate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.admin.disableAccountInvites": {
       "post": {
         "tags": [
@@ -5194,6 +5331,63 @@
         }
       }
     },
+    "/com.atproto.admin.listCommunicationTemplates": {
+      "get": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Get list of all communication templates.",
+        "operationId": "com.atproto.admin.listCommunicationTemplates",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "communicationTemplates"
+                  ],
+                  "properties": {
+                    "communicationTemplates": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.atproto.admin.defs.communicationTemplateView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.admin.queryModerationEvents": {
       "get": {
         "tags": [
@@ -6017,6 +6211,91 @@
                   "properties": {
                     "error": {
                       "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.admin.updateCommunicationTemplate": {
+      "post": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
+        "operationId": "com.atproto.admin.updateCommunicationTemplate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "ID of the template to be updated."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the template."
+                  },
+                  "contentMarkdown": {
+                    "type": "string",
+                    "description": "Content of the template, markdown supported, can contain variable placeholders."
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Subject of the message, used in emails."
+                  },
+                  "updatedBy": {
+                    "type": "string",
+                    "description": "DID of the user who is updating the template.",
+                    "format": "did"
+                  },
+                  "disabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.atproto.admin.defs.communicationTemplateView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
                     },
                     "message": {
                       "type": "string"
@@ -12325,6 +12604,51 @@
           "comment": {
             "type": "string",
             "description": "Additional comment about the outgoing comm."
+          }
+        }
+      },
+      "com.atproto.admin.defs.communicationTemplateView": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "contentMarkdown",
+          "disabled",
+          "lastUpdatedBy",
+          "createdAt",
+          "updatedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the template."
+          },
+          "subject": {
+            "type": "string",
+            "description": "Content of the template, can contain markdown and variable placeholders."
+          },
+          "contentMarkdown": {
+            "type": "string",
+            "description": "Subject of the message, used in emails."
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "lastUpdatedBy": {
+            "type": "string",
+            "description": "DID of the user who last updated the template.",
+            "format": "did"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
