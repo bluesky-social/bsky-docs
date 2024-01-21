@@ -6,7 +6,7 @@ sidebar_position: 9
 
 The AT Protocol is made up of a bunch of pieces that stack together. Federation means that anyone can run the parts that make up the AT Protocol themselves, such as their own server.
 
-The three main services are personal data servers (PDS), relays, and App Views. Developers can also run feed generators (custom feeds), and labelers are in active development. 
+The three main services are personal data servers (PDS), Relays, and App Views. Developers can also run feed generators (custom feeds), and labelers are in active development.
 
 ![Federation architecture diagram](/img/docs/federation-architecture-diagram.png)
 
