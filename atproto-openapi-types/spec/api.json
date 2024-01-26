@@ -3365,7 +3365,7 @@
                       "items": {
                         "oneOf": [
                           {
-                            "$ref": "#/components/schemas/app.bsky.graph.def.relationship"
+                            "$ref": "#/components/schemas/app.bsky.graph.defs.relationship"
                           },
                           {
                             "$ref": "#/components/schemas/app.bsky.graph.defs.notFoundActor"
@@ -10178,6 +10178,66 @@
         }
       }
     },
+    "/com.atproto.temp.checkSignupQueue": {
+      "get": {
+        "tags": [
+          "com.atproto.temp"
+        ],
+        "description": "Check accounts location in signup queue.",
+        "operationId": "com.atproto.temp.checkSignupQueue",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "activated"
+                  ],
+                  "properties": {
+                    "activated": {
+                      "type": "boolean"
+                    },
+                    "placeInQueue": {
+                      "type": "integer"
+                    },
+                    "estimatedTimeMs": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.temp.requestPhoneVerification": {
       "post": {
         "tags": [
@@ -10415,6 +10475,9 @@
             },
             {
               "$ref": "#/components/schemas/app.bsky.actor.defs.threadViewPref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.interestsPref"
             }
           ]
         }
@@ -10530,6 +10593,22 @@
           "prioritizeFollowedUsers": {
             "type": "boolean",
             "description": "Show followed users at the top of all replies."
+          }
+        }
+      },
+      "app.bsky.actor.defs.interestsPref": {
+        "type": "object",
+        "required": [
+          "tags"
+        ],
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 640
+            },
+            "maxItems": 100
           }
         }
       },
