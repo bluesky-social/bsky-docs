@@ -121,7 +121,7 @@ There are two purposes:
     }
     ```
 
-    Use the cursor to paginate through the full list, as in [Viewing a list](#viewing-a-list).
+    Use the cursor to paginate through the full list, as detailed in [Viewing a list](#viewing-a-list).
   </TabItem>
 </Tabs>
 
