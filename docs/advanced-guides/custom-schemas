@@ -1,0 +1,54 @@
+---
+sidebar_position: 15
+---
+
+# Custom Schemas
+
+Atproto, and specifically lexicon, provides a toolkit for creating decentralization social applications.
+
+The Bluesky microblogging applicaion uses schemas defined in the `app.bsky.*` namespace.
+
+We're excited for other applications to emerge on atproto as well. Right now, we're artificially prevent non-Bluesky records from being created by our PDSs, however we'll be lifting that limitation soon.
+
+Lexicon is meant to be a social coordination tool. It's an explicit way to announce the schema that some data adheres to and compare it against the schemas that your application understands.
+
+When creating new lexicons, you _must_ identity them under a domain name that you control. 
+
+Lexicons may be used to specify record types, API routes, or new sub-schemas for extension points in lexicons that you do not control.
+
+To read a more in-depth description of Lexicon, check out the [atproto specs](https://atproto.com/guides/lexicon).
+
+### Records
+
+A new social mode will likeley require a new set of record Lexicons. These schemas define the basic pieces of data that make of that social mode.
+
+A lot of care should go into defining these record schemas as they can be very difficult to change once records are published/referenced in the wild
+
+Records _may_ be used across applications, though there is no requirement to do so. For instance, a long-form blogging application on atproto _may_ use the profile records from Bluesky, but they are also free to define their own records.
+
+### APIs
+
+In the same manner in which Bluesky (the company) runs the Bluesky Appview to provide views to it's clients, a developer that is creating a new applciation will need to create and run an API service (or "Appview") for their application.
+
+Of course they may use the already existing PDSs and Relays in the network in order to ingest all relevant user data. But to create views of the underlying records, they will need to index that data and provide views over it.
+
+In order to facilitate open and swappable APIs, developers should create and publish lexicons that describe the API routes for their service.
+
+### Sub-schemas
+
+Within existing application spaces, there are extension points where developers have the ability to define new schemas. These can often be found by looking for "open unions" in the existing lexicons.
+
+A good example in the app.bsky namespace is the post embed type. This is an open union in the post record that currently can contain
+
+- images (`app.bsky.embed.images`)
+- external link (`app.bsky.embed.external`)
+- record - for instance a quote post (`app.bsky.embed.record`)
+- record alongside some media like images (`app.bsky.embed.recordWithMedia`)
+
+Developers can define additional schemas to go in this open union.
+
+For instance a developer that owns the site `bluesky-graphs.com` and wants to embed graphs in bluesky posts may create an embed type called `com.bluesky-graphs.graph`. That developer has full control over how the graph data is encoded.
+
+Of course, after doing so, the Bluesky client will not have the logic to present the graph to the user, and will show an empty embed. Experimental clients, however, may implement logic for some of these experimental embeds. As they gain traction and social consensus, these embeds may make their way into more prominent clients.
+
+We plan to add a generic "fallback" mechanism for clients that encounter embeds they are not familiar with, such that they can notify the user that they are missing context on some content. 
