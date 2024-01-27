@@ -2,6 +2,69 @@
 sidebar_position: 9
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Blocking users
 
-TODO
+Blocking a user hides the user entirely from the client experience. This
+includes hiding their posts and replies in feeds, their profile from search, and
+their [INSERT FULL DESCRIPTION OF A BLOCK]. Blocks are public [INSERT WHY].
+
+Blocking users is as simple as muting, but requires creating a record directly.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.app.bsky.graph.block.create"
+    const { uri } = await agent.app.bsky.graph.block.create(
+      { repo: agent.session.did },
+      {
+        subject: blockingUserDid,
+        createdAt: new Date().toISOString()
+      },
+    )
+    ```
+  </TabItem>
+</Tabs>
+
+The `agent.app.bsky.graph.block.create` method takes two position parameters.
+First, the repo:
+
+| Parameter | Type     | Description                       | Required |
+| --------- | -------- | --------------------------------- | -------- |
+| `repo`    | `string` | The DID of the authenticated user | Yes      |
+
+And the block record itself:
+
+| Parameter   | Type     | Description                  | Required |
+| ----------- | -------- | ---------------------------- | -------- |
+| `subject`   | `string` | The DID of the user to block | Yes      |
+| `createdAt` | `string` | The current timestamp        | Yes      |
+
+## Unblocking a user
+
+Similar to likes and follows, unblocking a user is as simple as deleting the
+record.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.app.bsky.graph.block.delete"
+    import { AtUri } from '@atproto/api'
+
+    const { rkey } = new AtUri(uri)
+
+    await agent.app.bsky.graph.block.delete(
+      {
+        repo: agent.session.did,
+        rkey,
+      },
+    )
+    ```
+
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                               | Required |
+| --------- | -------- | ----------------------------------------- | -------- |
+| `repo`    | `string` | The DID of the authenticated user         | Yes      |
+| `rkey`    | `string` | The record key (rkey) of the block record | Yes      |
