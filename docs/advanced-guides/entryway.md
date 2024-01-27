@@ -6,7 +6,7 @@ sidebar_position: 13
 
 Bluesky runs many PDSs. Each PDS runs as a completely separate service in the network with it's own identity. They federate with the rest of the network in the exact same manner that a non-Bluesky PDS would. These PDSs have hostnames such as `morel.us-east.host.bsky.network`.
 
-however, the user-facing concept fo Bluesky's "PDS Service" is simply `bsky.social`. This is reflected in the provided subdomain that users on a Bluesky PDS have access to, as well as the hostname that they may provide at login in order to route their login request to the correct service. A user should not be expected to understand or remember the specific host that their account is on
+However, the user-facing concept fo Bluesky's "PDS Service" is simply `bsky.social`. This is reflected in the provided subdomain that users on a Bluesky PDS have access to, as well as the hostname that they may provide at login in order to route their login request to the correct service. A user should not be expected to understand or remember the specific host that their account is on
 
 To enable this, we introduced a "PDS Entryway service".  This service is used to orchestrate account managment across Bluesky PDSs and to provide an interface for interacting with `bsky.social` accounts.
 
@@ -29,3 +29,13 @@ Of course, a developer can always short-circuit this behavior and go directly to
 We recommend this behavior, and to enable it, we return the user's DID document (which contains the user's actual PDS hostname) in all session management routes (including `createAccount`). 
 
 The Typescript API library published by Bluesky takes care of this dynamic routing automatically. Developers may configure it to communciate with `bsky.social`, on session creation, it will reconfigure the agent to send requests to the user's actual PDS.
+
+### Engaging with Entryway as a developer
+
+Ideally, developers should not have to engage much with the concepts surrounding the Entryway. The important things to note are:
+
+- the user's PDS is the hostname listed in the DID doc
+- when offering signup/login to a user, Bluesky PDSs should be communicated as `bsky.social`
+- most application requests can be sent to _either_ the Entryway _or_ the PDS
+- for non-session related routes, we encourage going directly to the PDS in order to avoid the extra hop
+- if using the Bluesky Typescript SDK, you may configure it with `bsky.social` and the library will handle the dynamic routing for you
