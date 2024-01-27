@@ -2,6 +2,37 @@
 sidebar_position: 7
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Following and unfollowing
 
-TODO
+Following a user is as easy as calling `agent.follow` with the DID of the user you want to follow.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.follow"
+      const { uri } = await agent.follow(did)
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                   | Required |
+| --------- | -------- | ----------------------------- | -------- |
+| `did`     | `string` | The DID of the user to follow | Yes      |
+
+Un-following a user involves deleting the follow record via its URI, returned
+from `agent.follow`. This is very similar to what we did when [un-liking a
+post](/docs/tutorials/like-repost).
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.deleteFollow"
+      await agent.deleteFollow(uri)
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                   | Required |
+| --------- | -------- | ----------------------------- | -------- |
+| `uri`     | `string` | The URI of the follow record to delete | Yes      |
