@@ -7,13 +7,13 @@ import TabItem from '@theme/TabItem';
 
 # Custom feeds
 
-*Custom feeds*, aka "feedgens", are algorithmic feed-generators. This document will explain how to interact with a custom feed in the network.
+Custom feeds are algorithmic feed generators. To users, this is their timeline. This tutorial will explain how to interact with a feed generator in the network.
 
 :::tip
 Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/starter-templates/custom-feeds) to get started.
 :::
 
-## Getting a feedgen's description
+## Getting a feed generator's description
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -49,7 +49,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
   </TabItem>
 </Tabs>
 
-## Viewing a feedgen's posts
+## Viewing a feed generator's posts
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -72,7 +72,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
     }
     ```
 
-    Use the returned cursor to fetch additional pages.
+    Use the returned cursor to fetch additional pages of posts.
   </TabItem>
 </Tabs>
 
@@ -106,7 +106,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    Liking a feed is the same as liking any other item. You just use the URI and CID of the feedgen.
+    Liking a feed is the same as liking any other item in the network. You just use the URI and CID of the feed generator to identify the feed.
 
     ```ts
     const {data: feedInfo} = agent.app.bsky.feed.getFeedGenerator({
@@ -115,7 +115,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
     await agent.like(feedUri, feedInfo.view.cid)
     ```
 
-    Likewise for unliking:
+    Unliking a feed works the same way:
     
     ```ts
     const {data: feedInfo} = agent.app.bsky.feed.getFeedGenerator({
