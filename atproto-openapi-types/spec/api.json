@@ -3,11 +3,8 @@
   "info": {
     "title": "AT Protocol XRPC API",
     "summary": "Conversion of AT Protocol's lexicons to OpenAPI's schema format.",
-    "version": "0.0.0",
-    "license": {
-      "name": "MIT License",
-      "identifier": "MIT"
-    }
+    "description": "This section contains HTTP API reference docs for Bluesky and AT Protocol lexicons. Generate a bearer token to test API calls directly from the docs.",
+    "version": "0.0.0"
   },
   "servers": [
     {
@@ -3317,6 +3314,99 @@
         }
       }
     },
+    "/app.bsky.graph.getRelationships": {
+      "get": {
+        "tags": [
+          "app.bsky.graph"
+        ],
+        "description": "Enumerates public relationships between one account, and a list of other accounts",
+        "operationId": "app.bsky.graph.getRelationships",
+        "parameters": [
+          {
+            "name": "actor",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "at-identifier"
+            }
+          },
+          {
+            "name": "others",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "at-identifier"
+              },
+              "maxItems": 30
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "relationships"
+                  ],
+                  "properties": {
+                    "actor": {
+                      "type": "string",
+                      "format": "did"
+                    },
+                    "relationships": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/components/schemas/app.bsky.graph.defs.relationship"
+                          },
+                          {
+                            "$ref": "#/components/schemas/app.bsky.graph.defs.notFoundActor"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ActorNotFound"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/app.bsky.graph.getSuggestedFollowsByActor": {
       "get": {
         "tags": [
@@ -4177,6 +4267,11 @@
         ],
         "description": "Administrative action to create a new, re-usable communication (email for now) template.",
         "operationId": "com.atproto.admin.createCommunicationTemplate",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -4236,8 +4331,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -4257,6 +4376,11 @@
         ],
         "description": "Delete a communication template.",
         "operationId": "com.atproto.admin.deleteCommunicationTemplate",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -4293,8 +4417,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -5338,6 +5486,11 @@
         ],
         "description": "Get list of all communication templates.",
         "operationId": "com.atproto.admin.listCommunicationTemplates",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5374,8 +5527,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -6230,6 +6407,11 @@
         ],
         "description": "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
         "operationId": "com.atproto.admin.updateCommunicationTemplate",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -6294,8 +6476,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9972,6 +10178,66 @@
         }
       }
     },
+    "/com.atproto.temp.checkSignupQueue": {
+      "get": {
+        "tags": [
+          "com.atproto.temp"
+        ],
+        "description": "Check accounts location in signup queue.",
+        "operationId": "com.atproto.temp.checkSignupQueue",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "activated"
+                  ],
+                  "properties": {
+                    "activated": {
+                      "type": "boolean"
+                    },
+                    "placeInQueue": {
+                      "type": "integer"
+                    },
+                    "estimatedTimeMs": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.temp.requestPhoneVerification": {
       "post": {
         "tags": [
@@ -10209,6 +10475,9 @@
             },
             {
               "$ref": "#/components/schemas/app.bsky.actor.defs.threadViewPref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.interestsPref"
             }
           ]
         }
@@ -10324,6 +10593,22 @@
           "prioritizeFollowedUsers": {
             "type": "boolean",
             "description": "Show followed users at the top of all replies."
+          }
+        }
+      },
+      "app.bsky.actor.defs.interestsPref": {
+        "type": "object",
+        "required": [
+          "tags"
+        ],
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 640
+            },
+            "maxItems": 100
           }
         }
       },
@@ -11458,6 +11743,47 @@
           },
           "blocked": {
             "type": "string",
+            "format": "at-uri"
+          }
+        }
+      },
+      "app.bsky.graph.defs.notFoundActor": {
+        "type": "object",
+        "description": "indicates that a handle or DID could not be resolved",
+        "required": [
+          "actor",
+          "notFound"
+        ],
+        "properties": {
+          "actor": {
+            "type": "string",
+            "format": "at-identifier"
+          },
+          "notFound": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      },
+      "app.bsky.graph.defs.relationship": {
+        "type": "object",
+        "description": "lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)",
+        "required": [
+          "did"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "following": {
+            "type": "string",
+            "description": "if the actor follows this DID, this is the AT-URI of the follow record",
+            "format": "at-uri"
+          },
+          "followedBy": {
+            "type": "string",
+            "description": "if the actor is followed by this DID, contains the AT-URI of the follow record",
             "format": "at-uri"
           }
         }
