@@ -95,11 +95,8 @@ const api: OpenAPIV3_1.Document = {
     title: "AT Protocol XRPC API",
     summary:
       "Conversion of AT Protocol's lexicons to OpenAPI's schema format.",
+    description: "This section contains HTTP API reference docs for Bluesky and AT Protocol lexicons. Generate a bearer token to test API calls directly from the docs.",
     version: "0.0.0", // This will be a living document for now, so no versioning yet
-    license: {
-      name: "MIT License",
-      identifier: "MIT",
-    },
   },
   servers: [
     {
