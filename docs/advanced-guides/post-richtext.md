@@ -5,25 +5,25 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Links, mentions, and richtext
+# Links, mentions, and rich text
 
-Posts in Bluesky use *richtext* to handle links, mentions, and other kinds of decorated text.
+Posts in Bluesky use *rich text* to handle links, mentions, and other kinds of decorated text.
 
-A common way to handle richtext is through a markup language. For example, in HTML we might write:
+A common way to handle rich text is through a markup language. For example, in HTML we might write:
 
 ```html
 Go to <a href="https://example.com">this site</a>
 ```
 
-And in markdown we would write:
+And in Markdown we would write:
 
 ```md
 Go to [this site](https://example.com)
 ```
 
-Bluesky does not use a markup language ([see this blogpost for more](https://www.pfrazee.com/blog/why-facets)). Instead, it uses a concept of *Richtext Facets* which point at locations in the text.
+Bluesky does not use a markup language ([read here for more details](https://www.pfrazee.com/blog/why-facets)). Instead, it uses a concept of *rich text facets* which point at locations in the text.
 
-## Richtext Facets
+## Rich text facets
 
 Let's look at the string we want to decorate:
 
@@ -76,9 +76,9 @@ In a post, it looks like this:
 
 The facet's features establish what kind of decorations are being applied to the range. There are three supported feature types:
 
-- **app.bsky.richtext.facet#link** A link to some resource. Has the `uri` attribute.
-- **app.bsky.richtext.facet#mention** A mention of a user. Produces a notification for the mentioned user. Has the `did` attribute.
-- **app.bsky.richtext.facet#tag** A hashtag. Has the `tag` attribute.
+- **app.bsky.richtext.facet#link**: A link to some resource. Has the `uri` attribute.
+- **app.bsky.richtext.facet#mention**: A mention of a user. Produces a notification for the mentioned user. Has the `did` attribute.
+- **app.bsky.richtext.facet#tag**: A hashtag. Has the `tag` attribute.
 
 Facets can not overlap. It's recommended that renderers sort them by `byteStart` and discard any facets which overlap each other. The `features` attribute is an array to support multiple decorations on a given range.
 
@@ -89,7 +89,7 @@ Strings in the network are UTF-8 encoded. Facet ranges are indexed using byte of
 :::warning
 It's important to pay attention to this when working with facets. Incorrect indexing will produce bad data.
 
-If you are using Typescript/Javascript, you **cannot** use `.slice()` or any of the native methods. It's suggested you use the [official api's RichText library](https://npm.im/@atproto/api)
+If you are using Typescript/Javascript, you **cannot** use `.slice()` or any of the native methods. It's suggested you use the [official atproto API's RichText library](https://npm.im/@atproto/api)
 :::
 
 To understand this fully, let's look at some of the kinds of indexing that Unicode supports:
@@ -104,9 +104,7 @@ Bluesky uses UTF-8 code units to index facets. Put another way, it uses byte off
 
 Clients to Bluesky should produce facets using parsers. It's perfectly valid to use a syntax (including markdown or HTML) but that syntax should be stripped out of the text before publishing.
 
-It's recommended that you use one of the existing libraries in the ecosystem:
-
-Here are two example parsers to help you understand this behavior. Do *not* use these. You should use one of the libraries listed above.
+Here are two example parsers to help you understand this behavior, but do *not* use these. We recommend that you use one of the existing libraries in the ecosystem ([TypeScript](https://github.com/bluesky-social/atproto/tree/main/packages/api), [Python](https://atproto.blue/), [Dart](https://atprotodart.com/), [Go](https://github.com/bluesky-social/indigo/tree/main)).
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
