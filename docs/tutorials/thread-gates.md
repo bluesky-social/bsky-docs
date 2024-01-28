@@ -7,21 +7,21 @@ import TabItem from '@theme/TabItem';
 
 # Thread gates
 
-*Thread gates* control who can reply to a post.
+Thread gates set who can reply to a post.
 
 The available rules are:
 
-- **app.bsky.feed.threadgate#mentionRule** Allow replies from actors mentioned in your post.
-- **app.bsky.feed.threadgate#followingRule** Allow replies from actors you follow.
-- **app.bsky.feed.threadgate#listRule** Allow replies from actors on a list.
+- **app.bsky.feed.threadgate#mentionRule**: Allow replies from actors mentioned in your post.
+- **app.bsky.feed.threadgate#followingRule**: Allow replies from actors you follow.
+- **app.bsky.feed.threadgate#listRule**: Allow replies from actors on a list.
 
-A thread-gate may have up to 5 rules.
+A thread gate may have up to 5 rules.
 
-## Setting a thread-gate
+## Setting a thread gate
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    You set a thread-gate by creating a **app.bsky.feed.threadgate** record with the same "rkey" as the post you're gating.
+    You set a thread gate by creating a **app.bsky.feed.threadgate** record with the same rkey as the post you're gating.
 
     ```ts
     const {rkey} = new AtUri(postUri)
@@ -46,7 +46,7 @@ A thread-gate may have up to 5 rules.
     })
     ```
 
-    If a threadgate record is present but empty, then nobody can reply.
+    If a thread gate record is present but empty, then nobody can reply.
 
     ```ts
     await agent.com.atproto.repo.createRecord({
@@ -63,6 +63,6 @@ A thread-gate may have up to 5 rules.
     })
     ```
 
-    If a threadgate record is not present, then anybody can reply.
+    If a thread gate record is not present, then anybody can reply.
   </TabItem>
 </Tabs>
