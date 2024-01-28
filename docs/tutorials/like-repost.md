@@ -7,13 +7,13 @@ import TabItem from '@theme/TabItem';
 
 # Liking and reposting
 
-Liking and reposting posts are a core feature of Bluesky and our SDK has
-dedicated methods for these actions.
+Liking and reposting posts are a core feature of Bluesky. The [offical atproto SDK](https://www.npmjs.com/package/@atproto/api) has dedicated methods for these actions.
 
 ## Liking a post
 
-Liking a post requires the post's URI and its CID. The CID is used to [INSERT
-WHY].
+Liking a post requires the post's URI and its CID.
+
+The URI indicates the repository DID, collection, and record key. The CID is the hash of the record itself.
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -28,10 +28,10 @@ WHY].
 | `uri`     | `string` | The URI of the post | Yes      |
 | `cid`     | `string` | The CID of the post | Yes      |
 
-## Un-liking a post
+## Unliking a post
 
-And un-liking a post requires only the post's URI, which refers to its record.
-In the case of a Like, un-liking the post means deleting the Like record.
+Unliking a post requires only the post's URI, which refers to its record.
+In the case of a Like, unliking the post means deleting the Like record.
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -48,7 +48,7 @@ In the case of a Like, un-liking the post means deleting the Like record.
 ## Reposting a post
 
 Reposting and un-reposting looks almost exactly the same as liking and
-un-liking.
+unliking.
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -65,7 +65,7 @@ un-liking.
 
 ## Un-reposting a post
 
-Same as un-like, un-reposting a post requires only the post's URI, whose record
+Same as unlike, un-reposting a post requires only the post's URI, whose record
 we want to delete.
 
 <Tabs groupId="sdk">
