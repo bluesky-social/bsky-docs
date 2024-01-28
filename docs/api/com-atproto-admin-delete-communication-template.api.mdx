@@ -5,7 +5,7 @@ description: "Delete a communication template."
 sidebar_label: "com.atproto.admin.deleteCommunicationTemplate"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVMFu2zAM/RWBl148Oxh28i1tdwi2oUGbDQPSHBiZSdTKkirJbQIj/z5QdhenaYsOmC+2RfKJj3xkCxHXAco5SFvnGJ230eZY1crAIoOKgvTKRWUNlHBJmiIJFNLWdWOURDaISLXTGCmHDKwjn04nFZSnmHmVIC6G8bM+HDLw9NBQiOe22kHZpl/lqYIy+oYykNZEMpFN6Jzu44u7wNm1EOSGauSvuHMEJdjlHcnY43ZAc1AVE3OeM42KAvurahAVoldmDfv0cGxw1oTO8fNoxK/jslx9g30GX14znWMlrjtS8J/yJ++thwxqCgHXdEqmczjhkwGZpmaEiXlErarnvBb7A9gbVUgecWO5p84mLg7jBkoo/rXFgfwjeVZcC43XUMImRhfKoliG+10erFSoi613soCX+hvPxJQvklaL6eWN+H09vRAdIOyzl3joVJ4w0bkPAI6d+6Xo6Rh0wQnLxqu4u+HudBU+J/Q0LDFfydySC5Sw7By4btzc64Osv26xdpqeRfe3zBkos7IJUkW2H+WWchpPJ3xHU9fod1DChTVcSZ5AuxID97MgNG2VtCaIaMWVIzOeTs6C6AQmVtbXGHla+3goYZSP8hFkoJUkE1J+BhOXH5OZ+N6fZqAqMlGtFNNnU+LIkqjRDILeUoU4koUY6OKoMe1hVD6ydPouRNrGwmlUhuuZxND2On1lvb2r00UGG9Z5OYe2XWKgn17v93z80BBXf77I4BG9wiU3a84ztCGsuCzzFu6pbxBz+DTj9NhdN5zmyeizdLuIsZTk4ru+i8EoTq9uZpDBsl+Xta04xuMTrwx8ghJu4RbSVmaEpN103oJGs27SxEOHy88fSpEZZA==
+api: eJy9VV2P0zoQ/SvWvPBi0l7Ek4WQugu6rBDaarcgpJIH15luzDq2sZ3dlij/HY2T3aaUryuh25cm8fjMnPE54w6SvIkg1qBcU8jkg0uukFWjLZQcKowqaJ+0syDgFRpMyCRTrmlaq5WkBZaw8UYmLICD8xjy14sKxClmUWWI8+n+1bgdOERUbdBpD2LdwRnKgAHEuuxLDgG/tBjTmav2ILr8qgNWIFJokYNyNqFNtCS9NyP07HOkwjuIqsZG0lPaewQBbvMZVQI+AVqDroizD0QiaYwUr6vJrpiCtjfQ5x/tjd7ZOAQ+m8/p77hjl2+h5/D8R0tnsmJXAyn4S/VjCC4AhwZjlDd4SmYIOOHDAW3bEMKFvZNGV4e6Xu88oa/cLVrgD+vDa9kfUv20R8/n/5xyf29lm2oX9Fes/n/yytmYQMCiTfU7HWMu97dUckSqHenau9wcL1MNAmb/XebhDkPMKm+DAQF1Sj6K2WwTb/dFdEpLM9sFr2bwvQcXK7akRMoZtnx1zT5eLc/ZAAg9/x5Pel1kTOn9HwAuvP+g8f4YtDz48ppOYujmgzsfm0UpiVsOAQGbIYD6Rgd5dfDv651svMEHdz22mYO2W5chdaL1o9pyTYvlBeVom0aGPQg4d5Y6SVPIbdkk/ElkBneajpolxy492sXy4klkg5jY1oVGpuKkG6taRxZR5cFGupTaRvZmtVpSbhZwiwGtQlY5FQmFnZkW4+2eSVtNC3hMX7B/0dJQpME5NIUl8g/VlTCmDKykMZFVOqBKZs+2wTUs1UMaqnJkCQLmxbyYU7NIhI3MDrEyt/xnOmRHQmQTJR6R7w5G/JNRP557wl2aeSO1paKy/LrRGT+4VH7pjJJDTc4Sa+i6jYz4Ppi+p89fWqTzXpcc7mTQckPyWNMAqlFW+Zbo4BZHSRCHpysqj8JNS2WeDBYyy7BjoRT69MvYcmL+5eX1CjhsxpuocRXtCfKeBpK8BwGf4BPku5AQslvy9w6MtDdtnjEw4JI7aBROfDT6hj88ELNxSdr9pMoXgwVZHsYvgY9ssragL/u+/wZApbts
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -154,8 +154,8 @@ Delete a communication template.
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
-                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
                       >
                         
                       </SchemaItem><SchemaItem
@@ -176,6 +176,88 @@ Delete a communication template.
                 >
                   <ResponseSamples
                     responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
                     language={"json"}
                   >
                     
