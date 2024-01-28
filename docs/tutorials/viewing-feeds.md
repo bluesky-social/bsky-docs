@@ -9,9 +9,9 @@ import TabItem from '@theme/TabItem';
 
 Feeds are lists of posts, paginated by cursors. Bluesky has a few types of feeds:
 
-- timelines — the default chronological feed of posts from users the authenticated user follows
-- feed generators — "custom" feeds made by users and organiziations
-- author feeds — a feed of posts by a single author
+- **timelines**: the default chronological feed of posts from users the authenticated user follows
+- **feed generators**: custom feeds made by users and organiziations
+- **author feeds**: a feed of posts by a single author
 
 ## Viewing a user's timeline
 
@@ -38,9 +38,7 @@ The Bluesky agent you created in the [Get Started](/docs/get-started) section ha
 
 ## Feed generators
 
-Feed generators — a.k.a. custom feeds — are created by users and organizations,
-and are therefore tied to an account via its DID. References to feed generators take
-the form of a URI with the following shape:
+Feed generators (custom feeds) are created by users and organizations, and are therefore tied to an account via its DID. References to feed generators take the form of a URI with the following shape:
 
 ```
 at://<did>/app.bsky.feed.generator/<record_key>
@@ -55,8 +53,8 @@ namespace on your Bluesky agent. The method accepts the following parameters
 | `cursor`  | `string` | A cursor that tells the server where to paginate from | No       | `''`    |
 | `limit`   | `number` | The number of posts to return per page (max `100`)    | No       | `50`    |
 
-In the example below, we fetch the first 30 posts from [Bluesky's own "Discover"
-feed](https://bsky.app/profile/bsky.app/feed/whats-hot).
+In the example below, we fetch the first 30 posts from the ["Discover"
+custom feed](https://bsky.app/profile/bsky.app/feed/whats-hot).
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
