@@ -1,0 +1,64 @@
+---
+sidebar_position: 14
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Service Auth
+
+There are currently two "types" of auth supported in the atproto network: client-server auth and service-to-service auth.
+
+The PDS is the root of a user's authority. Service auth is used when making a request from the PDS to another service on behalf of the user.
+
+These service auth tokens take the form of a simple asymetrically signed JWT.
+
+The payload of the JWT looks like:
+
+```TypeScript
+type Payload = {
+  iss: // user's DID
+  aud: // DID of the service that the request is being made to
+  exp: // expiration date of the token, normally set to a short timeframe (<60s)
+}
+```
+
+This JWT is signed by the signing key included in the user's DID document (the same signing key that signs repository updates).
+
+For more details on these service auth tokens, check out the [atproto specs](https://atproto.com/specs/xrpc#inter-service-authentication-temporary-specification).
+
+## Usage
+
+To create and verify service auth tokens, you can use the `@atproto/xrpc-server` library.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```ts
+    import { createServiceJwt, verifyServiceJwt } from '@atproto/xrpc-server'
+    import { IdResolver } from '@atproto/identity'
+
+    // Creating a service JWT
+    const keypair = // users keypair
+
+    const jwt = await createServiceJwt({
+      iss: // usersDid
+      aud: 'did:example:server',
+      keypair,
+    })
+
+
+    // Verifying a service JWT
+    // helper method to resolve a user's DID to their atproto signing key
+    const idResolver = new IdResolver()
+    const getSigningKey = async (
+      did: string,
+      forceRefresh: boolean,
+    ): Promise<string> => {
+      return this.idResolver.did.resolveAtprotoKey(did, forceRefresh)
+    }
+
+    // it is important to always check the audience of the provided service JWT
+    const payload = await verifyServiceJwt(jwt, 'did:example:server', getSigningKey)
+    ```
+  </TabItem>
+</Tabs>
