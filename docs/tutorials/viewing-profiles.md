@@ -13,13 +13,12 @@ posts.
 :::info
 To learn how to fetch a user's posts, see the [Viewing
 feeds](/docs/tutorials/viewing-feeds#author-feeds) tutorial under "Author
-feeds".
+feeds."
 :::
 
 ## Fetching a user's profile info
 
-To fetch a user's profile info, you can use the `getProfile` method on your
-Bluesky agent:
+To fetch a user's profile info, you can use the `getProfile` method.
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -36,7 +35,7 @@ Bluesky agent:
 
 ## Fetching multiple profiles at once
 
-Fetching multiple profiles is as easy as a single profile:
+Fetching multiple profiles is as easy as fetching a single profile:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
