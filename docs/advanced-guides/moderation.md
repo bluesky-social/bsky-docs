@@ -4,17 +4,17 @@ sidebar_position: 5
 
 # Labels and moderation
 
-Moderation in Bluesky is a number of overlapping systems, including:
+Moderation in Bluesky consists of multiple, stackable systems, including:
 
-1. Network takedowns which filter the content from the APIs.
-2. Labels placed on content by moderation services.
-3. User controls such as mutes and blocks.
+1. Network takedowns which filter the content from the APIs
+2. Labels placed on content by moderation services
+3. User controls such as mutes and blocks
 
-It's important that clients understand how to apply labels (#2) and user controls (#3).
+Developers building client applications should understand how to apply labels (#2) and user controls (#3).
 
 ## Labels
 
-Labels are published by "Moderation Services" which are either hard-coded into the application or chosen by the user. They are attached to records in the responses under the `labels` key.
+Labels are published by *moderation services*, which are either hardcoded into the application or chosen by the user. They are attached to records in the responses under the `labels` key.
 
 A label is published with the following information:
 
@@ -35,19 +35,20 @@ A label is published with the following information:
 }
 ```
 
-The "value" of a label will drive the behavior. Some example label values are `porn`, `gore`, and `spam`.
+The *value* of a label will determine its behavior. Some example label values are `porn`, `gore`, and `spam`.
 
-### Label groups & user preferences
+### Label groups and user preferences
 
-Labels are conventionally organized into "groups" which can be configured by users. These groups are designed to collect, for instance, `gore` and `corpse` under "Violence." A user can then choose to ignore, warn, or hide a given label group. Not all labels are configurable this way, but most of them are.
+Labels are conventionally organized into *groups*, which are configurable. For example, the lable values `gore` and `corpse` can be placed in one group named `violence`. A user can then choose to ignore, warn, or hide a given label group. Not all labels are configurable this way, but most of them are.
 
-### Reference: Supported labels
+:::info
 
-You can find a full list of the currently-supported labels and their groups [in the SDK's documentation here](https://github.com/bluesky-social/atproto/blob/main/packages/api/docs/labels.md).
+You can find a full list of the currently-supported labels and their groups in the official atproto SDK's documentation [here](https://github.com/bluesky-social/atproto/blob/main/packages/api/docs/labels.md).
+:::
 
 ## Official SDK
 
-To simplify this task, an API has been made available in the official SDK.
+To simplify this task, the official SDK has an API available to developers.
 
 ### Get the user preferences
 
@@ -89,16 +90,16 @@ You can construct this information using the `agent.getPreferences()` API.
 
 The `moderatePost()` function condenses down the moderation options to the following yes or no decisions:
 
-- `content.filter` Do not show the post in feeds.
-- `content.blur` Put the post behind a warning cover.
-- `content.noOverride` Do not allow the post's blur cover to be lifted.
-- `content.alert` Add a warning to the post but do not cover it.
-- `avatar.blur` Put the avatar behind a cover.
-- `avatar.noOverride` Do not allow the avatars's blur cover to be lifted.
-- `avatar.alert` Put a warning icon on the avatar.
-- `embed.blur` Put the embed content (media, quote post) behind a warning cover.
-- `embed.noOverride` Do not allow the embed's blur cover to be lifted.
-- `embed.alert` Put a warning on the embed content (media, quote post).
+- `content.filter`: Do not show the post in feeds.
+- `content.blur`: Put the post behind a warning cover.
+- `content.noOverride`: Do not allow the post's blur cover to be lifted.
+- `content.alert`: Add a warning to the post but do not cover it.
+- `avatar.blur`: Put the avatar behind a cover.
+- `avatar.noOverride`: Do not allow the avatars's blur cover to be lifted.
+- `avatar.alert`: Put a warning icon on the avatar.
+- `embed.blur`: Put the embed content (media, quote post) behind a warning cover.
+- `embed.noOverride`: Do not allow the embed's blur cover to be lifted.
+- `embed.alert`: Put a warning on the embed content (media, quote post).
 
 You can find a full matrix of scenarios in the [API package docs](https://github.com/bluesky-social/atproto/blob/main/packages/api/docs/moderation-behaviors/posts.md).
 
@@ -141,16 +142,16 @@ if (postMod.avatar.alert) {
 
 The `moderateProfile()` function condenses down the moderation options to the following yes or no decisions:
 
-- `account.filter` Do not show the account in feeds.
-- `account.blur` Put the account (in listings, when viewing) behind a warning cover.
-- `account.noOverride` Do not allow the account's blur cover to be lifted.
-- `account.alert` Add a warning to the account but do not cover it.
-- `profile.blur` Put the profile details (handle, display name, bio) behind a warning cover.
-- `profile.noOverride` Do not allow the profile's blur cover to be lifted.
-- `profile.alert` Add a warning to the profile but do not cover it.
-- `avatar.blur` Put the avatar behind a cover.
-- `avatar.noOverride` Do not allow the avatars's blur cover to be lifted.
-- `avatar.alert` Put a warning icon on the avatar.
+- `account.filter`: Do not show the account in feeds.
+- `account.blur`: Put the account (in listings, when viewing) behind a warning cover.
+- `account.noOverride`: Do not allow the account's blur cover to be lifted.
+- `account.alert`: Add a warning to the account but do not cover it.
+- `profile.blur`: Put the profile details (handle, display name, bio) behind a warning cover.
+- `profile.noOverride`: Do not allow the profile's blur cover to be lifted.
+- `profile.alert`: Add a warning to the profile but do not cover it.
+- `avatar.blur`: Put the avatar behind a cover.
+- `avatar.noOverride`: Do not allow the avatars's blur cover to be lifted.
+- `avatar.alert`: Put a warning icon on the avatar.
 
 You can find a full matrix of scenarios in the [API package docs](https://github.com/bluesky-social/atproto/blob/main/packages/api/docs/moderation-behaviors/profiles.md).
 
