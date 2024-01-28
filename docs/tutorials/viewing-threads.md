@@ -7,9 +7,8 @@ import TabItem from '@theme/TabItem';
 
 # Viewing threads
 
-A "thread" refers to a post, its replies (descendants), and it's parents
-(ancestors). Fetching a thread is done with the `getPostThread` method, which
-accepts the following parameters:
+A *thread* refers to a post, its replies (descendants), and its parents
+(ancestors). Fetching a thread is done with the `getPostThread`` method, which accepts the following parameters:
 
 | Parameter      | Type     | Description                                                 | Required | Default | Minimum | Maximum |
 | -------------- | -------- | ----------------------------------------------------------- | -------- | ------- | ------- | ------- |
@@ -28,9 +27,7 @@ accepts the following parameters:
 
 ## Data shape
 
-A thread response contains a root post along with its replies and its ancestors
-if there are any of either type. In TypeScript, the response can be roughly
-described like this:
+A thread response contains a root post along with its replies and its ancestors (if there are any). The response can be roughly described like this:
 
 ```
 interface ThreadViewPost {
@@ -47,7 +44,7 @@ interface ThreadViewPost {
 ```
 
 Here, the `post` is the "root" — whose URI you provided the `getPostThread`
-method — the `parent` is a nested tree of ancestors (if any), and the `replies`
+method. The `parent` is a nested tree of ancestors (if any), and the `replies`
 is a one-dimentional array of replies (if any).
 
 Because `replies` is one-dimensional, to facilitate the construction of a tree
@@ -80,7 +77,7 @@ As you can see in the types above, any post object in the response can be either
 a valid `ThreadViewPost`, a `NotFoundPost`, or a `BlockedPost`.
 
 A `NotFoundPost` is returned when the post either does not exist, has been
-deleted by its author, or has been taken down by a moderator.
+deleted by its author, or has been taken down by a moderation service.
 
 These posts are included in the response so that a complete tree can be
 constructed. It's up to the end developer to decide how to render these
