@@ -18,12 +18,7 @@ const FeatureList = [
     title: 'Client Apps',
     description: <>Build a client for the Bluesky app.</>,
     href: '/docs/starter-templates/clients',
-  },
-  {
-    title: 'Integrations',
-    description: <>Build integration tools with services like WordPress.</>,
-    href: '/docs/starter-templates/integrations',
-  },
+  }
 ]
 
 function Starter({ href, title, description }) {
