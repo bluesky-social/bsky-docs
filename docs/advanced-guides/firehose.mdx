@@ -15,7 +15,16 @@ Many applications people will want to build on top of atproto and Bluesky will
 start with the firehose, from feed generators to labelers, to bots and search
 engines.
 
-To get started, you will open a WebSocket connection to your favorite firehose provider for the `com.atproto.sync.subscribeRepos` endpoint:
+The the ATProto ecosystem there are many different endpoints that serve
+firehose APIs. Each PDS serves a stream of all of the activity on repos it is
+responsible for, from there services called 'relays' aggregate the streams of
+any PDS who requests it into a single unified stream. This makes the job of
+downstream consumers much easier, as you can get all the data from a single
+location. The main relay for Bluesky is "bsky.network" which we will be using
+in the examples below. 
+
+To get started, you will open a WebSocket connection to your favorite firehose
+provider for the `com.atproto.sync.subscribeRepos` endpoint:
 
 <Tabs groupId="sdk">
   <TabItem value="go" label="Go">
