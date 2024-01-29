@@ -1,0 +1,81 @@
+---
+sidebar_position: 3
+---
+
+# Clients
+
+Bluesky is a public social network with completely open APIs, so anyone can build a client and have access to the same data that the Bluesky app uses. In fact, the official Bluesky client uses the same APIs that a third-party client uses too. 
+
+You can find some existing alternative clients in the [community showcase](/showcase?tags=client).
+
+Below is a starter template created by [@mozzius.dev](https://bsky.app/profile/mozzius.dev). You can find the original blog post with the tutorial [here](https://graysky.app/blog/2023-10-17-getting-started-atproto).
+
+---
+
+This tutorial uses Next.js to create a simple Bluesky client in JavaScript.
+
+## Getting Started
+
+Create a new Next.js app:
+
+```
+pnpm create next-app --tailwind --eslint --src-dir --ts --app --import-alias="~/*" my-bsky-app
+```
+
+Install the @atproto/api package:
+
+```
+pnpm add @atproto/api
+```
+
+Remove the default Next.js template's CSS by setting `src/app/globals.css` to the following:
+
+```css
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## Setting up the API client
+
+Next, let's make a new file called `src/lib/api.ts` and add the following code:
+
+```TypeScript
+// src/lib/api.ts
+import { BskyAgent } from "@atproto/api";
+
+export const agent = new BskyAgent({
+  // App View URL
+  service: "https://api.bsky.app",
+  // If you were making an authenticated client, you would
+  // use the PDS URL here instead - the main one is bsky.social
+  // service: "https://bsky.social",
+});
+```
+
+This is our API client we can use to make requests to the App View. Let's make the homepage `src/app/page.tsx` list the top 10 custom feeds.
+
+```TypeScript
+// src/app/page.tsx
+import { agent } from "~/lib/api";
+
+export default async function Homepage() {
+  const feeds = await agent.app.bsky.unspecced.getPopularFeedGenerators({
+    limit: 10,
+  });
+
+  return (
+    <div className="container mx-auto">
+      <h1 className="font-bold text-xl my-4">Top Feeds</h1>
+      <ul>
+        {feeds.data.feeds.map((feed) => (
+          <li key={feed.displayName}>{feed.displayName}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+Run `pnpm dev` to view a list of the top 10 feeds on Bluesky in the client you just created!
