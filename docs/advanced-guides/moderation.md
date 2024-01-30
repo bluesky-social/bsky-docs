@@ -39,7 +39,7 @@ The *value* of a label will determine its behavior. Some example label values ar
 
 ### Label groups and user preferences
 
-Labels are conventionally organized into *groups*, which are configurable. For example, the lable values `gore` and `corpse` can be placed in one group named `violence`. A user can then choose to ignore, warn, or hide a given label group. Not all labels are configurable this way, but most of them are.
+Labels are conventionally organized into *groups*, which are configurable. For example, the label values `gore` and `corpse` can be placed in one group named `violence`. A user can then choose to ignore, warn, or hide a given label group. Not all labels are configurable this way, but most of them are.
 
 :::info
 

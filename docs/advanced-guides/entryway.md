@@ -8,13 +8,13 @@ Bluesky runs many PDSs. Each PDS runs as a completely separate service in the ne
 
 However, the user-facing concept for Bluesky's "PDS Service" is simply `bsky.social`. This is reflected in the provided subdomain that users on a Bluesky PDS have access to (i.e. their default handle suffix), as well as the hostname that they may provide at login in order to route their login request to the correct service. A user should not be expected to understand or remember the specific host that their account is on.
 
-To enable this, we introduced a PDS Entryway service.  This service is used to orchestrate account managment across Bluesky PDSs and to provide an interface for interacting with `bsky.social` accounts.
+To enable this, we introduced a PDS Entryway service.  This service is used to orchestrate account management across Bluesky PDSs and to provide an interface for interacting with `bsky.social` accounts.
 
 ### Account Management
 
 When a user creates an account on a Bluesky PDS, the call to `com.atproto.server.createAccount` is sent to the Entryway at `bsky.social`. The newly created account is then sorted on to one of the Bluesky PDSs. The end user does not have to be aware of this process at all.
 
-Similarly, session management is handled by the Entryway. However, if a user attempts to refresh/delete their session by sending a request to their PDS host, their PDS will take care of forwarding that request on to the Entryway to provide a seemless experience.
+Similarly, session management is handled by the Entryway. However, if a user attempts to refresh/delete their session by sending a request to their PDS host, their PDS will take care of forwarding that request on to the Entryway to provide a seamless experience.
 
 The Entryway signs valid access tokens for users of Bluesky PDSs, and in this sense, it plays a role similar to an OAuth Authorization Server. And, in fact, as we introduce OAuth to atproto, we expect the Entryway to take on that role.
 
