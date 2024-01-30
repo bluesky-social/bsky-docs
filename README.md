@@ -27,7 +27,7 @@ We use a forked version of [`atproto-open-api-types`](https://github.com/rdmurph
 
 To generate OpenAPI types from atproto lexicons:
 1. Run `deno task run` to generate a fresh OpenAPI spec to `atproto-openapi-types/spec/api.json`.
-2. Run `npx docusaurus-mdx-checker` to see MDX compatability.
+2. Run `npx docusaurus-mdx-checker` to see MDX compatibility.
 3. Run `npm run docusaurus gen-api-docs <id>` to generate MDX docs from an OpenAPI spec. In this case, `npm run docusaurus gen-api-docs bskyApi`.
 
 If you want to regenerate MDX docs from an updated `api.json` file, run `npm run clear-and-gen-api-docs`. This command clears the existing docs and replaces them with freshly generated docs.

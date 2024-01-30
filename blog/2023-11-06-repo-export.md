@@ -163,7 +163,7 @@ func carList(carPath string) error {
 
 Note that the `ForEach` iterator provides a record path string as a key, and a CID as the value, instead of the record data itself. If we want to get the record itself, we need to fetch the "block" (CBOR bytes) from the repository, using the CID reference.
 
-Let's also convert the binary CBOR data in to a more accessbile JSON format, and write out records to disk. The following code snippet could go in the `ForEach` function in the previous example:
+Let's also convert the binary CBOR data in to a more accessible JSON format, and write out records to disk. The following code snippet could go in the `ForEach` function in the previous example:
 
 ```go
 // where to write out data on local disk
