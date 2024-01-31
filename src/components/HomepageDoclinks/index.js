@@ -10,6 +10,18 @@ const FeatureList = [
     description: <>View the complete HTTP API reference.</>,
     href: '/docs/category/http-reference',
   },
+  {
+    title: 'Tutorials',
+    Svg: require('@site/static/img/tutorial.svg').default,
+    description: <>View tutorials for handling the Bluesky API.</>,
+    href: '/docs/category/tutorials',
+  },
+  {
+    title: 'Starter Templates',
+    Svg: require('@site/static/img/template.svg').default,
+    description: <>View starter code for bots, custom feeds, and clients.</>,
+    href: '/docs/category/starter-templates',
+  },
 ]
 
 function Doclink({ Svg, title, description, href }) {
