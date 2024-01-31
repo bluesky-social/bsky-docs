@@ -927,11 +927,6 @@ export const Tags: {[type in TagType]: Tag} = {
     description: 'Alternative Bluesky clients',
     color: '#008080',
   },
-  CLI: {
-    label: 'CLI',
-    description: 'Command Line Interface tools for Bluesky',
-    color: '#555555',
-  },
   bridge: {
     label: 'Bridge',
     description: 'Bridging tools between Bluesky and other platforms',
