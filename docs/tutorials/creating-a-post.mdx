@@ -136,7 +136,7 @@ Learn about how mentions and links work under the hood with the [Link, mentions,
   </TabItem>
 </Tabs>
 
-## Replies, Quote Posts, and Embeds
+## Replies, quote posts, and embeds
 
 Replies and quote posts contain **strong references** to other records. A strong reference is a combination of:
 - **AT URI:** indicates the repository DID, collection, and record key
@@ -190,7 +190,7 @@ Since threads of replies can get pretty long, reply posts need to reference both
   </TabItem>
 </Tabs>
 
-### Quote Posts
+### Quote posts
 
 A quote post embeds a reference to another post record. A complete quote post record would look like:
 
@@ -211,7 +211,7 @@ A quote post embeds a reference to another post record. A complete quote post re
 
 The record embedded here is the post that's getting quoted. The post record type is `app.bsky.feed.post`, but you can also embed other record types in a post, like lists (`app.bsky.graph.list`) and feed generators (`app.bsky.feed.generator`).
 
-### Images Embeds
+### Images embeds
 
 Images are also embedded objects in a post.
 
@@ -287,7 +287,7 @@ Each post contains up to four images, and each image can have its own alt text a
 
 It's strongly recommended best practice to strip image metadata before uploading. The server (PDS) may be more strict about blocking upload of such metadata by default in the future, but it is currently the responsibility of clients (and apps) to sanitize files before upload today.
 
-### Website Card Embeds
+### Website card embeds
 
 A website card embed, often called a "social card," is the rendered preview of a website link. A complete post record with an external embed, including image thumbnail blob, looks like:
 
