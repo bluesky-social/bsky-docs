@@ -11,7 +11,7 @@ Make your first post to the Bluesky app via the API in under 5 minutes.
 
 ## Install the SDK
 
-Choose the SDK you want to work with. We'll use Typescript here, but you can follow the instructions for the community-maintained [atproto python package](https://atproto.blue/en/latest/) or [atproto.dart package here](https://atprotodart.com/docs/intro).
+Choose the SDK you want to work with. Below, we use TypeScript and Python. You can follow the instructions for the community-maintained [atproto.dart package here](https://atprotodart.com/docs/intro).
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -24,6 +24,13 @@ Choose the SDK you want to work with. We'll use Typescript here, but you can fol
   <TabItem value="curl" label="CURL">
     Install CURL if you need to. It comes pre-installed on most operation systems.
   </TabItem>
+  <TabItem value="python" label="Python">
+      Install [atproto](https://pypi.org/project/atproto/) using your preferred package manager.
+
+      ```
+      pip install atproto
+      ```
+    </TabItem>
 </Tabs>
 
 ## Create a session
@@ -53,6 +60,14 @@ Create an authentication session with your username and password.
         -d '{"identifier": "'"$BLUESKY_HANDLE"'", "password": "'"$BLUESKY_PASSWORD"'"}'
     ```
   </TabItem>
+  <TabItem value="python" label="Python">
+      ```python
+      from atproto import Client
+
+      client = Client(base_url='https://bsky.social/xrpc')
+      client.login('example.com', 'hunter2')
+      ```
+    </TabItem>
 </Tabs>
 
 The `com.atproto.server.createSession` API endpoint returns a session object containing two API tokens:
@@ -65,9 +80,12 @@ The `com.atproto.server.createSession` API endpoint returns a session object con
   </TabItem>
   <TabItem value="curl" label="CURL">
   </TabItem>
+  <TabItem value="python" label="Python">
+      The client instance stores and manages this session information for you, and will include it in the headers of its requests.
+  </TabItem>
 </Tabs>
 
-## Create a post 
+## Create a post
 
 Now you can create a post by sending a POST request to the createRecord endpoint.
 
@@ -91,16 +109,40 @@ Now you can create a post by sending a POST request to the createRecord endpoint
         -d "{\"repo\": \"$BLUESKY_HANDLE\", \"collection\": \"app.bsky.feed.post\", \"record\": {\"text\": \"Hello world! I posted this via the API.\", \"createdAt\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}}"
     ```
   </TabItem>
+  <TabItem value="python" label="Python">
+    ```python
+    post = client.send_post('Hello world! I posted this via the Python SDK.')
+    ```
+  </TabItem>
 </Tabs>
 
 This will return an object containing the post's URI and a CID (a hash of the content).
 
-```json
-{
-  "uri": "at://did:plc:abc123..../app.bsky.feed.post/xyz...",
-  "cid": "abc..."
-}
-```
+
+<Tabs groupId="sdk" className="hiddenTabs">
+  <TabItem value="ts" label="Typescript">
+    ```json
+    {
+        "uri": "at://did:plc:abc123..../app.bsky.feed.post/xyz...",
+        "cid": "abc..."
+    }
+    ```
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+    ```json
+    {
+        "uri": "at://did:plc:abc123..../app.bsky.feed.post/xyz...",
+        "cid": "abc..."
+    }
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python
+    post.uri  # at://did:plc:abc123..../app.bsky.feed.post/xyz...
+    post.cid  # abc...
+    ```
+  </TabItem>
+</Tabs>
 
 Check out your profile to see the post you just created!
 

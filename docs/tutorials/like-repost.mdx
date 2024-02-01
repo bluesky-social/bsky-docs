@@ -21,6 +21,12 @@ The URI indicates the repository DID, collection, and record key. The CID is the
       const { uri } = await agent.like(uri, cid)
     ```
   </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.like"
+      res = client.like(models.ComAtprotoRepoStrongRef.Main(uri=uri, cid=cid))
+      res.uri
+    ```
+  </TabItem>
 </Tabs>
 
 | Parameter | Type     | Description         | Required |
@@ -37,6 +43,11 @@ In the case of a Like, unliking the post means deleting the Like record.
   <TabItem value="ts" label="Typescript">
     ```typescript title="agent.deleteLike"
       await agent.deleteLike(uri)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.delete_like"
+      client.delete_like(uri)
     ```
   </TabItem>
 </Tabs>
@@ -56,6 +67,12 @@ unliking.
       const { uri } = await agent.repost(uri, cid)
     ```
   </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.repost"
+      res = client.repost(models.ComAtprotoRepoStrongRef.Main(uri=uri, cid=cid))
+      res.uri
+    ```
+  </TabItem>
 </Tabs>
 
 | Parameter | Type     | Description         | Required |
@@ -72,6 +89,11 @@ we want to delete.
   <TabItem value="ts" label="Typescript">
     ```typescript title="agent.deleteRepost"
       await agent.deleteRepost(uri)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.delete_repost"
+      client.delete_repost(uri)
     ```
   </TabItem>
 </Tabs>

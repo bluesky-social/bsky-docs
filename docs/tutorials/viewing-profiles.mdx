@@ -18,13 +18,22 @@ feeds."
 
 ## Fetching a user's profile info
 
-To fetch a user's profile info, you can use the `getProfile` method.
-
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
+    To fetch a user's profile info, you can use the `getProfile` method.
+
     ```typescript title="agent.getProfile"
     const { data } = await agent.getProfile({ actor: 'did:plc:...' })
     const { did, displayName, ... } = data
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    To fetch a user's profile info, you can use the `get_profile` method.
+
+    ```python title="agent.get_profile"
+    data = client.get_profile(actor='did:plc:...')
+    did = data.did
+    display_name = data.display_name
     ```
   </TabItem>
 </Tabs>
@@ -42,6 +51,12 @@ Fetching multiple profiles is as easy as fetching a single profile:
     ```typescript title="agent.getProfiles"
     const { data } = await agent.getProfiles({ actors: ['did:plc:...', ...] })
     const { profiles } = data
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.get_profiles"
+    data = client.get_profiles(actors=['did:plc:...', ...])
+    profiles = data.profiles
     ```
   </TabItem>
 </Tabs>
