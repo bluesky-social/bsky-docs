@@ -34,6 +34,15 @@ The Bluesky agent you created in the [Get Started](/docs/get-started) section ha
     ```
 
   </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.get_timeline"
+    data = client.get_timeline(cursor='...', limit=30)
+
+    feed = data.feed
+    next_page = data.cursor
+    ```
+
+  </TabItem>
 </Tabs>
 
 ## Feed generators
@@ -75,6 +84,17 @@ custom feed](https://bsky.app/profile/bsky.app/feed/whats-hot).
     ```
 
   </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.app.bsky.feed.get_feed"
+    data = client.app.bsky.feed.get_feed({
+        'feed': 'at://did:plc:z72i7hdynmk6r22z27h6tvur/app.bsky.feed.generator/whats-hot',
+        'limit': 30,
+    }, headers={'Accept-Language': preferred_languages})
+
+    feed = data.feed
+    next_page = data.cursor
+    ```
+  </TabItem>
 </Tabs>
 
 :::tip
@@ -101,6 +121,19 @@ parameter, `feed`, which is the URI of the feed generator to fetch.
     ```
 
   </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.app.bsky.feed.get_feed_generator"
+    data = client.app.bsky.feed.get_feed_generator({
+        'feed': 'at://did:plc:z72i7hdynmk6r22z27h6tvur/app.bsky.feed.generator/whats-hot'
+    })
+
+    view = data.view
+    creator = view.creator
+    display_name = view.display_name
+    avatar = view.avatar
+    like_count = view.like_count
+    ```
+  </TabItem>
 </Tabs>
 
 ## Author feeds
@@ -126,5 +159,17 @@ Author feeds return posts by a single user.
     const { feed: postsArray, cursor: nextPage } = data;
     ```
 
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.get_author_feed"
+    data = client.get_author_feed(
+        actor='did:plc:z72i7hdynmk6r22z27h6tvur',
+        filter='posts_and_author_threads',
+        limit=30,
+    )
+
+    feed = data.feed
+    next_page = data.cursor
+    ```
   </TabItem>
 </Tabs>

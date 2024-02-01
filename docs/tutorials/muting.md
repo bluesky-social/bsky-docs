@@ -16,6 +16,11 @@ on your PDS. Muting a user is as easy as liking a post or following a user.
       await agent.mute(did)
     ```
   </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.mute"
+      client.mute(did)
+    ```
+  </TabItem>
 </Tabs>
 
 | Parameter | Type     | Description                 | Required |
@@ -28,8 +33,13 @@ Easy peasy:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    ```typescript title="agent.mute"
+    ```typescript title="agent.unmute"
       await agent.unmute(did)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.unmute"
+      client.unmute(did)
     ```
   </TabItem>
 </Tabs>

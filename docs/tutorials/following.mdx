@@ -9,12 +9,19 @@ import TabItem from '@theme/TabItem';
 
 ## Following
 
-Following a user is as easy as calling `agent.follow` with the DID of the user you want to follow.
-
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
+    Following a user is as easy as calling `agent.follow` with the DID of the user you want to follow.
+
     ```typescript title="agent.follow"
       const { uri } = await agent.follow(did)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Following a user is as easy as calling `client.follow` with the DID of the user you want to follow.
+
+    ```python title="client.follow"
+      uri = client.follow(did).uri
     ```
   </TabItem>
 </Tabs>
@@ -33,6 +40,11 @@ post](/docs/tutorials/like-repost).
   <TabItem value="ts" label="Typescript">
     ```typescript title="agent.deleteFollow"
       await agent.deleteFollow(uri)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.delete_follow"
+      client.delete_follow(uri)
     ```
   </TabItem>
 </Tabs>

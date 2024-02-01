@@ -42,17 +42,35 @@ Each post requires these fields: `text` and `createdAt` (a timestamp).
       createdAt: new Date().toISOString()
     })
     ```
+
+    It will respond with the `at://` URI of the post and a content-hash of the post (the `cid`).
+
+    ```json
+    {
+      "uri": "at://did:plc:u5cwb2mwiv2bfq53cjufe6yn/app.bsky.feed.post/3k4duaz5vfs2b",
+      "cid": "bafyreibjifzpqj6o6wcq3hejh7y4z4z2vmiklkvykc57tw3pcbx3kxifpm"
+    }
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    This script below will create a simple post with just a text argument.
+
+    ```python
+    from atproto import Client
+
+    client = Client(base_url='https://bsky.social/xrpc')
+    client.login('example.com', 'hunter2')
+    post = client.send_post('Hello world! I posted this via the Python SDK.')
+    ```
+
+    It will return instance of response with the `at://` URI of the post and a content-hash of the post (the `cid`).
+
+    ```python
+    post.uri  # at://did:plc:abc123..../app.bsky.feed.post/xyz...
+    post.cid  # abc...
+    ```
   </TabItem>
 </Tabs>
-
-It will respond with the `at://` URI of the post and a content-hash of the post (the `cid`).
-
-```json
-{
-  "uri": "at://did:plc:u5cwb2mwiv2bfq53cjufe6yn/app.bsky.feed.post/3k4duaz5vfs2b",
-  "cid": "bafyreibjifzpqj6o6wcq3hejh7y4z4z2vmiklkvykc57tw3pcbx3kxifpm"
-}
-```
 
 ## Setting the language
 
@@ -69,6 +87,14 @@ Setting the post's language helps custom feeds or other services filter and pars
       langs: ["th", "en-US"],
       createdAt: new Date().toISOString()
     })
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    This snippet sets the `text` and `langs` value of a post to be Thai and English.
+
+    ```python
+    # an example with Thai and English (US) languages
+    client.send_post('สวัสดีชาวโลก!\nHello World!', langs=['th', 'en-US'])
     ```
   </TabItem>
 </Tabs>
@@ -134,6 +160,22 @@ Learn about how mentions and links work under the hood with the [Link, mentions,
     console.log(rt3.graphemeLength) // => 1
     ```
   </TabItem>
+  <TabItem value="python" label="Python">
+  Use TextBuilder to construct a post with mentions and links.
+
+    ```python
+    from atproto import TextBuilder
+
+    tb = TextBuilder()
+    tb.text('✨ example mentioning ')
+    tb.mention('atproto.com', 'did:plc:ewvi7nxzyoun6zhxrhs64oiz')
+    tb.text(' to share the URL ')
+    tb.link('CBOR', 'https://en.wikipedia.org/wiki/CBOR')
+    tb.text('.')
+
+    client.send_post(tb)
+    ```
+  </TabItem>
 </Tabs>
 
 ## Replies, quote posts, and embeds
@@ -186,6 +228,22 @@ Since threads of replies can get pretty long, reply posts need to reference both
       },
       createdAt: new Date().toISOString()
     })
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Here's what this should look like when posting:
+
+    ```python
+    from atproto import models
+
+
+    parent = models.create_strong_ref(post_replying_to)
+    root = models.create_strong_ref(thread_root_post)
+
+    client.send_post(
+        text='lol!',
+        reply_to=models.AppBskyFeedPost.ReplyRef(parent=parent, root=root)
+    )
     ```
   </TabItem>
 </Tabs>
@@ -242,6 +300,16 @@ Images are also embedded objects in a post.
       },
       createdAt: new Date().toISOString()
     })
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Here's an example script of posting an image:
+
+    ```python
+    with open('my_cat.jpg', 'rb') as f:
+        img_data = f.read()
+
+    client.send_image(text='I love my cat', image=img_data, image_alt='My cat mittens')
     ```
   </TabItem>
 </Tabs>
@@ -337,6 +405,28 @@ A website card embed, often called a "social card," is the rendered preview of a
       },
       createdAt: new Date().toISOString()
     })
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Here's an example of embedding a website card:
+
+    ```python
+    from atproto import models
+
+
+    with open('bsky_thumb.png', 'rb') as f:
+      img_data = f.read()
+
+    thumb = client.upload_blob(img_data)
+    embed = models.AppBskyEmbedExternal.Main(
+        external=models.AppBskyEmbedExternal.External(
+            title='Bluesky Social',
+            description='See what\'s next.',
+            uri='https://bsky.app',
+            thumb=thumb.blob,
+        )
+    )
+    post = client.send_post('check out this website!', embed=embed)
     ```
   </TabItem>
 </Tabs>
