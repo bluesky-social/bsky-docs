@@ -39,7 +39,7 @@ for await (const entry of entries) {
     const identifier = name === "main" ? id : `${id}.${name}`;
 
     // We don't want public-facing docs for unspecced endpoints
-    const containsUnspecced = identifier.toLowerCase().includes('unspecced');
+    const containsUnspecced = identifier.toLowerCase().includes('unspecced') || identifier.toLowerCase().includes('.temp.');
     const containsDeprecated = def.description?.toLowerCase().includes('deprecated') ?? false;
 
     if (containsUnspecced || containsDeprecated) {
