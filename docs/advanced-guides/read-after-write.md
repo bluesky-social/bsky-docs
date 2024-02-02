@@ -6,7 +6,7 @@ sidebar_position: 12
 
 A user may take some action (such as updating their profile), rapidly refresh the view, and find that their recent change is not immediately reflected in the updated response.
 
-This is because services such as the App View do not have transational writes from a user's PDS. Therefore the views that they calculate are eventually consistent. In other words, a user may have created a record on their PDS that is not yet reflected in the API responses provided by the App View.
+This is because services such as the App View do not have transactional writes from a user's PDS. Therefore the views that they calculate are eventually consistent. In other words, a user may have created a record on their PDS that is not yet reflected in the API responses provided by the App View.
 
 Because all requests from the application are sent to the user's PDS, the PDS is in a position to smooth over this behavior. Our PDS distribution provides some basic read-after-write behaviors by looking at response headers from the App View, determining if there are any new records that are not in the response, and modifying the response to reflect those new records.
 
