@@ -155,6 +155,16 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        appId: 'T5MN80JFZF',
+        // Public API key: it is safe to commit it
+        apiKey: 'b9dbe078fd17f04a52bb979a0c4072bd',
+        indexName: 'wwwbsky',
+        insights: true,
+        contextualSearch: true,
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+        },
     }),
 };
 
