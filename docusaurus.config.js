@@ -1,76 +1,76 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer').themes.github;
-const darkCodeTheme = require('prism-react-renderer').themes.dracula;
+const lightCodeTheme = require("prism-react-renderer").themes.github;
+const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Bluesky',
-  tagline: 'Get started with the Bluesky API.',
-  favicon: 'img/favicon.png',
+  title: "Bluesky",
+  tagline: "Get started with the Bluesky API.",
+  favicon: "img/favicon.png",
 
   // Set the production url of your site here
-  url: 'https://www.docs.bsky.app/',
+  url: "https://www.docs.bsky.app/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'bluesky-social', // Usually your GitHub org/user name.
-  projectName: 'bsky-docs', // Usually your repo name.
+  organizationName: "bluesky-social", // Usually your GitHub org/user name.
+  projectName: "bsky-docs", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
   plugins: [
-    '@docusaurus/plugin-ideal-image',
+    "@docusaurus/plugin-ideal-image",
     [
-      'docusaurus-plugin-openapi-docs',
+      "docusaurus-plugin-openapi-docs",
       {
         id: "api", // plugin id
         docsPluginId: "classic", // id of plugin-content-docs or preset for rendering docs
         config: {
-          bskyApi: { // the <id> referenced when running CLI commands
+          bskyApi: {
+            // the <id> referenced when running CLI commands
             specPath: "atproto-openapi-types/spec/api.json", // path to OpenAPI spec, URLs supported
             outputDir: "docs/api", // output directory for generated files
-            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+            sidebarOptions: {
+              // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
             },
-          }
-        }
+          },
+        },
       },
-    ]
+    ],
   ],
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/bluesky-social/bsky-docs/tree/main/',
-          docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
+          editUrl: "https://github.com/bluesky-social/bsky-docs/tree/main/",
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
           showReadingTime: true,
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/bluesky-social/bsky-docs/tree/main/',
-          blogSidebarCount: 'ALL',
+          editUrl: "https://github.com/bluesky-social/bsky-docs/tree/main/",
+          blogSidebarCount: "ALL",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -79,72 +79,72 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/social-card-default.png',
+      image: "img/social-card-default.png",
       navbar: {
-        title: 'Bluesky',
+        title: "Bluesky",
         logo: {
-          alt: 'Bluesky Logo',
-          src: 'img/favicon.png',
+          alt: "Bluesky Logo",
+          src: "img/favicon.png",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Docs',
+            type: "docSidebar",
+            sidebarId: "tutorialSidebar",
+            position: "left",
+            label: "Docs",
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {to: '/showcase', label: 'Showcase', position: 'left'},
+          { to: "/blog", label: "Blog", position: "left" },
+          { to: "/showcase", label: "Showcase", position: "left" },
           {
-            href: 'https://github.com/bluesky-social',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/bluesky-social",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Starter Templates',
-                to: '/docs/category/starter-templates',
+                label: "Starter Templates",
+                to: "/docs/category/starter-templates",
               },
               {
-                label: 'AT Protocol',
-                href: 'https://atproto.com',
+                label: "AT Protocol",
+                href: "https://atproto.com",
               },
             ],
           },
           {
-            title: 'Community',
+            title: "Community",
             items: [
               {
-                label: 'Bluesky',
-                href: 'https://bsky.app/profile/bsky.app',
+                label: "Bluesky",
+                href: "https://bsky.app/profile/bsky.app",
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/bluesky',
+                label: "Twitter",
+                href: "https://twitter.com/bluesky",
               },
             ],
           },
           {
-            title: 'More',
+            title: "More",
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: "Blog",
+                to: "/blog",
               },
               {
-                label: 'GitHub Discussions',
-                href: 'https://github.com/bluesky-social/atproto/discussions',
+                label: "GitHub Discussions",
+                href: "https://github.com/bluesky-social/atproto/discussions",
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/bluesky-social',
+                label: "GitHub",
+                href: "https://github.com/bluesky-social",
               },
             ],
           },
@@ -158,13 +158,10 @@ const config = {
       algolia: {
         appId: 'T5MN80JFZF',
         // Public API key: it is safe to commit it
-        apiKey: 'b9dbe078fd17f04a52bb979a0c4072bd',
+        apiKey: 'fd8d166a53279da4c51abddb2f4a1269',
         indexName: 'wwwbsky',
-        insights: true,
-        contextualSearch: true,
-        // Optional: path for search page that enabled by default (`false` to disable it)
-        searchPagePath: 'search',
-        },
+        contextualSearch: false,
+      }
     }),
 };
 
