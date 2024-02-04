@@ -133,6 +133,10 @@ const config = {
                 label: "Community-run Discord",
                 href: "https://discord.gg/3srmDsHSZJ",
               },
+              {
+                label: "Mailing List",
+                href: "/docs/support/mailing-list",
+              },
             ],
           },
           {

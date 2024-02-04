@@ -8,7 +8,7 @@ tags: ['feature', 'guide']
 *This blog post may become outdated as new features are added to [atproto](https://atproto.com) and the Bluesky [application schemas](https://github.com/bluesky-social/atproto/tree/main/lexicons).*
 
 ---
-First, you'll need a [Bluesky account](https://atproto.com/blog/call-for-developers). We'll create a session with [HTTPie](https://httpie.io/docs/cli/pypi) (`brew install httpie`).
+First, you'll need a [Bluesky account](https://bsky.app). We'll create a session with [HTTPie](https://httpie.io/docs/cli/pypi) (`brew install httpie`).
 
 ```sh
 http post https://bsky.social/xrpc/com.atproto.server.createSession \
@@ -26,7 +26,7 @@ http post https://bsky.social/xrpc/com.atproto.repo.createRecord \
     record:="{\"text\": \"Hello world! I posted this via the API.\", \"createdAt\": \"`date -u +"%Y-%m-%dT%H:%M:%SZ"`\"}"
 ```
 
-Posts can get a lot more complicated with replies, mentions, embedding images, and more. This guide will walk you through how to create these more complex posts in Python, but there are many [API clients and SDKs for other programming languages](https://atproto.com/community/projects#at-protocol-implementations) and Bluesky PBC publishes atproto code in [TypeScript](https://github.com/bluesky-social/atproto) and [Go](https://github.com/bluesky-social/indigo) as well.
+Posts can get a lot more complicated with replies, mentions, embedding images, and more. This guide will walk you through how to create these more complex posts in Python, but there are many [API clients and SDKs for other programming languages](/showcase) and Bluesky PBC publishes atproto code in [TypeScript](https://github.com/bluesky-social/atproto) and [Go](https://github.com/bluesky-social/indigo) as well.
 
 Skip the steps below and get the full script <a href="https://github.com/bluesky-social/atproto-website/blob/main/examples/create_bsky_post.py">here</a>. It was tested with Python 3.11, with the <code>requests</code> and <code>bs4</code> (BeautifulSoup) packages installed.
 

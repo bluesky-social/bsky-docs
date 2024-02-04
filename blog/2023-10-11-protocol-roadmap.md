@@ -15,7 +15,7 @@ Feel free to share your thoughts via Github Discussions [here](https://github.co
 
 ## Getting to Federation
 
-The AT Protocol is designed as a federated social web protocol. While we have an [open federated sandbox network](https://atproto.com/blog/federation-developer-sandbox) for developers to experiment with, the main Bluesky services are currently still not federated. Our current development priority is to resolve any final protocol issues or decisions that would impede federation with independent PDS instances. Some of these points are listed below.
+The AT Protocol is designed as a federated social web protocol. While we have an [open federated sandbox network](/blog/federation-sandbox) for developers to experiment with, the main Bluesky services are currently still not federated. Our current development priority is to resolve any final protocol issues or decisions that would impede federation with independent PDS instances. Some of these points are listed below.
 
 **Account Migration:** One of the differentiating features of atproto is seamless migration of both identity and public content from one PDS instance to another. The foundations for this feature were set in place from the start, but there are some details and behaviors to decide on and document.
 

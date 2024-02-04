@@ -80,7 +80,7 @@ You are within your rights to disable Watchtower auto-updates, but we strongly e
 
 # Learn more about atproto federation
 
-Check out the [high-level view of federation](https://blueskyweb.xyz/blog/5-5-2023-federation-architecture).
+Check out the [high-level view of federation](/docs/advanced-guides/federation-architecture).
 
 Dive deeper with the [atproto docs](https://atproto.com/docs).
 

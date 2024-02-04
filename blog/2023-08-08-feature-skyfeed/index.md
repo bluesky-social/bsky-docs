@@ -52,4 +52,4 @@ In summary: Make SkyFeed (apps, builder and more) the ultimate power user experi
 
 You can follow redsolver on Bluesky [here](https://bsky.app/profile/redsolver.dev), SkyFeed for project updates [here](https://bsky.app/profile/skyfeed.app), and be sure to try out SkyFeed yourself [here](https://skyfeed.app/).
 
-*Note: Use an [App Password](https://atproto.com/community/projects#app-passwords) when logging in to third-party tools for account security and read our [disclaimer](https://atproto.com/community/projects#disclaimer) for third-party applications.*
+*Note: Use an App Password when logging in to third-party tools for account security and read our [disclaimer](/showcase) for third-party applications.*
