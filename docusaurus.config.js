@@ -129,6 +129,10 @@ const config = {
                 label: "Twitter",
                 href: "https://twitter.com/bluesky",
               },
+              {
+                label: "Community-run Discord",
+                href: "https://discord.gg/3srmDsHSZJ",
+              },
             ],
           },
           {
