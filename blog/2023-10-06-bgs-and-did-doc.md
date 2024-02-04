@@ -6,7 +6,7 @@ tags: ['updates']
 
 We have a number of protocol and infrastructure changes rolling out in the next three months, and want to keep everybody in the loop.
 
-*This update was also emailed to the developer mailing list, which you can subscribe to at the bottom of this update.*
+*This update was also emailed to the developer mailing list, which you can subscribe to [here](/docs/support/mailing-list).*
 
 ## TL;DR
 
@@ -25,7 +25,7 @@ Your existing cursor for bsky.social will not be in sync with bsky.network, so c
 The Bluesky services themselves are moving to a federated deployment, with multiple Bluesky (the company) PDS instances aggregated by a BGS, and the AppView downstream of that. As of yesterday, the Bluesky Appview instance (`api.bsky.app`) consumes from a Bluesky PBC BGS (`bsky.network`), which consumes from the Bluesky PDS (`bsky.social`). Until now, the AppView consumed directly from the PDS. 
 
 ### How close are we to federation?
-Technically, the main network BGS could start consuming from independent PDS instances today, the same as the sandbox BGS does. We have configured it not to do so until we finish implementing some more details, and do our own round of security hardening. If you want to bang on the BGS implementation (written in Go, code in the [indigo github repository](https://github.com/bluesky-social/indigo)), please do so in the [sandbox environment](https://atproto.com/blog/federation-developer-sandbox), not the main network.
+Technically, the main network BGS could start consuming from independent PDS instances today, the same as the sandbox BGS does. We have configured it not to do so until we finish implementing some more details, and do our own round of security hardening. If you want to bang on the BGS implementation (written in Go, code in the [indigo github repository](https://github.com/bluesky-social/indigo)), please do so in the [sandbox environment](/blog/federation-sandbox), not the main network.
 
 ### This change impacts devs in two ways:
 
