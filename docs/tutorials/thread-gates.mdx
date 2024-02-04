@@ -65,4 +65,40 @@ A thread gate may have up to 5 rules.
 
     If a thread gate record is not present, then anybody can reply.
   </TabItem>
+  <TabItem value="python" label="Python">
+    You set a thread gate by creating a **app.bsky.feed.threadgate** record with the same rkey as the post you're gating.
+
+    ```python
+    from atproto import AtUri
+
+    rkey = AtUri.from_str(post_uri).rkey
+
+    record = models.AppBskyFeedThreadgate.Record(
+        post=post_uri,
+        allow=[
+            # allow mentioned users
+            models.AppBskyFeedThreadgate.MentionRule(),
+            # allow followed users
+            models.AppBskyFeedThreadgate.FollowingRule(),
+            # allow list members
+            models.AppBskyFeedThreadgate.ListRule(list=listUri),
+        ],
+        created_at=client.get_current_time_iso(),
+    )
+    client.app.bsky.feed.threadgate.create(client.me.did, record, rkey)
+    ```
+
+    If a thread gate record is present but empty, then nobody can reply.
+
+    ```python
+    record = models.AppBskyFeedThreadgate.Record(
+        post=post_uri,
+        allow=[],  # empty allow-list, nobody can reply
+        created_at=client.get_current_time_iso(),
+    )
+    client.app.bsky.feed.threadgate.create(client.me.did, record, rkey)
+    ```
+
+    If a thread gate record is not present, then anybody can reply.
+  </TabItem>
 </Tabs>
