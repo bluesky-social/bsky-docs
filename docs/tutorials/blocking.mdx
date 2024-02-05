@@ -23,6 +23,15 @@ Blocking users is as simple as muting, but requires creating a record directly.
     )
     ```
   </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.app.bsky.graph.block.create"
+    block_record = models.AppBskyGraphBlock.Record(
+      subject=blocked_user_did, 
+      created_at=client.get_current_time_iso()
+    )
+    uri = client.app.bsky.graph.block.create(client.me.did, block_record).uri
+    ```
+  </TabItem>
 </Tabs>
 
 The `agent.app.bsky.graph.block.create` method takes two position parameters.
@@ -59,6 +68,14 @@ record.
     )
     ```
 
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.app.bsky.graph.block.delete"
+    from atproto import AtUri
+
+    rkey = AtUri.from_str(uri).rkey
+    client.app.bsky.graph.block.delete(client.me.did, rkey)
+    ```
   </TabItem>
 </Tabs>
 
