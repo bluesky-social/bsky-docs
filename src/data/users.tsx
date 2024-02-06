@@ -431,6 +431,14 @@ const Users: User[] = [
     tags: ['client'],
   },
   {
+    title: 'Hagoromo (C++/Qt)',
+    description: 'Desktop client for Bluesky',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://hagoromo.relog.tech',
+    author: 'https://bsky.app/profile/did:plc:ipj5qejfoqu6eukvt72uhyit',
+    tags: ['client'],
+  },
+  {
     title: 'SkyBridge',
     description: 'A bridge to use Mastodon apps with Bluesky',
     preview: require('./showcase/example-1.png'),
