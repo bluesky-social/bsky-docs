@@ -208,10 +208,10 @@ const Users: User[] = [
   {
     title: 'Ucho-ten',
     description: 'Web client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/ucho-ten.png'),
     website: 'https://ucho-ten.net',
     author: 'https://bsky.app/profile/did:plc:txandrhc7afdozk6a2itgltm',
-    tags: ['client'],
+    tags: ['client', 'favorite'],
   },
   {
     title: 'Kite🪁',
