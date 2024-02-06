@@ -274,8 +274,9 @@ const Users: User[] = [
     description: 'Deck-based web client for Bluesky',
     preview: require('./showcase/example-1.png'),
     website: 'https://skeetdeck.pages.dev/',
+    source: 'https://github.com/mary-ext/langit',
     author: 'https://bsky.app/profile/did:plc:ia76kvnndjutgedggx2ibrem',
-    tags: ['client'],
+    tags: ['client', 'opensource'],
   },
   {
     title: 'vSky',
