@@ -5611,6 +5611,28 @@
             }
           },
           {
+            "name": "createdAfter",
+            "in": "query",
+            "description": "Retrieve events created after a given timestamp",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Retrieve events created after a given timestamp",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdBefore",
+            "in": "query",
+            "description": "Retrieve events created before a given timestamp",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Retrieve events created before a given timestamp",
+              "format": "date-time"
+            }
+          },
+          {
             "name": "subject",
             "in": "query",
             "required": false,
@@ -5638,6 +5660,61 @@
               "minimum": 1,
               "maximum": 100,
               "default": 50
+            }
+          },
+          {
+            "name": "hasComment",
+            "in": "query",
+            "description": "If true, only events with comments are returned",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "If true, only events with comments are returned"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "description": "If specified, only events with comments containing the keyword are returned",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If specified, only events with comments containing the keyword are returned"
+            }
+          },
+          {
+            "name": "addedLabels",
+            "in": "query",
+            "description": "If specified, only events where all of these labels were added are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "removedLabels",
+            "in": "query",
+            "description": "If specified, only events where all of these labels were removed are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "reportTypes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
@@ -11967,6 +12044,9 @@
               },
               {
                 "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEmail"
+              },
+              {
+                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventResolveAppeal"
               }
             ]
           },
@@ -12041,6 +12121,9 @@
               },
               {
                 "$ref": "#/components/schemas/com.atproto.admin.defs.modEventMute"
+              },
+              {
+                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEmail"
               },
               {
                 "$ref": "#/components/schemas/com.atproto.admin.defs.modEventResolveAppeal"
