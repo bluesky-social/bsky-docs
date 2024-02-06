@@ -234,8 +234,9 @@ const Users: User[] = [
     description: 'Web client for Bluesky',
     preview: require('./showcase/example-1.png'),
     website: 'https://blue.amazingca.dev',
+    source: 'https://github.com/Amazingca/BSKY-Wrapper',
     author: 'https://bsky.app/profile/did:plc:e2nwnarqo7kdbt7ngr3gejp6',
-    tags: ['client'],
+    tags: ['client', 'opensource'],
   },
   {
     title: 'Connectsky - Extension based AT Proto Client',
