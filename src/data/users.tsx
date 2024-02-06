@@ -884,8 +884,9 @@ const Users: User[] = [
     description: 'Reply on command and chat',
     preview: require('./showcase/example-1.png'),
     website: 'https://bsky.app/profile/did:plc:4hqjfn7m6n5hno3doamuhgef',
+    source: 'https://git.syui.ai/ai/bot',
     author: 'https://bsky.app/profile/did:plc:uqzpqmrjnptsxezjx4xuh2mn',
-    tags: ['bot'],
+    tags: ['bot', 'opensource'],
   },
   {
     title: 'Score My Wordle Bot',
