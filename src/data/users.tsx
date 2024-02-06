@@ -772,7 +772,7 @@ const Users: User[] = [
     website: 'https://mary-ext.github.io/skeetgen/',
     source: 'https://github.com/mary-ext/skeetgen',
     author: 'https://bsky.app/profile/did:plc:ia76kvnndjutgedggx2ibrem',
-    tags: ['othertools'],
+    tags: ['othertools', 'opensource'],
   },
   {
     title: 'bluesky-post-embed',
@@ -781,7 +781,7 @@ const Users: User[] = [
     website: 'https://mary-ext.github.io/bluesky-post-embed/',
     source: 'https://github.com/mary-ext/bluesky-post-embed',
     author: 'https://bsky.app/profile/did:plc:ia76kvnndjutgedggx2ibrem',
-    tags: ['othertools'],
+    tags: ['othertools', 'opensource'],
   },
   {
     title: 'MTA Alerts',
