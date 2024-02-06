@@ -775,6 +775,15 @@ const Users: User[] = [
     tags: ['othertools'],
   },
   {
+    title: 'bluesky-post-embed',
+    description: 'Custom element for embedding Bluesky posts to other websites',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://mary-ext.github.io/bluesky-post-embed/',
+    source: 'https://github.com/mary-ext/bluesky-post-embed',
+    author: 'https://bsky.app/profile/did:plc:ia76kvnndjutgedggx2ibrem',
+    tags: ['othertools'],
+  },
+  {
     title: 'MTA Alerts',
     description: 'Bot for MTA Realtime Subway Alerts',
     preview: require('./showcase/example-1.png'),
