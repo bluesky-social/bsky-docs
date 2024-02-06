@@ -766,6 +766,15 @@ const Users: User[] = [
     tags: ['othertools'],
   },
   {
+    title: 'skeetgen',
+    description: 'Archival tool for your Bluesky posts',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://mary-ext.github.io/skeetgen/',
+    source: 'https://github.com/mary-ext/skeetgen',
+    author: 'https://bsky.app/profile/did:plc:ia76kvnndjutgedggx2ibrem',
+    tags: ['othertools'],
+  },
+  {
     title: 'MTA Alerts',
     description: 'Bot for MTA Realtime Subway Alerts',
     preview: require('./showcase/example-1.png'),
