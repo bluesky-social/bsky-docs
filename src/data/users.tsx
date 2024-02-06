@@ -168,18 +168,18 @@ const Users: User[] = [
   {
     title: 'Tokimeki',
     description: 'Web client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/tokimeki.png'),
     website: 'https://tokimekibluesky.vercel.app/',
     author: 'https://bsky.app/profile/did:plc:hiptcrt4k63szzz4ty3dhwcp',
-    tags: ['client'],
+    tags: ['client', 'favorite'],
   },
   {
     title: 'Klearsky',
     description: 'Web client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/klearsky.png'),
     website: 'https://klearsky.pages.dev/',
     author: 'https://bsky.app/profile/did:plc:ilxxgyz7oz7mysber4omeqrg',
-    tags: ['client'],
+    tags: ['client', 'favorite'],
   },
   {
     title: 'Laika',
