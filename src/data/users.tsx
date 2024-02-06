@@ -271,12 +271,13 @@ const Users: User[] = [
     tags: ['client'],
   },
   {
-    title: 'Langit',
-    description: 'Web client for Bluesky',
+    title: 'Skeetdeck',
+    description: 'Deck-based web client for Bluesky',
     preview: require('./showcase/example-1.png'),
-    website: 'https://langit.pages.dev/',
-    author: 'https://bsky.app/profile/did:plc:qezk54orevt3dtm4ijcyadnq',
-    tags: ['client'],
+    website: 'https://skeetdeck.pages.dev/',
+    source: 'https://github.com/mary-ext/langit',
+    author: 'https://bsky.app/profile/did:plc:ia76kvnndjutgedggx2ibrem',
+    tags: ['client', 'opensource'],
   },
   {
     title: 'vSky',
