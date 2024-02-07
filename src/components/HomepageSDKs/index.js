@@ -28,6 +28,12 @@ const FeatureList = [
     description: <>SDK maintained by Bluesky PBC</>,
     href: 'https://github.com/bluesky-social/indigo/tree/main',
   },
+  {
+    title: 'Rust',
+    Svg: require('@site/static/img/languages/rust.svg').default,
+    description: <>Community SDK maintained by @sugyan.com</>,
+    href: 'https://github.com/sugyan/atrium/tree/main',
+  },
 ]
 
 function SDK({ Svg, title, description, href }) {
