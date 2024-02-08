@@ -600,6 +600,15 @@ const Users: User[] = [
     tags: ['domains'],
   },
   {
+    title: "Ouranos 🌸",
+    description: "Web client for Bluesky",
+    preview: require("./showcase/example-1.png"),
+    website: "https://useouranos.app/",
+    source: "https://github.com/pdelfan/ouranos",
+    author: "https://bsky.app/profile/did:plc:3sapfnszmvjc6wa4ml3ybkwb",
+    tags: ["client", "opensource"],
+  },
+  {
     title: 'swifties.social',
     description: 'Claim a swifties.social handle',
     preview: require('./showcase/example-1.png'),
