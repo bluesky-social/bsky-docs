@@ -28,6 +28,12 @@ const FeatureList = [
     description: <>SDK maintained by Bluesky PBC</>,
     href: 'https://github.com/bluesky-social/indigo/tree/main',
   },
+  {
+    title: '.NET',
+    Svg: require('@site/static/img/languages/dotnet.svg').default,
+    description: <>SDK maintained by @drasticactions.dev</>,
+    href: 'https://drasticactions.github.io/FishyFlip/',
+  },
 ]
 
 function SDK({ Svg, title, description, href }) {
