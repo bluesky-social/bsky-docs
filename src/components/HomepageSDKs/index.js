@@ -31,7 +31,7 @@ const FeatureList = [
   {
     title: '.NET',
     Svg: require('@site/static/img/languages/dotnet.svg').default,
-    description: <>SDK maintained by @drasticactions.dev</>,
+    description: <>Community SDK maintained by @drasticactions.dev</>,
     href: 'https://drasticactions.github.io/FishyFlip/',
   },
 ]
