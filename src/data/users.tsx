@@ -440,6 +440,14 @@ const Users: User[] = [
     tags: ['client'],
   },
   {
+    title: 'Sora',
+    description: 'iOS and VisionOS client for Bluesky',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://mszpro.com/sorasns',
+    author: 'https://bsky.app/profile/did:plc:fynelmajwyd4arrdpmm2mkqu',
+    tags: ['client'],
+  },
+  {
     title: 'SkyBridge',
     description: 'A bridge to use Mastodon apps with Bluesky',
     preview: require('./showcase/example-1.png'),
