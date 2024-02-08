@@ -324,8 +324,9 @@ const Users: User[] = [
     description: 'iOS and Android client for Bluesky',
     preview: require('./showcase/graysky.png'),
     website: 'https://graysky.app/',
+    source: 'https://github.com/mozzius/graysky',
     author: 'https://bsky.app/profile/did:plc:p2cp5gopk7mgjegy6wadk3ep',
-    tags: ['client', 'favorite'],
+    tags: ['client', 'favorite', 'opensource'],
   },
   {
     title: 'Yup',
