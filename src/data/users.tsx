@@ -504,6 +504,15 @@ const Users: User[] = [
     tags: ['bridge'],
   },
   {
+    title: 'BlueWave',
+    description: 'Filtering follow list, and then following in bulk',
+    preview: require('./showcase/bluewave.jpg'),
+    website: 'https://wave.level06.com/',
+    source: 'https://github.com/easychen/bluesky-wave',
+    author: 'https://bsky.app/profile/did:plc:vlt4uq7tqbbinku5q7u4u43r',
+    tags: ['othertools','opensource'],
+  },
+  {
     title: 'Goodfeeds',
     description: 'A tool to search custom feeds',
     preview: require('./showcase/example-1.png'),
