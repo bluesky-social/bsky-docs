@@ -949,6 +949,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ubz4oedvsb7dsuncqi5jb7o2',
     tags: ['bot', 'opensource'],
   },
+  {
+    title: 'SkeetStats,
+    description: 'daily stats tracking for followers/following/posts, opt-in via bot',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://skeetstats.xyz',
+    source: 'https://github.com/ameliamnesia/skeetstats-frontend',
+    author: 'https://bsky.app/profile/did:plc:6gwchzxwoj7jms5nilauupxq',
+    tags: ['stats', 'bot', 'opensource'],
+  },  
 ]
 
 export type User = {
