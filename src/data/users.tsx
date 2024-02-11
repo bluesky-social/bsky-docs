@@ -448,6 +448,15 @@ const Users: User[] = [
     tags: ['client'],
   },
   {
+    title: 'BlueWP',
+    description: 'Windows Phone client for BlueSky',
+    preview: require('./showcase/bluewp.jpg'),
+    website: 'https://github.com/Gargaj/BlueWP/',
+    source: 'https://github.com/Gargaj/BlueWP/',
+    author: 'https://bsky.app/profile/did:plc:gyon34nzg2mivmui2kyb65ua',
+    tags: ['client', 'opensource'],
+  },
+  {
     title: 'SkyBridge',
     description: 'A bridge to use Mastodon apps with Bluesky',
     preview: require('./showcase/example-1.png'),
