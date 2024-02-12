@@ -1,11 +1,11 @@
 ---
 id: com-atproto-repo-put-record
 title: "com.atproto.repo.putRecord"
-description: "Write a record, creating or updating it as needed."
+description: "Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS."
 sidebar_label: "com.atproto.repo.putRecord"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9Vk1v4zYQ/SvEXPaitbNFexGKAk6ybY1+xIi9bQGvD2NpbHEjkVySiq0V9N+LIZ1Ijr2boAjqi0WJfPPBN2+mBY9bB+kSMl2N0BurvR5ZMhpWCeTkMiuNl1pBCn9b6UmgsJRpmycis4Reqq3QVtQmj8/SC3RCEeWUjyABbcgiA0xzSE+MjEztbwMcJOAoq630DaTLFi4JLVlIl6tulYClzzU5f6nzBtI2LKWlHFJva0og08qT8vwJjSllFiyOPzn2uwWXFVQhP/nGEKSg158o85AMgJYQgmassqQshJyAvaMmbAsurhIwlgPyklz0w+gBrPNWqi08zduiIFGgykviTF1Pr4XeCF+QCBmABDbaVughBfRvZU7Ky40kC92RMy8y8+d8iM5Oix7iyJRyMmcLIcIXYd9RcwzNeBXufye19QWk737oErjHUuboaQC51rokVCeYP5e4FRttxeEMs+cYPKcN1qWPt9w9XkPadgm4HZrbh/Uz3l/pyqAlgSoXfE7spC+CLWPpXuraPSRr3Yir6fVRorKYJz53patK+lexlwWor9oLPw7YGa1cJNt3Fxf8d2zq5jd4JfrXVjKUPENz/nQm6CFteUsXj39r5zC478/Fc4m5uI3F/lqBkbXaMlXJOdzSaXhxwxm3SdUVI0xVoGjv1/u9YfSFviPm9eH7k+V8hwZWXW/4xEKfiXenmfigsPaFtvIL5f9/KjKtHF/YpPbFH9K54O6zoYQdvtAs9UaHVBlkbYDxM8pv78m6IPy1LSGFwnvj0vF47e6akdOZxHK8tyYbnxTbZCFmjJrpUsyu5+Kf29mViIDQJU/x0MhRwERjXgA4MeYvSbtj0FXfquac9pi6h4b1mBk2ybGFLayDcQMniW/ttm9p7/dYmZL6jtJTcNgA+rdRtPt1r7qxH35NKPsTQzl7vMMEpNrEhiY9+3OUi5CDyWzKp+uqQtsEqVN8c1Ir7g2D7W+cKGkvmUfCa3FjSE1m0zdORKaKKAmjM51GOuFiyIJJj1I58etiMWPbwtKGLKmMRK4zF9rHZVmTu2uC2g79fTA/Er+Q4iGEZ5d4CcJzqbJfnpwPwBmWpRO5tJT5shEbq6ug2GyGvTxECSlcjC5GF5wsZniFofwUhis+R3LxyPKjQNu+ov/bYHVgmae9H5sSpWKXAtnbQ9GdznSDolslUHCFpkto2zU6+mDLruPXn2viq12umFdW4pqZsGQhKwjzMJO1EAl4FUN4u2BfAg1r9ulEoLgO44lJlpHx39y7GojI7Ga+gATWh7mv0jmfsbjjIsAdpPARPkIYMxkhDmX8voUS1bYOWgURlwuPJXU4msSSTB4eOLLDJ1TNwMsfY3WLIPE/QXKIJtAIulXXdf8CaPrjCw==
+api: eJy9Vt9v2zYQ/lcO95INUO102F7UYYCTFJ3RrjUSdx2Q+uFMnWM2EsmSVBPN0P8+HGnHSp01eSial0gW+d193/3cYKSrgOUlKtuMKDpvox15dhYXBVYclNcuamuwxA9eRwYC+Rp0tL4Dz8r6qgDlmaI2V2A9tK7KzzoCBTDMFVcjOOfPrfYcgNq4LkA3ruaGTeQKlh3Mzi5GWKB17EnMTSssD1wauTaeJ4tYYGDVeh07LC83eMLk2WN5uegXBXr+3HKIJ7bqsNykV+25wjL6lgtU1kQ2UT6Rc7VWyeL4UxCWGwxqzQ3JU+wcY4l2+YlVxGIAdIlJIsGqa1ZJoAL9NXfpWHJxUaDzQihqDtkPZwewIXptrvBrledrhjWZqmYR82x6BnYFcc1JdviJrqkA1XrPJgIpZVsTfxbpVtY3FLFEis90xSbqlWaP/T0fn2T97cXQqHCBPcQ9UyboSiwk4k/CzuGD19wJUEO3b9hcxTWWz3/rC/xCta4o8gBraW3NZA7ATsnAkiFwhGjhaEV14CN5DNfawRu+1coayLGELa62RnhtOVUUaZRwV9TWMWdHfxe+ctMXGG7Ine/eH6F3ahtHnoFMBXIPbnRcJxGd5y/atmFnednB6fRsBB8m52+nb1+VYNq6pmWd79oESDWsNNfVC2ioA0VtEBy7rLkJGfnK1iRVtisk2mbhXXRUDo74cmqbRsfvwkElqB2HA3vpT0QMzpqQE/+X42P5d9/Uu9f4nUqx9Vqg9AMlJ58eID2sFTnS5+vfOjkk9+tDfE6oSj2OQ/xexNh766VMOAS64kN6+cADbrNpG0GYmpT6e79e3jpBn9trllzZfv/q9eKGHC76veEDC3slnh8q8d5Ii7de/8vVj5dCWRMkYJM2rv/SISR3H6WSTsS1lbHjbJLKkfQlHD8yhfwX9iENodbXWOI6RhfK8XgZrrtRsEpTPb71To0Pim0yh5mgKlvL/IN/zmenkAGxL77GI6dHCZOcewLgxLm/Nd/cB13sx+aFyJ6l2w3PO2XEpHBLR6QH5wMikkTtfD9eX96StJ/9dNun4HDq7H/Nk2L/vu/4eTb/X/Pd3xi2s7sYFqjNKg9XHcWfe1okDSazqdxum4Z8l1qdkchtZ8Lg+FGAOo+PIPPknWMzmU2Pwm6Y5JYwemC86QAhUwZJetImwJ/z+Uxsg+cVezaKobIqCAqc1C2H6y5126G/O/MjeMVGFiLZunIQIEqpil+RQ0zAiuo6QKU9q1h3sPK2SR1bzIiXW5ZY4vHoeHQsYkmGN5TKz1AK8UNJDndZfo/oZl/RP2Il3OZk5Ns4djVpIwRSaWy2JXq4uw5KdFHgWuq5vMTNZkmB3/u67+Xnzy1LIlwuJAu9lvmbFsgC10xV2iY3mNP1NBN+NhdfUtK24tNBO5OqzTcmSrGL3zy7GLSc2buLORa43G6sja3kjqcbKRm6wRI/4kdMC7Ig5HVSft+gLAFt6myYcaVMRdDhEpULuNg9CLPtJzLdwMvfcy+ANBD+wGLLJiUd9ou+7/8Drl82gg==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Write a record, creating or updating it as needed.
+Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
 
 ## Request
 
@@ -80,7 +80,7 @@ Write a record, creating or updating it as needed.
           required={true}
           schemaName={"at-identifier"}
           qualifierMessage={undefined}
-          schema={{"type":"string","description":"The handle or DID of the repo.","format":"at-identifier"}}
+          schema={{"type":"string","description":"The handle or DID of the repo (aka, current account).","format":"at-identifier"}}
         >
           
         </SchemaItem><SchemaItem
@@ -98,7 +98,7 @@ Write a record, creating or updating it as needed.
           required={true}
           schemaName={"string"}
           qualifierMessage={"**Possible values:** `<= 15 characters`"}
-          schema={{"type":"string","description":"The key of the record.","maxLength":15}}
+          schema={{"type":"string","description":"The Record Key.","maxLength":15}}
         >
           
         </SchemaItem><SchemaItem
@@ -107,7 +107,7 @@ Write a record, creating or updating it as needed.
           required={false}
           schemaName={"boolean"}
           qualifierMessage={undefined}
-          schema={{"type":"boolean","description":"Flag for validating the record.","default":true}}
+          schema={{"type":"boolean","description":"Can be set to 'false' to skip Lexicon schema validation of record data.","default":true}}
         >
           
         </SchemaItem><SchemaItem
@@ -125,7 +125,7 @@ Write a record, creating or updating it as needed.
           required={false}
           schemaName={"cid"}
           qualifierMessage={undefined}
-          schema={{"type":"string","description":"Compare and swap with the previous record by CID.","format":"cid"}}
+          schema={{"type":"string","description":"Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation","format":"cid"}}
         >
           
         </SchemaItem><SchemaItem

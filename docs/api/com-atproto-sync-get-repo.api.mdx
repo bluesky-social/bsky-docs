@@ -1,11 +1,11 @@
 ---
 id: com-atproto-sync-get-repo
 title: "com.atproto.sync.getRepo"
-description: "Gets the DID's repo, optionally catching up from a specific revision."
+description: "Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS."
 sidebar_label: "com.atproto.sync.getRepo"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVcFu2zgQ/RViLtkFBNlY7Ek3pymyxh5qpN5FgcAHmhrbbCiS4Yy8EQT9ezGS7Ni106bA6iJQGr55M3zz2ALrLUHxCCZUueaYAoecGm9glUGJZJKNbIOHAu6RSfEO1d387oZUwhgyFfq/2rlGGc1mZ/1W1VFtUqiUVhTR2I01KuHekg0+hwxCxKRl17yE4iJvvkV+wBggg6iTrpAxCcEWvK4QCihtCRlYYfRcY2rge57LgaIKm56t8JS0CZ9rm7CEglONGZDZYaWhaIGbKMDEyfrte+E2IVWaRz5dlx35kfUGf87w0JFTXMVh6OKhhee8N9rRLxJ/Z5auW0kiisETkkD/MZ3K6xzx09+QgQme0bP81TE6a/qznOx9mdvoytzoBEXbdV0Gf14DudWlesDnGonfRvtKEtte1hrWX9HwWVseAVMKCTKokEhvUaQbk8iM7VDNEHClY+jrShDmfq+dLQ+8Vt0r2MWubngkgndBNLxF7uXKOyhg8gNFE6b9Qc51clDAjjlSMZms6anJKRir3eQlRTO5OM7ZUi0E0wSnFnef1ZeHxQc1AILI7xxPR5v3mDrGdwDOYvzX4n/noCshbOpkufks5zD08hZ1wtNmSkoYZSnr9RAgHbJ+E/pIyw6/S9mnmi3msrWuKp0aKOBD8NKgUbEn4TekHL5YEzyJfj9F9LPF/IbUoBA1jGN+ZQgsKUIjSyVi09aT+mu5XEhulXCDCb1BVQZDgqJuXY301Cjty1MCx/S5ukcvDoZKq6FWxeEJvfBiJO6BjXaOVGkTGnbN4IcygJJGWI5VQgHTfJpPocsgBuJK97IfreSaktQopbMy29c5+t9sejxdxheeRKetF469yNpR6peXxlHqqwx2gVhi2natCf9Jruvk8+CIMgClJb12J8b2Zkm/PYzD/rt6w42vkn3C5nhf7LWrJaIflfdn/iWn/gGJw6XwSmMli2SFBxSPYjg71KUM1mM7bpoZg5FPdr3pt4J2dKP7j0voum/YxbFt
+api: eJzNVcGO4kYQ/ZVSXdiVLIOinJwTM0QblMMglkSRRhyadgG90+7u6S6zY1n+96hshoFlZneyp3BBhur3XpXfq26R1S5hcY/aV7niED37PDVO4zrDkpKOJrDxDguc+a/OelWCgkjBJ8M+NkBPwUcGleB2uoStsZTDXX9EWduAd7YBBaPSbLcjSMZpAgUh0sH4OoF8J+NdDjNPCZxniPRYm0igat7/BqYKlipyTCVsGljMPueYoQ8UlXDMSyyupOc74iUFjxkGFVVFTFF6bNGpirDA0pSYoZGmHmuKDX7b6mpPMJvPwG+B99S3K7RHaSUWHGvKMOk9VQqLFrkJApw4Grd7L9zWx0rxUU/XZSd9/Zh+rPB5ePBhFOkw+niOD+xBR1Is45bhwzb66rKJrbLpP3bxM5RdtxbWFLxLlITnl8lEvi7h7/7EDLV3TI7lXxWCNbp/y+ODK3MTbJlrFbFou67L8NfXQG5UCUt6rCnx22hfktS21437zRfSfDGje6QYfcQMK0pJ7UhyEaIYkM3QzVDwyvjI1ZUgzN1BWVM+61p3L2BXp7rhIxW89+LuHXFvZN5jgePveD1RPDwbvY4WC9wzh1SMx5v00OTJa6Ps+CkGPb56t9MVLARTeysZg3+Wi1sYAFGMeYmngsl7TBXCOwCnIfxt6Osl6FoE6zoabj7LexhmeUMq0vkwhRKPHpXnzVAgEzJu6/tKw5a+oeyppou5HK2rSsUGC7z1TgYk9vVbOCsfJbD0ZLR3SUx8F8hNF/NRgsEhMAQ1fyURJkEiLY8gZlPGJfhjtVoIN0TaUiTZeKXXSVDgxtaUHhpQrjwXcKLP4RM52W2SoaFXYP9ATnQxJe6BtbI2QWkiabZNH7M+hUIjKo9dYoGTfJJPsMsw+MSV6m1/XDKvOQmOVrpos33J0f/pDjgahOmJx8Eq46TN3qftMS3Xl9opLesM9z6x1LTtRiX6K9quk5+HdSsZKk1SG3u2KN+cyoflcV98hDdW/atiH6g5XUYHZWup6NP2fuafvwa+o+j5+nnRtJaHaEQUFveywPakSgnqfXs8NNWaAp+denN/C9ppu336fYVd9y+UXuxt
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Gets the DID's repo, optionally catching up from a specific revision.
+Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
 
 ## Request
 
@@ -64,7 +64,7 @@ Gets the DID's repo, optionally catching up from a specific revision.
         
       </ParamsItem><ParamsItem
         className={"paramsItem"}
-        param={{"name":"since","in":"query","description":"The revision of the repo to catch up from.","required":false,"schema":{"type":"string","description":"The revision of the repo to catch up from."}}}
+        param={{"name":"since","in":"query","description":"The revision ('rev') of the repo to create a diff from.","required":false,"schema":{"type":"string","description":"The revision ('rev') of the repo to create a diff from."}}}
       >
         
       </ParamsItem>

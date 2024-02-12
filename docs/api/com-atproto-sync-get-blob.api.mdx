@@ -1,11 +1,11 @@
 ---
 id: com-atproto-sync-get-blob
 title: "com.atproto.sync.getBlob"
-description: "Get a blob associated with a given repo."
+description: "Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS."
 sidebar_label: "com.atproto.sync.getBlob"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVMFuGjEQ/RVrLm2j1YKqnvYGSZWiHoISWlWKOBjvwDp4bceeJVmt9t+r2SUEAkVpywUZZt57Hr95DZBcRcjuQbkyleSDI5fG2iqYJ5BjVEF70s5CBtdIQoqFcQshY3RKS8JcPGkqhBQrvUErAnqXQgLOY5DcNskhO4JOV0hj4xaQgJdBlkgYWEMDVpYIGeQ6hwQ0kz5WGGp4K2VWoLiaXAm3FFTgjjbgY6UD5pBRqDCBqAosJWQNUO0ZOFLQdvVeuKULpaStnrZNdvrUe/RdvgJ2MyMnlkiq+E+dZ2B3elWnd85E0TsbMTL25+GQvw4hb75DAspZQkv878XgArKmbdsEvpyqH8tc3OJjhZEOG6X3Rqvu0QcPkWub43u5xQMqOpjAPWAILkACJcYoV8jG84EdRLoX3hecmA7aqmSEid1Io/MXXfP2Feyoq+0/XEGFY3uukDonUgEZDM6YNWLYvDi1CgYyKIh8zAaDRVzXabcSZvAcvBocPd1oJqaMqZwR06s78et2eil6QGBnHeJJr9MOU3r/DsCR9z81Ph2CzlmwqoKm+o7foZ/lGGXA/WEyJWwtyOdFX8AT0nbpukpNBt9QdlSj6YRbq7KUoYYMLp3lAWln2aJ75R+iMPislbORDXvj0Y6mkw9R9A4RvXPTE4bXUURUfBRsNqltFN9msylzi4BLDGgVitypyChibCqM61pIm+8L2NGn4hothxNylnV3FeTWaFkXYaQOWEljosh1QEWmFsvgym7jmIZVbm8JGQzTYTqENgHvIpWys/1LSpxwktha6eCazese/U3Ibh+Q8JkG3khtWUbno2br5uNU37l5nkDhInFN0yxkxB/BtC3/3CcaezzXUS4ML+lSmohnVH+83e7zJ/GHLD0pdo31Lu030lRc0W3DPzOfScczCtQbBXM+BM0SILvnOClQ5rw29822ZaQUetrr4uDkxl2sXH+dQdv+BmcSf5M=
+api: eJzNVcFu20YQ/ZXBXNIEBCUEPbEn2Q5coYcIjloUMHRYLUfixsvd9e7QMUHw34uhKNmyFCFtLuWFWGnmzZvZN48dstomLO5R+zpXHKJnn6fWaVxlWFLS0QQ23mGBt8SgYG39GlRKXhvFVMI3wxUo2JoncqC09o3jHO6Im+gScEWwaazdp4GPZmucsraFJlivSipzuPGUwHmGSI+NiQSq4eo3MHWwVJOTMusWFjdfcszQB4pKKM1LLE5o51viK+vXmGFQUdXEFKW/Dp2qCQssTYkZGmnosaHY4ts2lxXBzfwG/GZgv28JMxzZlVhwbCjDpCuqFRYdchsEO3E0bvsvEDc+1opHVn2fHVjqH2F5/YI5jJc9bIh19ZNUL8Ae+OqB70oKpeBdoiTYH6dTeR1Dfv4DM9TeMTmWfz9MPmDR9X2f4a/n4q9UCXf02FDi40QVgjV6uPrJ1ySx3Wlffv2VNB9N4B4pRh8xw5pSUlsSaYcoOmKzI74LODMdck0tCHP3pKwp97xW/QvYSVa/eySCKy8i3RIPeuQKC5xckGyi+LTXaxMtFlgxh1RMJuv00ObD0tnJcwx6cnJ1syUsBFN7K6sCf98trmEHiKKsYzwVTD5gqhB+AHAWwl+Gvh2DroSwbqLh9ovcw26WV6QivR6mlMRRgnJe7wJkQsZt/BBp2NKbkkOp2WIuqU1dq9higdfeyYCMdyLRV+HvElh6NtqL6Xj4HMjNFvN3CXYKgZ1y8zOCNwkSaTmCiE0Zl+D35XIhtSHShiI5TVB6nQQFrmxD6aEF5crXBA7lc7glJxZF4pZDr8D+gZzwYko8AGtlbYLSRNJsW9hEXw8bJ2WE5dglFjjNp/kU+wyDT1yrQfZ7lzijJBildNRm97JH/xcbH8XB9MyTYJVx0uKg0W7clNNv0mFTVhlWPrHEdN1aJfoz2r6Xn3duKftTmqTWVgxgo2yiCxP55W70ivfwfas+y/eB2sMn5UnZRiKGZfvPxS+Y7wUG+g2DlRyiEQpY3ItbVaRK2cr7bkyZaU2BX2WJL0viwbVuPy2x7/8BwgDF2g==
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Get a blob associated with a given repo.
+Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
 
 ## Request
 
@@ -59,7 +59,7 @@ Get a blob associated with a given repo.
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"did","in":"query","description":"The DID of the repo.","required":true,"schema":{"type":"string","description":"The DID of the repo.","format":"did"}}}
+        param={{"name":"did","in":"query","description":"The DID of the account.","required":true,"schema":{"type":"string","description":"The DID of the account.","format":"did"}}}
       >
         
       </ParamsItem><ParamsItem

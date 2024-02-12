@@ -1,11 +1,11 @@
 ---
 id: com-atproto-moderation-create-report
 title: "com.atproto.moderation.createReport"
-description: "Report a repo or a record."
+description: "Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth."
 sidebar_label: "com.atproto.moderation.createReport"
 hide_title: true
 hide_table_of_contents: true
-api: eJztWN9vGzcM/lcIvuzl6njFng7DAKcttmArYiRuMcD1A32ibTU6SZV0jj3D//tA3flHGidrgmLYgPjFvjPv40eK/CjdBhPNI5ZjrFzdo+SDS65XO8WBknYWJwUqjlXQPl+WeMXehQQEgb0DF/KvygXVwwKd7567UFg+ANmrAlPiFgcLjFw1Qac1luMNnjMFDliOJ9tJgYG/NBzTuVNrLDf5UgdWWKbQcIGVs4ltkr/Ie6OrjH/2OQrRDcZqwTXJr7T2jCW66WeuxOUBaIyBKTo7EosCY9OaTAr0QYJJmmPrem9VbtBZvpxlvh1yTEHbORY4c6GmhCUmd8MWv07etae6hFmOyyZo7C3ZxAp8cLUTm0LSajTHAmq2cidigUknww8nVPEs9lqG4gC3xZOJvdWBqwRL7UzGBDeDyGHJAUJjhI6h21hA4lDH3Z+64ieR+7hDfw7D9zoaJqXtHLSS1KR1ATSbaaOpzZwLsKuIp7A6AD+H1ofdEroAtY6GpmxYQeRVQ+ZZfK7zo8/hctUoLmBBgWLUdl4Ar6QrdMq5cWnB4VZHlrJjU7lacjnlBS21C0+iKI6eQ/BSKJRZOUKKYF2CGRkjPBqrOADZzLKzgIoSz11YP4lcdvIcdgPvmUwJlL+BwAdeatdEs4ZEN2zh4BCoyk89hViLjyJs3/5Qlpxt0QnQkZh1UW0PonVKmE5KntIKHyBBqtZ7/95d8ew4kyfRmqCxwOphTAHqxRScnWe8yTZ/BCV6Z2OrsK/7ffn6qmB+x+8k81phcVrr5bZUG6tzKbR2OqnBiSGg1ZEXbRPPc6G9DIeX4fAyHF6Gw39vOBRY0+oPtvO0wPJ1v9/v/y/HxR2FPhHkfumE6fZYwh81psSvkq4Zd/Pop1Mj6JwUXLXnkO81iziE3FM1x0hzvj9oWoMT5Nk2tSBc2CUZrQ683q28oI+62u3+by8lgTtX9/cP+9h/vB/7B0tNWrig/2L17wdfORtloQZNWrzXWbXwn0PJFmnh5ADqXU6OJ6l/PPvW86hMtpjbogkGS1yk5GN5djaNN+tedJUmc7YKvjq7rxIjGAp85QwM317Dn1fDN92ozI1xF4+87mVM8v4bAAfef9R8exd0cjhAX0v+2xzujtH7FIlLiS2bYInT1kCyJct3dThov1tR7Q1/feg91OBObA53jhRFOvBoQQrUduYyj67TjwPKgQyGFxmirimsscQ3zkr6u23GkfkPEQyvtFQFJAeXnu1gePFDhLbuoG3s3r0UjhY6QuQsyXnmkrYRfhuNhuIbAs84sK0YlKuioMC5aTjerIGsOiawd9+DX9lK9TAQtJmEPDWEV+KYMnBFxkRQee9k1jALroa0aN0Iyy5KLLHf6/f6UtpSrzXlZrJUPzID2pKFfc3eiXhzaNTH39Z0tZF4lc68IS1br7ZEN13PPPRa6G7PTApcSKeVY9xsphT5QzDbrdz+0rAs6nhS4JKCpqnUwFgEacGk8oueDd5wt+7C+VW3O1+SaYTcPaGRNmqfGFQV+/So7eRIDIaX1yMscNq9TJJgsMRAt1LTdIslfsJPmF9itVtr6QC5v0FDdt5kzcEWVypbpPGow7qOKnY/jqYq2fURy5/b5oQszr9g0UXTbjvy4ehvZ1vn2Q==
+api: eJztWFFv2zYQ/iuHe+kGqI5X7EkYBiRtsQVbESNxigGpH87i2WZDkSxJJfYM//fhKNlWGqdrgmLogPjFtkR9993x7jue1phoHrG8wsrVA0o+uOQGtVMcKGlncVKg4lgF7fPfEi+aaa0TEOwXQWDvQoLAcwpK2zmQhQ4LqKpcYxO4AIErF9QATmtvuGabWMF01QeKHG50xRF+uNVpAaM3F+CDW660nf9YAFkFgT81OnAEatJigAU63z18qrB8wItBFZgSn2eaWGDkqgk6rbC8WuMJU+CA5dVkMylQ8DmmE6dWWK6xM6ewTKHhAitnE9skt8h7o6uMf/QxSmzWGKsF1yS/0sozluimH7kSk3ugKwxM0dmxrCgwNu2SSYE+iDNJc2xN71aVa3SWz2aZb4ccU9B2jgXOXKgpYYnJXbPFe/vlqS5hlv2yCRp7SznwPrjayZpCts9ojgXInmhnIxaYdDL8cEAVz+KgZSgGcFM8mtgbHbhKcKOdaTffzfL+c4DQGKFj6DYWkDjUcXtTV/wocu+36E9h+E5Hw5QTWisJTVoVQLOZNprayLkA24x4DKs98FNoXW630AWodTQ0ZcMKIi8bMk/ic5EffQqX80ZxAQsKFKO28wJ4KVWhU46NSwsOtzqypB2bytUSyykv6Ea78CiKYugpBM+EQtkpVATrEszIGOHRWMUByGaWWw2rKPHchdWjyGUjT2F37D2TKYHyNxD4wDfaNdGsINE12744UpWfegyxFh9F2L7+oSw5m6IToJ6Y7bz6zAmltPzcJt8yAU1dkyAteJuOWbt3pT4Q+K3wHRK3g7KptMIHHCFV650P3p3zrL8bB9GaoLHA6mFMARrEFJydZ7zJJn8EJXpnY6vSr4ZD+fos6f7Ab9QqtMLicL+Qy5KxrE4kWdsOp44PNBKtela0TTzPyfrcYJ4bzHODeW4w32ODqWn5J9t5WmD5ajgcDv+X7eKOQh9wcrd1wnTTl/AvLqbEL5OuGbf96OdDLeiEFJy3s8y36kUcQq6pmmOkOd9vNO2CA+TZNrUgnNobMlrteb1dekEfd7nb3W//SgC3pu5h7n3/6b7vl1aGQxf036z+e+crZ6Ns1HGTFu90Vi38d1fyirRwMsR6l4PjSfIfj752ppXOFnNZNMFgiYuUfCyPjqbxejWIrtJkjpbBV0f3VWIMI4GvnMkz91/no9ddq8yFcRePvB5kTPL+KwCPvX+v+fYu6GQ/hF9I/NsYbkfxXYjEpPiWl2CJ03aBREu273w/rL9dkrxV+Hxw3ufgVmz2V3qKIhXY25ACtZ25zKOr9L5D2ZHj0WmGqGsKKyzxtbMS/u6Y0Vv+IoLhpZasgOTgzLM9Hp2+iNDmHbSFPbgXwvFCR4icJTn3XNI2wu/j8UhsQ+AZB7YVg3JVFBQ4MQ3H61U+avf5bs0P4De2kj0MBG0kIXcN4ZU4pgxckTERVD47mRXMgqvzQV7MCMvOSyxxOBgOhpLakq815WKyVH+hB7QpC7ucvePxel+o391Lpi4dZbY58oa0nPbaqlh3ZfrQC7S7ZTopcCHFXV7hej2lyJfBbDZy+VPDkkdXkwJvKGiaStpdiQYumFR+P7XGa+5STcL0shsIbsg0Qu6etknltk8cVxX79MW1k57+jM4uxljgtHsHJs5giYFupYzoFkv8gB8wv3trT/NSdHJ9jYbsvMkyhy2uFJNEsVfUXREX2x+9Rk521WP5S6sHkPvBr1h03rQnnTyP/QO+BFaj
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Report a repo or a record.
+Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
 
 ## Request
 
@@ -207,7 +207,7 @@ Report a repo or a record.
           required={false}
           schemaName={"string"}
           qualifierMessage={undefined}
-          schema={{"type":"string"}}
+          schema={{"type":"string","description":"Additional context about the content and violation."}}
         >
           
         </SchemaItem><SchemaItem
@@ -580,7 +580,7 @@ Report a repo or a record.
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"id\": 0,\n  \"reasonType\": \"string\",\n  \"reason\": \"string\",\n  \"subject\": {},\n  \"reportedBy\": \"string\",\n  \"createdAt\": \"2024-02-11T00:24:11.901Z\"\n}"}
+                    responseExample={"{\n  \"id\": 0,\n  \"reasonType\": \"string\",\n  \"reason\": \"string\",\n  \"subject\": {},\n  \"reportedBy\": \"string\",\n  \"createdAt\": \"2024-02-12T00:22:43.663Z\"\n}"}
                     language={"json"}
                   >
                     

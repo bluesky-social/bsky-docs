@@ -1,11 +1,11 @@
 ---
 id: com-atproto-repo-upload-blob
 title: "com.atproto.repo.uploadBlob"
-description: "Upload a new blob to be added to repo in a later request."
+description: "Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS."
 sidebar_label: "com.atproto.repo.uploadBlob"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VcFu4zYQ/ZXBXBZYqHJa9CQUBext0QZFEWPjFAW8PoyoccQNRXJJKokr6N8XQymxE2+xBVrUF0vi8M17wzfDARPdRqy2qFxXUvLBJVcG9g53BTYcVdA+aWexwhtvHDVAYPkBauNqSA5qBmoabuRZtoG2QGAocYDAn3qOqcQCnedAgnPZYHWWq+wz9Mq4GguMrPqg0wGr7YArpsABq+1u3BU4I65cc8BqyK86cINVCj0XqJxNbJMsvV28xWoYx1E2Re9s5Cjfv7u4kL+Xyq5+wxebyXujVea7+BglZMCoWu5IntLBM1bo6o+sEhYnLLYoZZHK+SCKk56S5q/HnTEFbW+xwL0LHSWssNaWwgHH/Cvw+y+RXFED7yf9/xVbDsEFLLDjGOmWz4lPAV9gzrbvBOHS3pPRzZHXz49e0Dfuji0WT+vT6248pjrDPGr/9lz7jaU+tS7ov7j5/8UrZ6Oc0rJP7e86xkz3q1JyRGqdGN67XBxPqcUKF1/zf7jnELP9+2CwwjYlH6vFoo53hzI6pcksHoNXC3zdo8sNrAVWOQPrn67hz/frdzAB4li8xiOvy4xJ3v8DwKX3f2h+eAm6OzbstdR9qt1T2z6XRlKKthwijp8CpEra7l2O1Mnwq5Q51XJ9KVv7rpMmqfCds1Ig7Sy4PZyEv4lg+FHLeck8uvJsl+vLNxEmR8DUb+WZyE2rI0RW8gpiLtI2wq+bzVpyQ+A9B7aKoXEqCgqsTM/x7gBkm1MCz+lL+IWtjDwGgkkrJGkC4ZU4pgysyJgIjQ6skjnAPrgOUjulEZazSqzworwoL8R04qSOss0t5Ur+jZlgdtMLpcOxdf7VOJ8PNfFjWnhD2gq17K1hNvn5hXJq8l2BrbREtcVhqCnyTTDjKJ8/9SxnvN0VeE9BUy2W2MrkaJmafBMMeMezDUTKNxshI+GmF1Iy+cXqU9BSKfbpZPlsYIiDnxt1fXW9wQLr+YLpXCN7Aj3I8KAHrPADfkBRKwPpxN+zn4unB6E5L5E9nOT/YWoNyCPxRyxmntkcOO7GcfwMZ8WZoA==
+api: eJztVU1v4zYQ/SuDuewHuLJb9CQUC9jbog2KIsbGKQp4faCoccQNRTIkFccr6L8XQzmxEm+xPRQ91RdL4vDNm+F7wx6TvIlYblC5tpDJB5dcEcg73AqsKaqgfdLOYonX3jhZgwRLe6iMqwQkBxVBoB0Fsopq2AXXggQGiDq5cIBAyoW6gHVDeRPstTG8qyZDiWrQO9AJdATr0hRqr1OjLUhIuiXYa1u7PbymGwGttl2i+KaAJQMGiiloxSwjvG51S+ngSUDUX0gAJfUGZCAgu3MhAzdkITUT3pxdBZKJ6gI+0l2nA0WQXWoE6NYbasky1eoAq5+uChToPAXJGS9qLM96V3S5VcwOBUZSXdDpgOWmxyXJQAHLzXbYCgx011FMS1cfsOzzqw5UY5lCRwKVs4ls4qW3s7dY9sMw8KbonY0U+fv38zn/PT+py9/w2WbpvdEq8519jhzSY1QNtZKfuFtYoqs+k0ooJiw2yCfGSvCBK056TJq/nnZy++0NCty50MqEJVbaynDAIf8E/vA1kktZ515TTP8WWwrBBRTYUozyhs6JjwFfYU62axnhwt5Lo+sTr58fPKOv3S1ZFI/r4+t2OKU6wzzV/t157deWxeWC/kL1f1+8cjbyKS261PyuY8x0v1lKjkiNY8F7l5vjZWqwxNm39B/uKcQs/y4YLLFJycdyNqvi7aGITmlpZg/Bqxm+nDmLNawYVjnD1oM/P64+wAiIg3iJJ70uMqb0/h8ALrz/Q9P+Oej2ZNgr7vvYu0fbPrWGU3JtOYQVPwZwl7TduRypk6EXKXOqxeqCt3ZtyyYp8YOz3CDtLLgdTMJfRTD0oPm8eNReerKL1cWrCKMiYPRbcVbkutERIuWRCCwuqW2EX9frFeeezL3aqcgosDQdxdsDSFtPCTylL+AXsjzyCCSMtUJiEzCvRDFlYCWNiVDrQCqZw3gZ8KDlNMzyWCWWOC/mxZxFx0pqZZa5lbmTfyMmOKrpWaX9yTr/X0+T6+ko0kQPaeaN1JZbnb3SH017fuFPTbsV2LDFyw32fSUjXQczDPz5riPW7GYr8F4GLSuW+IYnYUOyzjdbj7d0lDUfzbs1k+Fw0zEpvsnYumPQQinyabJ8NgDZkU+DZ3V5tUaB1fHCbF3Ne4Lc8zCUeyzxE35CrpbbM/Hr0Z/i8YFpHpekPUzy/zhaHfKIf4/iyDOLHYftMAx/AaYILks=
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Upload a new blob to be added to repo in a later request.
+Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
 
 ## Request
 

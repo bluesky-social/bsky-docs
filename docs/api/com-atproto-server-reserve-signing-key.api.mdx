@@ -1,11 +1,11 @@
 ---
 id: com-atproto-server-reserve-signing-key
 title: "com.atproto.server.reserveSigningKey"
-description: "Reserve a repo signing key for account creation."
+description: "Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented."
 sidebar_label: "com.atproto.server.reserveSigningKey"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVU2P2jAQ/SvWXPaSBlT1lBu7rVq0h42AVpUoB+MMxItje21nIYr479U4WT4W2q7aciLx+M17M/MmLQS+9pDNQZgq5cE6E0zq0T2jg0UCBXrhpA3SaMhggvGEcebQGublWku9Zhts2Mo4xoUwtQ5MOOR0I4UEjEUXH8YFZFeSpK7DnHZY99hAAg6favTh1hQNZG18lA4LyIKrMQFhdEAd6Ihbq6SICQaPnki24EWJFad/obEIGZjlI4oACVhHdIJET6eFLE6CfHBSr+G15FmJrJAFC4a5g3qNW3qZ9cJhH3/E21ujfQf/fjiMWc7gHu7hH/gfCzEHfyzY4rWyk7M/CszrpZLirJdSs1AiKauYWTH+ojU9CP1wTdstL9ik69z/EonOGQcJVOg9X+Ol0i7gikjUdUUIY/3MlSxeeC32R7CLW/sXeRWG0tC8WhO1WB5KyGDwxvHtjshVLdROQQZlCNZng8HSb5rUGyG5GuycFYOLdoxmLCd8YRTLP07Z90l+x3o/7pPXeNzKNGJya98AOLL2m8TtOeiCCIvaydBMqSldYW+ROzytLKUkbTEEMlh2AVQu6unkaNlPO15ZhQeLHcqbgNQrEzFloIAzcpHUKB9TkrqquGsggzujqZTSaJrEk/AbzxTupDDakzcfLOpRPr7xrBusOLw8pFf8LD3zKOiR0YxyqT37MpvllJs5XKFDLZAVRvi41W5VjX7TMK6LUwKH9Cn7jJqWHG2GriosmA1q4hXQhwgsuFKeFdKhCKphK2eqaDJKQyx7lZDBMB2mQyoWDV/Fo1s0jzX/9fyxfgBZN4FnmtujF/9mg/f9D7gLA6u41MQtjmHbG+Pax+OKMRYJlOSnbA5tu+Qevzq139Prpxqp2/NFAs/cSb6k4ZiTV0vkBY3hvIUN9gNBUt7NiBWFq5rYXawY8kp3YyQE2vDb2MWJ5fOH6QwSWPbfnsoUdMfxLa0mvoUMfsAPiF82Qohmie9bUFyv67hZoMOl30+IIJKe
+api: eJztVk1v4zYQ/SuDuexFlY2iJ/XkJIs22GJjJG5RwOvDmBxbXEskl6SSqIb/ezGU44/EWwRoj9XJEEdv3ryZefQWE60jVnNUri0p+eCSKyOHRw64KFBzVMH4ZJzFCu85nwBBYO8gmrU1dg0b7gtYuQBdZHgyqQZSynU2gQpM8m0Jn1lxjBR6iA5STQkIbm5vYPrbNXReU2JwnkOOBkUWlgzK2ZhCpxJr0F2QVGQP2K1ZBzJJwKfdsjEKyGrQjiNYlyDwt84EBupS/TOY1jfcshWoZQ/Tm4cSPt/NPlaQahOBrfbOCCj1oGqya4anmi2suqY5z5gJmniKWGKBB/K3GqsLYpZh0O5h0OwT91igcOSYrpzusdrinrLGKoWOC1TOJrZJjsj7xqicYPQ1SjO2GFXNLcmv1HvGCt3yK6uEBfogdJLhKKfa6JOgmERIfN3aWc25H8lBOHR5w730tcRdfoRw9M7GAffH8TjDn+HcfcJ/QfyowBzjUanF65JOzt5VmR8GZF8PpJpfqtTnU2wsaKMrCYwcDDXmr2GADxL8dKnqK9JwPzTzvyqfQ3ABC2xlbdb8VoMh4EL5bLtWEG7tIzVGv/Ba7I5gb77avZTXcqqdjLB3uRZPqcYKR++c6OFIDGWLXWiwwjolH6vRaBk3fRmdMtSMnoNXozeNmsxgKvjKNbKg8Of99Br2VrQrXuORN2XGJO/fATjx/g/DT+egCyGsumBS/yBNGYS9Ygp8qqyklNpyCFa4HAJELunp/XGLPz6T2MJh6w7yFmjsymVMkyTgjFwmNZneSpKubSn0WOG1syKl2I1bwUn4hwgNPxtxR1nXO892Mr39EGEYLJnwllJ5YRFMhMhqsFhnExkb4dfZbCq5IfCKA1vFoJ2KeU+umo7jps/Gesr3JX0Jv7AV3xOzGFSB5DZshVfimDKwoqaJoE1glZoeVsG1eQMljbDcV4kVjstxORaxZPhayttiKWv+/fmD/QDCMIFnNW+Pu/j/5fX9y2s/54mf08g3ZKz0IK/bdm8Al/4fXDCARYG1+EY1x+12SZF/D81uJ6+/dSxTPV8U+EjB0FKWYC6eVDNpWbf5Fje8H3xp2Q8zYSXhTSfs3lipeMLwxUQp9ukfYxcn1ja9e5hhgcv9tds6Ld8EehILpies8At+wXypC0I2hfx+iw3ZdZcdFAdcef4GOAxAaw==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Reserve a repo signing key for account creation.
+Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
 
 ## Request
 
@@ -80,7 +80,7 @@ Reserve a repo signing key for account creation.
           required={false}
           schemaName={"string"}
           qualifierMessage={undefined}
-          schema={{"type":"string","description":"The did to reserve a new did:key for"}}
+          schema={{"type":"string","description":"The DID to reserve a key for."}}
         >
           
         </SchemaItem>
@@ -142,7 +142,7 @@ Reserve a repo signing key for account creation.
                         required={true}
                         schemaName={"string"}
                         qualifierMessage={undefined}
-                        schema={{"type":"string","description":"Public signing key in the form of a did:key."}}
+                        schema={{"type":"string","description":"The public key for the reserved signing key, in did:key serialization."}}
                       >
                         
                       </SchemaItem>

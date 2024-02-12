@@ -1,11 +1,11 @@
 ---
 id: com-atproto-repo-apply-writes
 title: "com.atproto.repo.applyWrites"
-description: "Apply a batch transaction of creates, updates, and deletes."
+description: "Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS."
 sidebar_label: "com.atproto.repo.applyWrites"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9Vk1v4zYQ/SvEXPaild1iT0JRwEm2bVAUMRKnLeD1YUyNLW4kkktSa7uC/nsxpGPLcbrJ9iuXyBL1ZubpvZnpIODaQzEHaZocg3UmmNyRNbDIoCQvnbJBGQ0FTKytdwLFEoOsRHCoPUp+JsxKSEcYyGeitWW6QF2KkmoK5HPIwFhyyKevSyjOouXI4L85FchDBp5k61TYQTHv4ILQkYNivugXGTj61JIPF6bcQdHFn8pRCUVwLWUgjQ6kAz9iSCVjzNFHzyV04GVFDfJV2FmCAszyI8kA2QBoDrH+DDYpnUUG1nH6QZFPMa0ZQPjglF7DU7pmFYkKdVmTME5cXV8xTaEiEeuFDFbGNRigAAxvVUk6qJUiB30Gn7FWzOIgyNKYmlCfRfmhxrVYGSf27yi93geRxpWR+ZJW2NYhMdQfyjpio3O4gwxUoCbeN5puVpH7pyydBr+MH12g0LTZR8yfUClNXVNUCcS6WmI+gwo1vSCDPEkK+uylNO6j5ARqQVvlIwWvSMY90O6rc0rqfkVOV1H5fyun1+aSzAX9ou8z8Bu0l6ZpVHhOmQepSVVCH/84C2+N9kkK347H/O+0iJufWY3vnnt0gaW4TVaEf8l15JxxkEFD3uOazn2XDjxTHum2YYRrHV1wzOv91jL6zDwQ07t//uTn3QYtLPpj4LMIj4y9G39zzsS9xjZUxqk/qPz/qZBGe/6wkzZUvyjvY7ovlhJPhMpwK7YmUmUxVFDA6MXO7D6T87E5tK6GAqoQrC9Go6V/2OXeSIX1aOusHJ15YjITU8aVphbTqzvx++30UiTA6KhTPLQqj5ho7SsAJ9b+qmhzCro4jpI7Jj6R9zhQDtxwSK4tHuFmmw4wTfzdbo8j5/0WG1vTcQocRXhs2mkSPbbZeTf0+OCFaPZTgJaRe+biP3olMjJoFYf7GSi9SlNt33uG5EZSJ9NrJqltGnQMeWk0S2G/AAyOv/Gipq1iaYpgxI0lPZlev/EiiV+kbpQ/MzGVFz6VINhHqLQXP81mU44tHK3IkZYkSiN9HHoXdUv+YRd3jWG+j+Fz8SNp3jt4SKWvKgK7n/MK5EMElljXXpTKkQz1TqycaeIM5TCc5b5KKGCcj/Mxk8WmaTA6WmPz161aHIxzUmp3bBP/cK3aKzjQNoxsjUpzdtFI3d7S56vdiaUXGVTcAYo5dN0SPd27uu/59qeW+DvPF6wzp3DJsphzo6wIy7iRdZDUdZmqeTvjbA6yPG+ALNP0xkRKsuGLZxeDJjW9uZtBBsv91teYkt9xuGGF4wYK+AAfIK6ZjJDWNL7fQY163cZeCAmXbc0te7hdJcNnjxeD1Qf1bpDld6l3iDhCvodsX03UVJzE/Z/MU+02
+api: eJy9Vk1vGzcQ/SuDubgFNiu3yGlRFJDtoBXawkIstwUUHUbckZcxl2RIrmVV0H8vhqsvW2mdBG188WqXnHl8nHlv1pjoLmI1ReXakpIPLrkysHc4K7DmqIL2STuLFQ69NysgmFNSDaRANpKSb+AWIFuiTi6sQAWmxLGAztf9A9kaajacOJbwlj90OnAE6lJTgG694ZZt4hrmKxhf3ZRYoPMcSGKPaqxOsJUkUP4IOnHEAiOrLui0wmq6xgumwAGr6WwzKzDwh45junD1Cqt1/qkD11il0HGBytnENsknCalVzjl4H+XAa4yq4ZbkKa08Y4Vu/p5VwuIo0BQzWwUuezizAn0Q+Elz7HN6dxQipqDtHT4nd9IwNGRrw+ACXI2uhNTUcCYWvqF7KkB1IbBNQEq5zqZvhaiFCy0lrJDSK12zTXqhOeCmwAcyWvg/yj13zjDZk+SXZGHOEDlBcnC2IBP5TB7jvfbwKz9q5Sz0bMA27v7elQs11JSogIULQMbA/vZimXMtqDOp53yzJ+oAi0KgFRaoE7f5vbN8vci3+Zz3p7ivd3lg2WjV7CoPCCwvt9DKZ7elnDGcyxYzRx3LlSWdDL9QaWUfHjfF5+LaNgKQBX7UMWl79ynowj2vPhtkn+sLQG4b9ItAfiq4PgduZptNgXFJ/tK1rU4vt8doAT64B11zXeS2kEoPfKg0WGpjYEHagO4bZ9ctuYFUzgOXoyuoHUewLkHb61ijI2SKS7iNXEvZ+8APslU5uzBabanwDtouHep633pK17jJf8JT9M7Gvr6/Pz+Xf894/0W68/XHPl1QneWRo1zXfyJOHIILWGDLMdIdn8pTv+AjF8C2ayXCyOaOP+B68+gl+sTdsxTA9vuznzdL8jjbHBKfZNgx9vr8u1Mmbq24gwv6L66/PhXK2SgXO+xS85uOMcN98Sh5RWqcOJZ3mSpPqcEKBy8aWHjgELPidcFghU1KPlaDwTzer8rolCYzeAxeDU46YziBscRVzoh5wp9vx5fQB8wi8DQeeV3mmOT9JwQcev+75uXToLOD494I8T15O9/dcyMp5Wx5iZhPv0Boknt7e3DmN48kQ8DBLA9FeDCx3rB33jFdH6vQ0YYsR08DdBJ5I1z8T1syI0ditn9foLaL3vy36nhMbiZ1OB4JSV3bUpCQl85KKWzd9Wj5WQTTG3EUibr2bIfj0Vnc2XKvRuVHBgsdIfZHEEFLpG2EnyeTseSGwAsObBVD7VTMDn5hOo73qzy1HePdpS/hJ7YiuyzDYL5VSNL9gitxTDmwImMi1DqwSmYFi+DaLMuSRlBuT4kVnpfn5bmQJU3TUu5oS+0/mwnsG+fJUdcHmfiqs+q23hM/poE3pK2cJbfdeisAp9P1EwGYFdiIXlRTXK/nFPk2mM1GXn/oWKpiOpOqDJrmUkRTkdWGqc5j7hr7Wrzsz/5qImj2RXwql1LU/Y6hUuzTv66dHUna+PpmggXOt6N062rZE2gp/UBLrPAdvsM8u2eLzO0s79doyN51WTmxjysiIJQez6a9PBS7h6Ppj+zqCOUPvdJANpwfsdieJldgniw2fwPGm3nN
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Apply a batch transaction of creates, updates, and deletes.
+Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
 
 ## Request
 
@@ -80,7 +80,7 @@ Apply a batch transaction of creates, updates, and deletes.
           required={true}
           schemaName={"at-identifier"}
           qualifierMessage={undefined}
-          schema={{"type":"string","description":"The handle or DID of the repo.","format":"at-identifier"}}
+          schema={{"type":"string","description":"The handle or DID of the repo (aka, current account).","format":"at-identifier"}}
         >
           
         </SchemaItem><SchemaItem
@@ -89,7 +89,7 @@ Apply a batch transaction of creates, updates, and deletes.
           required={false}
           schemaName={"boolean"}
           qualifierMessage={undefined}
-          schema={{"type":"boolean","description":"Flag for validating the records.","default":true}}
+          schema={{"type":"boolean","description":"Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.","default":true}}
         >
           
         </SchemaItem><SchemaItem
@@ -243,7 +243,7 @@ Apply a batch transaction of creates, updates, and deletes.
           required={false}
           schemaName={"cid"}
           qualifierMessage={undefined}
-          schema={{"type":"string","format":"cid"}}
+          schema={{"type":"string","description":"If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.","format":"cid"}}
         >
           
         </SchemaItem>

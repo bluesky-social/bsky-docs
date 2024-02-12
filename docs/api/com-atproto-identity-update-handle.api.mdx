@@ -1,11 +1,11 @@
 ---
 id: com-atproto-identity-update-handle
 title: "com.atproto.identity.updateHandle"
-description: "Updates the handle of the account."
+description: "Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth."
 sidebar_label: "com.atproto.identity.updateHandle"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VVFv0zAQ/ivWvfBi0oJ4ihBSBxObEFq1dQip5OHqXBezxDa2s7VE+e/onHTtWAV7QPSlSXz+7vvO9507iHgTIF+Csk2G0XkbbaZLMlHHLRQSSgrKaxe1NZDDtSsxUhCxIlGhKWsSdp3eUCnbmpiBBOvII284LyE/Cpy1CecsIYCEQKr1nDBfdnBC6MlDviz6QoKnHy2FeGLLLeRdetWeSsijb0mCsiaSibyEztVapcST74HpdhBURQ3yU9w6ghzs6jupCPIAaAmDElbrPJOPmgLvGb/vd4fotbkBCWvrG4yQ70L69GPU4KwJw/bX0yn/Pa7gxSfoJbw5tnSCpbgc5MI/UkbeWw8SGgoBb45IHAKOKCTTNoxwbu6w1uWe1+nGMfrC3pIBuVsfXot+n+oJ5q5Gb6avnmq/NtjGynr9k8r/L15ZE/g0Z22sPusQEt2/SkkRsbLc5c6m4jiMFeQweV7T+zvyIfV862tuphhdyCeTVbjdZsEqjfVk452awO8+nC3EnMGVrcX8w5X4ejl/LwZA6OXveOh0ljDRuWcAzpz7oun+MWixd+kVV3+o4M6rDwXilKwthUAOqyGAa8WHd7l38+kGGze4a+ezh/JK0GZtE6yOaeWQX+I1m59znrZp0G8hh/fWcDW1NTyRDsJfBFHTRvMRi2jFhSMzm5+/CGJoIjFYOXtSkUWlgwik+FVwP6I2QZwtFnPOLTytyZNRJEqrAqOIk7qlcLsVaMpDAg/pM/GRDI9GEiiGwojIvmFekUJMwArrOohSe1Kx3oq1t00asJyGWY4qIYdpNs2mXCxuvgaTMwymsv+h/8RDAz7S2+0997wpPx54pE2cuBq1YSap77rRBscvlcc2KCRUbJ18CV23wkDXvu57/vyjJT7YZSHhDr3GFffBkidMRVimC6KDWxrPnpm/XDAlDq9bpvZkcrAzhh0zpcjFP8YWB+6eX1wtQMJqvIQaW/Iej/c8cfAecvgG3yBdfYyQrJG+d1CjuWnTEIEBl63As+7ANKNJ5O6BlY1LaLYHLN8OfhNp2r4DOapJTQR90ff9L+AetJk=
+api: eJzNVcFu2zgQ/ZXBXHJhZXfRk1As4HSLrbEoYiROsYCrA02NIzYSyZJUYq2gf18MJcdOY3R7KIr1xTY5fDPz+N6wxyjvAuYbVLbJZHTeRpvpkkzUscNCYElBee2itgZzvHWljBQgVgSq9Z5MBKmUbU28CFBJU9aUwSfyeqfpsAAPstaljp0AaUpoJ4xSl7mrFZRWtQ0D6R0YUhSC9F0Gy8bVxOtUwraD1R8343FPX1vtKYBsY5WhQOvIS65vWWJ+to9sTPkhVYMCA6nWc3/5psdLkp485ptiKAQyOoV4acsO8x6nZCXm0bckUFkTyUTeks7VWqXEsy+B2ekxqIoayb9i5whztNsvpCKKE6ANjqwwuc5z8VFT4DPT+vF0iF6bO/z2EtYVgaHHA90ocGd9IyPmB4ghfThrcNaEEf63+Zy/nmNd/YWDwDfnti5lCdcjHfiTOifvrUeBDV/y3RkKxoAzDJBpG0ZYmiSmY13v947R1/aeDIrD/vi3GI6pXmAeOHozf/2y91vD6rJe/0Plr29eWRP4NhdtrD7qEFK5/9lKioiVZRc4m8hxMlaY4+zHTOEfyIfkidbXLKYYXchns22477JglZb1bO+dmr1Q5GINKwZXtmajwt/Xq3cwAuIgvsWTTmcJUzr3A4AL5z5penwOWhxdfMPsjwwevPxEEKfk3lII5rgdA5grvrzro9vf7yUPnFMfPtErUJudTbA6pp3T+lJdi9WS87RNI32HOb6zhtnU1oDdwUn4RYCa9pqvGKKFK0dmsVpeBBhFBKOVszOm1wECKf4LrEepTYAP6/WKc4OnHXkyinicBkaBy7qlcN+loXla7yF9Bn+S4dFJIGEkBiL7huuKFGICVrKueVZ7UrHuYOdtk6Y/p+Eqpy4xx3k2z+ZMFouvkckZRibav6M/eBLgs377o+f+l4/OpK9I+zhztdSGG08y7yfXnX9Sn7uuEFixU/MN9v1WBrr19TDw8teWWEebQuCD9FpuWXYbHmgVyTK9Vz3e0yQ1JurVmkvi8Lrl0l4MKjbieGKhFLn43djiZJisrm7WKHA7vYmNLfmMl4884OQj5vgZP2N6iRkhOTGt91hLc9emmYUjLjuPOTzx6ORJcfjBnU1b0nQnVb4d7Q1puP+OYuomaRaHYhiGfwEvxxBF
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Updates the handle of the account.
+Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
 
 ## Request
 
@@ -80,7 +80,7 @@ Updates the handle of the account.
           required={true}
           schemaName={"handle"}
           qualifierMessage={undefined}
-          schema={{"type":"string","format":"handle"}}
+          schema={{"type":"string","description":"The new handle.","format":"handle"}}
         >
           
         </SchemaItem>

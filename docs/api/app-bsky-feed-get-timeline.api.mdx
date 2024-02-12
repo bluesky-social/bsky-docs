@@ -1,11 +1,11 @@
 ---
 id: app-bsky-feed-get-timeline
 title: "app.bsky.feed.getTimeline"
-description: "Get a view of the actor's home timeline."
+description: "Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed."
 sidebar_label: "app.bsky.feed.getTimeline"
 hide_title: true
 hide_table_of_contents: true
-api: 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
+api: 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
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Get a view of the actor's home timeline.
+Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
 
 ## Request
 
@@ -59,7 +59,7 @@ Get a view of the actor's home timeline.
     <ul>
       <ParamsItem
         className={"paramsItem"}
-        param={{"name":"algorithm","in":"query","required":false,"schema":{"type":"string"}}}
+        param={{"name":"algorithm","in":"query","description":"Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.","required":false,"schema":{"type":"string","description":"Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism."}}}
       >
         
       </ParamsItem><ParamsItem
@@ -325,7 +325,15 @@ Get a view of the actor's home timeline.
                                             </summary><div
                                               style={{"marginLeft":"1rem"}}
                                             >
-                                              <SchemaItem
+                                              <div
+                                                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                              >
+                                                
+                                                
+                                                Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                
+                                                
+                                              </div><SchemaItem
                                                 collapsible={false}
                                                 name={"muted"}
                                                 required={false}
@@ -938,7 +946,7 @@ Get a view of the actor's home timeline.
                                                     required={true}
                                                     schemaName={"string"}
                                                     qualifierMessage={undefined}
-                                                    schema={{"type":"string"}}
+                                                    schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                   >
                                                     
                                                   </SchemaItem><SchemaItem
@@ -947,7 +955,7 @@ Get a view of the actor's home timeline.
                                                     required={true}
                                                     schemaName={"string"}
                                                     qualifierMessage={undefined}
-                                                    schema={{"type":"string"}}
+                                                    schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                   >
                                                     
                                                   </SchemaItem><SchemaItem
@@ -956,7 +964,7 @@ Get a view of the actor's home timeline.
                                                     required={true}
                                                     schemaName={"string"}
                                                     qualifierMessage={undefined}
-                                                    schema={{"type":"string"}}
+                                                    schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                   >
                                                     
                                                   </SchemaItem><SchemaItem
@@ -1260,7 +1268,15 @@ Get a view of the actor's home timeline.
                                                                 </summary><div
                                                                   style={{"marginLeft":"1rem"}}
                                                                 >
-                                                                  <SchemaItem
+                                                                  <div
+                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                  >
+                                                                    
+                                                                    
+                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                    
+                                                                    
+                                                                  </div><SchemaItem
                                                                     collapsible={false}
                                                                     name={"muted"}
                                                                     required={false}
@@ -1980,7 +1996,7 @@ Get a view of the actor's home timeline.
                                                                           required={true}
                                                                           schemaName={"string"}
                                                                           qualifierMessage={undefined}
-                                                                          schema={{"type":"string"}}
+                                                                          schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                         >
                                                                           
                                                                         </SchemaItem><SchemaItem
@@ -1989,7 +2005,7 @@ Get a view of the actor's home timeline.
                                                                           required={true}
                                                                           schemaName={"string"}
                                                                           qualifierMessage={undefined}
-                                                                          schema={{"type":"string"}}
+                                                                          schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                         >
                                                                           
                                                                         </SchemaItem><SchemaItem
@@ -1998,7 +2014,7 @@ Get a view of the actor's home timeline.
                                                                           required={true}
                                                                           schemaName={"string"}
                                                                           qualifierMessage={undefined}
-                                                                          schema={{"type":"string"}}
+                                                                          schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                         >
                                                                           
                                                                         </SchemaItem><SchemaItem
@@ -2250,7 +2266,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -2259,7 +2275,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -2268,7 +2284,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -2558,7 +2574,15 @@ Get a view of the actor's home timeline.
                                                                 </summary><div
                                                                   style={{"marginLeft":"1rem"}}
                                                                 >
-                                                                  <SchemaItem
+                                                                  <div
+                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                  >
+                                                                    
+                                                                    
+                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                    
+                                                                    
+                                                                  </div><SchemaItem
                                                                     collapsible={false}
                                                                     name={"muted"}
                                                                     required={false}
@@ -3127,7 +3151,15 @@ Get a view of the actor's home timeline.
                                                                 </summary><div
                                                                   style={{"marginLeft":"1rem"}}
                                                                 >
-                                                                  <SchemaItem
+                                                                  <div
+                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                  >
+                                                                    
+                                                                    
+                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                    
+                                                                    
+                                                                  </div><SchemaItem
                                                                     collapsible={false}
                                                                     name={"muted"}
                                                                     required={false}
@@ -3735,7 +3767,7 @@ Get a view of the actor's home timeline.
                                                                   >
                                                                     
                                                                     
-                                                                    A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                    Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                     
                                                                     
                                                                   </div><SchemaItem
@@ -4073,7 +4105,15 @@ Get a view of the actor's home timeline.
                                                                 </summary><div
                                                                   style={{"marginLeft":"1rem"}}
                                                                 >
-                                                                  <SchemaItem
+                                                                  <div
+                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                  >
+                                                                    
+                                                                    
+                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                    
+                                                                    
+                                                                  </div><SchemaItem
                                                                     collapsible={false}
                                                                     name={"muted"}
                                                                     required={false}
@@ -4743,7 +4783,7 @@ Get a view of the actor's home timeline.
                                                                   >
                                                                     
                                                                     
-                                                                    A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                    Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                     
                                                                     
                                                                   </div><SchemaItem
@@ -5139,7 +5179,15 @@ Get a view of the actor's home timeline.
                                                                       </summary><div
                                                                         style={{"marginLeft":"1rem"}}
                                                                       >
-                                                                        <SchemaItem
+                                                                        <div
+                                                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                        >
+                                                                          
+                                                                          
+                                                                          Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                          
+                                                                          
+                                                                        </div><SchemaItem
                                                                           collapsible={false}
                                                                           name={"muted"}
                                                                           required={false}
@@ -5859,7 +5907,7 @@ Get a view of the actor's home timeline.
                                                                                 required={true}
                                                                                 schemaName={"string"}
                                                                                 qualifierMessage={undefined}
-                                                                                schema={{"type":"string"}}
+                                                                                schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                               >
                                                                                 
                                                                               </SchemaItem><SchemaItem
@@ -5868,7 +5916,7 @@ Get a view of the actor's home timeline.
                                                                                 required={true}
                                                                                 schemaName={"string"}
                                                                                 qualifierMessage={undefined}
-                                                                                schema={{"type":"string"}}
+                                                                                schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                               >
                                                                                 
                                                                               </SchemaItem><SchemaItem
@@ -5877,7 +5925,7 @@ Get a view of the actor's home timeline.
                                                                                 required={true}
                                                                                 schemaName={"string"}
                                                                                 qualifierMessage={undefined}
-                                                                                schema={{"type":"string"}}
+                                                                                schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                               >
                                                                                 
                                                                               </SchemaItem><SchemaItem
@@ -6162,7 +6210,15 @@ Get a view of the actor's home timeline.
                                                                       </summary><div
                                                                         style={{"marginLeft":"1rem"}}
                                                                       >
-                                                                        <SchemaItem
+                                                                        <div
+                                                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                        >
+                                                                          
+                                                                          
+                                                                          Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                          
+                                                                          
+                                                                        </div><SchemaItem
                                                                           collapsible={false}
                                                                           name={"muted"}
                                                                           required={false}
@@ -6731,7 +6787,15 @@ Get a view of the actor's home timeline.
                                                                       </summary><div
                                                                         style={{"marginLeft":"1rem"}}
                                                                       >
-                                                                        <SchemaItem
+                                                                        <div
+                                                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                        >
+                                                                          
+                                                                          
+                                                                          Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                          
+                                                                          
+                                                                        </div><SchemaItem
                                                                           collapsible={false}
                                                                           name={"muted"}
                                                                           required={false}
@@ -7339,7 +7403,7 @@ Get a view of the actor's home timeline.
                                                                         >
                                                                           
                                                                           
-                                                                          A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                          Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                           
                                                                           
                                                                         </div><SchemaItem
@@ -7677,7 +7741,15 @@ Get a view of the actor's home timeline.
                                                                       </summary><div
                                                                         style={{"marginLeft":"1rem"}}
                                                                       >
-                                                                        <SchemaItem
+                                                                        <div
+                                                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                        >
+                                                                          
+                                                                          
+                                                                          Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                          
+                                                                          
+                                                                        </div><SchemaItem
                                                                           collapsible={false}
                                                                           name={"muted"}
                                                                           required={false}
@@ -8347,7 +8419,7 @@ Get a view of the actor's home timeline.
                                                                         >
                                                                           
                                                                           
-                                                                          A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                          Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                           
                                                                           
                                                                         </div><SchemaItem
@@ -8645,7 +8717,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -8654,7 +8726,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -8663,7 +8735,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -8883,7 +8955,15 @@ Get a view of the actor's home timeline.
                                       </summary><div
                                         style={{"marginLeft":"1rem"}}
                                       >
-                                        <SchemaItem
+                                        <div
+                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                        >
+                                          
+                                          
+                                          Metadata about the requesting account's relationship with the subject content. Only has meaningful content for authed requests.
+                                          
+                                          
+                                        </div><SchemaItem
                                           collapsible={false}
                                           name={"repost"}
                                           required={false}
@@ -9445,7 +9525,15 @@ Get a view of the actor's home timeline.
                                                       </summary><div
                                                         style={{"marginLeft":"1rem"}}
                                                       >
-                                                        <SchemaItem
+                                                        <div
+                                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                        >
+                                                          
+                                                          
+                                                          Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                          
+                                                          
+                                                        </div><SchemaItem
                                                           collapsible={false}
                                                           name={"muted"}
                                                           required={false}
@@ -10058,7 +10146,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -10067,7 +10155,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -10076,7 +10164,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -10380,7 +10468,15 @@ Get a view of the actor's home timeline.
                                                                           </summary><div
                                                                             style={{"marginLeft":"1rem"}}
                                                                           >
-                                                                            <SchemaItem
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
                                                                               collapsible={false}
                                                                               name={"muted"}
                                                                               required={false}
@@ -11100,7 +11196,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -11109,7 +11205,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -11118,7 +11214,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -11370,7 +11466,7 @@ Get a view of the actor's home timeline.
                                                                                               required={true}
                                                                                               schemaName={"string"}
                                                                                               qualifierMessage={undefined}
-                                                                                              schema={{"type":"string"}}
+                                                                                              schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                                             >
                                                                                               
                                                                                             </SchemaItem><SchemaItem
@@ -11379,7 +11475,7 @@ Get a view of the actor's home timeline.
                                                                                               required={true}
                                                                                               schemaName={"string"}
                                                                                               qualifierMessage={undefined}
-                                                                                              schema={{"type":"string"}}
+                                                                                              schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                                             >
                                                                                               
                                                                                             </SchemaItem><SchemaItem
@@ -11388,7 +11484,7 @@ Get a view of the actor's home timeline.
                                                                                               required={true}
                                                                                               schemaName={"string"}
                                                                                               qualifierMessage={undefined}
-                                                                                              schema={{"type":"string"}}
+                                                                                              schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                                             >
                                                                                               
                                                                                             </SchemaItem><SchemaItem
@@ -11678,7 +11774,15 @@ Get a view of the actor's home timeline.
                                                                           </summary><div
                                                                             style={{"marginLeft":"1rem"}}
                                                                           >
-                                                                            <SchemaItem
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
                                                                               collapsible={false}
                                                                               name={"muted"}
                                                                               required={false}
@@ -12247,7 +12351,15 @@ Get a view of the actor's home timeline.
                                                                           </summary><div
                                                                             style={{"marginLeft":"1rem"}}
                                                                           >
-                                                                            <SchemaItem
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
                                                                               collapsible={false}
                                                                               name={"muted"}
                                                                               required={false}
@@ -12855,7 +12967,7 @@ Get a view of the actor's home timeline.
                                                                             >
                                                                               
                                                                               
-                                                                              A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                              Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                               
                                                                               
                                                                             </div><SchemaItem
@@ -13193,7 +13305,15 @@ Get a view of the actor's home timeline.
                                                                           </summary><div
                                                                             style={{"marginLeft":"1rem"}}
                                                                           >
-                                                                            <SchemaItem
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
                                                                               collapsible={false}
                                                                               name={"muted"}
                                                                               required={false}
@@ -13863,7 +13983,7 @@ Get a view of the actor's home timeline.
                                                                             >
                                                                               
                                                                               
-                                                                              A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                              Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                               
                                                                               
                                                                             </div><SchemaItem
@@ -14259,7 +14379,15 @@ Get a view of the actor's home timeline.
                                                                                 </summary><div
                                                                                   style={{"marginLeft":"1rem"}}
                                                                                 >
-                                                                                  <SchemaItem
+                                                                                  <div
+                                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                  >
+                                                                                    
+                                                                                    
+                                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                                    
+                                                                                    
+                                                                                  </div><SchemaItem
                                                                                     collapsible={false}
                                                                                     name={"muted"}
                                                                                     required={false}
@@ -14979,7 +15107,7 @@ Get a view of the actor's home timeline.
                                                                                           required={true}
                                                                                           schemaName={"string"}
                                                                                           qualifierMessage={undefined}
-                                                                                          schema={{"type":"string"}}
+                                                                                          schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                                         >
                                                                                           
                                                                                         </SchemaItem><SchemaItem
@@ -14988,7 +15116,7 @@ Get a view of the actor's home timeline.
                                                                                           required={true}
                                                                                           schemaName={"string"}
                                                                                           qualifierMessage={undefined}
-                                                                                          schema={{"type":"string"}}
+                                                                                          schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                                         >
                                                                                           
                                                                                         </SchemaItem><SchemaItem
@@ -14997,7 +15125,7 @@ Get a view of the actor's home timeline.
                                                                                           required={true}
                                                                                           schemaName={"string"}
                                                                                           qualifierMessage={undefined}
-                                                                                          schema={{"type":"string"}}
+                                                                                          schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                                         >
                                                                                           
                                                                                         </SchemaItem><SchemaItem
@@ -15282,7 +15410,15 @@ Get a view of the actor's home timeline.
                                                                                 </summary><div
                                                                                   style={{"marginLeft":"1rem"}}
                                                                                 >
-                                                                                  <SchemaItem
+                                                                                  <div
+                                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                  >
+                                                                                    
+                                                                                    
+                                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                                    
+                                                                                    
+                                                                                  </div><SchemaItem
                                                                                     collapsible={false}
                                                                                     name={"muted"}
                                                                                     required={false}
@@ -15851,7 +15987,15 @@ Get a view of the actor's home timeline.
                                                                                 </summary><div
                                                                                   style={{"marginLeft":"1rem"}}
                                                                                 >
-                                                                                  <SchemaItem
+                                                                                  <div
+                                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                  >
+                                                                                    
+                                                                                    
+                                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                                    
+                                                                                    
+                                                                                  </div><SchemaItem
                                                                                     collapsible={false}
                                                                                     name={"muted"}
                                                                                     required={false}
@@ -16459,7 +16603,7 @@ Get a view of the actor's home timeline.
                                                                                   >
                                                                                     
                                                                                     
-                                                                                    A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                                    Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                                     
                                                                                     
                                                                                   </div><SchemaItem
@@ -16797,7 +16941,15 @@ Get a view of the actor's home timeline.
                                                                                 </summary><div
                                                                                   style={{"marginLeft":"1rem"}}
                                                                                 >
-                                                                                  <SchemaItem
+                                                                                  <div
+                                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                  >
+                                                                                    
+                                                                                    
+                                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                                    
+                                                                                    
+                                                                                  </div><SchemaItem
                                                                                     collapsible={false}
                                                                                     name={"muted"}
                                                                                     required={false}
@@ -17467,7 +17619,7 @@ Get a view of the actor's home timeline.
                                                                                   >
                                                                                     
                                                                                     
-                                                                                    A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                                    Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                                     
                                                                                     
                                                                                   </div><SchemaItem
@@ -17765,7 +17917,7 @@ Get a view of the actor's home timeline.
                                                                         required={true}
                                                                         schemaName={"string"}
                                                                         qualifierMessage={undefined}
-                                                                        schema={{"type":"string"}}
+                                                                        schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                       >
                                                                         
                                                                       </SchemaItem><SchemaItem
@@ -17774,7 +17926,7 @@ Get a view of the actor's home timeline.
                                                                         required={true}
                                                                         schemaName={"string"}
                                                                         qualifierMessage={undefined}
-                                                                        schema={{"type":"string"}}
+                                                                        schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                       >
                                                                         
                                                                       </SchemaItem><SchemaItem
@@ -17783,7 +17935,7 @@ Get a view of the actor's home timeline.
                                                                         required={true}
                                                                         schemaName={"string"}
                                                                         qualifierMessage={undefined}
-                                                                        schema={{"type":"string"}}
+                                                                        schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                       >
                                                                         
                                                                       </SchemaItem><SchemaItem
@@ -18003,7 +18155,15 @@ Get a view of the actor's home timeline.
                                                 </summary><div
                                                   style={{"marginLeft":"1rem"}}
                                                 >
-                                                  <SchemaItem
+                                                  <div
+                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                  >
+                                                    
+                                                    
+                                                    Metadata about the requesting account's relationship with the subject content. Only has meaningful content for authed requests.
+                                                    
+                                                    
+                                                  </div><SchemaItem
                                                     collapsible={false}
                                                     name={"repost"}
                                                     required={false}
@@ -18500,7 +18660,15 @@ Get a view of the actor's home timeline.
                                                       </summary><div
                                                         style={{"marginLeft":"1rem"}}
                                                       >
-                                                        <SchemaItem
+                                                        <div
+                                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                        >
+                                                          
+                                                          
+                                                          Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                          
+                                                          
+                                                        </div><SchemaItem
                                                           collapsible={false}
                                                           name={"muted"}
                                                           required={false}
@@ -19078,7 +19246,15 @@ Get a view of the actor's home timeline.
                                                       </summary><div
                                                         style={{"marginLeft":"1rem"}}
                                                       >
-                                                        <SchemaItem
+                                                        <div
+                                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                        >
+                                                          
+                                                          
+                                                          Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                          
+                                                          
+                                                        </div><SchemaItem
                                                           collapsible={false}
                                                           name={"muted"}
                                                           required={false}
@@ -19691,7 +19867,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -19700,7 +19876,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -19709,7 +19885,7 @@ Get a view of the actor's home timeline.
                                                               required={true}
                                                               schemaName={"string"}
                                                               qualifierMessage={undefined}
-                                                              schema={{"type":"string"}}
+                                                              schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                             >
                                                               
                                                             </SchemaItem><SchemaItem
@@ -20013,7 +20189,15 @@ Get a view of the actor's home timeline.
                                                                           </summary><div
                                                                             style={{"marginLeft":"1rem"}}
                                                                           >
-                                                                            <SchemaItem
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
                                                                               collapsible={false}
                                                                               name={"muted"}
                                                                               required={false}
@@ -20733,7 +20917,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -20742,7 +20926,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -20751,7 +20935,7 @@ Get a view of the actor's home timeline.
                                                                                     required={true}
                                                                                     schemaName={"string"}
                                                                                     qualifierMessage={undefined}
-                                                                                    schema={{"type":"string"}}
+                                                                                    schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                                   >
                                                                                     
                                                                                   </SchemaItem><SchemaItem
@@ -21003,7 +21187,7 @@ Get a view of the actor's home timeline.
                                                                                               required={true}
                                                                                               schemaName={"string"}
                                                                                               qualifierMessage={undefined}
-                                                                                              schema={{"type":"string"}}
+                                                                                              schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                                             >
                                                                                               
                                                                                             </SchemaItem><SchemaItem
@@ -21012,7 +21196,7 @@ Get a view of the actor's home timeline.
                                                                                               required={true}
                                                                                               schemaName={"string"}
                                                                                               qualifierMessage={undefined}
-                                                                                              schema={{"type":"string"}}
+                                                                                              schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                                             >
                                                                                               
                                                                                             </SchemaItem><SchemaItem
@@ -21021,7 +21205,7 @@ Get a view of the actor's home timeline.
                                                                                               required={true}
                                                                                               schemaName={"string"}
                                                                                               qualifierMessage={undefined}
-                                                                                              schema={{"type":"string"}}
+                                                                                              schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                                             >
                                                                                               
                                                                                             </SchemaItem><SchemaItem
@@ -21311,7 +21495,15 @@ Get a view of the actor's home timeline.
                                                                           </summary><div
                                                                             style={{"marginLeft":"1rem"}}
                                                                           >
-                                                                            <SchemaItem
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
                                                                               collapsible={false}
                                                                               name={"muted"}
                                                                               required={false}
@@ -21880,7 +22072,15 @@ Get a view of the actor's home timeline.
                                                                           </summary><div
                                                                             style={{"marginLeft":"1rem"}}
                                                                           >
-                                                                            <SchemaItem
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
                                                                               collapsible={false}
                                                                               name={"muted"}
                                                                               required={false}
@@ -22488,7 +22688,7 @@ Get a view of the actor's home timeline.
                                                                             >
                                                                               
                                                                               
-                                                                              A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                              Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                               
                                                                               
                                                                             </div><SchemaItem
@@ -22826,7 +23026,15 @@ Get a view of the actor's home timeline.
                                                                           </summary><div
                                                                             style={{"marginLeft":"1rem"}}
                                                                           >
-                                                                            <SchemaItem
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
                                                                               collapsible={false}
                                                                               name={"muted"}
                                                                               required={false}
@@ -23496,7 +23704,7 @@ Get a view of the actor's home timeline.
                                                                             >
                                                                               
                                                                               
-                                                                              A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                              Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                               
                                                                               
                                                                             </div><SchemaItem
@@ -23892,7 +24100,15 @@ Get a view of the actor's home timeline.
                                                                                 </summary><div
                                                                                   style={{"marginLeft":"1rem"}}
                                                                                 >
-                                                                                  <SchemaItem
+                                                                                  <div
+                                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                  >
+                                                                                    
+                                                                                    
+                                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                                    
+                                                                                    
+                                                                                  </div><SchemaItem
                                                                                     collapsible={false}
                                                                                     name={"muted"}
                                                                                     required={false}
@@ -24612,7 +24828,7 @@ Get a view of the actor's home timeline.
                                                                                           required={true}
                                                                                           schemaName={"string"}
                                                                                           qualifierMessage={undefined}
-                                                                                          schema={{"type":"string"}}
+                                                                                          schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                                         >
                                                                                           
                                                                                         </SchemaItem><SchemaItem
@@ -24621,7 +24837,7 @@ Get a view of the actor's home timeline.
                                                                                           required={true}
                                                                                           schemaName={"string"}
                                                                                           qualifierMessage={undefined}
-                                                                                          schema={{"type":"string"}}
+                                                                                          schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                                         >
                                                                                           
                                                                                         </SchemaItem><SchemaItem
@@ -24630,7 +24846,7 @@ Get a view of the actor's home timeline.
                                                                                           required={true}
                                                                                           schemaName={"string"}
                                                                                           qualifierMessage={undefined}
-                                                                                          schema={{"type":"string"}}
+                                                                                          schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                                         >
                                                                                           
                                                                                         </SchemaItem><SchemaItem
@@ -24915,7 +25131,15 @@ Get a view of the actor's home timeline.
                                                                                 </summary><div
                                                                                   style={{"marginLeft":"1rem"}}
                                                                                 >
-                                                                                  <SchemaItem
+                                                                                  <div
+                                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                  >
+                                                                                    
+                                                                                    
+                                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                                    
+                                                                                    
+                                                                                  </div><SchemaItem
                                                                                     collapsible={false}
                                                                                     name={"muted"}
                                                                                     required={false}
@@ -25484,7 +25708,15 @@ Get a view of the actor's home timeline.
                                                                                 </summary><div
                                                                                   style={{"marginLeft":"1rem"}}
                                                                                 >
-                                                                                  <SchemaItem
+                                                                                  <div
+                                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                  >
+                                                                                    
+                                                                                    
+                                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                                    
+                                                                                    
+                                                                                  </div><SchemaItem
                                                                                     collapsible={false}
                                                                                     name={"muted"}
                                                                                     required={false}
@@ -26092,7 +26324,7 @@ Get a view of the actor's home timeline.
                                                                                   >
                                                                                     
                                                                                     
-                                                                                    A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                                    Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                                     
                                                                                     
                                                                                   </div><SchemaItem
@@ -26430,7 +26662,15 @@ Get a view of the actor's home timeline.
                                                                                 </summary><div
                                                                                   style={{"marginLeft":"1rem"}}
                                                                                 >
-                                                                                  <SchemaItem
+                                                                                  <div
+                                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                  >
+                                                                                    
+                                                                                    
+                                                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                                                    
+                                                                                    
+                                                                                  </div><SchemaItem
                                                                                     collapsible={false}
                                                                                     name={"muted"}
                                                                                     required={false}
@@ -27100,7 +27340,7 @@ Get a view of the actor's home timeline.
                                                                                   >
                                                                                     
                                                                                     
-                                                                                    A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+                                                                                    Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
                                                                                     
                                                                                     
                                                                                   </div><SchemaItem
@@ -27398,7 +27638,7 @@ Get a view of the actor's home timeline.
                                                                         required={true}
                                                                         schemaName={"string"}
                                                                         qualifierMessage={undefined}
-                                                                        schema={{"type":"string"}}
+                                                                        schema={{"type":"string","description":"Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View."}}
                                                                       >
                                                                         
                                                                       </SchemaItem><SchemaItem
@@ -27407,7 +27647,7 @@ Get a view of the actor's home timeline.
                                                                         required={true}
                                                                         schemaName={"string"}
                                                                         qualifierMessage={undefined}
-                                                                        schema={{"type":"string"}}
+                                                                        schema={{"type":"string","description":"Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View."}}
                                                                       >
                                                                         
                                                                       </SchemaItem><SchemaItem
@@ -27416,7 +27656,7 @@ Get a view of the actor's home timeline.
                                                                         required={true}
                                                                         schemaName={"string"}
                                                                         qualifierMessage={undefined}
-                                                                        schema={{"type":"string"}}
+                                                                        schema={{"type":"string","description":"Alt text description of the image, for accessibility."}}
                                                                       >
                                                                         
                                                                       </SchemaItem><SchemaItem
@@ -27636,7 +27876,15 @@ Get a view of the actor's home timeline.
                                                 </summary><div
                                                   style={{"marginLeft":"1rem"}}
                                                 >
-                                                  <SchemaItem
+                                                  <div
+                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                  >
+                                                    
+                                                    
+                                                    Metadata about the requesting account's relationship with the subject content. Only has meaningful content for authed requests.
+                                                    
+                                                    
+                                                  </div><SchemaItem
                                                     collapsible={false}
                                                     name={"repost"}
                                                     required={false}
@@ -28133,7 +28381,15 @@ Get a view of the actor's home timeline.
                                                       </summary><div
                                                         style={{"marginLeft":"1rem"}}
                                                       >
-                                                        <SchemaItem
+                                                        <div
+                                                          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                        >
+                                                          
+                                                          
+                                                          Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                          
+                                                          
+                                                        </div><SchemaItem
                                                           collapsible={false}
                                                           name={"muted"}
                                                           required={false}
@@ -28692,7 +28948,15 @@ Get a view of the actor's home timeline.
                                                 </summary><div
                                                   style={{"marginLeft":"1rem"}}
                                                 >
-                                                  <SchemaItem
+                                                  <div
+                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                  >
+                                                    
+                                                    
+                                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                                    
+                                                    
+                                                  </div><SchemaItem
                                                     collapsible={false}
                                                     name={"muted"}
                                                     required={false}
@@ -29240,7 +29504,7 @@ Get a view of the actor's home timeline.
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"cursor\": \"string\",\n  \"feed\": [\n    {\n      \"post\": {\n        \"uri\": \"string\",\n        \"cid\": \"string\",\n        \"author\": {\n          \"did\": \"string\",\n          \"handle\": \"string\",\n          \"displayName\": \"string\",\n          \"avatar\": \"string\",\n          \"viewer\": {\n            \"muted\": true,\n            \"mutedByList\": {\n              \"uri\": \"string\",\n              \"cid\": \"string\",\n              \"name\": \"string\",\n              \"purpose\": \"string\",\n              \"avatar\": \"string\",\n              \"viewer\": {\n                \"muted\": true,\n                \"blocked\": \"string\"\n              },\n              \"indexedAt\": \"2024-02-11T00:24:11.640Z\"\n            },\n            \"blockedBy\": true,\n            \"blocking\": \"string\",\n            \"blockingByList\": {\n              \"uri\": \"string\",\n              \"cid\": \"string\",\n              \"name\": \"string\",\n              \"purpose\": \"string\",\n              \"avatar\": \"string\",\n              \"viewer\": {\n                \"muted\": true,\n                \"blocked\": \"string\"\n              },\n              \"indexedAt\": \"2024-02-11T00:24:11.640Z\"\n            },\n            \"following\": \"string\",\n            \"followedBy\": \"string\"\n          },\n          \"labels\": [\n            {\n              \"src\": \"string\",\n              \"uri\": \"string\",\n              \"cid\": \"string\",\n              \"val\": \"string\",\n              \"neg\": true,\n              \"cts\": \"2024-02-11T00:24:11.640Z\"\n            }\n          ]\n        },\n        \"record\": {},\n        \"embed\": {},\n        \"replyCount\": 0,\n        \"repostCount\": 0,\n        \"likeCount\": 0,\n        \"indexedAt\": \"2024-02-11T00:24:11.640Z\",\n        \"viewer\": {\n          \"repost\": \"string\",\n          \"like\": \"string\",\n          \"replyDisabled\": true\n        },\n        \"labels\": [\n          {\n            \"src\": \"string\",\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"val\": \"string\",\n            \"neg\": true,\n            \"cts\": \"2024-02-11T00:24:11.640Z\"\n          }\n        ],\n        \"threadgate\": {\n          \"uri\": \"string\",\n          \"cid\": \"string\",\n          \"record\": {},\n          \"lists\": [\n            {\n              \"uri\": \"string\",\n              \"cid\": \"string\",\n              \"name\": \"string\",\n              \"purpose\": \"string\",\n              \"avatar\": \"string\",\n              \"viewer\": {\n                \"muted\": true,\n                \"blocked\": \"string\"\n              },\n              \"indexedAt\": \"2024-02-11T00:24:11.640Z\"\n            }\n          ]\n        }\n      },\n      \"reply\": {\n        \"root\": {},\n        \"parent\": {}\n      },\n      \"reason\": {}\n    }\n  ]\n}"}
+                    responseExample={"{\n  \"cursor\": \"string\",\n  \"feed\": [\n    {\n      \"post\": {\n        \"uri\": \"string\",\n        \"cid\": \"string\",\n        \"author\": {\n          \"did\": \"string\",\n          \"handle\": \"string\",\n          \"displayName\": \"string\",\n          \"avatar\": \"string\",\n          \"viewer\": {\n            \"muted\": true,\n            \"mutedByList\": {\n              \"uri\": \"string\",\n              \"cid\": \"string\",\n              \"name\": \"string\",\n              \"purpose\": \"string\",\n              \"avatar\": \"string\",\n              \"viewer\": {\n                \"muted\": true,\n                \"blocked\": \"string\"\n              },\n              \"indexedAt\": \"2024-02-12T00:22:43.385Z\"\n            },\n            \"blockedBy\": true,\n            \"blocking\": \"string\",\n            \"blockingByList\": {\n              \"uri\": \"string\",\n              \"cid\": \"string\",\n              \"name\": \"string\",\n              \"purpose\": \"string\",\n              \"avatar\": \"string\",\n              \"viewer\": {\n                \"muted\": true,\n                \"blocked\": \"string\"\n              },\n              \"indexedAt\": \"2024-02-12T00:22:43.385Z\"\n            },\n            \"following\": \"string\",\n            \"followedBy\": \"string\"\n          },\n          \"labels\": [\n            {\n              \"src\": \"string\",\n              \"uri\": \"string\",\n              \"cid\": \"string\",\n              \"val\": \"string\",\n              \"neg\": true,\n              \"cts\": \"2024-02-12T00:22:43.385Z\"\n            }\n          ]\n        },\n        \"record\": {},\n        \"embed\": {},\n        \"replyCount\": 0,\n        \"repostCount\": 0,\n        \"likeCount\": 0,\n        \"indexedAt\": \"2024-02-12T00:22:43.385Z\",\n        \"viewer\": {\n          \"repost\": \"string\",\n          \"like\": \"string\",\n          \"replyDisabled\": true\n        },\n        \"labels\": [\n          {\n            \"src\": \"string\",\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"val\": \"string\",\n            \"neg\": true,\n            \"cts\": \"2024-02-12T00:22:43.385Z\"\n          }\n        ],\n        \"threadgate\": {\n          \"uri\": \"string\",\n          \"cid\": \"string\",\n          \"record\": {},\n          \"lists\": [\n            {\n              \"uri\": \"string\",\n              \"cid\": \"string\",\n              \"name\": \"string\",\n              \"purpose\": \"string\",\n              \"avatar\": \"string\",\n              \"viewer\": {\n                \"muted\": true,\n                \"blocked\": \"string\"\n              },\n              \"indexedAt\": \"2024-02-12T00:22:43.385Z\"\n            }\n          ]\n        }\n      },\n      \"reply\": {\n        \"root\": {},\n        \"parent\": {}\n      },\n      \"reason\": {}\n    }\n  ]\n}"}
                     language={"json"}
                   >
                     

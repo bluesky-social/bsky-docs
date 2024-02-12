@@ -1,11 +1,11 @@
 ---
 id: app-bsky-graph-get-suggested-follows-by-actor
 title: "app.bsky.graph.getSuggestedFollowsByActor"
-description: "Get suggested follows related to a given actor."
+description: "Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account."
 sidebar_label: "app.bsky.graph.getSuggestedFollowsByActor"
 hide_title: true
 hide_table_of_contents: true
-api: eJztWFtv2zYU/isHfGkCqE5adMNgDAPspuuMtWuQpMOAwA8n0rHERiJZknKiGfrvwyFlR77ETrti2EOffOG5Xz4enoXwmDsxvBZozODG3TaD3KIpxDQRGbnUSuOlVmIo3pIHV+c5OU8ZzHRZ6jsHlkrk314DQi7npABTr+1AJEIbssjck0wMN+QPcvKXS2m/RmHjZsSsIhGO0tpK34jh9UKMCS1ZMbyettNEGLRYkSfrwqHCilh4xyjZ0s812UYkwtLnWlrKxNDbmhLh0oIqFMOF8I1hLuetVLlIxEzbCj3L8c9lRsrLmSQrWlZoyRmtHDlmfHl6yh/rkfnwu0hEqpUn5fkUjSllGjw/+eSYZLGtW998otSvWXktuvhKrRwnwFgOoZdRd//wQQ5ai+ys9FS5Q/IzmYlEFKiykrYV8Om+4PB5u2LfR9mRtInIpDMlNn+ENG1zVHj/jlTuCzH88dVpu1Fze+lf/vAjM+AcPdpt2paLIaN7ykZ+v1fo6bmXVTB3LumO7K4wroeqqj31g3WjdUmoWEQ4GjfvpPOH0lFbyZUTkhIKORGmtka7Hclh2gOVyyRtlLePMo1pVI+lRKpliF9sJKh9sG+4EFrRh1lowkdVeX1LSmwiyQhK6TzoWYQKF8DDmLIBVIB5bilHT1DprMMPpuOPI47tyU2p09tj0Ioxxktf0ja6ZDRzg0pnrEi0yb83sXYB9CykdWdTFwkHrk4LQBc5ZkSZA21BKk+2sztHL1V+yNwgmaLF0/2kTHTeZWJ/D3yDgg7xpv01tay+9rDdfwaLLj16+qomfaKKMTqZ9swfN3u8Y21Pa64l+fcG/97g3xv8f9HgcRR9egtH+g1E+DKP44gbzJmve1viDZVfNJ+t1+V78pihR/CYAzeGAvTGaq/BktO1TQmOKE/AktFchpZSbbPjweYkaVORdPgzx5JRyO+aKW26KwjrNp1NzrhRfEGxWeCu0JBaioN/IR0Erwc7ZsVHQG2jF6/g48VkqSI6FB100mvbwBGmqa6VP07YY+0Lsg/R8AX6nhUBaCQx5qwZtB87Nwb68AXLskng9eQMnKFUzhqp8mBh/ClTmJN13P56Bs9qK5/1jTpkTwfSnJuD9lyx0kJbD5EAGNqX8ZpjWRPHhWXEP/sZ6eH7i5c/8bVA+Q4Y2FQ5mUF4NEVp0gGCYtRmd4PsBPSc7J2VjHyAYCzNpa5XmttYcYd9kxU5j5WBu4JUP3B36JZVNjgMFamuBl2nDKIJES34q2gPdbGxeiZLYlxh4jYwvNr12BtjBhf0uSbnv9Wrj6wNj9eKnMN8x2gQCXaEklRdsYSJmmMpswe73twbln7V3X3defw5bR9Ubd8oK99fbPv+UWHtC23l35T9986nWvHEJUa1L95L57oL8IArgcIXmlcQOYV7EbkZxMmXLSTsfLlyqG3JT1zvjRuenAQJTqcSy5N7a9KTXfB2zmWZ6hLOzy7hr4vz1xAFhsllXR4a2VWnMU8QODKGi3Zd6PRhg3LJSYiBXO5RVnFilaJbiwQsiARtuLRnOlB2PdNXGVSNzifMWlcV2kYMxWutemjYI3/moKR7ycnjMfCDITU6nzxzEMsDYlsPdmCedOAozldcaSiVg9+urs5ZN1iakSWVEmQ6dWFwG5c1uVueMbO+ASv1A3hLigdOAoToK4ThkO3y5HwQnGJZOsikpdSXDcysrgLMshq2svNSDMXp4HRwyhVotPMVhppfrqO2SgtWtQVdccG4gWV5bWw9Vo31FUu3Lree7v2JKVGqeA2HWyZW/uaqb1/lTxNRaO66a7FY3KCjj7ZsW/47Ltm4HzLp8Kbkbp5h6WiPN0cXXeMfw2OW3lLTW+eFu00MRSjpOVrJisImMBEFYRbWgouOaZSmZHyPawuUWMoKDN6+uRKJYEDrX4exBZLll97jB1XTk/1z7CYIkPqLWBoeHxvttG3bfwBmJWCN
+api: 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
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import TabItem from "@theme/TabItem";
 
 
 
-Get suggested follows related to a given actor.
+Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
 
 ## Request
 
@@ -236,7 +236,15 @@ Get suggested follows related to a given actor.
                                 </summary><div
                                   style={{"marginLeft":"1rem"}}
                                 >
-                                  <SchemaItem
+                                  <div
+                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                  >
+                                    
+                                    
+                                    Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+                                    
+                                    
+                                  </div><SchemaItem
                                     collapsible={false}
                                     name={"muted"}
                                     required={false}
@@ -767,7 +775,7 @@ Get suggested follows related to a given actor.
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"suggestions\": [\n    {\n      \"did\": \"string\",\n      \"handle\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"avatar\": \"string\",\n      \"indexedAt\": \"2024-02-11T00:24:11.845Z\",\n      \"viewer\": {\n        \"muted\": true,\n        \"mutedByList\": {\n          \"uri\": \"string\",\n          \"cid\": \"string\",\n          \"name\": \"string\",\n          \"purpose\": \"string\",\n          \"avatar\": \"string\",\n          \"viewer\": {\n            \"muted\": true,\n            \"blocked\": \"string\"\n          },\n          \"indexedAt\": \"2024-02-11T00:24:11.845Z\"\n        },\n        \"blockedBy\": true,\n        \"blocking\": \"string\",\n        \"blockingByList\": {\n          \"uri\": \"string\",\n          \"cid\": \"string\",\n          \"name\": \"string\",\n          \"purpose\": \"string\",\n          \"avatar\": \"string\",\n          \"viewer\": {\n            \"muted\": true,\n            \"blocked\": \"string\"\n          },\n          \"indexedAt\": \"2024-02-11T00:24:11.845Z\"\n        },\n        \"following\": \"string\",\n        \"followedBy\": \"string\"\n      },\n      \"labels\": [\n        {\n          \"src\": \"string\",\n          \"uri\": \"string\",\n          \"cid\": \"string\",\n          \"val\": \"string\",\n          \"neg\": true,\n          \"cts\": \"2024-02-11T00:24:11.845Z\"\n        }\n      ]\n    }\n  ]\n}"}
+                    responseExample={"{\n  \"suggestions\": [\n    {\n      \"did\": \"string\",\n      \"handle\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"avatar\": \"string\",\n      \"indexedAt\": \"2024-02-12T00:22:43.604Z\",\n      \"viewer\": {\n        \"muted\": true,\n        \"mutedByList\": {\n          \"uri\": \"string\",\n          \"cid\": \"string\",\n          \"name\": \"string\",\n          \"purpose\": \"string\",\n          \"avatar\": \"string\",\n          \"viewer\": {\n            \"muted\": true,\n            \"blocked\": \"string\"\n          },\n          \"indexedAt\": \"2024-02-12T00:22:43.604Z\"\n        },\n        \"blockedBy\": true,\n        \"blocking\": \"string\",\n        \"blockingByList\": {\n          \"uri\": \"string\",\n          \"cid\": \"string\",\n          \"name\": \"string\",\n          \"purpose\": \"string\",\n          \"avatar\": \"string\",\n          \"viewer\": {\n            \"muted\": true,\n            \"blocked\": \"string\"\n          },\n          \"indexedAt\": \"2024-02-12T00:22:43.604Z\"\n        },\n        \"following\": \"string\",\n        \"followedBy\": \"string\"\n      },\n      \"labels\": [\n        {\n          \"src\": \"string\",\n          \"uri\": \"string\",\n          \"cid\": \"string\",\n          \"val\": \"string\",\n          \"neg\": true,\n          \"cts\": \"2024-02-12T00:22:43.605Z\"\n        }\n      ]\n    }\n  ]\n}"}
                     language={"json"}
                   >
                     
