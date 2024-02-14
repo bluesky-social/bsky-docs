@@ -4305,6 +4305,93 @@
         }
       }
     },
+    "/com.atproto.admin.deleteAccount": {
+      "post": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Delete a user account as an administrator.",
+        "operationId": "com.atproto.admin.deleteAccount",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.admin.deleteCommunicationTemplate": {
       "post": {
         "tags": [
@@ -9371,7 +9458,8 @@
                 "properties": {
                   "did": {
                     "type": "string",
-                    "description": "The DID to reserve a key for."
+                    "description": "The DID to reserve a key for.",
+                    "format": "did"
                   }
                 }
               }
