@@ -957,6 +957,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ubz4oedvsb7dsuncqi5jb7o2',
     tags: ['bot', 'opensource'],
   },
+  {
+    title: 'Bluesky Earthquake Bot',
+    description: 'Posts earthquake information as soon as it is available.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:hmpcokspyygl25tvwm57jef5',
+    source: 'https://github.com/pixelasticity/bluesky-earthquake-bot',
+    author: 'https://bsky.app/profile/did:plc:liivcje2xxci55x74yriz3k6',
+    tags: ['bot', 'opensource'],
+  },
 ]
 
 export type User = {
