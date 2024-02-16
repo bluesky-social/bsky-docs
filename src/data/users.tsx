@@ -957,6 +957,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ubz4oedvsb7dsuncqi5jb7o2',
     tags: ['bot', 'opensource'],
   },
+  {
+    title: 'NWS Warning Bots',
+    description: 'Posts the latest tornado, severe thunderstorm, and flash flood warnings from the National Weather Service',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://fjall.net/wx/',
+    source: 'https://git.fjall.net/wx',
+    author: 'https://bsky.app/profile/did:plc:27rjcwbur2bizjjx3zakeme5',
+    tags: ['bot', 'opensource'],
+  },
 ]
 
 export type User = {
