@@ -447,6 +447,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:fynelmajwyd4arrdpmm2mkqu',
     tags: ['client'],
   },
+    {
+    title: 'Nootti',
+    description: 'Cross-post to Bluesky, Mastodon and Nostr',
+    preview: require('./showcase/nootti.png'),
+    website: 'https://nootti.com',
+    author: 'https://bsky.app/profile/did:plc:ti23b3jqg3o7qwfazgr5yh37',
+    tags: ['client'],
+  },
   {
     title: 'SkyBridge',
     description: 'A bridge to use Mastodon apps with Bluesky',
