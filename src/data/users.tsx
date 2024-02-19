@@ -378,6 +378,7 @@ const Users: User[] = [
     description: 'Android client for Bluesky',
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/itsWindows11/Greenland',
+    source: 'https://github.com/itsWindows11/Greenland',
     author: 'https://bsky.app/profile/did:plc:li5ejsts35x45ozaqlqmewso',
     tags: ['client'],
   },
