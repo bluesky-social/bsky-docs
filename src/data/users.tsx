@@ -344,7 +344,7 @@ const Users: User[] = [
     website: 'https://bsky.app/profile/skywalkerapp.bsky.social',
     source: 'https://github.com/mfnboer/skywalker',
     author: 'https://bsky.app/profile/did:plc:qxaugrh7755sxvmxndcvcsgn',
-    tags: ['client'],
+    tags: ['client', 'opensource'],
   },
   {
     title: 'Yup',
