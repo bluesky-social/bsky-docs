@@ -698,7 +698,7 @@ const Users: User[] = [
     website: 'https://github.com/kcchu/atproto-firehose',
     source: 'https://github.com/kcchu/atproto-firehose',
     author: 'https://bsky.app/profile/did:plc:ocko5cww67whp5lejhh57zdd',
-    tags: ['firehose', 'source'],
+    tags: ['firehose', 'opensource'],
   },
   {
     title: 'blueskyfirehose',
