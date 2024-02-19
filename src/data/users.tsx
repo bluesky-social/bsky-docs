@@ -413,7 +413,7 @@ const Users: User[] = [
     description: 'CLI client for Bluesky',
     preview: require('./showcase/example-1.png'),
     website: 'https://gitlab.com/bnewbold/adenosine/-/blob/main/adenosine-cli/README.md',
-    source: 'https://gitlab.com/bnewbold/adenosine/-/tree/main/adenosine-cli'
+    source: 'https://gitlab.com/bnewbold/adenosine/-/tree/main/adenosine-cli',
     author: 'https://bsky.app/profile/did:plc:44ybard66vv44zksje25o7dz',
     tags: ['client', 'opensource'],
   },
