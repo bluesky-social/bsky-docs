@@ -966,6 +966,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ubz4oedvsb7dsuncqi5jb7o2',
     tags: ['bot', 'opensource'],
   },
+    {
+    title: 'Flight Emergency Alerts',
+    description: 'Bot alerting of aircraft indicating emergencies',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:at2e7q6kwfhdwv7267mjsflz',
+    source: 'https://github.com/Jxck-S/plane-notify',
+    author: 'https://bsky.app/profile/did:plc:at2e7q6kwfhdwv7267mjsflz',
+    tags: ['bot', 'opensource'],
+  },
 ]
 
 export type User = {
