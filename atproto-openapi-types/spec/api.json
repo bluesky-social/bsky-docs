@@ -14313,6 +14313,13 @@
             "description": "CAR file containing relevant blocks, as a diff since the previous repo state.",
             "maxLength": 1000000
           },
+          "ops": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.sync.subscribeRepos.repoOp"
+            },
+            "maxItems": 200
+          },
           "blobs": {
             "type": "array",
             "items": {
@@ -14346,6 +14353,124 @@
           "time": {
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "com.atproto.sync.subscribeRepos.handle": {
+        "type": "object",
+        "description": "Represents an update of the account's handle, or transition to/from invalid state. NOTE: Will be deprecated in favor of #identity.",
+        "required": [
+          "seq",
+          "did",
+          "handle",
+          "time"
+        ],
+        "properties": {
+          "seq": {
+            "type": "integer"
+          },
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "handle": {
+            "type": "string",
+            "format": "handle"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "com.atproto.sync.subscribeRepos.migrate": {
+        "type": "object",
+        "description": "Represents an account moving from one PDS instance to another. NOTE: not implemented; account migration uses #identity instead",
+        "required": [
+          "seq",
+          "did",
+          "migrateTo",
+          "time"
+        ],
+        "properties": {
+          "seq": {
+            "type": "integer"
+          },
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "migrateTo": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "com.atproto.sync.subscribeRepos.tombstone": {
+        "type": "object",
+        "description": "Indicates that an account has been deleted. NOTE: may be deprecated in favor of #identity or a future #account event",
+        "required": [
+          "seq",
+          "did",
+          "time"
+        ],
+        "properties": {
+          "seq": {
+            "type": "integer"
+          },
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "com.atproto.sync.subscribeRepos.info": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "OutdatedCursor"
+            ]
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "com.atproto.sync.subscribeRepos.repoOp": {
+        "type": "object",
+        "description": "A repo operation, ie a mutation of a single record.",
+        "required": [
+          "action",
+          "path",
+          "cid"
+        ],
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "create",
+              "update",
+              "delete"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid-link"
           }
         }
       }
