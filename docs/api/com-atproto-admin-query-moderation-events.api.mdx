@@ -1,0 +1,921 @@
+---
+id: com-atproto-admin-query-moderation-events
+title: "com.atproto.admin.queryModerationEvents"
+description: "List moderation events related to a subject."
+sidebar_label: "com.atproto.admin.queryModerationEvents"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNWt9v2kgQ/ldWvodrJQ7S091LVFUiadRGba9RSquTojws9gBb1rvu7joJRfzvN7O2sQFjDCXo2ocQszvzzbez88uZB46PbXB+F4Q67nKXGO10l0exUMF9J4jAhkYkTmgVnAcfhXUs1hEYTk8YPIBylhmQ3EHEnGac2XT4HULXDTqBTvKF1xFu3pDf/ZGCmX1airvy0nCfhTA1ws0Q1Ty4AG7A4Mf7BeJJuOExODDWf6nwFxTtZgnQRkEgvdRgHfpgAswvY3pU4H4xSqWcsR8pl2Ik0ADrjFBjJhRzuHykTcwdrd+A/huS4OG+JgRvXpLpIyERFxvOuux6xJR2zCYQesEdxqUstKI5yJhLjYKIWDLwIxUGkKIRlxbQ/HACMQ/O594uxM6N4WSRcBDbyvMMbrBYLDpLKkIDdBYXs3U6dqvJxXWCzHB8EokoqAq32ri3KCT0pDby/QWXsqhYS1x6TjMOuuwtjHgqkQ0kjjaCioh5bdAZPOOZGQz5dyIG63ictCNracVJ8ETZPuIKdwU1J9EfoVc0c3ULiBmRFB6yVEZb8UqNBT4v9f4KDfurKp0BF/5B39RZeQG4Dg4zc+j3nsbOBl07DM3j2jGuFQa3FdFChTKNoC/lVwvmFkJ0ux3hDCOMMyl0CvvQpSnEGL83D3QvEm2d7TAp/A8MXxiikBEXdl8y/aiIjpm/BXjPV8JSK7uGWkvg6tTQqsRJEYsDTkQoB2N/KTGUiziNg/NX+Jk/5Z/PzioX+++zqsYJt5c6jtGwluejFWaYnIlH4SaUS+KNPHAcwlvqWrm+LY2ppLLtWkKtHEdGMXDS0U1h9khHvrehW+70MWFUOeBRBNFHPgS5+9JtAzABiiro5pgrUKkFJr1A9ui/IA3787BP3jcQ64dnNiPX8byGeK4GVJMezwgqcU99Es9mwklOwUCCBdOgrq4+cr2aGqwqD86qC2oKDNhEKwte159nZ/RjlerPH1AoxQWKdfgtTxIpQt919L5bWjLfVKGLhF+iuQuyE6LWCJMW9jdOZGpzOzYBdootu/mpVSjocL0I6oyWRUj+6ULq4aXw1UK18i9qT7cJFOVtZsICJX2lFXwe+e5qHdZaR8WnmJ4xWZdNH0M9MVcoCH2ZKmyI0Y24EZJAOeEk1DaCmGxtt2ipSC6JDchLmiHcImgs612JJKvudQVTe8VemoU99PcjvIZF4llpf9cOsUiz963BFFVGGxLoqm5VXd7kPbRnMtswgBdp1vsHxuhuRa5YY3+FB++XPkl94z5PKb+1fNIeo99TC7GlgH44VfpRQjSGXxFzZUNO848WbH1KkSWs9nVMxUl2Mo18RWk+QFHvNQaYPdghVS0QfQBIULvUY0o1OnVjTdAwEAqZOXRqfaVcRZVj/SjUPj51RTJb+bPVEjs3jNHA5cF32QvpexnB4n5Rxs7GELdCPobK3ebRKd7CqNawqjRq+jAwb5dJgrqYNbQae3kVzMsov0eOrSaEnTOeasZoXFy2xvkWbd5zFZExNZkvh791xaL1eX4T8EiFA/3rBH/V5fgLHrFbJBwb+qMle2N8bRKDtXwMm8k0W1DDGCjqJO+Ca/XApYhKXFdPCUkf6ClQJ5d/n/1KJ16oqquacttfbdr+VfHUTbQRP30teGLjUZ0l7+gjhk/C2vz0d5jiVyBomg2PgbQn3E3wl94+k2LzUMyCUyOpQXcusee93tBOZ12rQ8Fl78kkYW8zdQ3YDakItWQ3b7+wf29vLlkm0F/mVXk8EV0vEwltIRADD7nsqtD7crT9hY4go7EYcC9ZIpVBXvL6vj9bQIQJNdJ+ZX5rqiq9qv7NtS8O45hjIX0eXGpFBPmiaMQqy3+3TMKToKOjOP85AYV78WnmHPnwu1szRxe4Jp+i5p22Ze8HgxvSjTlthD2KCqkeC60fs15IdP3pjGEQqAJYqu+yd6DoYGksl9mKiKY0ndNYQVrnBWOOxdIiG+BicTkyOs7mQ6iGUOZWIsKzLv4n/6MZE1ajxFc57ahzLFZ6Flu61orZ8/JK7fsSJD9UB0+ul0hki6B535rnDl/z6mWLw6MDTTRdtbtgPh9yC1+NXCzocdY40TWIhOVDWWmdthry/30lUsvZFMihi1c9GDZTWuOv6obN2dpqR9S8fitHz/TaoMHA9XcsBwLff9DfgGntVcaRITXM5HdjWr54aOMQZRl5oAnPPnZvMHjbW4I2hheD8l81u/U0u8GOlRH64YCOOJFu8rJnRHrAzLgB6eoU+9RotwwlG/CuD6xPgXjHHHgXu/lI97RID2a2FdpiR3Xa2yq1FmPbcvE9/WIErfZ/rYG1CvDI/+nGPN/VD0NIqpdpozshKcuu4N3VANdSZ1N9C5ZVw53iQ6WL56qa6V9nhTXzvdWbYFlA+FYLu+vF4j80VDh4
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.admin.queryModerationEvents
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.admin.queryModerationEvents"}
+>
+  
+</MethodEndpoint>
+
+
+
+List moderation events related to a subject.
+
+## Request
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"types","in":"query","description":"The types of events (fully qualified string in the format of com.atproto.admin#modEvent<name>) to filter by. If not specified, all events are returned.","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"createdBy","in":"query","required":false,"schema":{"type":"string","format":"did"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sortDirection","in":"query","description":"Sort direction for the events. Defaults to descending order of created at timestamp.","required":false,"schema":{"type":"string","description":"Sort direction for the events. Defaults to descending order of created at timestamp.","default":"desc"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"createdAfter","in":"query","description":"Retrieve events created after a given timestamp","required":false,"schema":{"type":"string","description":"Retrieve events created after a given timestamp","format":"date-time"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"createdBefore","in":"query","description":"Retrieve events created before a given timestamp","required":false,"schema":{"type":"string","description":"Retrieve events created before a given timestamp","format":"date-time"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"subject","in":"query","required":false,"schema":{"type":"string","format":"uri"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"includeAllUserRecords","in":"query","description":"If true, events on all record types (posts, lists, profile etc.) owned by the did are returned","required":false,"schema":{"type":"boolean","description":"If true, events on all record types (posts, lists, profile etc.) owned by the did are returned"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"limit","in":"query","required":false,"schema":{"type":"integer","minimum":1,"maximum":100,"default":50}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"hasComment","in":"query","description":"If true, only events with comments are returned","required":false,"schema":{"type":"boolean","description":"If true, only events with comments are returned"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"comment","in":"query","description":"If specified, only events with comments containing the keyword are returned","required":false,"schema":{"type":"string","description":"If specified, only events with comments containing the keyword are returned"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"addedLabels","in":"query","description":"If specified, only events where all of these labels were added are returned","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"removedLabels","in":"query","description":"If specified, only events where all of these labels were removed are returned","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"addedTags","in":"query","description":"If specified, only events where all of these tags were added are returned","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"removedTags","in":"query","description":"If specified, only events where all of these tags were removed are returned","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"reportTypes","in":"query","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"cursor","in":"query","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"cursor"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                events
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={true}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <strong>
+                                    event
+                                  </strong><span
+                                    style={{"opacity":"0.6"}}
+                                  >
+                                     object
+                                  </span><strong
+                                    style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}
+                                  >
+                                     required
+                                  </strong>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  
+                                </div><div>
+                                  <span
+                                    className={"badge badge--info"}
+                                  >
+                                    oneOf
+                                  </span><SchemaTabs>
+                                    <TabItem
+                                      label={"com.atproto.admin.defs.modEventTakedown"}
+                                      value={"0-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string"}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"durationInHours"}
+                                        required={false}
+                                        schemaName={"integer"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"integer"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventReverseTakedown"}
+                                      value={"1-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","description":"Describe reasoning behind the reversal."}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventComment"}
+                                      value={"2-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={true}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string"}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"sticky"}
+                                        required={false}
+                                        schemaName={"boolean"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"boolean","description":"Make the comment persistent on the subject"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventReport"}
+                                      value={"3-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string"}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={true}
+                                        className={"schemaItem"}
+                                      >
+                                        <details
+                                          style={{}}
+                                          className={"openapi-markdown__details"}
+                                        >
+                                          <summary
+                                            style={{}}
+                                          >
+                                            <strong>
+                                              reportType
+                                            </strong><span
+                                              style={{"opacity":"0.6"}}
+                                            >
+                                               object
+                                            </span><strong
+                                              style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}
+                                            >
+                                               required
+                                            </strong>
+                                          </summary><div
+                                            style={{"marginLeft":"1rem"}}
+                                          >
+                                            
+                                          </div><div>
+                                            <span
+                                              className={"badge badge--info"}
+                                            >
+                                              oneOf
+                                            </span><SchemaTabs>
+                                              <TabItem
+                                                label={"com.atproto.moderation.defs.reasonSpam"}
+                                                value={"0-item-properties"}
+                                              >
+                                                <div
+                                                  style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                                >
+                                                  
+                                                  
+                                                  string
+                                                  
+                                                  
+                                                </div>
+                                              </TabItem><TabItem
+                                                label={"com.atproto.moderation.defs.reasonViolation"}
+                                                value={"1-item-properties"}
+                                              >
+                                                <div
+                                                  style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                                >
+                                                  
+                                                  
+                                                  string
+                                                  
+                                                  
+                                                </div>
+                                              </TabItem><TabItem
+                                                label={"com.atproto.moderation.defs.reasonMisleading"}
+                                                value={"2-item-properties"}
+                                              >
+                                                <div
+                                                  style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                                >
+                                                  
+                                                  
+                                                  string
+                                                  
+                                                  
+                                                </div>
+                                              </TabItem><TabItem
+                                                label={"com.atproto.moderation.defs.reasonSexual"}
+                                                value={"3-item-properties"}
+                                              >
+                                                <div
+                                                  style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                                >
+                                                  
+                                                  
+                                                  string
+                                                  
+                                                  
+                                                </div>
+                                              </TabItem><TabItem
+                                                label={"com.atproto.moderation.defs.reasonRude"}
+                                                value={"4-item-properties"}
+                                              >
+                                                <div
+                                                  style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                                >
+                                                  
+                                                  
+                                                  string
+                                                  
+                                                  
+                                                </div>
+                                              </TabItem><TabItem
+                                                label={"com.atproto.moderation.defs.reasonOther"}
+                                                value={"5-item-properties"}
+                                              >
+                                                <div
+                                                  style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                                >
+                                                  
+                                                  
+                                                  string
+                                                  
+                                                  
+                                                </div>
+                                              </TabItem><TabItem
+                                                label={"com.atproto.moderation.defs.reasonAppeal"}
+                                                value={"6-item-properties"}
+                                              >
+                                                <div
+                                                  style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}
+                                                >
+                                                  
+                                                  
+                                                  string
+                                                  
+                                                  
+                                                </div>
+                                              </TabItem>
+                                            </SchemaTabs>
+                                          </div>
+                                        </details>
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventLabel"}
+                                      value={"4-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string"}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"createLabelVals"}
+                                        required={true}
+                                        schemaName={"string[]"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"array","items":{"type":"string"}}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"negateLabelVals"}
+                                        required={true}
+                                        schemaName={"string[]"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"array","items":{"type":"string"}}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventAcknowledge"}
+                                      value={"5-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventEscalate"}
+                                      value={"6-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventMute"}
+                                      value={"7-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string"}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"durationInHours"}
+                                        required={true}
+                                        schemaName={"integer"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"integer"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventEmail"}
+                                      value={"8-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"subjectLine"}
+                                        required={true}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","description":"The subject line of the email sent to the user."}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","description":"Additional comment about the outgoing comm."}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.admin.defs.modEventResolveAppeal"}
+                                      value={"9-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"comment"}
+                                        required={false}
+                                        schemaName={"string"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","description":"Describe resolution."}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem>
+                                  </SchemaTabs>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <strong>
+                                    subject
+                                  </strong><span
+                                    style={{"opacity":"0.6"}}
+                                  >
+                                     object
+                                  </span><strong
+                                    style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}
+                                  >
+                                     required
+                                  </strong>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  
+                                </div><div>
+                                  <span
+                                    className={"badge badge--info"}
+                                  >
+                                    oneOf
+                                  </span><SchemaTabs>
+                                    <TabItem
+                                      label={"com.atproto.admin.defs.repoRef"}
+                                      value={"0-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"did"}
+                                        required={true}
+                                        schemaName={"did"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","format":"did"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.repo.strongRef"}
+                                      value={"1-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"uri"}
+                                        required={true}
+                                        schemaName={"at-uri"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","format":"at-uri"}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"cid"}
+                                        required={true}
+                                        schemaName={"cid"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","format":"cid"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem>
+                                  </SchemaTabs>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"subjectBlobCids"}
+                              required={true}
+                              schemaName={"string[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","items":{"type":"string"}}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"createdBy"}
+                              required={true}
+                              schemaName={"did"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"did"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"createdAt"}
+                              required={true}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"creatorHandle"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"subjectHandle"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"cursor\": \"string\",\n  \"events\": [\n    {\n      \"id\": 0,\n      \"event\": {},\n      \"subject\": {},\n      \"subjectBlobCids\": [\n        \"string\"\n      ],\n      \"createdBy\": \"string\",\n      \"createdAt\": \"2024-02-22T20:33:44.604Z\",\n      \"creatorHandle\": \"string\",\n      \"subjectHandle\": \"string\"\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

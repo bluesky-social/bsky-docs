@@ -1,0 +1,278 @@
+---
+id: com-atproto-server-check-account-status
+title: "com.atproto.server.checkAccountStatus"
+description: "Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself."
+sidebar_label: "com.atproto.server.checkAccountStatus"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v2kAQ/SsjX3pBJqp6yg2SKo16CCI0qhRxWNYD3mDvbnfHFIT83zuzJgGCK+XQU+EA3p158/XmeZ+RWsXs+jnTrs4V+eDI5RHDBkM2H2QFRh2MJ+Nsdp1NkZpgI1CJEElRE8EtQVlQWrvG0gAwetRGVdUOVASPgZSxxq6AHJjau0DgAgTUjgPscrhh5wWCZg8soFZ2B2RqZFy+T3EYOEQ8jwO1WQUlSeUwxV+NCeyhGirZpmAwC85yBkfg80ScxYjVMs8GmeObBHRfcH2XPch1iXo96sI+ppLZi8N5ZyNy4/bZ56sr+Tnv1MN3NtPOElqSW+V9ZXSKNHyJYrLPImPXSv7RziM7ucULakr4qaZC5qI0mY0ifhhkG1WZ4tYUycS7G1fXhg4PU9wc/o0rp9eSprEFbrGYcrdDIQc+JCipA59U1aAc4pZHxvjstkheaUyvz3Pxki6R6co95nNMfOFchcpm7UmKvbcnWR/vIwUeDEdeulArkjmwf3ss68K0PSv0eG243ysmbntRe69NTzt67c471B/urGk9JukzyL70kWWsikRjjPSvWIMhuMBnvEpRrfByjJ1BzxDQNrUg3Ns0yte85u0R7HIer+XVSKWTTVqhZOQVlfww/OhedXciR/usCRW7lkQ+Xg+Hi7je5dGJtAy3weth9l6bRjOYSADtKpjcPsLP6eQGDkLWDt7jKW/yhMkt/gDgyPsng7/PQeeSsG6Cod2jDKVr7BhVwNPOSkipLZnIOnQGbSLp0iVLQxW+C5lCjSb34trUtQo7NrhxVhrECYognph/ilDh1jB3oijcg0fLvnza0QW61covipyVhm2YPwIpzGOVjPBtNptIbBbqJQa0GqFwOgoKjGVP1ruktKf5vobP4Q6tiCqCgq5WzmiNVvIiplICFl2OUDBdNbFSL4Ork9pLGMnyUCVneJXzN22ri8QvCOmXVamTf6MVHHgFb8Q6K3p/XLH/8I12YB3hloa+YhPpXSL//rCPfe/6vn1kfpfcc3HY7xcq4o9Qta0csyQIHZ/novfBqIWw91kkokRVCPt5gdcojGVI9NS9uxpJ7ELTZI/edOPu64w34w9GagQ5
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.server.checkAccountStatus
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.server.checkAccountStatus"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.
+
+## Request
+
+<div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"activated"}
+                        required={true}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"validDid"}
+                        required={true}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"repoCommit"}
+                        required={true}
+                        schemaName={"cid"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"cid"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"repoRev"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"repoBlocks"}
+                        required={true}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"indexedRecords"}
+                        required={true}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"privateStateValues"}
+                        required={true}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"expectedBlobs"}
+                        required={true}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"importedBlobs"}
+                        required={true}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"activated\": true,\n  \"validDid\": true,\n  \"repoCommit\": \"string\",\n  \"repoRev\": \"string\",\n  \"repoBlocks\": 0,\n  \"indexedRecords\": 0,\n  \"privateStateValues\": 0,\n  \"expectedBlobs\": 0,\n  \"importedBlobs\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
+                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

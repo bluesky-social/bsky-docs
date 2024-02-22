@@ -1,0 +1,216 @@
+---
+id: com-atproto-sync-get-blocks
+title: "com.atproto.sync.getBlocks"
+description: "Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS."
+sidebar_label: "com.atproto.sync.getBlocks"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFuGzcQ/ZUBL00AYWUEPakn22ocoQgi2GoRINCBIkcSIy7JkLOuF4L+vTO7sizZshv0VOkgkTt8783wzexWkV4VNfqmTKwrTSlHilVpg1HzgbJYTHaJXAxqpG6QwGrSsPDRbAosc6xBw8rdY4CMKQ5g0cL1ZFzBx5gBH3SdPA7ABcJco3WaED7fzSBEBh4Ax2Q0MdtSwThi4X3inR+Nywi6ofVv4AShRgawgj0d31VqoGLCrEXUxLKs58KrFdJVp5BDk866RuaXHLcq8IKPWGf5mZOkfjSYW/U81dkaYTwZQ1wC8V9JToj34piVcoMDVcwaa61GW0VtEuBC2YXVz8ItY6417fXsdoODPuNseS7wX7l1zloCHWFdzmk60JmObjcX0JJiKNjFf7i4kJ9T6V/+4JMm8g0Ekqc6Je9MV/3hfbCVS95WRmd+xpAD9es5kCtt4Zb1Y6HX0b4Xid2+TCwuvqOhkxJ8U5hzzLxXYyl6heJWtgAbg1yfTR9wpgwYmloQJuFee2cfdc13T2AvTu36j0TQOorr2GSdvWjNi+GbHiyY7x8N2GTP8WuiVEbD4aJs2qpE47QfPuRkhi+cczmDqaCa6MX98PV2eg09oBLDnOLp5KoOk+v6E4CXKf3l8O9T0LkINk121N7JTfTVvEKd8bicQqn2LpT1og+QGrmwjF2kI4/PKDuqy+lEjjZ1rdnaI3UdgxSIBUqHHIX/UsDjg2PDFKAIXxIGPsu7vUegd3R1pt8cx7BpBFLsph0jfJrNpsLN/bfEjMEg2GiKoMCVZxNsWtDBHgs40Fdwg0GmDk8m6HNlRRsefKyL2D8dsNHeF7DsUUO+7QekNLzQiMp9lqzwouIv36BKsVCtO+M/Nv8ZL8HBTCeJbp966f8znfcGIXygYfJceUmz8+l23y8vXzZH/cL+W3NNJGq7XeiCf2a/28l2Pwmli6wreuFlECy1L/hGVd7d7mfGe3hlCJ+Vu8H28JrgKdFIRNdv/4n5bZb9sH+imcsiO+HhbGUurVFb6T5OvT9zaQwmOjr16lgWtMPQuvl9xh36D+nDt48=
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.sync.getBlocks
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.sync.getBlocks"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
+
+## Request
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"did","in":"query","description":"The DID of the repo.","required":true,"schema":{"type":"string","description":"The DID of the repo.","format":"did"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"cids","in":"query","required":true,"schema":{"type":"array","items":{"type":"string","format":"cid"}}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/vnd.ipld.car"}
+              value={"application/vnd.ipld.car"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
+                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

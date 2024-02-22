@@ -1,0 +1,228 @@
+---
+id: com-atproto-identity-request-plc-operation-signature
+title: "com.atproto.identity.requestPlcOperationSignature"
+description: "Request an email with a code to in order to request a signed PLC operation. Requires Auth."
+sidebar_label: "com.atproto.identity.requestPlcOperationSignature"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1vEzEQ/SsjX7hEm4I4RQgpLQgqQF01ASFFOTjeSdfNrm1sb5uwyn9nxrv5aFMVhATJId71+M174zeTVkR5E8RoJpStMxmdt9FmukATddyI+UAUGJTXLmprxEhc448GQwRpAGupK7jXsQQJyhYI0YI2YH2Bntd+FwtB3xgsIP98AdahlwyWAWNpjwHGTSwzMRD7vcuCUj1FKOsx80pd7YInBC5j45EQAqrGM/HRrBXnKD16Ws63pIMSOWsCkthWvDo745+H2q4+ie1AvH5q61wW0EunLMqaSHw4TDpXaZV4DG8Dx7YiqJJqw6u4cUin7eIWFR/0neKC643eW0/vagxB3iCXmrSSqKg7jl3AASVEr80NnUDT1Ixwae5kpYsDr/drx+hTu0JDj/1+9zjfHlKdYG7Th7W/PNX+1Ui6H+v1TyL+38VTOtI2EuyRLzqERPe3UlIEkWYfOZuK42Qs6Wn4d7byd+hDclXjK4IpY3RhNBwuwmqTBau0rIZr79RQPO6Y8RRyTqZsBfm7CXy/zi+gAyQhj/Gk01nCpNr+AeDYuW8a7x+Czg99MOHb6Cq664Z9wTgla0sh9LzoArh22ixtitSxwkcpU6pxfslHm7qWnppNXFjDBSKCYJdwFP4iQIVrzbfII4Gqa+gsve18AkvraxmzE5HTUlMMGYch2XJSE8LH6TTn3DRalujRKITCqsAocF7RDa42NJmKYwL79Bl8QMN3izSQOq3EiFqDeUWeUwysZFUFKMinKlYbWHpbQyy7NMyyV0kMzzL6shXZX7VM5jcyVfI5iwF5DPYmg2OXPahAe2i0fzt0ezdEXMehq6jMrCmZsu175un/hud7hjxYct/R4bZdyIBffbXd8ms6xJaZ0fJOei0X7LAZj6cSZZHmdStWyK4aK4WOe5fmWMMkTwYOe33f6PnVZErBPK2ObN7berBbMHy/Jc3mCPxN1yGQ5uVb2uhIJI9QIhoqvwB1G4Bz
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.identity.requestPlcOperationSignature
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/com.atproto.identity.requestPlcOperationSignature"}
+>
+  
+</MethodEndpoint>
+
+
+
+Request an email with a code to in order to request a signed PLC operation. Requires Auth.
+
+## Request
+
+<div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

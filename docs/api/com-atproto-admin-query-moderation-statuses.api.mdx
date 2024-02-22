@@ -1,0 +1,664 @@
+---
+id: com-atproto-admin-query-moderation-statuses
+title: "com.atproto.admin.queryModerationStatuses"
+description: "View moderation statuses of subjects (record or repo)."
+sidebar_label: "com.atproto.admin.queryModerationStatuses"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.admin.queryModerationStatuses
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.admin.queryModerationStatuses"}
+>
+  
+</MethodEndpoint>
+
+
+
+View moderation statuses of subjects (record or repo).
+
+## Request
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"subject","in":"query","required":false,"schema":{"type":"string","format":"uri"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"comment","in":"query","description":"Search subjects by keyword from comments","required":false,"schema":{"type":"string","description":"Search subjects by keyword from comments"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"reportedAfter","in":"query","description":"Search subjects reported after a given timestamp","required":false,"schema":{"type":"string","description":"Search subjects reported after a given timestamp","format":"date-time"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"reportedBefore","in":"query","description":"Search subjects reported before a given timestamp","required":false,"schema":{"type":"string","description":"Search subjects reported before a given timestamp","format":"date-time"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"reviewedAfter","in":"query","description":"Search subjects reviewed after a given timestamp","required":false,"schema":{"type":"string","description":"Search subjects reviewed after a given timestamp","format":"date-time"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"reviewedBefore","in":"query","description":"Search subjects reviewed before a given timestamp","required":false,"schema":{"type":"string","description":"Search subjects reviewed before a given timestamp","format":"date-time"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"includeMuted","in":"query","description":"By default, we don't include muted subjects in the results. Set this to true to include them.","required":false,"schema":{"type":"boolean","description":"By default, we don't include muted subjects in the results. Set this to true to include them."}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"reviewState","in":"query","description":"Specify when fetching subjects in a certain state","required":false,"schema":{"type":"string","description":"Specify when fetching subjects in a certain state"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"ignoreSubjects","in":"query","required":false,"schema":{"type":"array","items":{"type":"string","format":"uri"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"lastReviewedBy","in":"query","description":"Get all subject statuses that were reviewed by a specific moderator","required":false,"schema":{"type":"string","description":"Get all subject statuses that were reviewed by a specific moderator","format":"did"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sortField","in":"query","required":false,"schema":{"type":"string","default":"lastReportedAt"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sortDirection","in":"query","required":false,"schema":{"type":"string","default":"desc"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"takendown","in":"query","description":"Get subjects that were taken down","required":false,"schema":{"type":"boolean","description":"Get subjects that were taken down"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"appealed","in":"query","description":"Get subjects in unresolved appealed status","required":false,"schema":{"type":"boolean","description":"Get subjects in unresolved appealed status"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"limit","in":"query","required":false,"schema":{"type":"integer","minimum":1,"maximum":100,"default":50}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"tags","in":"query","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"excludeTags","in":"query","required":false,"schema":{"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"cursor","in":"query","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"cursor"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                subjectStatuses
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={true}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <strong>
+                                    subject
+                                  </strong><span
+                                    style={{"opacity":"0.6"}}
+                                  >
+                                     object
+                                  </span><strong
+                                    style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}
+                                  >
+                                     required
+                                  </strong>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  
+                                </div><div>
+                                  <span
+                                    className={"badge badge--info"}
+                                  >
+                                    oneOf
+                                  </span><SchemaTabs>
+                                    <TabItem
+                                      label={"com.atproto.admin.defs.repoRef"}
+                                      value={"0-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"did"}
+                                        required={true}
+                                        schemaName={"did"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","format":"did"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem><TabItem
+                                      label={"com.atproto.repo.strongRef"}
+                                      value={"1-item-properties"}
+                                    >
+                                      <SchemaItem
+                                        collapsible={false}
+                                        name={"uri"}
+                                        required={true}
+                                        schemaName={"at-uri"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","format":"at-uri"}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"cid"}
+                                        required={true}
+                                        schemaName={"cid"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"string","format":"cid"}}
+                                      >
+                                        
+                                      </SchemaItem>
+                                    </TabItem>
+                                  </SchemaTabs>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"subjectBlobCids"}
+                              required={false}
+                              schemaName={"cid[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","items":{"type":"string","format":"cid"}}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"subjectRepoHandle"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"updatedAt"}
+                              required={true}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Timestamp referencing when the last update was made to the moderation status of the subject","format":"date-time"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"createdAt"}
+                              required={true}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Timestamp referencing the first moderation status impacting event was emitted on the subject","format":"date-time"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"reviewState"}
+                              required={true}
+                              schemaName={"com.atproto.admin.defs.subjectReviewState"}
+                              qualifierMessage={"**Possible values:** [`#reviewOpen`, `#reviewEscalated`, `#reviewClosed`]"}
+                              schema={{"type":"string","enum":["#reviewOpen","#reviewEscalated","#reviewClosed"],"title":"com.atproto.admin.defs.subjectReviewState"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"comment"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Sticky comment on the subject."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"muteUntil"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"lastReviewedBy"}
+                              required={false}
+                              schemaName={"did"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"did"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"lastReviewedAt"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"lastReportedAt"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"lastAppealedAt"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","description":"Timestamp referencing when the author of the subject appealed a moderation action","format":"date-time"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"takendown"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"appealed"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","description":"True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"suspendUntil"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","format":"date-time"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"tags"}
+                              required={false}
+                              schemaName={"string[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","items":{"type":"string"}}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"cursor\": \"string\",\n  \"subjectStatuses\": [\n    {\n      \"id\": 0,\n      \"subject\": {},\n      \"subjectBlobCids\": [\n        \"string\"\n      ],\n      \"subjectRepoHandle\": \"string\",\n      \"updatedAt\": \"2024-02-22T20:33:44.605Z\",\n      \"createdAt\": \"2024-02-22T20:33:44.605Z\",\n      \"reviewState\": \"#reviewOpen\",\n      \"comment\": \"string\",\n      \"muteUntil\": \"2024-02-22T20:33:44.605Z\",\n      \"lastReviewedBy\": \"string\",\n      \"lastReviewedAt\": \"2024-02-22T20:33:44.605Z\",\n      \"lastReportedAt\": \"2024-02-22T20:33:44.605Z\",\n      \"lastAppealedAt\": \"2024-02-22T20:33:44.605Z\",\n      \"takendown\": true,\n      \"appealed\": true,\n      \"suspendUntil\": \"2024-02-22T20:33:44.605Z\",\n      \"tags\": [\n        \"string\"\n      ]\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
