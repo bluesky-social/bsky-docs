@@ -40,10 +40,11 @@ for await (const entry of entries) {
 
     // We don't want public-facing docs for unspecced endpoints
     const containsUnspecced = identifier.toLowerCase().includes('unspecced') || identifier.toLowerCase().includes('.temp.');
-    const containsDeprecated = def.description?.toLowerCase().includes('deprecated') ?? false;
+    const containsDeprecated = def.description?.toLowerCase().startsWith('deprecated') ?? false;
 
     if (containsUnspecced || containsDeprecated) {
-      break;
+      console.log("skipping: " + identifier)
+      continue;
     }
 
     switch (def.type) {
