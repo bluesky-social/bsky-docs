@@ -43,7 +43,8 @@ for await (const entry of entries) {
     const containsDeprecated = def.description?.toLowerCase().includes('deprecated') ?? false;
 
     if (containsUnspecced || containsDeprecated) {
-      break;
+      console.log("skipping: " + identifier)
+      continue;
     }
 
     switch (def.type) {
