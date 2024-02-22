@@ -17,7 +17,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    Call [app.bsky.feed.getFeedGenerator](/docs/api/app-bsky-feed-get-feed-generator) to view a feedgen's description.
+    Call app.bsky.feed.getFeedGenerator to view a feedgen's description.
 
     ```ts
     agent.app.bsky.feed.getFeedGenerator({
@@ -48,7 +48,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
     ```
   </TabItem>
   <TabItem value="python" label="Python">
-    Call [app.bsky.feed.getFeedGenerator](/docs/api/app-bsky-feed-get-feed-generator) to view a feedgen's description.
+    Call app.bsky.feed.getFeedGenerator to view a feedgen's description.
 
     ```python
     client.app.bsky.feed.get_feed_generator({'feed': feed_uri})
@@ -84,7 +84,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    Call [app.bsky.feed.getFeed](/docs/api/app-bsky-feed-get-feed) to view posts from a feedgen.
+    Call app.bsky.feed.getFeed to view posts from a feedgen.
 
     ```ts
     agent.app.bsky.feed.getFeed({
@@ -106,7 +106,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
     Use the returned cursor to fetch additional pages of posts.
   </TabItem>
   <TabItem value="python" label="Python">
-    Call [app.bsky.feed.getFeed](/docs/api/app-bsky-feed-get-feed) to view posts from a feedgen.
+    Call app.bsky.feed.getFeed to view posts from a feedgen.
 
     ```python
     client.app.bsky.feed.get_feed({'feed': feed_uri, 'limit': 30, 'cursor': cursor})
@@ -129,7 +129,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    When you call [app.bsky.feed.getFeedGenerator](/docs/api/app-bsky-feed-get-feed-generator), you can examine the `viewer` field to determine if the user has liked the feedgen.
+    When you call app.bsky.feed.getFeedGenerator, you can examine the `viewer` field to determine if the user has liked the feedgen.
 
     ```ts title="viewer object"
     {
@@ -149,7 +149,7 @@ Anybody can create custom feed. See the [Custom Feeds Starter Template](/docs/st
     ```
   </TabItem>
   <TabItem value="python" label="Python">
-    When you call [app.bsky.feed.getFeedGenerator](/docs/api/app-bsky-feed-get-feed-generator), you can examine the `viewer` field to determine if the user has liked the feedgen.
+    When you call app.bsky.feed.getFeedGenerator, you can examine the `viewer` field to determine if the user has liked the feedgen.
 
     ```python title="viewer model"
     class GeneratorViewerState(base.ModelBase):
