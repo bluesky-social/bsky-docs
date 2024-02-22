@@ -1,0 +1,266 @@
+---
+id: com-atproto-repo-describe-repo
+title: "com.atproto.repo.describeRepo"
+description: "Get information about an account and repository, including the list of collections. Does not require auth."
+sidebar_label: "com.atproto.repo.describeRepo"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v2zAM/SuCLuuA1CmGnXJrm6ELdljQZsOAogdFZhqtsqRKdFfD8H8faTlN02TdBgxLgMQf5OMj+Ui1EtVtkpNrqX1VKAzRoy8iBC9vRrKEpKMJaLyTE3kBKIxb+VgpfiLU0tcoFF1o7WvHl6Vg12TQx2ZExtrWpXG3AtcgrEko/Epoby1oRkiFmHpIwnkkv/vaRBCqxnUhR9IHiH2YWUmhX5IrMrMlXDLTkQwqqgoQIqfSSkc35BXzS8Pk72uIjXyZ0oJ4rYm2BeGjmM6mTJDJ9kHIfKBFHDDWMJJJr6FSctJKbALHSBgpwb8HzmUkS4XHpgSHZmUgyq674aApUHUgcZx3Jyf8twv/+RNBaO+QHPmtCsEa3ddr/D2xSbtP1S+/U913krqWmSTzN2X+nXrdgz91ie6y1Syd+xgZg0hSM6hFaDLLAeZAXZ4SHUy6HOo1S37fPXGZtN0una2rilFxUw1ClV6FdIkxu/1Mtk5L7y0ot9fKmSu5tKRTs9r01CShawJwaBvxoKwpxRF1zdsHMlua49LEzFZZ27ylwPwZyfeHenmmSnFJHYGE/6qpEKOP9KyClNQt7LcrGxwoGLi6YoSZ67Pa8LrptmB7Xt0mPZrAtedxvQXshxLXdDP+3fAmiA+bya2jZakghjQZj5fprimS10bZ8WMMerzXnNOFmDMw6UPMp1fi2+X8XGRAktBLPBVM0WNSaf8A8DSErwZ+7ILeMGFqvsHmipuRC3oGKsLzinJIOeyLXl3ZgMvEO7S3NMgjsxOyD3U6n7FrXVWKdtZEnnvHBeKdS1vkmfmbJCw8GtJMEujF5wCOfOlplonI8i8ObCcScMoKFaw4ZQjh42Ix59i0o1ZA2tYgSq8To4gzSzq4a/oV/5zvJnwhLsDxxqYNLnKuxOgOHPOi2cEeWNM4JJGHgwZnFX3VL0UOwyyHLInhSUFfXgJ0mmCleu0PW/2XchKDnnZybbcT9X8PsEEHCI84DpYKzNn0cmyHydg/c3cng5S2puzZsG2XKsGXaLuOH+fDjOelNEktLU/9StkEryR/dDksiLfit4fTQe530GzPVNoONZv08/CgomEWxIgXxRpUybNA9LLPqdYQ8JnX3mZjlKftcfFhQXPyE7aX+gQ=
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.repo.describeRepo
+</h1>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/com.atproto.repo.describeRepo"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get information about an account and repository, including the list of collections. Does not require auth.
+
+## Request
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"repo","in":"query","description":"The handle or DID of the repo.","required":true,"schema":{"type":"string","description":"The handle or DID of the repo.","format":"at-identifier"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"handle"}
+                        required={true}
+                        schemaName={"handle"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"handle"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"did"}
+                        required={true}
+                        schemaName={"did"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"did"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"didDoc"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"collections"}
+                        required={true}
+                        schemaName={"nsid[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","items":{"type":"string","format":"nsid"}}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"handleIsCorrect"}
+                        required={true}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"Indicates if handle is currently valid (resolves bi-directionally)"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"handle\": \"string\",\n  \"did\": \"string\",\n  \"didDoc\": {},\n  \"collections\": [\n    \"string\"\n  ],\n  \"handleIsCorrect\": true\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
+                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

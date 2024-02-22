@@ -1,0 +1,210 @@
+---
+id: com-atproto-server-delete-account
+title: "com.atproto.server.deleteAccount"
+description: "Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth."
+sidebar_label: "com.atproto.server.deleteAccount"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcGO2jAQ/RXLl15oWFU9cYPtql31sGiXVpUoBxMPxItju7azgCL+vTN2aGDZrfZQqYkEiT1+8/z8ZtLyKNaBj+a8tHUhovM22iKAfwLPFwMuIZReuais4SP+CTREYMIwUUbr3wX8L21jItuqWDHBot0AThrJnAhha70s2DWGW6P3bAmsFFqDZGIVwTMPvxoIUZk1rpQEjVkyRMHucVJ5wAxNrAo+4NaBFxRxK5HJJdsiIcA4E8IFHfzEyj0ftekVAXFx9A0MEMFEwECcEs5pVSbw4WOgnbY8lBXUgp7i3gFmtMtHKI+4GWjOpZI4ctwrPib2JBxSQ8JRQSAMiuuhQvS4aYxeWV8LpJDmDydAF7GHI/TlTLqIVnDWhJzvw9VVSnt2endfCebjS1MTIZPiqBf/R9KA99bjWA0hiDVcapIDXlAFTFMTwq15ElrJntfNzhH6LAkxOM7n18WhT/WKRikiVpb842xCdCJW+DZ8g53yMJVKyxuvcVUVowuj4XAZNvsi2FIJPdx5Vw7587oZz9iUsEur2fTTA/txP71mXZEdBs/xhFNFwkTx3wA4du67gu056IIIl41Xcf9Ax5Uln4DwcKo5paS9pRB8X+YAkopO+74voZudqJ2GP2buj6s3bT/WefXEvcqsbEqsIqGc7SAxH09viUlT18JjwfJra0hvagl2xU7Cseto2Ck0acBmwe4cGFyLo9mXLBdVcaHZrFIYg0YlSLK4UIjwZTabUm7sRivwYEpg0paBUNhE4+43+9TPTvke0xfsMxjqStgSWZau64DIK6JwCZh6XmASnVtG7IIrb2sWq5yGWHa7RIZXBd6pD6A7a5GKzYh0MK8alPUOPdtu21fxf23bndEi7OLQaZSc9pf83nbV99Kn51n1oZsrKliMbdulCPDN68OBhpEKuWWOj0/CK7Ekc82pGVQgJHkdy3UDnaFIj/czYkTheLo4fNHhqCDzCkwPLv41dnHSU6Z3DzMMXnYfnNpKWuPFljoj/o74T7zTp4wQUkWm8ZZrYdZNal0849L1G9zxpKc=
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.server.deleteAccount
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/com.atproto.server.deleteAccount"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"did"}
+          required={true}
+          schemaName={"did"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"did"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"password"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"token"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
