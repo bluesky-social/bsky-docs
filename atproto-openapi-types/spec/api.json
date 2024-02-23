@@ -6549,6 +6549,68 @@
         }
       }
     },
+    "/com.atproto.admin.updateAccountPassword": {
+      "post": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Update the password for a user account as an administrator.",
+        "operationId": "com.atproto.admin.updateAccountPassword",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did",
+                  "password"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.admin.updateCommunicationTemplate": {
       "post": {
         "tags": [
@@ -11292,6 +11354,12 @@
             },
             {
               "$ref": "#/components/schemas/app.bsky.actor.defs.interestsPref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.mutedWordsPref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.hiddenPostsPref"
             }
           ]
         }
@@ -11426,6 +11494,64 @@
               "maxLength": 640
             },
             "maxItems": 100
+          }
+        }
+      },
+      "app.bsky.actor.defs.mutedWordTarget": {
+        "type": "string",
+        "maxLength": 640,
+        "enum": [
+          "content",
+          "tag"
+        ]
+      },
+      "app.bsky.actor.defs.mutedWord": {
+        "type": "object",
+        "description": "A word that the account owner has muted.",
+        "required": [
+          "value",
+          "targets"
+        ],
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The muted word itself.",
+            "maxLength": 10000
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.mutedWordTarget"
+            }
+          }
+        }
+      },
+      "app.bsky.actor.defs.mutedWordsPref": {
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.mutedWord"
+            }
+          }
+        }
+      },
+      "app.bsky.actor.defs.hiddenPostsPref": {
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "at-uri"
+            }
           }
         }
       },
