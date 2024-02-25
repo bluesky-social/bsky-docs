@@ -60,7 +60,7 @@ There are two purposes:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    Call [app.bsky.graph.getList](/docs/api/app-bsky-graph-get-list) to view a list and its members.
+    Call app.bsky.graph.getList to view a list and its members.
 
     ```ts
     agent.app.bsky.graph.getList({
@@ -103,7 +103,7 @@ There are two purposes:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    Call [app.bsky.graph.getLists](/docs/api/app-bsky-graph-get-lists) to view lists created by an actor.
+    Call app.bsky.graph.getLists to view lists created by an actor.
 
     ```ts
     agent.app.bsky.graph.getLists({
@@ -129,7 +129,7 @@ There are two purposes:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    Call [app.bsky.graph.getListMutes](/docs/api/app-bsky-graph-get-list-mutes) to view lists muted by the current actor.
+    Call app.bsky.graph.getListMutes to view lists muted by the current actor.
 
     ```ts
     agent.app.bsky.graph.getListMutes({
@@ -154,7 +154,7 @@ There are two purposes:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    Call [app.bsky.graph.getListBlocks](/docs/api/app-bsky-graph-get-list-blocks) to view lists blocked by the current actor.
+    Call app.bsky.graph.getListBlocks to view lists blocked by the current actor.
 
     ```ts
     agent.app.bsky.graph.getListBlocks({
@@ -179,7 +179,7 @@ There are two purposes:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    When you call [app.bsky.graph.getList](/docs/api/app-bsky-graph-get-list) or use any API that returns a **app.bsky.graph.defs#listView** object, you can examine the `viewer` field to determine if the user has muted or blocked the list.
+    When you call app.bsky.graph.getList or use any API that returns a **app.bsky.graph.defs#listView** object, you can examine the `viewer` field to determine if the user has muted or blocked the list.
 
     ```ts title="viewer object"
     {
@@ -208,13 +208,13 @@ There are two purposes:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
-    Call [app.bsky.graph.muteActorList](/docs/api/app-bsky-graph-mute-actor-list) to mute a list. The mute state is private.
+    Call app.bsky.graph.muteActorList to mute a list. The mute state is private.
 
     ```ts
     await agent.muteModList(listUri)
     ```
 
-    Call [app.bsky.graph.unmuteActorList](/docs/api/app-bsky-graph-unmute-actor-list) to unmute a list.
+    Call app.bsky.graph.unmuteActorList to unmute a list.
 
     ```ts
     await agent.unmuteModList(listUri)

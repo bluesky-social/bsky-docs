@@ -1,0 +1,192 @@
+---
+id: com-atproto-identity-submit-plc-operation
+title: "com.atproto.identity.submitPlcOperation"
+description: "Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry"
+sidebar_label: "com.atproto.identity.submitPlcOperation"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu40YM/RWCl1xU21j0pJuTFm3QAhESd1HA6wM9oq3ZSDOzM1QSQfC/Fxw5a2cdLPbQw+piSyQfyTePnBGF9gnLNRrfzUhC9OJntmYnVgbcFFhzMtEGsd5hiR+ptTUJJyCo/r4BHziS2kA8sEt9ZJCGBKxA7Tm5K4En61sSBoLE8ckavkpgvEsSyTpJ4CPsWUAahtfEYJ14INhSDUlIuFCzg9RvOytJ0cXnCC0i8t4miQMW+LWe2xrLd3uaTRhVa+5efbHAyF96TnLt6wHLMb/ayDWWEnsu0Hgn7ERNFEJrTY6bf05KyojJNNyR/pMhMJbot5/ZyBF3AlqfalNaQ9RXsZw07GQqx0N+NDQF79Lk8GGx0J+3h3H3Fx4K/PU90zXVcD/1hP9T+Ryjj1hgxynRni+bmBxOKEmidXsskF3fKcKte1L5vNa1OZzALqIOrzR0LI3Xwww+9xJIGixx/uNnq6rjqCIfsY8tltiIhFTO59v0OMySN5ba+UsMZo7f6n25gkpTGN9C9dsD/Htf3cAEiIfiWzwKdpYxKYQfAFyG8NHy81vQjRZs+mhleNBzmbi9Zop8Tq6m1N6yC5a4nRyUMT3W+5Oef3+hLrR8KbMCrdv5jGlFHd4Ul4taVreapO86igOWeOOdUqnz7ndw5n6VoOUXq2Otk3kX2C2r26sEk7Zg52NHMrugY9XYBIlNXiEqU7IuwZ+rVaW5IfKOIzvDUHuTFAWu257T4wDk6vMCvqafwR/stE1dOBMrIP6R84YSTpKBDbVtgtpGNtIOsIu+y+tE02iVxy6xxMVsMVvonKn+OsoD4yhz/h0JQtUaOBfhm7bH00T+9Bv1qDfhF5mHlqxTLrLsx+Msvn93vDeLmwIbneJyjeO4pcT/xPZw0M9felaBrTcFPlG0tFU9rnVDNEy1Kn894iMfNajU/bLSwtS97bXAi8Wm4zlFLI3hIN/13ZwtmuruYYUFbo93QedrjYn0rAuRnrHET/gJ82WjCHk+8/cRW3L7Pu8znHD1+Q8mPZci
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.identity.submitPlcOperation
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/com.atproto.identity.submitPlcOperation"}
+>
+  
+</MethodEndpoint>
+
+
+
+Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"operation"}
+          required={true}
+          schemaName={""}
+          qualifierMessage={undefined}
+          schema={{}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
+                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
