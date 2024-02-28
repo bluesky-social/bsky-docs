@@ -341,6 +341,15 @@ const Users: User[] = [
     tags: ['client', 'favorite', 'opensource'],
   },
   {
+    title: 'Skywalker',
+    description: 'Android client for Bluesky',
+    preview: require('./showcase/skywalker.png'),
+    website: 'https://bsky.app/profile/did:plc:zzmeflm2wzrrgcaam6bw3kaf',
+    source: 'https://github.com/mfnboer/skywalker',
+    author: 'https://bsky.app/profile/did:plc:qxaugrh7755sxvmxndcvcsgn',
+    tags: ['client', 'opensource'],
+  },
+  {
     title: 'Yup',
     description: 'iOS client for Bluesky, an app to cross-post to Bluesky and other social apps',
     preview: require('./showcase/example-1.png'),
@@ -349,9 +358,9 @@ const Users: User[] = [
   },
   {
     title: 'Skeets',
-    description: 'iOS client for Bluesky, an app that offers bookmarks, drafts, mute words, etc.',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://bsky.app/profile/skeetsapp.com',
+    description: 'iOS & iPad OS client for Bluesky, an app that offers bookmarks, drafts, mute words, etc.',
+    preview: require('./showcase/skeets.png'),
+    website: 'https://www.skeetsapp.com',
     author: 'https://bsky.app/profile/did:plc:ituoear7k6qx3smjfoxhufm4',
     tags: ['client'],
   },
@@ -477,6 +486,15 @@ const Users: User[] = [
     website: 'https://nootti.com',
     author: 'https://bsky.app/profile/did:plc:ti23b3jqg3o7qwfazgr5yh37',
     tags: ['client'],
+  },
+  {
+    title: 'BlueWP',
+    description: 'Windows Phone client for BlueSky',
+    preview: require('./showcase/bluewp.jpg'),
+    website: 'https://github.com/Gargaj/BlueWP/',
+    source: 'https://github.com/Gargaj/BlueWP/',
+    author: 'https://bsky.app/profile/did:plc:gyon34nzg2mivmui2kyb65ua',
+    tags: ['client', 'opensource'],
   },
   {
     title: 'SkyBridge',
@@ -841,8 +859,8 @@ const Users: User[] = [
   {
     title: 'Neznam Atproto share',
     description: 'WordPress plugin to automatically share posts from WordPress to timeline',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://github.com/ne-znam/neznam-atproto-share',
+    preview: require('./showcase/neznam-atproto-share.png'),
+    website: 'https://wordpress.org/plugins/neznam-atproto-share/',
     source: 'https://github.com/ne-znam/neznam-atproto-share',
     author: 'https://bsky.app/profile/did:plc:diud5hvgw7ssqvhwm5zamiwe',
     tags: ['othertools', 'opensource'],
@@ -1003,6 +1021,24 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ubz4oedvsb7dsuncqi5jb7o2',
     tags: ['bot', 'opensource'],
   },
+  {
+    title: 'Bluesky Earthquake Bot',
+    description: 'Posts earthquake information as soon as it is available.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:hmpcokspyygl25tvwm57jef5',
+    source: 'https://github.com/pixelasticity/bluesky-earthquake-bot',
+    author: 'https://bsky.app/profile/did:plc:liivcje2xxci55x74yriz3k6',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'SkeetStats,
+    description: 'daily stats tracking for followers/following/posts, opt-in via bot',
+    preview: require('./showcase/skeetstats.png'),
+    website: 'https://skeetstats.xyz',
+    source: 'https://github.com/ameliamnesia/skeetstats-frontend',
+    author: 'https://bsky.app/profile/did:plc:6gwchzxwoj7jms5nilauupxq',
+    tags: ['stats', 'bot', 'opensource'],
+  }
 ]
 
 export type User = {
