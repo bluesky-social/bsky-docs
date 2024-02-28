@@ -815,10 +815,11 @@ const Users: User[] = [
   {
     title: 'Neznam Atproto share',
     description: 'WordPress plugin to automatically share posts from WordPress to timeline',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://github.com/ne-znam/neznam-atproto-share',
+    preview: require('./showcase/neznam-atproto-share.png'),
+    website: 'https://wordpress.org/plugins/neznam-atproto-share/',
+    source: 'https://github.com/ne-znam/neznam-atproto-share',
     author: 'https://bsky.app/profile/did:plc:diud5hvgw7ssqvhwm5zamiwe',
-    tags: ['othertools'],
+    tags: ['othertools', 'opensource'],
   },
   {
     title: 'SkySweeper',
