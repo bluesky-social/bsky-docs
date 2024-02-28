@@ -1,0 +1,228 @@
+---
+id: com-atproto-server-activate-account
+title: "com.atproto.server.activateAccount"
+description: "Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup."
+sidebar_label: "com.atproto.server.activateAccount"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu40YM/RWCl1wE2S16EooCzm7RBkURY+MUBQwf6BEdzUaamcxQbryC/r3gyI6TddDuqagukkXqkY/z+Dyg0EPCao3GdyVJiF58mTjuOeKmwJqTiTaI9Q4rXBixexJOQGD6GNlJe4Ca6fi+BjLG905KuE9cg3jYWUet/cKnCHT2IZLiAe2EI0jzErtKEDl4sAlsF3zMgK4GW7MTKwcNJJY+lFigDzzh3NRYvdN9eWpqMYFjgYlNH60csFoPeM0UOWK13oybAiOn4F3ihNWA38/nenvL/fY3HAv84b3QNdXwiZ96TlrFeCfsRNMohNaa3OXsc9LcAZNpuCN9kkNgrNBvP7PRDyM/9TZyrafBMfqIBXacEj2wHkWISlns1OOUcEZJEq17wALZ9Z0i3Lg9tbY+9/Xzc1D0lX9kh8UpPv3cjOdSF5hjvpT7d5fc7x310vhov3D935M33iVRYfbS/G5Tyu3+K5WcIY1X4QSfhxNIGqxw9o060kDKMupjixU2IiFVs9k2PR7K5I2ldvYcg5nhxQqtYKnoxrew/HgHf35afoDjvo3F13gUbJkxKYRvAFyE8Iflv96Cbs7Cv9PxTyM8yf9lQlpSueUUrHA7JeiwrNv5nGml5a9K5lKL5Y1+2ncdxQNW+ME7HZAuud/Bq/SrBC0/Wz02NYfbwG6xvLlKMAkDdj52JOUFyVWTV99k31CNkXUJfl2tllobIu84sjMMtTdJUeC67Tk9HrJ/vO73VL6EX9ipgzAQTFxBdBe0L+EkGdhQ2yaobWSjTreLvsuGpWW0yyNLrHBezsu5ak8F1VFWu6M8yX/QFJxF9YbwcF6k/5XpHrUi/Cyz0JJ1yjhLdjiu0Ht/JBcrtCmw0b2r1jgMW0p8H9tx1NdPPauC1psC9xQtbVVwa7WnhqnOfj3gIx/yXAwHndye2l67ujAclf7Loi9v71ZYoLrVK9UfVV6cHhT+GCJ3eAX+47QwkP3yJyyOTWTJ4LgZx/FvZ3KMcA==
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  com.atproto.server.activateAccount
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/com.atproto.server.activateAccount"}
+>
+  
+</MethodEndpoint>
+
+
+
+Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
+
+## Request
+
+<div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

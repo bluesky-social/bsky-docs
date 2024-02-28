@@ -166,6 +166,15 @@ const Users: User[] = [
     tags: ['protocol'],
   },
   {
+    title: 'ATrium (Rust)',
+    description: 'AT Protocol implementation in Rust',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/sugyan/atrium',
+    source: 'https://github.com/sugyan/atrium',
+    author: 'https://bsky.app/profile/did:plc:4ee6oesrsbtmuln4gqsqf6fp',
+    tags: ['protocol', 'opensource'],
+  },
+  {
     title: 'Tokimeki',
     description: 'Web client for Bluesky',
     preview: require('./showcase/tokimeki.png'),
@@ -454,6 +463,15 @@ const Users: User[] = [
     website: 'https://nootti.com',
     author: 'https://bsky.app/profile/did:plc:ti23b3jqg3o7qwfazgr5yh37',
     tags: ['client'],
+  },
+  {
+    title: 'BlueWP',
+    description: 'Windows Phone client for BlueSky',
+    preview: require('./showcase/bluewp.jpg'),
+    website: 'https://github.com/Gargaj/BlueWP/',
+    source: 'https://github.com/Gargaj/BlueWP/',
+    author: 'https://bsky.app/profile/did:plc:gyon34nzg2mivmui2kyb65ua',
+    tags: ['client', 'opensource'],
   },
   {
     title: 'SkyBridge',
@@ -797,10 +815,11 @@ const Users: User[] = [
   {
     title: 'Neznam Atproto share',
     description: 'WordPress plugin to automatically share posts from WordPress to timeline',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://github.com/ne-znam/neznam-atproto-share',
+    preview: require('./showcase/neznam-atproto-share.png'),
+    website: 'https://wordpress.org/plugins/neznam-atproto-share/',
+    source: 'https://github.com/ne-znam/neznam-atproto-share',
     author: 'https://bsky.app/profile/did:plc:diud5hvgw7ssqvhwm5zamiwe',
-    tags: ['othertools'],
+    tags: ['othertools', 'opensource'],
   },
   {
     title: 'SkySweeper',
@@ -966,6 +985,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:liivcje2xxci55x74yriz3k6',
     tags: ['bot', 'opensource'],
   },
+  {
+    title: 'SkeetStats,
+    description: 'daily stats tracking for followers/following/posts, opt-in via bot',
+    preview: require('./showcase/skeetstats.png'),
+    website: 'https://skeetstats.xyz',
+    source: 'https://github.com/ameliamnesia/skeetstats-frontend',
+    author: 'https://bsky.app/profile/did:plc:6gwchzxwoj7jms5nilauupxq',
+    tags: ['stats', 'bot', 'opensource'],
+  }
 ]
 
 export type User = {

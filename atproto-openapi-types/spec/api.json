@@ -4716,6 +4716,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEmail"
+                      },
+                      {
+                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventTag"
                       }
                     ]
                   },
@@ -5730,6 +5733,30 @@
             }
           },
           {
+            "name": "addedTags",
+            "in": "query",
+            "description": "If specified, only events where all of these tags were added are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "removedTags",
+            "in": "query",
+            "description": "If specified, only events where all of these tags were removed are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "reportTypes",
             "in": "query",
             "required": false,
@@ -5992,6 +6019,28 @@
               "minimum": 1,
               "maximum": 100,
               "default": 50
+            }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "excludeTags",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
@@ -6500,6 +6549,68 @@
         }
       }
     },
+    "/com.atproto.admin.updateAccountPassword": {
+      "post": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Update the password for a user account as an administrator.",
+        "operationId": "com.atproto.admin.updateAccountPassword",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did",
+                  "password"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.admin.updateCommunicationTemplate": {
       "post": {
         "tags": [
@@ -6741,6 +6852,136 @@
         }
       }
     },
+    "/com.atproto.identity.getRecommendedDidCredentials": {
+      "get": {
+        "tags": [
+          "com.atproto.identity"
+        ],
+        "description": "Describe the credentials that should be included in the DID doc of an account that is migrating to this service.",
+        "operationId": "com.atproto.identity.getRecommendedDidCredentials",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rotationKeys": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "alsoKnownAs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "verificationMethods": {},
+                    "services": {}
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.identity.requestPlcOperationSignature": {
+      "post": {
+        "tags": [
+          "com.atproto.identity"
+        ],
+        "description": "Request an email with a code to in order to request a signed PLC operation. Requires Auth.",
+        "operationId": "com.atproto.identity.requestPlcOperationSignature",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.identity.resolveHandle": {
       "get": {
         "tags": [
@@ -6780,6 +7021,172 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.identity.signPlcOperation": {
+      "post": {
+        "tags": [
+          "com.atproto.identity"
+        ],
+        "description": "Signs a PLC operation to update some value(s) in the requesting DID's document.",
+        "operationId": "com.atproto.identity.signPlcOperation",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "description": "A token received through com.atproto.identity.requestPlcOperationSignature"
+                  },
+                  "rotationKeys": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "alsoKnownAs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "verificationMethods": {},
+                  "services": {}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "operation"
+                  ],
+                  "properties": {
+                    "operation": {}
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.identity.submitPlcOperation": {
+      "post": {
+        "tags": [
+          "com.atproto.identity"
+        ],
+        "description": "Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry",
+        "operationId": "com.atproto.identity.submitPlcOperation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "operation"
+                ],
+                "properties": {
+                  "operation": {}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request",
@@ -7595,6 +8002,132 @@
         }
       }
     },
+    "/com.atproto.repo.importRepo": {
+      "post": {
+        "tags": [
+          "com.atproto.repo"
+        ],
+        "description": "Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.",
+        "operationId": "com.atproto.repo.importRepo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/vnd.ipld.car": {}
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.repo.listMissingBlobs": {
+      "get": {
+        "tags": [
+          "com.atproto.repo"
+        ],
+        "description": "Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.",
+        "operationId": "com.atproto.repo.listMissingBlobs",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000,
+              "default": 500
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "blobs"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "blobs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.atproto.repo.listMissingBlobs.recordBlob"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.repo.listRecords": {
       "get": {
         "tags": [
@@ -7926,6 +8459,161 @@
                   "properties": {
                     "error": {
                       "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.server.activateAccount": {
+      "post": {
+        "tags": [
+          "com.atproto.server"
+        ],
+        "description": "Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.",
+        "operationId": "com.atproto.server.activateAccount",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.server.checkAccountStatus": {
+      "get": {
+        "tags": [
+          "com.atproto.server"
+        ],
+        "description": "Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.",
+        "operationId": "com.atproto.server.checkAccountStatus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "activated",
+                    "validDid",
+                    "repoCommit",
+                    "repoRev",
+                    "repoBlocks",
+                    "indexedRecords",
+                    "privateStateValues",
+                    "expectedBlobs",
+                    "importedBlobs"
+                  ],
+                  "properties": {
+                    "activated": {
+                      "type": "boolean"
+                    },
+                    "validDid": {
+                      "type": "boolean"
+                    },
+                    "repoCommit": {
+                      "type": "string",
+                      "format": "cid"
+                    },
+                    "repoRev": {
+                      "type": "string"
+                    },
+                    "repoBlocks": {
+                      "type": "integer"
+                    },
+                    "indexedRecords": {
+                      "type": "integer"
+                    },
+                    "privateStateValues": {
+                      "type": "integer"
+                    },
+                    "expectedBlobs": {
+                      "type": "integer"
+                    },
+                    "importedBlobs": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest"
+                      ]
                     },
                     "message": {
                       "type": "string"
@@ -8571,6 +9259,91 @@
         }
       }
     },
+    "/com.atproto.server.deactivateAccount": {
+      "post": {
+        "tags": [
+          "com.atproto.server"
+        ],
+        "description": "Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.",
+        "operationId": "com.atproto.server.deactivateAccount",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "deleteAfter": {
+                    "type": "string",
+                    "description": "A recommendation to server as to how long they should hold onto the deactivated account before deleting.",
+                    "format": "date-time"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/com.atproto.server.deleteAccount": {
       "post": {
         "tags": [
@@ -8722,6 +9495,7 @@
                 "schema": {
                   "type": "object",
                   "required": [
+                    "did",
                     "availableUserDomains"
                   ],
                   "properties": {
@@ -8741,6 +9515,10 @@
                     },
                     "links": {
                       "$ref": "#/components/schemas/com.atproto.server.describeServer.links"
+                    },
+                    "did": {
+                      "type": "string",
+                      "format": "did"
                     }
                   }
                 }
@@ -8849,6 +9627,102 @@
                         "ExpiredToken",
                         "InvalidToken",
                         "DuplicateCreate"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/com.atproto.server.getServiceAuth": {
+      "get": {
+        "tags": [
+          "com.atproto.server"
+        ],
+        "description": "Get a signed token on behalf of the requesting DID for the requested service.",
+        "operationId": "com.atproto.server.getServiceAuth",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "aud",
+            "in": "query",
+            "description": "The DID of the service that the token will be used to authenticate with",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The DID of the service that the token will be used to authenticate with",
+              "format": "did"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "token"
+                  ],
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
                     },
                     "message": {
@@ -10480,6 +11354,12 @@
             },
             {
               "$ref": "#/components/schemas/app.bsky.actor.defs.interestsPref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.mutedWordsPref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.hiddenPostsPref"
             }
           ]
         }
@@ -10535,6 +11415,9 @@
               "type": "string",
               "format": "at-uri"
             }
+          },
+          "timelineIndex": {
+            "type": "integer"
           }
         }
       },
@@ -10611,6 +11494,64 @@
               "maxLength": 640
             },
             "maxItems": 100
+          }
+        }
+      },
+      "app.bsky.actor.defs.mutedWordTarget": {
+        "type": "string",
+        "maxLength": 640,
+        "enum": [
+          "content",
+          "tag"
+        ]
+      },
+      "app.bsky.actor.defs.mutedWord": {
+        "type": "object",
+        "description": "A word that the account owner has muted.",
+        "required": [
+          "value",
+          "targets"
+        ],
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The muted word itself.",
+            "maxLength": 10000
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.mutedWordTarget"
+            }
+          }
+        }
+      },
+      "app.bsky.actor.defs.mutedWordsPref": {
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.mutedWord"
+            }
+          }
+        }
+      },
+      "app.bsky.actor.defs.hiddenPostsPref": {
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "at-uri"
+            }
           }
         }
       },
@@ -12350,6 +13291,12 @@
           "suspendUntil": {
             "type": "string",
             "format": "date-time"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -12957,6 +13904,32 @@
           }
         }
       },
+      "com.atproto.admin.defs.modEventTag": {
+        "type": "object",
+        "description": "Add/Remove a tag on a subject",
+        "required": [
+          "add",
+          "remove"
+        ],
+        "properties": {
+          "add": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "remove": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "comment": {
+            "type": "string",
+            "description": "Additional comment about added/removed tags."
+          }
+        }
+      },
       "com.atproto.admin.defs.communicationTemplateView": {
         "type": "object",
         "required": [
@@ -13223,6 +14196,23 @@
           }
         }
       },
+      "com.atproto.repo.listMissingBlobs.recordBlob": {
+        "type": "object",
+        "required": [
+          "cid",
+          "recordUri"
+        ],
+        "properties": {
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "recordUri": {
+            "type": "string",
+            "format": "at-uri"
+          }
+        }
+      },
       "com.atproto.repo.listRecords.record": {
         "type": "object",
         "required": [
@@ -13470,9 +14460,31 @@
           }
         }
       },
+      "com.atproto.sync.subscribeRepos.identity": {
+        "type": "object",
+        "description": "Represents a change to an account's identity. Could be an updated handle, signing key, or pds hosting endpoint. Serves as a prod to all downstream services to refresh their identity cache.",
+        "required": [
+          "seq",
+          "did",
+          "time"
+        ],
+        "properties": {
+          "seq": {
+            "type": "integer"
+          },
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "com.atproto.sync.subscribeRepos.handle": {
         "type": "object",
-        "description": "Represents an update of the account's handle, or transition to/from invalid state.",
+        "description": "Represents an update of the account's handle, or transition to/from invalid state. NOTE: Will be deprecated in favor of #identity.",
         "required": [
           "seq",
           "did",
@@ -13499,7 +14511,7 @@
       },
       "com.atproto.sync.subscribeRepos.migrate": {
         "type": "object",
-        "description": "Represents an account moving from one PDS instance to another. NOTE: not implemented; full account migration may introduce a new message instead.",
+        "description": "Represents an account moving from one PDS instance to another. NOTE: not implemented; account migration uses #identity instead",
         "required": [
           "seq",
           "did",
@@ -13525,7 +14537,7 @@
       },
       "com.atproto.sync.subscribeRepos.tombstone": {
         "type": "object",
-        "description": "Indicates that an account has been deleted.",
+        "description": "Indicates that an account has been deleted. NOTE: may be deprecated in favor of #identity or a future #account event",
         "required": [
           "seq",
           "did",
