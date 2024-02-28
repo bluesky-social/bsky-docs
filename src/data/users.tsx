@@ -977,6 +977,15 @@ const Users: User[] = [
     tags: ['bot', 'opensource'],
   },
   {
+    title: 'Bluesky Earthquake Bot',
+    description: 'Posts earthquake information as soon as it is available.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:hmpcokspyygl25tvwm57jef5',
+    source: 'https://github.com/pixelasticity/bluesky-earthquake-bot',
+    author: 'https://bsky.app/profile/did:plc:liivcje2xxci55x74yriz3k6',
+    tags: ['bot', 'opensource'],
+  },
+  {
     title: 'SkeetStats,
     description: 'daily stats tracking for followers/following/posts, opt-in via bot',
     preview: require('./showcase/skeetstats.png'),
@@ -984,7 +993,7 @@ const Users: User[] = [
     source: 'https://github.com/ameliamnesia/skeetstats-frontend',
     author: 'https://bsky.app/profile/did:plc:6gwchzxwoj7jms5nilauupxq',
     tags: ['stats', 'bot', 'opensource'],
-  }, 
+  }
 ]
 
 export type User = {
