@@ -1031,14 +1031,14 @@ const Users: User[] = [
     tags: ['bot', 'opensource'],
   },
   {
-    title: 'SkeetStats,
+    title: 'SkeetStats',
     description: 'daily stats tracking for followers/following/posts, opt-in via bot',
     preview: require('./showcase/skeetstats.png'),
     website: 'https://skeetstats.xyz',
     source: 'https://github.com/ameliamnesia/skeetstats-frontend',
     author: 'https://bsky.app/profile/did:plc:6gwchzxwoj7jms5nilauupxq',
     tags: ['stats', 'bot', 'opensource'],
-  }
+  },
 ]
 
 export type User = {
