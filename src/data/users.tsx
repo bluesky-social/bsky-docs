@@ -346,9 +346,9 @@ const Users: User[] = [
   },
   {
     title: 'Skeets',
-    description: 'iOS client for Bluesky, an app that offers bookmarks, drafts, mute words, etc.',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://bsky.app/profile/skeetsapp.com',
+    description: 'iOS & iPad OS client for Bluesky, an app that offers bookmarks, drafts, mute words, etc.',
+    preview: require('./showcase/skeets.png'),
+    website: 'https://www.skeetsapp.com',
     author: 'https://bsky.app/profile/did:plc:ituoear7k6qx3smjfoxhufm4',
     tags: ['client'],
   },
