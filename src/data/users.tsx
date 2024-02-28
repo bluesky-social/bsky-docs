@@ -1039,6 +1039,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:6gwchzxwoj7jms5nilauupxq',
     tags: ['stats', 'bot', 'opensource'],
   },
+  {
+    title: 'internect.info',
+    description: 'Tool to get information about a Bluesky user, including their PDS',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://internect.info',
+    source: 'https://github.com/mozzius/internect.info',
+    author: 'https://bsky.app/profile/did:plc:p2cp5gopk7mgjegy6wadk3ep',
+    tags: ['opensource', 'othertools'],
+  },
 ]
 
 export type User = {
