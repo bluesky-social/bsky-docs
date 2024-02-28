@@ -189,7 +189,7 @@ const Users: User[] = [
     website: 'https://klearsky.pages.dev/',
     source: 'https://github.com/mimonelu/klearsky',
     author: 'https://bsky.app/profile/did:plc:ilxxgyz7oz7mysber4omeqrg',
-    tags: ['client', 'favorite'],
+    tags: ['client', 'favorite', 'opensource'],
   },
   {
     title: 'Laika',
