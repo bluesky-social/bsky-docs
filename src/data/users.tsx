@@ -341,7 +341,7 @@ const Users: User[] = [
     title: 'Skywalker',
     description: 'Android client for Bluesky',
     preview: require('./showcase/skywalker.png'),
-    website: 'https://bsky.app/profile/skywalkerapp.bsky.social',
+    website: 'https://bsky.app/profile/did:plc:zzmeflm2wzrrgcaam6bw3kaf',
     source: 'https://github.com/mfnboer/skywalker',
     author: 'https://bsky.app/profile/did:plc:qxaugrh7755sxvmxndcvcsgn',
     tags: ['client', 'opensource'],
