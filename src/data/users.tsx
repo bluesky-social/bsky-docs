@@ -338,6 +338,15 @@ const Users: User[] = [
     tags: ['client', 'favorite', 'opensource'],
   },
   {
+    title: 'Skywalker',
+    description: 'Android client for Bluesky',
+    preview: require('./showcase/skywalker.png'),
+    website: 'https://bsky.app/profile/did:plc:zzmeflm2wzrrgcaam6bw3kaf',
+    source: 'https://github.com/mfnboer/skywalker',
+    author: 'https://bsky.app/profile/did:plc:qxaugrh7755sxvmxndcvcsgn',
+    tags: ['client', 'opensource'],
+  },
+  {
     title: 'Yup',
     description: 'iOS client for Bluesky, an app to cross-post to Bluesky and other social apps',
     preview: require('./showcase/example-1.png'),
