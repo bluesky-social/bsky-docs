@@ -172,7 +172,7 @@ const Users: User[] = [
     website: 'https://github.com/sugyan/atrium',
     source: 'https://github.com/sugyan/atrium',
     author: 'https://bsky.app/profile/did:plc:4ee6oesrsbtmuln4gqsqf6fp',
-    tags: ['protocol', 'opensource'],
+    tags: ['protocol', 'opensource', 'favorite'],
   },
   {
     title: 'Tokimeki',
