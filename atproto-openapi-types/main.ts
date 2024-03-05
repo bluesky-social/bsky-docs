@@ -59,7 +59,7 @@ for await (const entry of entries) {
 
         if (post) {
           // @ts-ignore FIXME: Also confused about ArraySchemaObject
-          paths[`/${id}`] = { post };
+          paths[`${id}`] = { post };
         }
         break;
       }
@@ -68,7 +68,7 @@ for await (const entry of entries) {
 
         if (get) {
           // @ts-ignore FIXME: Also confused about ArraySchemaObject
-          paths[`/${id}`] = { get };
+          paths[`${id}`] = { get };
         }
         break;
       }
