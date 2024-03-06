@@ -6,7 +6,7 @@ tags: ['community']
 
 We’re excited to announce the AT Protocol Grants program, aimed at fostering the growth and sustainability of our developer ecosystem. 
 
-In the first iteration of this program, we’ll distribute a total of $10,0000 in microgrants of $500 to $2,000 per project based on factors like cost, usage, and more. 
+In the first iteration of this program, we’ll distribute a total of $10,000 in microgrants of $500 to $2,000 per project based on factors like cost, usage, and more. 
 
 #### To apply for a grant, please fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSd6gPCN6oXz0QfOvi_AIIZ4MqNWpze9Y-aOS0KibN9hNTg-ZQ/viewform).
 
