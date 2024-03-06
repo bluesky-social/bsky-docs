@@ -81,6 +81,15 @@ const Users: User[] = [
     tags: ['protocol', 'favorite'],
   },
   {
+    title: 'atproto (C++/Qt)',
+    description: 'AT Protocol implementation in C++/Qt',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/mfnboer/atproto',
+    source: 'https://github.com/mfnboer/atproto',
+    author: 'https://bsky.app/profile/did:plc:qxaugrh7755sxvmxndcvcsgn',
+    tags: ['protocol', 'opensource'],
+  },
+  {
     title: 'lexrpc',
     description: 'AT Protocol implementation in Python',
     preview: require('./showcase/example-1.png'),
