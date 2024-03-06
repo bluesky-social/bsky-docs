@@ -4,7 +4,7 @@ title: Announcing AT Protocol Grants
 tags: ['community']
 ---
 
-We’re excited to announce the AT Protocol Grants program, aimed at fostering the growth and sustainability of our developer ecosystem. 
+We’re excited to announce the AT Protocol Grants program, aimed at fostering the growth and sustainability of the atproto developer ecosystem. 
 
 In the first iteration of this program, we’ll distribute a total of $10,000 in microgrants of $500 to $2,000 per project based on factors like cost, usage, and more. 
 
@@ -38,7 +38,7 @@ SkyFeed has helped bring Bluesky’s vision for custom feeds to life — now, th
 
 We’re excited to continue to find ways to help developers make their projects built on atproto sustainable. Again, you can submit an application for an AT Protocol grant [here](https://docs.google.com/forms/d/e/1FAIpQLSd6gPCN6oXz0QfOvi_AIIZ4MqNWpze9Y-aOS0KibN9hNTg-ZQ/viewform). 
 
-Please feel free to leave questions or comments on the GitHub discussion for this announcement here.
+Please feel free to leave questions or comments on the GitHub discussion for this announcement [here](https://github.com/bluesky-social/atproto/discussions/2283).
 
 
 [^1]:
