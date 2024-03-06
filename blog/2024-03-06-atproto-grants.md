@@ -37,9 +37,11 @@ Listed on the homepage of the Bluesky API documentation site, these two SDKs hav
 SkyFeed has helped bring Bluesky’s vision for custom feeds to life — now, there are more than 40,000 custom feeds that users can subscribe to, and a vast majority of them are built with SkyFeed. 
 
 
-## Questions
+## Contact
 
 We’re excited to continue to find ways to help developers make their projects built on atproto sustainable. Again, you can submit an application for an AT Protocol grant [here](https://docs.google.com/forms/d/e/1FAIpQLSd6gPCN6oXz0QfOvi_AIIZ4MqNWpze9Y-aOS0KibN9hNTg-ZQ/viewform). 
+
+Please feel free to leave questions or comments on the GitHub discussion for this announcement here.
 
 
 [^1]:
