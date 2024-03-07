@@ -157,6 +157,15 @@ Get private preferences attached to the current account. Expected use is synchro
                                 >
                                   <SchemaItem
                                     collapsible={false}
+                                    name={"labelerDid"}
+                                    required={false}
+                                    schemaName={"did"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","description":"Which labeler does this preference apply to? If undefined, applies globally.","format":"did"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
                                     name={"label"}
                                     required={true}
                                     schemaName={"string"}
@@ -169,8 +178,8 @@ Get private preferences attached to the current account. Expected use is synchro
                                     name={"visibility"}
                                     required={true}
                                     schemaName={"string"}
-                                    qualifierMessage={"**Possible values:** [`show`, `warn`, `hide`]"}
-                                    schema={{"type":"string","enum":["show","warn","hide"]}}
+                                    qualifierMessage={"**Possible values:** [`ignore`, `show`, `warn`, `hide`]"}
+                                    schema={{"type":"string","enum":["ignore","show","warn","hide"]}}
                                   >
                                     
                                   </SchemaItem>
@@ -248,7 +257,7 @@ Get private preferences attached to the current account. Expected use is synchro
                                     required={false}
                                     schemaName={"boolean"}
                                     qualifierMessage={undefined}
-                                    schema={{"type":"boolean","description":"Hide replies in the feed if they are not by followed users."}}
+                                    schema={{"type":"boolean","description":"Hide replies in the feed if they are not by followed users.","default":true}}
                                   >
                                     
                                   </SchemaItem><SchemaItem
