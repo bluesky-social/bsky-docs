@@ -1057,6 +1057,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:p2cp5gopk7mgjegy6wadk3ep',
     tags: ['opensource', 'othertools'],
   },
+  {
+    title: 'Bluefeed',
+    description: 'Feed builder & Feed viewer',
+    preview: require('./showcase/bluefeed.jpg'),
+    website: 'https://www.bluefeed.app',
+    author: 'https://bsky.app/profile/did:plc:pxwzal3aspfg2xnbbt2fjami',
+    tags: ['customfeed'],
+  },
 ]
 
 export type User = {
