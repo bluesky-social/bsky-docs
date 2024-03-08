@@ -1063,7 +1063,16 @@ const Users: User[] = [
     preview: require('./showcase/bluefeed.jpg'),
     website: 'https://www.bluefeed.app',
     author: 'https://bsky.app/profile/did:plc:pxwzal3aspfg2xnbbt2fjami',
-    tags: ['customfeed'],
+    tags: ['customfeed']
+  },
+  {
+    title: 'Word of the Day Bot',
+    description: 'Posts word of the day from Merriam Webster',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:ove6ykpuzvi4lthwgvd7lzdj',
+    source: 'https://github.com/enerrio/dictionary-bot',
+    author: 'https://bsky.app/profile/did:plc:oqo2tuwlm53jjp35yjpyhtn6',
+    tags: ['opensource', 'bot'],
   },
 ]
 
