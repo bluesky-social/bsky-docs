@@ -179,7 +179,7 @@ While it may be possible to expand the self-labeling vocabulary by adding more g
 
 To send a report to a Labeler, use the `com.atproto.moderation.createReport` procedure. Users may send reports to any of their labelers.
 
-To specify which labeler should receive the label, set the `atproto-proxy` header with the DID of the labeler and the service key of `atproto_labeler`. In the official typescript SDK, it looks like this:
+To specify which labeler should receive the label, set the `atproto-proxy` header with the DID of the labeler and the service key of `atproto_labeler`. In the official TypeScript SDK, it looks like this:
 
 ```typescript
 agent
@@ -193,7 +193,8 @@ agent
 
 ## Official SDK
 
-To simplify this task, the official SDK has an API available to developers.
+The official TypeScript SDK provides methods to help developers
+interact with labels and moderation.
 
 ### Configuration
 
