@@ -10,7 +10,7 @@ Moderation in Bluesky consists of multiple, stackable systems, including:
 2. Labels placed on content by moderation services
 3. User controls such as mutes and blocks
 
-Developers building client applications should understand how to apply labels (#2) and user controls (#3).
+Developers building client applications should understand how to apply labels (#2) and user controls (#3). For more complete details, see the [Labels Specification](https://atproto.com/specs/label).
 
 ## Labels
 
