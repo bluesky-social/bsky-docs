@@ -103,8 +103,8 @@ The `adultOnly` establishes whether the label should be configurable if adult co
 Labels may be placed on accounts or records. The Bluesky app interprets the targets in 3 different ways:
 
 - On an account: has account-wide effects
-- On a profile: affects only the profile and never hides any content, including the account in listings.
-- On content: affects the content specifically (a post, a list, a feedgen, etc)
+- On a profile: affects only the profile record (e.g. user avatar) and never hides any content, including the account in listings.
+- On content: affects the content specifically (a post record, a list, a feedgen, etc)
 
 Labels on accounts or posts have obvious effects. They’ll hide the account or post if the user has set the preference to "hide," and they’ll blur or warn the content according to the label’s settings. A label on an account will cause the warnings to show on all of its posts and other content.
 
