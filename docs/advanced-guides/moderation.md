@@ -76,20 +76,20 @@ Since there are two behavior attributes (`blurs` and `severity`) with three valu
 
 |Blurs|Severity|Description|
 |-|-|-|
-|`content`|`warning`|Hide the content and put a "danger" warning label on the content if viewed|
+|`content`|`alert`|Hide the content and put a "danger" warning label on the content if viewed|
 |`content`|`inform`|Hide the content and put a "neutral" information label on the content if viewed|
 |`content`|`none`|Hide the content|
-|`media`|`warning`|Hide images in the content and put a "danger" warning label on the content if viewed|
+|`media`|`alert`|Hide images in the content and put a "danger" warning label on the content if viewed|
 |`media`|`inform`|Hide images in the content and put a "netural" information label on the content if viewed|
 |`media`|`none`|Hide images in the content|
-|`none`|`warning`|Put a "danger" warning label on the content|
+|`none`|`alert`|Put a "danger" warning label on the content|
 |`none`|`inform`|Put a "neutral" information label on the content|
 |`none`|`none`|No visual effect|
 
 Some examples of the definitions you might use for a label
 
-- Harassment: `blurs=content` + `severity=warning`
-- Spider warning: `blurs=media` + `severity=warning`
+- Harassment: `blurs=content` + `severity=alert`
+- Spider warning: `blurs=media` + `severity=alert`
 - Misinformation: `blurs=none` + `severity=alert`
 - Verified user: `blurs=none` + `severity=inform`
 - Curational down-regulate: `blurs=none` + `severity=none`
