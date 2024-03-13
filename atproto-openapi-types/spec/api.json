@@ -4282,115 +4282,6 @@
         }
       }
     },
-    "com.atproto.admin.createCommunicationTemplate": {
-      "post": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Administrative action to create a new, re-usable communication (email for now) template.",
-        "operationId": "com.atproto.admin.createCommunicationTemplate",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "subject",
-                  "contentMarkdown",
-                  "name"
-                ],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the template."
-                  },
-                  "contentMarkdown": {
-                    "type": "string",
-                    "description": "Content of the template, markdown supported, can contain variable placeholders."
-                  },
-                  "subject": {
-                    "type": "string",
-                    "description": "Subject of the message, used in emails."
-                  },
-                  "createdBy": {
-                    "type": "string",
-                    "description": "DID of the user who is creating the template.",
-                    "format": "did"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.atproto.admin.defs.communicationTemplateView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "com.atproto.admin.deleteAccount": {
       "post": {
         "tags": [
@@ -4416,92 +4307,6 @@
                   "did": {
                     "type": "string",
                     "format": "did"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.deleteCommunicationTemplate": {
-      "post": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Delete a communication template.",
-        "operationId": "com.atproto.admin.deleteCommunicationTemplate",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string"
                   }
                 }
               }
@@ -4712,157 +4517,6 @@
                         "InvalidRequest",
                         "ExpiredToken",
                         "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.emitModerationEvent": {
-      "post": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Take a moderation action on an actor.",
-        "operationId": "com.atproto.admin.emitModerationEvent",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "event",
-                  "subject",
-                  "createdBy"
-                ],
-                "properties": {
-                  "event": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventTakedown"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventAcknowledge"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEscalate"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventComment"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventLabel"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventReport"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventMute"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventReverseTakedown"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventUnmute"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEmail"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventTag"
-                      }
-                    ]
-                  },
-                  "subject": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.repoRef"
-                      },
-                      {
-                        "$ref": "#/components/schemas/com.atproto.repo.strongRef"
-                      }
-                    ]
-                  },
-                  "subjectBlobCids": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "format": "cid"
-                    }
-                  },
-                  "createdBy": {
-                    "type": "string",
-                    "format": "did"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.atproto.admin.defs.modEventView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken",
-                        "SubjectHasAction"
                       ]
                     },
                     "message": {
@@ -5198,274 +4852,6 @@
         }
       }
     },
-    "com.atproto.admin.getModerationEvent": {
-      "get": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Get details about a moderation event.",
-        "operationId": "com.atproto.admin.getModerationEvent",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.atproto.admin.defs.modEventViewDetail"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.getRecord": {
-      "get": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Get details about a record.",
-        "operationId": "com.atproto.admin.getRecord",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "uri",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "at-uri"
-            }
-          },
-          {
-            "name": "cid",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "cid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.atproto.admin.defs.recordViewDetail"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken",
-                        "RecordNotFound"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.getRepo": {
-      "get": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Get details about a repository.",
-        "operationId": "com.atproto.admin.getRepo",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "did",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "did"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.atproto.admin.defs.repoViewDetail"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken",
-                        "RepoNotFound"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "com.atproto.admin.getSubjectStatus": {
       "get": {
         "tags": [
@@ -5533,748 +4919,6 @@
                     },
                     "takedown": {
                       "$ref": "#/components/schemas/com.atproto.admin.defs.statusAttr"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.listCommunicationTemplates": {
-      "get": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Get list of all communication templates.",
-        "operationId": "com.atproto.admin.listCommunicationTemplates",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "communicationTemplates"
-                  ],
-                  "properties": {
-                    "communicationTemplates": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.communicationTemplateView"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.queryModerationEvents": {
-      "get": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "List moderation events related to a subject.",
-        "operationId": "com.atproto.admin.queryModerationEvents",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "types",
-            "in": "query",
-            "description": "The types of events (fully qualified string in the format of com.atproto.admin#modEvent<name>) to filter by. If not specified, all events are returned.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "createdBy",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "did"
-            }
-          },
-          {
-            "name": "sortDirection",
-            "in": "query",
-            "description": "Sort direction for the events. Defaults to descending order of created at timestamp.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Sort direction for the events. Defaults to descending order of created at timestamp.",
-              "default": "desc"
-            }
-          },
-          {
-            "name": "createdAfter",
-            "in": "query",
-            "description": "Retrieve events created after a given timestamp",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Retrieve events created after a given timestamp",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "createdBefore",
-            "in": "query",
-            "description": "Retrieve events created before a given timestamp",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Retrieve events created before a given timestamp",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "subject",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "uri"
-            }
-          },
-          {
-            "name": "includeAllUserRecords",
-            "in": "query",
-            "description": "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "description": "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 50
-            }
-          },
-          {
-            "name": "hasComment",
-            "in": "query",
-            "description": "If true, only events with comments are returned",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "description": "If true, only events with comments are returned"
-            }
-          },
-          {
-            "name": "comment",
-            "in": "query",
-            "description": "If specified, only events with comments containing the keyword are returned",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "If specified, only events with comments containing the keyword are returned"
-            }
-          },
-          {
-            "name": "addedLabels",
-            "in": "query",
-            "description": "If specified, only events where all of these labels were added are returned",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "removedLabels",
-            "in": "query",
-            "description": "If specified, only events where all of these labels were removed are returned",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "addedTags",
-            "in": "query",
-            "description": "If specified, only events where all of these tags were added are returned",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "removedTags",
-            "in": "query",
-            "description": "If specified, only events where all of these tags were removed are returned",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "reportTypes",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "events"
-                  ],
-                  "properties": {
-                    "cursor": {
-                      "type": "string"
-                    },
-                    "events": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.modEventView"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.queryModerationStatuses": {
-      "get": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "View moderation statuses of subjects (record or repo).",
-        "operationId": "com.atproto.admin.queryModerationStatuses",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "subject",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "uri"
-            }
-          },
-          {
-            "name": "comment",
-            "in": "query",
-            "description": "Search subjects by keyword from comments",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Search subjects by keyword from comments"
-            }
-          },
-          {
-            "name": "reportedAfter",
-            "in": "query",
-            "description": "Search subjects reported after a given timestamp",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Search subjects reported after a given timestamp",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "reportedBefore",
-            "in": "query",
-            "description": "Search subjects reported before a given timestamp",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Search subjects reported before a given timestamp",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "reviewedAfter",
-            "in": "query",
-            "description": "Search subjects reviewed after a given timestamp",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Search subjects reviewed after a given timestamp",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "reviewedBefore",
-            "in": "query",
-            "description": "Search subjects reviewed before a given timestamp",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Search subjects reviewed before a given timestamp",
-              "format": "date-time"
-            }
-          },
-          {
-            "name": "includeMuted",
-            "in": "query",
-            "description": "By default, we don't include muted subjects in the results. Set this to true to include them.",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "description": "By default, we don't include muted subjects in the results. Set this to true to include them."
-            }
-          },
-          {
-            "name": "reviewState",
-            "in": "query",
-            "description": "Specify when fetching subjects in a certain state",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Specify when fetching subjects in a certain state"
-            }
-          },
-          {
-            "name": "ignoreSubjects",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          {
-            "name": "lastReviewedBy",
-            "in": "query",
-            "description": "Get all subject statuses that were reviewed by a specific moderator",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Get all subject statuses that were reviewed by a specific moderator",
-              "format": "did"
-            }
-          },
-          {
-            "name": "sortField",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "default": "lastReportedAt"
-            }
-          },
-          {
-            "name": "sortDirection",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "default": "desc"
-            }
-          },
-          {
-            "name": "takendown",
-            "in": "query",
-            "description": "Get subjects that were taken down",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "description": "Get subjects that were taken down"
-            }
-          },
-          {
-            "name": "appealed",
-            "in": "query",
-            "description": "Get subjects in unresolved appealed status",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "description": "Get subjects in unresolved appealed status"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 50
-            }
-          },
-          {
-            "name": "tags",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "excludeTags",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "subjectStatuses"
-                  ],
-                  "properties": {
-                    "cursor": {
-                      "type": "string"
-                    },
-                    "subjectStatuses": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.subjectStatusView"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.searchRepos": {
-      "get": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Find repositories based on a search term.",
-        "operationId": "com.atproto.admin.searchRepos",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "q",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100,
-              "default": 50
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "repos"
-                  ],
-                  "properties": {
-                    "cursor": {
-                      "type": "string"
-                    },
-                    "repos": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/com.atproto.admin.defs.repoView"
-                      }
                     }
                   }
                 }
@@ -6685,120 +5329,6 @@
                       "enum": [
                         "InvalidRequest"
                       ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "com.atproto.admin.updateCommunicationTemplate": {
-      "post": {
-        "tags": [
-          "com.atproto.admin"
-        ],
-        "description": "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
-        "operationId": "com.atproto.admin.updateCommunicationTemplate",
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "id"
-                ],
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "ID of the template to be updated."
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the template."
-                  },
-                  "contentMarkdown": {
-                    "type": "string",
-                    "description": "Content of the template, markdown supported, can contain variable placeholders."
-                  },
-                  "subject": {
-                    "type": "string",
-                    "description": "Subject of the message, used in emails."
-                  },
-                  "updatedBy": {
-                    "type": "string",
-                    "description": "DID of the user who is updating the template.",
-                    "format": "did"
-                  },
-                  "disabled": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.atproto.admin.defs.communicationTemplateView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidRequest",
-                        "ExpiredToken",
-                        "InvalidToken"
-                      ]
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "error",
-                    "message"
-                  ],
-                  "properties": {
-                    "error": {
-                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -11255,6 +9785,1476 @@
           }
         }
       }
+    },
+    "tools.ozone.communication.createTemplate": {
+      "post": {
+        "tags": [
+          "tools.ozone.communication"
+        ],
+        "description": "Administrative action to create a new, re-usable communication (email for now) template.",
+        "operationId": "tools.ozone.communication.createTemplate",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "subject",
+                  "contentMarkdown",
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the template."
+                  },
+                  "contentMarkdown": {
+                    "type": "string",
+                    "description": "Content of the template, markdown supported, can contain variable placeholders."
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Subject of the message, used in emails."
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "description": "DID of the user who is creating the template.",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.communication.defs.templateView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.communication.deleteTemplate": {
+      "post": {
+        "tags": [
+          "tools.ozone.communication"
+        ],
+        "description": "Delete a communication template.",
+        "operationId": "tools.ozone.communication.deleteTemplate",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.communication.listTemplates": {
+      "get": {
+        "tags": [
+          "tools.ozone.communication"
+        ],
+        "description": "Get list of all communication templates.",
+        "operationId": "tools.ozone.communication.listTemplates",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "communicationTemplates"
+                  ],
+                  "properties": {
+                    "communicationTemplates": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.communication.defs.templateView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.communication.updateTemplate": {
+      "post": {
+        "tags": [
+          "tools.ozone.communication"
+        ],
+        "description": "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
+        "operationId": "tools.ozone.communication.updateTemplate",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "ID of the template to be updated."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the template."
+                  },
+                  "contentMarkdown": {
+                    "type": "string",
+                    "description": "Content of the template, markdown supported, can contain variable placeholders."
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Subject of the message, used in emails."
+                  },
+                  "updatedBy": {
+                    "type": "string",
+                    "description": "DID of the user who is updating the template.",
+                    "format": "did"
+                  },
+                  "disabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.communication.defs.templateView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.moderation.emitEvent": {
+      "post": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "Take a moderation action on an actor.",
+        "operationId": "tools.ozone.moderation.emitEvent",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "event",
+                  "subject",
+                  "createdBy"
+                ],
+                "properties": {
+                  "event": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventTakedown"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventAcknowledge"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEscalate"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventComment"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventLabel"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReport"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMute"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReverseTakedown"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventUnmute"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEmail"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventTag"
+                      }
+                    ]
+                  },
+                  "subject": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/com.atproto.admin.defs.repoRef"
+                      },
+                      {
+                        "$ref": "#/components/schemas/com.atproto.repo.strongRef"
+                      }
+                    ]
+                  },
+                  "subjectBlobCids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "cid"
+                    }
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "SubjectHasAction"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.moderation.getEvent": {
+      "get": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "Get details about a moderation event.",
+        "operationId": "tools.ozone.moderation.getEvent",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventViewDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.moderation.getRecord": {
+      "get": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "Get details about a record.",
+        "operationId": "tools.ozone.moderation.getRecord",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "uri",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "at-uri"
+            }
+          },
+          {
+            "name": "cid",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "cid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.moderation.defs.recordViewDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "RecordNotFound"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.moderation.getRepo": {
+      "get": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "Get details about a repository.",
+        "operationId": "tools.ozone.moderation.getRepo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "did",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "did"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.moderation.defs.repoViewDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "RepoNotFound"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.moderation.queryEvents": {
+      "get": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "List moderation events related to a subject.",
+        "operationId": "tools.ozone.moderation.queryEvents",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "types",
+            "in": "query",
+            "description": "The types of events (fully qualified string in the format of tools.ozone.moderation.defs#modEvent<name>) to filter by. If not specified, all events are returned.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "createdBy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "did"
+            }
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "description": "Sort direction for the events. Defaults to descending order of created at timestamp.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Sort direction for the events. Defaults to descending order of created at timestamp.",
+              "default": "desc"
+            }
+          },
+          {
+            "name": "createdAfter",
+            "in": "query",
+            "description": "Retrieve events created after a given timestamp",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Retrieve events created after a given timestamp",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdBefore",
+            "in": "query",
+            "description": "Retrieve events created before a given timestamp",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Retrieve events created before a given timestamp",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "subject",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          {
+            "name": "includeAllUserRecords",
+            "in": "query",
+            "description": "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "hasComment",
+            "in": "query",
+            "description": "If true, only events with comments are returned",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "If true, only events with comments are returned"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "description": "If specified, only events with comments containing the keyword are returned",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If specified, only events with comments containing the keyword are returned"
+            }
+          },
+          {
+            "name": "addedLabels",
+            "in": "query",
+            "description": "If specified, only events where all of these labels were added are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "removedLabels",
+            "in": "query",
+            "description": "If specified, only events where all of these labels were removed are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "addedTags",
+            "in": "query",
+            "description": "If specified, only events where all of these tags were added are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "removedTags",
+            "in": "query",
+            "description": "If specified, only events where all of these tags were removed are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "reportTypes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "events"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "events": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.moderation.queryStatuses": {
+      "get": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "View moderation statuses of subjects (record or repo).",
+        "operationId": "tools.ozone.moderation.queryStatuses",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "subject",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "description": "Search subjects by keyword from comments",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Search subjects by keyword from comments"
+            }
+          },
+          {
+            "name": "reportedAfter",
+            "in": "query",
+            "description": "Search subjects reported after a given timestamp",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Search subjects reported after a given timestamp",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "reportedBefore",
+            "in": "query",
+            "description": "Search subjects reported before a given timestamp",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Search subjects reported before a given timestamp",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "reviewedAfter",
+            "in": "query",
+            "description": "Search subjects reviewed after a given timestamp",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Search subjects reviewed after a given timestamp",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "reviewedBefore",
+            "in": "query",
+            "description": "Search subjects reviewed before a given timestamp",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Search subjects reviewed before a given timestamp",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "includeMuted",
+            "in": "query",
+            "description": "By default, we don't include muted subjects in the results. Set this to true to include them.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "By default, we don't include muted subjects in the results. Set this to true to include them."
+            }
+          },
+          {
+            "name": "reviewState",
+            "in": "query",
+            "description": "Specify when fetching subjects in a certain state",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Specify when fetching subjects in a certain state"
+            }
+          },
+          {
+            "name": "ignoreSubjects",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          {
+            "name": "lastReviewedBy",
+            "in": "query",
+            "description": "Get all subject statuses that were reviewed by a specific moderator",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Get all subject statuses that were reviewed by a specific moderator",
+              "format": "did"
+            }
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "lastReportedAt"
+            }
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "desc"
+            }
+          },
+          {
+            "name": "takendown",
+            "in": "query",
+            "description": "Get subjects that were taken down",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Get subjects that were taken down"
+            }
+          },
+          {
+            "name": "appealed",
+            "in": "query",
+            "description": "Get subjects in unresolved appealed status",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Get subjects in unresolved appealed status"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "excludeTags",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "subjectStatuses"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "subjectStatuses": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.subjectStatusView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.moderation.searchRepos": {
+      "get": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "Find repositories based on a search term.",
+        "operationId": "tools.ozone.moderation.searchRepos",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "repos"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "repos": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.repoView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -12356,6 +12356,12 @@
             "type": "integer",
             "minimum": 0
           },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.label.defs.label"
+            }
+          },
           "viewer": {
             "$ref": "#/components/schemas/app.bsky.feed.defs.generatorViewerState"
           },
@@ -12731,6 +12737,12 @@
           "avatar": {
             "type": "string"
           },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.label.defs.label"
+            }
+          },
           "viewer": {
             "$ref": "#/components/schemas/app.bsky.graph.defs.listViewerState"
           },
@@ -12782,6 +12794,12 @@
           },
           "avatar": {
             "type": "string"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.label.defs.label"
+            }
           },
           "viewer": {
             "$ref": "#/components/schemas/app.bsky.graph.defs.listViewerState"
@@ -13274,462 +13292,6 @@
           }
         }
       },
-      "com.atproto.admin.defs.modEventView": {
-        "type": "object",
-        "required": [
-          "id",
-          "event",
-          "subject",
-          "subjectBlobCids",
-          "createdBy",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "event": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventTakedown"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventReverseTakedown"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventComment"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventReport"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventLabel"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventAcknowledge"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEscalate"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventMute"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEmail"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventResolveAppeal"
-              }
-            ]
-          },
-          "subject": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.repoRef"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.repo.strongRef"
-              }
-            ]
-          },
-          "subjectBlobCids": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "createdBy": {
-            "type": "string",
-            "format": "did"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "creatorHandle": {
-            "type": "string"
-          },
-          "subjectHandle": {
-            "type": "string"
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventViewDetail": {
-        "type": "object",
-        "required": [
-          "id",
-          "event",
-          "subject",
-          "subjectBlobs",
-          "createdBy",
-          "createdAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "event": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventTakedown"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventReverseTakedown"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventComment"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventReport"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventLabel"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventAcknowledge"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEscalate"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventMute"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventEmail"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.modEventResolveAppeal"
-              }
-            ]
-          },
-          "subject": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.repoView"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.repoViewNotFound"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.recordView"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.recordViewNotFound"
-              }
-            ]
-          },
-          "subjectBlobs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/com.atproto.admin.defs.blobView"
-            }
-          },
-          "createdBy": {
-            "type": "string",
-            "format": "did"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "com.atproto.admin.defs.reportView": {
-        "type": "object",
-        "required": [
-          "id",
-          "reasonType",
-          "subject",
-          "reportedBy",
-          "createdAt",
-          "resolvedByActionIds"
-        ],
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "reasonType": {
-            "$ref": "#/components/schemas/com.atproto.moderation.defs.reasonType"
-          },
-          "comment": {
-            "type": "string"
-          },
-          "subjectRepoHandle": {
-            "type": "string"
-          },
-          "subject": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.repoRef"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.repo.strongRef"
-              }
-            ]
-          },
-          "reportedBy": {
-            "type": "string",
-            "format": "did"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "resolvedByActionIds": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            }
-          }
-        }
-      },
-      "com.atproto.admin.defs.subjectStatusView": {
-        "type": "object",
-        "required": [
-          "id",
-          "subject",
-          "createdAt",
-          "updatedAt",
-          "reviewState"
-        ],
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "subject": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.repoRef"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.repo.strongRef"
-              }
-            ]
-          },
-          "subjectBlobCids": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "cid"
-            }
-          },
-          "subjectRepoHandle": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string",
-            "description": "Timestamp referencing when the last update was made to the moderation status of the subject",
-            "format": "date-time"
-          },
-          "createdAt": {
-            "type": "string",
-            "description": "Timestamp referencing the first moderation status impacting event was emitted on the subject",
-            "format": "date-time"
-          },
-          "reviewState": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.subjectReviewState"
-          },
-          "comment": {
-            "type": "string",
-            "description": "Sticky comment on the subject."
-          },
-          "muteUntil": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastReviewedBy": {
-            "type": "string",
-            "format": "did"
-          },
-          "lastReviewedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastReportedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastAppealedAt": {
-            "type": "string",
-            "description": "Timestamp referencing when the author of the subject appealed a moderation action",
-            "format": "date-time"
-          },
-          "takendown": {
-            "type": "boolean"
-          },
-          "appealed": {
-            "type": "boolean",
-            "description": "True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators."
-          },
-          "suspendUntil": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "com.atproto.admin.defs.reportViewDetail": {
-        "type": "object",
-        "required": [
-          "id",
-          "reasonType",
-          "subject",
-          "reportedBy",
-          "createdAt",
-          "resolvedByActions"
-        ],
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "reasonType": {
-            "$ref": "#/components/schemas/com.atproto.moderation.defs.reasonType"
-          },
-          "comment": {
-            "type": "string"
-          },
-          "subject": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.repoView"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.repoViewNotFound"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.recordView"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.recordViewNotFound"
-              }
-            ]
-          },
-          "subjectStatus": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.subjectStatusView"
-          },
-          "reportedBy": {
-            "type": "string",
-            "format": "did"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "resolvedByActions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/com.atproto.admin.defs.modEventView"
-            }
-          }
-        }
-      },
-      "com.atproto.admin.defs.repoView": {
-        "type": "object",
-        "required": [
-          "did",
-          "handle",
-          "relatedRecords",
-          "indexedAt",
-          "moderation"
-        ],
-        "properties": {
-          "did": {
-            "type": "string",
-            "format": "did"
-          },
-          "handle": {
-            "type": "string",
-            "format": "handle"
-          },
-          "email": {
-            "type": "string"
-          },
-          "relatedRecords": {
-            "type": "array",
-            "items": {}
-          },
-          "indexedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "moderation": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.moderation"
-          },
-          "invitedBy": {
-            "$ref": "#/components/schemas/com.atproto.server.defs.inviteCode"
-          },
-          "invitesDisabled": {
-            "type": "boolean"
-          },
-          "inviteNote": {
-            "type": "string"
-          }
-        }
-      },
-      "com.atproto.admin.defs.repoViewDetail": {
-        "type": "object",
-        "required": [
-          "did",
-          "handle",
-          "relatedRecords",
-          "indexedAt",
-          "moderation"
-        ],
-        "properties": {
-          "did": {
-            "type": "string",
-            "format": "did"
-          },
-          "handle": {
-            "type": "string",
-            "format": "handle"
-          },
-          "email": {
-            "type": "string"
-          },
-          "relatedRecords": {
-            "type": "array",
-            "items": {}
-          },
-          "indexedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "moderation": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.moderationDetail"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/com.atproto.label.defs.label"
-            }
-          },
-          "invitedBy": {
-            "$ref": "#/components/schemas/com.atproto.server.defs.inviteCode"
-          },
-          "invites": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/com.atproto.server.defs.inviteCode"
-            }
-          },
-          "invitesDisabled": {
-            "type": "boolean"
-          },
-          "inviteNote": {
-            "type": "string"
-          },
-          "emailConfirmedAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
       "com.atproto.admin.defs.accountView": {
         "type": "object",
         "required": [
@@ -13778,18 +13340,6 @@
           }
         }
       },
-      "com.atproto.admin.defs.repoViewNotFound": {
-        "type": "object",
-        "required": [
-          "did"
-        ],
-        "properties": {
-          "did": {
-            "type": "string",
-            "format": "did"
-          }
-        }
-      },
       "com.atproto.admin.defs.repoRef": {
         "type": "object",
         "required": [
@@ -13820,441 +13370,6 @@
           "recordUri": {
             "type": "string",
             "format": "at-uri"
-          }
-        }
-      },
-      "com.atproto.admin.defs.recordView": {
-        "type": "object",
-        "required": [
-          "uri",
-          "cid",
-          "value",
-          "blobCids",
-          "indexedAt",
-          "moderation",
-          "repo"
-        ],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid"
-          },
-          "value": {},
-          "blobCids": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "cid"
-            }
-          },
-          "indexedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "moderation": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.moderation"
-          },
-          "repo": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.repoView"
-          }
-        }
-      },
-      "com.atproto.admin.defs.recordViewDetail": {
-        "type": "object",
-        "required": [
-          "uri",
-          "cid",
-          "value",
-          "blobs",
-          "indexedAt",
-          "moderation",
-          "repo"
-        ],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid"
-          },
-          "value": {},
-          "blobs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/com.atproto.admin.defs.blobView"
-            }
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/com.atproto.label.defs.label"
-            }
-          },
-          "indexedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "moderation": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.moderationDetail"
-          },
-          "repo": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.repoView"
-          }
-        }
-      },
-      "com.atproto.admin.defs.recordViewNotFound": {
-        "type": "object",
-        "required": [
-          "uri"
-        ],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          }
-        }
-      },
-      "com.atproto.admin.defs.moderation": {
-        "type": "object",
-        "properties": {
-          "subjectStatus": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.subjectStatusView"
-          }
-        }
-      },
-      "com.atproto.admin.defs.moderationDetail": {
-        "type": "object",
-        "properties": {
-          "subjectStatus": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.subjectStatusView"
-          }
-        }
-      },
-      "com.atproto.admin.defs.blobView": {
-        "type": "object",
-        "required": [
-          "cid",
-          "mimeType",
-          "size",
-          "createdAt"
-        ],
-        "properties": {
-          "cid": {
-            "type": "string",
-            "format": "cid"
-          },
-          "mimeType": {
-            "type": "string"
-          },
-          "size": {
-            "type": "integer"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "details": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.imageDetails"
-              },
-              {
-                "$ref": "#/components/schemas/com.atproto.admin.defs.videoDetails"
-              }
-            ]
-          },
-          "moderation": {
-            "$ref": "#/components/schemas/com.atproto.admin.defs.moderation"
-          }
-        }
-      },
-      "com.atproto.admin.defs.imageDetails": {
-        "type": "object",
-        "required": [
-          "width",
-          "height"
-        ],
-        "properties": {
-          "width": {
-            "type": "integer"
-          },
-          "height": {
-            "type": "integer"
-          }
-        }
-      },
-      "com.atproto.admin.defs.videoDetails": {
-        "type": "object",
-        "required": [
-          "width",
-          "height",
-          "length"
-        ],
-        "properties": {
-          "width": {
-            "type": "integer"
-          },
-          "height": {
-            "type": "integer"
-          },
-          "length": {
-            "type": "integer"
-          }
-        }
-      },
-      "com.atproto.admin.defs.subjectReviewState": {
-        "type": "string",
-        "enum": [
-          "#reviewOpen",
-          "#reviewEscalated",
-          "#reviewClosed",
-          "#reviewNone"
-        ]
-      },
-      "com.atproto.admin.defs.reviewOpen": {
-        "type": "string",
-        "format": "token",
-        "description": "Moderator review status of a subject: Open. Indicates that the subject needs to be reviewed by a moderator"
-      },
-      "com.atproto.admin.defs.reviewEscalated": {
-        "type": "string",
-        "format": "token",
-        "description": "Moderator review status of a subject: Escalated. Indicates that the subject was escalated for review by a moderator"
-      },
-      "com.atproto.admin.defs.reviewClosed": {
-        "type": "string",
-        "format": "token",
-        "description": "Moderator review status of a subject: Closed. Indicates that the subject was already reviewed and resolved by a moderator"
-      },
-      "com.atproto.admin.defs.reviewNone": {
-        "type": "string",
-        "format": "token",
-        "description": "Moderator review status of a subject: Unnecessary. Indicates that the subject does not need a review at the moment but there is probably some moderation related metadata available for it"
-      },
-      "com.atproto.admin.defs.modEventTakedown": {
-        "type": "object",
-        "description": "Take down a subject permanently or temporarily",
-        "properties": {
-          "comment": {
-            "type": "string"
-          },
-          "durationInHours": {
-            "type": "integer"
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventReverseTakedown": {
-        "type": "object",
-        "description": "Revert take down action on a subject",
-        "properties": {
-          "comment": {
-            "type": "string",
-            "description": "Describe reasoning behind the reversal."
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventResolveAppeal": {
-        "type": "object",
-        "description": "Resolve appeal on a subject",
-        "properties": {
-          "comment": {
-            "type": "string",
-            "description": "Describe resolution."
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventComment": {
-        "type": "object",
-        "description": "Add a comment to a subject",
-        "required": [
-          "comment"
-        ],
-        "properties": {
-          "comment": {
-            "type": "string"
-          },
-          "sticky": {
-            "type": "boolean",
-            "description": "Make the comment persistent on the subject"
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventReport": {
-        "type": "object",
-        "description": "Report a subject",
-        "required": [
-          "reportType"
-        ],
-        "properties": {
-          "comment": {
-            "type": "string"
-          },
-          "reportType": {
-            "$ref": "#/components/schemas/com.atproto.moderation.defs.reasonType"
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventLabel": {
-        "type": "object",
-        "description": "Apply/Negate labels on a subject",
-        "required": [
-          "createLabelVals",
-          "negateLabelVals"
-        ],
-        "properties": {
-          "comment": {
-            "type": "string"
-          },
-          "createLabelVals": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "negateLabelVals": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventAcknowledge": {
-        "type": "object",
-        "properties": {
-          "comment": {
-            "type": "string"
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventEscalate": {
-        "type": "object",
-        "properties": {
-          "comment": {
-            "type": "string"
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventMute": {
-        "type": "object",
-        "description": "Mute incoming reports on a subject",
-        "required": [
-          "durationInHours"
-        ],
-        "properties": {
-          "comment": {
-            "type": "string"
-          },
-          "durationInHours": {
-            "type": "integer"
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventUnmute": {
-        "type": "object",
-        "description": "Unmute action on a subject",
-        "properties": {
-          "comment": {
-            "type": "string",
-            "description": "Describe reasoning behind the reversal."
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventEmail": {
-        "type": "object",
-        "description": "Keep a log of outgoing email to a user",
-        "required": [
-          "subjectLine"
-        ],
-        "properties": {
-          "subjectLine": {
-            "type": "string",
-            "description": "The subject line of the email sent to the user."
-          },
-          "content": {
-            "type": "string",
-            "description": "The content of the email sent to the user."
-          },
-          "comment": {
-            "type": "string",
-            "description": "Additional comment about the outgoing comm."
-          }
-        }
-      },
-      "com.atproto.admin.defs.modEventTag": {
-        "type": "object",
-        "description": "Add/Remove a tag on a subject",
-        "required": [
-          "add",
-          "remove"
-        ],
-        "properties": {
-          "add": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "remove": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "comment": {
-            "type": "string",
-            "description": "Additional comment about added/removed tags."
-          }
-        }
-      },
-      "com.atproto.admin.defs.communicationTemplateView": {
-        "type": "object",
-        "required": [
-          "id",
-          "name",
-          "contentMarkdown",
-          "disabled",
-          "lastUpdatedBy",
-          "createdAt",
-          "updatedAt"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the template."
-          },
-          "subject": {
-            "type": "string",
-            "description": "Content of the template, can contain markdown and variable placeholders."
-          },
-          "contentMarkdown": {
-            "type": "string",
-            "description": "Subject of the message, used in emails."
-          },
-          "disabled": {
-            "type": "boolean"
-          },
-          "lastUpdatedBy": {
-            "type": "string",
-            "description": "DID of the user who last updated the template.",
-            "format": "did"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
@@ -14978,6 +14093,820 @@
             "format": "cid-link"
           }
         }
+      },
+      "tools.ozone.communication.defs.templateView": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "contentMarkdown",
+          "disabled",
+          "lastUpdatedBy",
+          "createdAt",
+          "updatedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the template."
+          },
+          "subject": {
+            "type": "string",
+            "description": "Content of the template, can contain markdown and variable placeholders."
+          },
+          "contentMarkdown": {
+            "type": "string",
+            "description": "Subject of the message, used in emails."
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "lastUpdatedBy": {
+            "type": "string",
+            "description": "DID of the user who last updated the template.",
+            "format": "did"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventView": {
+        "type": "object",
+        "required": [
+          "id",
+          "event",
+          "subject",
+          "subjectBlobCids",
+          "createdBy",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "event": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventTakedown"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReverseTakedown"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventComment"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReport"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventLabel"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventAcknowledge"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEscalate"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMute"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEmail"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventResolveAppeal"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventDivert"
+              }
+            ]
+          },
+          "subject": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/com.atproto.admin.defs.repoRef"
+              },
+              {
+                "$ref": "#/components/schemas/com.atproto.repo.strongRef"
+              }
+            ]
+          },
+          "subjectBlobCids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdBy": {
+            "type": "string",
+            "format": "did"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "creatorHandle": {
+            "type": "string"
+          },
+          "subjectHandle": {
+            "type": "string"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventViewDetail": {
+        "type": "object",
+        "required": [
+          "id",
+          "event",
+          "subject",
+          "subjectBlobs",
+          "createdBy",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "event": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventTakedown"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReverseTakedown"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventComment"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReport"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventLabel"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventAcknowledge"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEscalate"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMute"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEmail"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventResolveAppeal"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventDivert"
+              }
+            ]
+          },
+          "subject": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.repoView"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.repoViewNotFound"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.recordView"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.recordViewNotFound"
+              }
+            ]
+          },
+          "subjectBlobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tools.ozone.moderation.defs.blobView"
+            }
+          },
+          "createdBy": {
+            "type": "string",
+            "format": "did"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.subjectStatusView": {
+        "type": "object",
+        "required": [
+          "id",
+          "subject",
+          "createdAt",
+          "updatedAt",
+          "reviewState"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "subject": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/com.atproto.admin.defs.repoRef"
+              },
+              {
+                "$ref": "#/components/schemas/com.atproto.repo.strongRef"
+              }
+            ]
+          },
+          "subjectBlobCids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "cid"
+            }
+          },
+          "subjectRepoHandle": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Timestamp referencing when the last update was made to the moderation status of the subject",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Timestamp referencing the first moderation status impacting event was emitted on the subject",
+            "format": "date-time"
+          },
+          "reviewState": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.subjectReviewState"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Sticky comment on the subject."
+          },
+          "muteUntil": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastReviewedBy": {
+            "type": "string",
+            "format": "did"
+          },
+          "lastReviewedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastReportedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastAppealedAt": {
+            "type": "string",
+            "description": "Timestamp referencing when the author of the subject appealed a moderation action",
+            "format": "date-time"
+          },
+          "takendown": {
+            "type": "boolean"
+          },
+          "appealed": {
+            "type": "boolean",
+            "description": "True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators."
+          },
+          "suspendUntil": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.subjectReviewState": {
+        "type": "string",
+        "enum": [
+          "#reviewOpen",
+          "#reviewEscalated",
+          "#reviewClosed",
+          "#reviewNone"
+        ]
+      },
+      "tools.ozone.moderation.defs.reviewOpen": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderator review status of a subject: Open. Indicates that the subject needs to be reviewed by a moderator"
+      },
+      "tools.ozone.moderation.defs.reviewEscalated": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderator review status of a subject: Escalated. Indicates that the subject was escalated for review by a moderator"
+      },
+      "tools.ozone.moderation.defs.reviewClosed": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderator review status of a subject: Closed. Indicates that the subject was already reviewed and resolved by a moderator"
+      },
+      "tools.ozone.moderation.defs.reviewNone": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderator review status of a subject: Unnecessary. Indicates that the subject does not need a review at the moment but there is probably some moderation related metadata available for it"
+      },
+      "tools.ozone.moderation.defs.modEventTakedown": {
+        "type": "object",
+        "description": "Take down a subject permanently or temporarily",
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "durationInHours": {
+            "type": "integer"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventReverseTakedown": {
+        "type": "object",
+        "description": "Revert take down action on a subject",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Describe reasoning behind the reversal."
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventResolveAppeal": {
+        "type": "object",
+        "description": "Resolve appeal on a subject",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Describe resolution."
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventComment": {
+        "type": "object",
+        "description": "Add a comment to a subject",
+        "required": [
+          "comment"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "sticky": {
+            "type": "boolean",
+            "description": "Make the comment persistent on the subject"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventReport": {
+        "type": "object",
+        "description": "Report a subject",
+        "required": [
+          "reportType"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "reportType": {
+            "$ref": "#/components/schemas/com.atproto.moderation.defs.reasonType"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventLabel": {
+        "type": "object",
+        "description": "Apply/Negate labels on a subject",
+        "required": [
+          "createLabelVals",
+          "negateLabelVals"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "createLabelVals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "negateLabelVals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventAcknowledge": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventEscalate": {
+        "type": "object",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventMute": {
+        "type": "object",
+        "description": "Mute incoming reports on a subject",
+        "required": [
+          "durationInHours"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "durationInHours": {
+            "type": "integer"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventUnmute": {
+        "type": "object",
+        "description": "Unmute action on a subject",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Describe reasoning behind the reversal."
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventEmail": {
+        "type": "object",
+        "description": "Keep a log of outgoing email to a user",
+        "required": [
+          "subjectLine"
+        ],
+        "properties": {
+          "subjectLine": {
+            "type": "string",
+            "description": "The subject line of the email sent to the user."
+          },
+          "content": {
+            "type": "string",
+            "description": "The content of the email sent to the user."
+          },
+          "comment": {
+            "type": "string",
+            "description": "Additional comment about the outgoing comm."
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventDivert": {
+        "type": "object",
+        "description": "Divert a record's blobs to a 3rd party service for further scanning/tagging",
+        "properties": {
+          "comment": {
+            "type": "string"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventTag": {
+        "type": "object",
+        "description": "Add/Remove a tag on a subject",
+        "required": [
+          "add",
+          "remove"
+        ],
+        "properties": {
+          "add": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "remove": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "comment": {
+            "type": "string",
+            "description": "Additional comment about added/removed tags."
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.repoView": {
+        "type": "object",
+        "required": [
+          "did",
+          "handle",
+          "relatedRecords",
+          "indexedAt",
+          "moderation"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "handle": {
+            "type": "string",
+            "format": "handle"
+          },
+          "email": {
+            "type": "string"
+          },
+          "relatedRecords": {
+            "type": "array",
+            "items": {}
+          },
+          "indexedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "moderation": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.moderation"
+          },
+          "invitedBy": {
+            "$ref": "#/components/schemas/com.atproto.server.defs.inviteCode"
+          },
+          "invitesDisabled": {
+            "type": "boolean"
+          },
+          "inviteNote": {
+            "type": "string"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.repoViewDetail": {
+        "type": "object",
+        "required": [
+          "did",
+          "handle",
+          "relatedRecords",
+          "indexedAt",
+          "moderation"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "handle": {
+            "type": "string",
+            "format": "handle"
+          },
+          "email": {
+            "type": "string"
+          },
+          "relatedRecords": {
+            "type": "array",
+            "items": {}
+          },
+          "indexedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "moderation": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.moderationDetail"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.label.defs.label"
+            }
+          },
+          "invitedBy": {
+            "$ref": "#/components/schemas/com.atproto.server.defs.inviteCode"
+          },
+          "invites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.server.defs.inviteCode"
+            }
+          },
+          "invitesDisabled": {
+            "type": "boolean"
+          },
+          "inviteNote": {
+            "type": "string"
+          },
+          "emailConfirmedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.repoViewNotFound": {
+        "type": "object",
+        "required": [
+          "did"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.recordView": {
+        "type": "object",
+        "required": [
+          "uri",
+          "cid",
+          "value",
+          "blobCids",
+          "indexedAt",
+          "moderation",
+          "repo"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri"
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "value": {},
+          "blobCids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "cid"
+            }
+          },
+          "indexedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "moderation": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.moderation"
+          },
+          "repo": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.repoView"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.recordViewDetail": {
+        "type": "object",
+        "required": [
+          "uri",
+          "cid",
+          "value",
+          "blobs",
+          "indexedAt",
+          "moderation",
+          "repo"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri"
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "value": {},
+          "blobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tools.ozone.moderation.defs.blobView"
+            }
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.label.defs.label"
+            }
+          },
+          "indexedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "moderation": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.moderationDetail"
+          },
+          "repo": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.repoView"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.recordViewNotFound": {
+        "type": "object",
+        "required": [
+          "uri"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.moderation": {
+        "type": "object",
+        "properties": {
+          "subjectStatus": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.subjectStatusView"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.moderationDetail": {
+        "type": "object",
+        "properties": {
+          "subjectStatus": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.subjectStatusView"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.blobView": {
+        "type": "object",
+        "required": [
+          "cid",
+          "mimeType",
+          "size",
+          "createdAt"
+        ],
+        "properties": {
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "details": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.imageDetails"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.videoDetails"
+              }
+            ]
+          },
+          "moderation": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.moderation"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.imageDetails": {
+        "type": "object",
+        "required": [
+          "width",
+          "height"
+        ],
+        "properties": {
+          "width": {
+            "type": "integer"
+          },
+          "height": {
+            "type": "integer"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.videoDetails": {
+        "type": "object",
+        "required": [
+          "width",
+          "height",
+          "length"
+        ],
+        "properties": {
+          "width": {
+            "type": "integer"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "length": {
+            "type": "integer"
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -15035,6 +14964,12 @@
     },
     {
       "name": "com.atproto.temp"
+    },
+    {
+      "name": "tools.ozone.communication"
+    },
+    {
+      "name": "tools.ozone.moderation"
     }
   ]
 }
