@@ -108,7 +108,7 @@ Labels may be placed on accounts or records. The Bluesky app interprets the targ
 
 Labels on accounts or posts have obvious effects. They’ll hide the account or post if the user has set the preference to "hide," and they’ll blur or warn the content according to the label’s settings. A label on an account will cause the warnings to show on all of its posts and other content.
 
-Labels on profiles have much less significant effects. The warnings only show on the profile when viewed directly or in a listing (eg "followers"). This means the warnings don’t show on the user’s posts, unlike when the label is on the account. Most notably: the "hide" preference has no effect when the label is on a profile.
+Labels on profiles have much less significant effects. The warnings only show on the profile when viewed directly or in a listing (e.g. "followers"). This means the warnings don’t show on the user’s posts, unlike when the label is on the account. Most notably: the "hide" preference has no effect when the label is on a profile.
 
 If the label blurs media, a label on a profile will blur the avatar and banner wherever they are shown. This is the main reason you want to apply a label on a profile – because you’re just trying to blur the avatar, and you don’t want to demote the user’s content otherwise.
 
@@ -177,7 +177,7 @@ While it may be possible to expand the self-labeling vocabulary by adding more g
 
 ## Reporting
 
-To send a report to a Labeler, use the `com.atproto.moderation.createReport` procedure. Users may end reports to any of their labelers.
+To send a report to a Labeler, use the `com.atproto.moderation.createReport` procedure. Users may send reports to any of their labelers.
 
 To specify which labeler should receive the label, set the `atproto-proxy` header with the DID of the labeler and the service key of `atproto_labeler`. In the official typescript SDK, it looks like this:
 
@@ -357,14 +357,14 @@ ModerationUI {
 
 There are multiple UI contexts available:
 
-- `profileList` A profile being listed, eg in search or a follower list
+- `profileList` A profile being listed, e.g. in search or a follower list
 - `profileView` A profile being viewed directly
 - `avatar` The user's avatar in any context
 - `banner` The user's banner in any context
 - `displayName` The user's display name in any context
-- `contentList` Content being listed, eg posts in a feed, posts as replies, a user list list, a feed generator list, etc
-- `contentView` Content being viewed direct, eg an opened post, the user list page, the feedgen page, etc
-- `contentMedia ` Media inside the content, eg a picture embedded in a post
+- `contentList` Content being listed, e.g. posts in a feed, posts as replies, a user list list, a feed generator list, etc
+- `contentView` Content being viewed direct, e.g. an opened post, the user list page, the feedgen page, etc
+- `contentMedia` Media inside the content, e.g. a picture embedded in a post
 
 Here's how a post in a feed would use these tools to make a decision:
 
