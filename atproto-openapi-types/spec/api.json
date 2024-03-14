@@ -8132,6 +8132,9 @@
                     "links": {
                       "$ref": "#/components/schemas/com.atproto.server.describeServer.links"
                     },
+                    "contact": {
+                      "$ref": "#/components/schemas/com.atproto.server.describeServer.contact"
+                    },
                     "did": {
                       "type": "string",
                       "format": "did"
@@ -11665,21 +11668,21 @@
           }
         }
       },
-      "app.bsky.actor.defs.modsPref": {
+      "app.bsky.actor.defs.labelersPref": {
         "type": "object",
         "required": [
-          "mods"
+          "labelers"
         ],
         "properties": {
-          "mods": {
+          "labelers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/app.bsky.actor.defs.modPrefItem"
+              "$ref": "#/components/schemas/app.bsky.actor.defs.labelerPrefItem"
             }
           }
         }
       },
-      "app.bsky.actor.defs.modPrefItem": {
+      "app.bsky.actor.defs.labelerPrefItem": {
         "type": "object",
         "required": [
           "did"
@@ -13490,6 +13493,20 @@
               "none"
             ]
           },
+          "defaultSetting": {
+            "type": "string",
+            "description": "The default setting for this label.",
+            "default": "warn",
+            "enum": [
+              "ignore",
+              "warn",
+              "hide"
+            ]
+          },
+          "adultOnly": {
+            "type": "boolean",
+            "description": "Does the user need to have adult content enabled in order to configure this label?"
+          },
           "locales": {
             "type": "array",
             "items": {
@@ -13844,6 +13861,14 @@
             "type": "string"
           },
           "termsOfService": {
+            "type": "string"
+          }
+        }
+      },
+      "com.atproto.server.describeServer.contact": {
+        "type": "object",
+        "properties": {
+          "email": {
             "type": "string"
           }
         }
