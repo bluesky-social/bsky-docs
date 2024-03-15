@@ -196,4 +196,4 @@ Additional reading:
 
 * [API Docs on Labelers and Moderation](https://docs.bsky.app/docs/advanced-guides/moderation)
 * [Labels specification](https://atproto.com/specs/label)
-* [Blogpost: Bluesky’s Stackable Approach to Moderation](https://bsky.social/about/blog/03-12-2024-stackable-moderation)
+* [Blogpost: Bluesky’s Stackable Approach to Moderation](https://bsky.social/about/blog/03-12-2024-stackable-moderation) 
