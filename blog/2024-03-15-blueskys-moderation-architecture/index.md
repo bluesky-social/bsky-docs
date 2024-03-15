@@ -11,7 +11,7 @@ Today, we’re releasing an open labeling system on Bluesky. “Labeling” is a
 In this post, we’ll dive into the details on how labeling and moderation works in the AT Protocol.
 
 
-## An open network of microservices
+## An open network of services
 
 The AT Protocol is an open network of services that anyone can provide, essentially opening up the backend architecture of a large-scale social network. The core services form a pipeline where data flows from where it’s hosted, through a data firehose, and out to the various application indexes.
 
