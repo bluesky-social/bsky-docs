@@ -1074,6 +1074,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:oqo2tuwlm53jjp35yjpyhtn6',
     tags: ['opensource', 'bot'],
   },
+  {
+    title: 'ATProto Export',
+    description: 'Tool to export your ATProto account',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/rdp-studio/atproto-export',
+    source: 'https://github.com/rdp-studio/atproto-export',
+    author: 'https://bsky.app/profile/did:plc:gcktt4t6eocohmc2f4rozxly',
+    tags: ['opensource', 'othertools'],
+  },
 ]
 
 export type User = {
