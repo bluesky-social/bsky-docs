@@ -5,7 +5,7 @@ description: "Get information about a list of labeler services."
 sidebar_label: "app.bsky.labeler.getServices"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1v2zAM/SsEL70YSTDs5FvaAl2wQ4M2GAYUOSgyk6iVJVWk2waB//tAO2nTJes+MF8My+R7j48ityhmxVjeoUlpsOCHzcCbBXnKOC+wIrbZJXExYIlXJODCMuba6AmYRWwEDHjHAnEJu0Rgyk/OEg+wwJgod9GTCssjjsGK5HYXjQUmk01NQlkFbTGYmrDEylX606mEx4byBgvM9Ni4TBWWkhsqkO2aaoPlFmWTNMnkbDTQCdV8cM6SXVhhgX0ZPTy2bVu88ZEY56n6NefSeD5FuojRkwnYtnMN5xQDU8f+aTTS13s/r79igTYGoSD616Tkne3cGt6zhmyPOeLinqy8k3OHT46eWRuWshourmftjz8wJQa6XnZef4TeZKdCnTpiMxmJufOmoheqxqK84sTTqQZXtOT9xzdHz6hG/z1Zit5ZR/zPvJf7prbztn8K/HyqKeemght6bIjlf3WHcu6KqInZrOi4T33AiUtKoakVYRKejHfVXte8fQM7ynotryZZR526FUk3XLL+/Qjq7O7nr8keS1yLJC6Hwy6Jo3XGD19yskP8eT+MZzDNUaKNHqaXt/D9ZnoBPWDX9vd4JrleiEnpDwDHKWkf34POVbBtspPNrbait/OcTKZDP5USd/PazWkfoCbpPusidxfpkLKjGk8nmtrUtckbLPEiBjVI919cwkH4GYOnF2djYJAI14nCeDo5Y+gvCfQLZ3BU5GztGJhst1L1vhkXGL7MZlPlhkxLyhQsQRUtKwqc+4b4YQMmVIcCXukHcEVB1y6Bgb5WkPhAQXUJsXTA1njPULlMVvwGljnWIOueRlXuqsQSR4PRYIRt+wNiDSA2
+api: eJy9VU1vEzEQ/SvWXLiskoA47S0FBBVCjWhASFUOjneSmHptd2a2NFT739F4k6Yl5VOIXKK1x+/NvBk/34LYNUN9ATbn0ZIvt6NglxiQYFFBg+zIZ/EpQg2vUYyPq0St1RVjl6kTY03wLCatzO6gYaRr75BHUEHKSCX6tIH6iGO0RjnfRUMFjK4jL1uoL27hBC0hQX2x6BcVZEu2RUHishlti1BD4xs95zW7qw5pCxUQXnWesIFaqMMK2G2wtVDfgmyzHrJEVgO9YMv31lnIxzVUMFQ4wEPf99WBD8X6gM2POVc28GOky5QC2gi9FkPIOUXGwv5sMtG/h1KfvYUKXIqCUXTX5hy8K0KOP7OG3B5zpOVndPIgnQu49viFtZeZtBfiB9Zh+SeipIhnq6L1z9A78pqoV0UcoZVERZsGb7CZivKKl4CP9b7BFe8/Pnr8Air0n5PlFLzzyH/N+3Lf1H7RD78Knj/WlBPbmPd41SHLv+oOEpUiWmS2azzu0xDwyJBi7FpFOI3XNvjmkNerm6zo83SJEar9/vC56A9UR5iH2p8e1/4h2k42ifzXMv3/uXiXIuuFnHayeeeZS7q/LKVEyCap86xR2bOVze/YEF3vjaajADVsRDLX43E5xMl5G8Y3lN0YvvfI6dzMKElyKZjZy3Pz6f3shRkAy3w/xLPZD4nYnH8DcJqzDuxD0MXBN89V9kG6vXveKaOUsDOmYkhDgIqknl4idzfmPmWhms5O9WjXtpa2UMOLFFUgfQPSytwLf8Im4I3XdhlJ5ixjnM5On7AZBsIMzjo6KnK+8WwYXXlWdLasj2zezOcz5TaEKySMDk2THCuKOQkd8uXW2NjcT+COfmReY9SnB401Q61G9A5oXoIsBdjZENg0ntBJ2JoVpdbIZqDRLHdVQg2T0WQ0gb7/BhpseyY=
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -2691,8 +2691,8 @@ Get information about a list of labeler services.
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
-                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
                       >
                         
                       </SchemaItem><SchemaItem
@@ -2713,6 +2713,88 @@ Get information about a list of labeler services.
                 >
                   <ResponseSamples
                     responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
                     language={"json"}
                   >
                     
