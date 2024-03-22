@@ -1083,6 +1083,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:gcktt4t6eocohmc2f4rozxly',
     tags: ['opensource', 'othertools'],
   },
+  {
+    title: 'Gobot-bsky - Bots with Go',
+    description: 'Gobot-bsky - a simple GO lib to write Bluesky bots',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/danrusei/gobot-bsky',
+    source: 'https://github.com/danrusei/gobot-bsky',
+    author: 'https://bsky.app/profile/drusei.bsky.social',
+    tags: ['opensource', 'bot'],
+  },
 ]
 
 export type User = {
