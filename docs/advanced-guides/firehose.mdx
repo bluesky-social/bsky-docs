@@ -29,7 +29,14 @@ provider for the `com.atproto.sync.subscribeRepos` endpoint:
   <TabItem value="go" label="Go">
     ```go
     url := "https://bsky.network/xrpc/com.atproto.sync.subscribeRepos"
-    con, _, err := websocket.DefaultDialer.Dial(uri, http.Header{})
+    con, _, err := websocket.DefaultDialer.Dial(url, http.Header{})
+    ```
+  </TabItem>
+  <TabItem value="ruby" label="Ruby">
+    For Ruby, we'll use the 'skyfall' library (`gem install skyfall`):
+
+    ```rb
+    sky = Skyfall::Stream.new('bsky.network', :subscribe_repos)
     ```
   </TabItem>
 </Tabs>
@@ -58,15 +65,40 @@ like "create post", "create like", "delete follow" and so on.
     sched := sequential.NewScheduler("myfirehose", rsc.EventHandler)
     events.HandleRepoStream(context.Background(), con, sched)
 ```
+
+    In this snippet we set up a sequential "scheduler", which handles all events
+    sequentially in order. Other schedulers run event handling in parallel, or do
+    limited concurrency based on who the event is for.
+
+    Once we have a scheduler, we call into `HandleRepoStream` which does the actual
+    decoding of the data coming over the websocket and calls into the event handler
+    we wrote.
+  </TabItem>
+  <TabItem value="ruby" label="Ruby">
+    Here, we assign a handler block that will be called for every incoming message. We'll select only `commit` messages and then print the record and action type and URI of each operation:
+
+    ```rb
+    sky.on_message do |msg|
+      next if msg.type != :commit
+
+      msg.operations.each do |op|
+        puts "#{op.repo}: #{op.action} #{op.type} (#{op.uri})"
+      end
+    end
+    ```
+
+    You can also set additional callbacks to be run when the websocket connects, disconnects, on errors etc.:
+
+    ```rb
+    sky.on_connect { puts "Connected" }
+    sky.on_disconnect { puts "Disconnected" }
+    sky.on_error { |e| puts "ERROR: #{e}" }
+    ```
+
+    Finally, we open the connection by calling `connect`:
+
+    ```rb
+    sky.connect
+    ```
   </TabItem>
 </Tabs>
-
-
-
-In this snippet we set up a sequential "scheduler", which handles all events
-sequentially in order. Other schedulers run event handling in parallel, or do
-limited concurrency based on who the event is for.
-
-Once we have a scheduler, we call into `HandleRepoStream` which does the actual
-decoding of the data coming over the websocket and calls into the event handler
-we wrote.
