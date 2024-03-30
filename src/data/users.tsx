@@ -1063,7 +1063,7 @@ const Users: User[] = [
     preview: require('./showcase/bluefeed.jpg'),
     website: 'https://www.bluefeed.app',
     author: 'https://bsky.app/profile/did:plc:pxwzal3aspfg2xnbbt2fjami',
-    tags: ['customfeed']
+    tags: ['customfeed', 'favorite']
   },
   {
     title: 'Word of the Day Bot',
