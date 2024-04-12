@@ -1,0 +1,265 @@
+---
+id: app-bsky-feed-send-interactions
+title: "app.bsky.feed.sendInteractions"
+description: "Send information about interactions with feed items back to the feed generator that served them."
+sidebar_label: "app.bsky.feed.sendInteractions"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v4zYQ/SuD6WEvqmwsetLN2W5boynWjYNigSAHmhpbXFMkS44SC4H/ezGik8ixtw6wvtgmH+f7vXlCVpuE1R2qEMpV2vblmqjG+wJrSjqawMY7rHBJrgbj1j62So5ArXzHYBxTVFpOEjwabkCeg2FqE6yU3gJ74Iby8YYcRcU+AjeKIVF8oFqu2xIL9EEujXfzGqvjeMpErp6PfGGBkf7tKPGVr3usnoa/JlKNFceOCtTeMTmWKxWCNXowPfmWJJ0nTLqhVskv7gNhhX71jTQf7GZDdzhOT2oSogTJhpK8PLp9taRiVD0WOBThnIc3VpjaESpxNG6DBeZSiz3+uYsG9wXSwyGjt1hyXXvSxLKmdfrpUKZrSlK07wP+8pHOA7Q1estN9N2mmUuwF1GzjhsfL+NuKPjE9A7k53ZF9XnYqAtLIncRdG2230l0BMqRvQdm+4uovzvPl10uGxUJ7/cFyvUnGd/d2WYfE/MABKHkK/kywR5VAh83xilre0id8IBqWPXnKOkdbIh/I6qXW7LE3gkpW7W7JrfhBquP0+l0vy+QDVs6YaikU47SwX3+CKFS8C7laf84ncrXcQ5f/sQfIOwRnQ4+fznn5krVcJOn/Uf8jQWCYhwGvaWU1IZONSID/oeyc/egrKmf45L+Pxs7efVS0pa48aKShykNShp0WTMHxY2i90/YRYsVNswhVZPJ8Cx5bZSd7GLQk5NBm93CInr22ltY/LqErzeLT1nCI+6Lt/ZUMDkUFcI7DM5C+MfQ47HRewlYd9Fwv5Ru5IpekYo0Lqm4lNwGCFa4ygCpkzTz5nVPfN6pNlg61e67Zxke9Sdr7WVJPWLrS6ekj7IuhzgPhBknPCQ6W8wl8K5tVewzl6U9sl79GkbwDwks7YyWLcsevgRys8X8Q4I8pZB3RXlS4tvGJEg0pAky8Mq4BH/c3i7EN0RaUySnCWqvk1iBK9tR2vagXD0O4MV9Cb9nxSBQkCsN7LfkhkVPiQfDWlmboDaRNNse1tG3g+SIG4nykCVWOC2n5RT3+/8AZMQEsA==
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  app.bsky.feed.sendInteractions
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"app.bsky.feed.sendInteractions"}
+>
+  
+</MethodEndpoint>
+
+
+
+Send information about interactions with feed items back to the feed generator that served them.
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  interactions
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"item"}
+                required={false}
+                schemaName={"at-uri"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","format":"at-uri"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"event"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={"**Possible values:** [`app.bsky.feed.defs#requestLess`, `app.bsky.feed.defs#requestMore`, `app.bsky.feed.defs#clickthroughItem`, `app.bsky.feed.defs#clickthroughAuthor`, `app.bsky.feed.defs#clickthroughReposter`, `app.bsky.feed.defs#clickthroughEmbed`, `app.bsky.feed.defs#interactionSeen`, `app.bsky.feed.defs#interactionLike`, `app.bsky.feed.defs#interactionRepost`, `app.bsky.feed.defs#interactionReply`, `app.bsky.feed.defs#interactionQuote`, `app.bsky.feed.defs#interactionShare`]"}
+                schema={{"type":"string","enum":["app.bsky.feed.defs#requestLess","app.bsky.feed.defs#requestMore","app.bsky.feed.defs#clickthroughItem","app.bsky.feed.defs#clickthroughAuthor","app.bsky.feed.defs#clickthroughReposter","app.bsky.feed.defs#clickthroughEmbed","app.bsky.feed.defs#interactionSeen","app.bsky.feed.defs#interactionLike","app.bsky.feed.defs#interactionRepost","app.bsky.feed.defs#interactionReply","app.bsky.feed.defs#interactionQuote","app.bsky.feed.defs#interactionShare"]}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"feedContext"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={"**Possible values:** `<= 2000 characters`"}
+                schema={{"type":"string","description":"Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.","maxLength":2000}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
+                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
