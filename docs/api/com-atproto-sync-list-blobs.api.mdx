@@ -5,7 +5,7 @@ description: "List blob CIDso for an account, since some repo revision. Does not
 sidebar_label: "com.atproto.sync.listBlobs"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVUtv20YQ/iuDueRCUGzQXtiTbQGtkAIREqMoYPiwWo6kjfflnaFrwtB/L4akHdkSmqQoL1xiZ7/HzHD2CcXsGNsbtCnURnJJkmoeosXbCjtiW1wWlyK2+IdjgY1PG7haLTnBNhUwEYy1qY9SAbtoCTgFgkI5QaEHxy7FGpaJGGISKHTfu0Jgetn/Ci5kT4GiUAebAdbLzzVWmDIVo5SrDtsTWbV3LJc+bRgrzKaYQEJFHTxhNIGwxc51WKFTyfc9lQHfGrneEyxXS0hbkP0kVolncR22UnqqkO2egsH2CWXICsxSXNx9L9w2lWBk1nM4VC/6xjz9u8KP48L4lxweg4Mk8M+14Cntr/VvjecfMPAf2I79eBecvPXzbTEuCu2oYIXBRRf6gO1PFQbzOK+bplGhW9N7wfaXpjnmtH3hVH6cdM7A4XCr0ZxTZGLdf980+nqTmA9YoU1RKIrumpy9s2NzLr6whjydUqTNF7LySs0NWtex/lG5aHuLm0hnF6fyqunA1w1TilGHTijwuYq+dJsdu218Kvz5nKtL08Enuu+J5f+yR6WM1QjEbHZ06nQKOKObohb7BlfxwXjXPeu6PXwFO1O92V4g2SedEjuScRzI/lsjg6k8PM+LvnhscS+SuV0sNnw31JysM37xWLJdnPwnF9ewVlSbvA4r+OvT+gomQNTefI1nsqtHTJPzdwBe5Pyno79fg96qYNsXJ8NnLcSUzEsyhY6zqZQ4d7t+b6YATZGL2zRGOvH0hnKkuliv9GgfgikDtniVoiZongJH4e8YPD06myLrTPiYKV6sV+8YphaBqQPrM+PRMTBZ/QTtNuMiw+/X12vlhkJbKqQ3R5csj5fKpe+J7wYwsTsW8EJfw28U9ZIgMDB5BUl3FFWXEMsIbI33DJ0rZMUPsC0pjENNaVTl7BJbbOqmbvBw+Ad1nGsU
+api: eJy9VV9v4zYM/yoEX+7FcHzD9uI9pc2wBdtwwV02DAjyoMhMoqssqSLdNSvy3QfaSZo2wXo3DPOLLYj+/SEp6gnFbBjrBdrYlkZSjhJL3gWLywIbYptdEhcD1viLY4GVjyu4nU44wjpmMAGMtbELUgC7YAk4tgSZUoRMD45dDCVMIjGEKJDpvnOZwHSy/R5cmzy1FIQaWO1gNvlUYoExUTZKOW2wvpBVesdy4+OKsUAm22UnO6wXT3hDJlPGerHcLwtMJpuWhDL3m8G0hDU2rsECnbq57yjv8LXH+ZZgMp1AXINsBx+q6aC7wVpyRwWy3VJrsH5C2SUFZskubL4Ubh1za+SgZ78vTvr6FP6zwg/9h/Gn9J6Dg0TwxzLxUJGX+tfG81cY+Bds5368a5289vO2GBeENpSxwNYF13Yt1u8LbM3j4buqKhW6Np0XrL+rqnNO22WO+etJDxnYa/dk4hQDE+v+N1Wlr1eJ+RkLtDEIBdFdk5J3tu/b0WfWkKdLirj6TFZeqFmgdQ3rYUtZO1/cQHpwcSmvGH543jA5G3XohFq+VtFTt9m+2/qnwG+vuboxDXyk+45Y/it7lHNfjZaYzYYunQ4BV3RT0GIvcBoejHfNs64fHpOiz+MdBSyO+8NyuX+mulLbo/f3l95/CzqVYnZ/UfP/m7cxsNZo3Mn2V8d8qPUbVvoI2UadlBtS9mRk+/bYzA/HwdhljzVuRRLXo9GK73YlR+uMHz3mZEcXA2E8h5mi2uh1YMMfH2e3MACiHsKXeCa5ssc0KX0B4Dil3x39+RJ0+TznP2nSh8Qdp/0pL0qJh2Ot69UQoClyYR37SCeeXlH2VOPZVH/t2tbkHdZ4G4Mm6DDuzsLfMXh6dFosHX4fEoXxbPqOYWgHGI5aeeUecAxMVpegnWVcYPhpPp8pN2RaUya9PZtoub9Yb3xHfLcDE5pzASf6En6koBclgYHBK4ieANUlxNIDW+M9Q+MyWfE7WOfY9tNbaVTlwSXWWJVVWeF+/zd9yMYE
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -216,8 +216,8 @@ List blob CIDso for an account, since some repo revision. Does not require auth;
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
-                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
                       >
                         
                       </SchemaItem><SchemaItem
@@ -238,6 +238,88 @@ List blob CIDso for an account, since some repo revision. Does not require auth;
                 >
                   <ResponseSamples
                     responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
                     language={"json"}
                   >
                     

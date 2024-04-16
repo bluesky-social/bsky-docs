@@ -5,7 +5,7 @@ description: "Get the current commit CID & revision of the specified repo. Does 
 sidebar_label: "com.atproto.sync.getLatestCommit"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1r20AQ/SvDHJqLkE3pSTfHpqlpaUxiSiH4sFmN7U2k3c3syI0w+u9lJOfTLuRQXYTYt+9j9mn3KGaTsLhBG+rcSOQgIU+tt7jKsKRk2UVxwWOBFyQgWwLbMJMXsKGuncB0PoNPwLRzyQUPYd2DUiTr1o5KYIohh1mgBD4IMD00jglMI9scMwyR2KjCvMTiyEW+IflhhJJMezXMMBo2NQmx2t6jNzVhgaUrMUOnPh8a4hbfu19uCWbz2ZO/3hVmeLBTYiHcUIbJbqk2WOxR2qjESdj5zUfp1oFrIwc/XbdSgRSDT5SU8/N4rK+3VJffMUMbvJAXXTUxVs72MxndJYXsj22F2zuy8ibADdp+CEw7PbzIOlpxg7IunQj17FfXu2HvEazrnwy/nHJ/bkq4ooeGkvyvGMQcGDOsKSWzoeMwA+BEHPJNrQxzvzOVK198XVEMP4N8DY0vcdW9cP8jbI+QbdBObmionWw/VtBEvHtqZ8MVFrgViakYjW7TfZunYJ2pRo8c7eioVpMlLJTbhgoWs2v4fbWYwkCIXfaez0SX95wmxg8QTmL85ejPW9KVGrYNO2mv9XSGCZ+TYXo9YpXEw++h37cDQAfl/Dr0SCcVvZPspSaLuW5t6tpwiwVOg9cBHW6LV/CzBBU9Oht8AglwGclPFvOzBENvYGhrfuJndAkSWf0EraBxPsG35XKh2sC0JiZvCcpgk7LAedVQum/B+PK1gWf5HC7I68VEYGDIChLuyasvPe2e2JqqSlA6JitVC2sOdX8bqIy6PKTEAsf5OB9j1/0FdhHeNQ==
+api: eJy9VEtv2kAQ/iujOTQXy9CqJ99IaFPUR1BKq0qIw2Y9wCb27mZ2TEMR/70aG/ICtTlU5YJWM/5euzMbFLNIWEzRhjo3EjlIyNPaW5xlWFKy7KK44LHAcxKQJYFtmMkL2FDXTuBsNIRXwLRyyQUPYd42pUjWzR2VwBRDDsNACXwQYLptHBOYRpY5ZhgisVGGUYnFgYp8QfLJCCU5a9kww0S2YSdrLKYbPCXDxFhMZ9tZhtGwqUmIU1v0piYssHQlZujUwm1DvMbnxiZLguFouJfeCsYMd0pLLIQbyjDZJdUGiw3KOipwEnZ+8VK4eeDayE7PVuUypRh8oqSYb/p9/XsKdfERM7TBC3nRqomxcraNq3edtGVzKCtcXZOVJwamaNsQmFZ6r5E1dXEds5aOmLrXq/Vt9+1B27b9Zfj2mPpTU8Il3TaU5F/ZIObAmGFNKZkFHZrpGo7YId/UijDyK1O58kHXu7uo6JNwQx6zfX1/vKQYvgR5Hxpf4mz7wPyHKF4fRvHN63sP7H5R+f+zsMEnvclBI8vPLqVW7l+ttB2yDDqXC1L2aGT50iHl1X4MG66wwKVITEWvd5Vu1nkK1pmqd8fR9g7mZzCBsWLbUMF4+BV+XI7PoAPEbfYcz0SXt5gmxhcADmL87ujnU9DZw1b5qtF38e13y306Som7PaDnq65Bg3J+HtpOJxU9o2ypBuORftrUteE1FngWvAa025iP2k8SVHTn9MpAAlxE8oPx6CRB9yigG8v8yNZxCRJZPYK+L+N8gg+TyVi5gWlOTN4SlMEmRYHTqqF0swbjy8cC7ulzOCevy5nAQOcVRMdCdeltt8DWVFWC0jFZqdYw51C3a09pVOXOJRbYz/t5H7fb3/ZHOTQ=
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -201,8 +201,8 @@ Get the current commit CID & revision of the specified repo. Does not require au
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `RepoNotFound`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","RepoNotFound"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`, `RepoNotFound`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","RepoNotFound"]}}
                       >
                         
                       </SchemaItem><SchemaItem
@@ -223,6 +223,88 @@ Get the current commit CID & revision of the specified repo. Does not require au
                 >
                   <ResponseSamples
                     responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
                     language={"json"}
                   >
                     

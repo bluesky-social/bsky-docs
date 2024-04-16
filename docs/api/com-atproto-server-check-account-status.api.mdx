@@ -5,7 +5,7 @@ description: "Returns the status of an account, especially as pertaining to impo
 sidebar_label: "com.atproto.server.checkAccountStatus"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1v4zgM/SsEL3MxnGAxJ9+SFtgt5jBBWhQLLHpQZCbRRBY1Ep2pUeS/Lyg3SNL6MAtsLrHNp/ceP8Q3FLPL2PyDlrvaSEwsXGdKR0r4UmFL2SYXxXHABtckfQoZZE+QxUifgbdgAhhruQ9SAeVI1hnvBzAZIiUxLriwA2FwXeQkwAkSWT5SGmq4MwE2BNZ4Ty10JgwgrqMMGi86lvuU6VYHOrdLRk3VsKafvUuUwfSyBxNasCYABz9cEd8a4UCZ/LbGCjnSSPTQYjNRg9ruyR4Wo+xjSRkrTJQjh0wZmzf8Yz7Xv9tKff+GFVoOQkE0amL0zhal2Y+skDfMdk+d0ScZImGDvPlBVgp/yanVvhgr7miEWqzwaLxr711bIJHvuOucvL+s6fj+tPRsD2rThZZeqV2T5dTqh5gKleZBz8b3pB/pNZIVapeeN+VUadP5/UVPaZXEjele/FyMb5g9mYCnK4uT0SvXl3iW5MIOK9xy6oxoH1x7Rmtan6Cnm0QvYReEdpQ0/iH3ScxEOSZxtxWalrsp2gSk/Cr8OjUsS9OWMaYs/9fUUEqcsMKOcjY7+tzGETDRBAp9pwwPobTy7OvldCH73I9zeh3JnvUm7UgdRSP7/3Ctxphuozfsk8cG9yIxN7PZJh+GOrNultlrinaGH1fT4glWKmDZw+r+Ef5er+7gfY+dqo98Jrq6cJoYf4NwEeOzo1+3pC9q2PbJyfCoPRnruiST6LqwKqm5FYjehhFwKjO65YJ04umDZJFarB70aN91Jg3Y4B0HLZDjoPvwCv4lg6dXZ1mXM8P3SGGxeviSYZwWGG9W/SnJp73LkMnqK+jgGRcy/PX0tFJtSLSlRMEStGyzssBSr8lhKIv22u9ZvoY/KehOJTAw5grCBwrqSyhLIda1nKF1iaz4AbaJu7LsVUZdvmeJDc7reT3H0+lfz5dVZg==
+api: eJy9VcGO4zYM/RWCl70YTlr05Fsyu2gHRbFBJl0UGOSgyEyijS2pIp3GHeTfC8rJJpkEaAsU9cWW+cTHR1LUG4rZMFavaENbGokpSCiZ0p4SLgusiW1yUVzwWOGcpEueQbYELEY6hrAG48FYGzovBRBHss40TQ+GIVIS47zzG5AAro0hCYQEiWzYU+pLeDIeVgTWNA3V0Brfg7iWGNSeeWzoEtMtD7Ruk4wGVcKcfu9cIgbTyRaMr8EaD8E3/ZXj20CCJ6ZmXWKBIdLg6LnG6kEOSrslu5sMtC9ZMhbIZLvkpMfq9Q2nZBIlrF6Xx2WBiTgGz8RYveH347G+bpP4+Wcs0AYv5EWtJsbG2RzE6Csr5A3Zbqk1+iV9JKwwrL6SFVT/WW6tJTNW3N4I1Vjg3jSu/ujqDInhKbStk9NiTvvT17QJdqcKnK/pQPWcbEi1/ogpu1KJ9MU0HelPOkSyQvW0Cau8K1fwvF7qLk2guEHuJZ5L4KsQGjIej1chPrReRX2xsyTnN1jgOqTWiJbI1We0yrqDHm+EXszOC20oqf2d9oeYB+l4iLvN0GO6m6Q9gOSnwB8eNcvU1LnDieW/6hpKKSQssCVms6H7Mg6AB0Ug37Xq4dnnUl7i+nSI6n0RduSxONuH5fJ4obqv1jft391r/9XrkQ7J/Zk7/H8Wb4NnbbhJJ9tfHPOpuf5GSkbINug02ZCyRyPbfzVa1MZ5snSpwQq3IpGr0WjFu77koNN1dEjRjvD9eJ4sYKYENjQw+/gCv81nT3Ca5cfivT8TXZl9mhj/gcNJjF8c/XHrdHmZhS+a/yGH54n4LUVKqdoyRI/9ADjmw7gOGemkoXeUmWoye9atXdua1GOFT8FrglzweidcwT8wNHRwWjcd8p8j+cns+QPD0BkwjJDyTuRi6xiYrC5Bm8w4z/DTYjFTbki0pkTeEtTBsnqBqc6DXZ8vm+t4z/Ql/Ehe7xUCA4NWED0MGpcQS3asVxND7RJZaXpYp9DmC09pNMqTSqxwXI7LMR6PfwFNPLBW
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -240,8 +240,8 @@ Returns the status of an account, especially as pertaining to import or recovery
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
-                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
                       >
                         
                       </SchemaItem><SchemaItem
@@ -262,6 +262,88 @@ Returns the status of an account, especially as pertaining to import or recovery
                 >
                   <ResponseSamples
                     responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
                     language={"json"}
                   >
                     

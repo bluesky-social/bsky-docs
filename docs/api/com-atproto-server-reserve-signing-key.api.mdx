@@ -5,7 +5,7 @@ description: "Reserve a repo signing key, for use with account creation. Necessa
 sidebar_label: "com.atproto.server.reserveSigningKey"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVEtv2zgQ/iuDufQiyEbRk/aUR9E1WjRGYiwWKHKgybHFWiK5nFETbeD/vhgqcewkhwBdnwxw9L3m8YBitozND7Sxr42kHCXWTPkXZbyt0BHb7JP4GLDBayovYCBTisB+G3zYwo7GCjYxw8AEd15aMNbGIQjYTEa/reE7WWI2eQSOIK0RMHC5uITltwsYkjNCEBPlUg3WBFgT2BhY8mCFHLghK5UJB+zeb7PxouDLYd15CyY4cJEYQhTI9M/gM4EZpP0DfJ866iko1HqE5eVNDd+vVp8bkNYzUHApegU1I9jWhC3BXUsBNkPXnTIWgZ6PEWus8CB+4bB5I8w6T9ndTJl9pRErVI3Ech7diM0DPkp22EgeqEIbg1AQfTIpdd4WgtlP1mY8INuWeqP/ZEyEDcb1T7KCFaascsQT66vz7qiIRYPEl61dtVT6IRHyocs7GrWv6m8Tc28Em4K2Lz/VzykGnmg+zueF7QT26iv+ho/nQH4gPwd3+9Lh0du7jKZpXh7tgbT0ZNqdDrUP4LxrtJApe9P5f6d5PkTw6S3X58bB9dTb/8s+5RwzVtjrFm3pdQZTwRv2KQy9IizCL9N596Trdv8M9uqr/ZO9nqSNOtEpFi/JSPv++Z6e9Lw84JA7bLAVSdzMZmvejTVH6003u8/Jzl716WwFS8W3sdN1hb+vlxfweJj21Us8k3xdME1K7wA8S+kvT3enoLcq2A7Zy3ijPZlyPSeT6ThYpVRvpQQbXE8Fmpa29Pp5pz/fGz0Shx08pFuhD5tYML1owYm4IupsuVCSoe9NHrHBixg0Sj0+cQNH5R8YOrr3eit1ea8ShbPl4gPDNFcwLW79xh54BiY7HdwYxPjA8OdqtVRuyLShTMESuGi5rMl5NxDvxnJmj/U+0dfwhYJeQT0dUyogcUdBdQmxFGBruo7B+UxWuhE2OfZlAZVGVT66xAbn9bye437/Hx8AVHA=
+api: eJy9VU1vIzcM/SsEL3sZjN2iJ/XkfKA1tt0YiVsUCHyQJdqj9YykSpxNZgP/94KaxB9JgG7Roj7ZIP3I90g+PSHrbUZ1jyZ0teaYAoc6U/pCCVcVWsomucgueFR4SyUCGhLFANltvfNb2NFQwSYk6DPBg+MGtDGh9wwmkZb/1vCJDOWs0wA5ADeaQcPV/AoWv1xCH61mghAplWww2sOawASfOfWGyYLtk5TS/oDduW3SjgV80a9bZ0B7CzZQBh8YEv3Zu0Sge25+BNfFljryArUeYHF1V8Onm+W1Am5cBvI2BiegegDTaL8leGjIw6Zv2/OKpUGXTxFrrPDQ/NyiekfMOo3a3Y2afaQBK8xk+uR4QHX/hBekEyVU96v9qkJpnzJfBDugesJnNhYVp54qNMEzeZaQjrF1ptSefM4ypyfMpqFOyzceIqHCsP5MhrHCmKRTdpQlap09ScosGuPrqS8bKqPiAOmwADsaZORCfRNSpxlVQduXj/SfY/B5LPP9dFqqncHefMR/weMoyD3mo6ar1wxPYt9ENI6r9EwPuKEX0vZ8350H66ySxEzJ6dZ9HVf9IMEP77G+0BZux9n+V/QppZCwwk4ObEtvNRgT3qFPvu8EYe6/6NbZY1/Xj1HQl2FHHquX+PhztT+WeoN55P7dW+6/eTnGkNxXsv8/+eImqHDWc/Ory7m0+7dUSgY3Qa46hiJO1Nz8kxuXUC4n3qcWFTbMMavJZJ13Q52DcbqdPKZoJm8WcraEheCb0IplwR+3i0t4Nud99RpPR1cXTB3jNwDOYvzd0cM56OpoSnei/6jhizUdJJKSwq2koML1mCBqyfhuj+Z1/ajFKA9mc1C3Quc3oWA6loSz5kpTs8VcivRdp9OACi+DFynFgMMGTtI/ZGjp0cmExaVuIvnZYv4hw7hDMDpU/c7BuwyZzPjoBM/a+Qw/L5cLqQ2JNpTIGwIbTC5+cNH2lHdDeWpO+30pX8NP5OUlEI8cVQGWs5G+mDIXYKPbNoN1iQy3A2xS6IrTSBnp8pklKpzW03qK+/1f/zqvYA==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -214,8 +214,8 @@ Reserve a repo signing key, for use with account creation. Necessary so that a D
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
-                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
                       >
                         
                       </SchemaItem><SchemaItem
@@ -236,6 +236,88 @@ Reserve a repo signing key, for use with account creation. Necessary so that a D
                 >
                   <ResponseSamples
                     responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
                     language={"json"}
                   >
                     
