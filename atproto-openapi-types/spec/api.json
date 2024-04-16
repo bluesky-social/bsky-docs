@@ -725,6 +725,100 @@
         }
       }
     },
+    "app.bsky.feed.describeFeedGenerator": {
+      "get": {
+        "tags": [
+          "app.bsky.feed"
+        ],
+        "description": "Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).",
+        "operationId": "app.bsky.feed.describeFeedGenerator",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "did",
+                    "feeds"
+                  ],
+                  "properties": {
+                    "did": {
+                      "type": "string",
+                      "format": "did"
+                    },
+                    "feeds": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.feed.describeFeedGenerator.feed"
+                      }
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/app.bsky.feed.describeFeedGenerator.links"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "app.bsky.feed.getActorFeeds": {
       "get": {
         "tags": [
@@ -1394,6 +1488,128 @@
                         "InvalidRequest",
                         "ExpiredToken",
                         "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "app.bsky.feed.getFeedSkeleton": {
+      "get": {
+        "tags": [
+          "app.bsky.feed"
+        ],
+        "description": "Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.",
+        "operationId": "app.bsky.feed.getFeedSkeleton",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "feed",
+            "in": "query",
+            "description": "Reference to feed generator record describing the specific feed being requested.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Reference to feed generator record describing the specific feed being requested.",
+              "format": "at-uri"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "feed"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "feed": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.feed.defs.skeletonFeedPost"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "UnknownFeed"
                       ]
                     },
                     "message": {
@@ -2531,6 +2747,11 @@
         ],
         "description": "Send information about interactions with feed items back to the feed generator that served them.",
         "operationId": "app.bsky.feed.sendInteractions",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -2578,8 +2799,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -3489,6 +3734,131 @@
                         "InvalidRequest",
                         "ExpiredToken",
                         "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "app.bsky.graph.getRelationships": {
+      "get": {
+        "tags": [
+          "app.bsky.graph"
+        ],
+        "description": "Enumerates public relationships between one account, and a list of other accounts. Does not require auth.",
+        "operationId": "app.bsky.graph.getRelationships",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "actor",
+            "in": "query",
+            "description": "Primary account requesting relationships for.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Primary account requesting relationships for.",
+              "format": "at-identifier"
+            }
+          },
+          {
+            "name": "others",
+            "in": "query",
+            "description": "List of 'other' accounts to be related back to the primary.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "at-identifier"
+              },
+              "maxItems": 30
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "relationships"
+                  ],
+                  "properties": {
+                    "actor": {
+                      "type": "string",
+                      "format": "did"
+                    },
+                    "relationships": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/components/schemas/app.bsky.graph.defs.relationship"
+                          },
+                          {
+                            "$ref": "#/components/schemas/app.bsky.graph.defs.notFoundActor"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "ActorNotFound"
                       ]
                     },
                     "message": {
@@ -4939,6 +5309,106 @@
         }
       }
     },
+    "com.atproto.admin.getAccountInfos": {
+      "get": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Get details about some accounts.",
+        "operationId": "com.atproto.admin.getAccountInfos",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "dids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "did"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "infos"
+                  ],
+                  "properties": {
+                    "infos": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.atproto.admin.defs.accountView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "com.atproto.admin.getInviteCodes": {
       "get": {
         "tags": [
@@ -5496,6 +5966,11 @@
         ],
         "description": "Update the password for a user account as an administrator.",
         "operationId": "com.atproto.admin.updateAccountPassword",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -5537,8 +6012,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -5685,6 +6184,11 @@
         ],
         "description": "Describe the credentials that should be included in the DID doc of an account that is migrating to this service.",
         "operationId": "com.atproto.identity.getRecommendedDidCredentials",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5726,8 +6230,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -5994,6 +6522,11 @@
         ],
         "description": "Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry",
         "operationId": "com.atproto.identity.submitPlcOperation",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -6028,8 +6561,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -6077,6 +6634,141 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "com.atproto.label.queryLabels": {
+      "get": {
+        "tags": [
+          "com.atproto.label"
+        ],
+        "description": "Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.",
+        "operationId": "com.atproto.label.queryLabels",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "uriPatterns",
+            "in": "query",
+            "description": "List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "sources",
+            "in": "query",
+            "description": "Optional list of label sources (DIDs) to filter on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "did"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 250,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "labels"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "labels": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.atproto.label.defs.label"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -6836,6 +7528,11 @@
         ],
         "description": "Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.",
         "operationId": "com.atproto.repo.importRepo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -6860,8 +7557,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -6881,6 +7602,11 @@
         ],
         "description": "Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.",
         "operationId": "com.atproto.repo.listMissingBlobs",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "limit",
@@ -6941,8 +7667,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -7373,6 +8123,11 @@
         ],
         "description": "Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.",
         "operationId": "com.atproto.server.checkAccountStatus",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -7439,8 +8194,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9153,6 +9932,11 @@
         ],
         "description": "Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.",
         "operationId": "com.atproto.server.reserveSigningKey",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -9204,8 +9988,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9533,6 +10341,11 @@
         ],
         "description": "Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.",
         "operationId": "com.atproto.sync.getBlocks",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "did",
@@ -9579,8 +10392,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9600,6 +10437,11 @@
         ],
         "description": "Get the current commit CID & revision of the specified repo. Does not require auth.",
         "operationId": "com.atproto.sync.getLatestCommit",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "did",
@@ -9652,8 +10494,32 @@
                       "type": "string",
                       "enum": [
                         "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
                         "RepoNotFound"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9673,6 +10539,11 @@
         ],
         "description": "Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.",
         "operationId": "com.atproto.sync.getRecord",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "did",
@@ -9726,8 +10597,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9747,6 +10642,11 @@
         ],
         "description": "Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.",
         "operationId": "com.atproto.sync.getRepo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "did",
@@ -9791,8 +10691,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9812,6 +10736,11 @@
         ],
         "description": "List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.",
         "operationId": "com.atproto.sync.listBlobs",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "did",
@@ -9894,8 +10823,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9977,6 +10930,180 @@
                       "enum": [
                         "InvalidRequest"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "com.atproto.sync.notifyOfUpdate": {
+      "post": {
+        "tags": [
+          "com.atproto.sync"
+        ],
+        "description": "Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.",
+        "operationId": "com.atproto.sync.notifyOfUpdate",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostname"
+                ],
+                "properties": {
+                  "hostname": {
+                    "type": "string",
+                    "description": "Hostname of the current service (usually a PDS) that is notifying of update."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "com.atproto.sync.requestCrawl": {
+      "post": {
+        "tags": [
+          "com.atproto.sync"
+        ],
+        "description": "Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.",
+        "operationId": "com.atproto.sync.requestCrawl",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostname"
+                ],
+                "properties": {
+                  "hostname": {
+                    "type": "string",
+                    "description": "Hostname of the current service (eg, PDS) that is requesting to be crawled."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
