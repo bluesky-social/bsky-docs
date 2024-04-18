@@ -1092,6 +1092,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/drusei.bsky.social',
     tags: ['opensource', 'bot'],
   },
+  {
+    title: 'Reminder Bot!',
+    description: 'A bot to set post reminders with!',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/juni-b-queer/bsky-remind-me-bot',
+    source: 'https://github.com/juni-b-queer/bsky-remind-me-bot',
+    author: 'https://bsky.app/profile/did:plc:wpp4lklhvmopw6zcy6qb42ru',
+    tags: ['opensource', 'bot'],
+  },
 ]
 
 export type User = {
