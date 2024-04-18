@@ -8779,6 +8779,9 @@
                   },
                   "password": {
                     "type": "string"
+                  },
+                  "authFactorToken": {
+                    "type": "string"
                   }
                 }
               }
@@ -8819,6 +8822,9 @@
                     },
                     "emailConfirmed": {
                       "type": "boolean"
+                    },
+                    "emailAuthFactor": {
+                      "type": "boolean"
                     }
                   }
                 }
@@ -8840,7 +8846,8 @@
                       "type": "string",
                       "enum": [
                         "InvalidRequest",
-                        "AccountTakedown"
+                        "AccountTakedown",
+                        "AuthFactorTokenRequired"
                       ]
                     },
                     "message": {
@@ -9392,6 +9399,9 @@
                       "type": "string"
                     },
                     "emailConfirmed": {
+                      "type": "boolean"
+                    },
+                    "emailAuthFactor": {
                       "type": "boolean"
                     },
                     "didDoc": {}
@@ -10188,6 +10198,9 @@
                 "properties": {
                   "email": {
                     "type": "string"
+                  },
+                  "emailAuthFactor": {
+                    "type": "boolean"
                   },
                   "token": {
                     "type": "string",
