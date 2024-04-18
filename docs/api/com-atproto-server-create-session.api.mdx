@@ -5,7 +5,7 @@ description: "Create an authentication session."
 sidebar_label: "com.atproto.server.createSession"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVU1v2zAM/SsEL7sETjDs5FvaDVu3Q4M2GAYUPagyXau1RU2U2wZB/vtAKVuSJRt6aC6JROrx8fEja0zmXrC+QctDZVKInLgSik8U8XaCDYmNLiTHHms8j2QSgfFgxtSRT84aNYGQiGNf4QQ5UMyXFw3WJ1Arm0GuywucYKSfI0k642aF9TofXaQG6xRHmqBln8gnNZkQ+m3E6YMoozWK7Wgw+iutAmGNfPdANm1xC9ANukbJto4iTjAYkWeOjeYXovJNjkQh9tx2gJKi8/f4txZfjG96Ao7AqaMIu7cgYwgcEzVwt4LUEZTMoeWYj/vi+XsYhWKFmz1iR8E3+aM5SWAvhe372Uy/DmldfsM30sxYSyJfn8t9G0m6cuhy5iqIO6Hh7tlxFgdAp8xb6BPitxwHk7D+7bIp4f/nqfbi9pEt1uvNBGkwrj8ZOVvO2bcuDrSPe8fck/F/SvDhlOpnpoGr0sdvJT/FyNqtA4mYezoWujicEID8OCjChX8yvWt2vObW8ujT0jxSw88ebzc7+H+0XPZIHessB84owaTudZNdrnW7rHGMvRYvpSD1dHonj6tK2DrTT19isNOj8ZovYaHYlntYfLyGH1eL8+0c4WbyN54JrsqYJoRXAM5D+O7o+RD0VgnbMbq0utYKFZXPyMSDdaAhNbfsov1RHFQpLfDVbpt9ejFDKN28v1h2hdrN+14jOt9yDueSvj3gnfnOFxcafxwGE1e6lNmryrqGuYU993cCPb04y14gMVwG8vPFxTuB0oBQBqU6UmrZOQEhmze79rJxXuDLcrnQ2BCppUjeEjRsJS+1s34keVyB8c0+gT/hK/hMXv8WCAwUwSDxI3nllUhSBram7wUaF8mmfgVt5CGvSw2jLLdZYo2zalbNcLP5BZ9TW3s=
+api: eJytVT1v2zAQ/SsHLlkM2Sg6aXOStkk71EiMokCQgaZOERuJx/KoJobh/14c6URyrBYd6kUm+fju3Sd3KuoHVuWdMtQVOvpAkQrG8AuDup+pCtkE66Mlp0p1EVBHBO1A97FBF63RcgSMzJZcoWaKPIa0eV2pcoK1MInkNt9QMxXwZ48cz6naqnKXljZgpcoYepwpQy6ii3KkvW8PFuc/WBTtFJsGOy3/4tajKhVtfqCJB95MdKdsJWJri0HNlNfMTxQq8c8H0RstslCMYAMhx2Ddg3obiyvtqhaBAlBsMMBwF7j3nkLECjZbiA1C9hxqCmk5Dp57gJ4xFGo/EnZifD9TcumjNpHCmh7RTWDST/xmT46zR+8WC/kcS//6Rf2nuGpjkPnzU96vA3KTF02KjgTNTsR5uDbl6Yho6vhAPZGgmkKnoypfIPts/m9IOc+wSzKq3O1nCjtt20nL6eSCXG1Dh2PeDVGL2r1ilq+5mgId8vR+KjXnuoKb3BD/K0cYAknZd8isH/A0GxkwESV0fScM1+6Xbm016FoaQ72La/2IFT1JEy+Pq/Pmxf79fjD8h4pNiNiQjAtPid/r2Pzb8MjbMsB2qg+t5D5Gz+V8vuHHbcFkrG7nz8Gb+UkHL9ewEm5DLawub+H7zeri0KpqP3vLp70tEqf2/h8Il95/s/h0THovgk0fbNzeSu5y/M9Rh6OJIybFtwSRyskAiZSk/mYYmB+ededzM4xn15DCYaQMeyeTZFTi1tWUlNgotEcuJVeWq2uR1nedDlt5EshJAuQRoBpG8DOGFp+tIccQCb56dMvV9RlDrlrILVicBHHdWAZGk94VaQBtHcPVer0S2xCwxoDOIFRkOI3U87ZHftyCdtVYwKv5Aj6hk0cJQUOOJUTxXHRF5JiIjW5bhsoGNLHdQh2oS8NazIjKg5eqVItiUSzUfv8bJz6Igw==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -87,6 +87,15 @@ Create an authentication session.
           collapsible={false}
           name={"password"}
           required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"authFactorToken"}
+          required={false}
           schemaName={"string"}
           qualifierMessage={undefined}
           schema={{"type":"string"}}
@@ -208,6 +217,15 @@ Create an authentication session.
                         schema={{"type":"boolean"}}
                       >
                         
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"emailAuthFactor"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
                       </SchemaItem>
                     </ul>
                   </details>
@@ -216,7 +234,7 @@ Create an authentication session.
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"accessJwt\": \"string\",\n  \"refreshJwt\": \"string\",\n  \"handle\": \"string\",\n  \"did\": \"string\",\n  \"didDoc\": {},\n  \"email\": \"string\",\n  \"emailConfirmed\": true\n}"}
+                    responseExample={"{\n  \"accessJwt\": \"string\",\n  \"refreshJwt\": \"string\",\n  \"handle\": \"string\",\n  \"did\": \"string\",\n  \"didDoc\": {},\n  \"email\": \"string\",\n  \"emailConfirmed\": true,\n  \"emailAuthFactor\": true\n}"}
                     language={"json"}
                   >
                     
@@ -277,8 +295,8 @@ Create an authentication session.
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `AccountTakedown`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","AccountTakedown"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `AccountTakedown`, `AuthFactorTokenRequired`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","AccountTakedown","AuthFactorTokenRequired"]}}
                       >
                         
                       </SchemaItem><SchemaItem

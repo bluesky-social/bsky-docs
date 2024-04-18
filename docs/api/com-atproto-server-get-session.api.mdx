@@ -5,7 +5,7 @@ description: "Get information about the current auth session. Requires auth."
 sidebar_label: "com.atproto.server.getSession"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VMFu2zAM/RWCl14MJxt28i1thy4YhgZtNgwoclBkJlZrS5pId80C//tAO2napth6GJZLEvHpPfKJ5BbFrBmLG7ShyY3EFCTkTOmeEi4yLIltclFc8FjgBQk4vwqpMXoCZhlaAakIbJsSeQHTSgVMzC74HK7oR+sScX+cY4YhUuqvTkssXpHM1yTXw23MkMm2yckGi5stnpJJlLC4WXSLDBNxDJ6Jsdji+/FYv57nevkZM7TBC3nRqImxdrYXH92yQrbItqLG6C/ZRMICw/KWrKDy95mX6kxlfFkTZli6Uj2JScsQN4jvogcOluT8GjMcfMJiD+kGhj8hNd5lSI1x9TFwHzkLfuVSQ0+5liHUZPxO5DxYLLZd/8nww2v+nJqyfx9i+VdGUUohYYYNMZs1HXs1AF4xgHzbKMPU35valYe8Pj5EZZ+HO9KO2MWHv4vuIHXs1WPt745r/+q1IUNyv6j8/8Xb4Fkfe9JK9cUx7572L6X0CKmCDs6aVD0aqd40RXrG/RC1qdZ+FIlcjEZLvtvkHKwz9eghRTvClwM/mcNMiW2oYXZ+Dd+vZmew2w5d9pLPRJf3nCbGNxBOYvzm6Odz0sVh7K/V98G7/fA/WqOSWlsP0fYfAOqSLqge6UTn8plkLzWZTfVq2zQmbbDAs+DVIF1oYQVP4CcMNT04fS+QAJeR/GQ2PWEYOgKGsc2PipxXjoHJ9jtSm8s4z/BpPp+pNiRaUSJvCcpgWVngtG6J7zZgfPk0gUf5HC7I6+okMDDUCqJDoHkJsfTE1tQ1Q+kSWak3sEqh6ZezymiWuyqxwHE+zsfYdb8BIVMUMA==
+api: eJy9VMFu2zAM/RWBl10MJxt28i1tty4YhgZtNgwoclAlJlZrS5pId80C//tAOU3aJth6GJZLEvHpPfKJ5AZYrwiqazChLTXHFDiUhOkeEywKsEgmucgueKjgHFk5vwyp1XKi9E3oWHGNynQpoWelO64VIZELvlSX+KNzCSkfl1BAiJjy1amF6ohkuUK+Gm5DAYSmS47XUF1v4AR1wgTV9aJfFJCQYvCEBNUG3o3H8vU814vPUIAJntGzRHWMjTNZfHRLAtkAmRpbLb94HREqCDe3aBiEP2duxZlae9sgFGCdFU9ikjLYDeLb6J6DODm/ggIGn6B6hPQDw5+QEu8LwFa75hD4GDkNfulSi0+5bkJoUPsdZtJx/VEbDuk4yDp7FgxUmz5/Cnh/zMQTbfMjIvG/chNTCgkKaJFIr/DQ0AFwxCX0XSsMU3+vG2f3eX14iMI+D3cobbOND38X/V7q0NBd7W8Pa//qpWtDcr/Q/v/iTfAkHSHv+MURbd//L6VkBNdBpmuFoh41168aNTmjPGldaqRpmSNVo9EN3a1LCsbpZvSQohnBy60wmauZEJvQqNnZlfp+OTtV2xXSFy/5dHRl5tQxvoJwEuM3hz+fky72u+FKfB+8e9wQO2tEUmrLEGn/ASAuyRbLSMcyvM8ks9RkNpWrXdvqtIYKToMXg2TrhaV6An9DqsEHJ++lOKiLiH4ym74hNXSEGma7PChyXjtShCYvUmku7TypT/P5TLRVwiUm9AaVDYaERZ00HdLdWmlvnyawky/VOXrZr6i0GmpVLEMgeTESZ2Kjm4aUdQkNN2u1TKHNG1xkJMttlVDBuByXY+j738chIS8=
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -128,6 +128,15 @@ Get information about the current auth session. Requires auth.
                         
                       </SchemaItem><SchemaItem
                         collapsible={false}
+                        name={"emailAuthFactor"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
                         name={"didDoc"}
                         required={false}
                         schemaName={""}
@@ -143,7 +152,7 @@ Get information about the current auth session. Requires auth.
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"handle\": \"string\",\n  \"did\": \"string\",\n  \"email\": \"string\",\n  \"emailConfirmed\": true,\n  \"didDoc\": {}\n}"}
+                    responseExample={"{\n  \"handle\": \"string\",\n  \"did\": \"string\",\n  \"email\": \"string\",\n  \"emailConfirmed\": true,\n  \"emailAuthFactor\": true,\n  \"didDoc\": {}\n}"}
                     language={"json"}
                   >
                     
