@@ -1092,6 +1092,24 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/drusei.bsky.social',
     tags: ['opensource', 'bot'],
   },
+  {
+    title: '@skyware/bot',
+    description: 'A TS/JS framework for building bots on Bluesky',
+    preview: require('./showcase/skyware-bot.png'),
+    website: 'https://skyware.js.org/guides/bot/introduction/getting-started',
+    source: 'https://github.com/skyware-js/bot',
+    author: 'https://bsky.app/profile/did:plc:uu5axsmbm2or2dngy4gwchec',
+    tags: ['bot', 'opensource']
+  },
+  {
+    title: '@skyware/firehose',
+    description: 'A simple TS/JS event-based library for listening to a Relay',
+    preview: require('./showcase/skyware-firehose.png'),
+    website: 'https://skyware.js.org/guides/firehose/introduction/getting-started',
+    source: 'https://github.com/skyware-js/firehose',
+    author: 'https://bsky.app/profile/did:plc:uu5axsmbm2or2dngy4gwchec',
+    tags: ['firehose', 'opensource']
+  },
 ]
 
 export type User = {
