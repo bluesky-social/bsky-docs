@@ -488,7 +488,7 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:fynelmajwyd4arrdpmm2mkqu',
     tags: ['client'],
   },
-    {
+  {
     title: 'Nootti',
     description: 'Cross-post to Bluesky, Mastodon and Nostr',
     preview: require('./showcase/nootti.png'),
@@ -1091,6 +1091,14 @@ const Users: User[] = [
     source: 'https://github.com/danrusei/gobot-bsky',
     author: 'https://bsky.app/profile/drusei.bsky.social',
     tags: ['opensource', 'bot'],
+  },
+  {
+    title: 'Bluesky Follow Chain',
+    description: 'User Search Assistance Tool',
+    preview: require('./showcase/bluesky-follow-chain.jpg'),
+    website: 'https://bluesky-fc.huuto.dev',
+    author: 'https://bsky.app/profile/did:plc:6k6rbr4hmsvifx7qe4l7eerd',
+    tags: ['othertools'],
   },
 ]
 
