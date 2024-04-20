@@ -1092,6 +1092,24 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/drusei.bsky.social',
     tags: ['opensource', 'bot'],
   },
+  {
+    title: 'Instagram to Bluesky',
+    description: 'Import Instagram archive to a Bluesky account',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/marcomaroni-github/instagram-to-bluesky',
+    source: 'https://github.com/marcomaroni-github/instagram-to-bluesky',
+    author: 'https://bsky.app/profile/marcomaroni.it',
+    tags: ['bridge', 'opensource'],
+ },
+ {
+    title: 'Twitter to Bluesky',
+    description: 'mport all tweets exported from X/Twitter to a Bluesky account.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/marcomaroni-github/twitter-to-bluesky',
+    source: 'https://github.com/marcomaroni-github/twitter-to-bluesky',
+    author: 'https://bsky.app/profile/marcomaroni.it',
+    tags: ['bridge', 'opensource'],
+  }
 ]
 
 export type User = {
