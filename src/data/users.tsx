@@ -326,11 +326,11 @@ const Users: User[] = [
   },
   {
     title: 'Fedica',
-    description: 'Web client for Bluesky',
-    preview: require('./showcase/example-1.png'),
+    description: 'Compose and schedule Bluesky posts or threads. Crosspost to other socials. Web, Android and iOS apps',
+    preview: require('./showcase/fedica.png'),
     website: 'https://fedica.com/social-media/bluesky',
     author: 'https://bsky.app/profile/did:plc:n7nimjfhrwsrgsuothysn2h6',
-    tags: ['client'],
+      tags: ['client', 'bridge'],
   },
   {
     title: 'Subium',
