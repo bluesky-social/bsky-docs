@@ -1093,6 +1093,24 @@ const Users: User[] = [
     tags: ['opensource', 'bot'],
   },
   {
+    title: '@skyware/bot',
+    description: 'A TS/JS framework for building bots on Bluesky',
+    preview: require('./showcase/skyware-bot.png'),
+    website: 'https://skyware.js.org/guides/bot/introduction/getting-started',
+    source: 'https://github.com/skyware-js/bot',
+    author: 'https://bsky.app/profile/did:plc:uu5axsmbm2or2dngy4gwchec',
+    tags: ['bot', 'opensource']
+  },
+  {
+    title: '@skyware/firehose',
+    description: 'A simple TS/JS event-based library for listening to a Relay',
+    preview: require('./showcase/skyware-firehose.png'),
+    website: 'https://skyware.js.org/guides/firehose/introduction/getting-started',
+    source: 'https://github.com/skyware-js/firehose',
+    author: 'https://bsky.app/profile/did:plc:uu5axsmbm2or2dngy4gwchec',
+    tags: ['firehose', 'opensource']
+  },
+  {
     title: 'Instagram to Bluesky',
     description: 'Import Instagram archive to a Bluesky account',
     preview: require('./showcase/example-1.png'),
@@ -1109,7 +1127,8 @@ const Users: User[] = [
     source: 'https://github.com/marcomaroni-github/twitter-to-bluesky',
     author: 'https://bsky.app/profile/marcomaroni.it',
     tags: ['bridge', 'opensource'],
-  }
+  },
+  {
     title: 'Bluesky Follow Chain',
     description: 'User Search Assistance Tool',
     preview: require('./showcase/bluesky-follow-chain.jpg'),
