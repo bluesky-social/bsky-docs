@@ -383,6 +383,15 @@ const Users: User[] = [
     tags: ['client', 'opensource'],
   },
   {
+    title: 'Neosky (nvim)',
+    description: 'Neovim Client for Bluesky',
+    preview: require('./showcase/neosky.png'),
+    website: 'https://neosky.social/',
+    source: 'https://github.com/sanhajio/neosky',
+    author: 'https://bsky.app/profile/sanhajio.bsky.social',
+    tags: ['client', 'opensource',],
+  },
+  {
     title: 'Ozone',
     description: 'Android client for Bluesky',
     preview: require('./showcase/example-1.png'),
