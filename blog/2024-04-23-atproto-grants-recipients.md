@@ -24,9 +24,7 @@ SkyBridge is a in-progress proxy web server that translates Mastodon API calls i
 
 **[TOKIMEKI](https://tokimeki.blue) — [@holybea.social ](https://bsky.app/profile/holybea.social)($500)**
 
-TOKIMEKI is a third-party web client for Bluesky. It is one of the most popular 3rd party clients in Japan.
-
-Development and release began in March 2023. It supports multi-column and multi-accounts like TweetDeck, and features lightweight behavior, a variety of themes, and unique features such as bookmarks. 
+TOKIMEKI is a third-party web client for Bluesky. It is one of the most popular 3rd party clients in Japan. Development and release began in March 2023. It supports multi-column and multi-accounts like TweetDeck, and features lightweight behavior, a variety of themes, and unique features such as bookmarks. 
 
 **[Bluesky Case Bots](https://bots.law/) — [Free Law Project](https://bsky.app/profile/free.law) ($500)**
 
