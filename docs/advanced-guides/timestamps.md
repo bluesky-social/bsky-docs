@@ -33,7 +33,7 @@ The `indexedAt` timestamp generally represents the time the record was "first se
 
 ### `sortAt`
 
-The simple compromise we recommend between `createdAt` and `sortAt` is to define a `sortAt` timestamp, defined as the "earlier" of the `createdAt` and `indexedAt` timestamps. In other words: Use the `createdAt` timestamp unless it is in the future. If it's in the future, use the `indexedAt` timestamp.
+The simple compromise we recommend between `createdAt` and `indexedAt` is to define a `sortAt` timestamp, defined as the "earlier" of the `createdAt` and `indexedAt` timestamps. In other words: Use the `createdAt` timestamp unless it is in the future. If it's in the future, use the `indexedAt` timestamp.
 
 A more sophisticated variant is to have `sortAt` be "nullable," and simply not include "null" `sortAt` posts in chronological lists. Then, you can set `sortAt` using the following logic:
 
