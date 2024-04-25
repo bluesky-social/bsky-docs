@@ -12789,6 +12789,9 @@
               "$ref": "#/components/schemas/app.bsky.actor.defs.savedFeedsPref"
             },
             {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.savedFeedsPrefV2"
+            },
+            {
               "$ref": "#/components/schemas/app.bsky.actor.defs.personalDetailsPref"
             },
             {
@@ -12843,6 +12846,48 @@
               "warn",
               "hide"
             ]
+          }
+        }
+      },
+      "app.bsky.actor.defs.savedFeed": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "value",
+          "pinned"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "feed",
+              "list",
+              "timeline"
+            ]
+          },
+          "value": {
+            "type": "string"
+          },
+          "pinned": {
+            "type": "boolean"
+          }
+        }
+      },
+      "app.bsky.actor.defs.savedFeedsPrefV2": {
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.savedFeed"
+            }
           }
         }
       },
