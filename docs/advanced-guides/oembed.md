@@ -4,7 +4,7 @@ sidebar_position: 15
 
 # oEmbed and Post Embed Widget
 
-Bluesky posts can be embedded in other websites a couple different ways:
+Bluesky posts can be embedded in other websites a couple different ways. For a non-technical guide on how to embed Bluesky posts on other websites, [read here](https://bsky.social/about/blog/post-embeds-guide).
 
 **HTML Snippet In-App:** there is an in-app "Embed Post" drop-down menu option on individual posts in the app, which provides an HTML snippet which can be copy/pasted.
 
