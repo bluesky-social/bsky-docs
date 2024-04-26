@@ -11561,6 +11561,15 @@
                         "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMute"
                       },
                       {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventUnmute"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMuteReporter"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventUnmuteReporter"
+                      },
+                      {
                         "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReverseTakedown"
                       },
                       {
@@ -12278,6 +12287,16 @@
             "schema": {
               "type": "boolean",
               "description": "By default, we don't include muted subjects in the results. Set this to true to include them."
+            }
+          },
+          {
+            "name": "onlyMuted",
+            "in": "query",
+            "description": "When set to true, only muted subjects and reporters will be returned.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "When set to true, only muted subjects and reporters will be returned."
             }
           },
           {
@@ -15714,6 +15733,15 @@
                 "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMute"
               },
               {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventUnmute"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMuteReporter"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventUnmuteReporter"
+              },
+              {
                 "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEmail"
               },
               {
@@ -15795,6 +15823,15 @@
               },
               {
                 "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMute"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventUnmute"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventMuteReporter"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventUnmuteReporter"
               },
               {
                 "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEmail"
@@ -15890,6 +15927,10 @@
             "description": "Sticky comment on the subject."
           },
           "muteUntil": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "muteReportingUntil": {
             "type": "string",
             "format": "date-time"
           },
@@ -16016,6 +16057,10 @@
           "comment": {
             "type": "string"
           },
+          "isReporterMuted": {
+            "type": "boolean",
+            "description": "Set to true if the reporter was muted from reporting at the time of the event. These reports won't impact the reviewState of the subject."
+          },
           "reportType": {
             "$ref": "#/components/schemas/com.atproto.moderation.defs.reasonType"
           }
@@ -16080,6 +16125,31 @@
       "tools.ozone.moderation.defs.modEventUnmute": {
         "type": "object",
         "description": "Unmute action on a subject",
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Describe reasoning behind the reversal."
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventMuteReporter": {
+        "type": "object",
+        "description": "Mute incoming reports from an account",
+        "required": [
+          "durationInHours"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "durationInHours": {
+            "type": "integer"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.modEventUnmuteReporter": {
+        "type": "object",
+        "description": "Unmute incoming reports from an account",
         "properties": {
           "comment": {
             "type": "string",
