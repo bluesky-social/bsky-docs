@@ -80,7 +80,7 @@ Since there are two behavior attributes (`blurs` and `severity`) with three valu
 |`content`|`inform`|Hide the content and put a "neutral" information label on the content if viewed|
 |`content`|`none`|Hide the content|
 |`media`|`alert`|Hide images in the content and put a "danger" warning label on the content if viewed|
-|`media`|`inform`|Hide images in the content and put a "netural" information label on the content if viewed|
+|`media`|`inform`|Hide images in the content and put a "neutral" information label on the content if viewed|
 |`media`|`none`|Hide images in the content|
 |`none`|`alert`|Put a "danger" warning label on the content|
 |`none`|`inform`|Put a "neutral" information label on the content|
@@ -382,7 +382,7 @@ if (mod.ui('contentList').blur) {
   }
 }
 if (mod.ui('contentMedia').blur) {
-  // cover the post's embbedded images with the explanation from mod.ui('contentMedia').blurs[0]
+  // cover the post's embedded images with the explanation from mod.ui('contentMedia').blurs[0]
   if (mod.ui('contentMedia').noOverride) {
     // dont allow the cover to be removed
   }
