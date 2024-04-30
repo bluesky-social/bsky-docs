@@ -23,7 +23,7 @@ This command generates static content into the `build` directory and can be serv
 
 ### Generate OpenAPI to Docusaurus MDX
 
-We use a forked version of [`atproto-open-api-types`](https://github.com/rdmurphy/atproto-openapi-types) to generate an OpenAPI schema from atproto lexicons. We use the [`docusaurus-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) plugin.
+We use a forked version of [`atproto-openapi-types`](https://github.com/rdmurphy/atproto-openapi-types) to generate an OpenAPI schema from atproto lexicons. We use the [`docusaurus-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) plugin.
 
 To generate OpenAPI types from atproto lexicons:
 1. Run `deno task run` to generate a fresh OpenAPI spec to `atproto-openapi-types/spec/api.json`.
