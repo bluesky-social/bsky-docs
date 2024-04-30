@@ -15,7 +15,17 @@ export function convertObject(
   name: string,
   object: LexObject,
 ): OpenAPIV3_1.SchemaObject {
-  const properties = convertProperties(id, name, object.properties);
+  var properties = convertProperties(id, name, object.properties);
+
+  // TODO: HACK(bnewbold): prevent "MimeTabs missing TabItem" error
+  if (id == "app.bsky.feed.sendInteractions" && Object.keys(properties).length == 0) {
+    properties = {
+      _unknown_: {
+        type: "object",
+        properties: {},
+      }
+    }
+  }
 
   return {
     type: "object",
