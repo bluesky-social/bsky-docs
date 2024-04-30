@@ -101,12 +101,16 @@ const api: OpenAPIV3_1.Document = {
   },
   servers: [
     {
-      url: "https://bsky.social/xrpc/",
-      description: "AT Protocol PDS XRPC server",
+      url: "https://public.api.bsky.app/xrpc/",
+      description: "Bluesky AppView (Public, No Auth)",
     },
     {
-      url: "https://api.bsky.app/xrpc/",
-      description: "AT Protocol AppView XRPC server",
+      url: "https://pds.example.org/xrpc/",
+      description: "Example atproto PDS (Authenticated)",
+    },
+    {
+      url: "https://bsky.network/xrpc/",
+      description: "Bluesky Relay (Public, No Auth)",
     },
   ],
   paths,
