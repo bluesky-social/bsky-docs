@@ -6,6 +6,8 @@ tags: ['federation', 'guide']
 
 _For a high-level introduction to data federation, as well as a comparison to other federated social protocols, check out the [Bluesky blog](https://bsky.social/about/blog/02-22-2024-open-social-web)._
 
+_**Update May 2024:** we have removed the Discord registration requirement, and PDS instances can now connect to the network directly. You are still welcome to join the PDS Admins Discord for community support._
+
 Today, we’re releasing an early-access version of federation intended for self-hosters and developers.
 
 The atproto network is built upon a layer of [self-authenticating](https://bsky.social/about/blog/3-6-2022-a-self-authenticating-social-protocol) data. This foundation is critical to guaranteeing the network’s long term integrity. But the protocol’s openness ultimately flows from a diverse set of hosts broadcasting this data across the network.
