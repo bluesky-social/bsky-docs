@@ -4,7 +4,7 @@ title: 2024 Protocol Roadmap
 tags: ['updates']
 ---
 
-*Discuss this post in our Github Discussion forums [here](#TODO)*
+*Discuss this post in our Github Discussion forums [here](https://github.com/bluesky-social/atproto/discussions/2469)*
 
 This roadmap is an update on our progress and lays out our general goals and focus for the coming months. This document is written for developers working on atproto clients, implementations, and applications (including Bluesky-specific projects). This is not a product announcement: while some product features are hinted at, we aren't promising specific timelines here. As always, most Bluesky software is free and open source, and observant folks can follow along with our progress week by week in GitHub.
 
@@ -85,7 +85,7 @@ There are a few other pieces of protocol work which we are starting to plan out,
 
 ## Standards Body Timeline
 
-As described in our [2023 Protocol Roadmap](https://docs.bsky.app/blog/protocol-roadmap#protocol-governance), we hope to bring atproto to an existing standards body to solidify governance and interoperability of the lower levels of the protocol. We had planned to start the formal process this summer, but as we talked to more people experienced with this process, we realized that we should wait until the design of the protocol has been explored by more developers. It would be ideal to have a couple organizations with atproto experience collaborate on the standards process together. If you are interested in being part of the atproto standards process, leave a message in [the discussion thread for this post](#TODO), or email <protocol@blueskyweb.xyz>.
+As described in our [2023 Protocol Roadmap](https://docs.bsky.app/blog/protocol-roadmap#protocol-governance), we hope to bring atproto to an existing standards body to solidify governance and interoperability of the lower levels of the protocol. We had planned to start the formal process this summer, but as we talked to more people experienced with this process, we realized that we should wait until the design of the protocol has been explored by more developers. It would be ideal to have a couple organizations with atproto experience collaborate on the standards process together. If you are interested in being part of the atproto standards process, leave a message in [the discussion thread for this post](https://github.com/bluesky-social/atproto/discussions/2469), or email <protocol@blueskyweb.xyz>.
 
 While there has been a flowering of many projects built around the `app.bsky` microblogging application, there have been very few additional Lexicons and applications built from scratch. Some of this stemmed from restrictions on data schemas and proxying behavior on the Bluesky-hosted PDS instances, only relaxed just recently. We hope that new apps and Lexicons will exercise the full capabilities and corner-cases of the protocol.
 
