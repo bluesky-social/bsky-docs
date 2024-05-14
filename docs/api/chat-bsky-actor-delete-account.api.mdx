@@ -1,0 +1,233 @@
+---
+id: chat-bsky-actor-delete-account
+title: "chat.bsky.actor.deleteAccount"
+description: "chat.bsky.actor.deleteAccount"
+sidebar_label: "chat.bsky.actor.deleteAccount"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VN9r2zAQ/leOe2kHxsnGnvyWdmULY2toszEoeVDkS6xGllTp3MYL/t/H2W3TNR0dDOYXW+j0/bj75B2yWicsrlBXivNl2rS50uwjLjL0gaJi4920xOJ5QV6SJaaJ1r5xjBkm0k003GJxtcMTUpEiFleLbpFhpBS8S5Sw2OG78VheJSUdTRB4LPD8M2aovWNyLLsqBGt0Tz66TlKyw6QrqpV8cRsIC/TLa9JCHaJIZdMTdPJk+P4lmhNVwgXdNJT4X/gi3TQmUil9oxh9xAxrSkmtSfr2m5z7gj1K4mjcGjMk19SCMHW3yppyr+tsGwR97jfkMHvYH5aLbk91gNk9en976P2bUw1XPpqfVP5/89q7xFjgpOHqi0mpl/uqlS57ZuK1ENbElZe0Bt+3Miiu/iq78ZZi6qPbRIsFVswhFaNRaJbW6FwFc38+hNE2Bj3C59JObENp08IkhO+G7uB41h/N4KsHcf0Gu+wAvUw5bVUdLOU+rv+AfDZUgOIQPXuYfbiEY4EkxzI3Kl/C7uU64jsfN69IviCr2pcEL/bX+lICMQz14XI/zkwopYt9CRa4HApkfMatfF9p2MrWZA4zMaG9hR8Xs1OYzKZytKlrFVss8NQ7GYXxDvwKnpQfJbC0NRIkYA/ngdxkNj1KMEQVVj7WivMDk/PKJEikZQmSemVcgk/z+Uy4IdKKIjlNUHqdBAUe2qJc+VTAI30OH8nJr5FAweAVWG6n6GJK3ANrZW2C0kTSbFtYRV8DVwONqLx3iQWO83E+xq77BR8F7eY=
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  chat.bsky.actor.deleteAccount
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"chat.bsky.actor.deleteAccount"}
+>
+  
+</MethodEndpoint>
+
+
+
+chat.bsky.actor.deleteAccount
+
+## Request
+
+<div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
