@@ -4860,6 +4860,1703 @@
         }
       }
     },
+    "chat.bsky.actor.deleteAccount": {
+      "post": {
+        "tags": [
+          "chat.bsky.actor"
+        ],
+        "operationId": "chat.bsky.actor.deleteAccount",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.actor.exportAccountData": {
+      "get": {
+        "tags": [
+          "chat.bsky.actor"
+        ],
+        "operationId": "chat.bsky.actor.exportAccountData",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/jsonl": {}
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.deleteMessageForSelf": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.deleteMessageForSelf",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "convoId",
+                  "messageId"
+                ],
+                "properties": {
+                  "convoId": {
+                    "type": "string"
+                  },
+                  "messageId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.getConvo": {
+      "get": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.getConvo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "convoId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "convo"
+                  ],
+                  "properties": {
+                    "convo": {
+                      "$ref": "#/components/schemas/chat.bsky.convo.defs.convoView"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.getConvoForMembers": {
+      "get": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.getConvoForMembers",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "members",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "did"
+              },
+              "maxItems": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "convo"
+                  ],
+                  "properties": {
+                    "convo": {
+                      "$ref": "#/components/schemas/chat.bsky.convo.defs.convoView"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.getLog": {
+      "get": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.getLog",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "logs"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "logs": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logBeginConvo"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logLeaveConvo"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logCreateMessage"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logDeleteMessage"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.getMessages": {
+      "get": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.getMessages",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "convoId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "messages"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.leaveConvo": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.leaveConvo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "convoId"
+                ],
+                "properties": {
+                  "convoId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "convoId",
+                    "rev"
+                  ],
+                  "properties": {
+                    "convoId": {
+                      "type": "string"
+                    },
+                    "rev": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.listConvos": {
+      "get": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.listConvos",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "convos"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "convos": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/chat.bsky.convo.defs.convoView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.muteConvo": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.muteConvo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "convoId"
+                ],
+                "properties": {
+                  "convoId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "convo"
+                  ],
+                  "properties": {
+                    "convo": {
+                      "$ref": "#/components/schemas/chat.bsky.convo.defs.convoView"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.sendMessage": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.sendMessage",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "convoId",
+                  "message"
+                ],
+                "properties": {
+                  "convoId": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "$ref": "#/components/schemas/chat.bsky.convo.defs.message"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.sendMessageBatch": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.sendMessageBatch",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "items"
+                ],
+                "properties": {
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/chat.bsky.convo.sendMessageBatch.batchItem"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "items"
+                  ],
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.unmuteConvo": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.unmuteConvo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "convoId"
+                ],
+                "properties": {
+                  "convoId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "convo"
+                  ],
+                  "properties": {
+                    "convo": {
+                      "$ref": "#/components/schemas/chat.bsky.convo.defs.convoView"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.convo.updateRead": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "operationId": "chat.bsky.convo.updateRead",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "convoId"
+                ],
+                "properties": {
+                  "convoId": {
+                    "type": "string"
+                  },
+                  "messageId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "convo"
+                  ],
+                  "properties": {
+                    "convo": {
+                      "$ref": "#/components/schemas/chat.bsky.convo.defs.convoView"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.moderation.getActorMetadata": {
+      "get": {
+        "tags": [
+          "chat.bsky.moderation"
+        ],
+        "operationId": "chat.bsky.moderation.getActorMetadata",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "actor",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "did"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "day",
+                    "month",
+                    "all"
+                  ],
+                  "properties": {
+                    "day": {
+                      "$ref": "#/components/schemas/chat.bsky.moderation.getActorMetadata.metadata"
+                    },
+                    "month": {
+                      "$ref": "#/components/schemas/chat.bsky.moderation.getActorMetadata.metadata"
+                    },
+                    "all": {
+                      "$ref": "#/components/schemas/chat.bsky.moderation.getActorMetadata.metadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.moderation.getMessageContext": {
+      "get": {
+        "tags": [
+          "chat.bsky.moderation"
+        ],
+        "operationId": "chat.bsky.moderation.getMessageContext",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 5
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "messages"
+                  ],
+                  "properties": {
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "chat.bsky.moderation.updateActorAccess": {
+      "post": {
+        "tags": [
+          "chat.bsky.moderation"
+        ],
+        "operationId": "chat.bsky.moderation.updateActorAccess",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "actor",
+                  "allowAccess"
+                ],
+                "properties": {
+                  "actor": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "allowAccess": {
+                    "type": "boolean"
+                  },
+                  "ref": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "com.atproto.admin.deleteAccount": {
       "post": {
         "tags": [
@@ -12767,6 +14464,25 @@
           },
           "labeler": {
             "type": "boolean"
+          },
+          "chat": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.profileAssociatedChat"
+          }
+        }
+      },
+      "app.bsky.actor.defs.profileAssociatedChat": {
+        "type": "object",
+        "required": [
+          "allowIncoming"
+        ],
+        "properties": {
+          "allowIncoming": {
+            "type": "string",
+            "enum": [
+              "all",
+              "none",
+              "following"
+            ]
           }
         }
       },
@@ -14816,6 +16532,345 @@
           }
         }
       },
+      "chat.bsky.actor.declaration": {
+        "type": "object",
+        "required": [
+          "allowIncoming"
+        ],
+        "properties": {
+          "allowIncoming": {
+            "type": "string",
+            "enum": [
+              "all",
+              "none",
+              "following"
+            ]
+          }
+        }
+      },
+      "chat.bsky.actor.defs.profileViewBasic": {
+        "type": "object",
+        "required": [
+          "did",
+          "handle"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "handle": {
+            "type": "string",
+            "format": "handle"
+          },
+          "displayName": {
+            "type": "string",
+            "maxLength": 640
+          },
+          "avatar": {
+            "type": "string",
+            "format": "uri"
+          },
+          "associated": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.profileAssociated"
+          },
+          "viewer": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.viewerState"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.label.defs.label"
+            }
+          },
+          "chatDisabled": {
+            "type": "boolean",
+            "description": "Set to true when the actor cannot actively participate in converations"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.messageRef": {
+        "type": "object",
+        "required": [
+          "did",
+          "messageId"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "messageId": {
+            "type": "string"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.message": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "facets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.richtext.facet"
+            }
+          },
+          "embed": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/app.bsky.embed.record"
+              }
+            ]
+          }
+        }
+      },
+      "chat.bsky.convo.defs.messageView": {
+        "type": "object",
+        "required": [
+          "id",
+          "rev",
+          "text",
+          "sender",
+          "sentAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "facets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.richtext.facet"
+            }
+          },
+          "embed": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/app.bsky.embed.record"
+              }
+            ]
+          },
+          "sender": {
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.messageViewSender"
+          },
+          "sentAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.deletedMessageView": {
+        "type": "object",
+        "required": [
+          "id",
+          "rev",
+          "sender",
+          "sentAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.messageViewSender"
+          },
+          "sentAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.messageViewSender": {
+        "type": "object",
+        "required": [
+          "did"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.convoView": {
+        "type": "object",
+        "required": [
+          "id",
+          "rev",
+          "members",
+          "muted",
+          "unreadCount"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "rev": {
+            "type": "string"
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/chat.bsky.actor.defs.profileViewBasic"
+            }
+          },
+          "lastMessage": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+              },
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+              }
+            ]
+          },
+          "muted": {
+            "type": "boolean"
+          },
+          "unreadCount": {
+            "type": "integer"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.logBeginConvo": {
+        "type": "object",
+        "required": [
+          "rev",
+          "convoId"
+        ],
+        "properties": {
+          "rev": {
+            "type": "string"
+          },
+          "convoId": {
+            "type": "string"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.logLeaveConvo": {
+        "type": "object",
+        "required": [
+          "rev",
+          "convoId"
+        ],
+        "properties": {
+          "rev": {
+            "type": "string"
+          },
+          "convoId": {
+            "type": "string"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.logCreateMessage": {
+        "type": "object",
+        "required": [
+          "rev",
+          "convoId",
+          "message"
+        ],
+        "properties": {
+          "rev": {
+            "type": "string"
+          },
+          "convoId": {
+            "type": "string"
+          },
+          "message": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+              },
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+              }
+            ]
+          }
+        }
+      },
+      "chat.bsky.convo.defs.logDeleteMessage": {
+        "type": "object",
+        "required": [
+          "rev",
+          "convoId",
+          "message"
+        ],
+        "properties": {
+          "rev": {
+            "type": "string"
+          },
+          "convoId": {
+            "type": "string"
+          },
+          "message": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+              },
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+              }
+            ]
+          }
+        }
+      },
+      "chat.bsky.convo.sendMessageBatch.batchItem": {
+        "type": "object",
+        "required": [
+          "convoId",
+          "message"
+        ],
+        "properties": {
+          "convoId": {
+            "type": "string"
+          },
+          "message": {
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.message"
+          }
+        }
+      },
+      "chat.bsky.moderation.getActorMetadata.metadata": {
+        "type": "object",
+        "required": [
+          "messagesSent",
+          "messagesReceived",
+          "convos",
+          "convosStarted"
+        ],
+        "properties": {
+          "messagesSent": {
+            "type": "integer"
+          },
+          "messagesReceived": {
+            "type": "integer"
+          },
+          "convos": {
+            "type": "integer"
+          },
+          "convosStarted": {
+            "type": "integer"
+          }
+        }
+      },
       "com.atproto.admin.defs.statusAttr": {
         "type": "object",
         "required": [
@@ -16553,6 +18608,15 @@
     },
     {
       "name": "app.bsky.unspecced"
+    },
+    {
+      "name": "chat.bsky.actor"
+    },
+    {
+      "name": "chat.bsky.convo"
+    },
+    {
+      "name": "chat.bsky.moderation"
     },
     {
       "name": "com.atproto.admin"
