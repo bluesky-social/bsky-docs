@@ -40,7 +40,7 @@ News Detective fights misinformation by combining the experience of professional
 
 ## Contact
 
-Please feel free to leave questions or comments on the GitHub discussion for this announcement [here](https://github.com/bluesky-social/atproto/discussions/2496), or on the Bluesky post here. 
+Please feel free to leave questions or comments on the GitHub discussion for this announcement [here](https://github.com/bluesky-social/atproto/discussions/2496), or on the Bluesky post [here](https://bsky.app/profile/atproto.com/post/3ksmpstsett27). 
 
 [^1]:
      AWS Activate Credits are subject to the program's [terms and conditions](https://aws.amazon.com/activate/terms/). 
