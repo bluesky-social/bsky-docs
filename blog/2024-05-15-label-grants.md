@@ -24,6 +24,7 @@ If you’re an organization interested in running a labeler but do not currently
 
 ## Initial Labeling Grant Recipients
 
+We're kicking off the program with grants to three initial recipients:
 
 **XBlock**
 
@@ -39,7 +40,7 @@ News Detective fights misinformation by combining the experience of professional
 
 ## Contact
 
-Please feel free to leave questions or comments on the GitHub discussion for this announcement here, or on the Bluesky post here. 
+Please feel free to leave questions or comments on the GitHub discussion for this announcement [here](https://github.com/bluesky-social/atproto/discussions/2496), or on the Bluesky post here. 
 
 [^1]:
      AWS Activate Credits are subject to the program's [terms and conditions](https://aws.amazon.com/activate/terms/). 
