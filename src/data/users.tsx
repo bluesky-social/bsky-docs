@@ -1145,6 +1145,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:6k6rbr4hmsvifx7qe4l7eerd',
     tags: ['othertools'],
   },
+  {
+    title: 'X.Bluesky',
+    description: 'The X.Bluesky is a .NET library designed to make it easy for developers to post messages to Bluesky.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/ernado-x/X.Bluesky',
+    author: 'https://bsky.app/profile/andrew.gubskiy.com',
+    tags: ['othertools', 'opensource', 'firehose'],
+  },
 ]
 
 export type User = {
