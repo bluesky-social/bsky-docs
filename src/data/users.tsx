@@ -1145,6 +1145,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:6k6rbr4hmsvifx7qe4l7eerd',
     tags: ['othertools'],
   },
+  {
+    title: 'BlueRiver',
+    description: 'VSCode client for Bluesky',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://marketplace.visualstudio.com/items?itemName=zuk246.blueriver',
+    source: 'https://github.com/zuk246/BlueRiver',
+    author: 'https://bsky.app/profile/did:plc:oxqrfur74k6qr4xy4g3clfe3',
+    tags: ['client', 'opensource']
+  },
 ]
 
 export type User = {
