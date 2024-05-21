@@ -5,7 +5,7 @@ description: "chat.bsky.moderation.getMessageContext"
 sidebar_label: "chat.bsky.moderation.getMessageContext"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VUtv2zAM/isCL+sAw8mG7eJb2hVbMHQN2mwYEOSgSHSsxpZUiU6TFfnvA+282qRrCxTzxZBFfQ+Sou+B5DRCNgJVSEoncbZMK6cxSDLOwjgB59eLvobsaFQ6RbrAGOUUz5wlXBAkEFHVwdASstE9nKIMGCAbjVfjBLwMskLCEJtNKyuEDKoWoa8hAWMhg9sawxISCHhbm4AaMgo1JhBVgZWE7B5o6flkpGDsFFarZAs2wdwFfBopl2U8BmUs4RQDJKAxl3VJkH3ex5U5NbtvAjvmo9E7GzFy8Mdul18aowrGN/nP4PI7JKA4rZZ4V3pfGtXkvXMTOeT+kM9NblDRA2mjTYIjF9UHLiuZlni7s0OQIUj2Zgir5ruzeJk39foXh9HNhzkksO0DqxvnES31iMnJUIkPekk5O3epxjymay2/DN4BJ/6FbK+l0Vgiob7YZxuv2ieBT8cqcSq1uMLbGiO9VUkwBMei16YPK9MGHLR6AmjrihH6di5Lo3e6zhee0YduhhaSzX67HK92VEeuz8b7h0PvP62sqXDB/EH9/80rZyNBBr2aigsTYyP3WSur5JGJF8+uCqlwPO2myEsvqXjd6AvzzXCrQwkZFEQ+Zp2OryelUan0pgWS3ncWwasOPNZ6WtYYZ0vR856bU5wMmqOJ+OEEp+F9czkeoeuY4kJWvsTUhekTyOdthJDkgyMnBl+uxQlDoiUuJOpj2I1ci3TnwuwZyVdYyuUxwePdX+GaO6St8ubfsC0iU8J6iLazvAngehqbuyZyfbV7QzFgE8qV4vfV4Ez0Bn0+WleVDEvI4MxZLoVxVrhc7IW/i6LEheHOEuTEpUfbG/TfRdH2rshdqCSlByaHhYkiouKl4GsgjY3i23A4YG4RMMeAVqHQTkVGEZu0SKv3BWzpU/EVLbcTCilar4L4urIuwkgNsJJlGYU2ARWVS5EHVwkqWhpWuXYJGXTTbtqF1eovkze34A==
+api: eJy9VUtv2zgQ/iuDubQLCLK7aC+6OdmgNYo0RupdLBD4QEsjiw1FMuTIsTfwf18M5Vdqpw+gaC6OxNH3mAfnCVktIhZ3WDaK83m8X+etqygo1s7iLEPntw/jCouzUfmC+JpiVAu6dJZpxZhhpLILmtdY3D3hBalAAYu72WaWoVdBtcQUYjq0qiVBdnbpxhVmqC0W+NBRWGOGFcUyaJ/UFHjp7JJCTLTAjWLghqDtyUFHqINrc/h0M70qgBt5oclU8KiNAVqS5U4Zs4Y5QaCHTgeqcsxw9z8WtTKRMoxlQ63C4gl57UVd5KDt4vfo2WyyfVa2UKd5OUjm0H1D8THYnGoX6GWkl8xry7SgkNzXqjOMxbtjXFVzOv0lsDP5NHpnI0UJ/nM4lJ/neb/5iJl0DJNlOVXeG12mMgy+RAl5OuVz8y9U8jNpd7sER2l1H6TZWffE+5MDggpBiTfN1Kb3ztJNnbr4Wxy6Si+WmOF+OmyVnEeyPGIhZ82Gnk1Ymoi8ojrmWy3/aHpESfwPsv0sTUWGmKrrY7bZpv/L8O25SlyoCm7poaPIv6okFIIT0VvTp5XpA84MJ9muFYSxXSqjq4Ouq5UX9Km7J4vZ7rx/nG0OVGfGZ+f9zan3v63quHFB/0fV7zdfOhsZCxx13FzrGJPc71rZfH2F/fCN3hI3TnbAguTRK25+biGE5e7K74LBAhtmH4vBwHdzo8tced0DKe8Hq+DLwcl1e2E6ivdrGHkvzQmvJ+nTDD45kDT8kYbjK/Qq5rRSrTeUu7B4AfmqjwDFPjh2MPnrM7wWSLIshaTqHHaSa4kfXbj/juRbMmp9TvDssCs/S4f0Vd5tzH0RhRK3l2h/l6cAqae2tUuR29EeTWEiJkpn4N/bySWMJmP5tGtbFdaHrSU7y9VwFP4qgqGVls4CdnDjyY4m41cR+t6F2oVWcX5iciqbLVKZ1qCMgdI2wofpdCLcEKimQLYkqFwZBQV2aVG2Ohawp8/hPVlpJwIFvVdgGVfRxRQ5AZfKmAiVDlSyWadlmxaw0IjKrUsscJgP8yFuNv8DWKkZ0Q==
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -58,6 +58,11 @@ chat.bsky.moderation.getMessageContext
   </summary><div>
     <ul>
       <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"convoId","in":"query","description":"Conversation that the message is from. NOTE: this field will eventually be required.","required":false,"schema":{"type":"string","description":"Conversation that the message is from. NOTE: this field will eventually be required."}}}
+      >
+        
+      </ParamsItem><ParamsItem
         className={"paramsItem"}
         param={{"name":"messageId","in":"query","required":true,"schema":{"type":"string"}}}
       >
