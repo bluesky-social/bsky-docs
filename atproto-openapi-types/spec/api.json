@@ -10186,6 +10186,10 @@
                   "name": {
                     "type": "string",
                     "description": "A short name for the App Password, to help distinguish them."
+                  },
+                  "privileged": {
+                    "type": "boolean",
+                    "description": "If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients."
                   }
                 }
               }
@@ -17384,6 +17388,9 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "privileged": {
+            "type": "boolean"
           }
         }
       },
@@ -17495,6 +17502,9 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "privileged": {
+            "type": "boolean"
           }
         }
       },
