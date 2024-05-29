@@ -1145,6 +1145,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:6k6rbr4hmsvifx7qe4l7eerd',
     tags: ['othertools'],
   },
+  {
+    title: "Bluesky Feed Creator",
+    description: "Quickly design and customize your own Bluesky feeds, no coding knowledge required.",
+    preview: require('./showcase/bsfc.png'),
+    website: 'https://blueskyfeedcreator.com/',
+    author: 'https://bsky.app/profile/blueskyfeedcreator.com',
+    tags: ['favorite', 'customfeed'],
+  },
 ]
 
 export type User = {
