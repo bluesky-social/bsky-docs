@@ -5,7 +5,7 @@ description: "Get the current commit CID & revision of the specified repo. Does 
 sidebar_label: "com.atproto.sync.getLatestCommit"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VUtv2zAM/isED1sHGE427ORb2nRbsEeDLhsGFDmoMpOotSWVott6Rf77QDvpY8keh2G5BAKp70FS9B2KWSYsztCGOjcSOUjIU+stzjMsKVl2UVzwWOBbEpAVgW2YyQvYUNdO4GgyhmfAdO2SCx7CoktKkaxbOCqBKYYcxoES+CDAdNU4JjCNrHLMMERiowyTEosdFfmS5IMRSnLUsWGGiWzDTloszu7wkAwTY3E2X88zjIZNTUKcuqA3NWGBpSsxQ6cWrhriFn82NlsRjCfjrfROMGa4UVpiIdxQhsmuqDZY3KG0UYGTsPPLv4VbBK6NbPSsVS5TisEnSor5ajjUv6dQJ+8xQxu8kBeNmhgrZ7tyDS6SptztygrnF2TliYEztF0RmK61r5G16uJ6Zg3tMXWvV+Pr/u5O2rr7Zfh6n/pDU8IpXTWU5F/ZIObAmGFNKZkl7ZrpE/bYId/UijDx16Zy5YOu49uo6LNwSR6zbXx7PKUYPgV5Expf4nz9wPybUrzcLcUXr/Me2H2n8v/XwgaftJOjRlYfXUqd3D9a6TJkFfRdLknZo5HV3z5Svt4+w4YrLHAlElMxGMTmvHI2N9Hl5+myzU2Mg1uOdrDzjg6rhtJlC6MYvzq6gYNpdzWDTwHUyQtcZzvoZcrp1tSxojzw8hfIx30GbEzAdPwZDhSSvGgvqNyH3cn1JDeBL/8g+ZQq0+4TPH/YX5+1yX2jtlvsvg9KiZuNo+fzPkFb4vwidJlOKg2NZjBVEzZU8O10egSj6USvNnVtuMUCj4LXVmx286P05wkqunU6HCABTiL50XTyPEE/ftAvgHzPfnMJElk9gk6ycT7Bu9lsqtzAtCAmbwnKYJOiwLYsxpePBdzT5/CWvH4GCAz0XkH0AaounasO2JqqSlA6JitVCwsOdbdglUZVblxigcN8mA9xvf4B97FeXA==
+api: eJy9VcFuG0cM/RWChyYFFiul6GlvspUmQtJEsNWigKHDeIaSJtqdGXO4sreG/r3grmQnkdLkUFQXYcA3j++RQ+4jillnrG7QxqY0kjhKLHMXLC4LdJQt+yQ+BqzwDQnIhsC2zBQEbGwaL3A5m8JPwLTz2ccAcdWDciLrV54cMKVYwjRShhAFmO5azwSmlU2JBcZEbDTDzGF1oqJck7w3Qlku+2xYYCbbspcOq5tHvCDDxFjdLPfLApNh05AQ5z4YTENYofMOC/Rq4a4l7vBrY4sNwXQ2PUrvBWOBB6UOK+GWCsx2Q43B6hGlS0qchX1Y/yjdKnJj5KBnr3KZcoohU1bOX8Zj/fuS6uM7LNDGIBREoyal2tu+XKNPWSGPp7Li7Sey8oWBG7R9EZh22tfEWnXxQ2YNnTH1pFfj++HuCWzf/wr89Zz6C+Pgiu5ayvJf2SDmyFhgQzmbNZ2aGQBn7FBoG2WYhZ2pvXvW9fohKfsibilgcYwfj1eU4ocov8U2uMNxYbYUXLw/hq/bnCg4OsanZKz4nRFyuNw/a/2X4r06Ld4fQScksv+7J/6fq2djyNr7SSub333OvdzvWukRsok6yWvS7MnI5kfHmnfHwW25xgo3IilXo1Fqb2tvS5N8eZu3XWlSGj1wsqOTybuoW8rbDiYp/enpHl7O+6sFfIigTn7GfXHC7nJJD6ZJNZWR199gfj0g4GAC5tNreKmUFER7Qe4cdy83kNxH3n5H8hXVpjsnePm88a61yUOjjnvvqQ+aEg87Ss+3A0Bb4sMq9kgvtYYmC5irCRtr+OtqfgmT+Uyvtk1juMMKL2PQVhy2+WfwFxlqevD6OEAifEwUJvPZiwzD84NhZZRnNqLPkMnqEfQlGx8yvF0s5pobmFbEFCyBizYrCxzLYoL7XMBT+hLeUNAPB4GBwSuIjqzq0nfVE1tT1xmcZ7JSd7Di2PQrWdOoyoNLrHBcjssx7vf/ALhvcCI=
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -201,8 +201,8 @@ Get the current commit CID & revision of the specified repo. Does not require au
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`, `RepoNotFound`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","RepoNotFound"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`, `RepoNotFound`, `RepoTakendown`, `RepoSuspended`, `RepoDeactivated`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","RepoNotFound","RepoTakendown","RepoSuspended","RepoDeactivated"]}}
                       >
                         
                       </SchemaItem><SchemaItem
