@@ -5,7 +5,7 @@ description: "Refresh an authentication session. Requires auth using the 'refres
 sidebar_label: "com.atproto.server.refreshSession"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VU1vGjEQ/SujuZBIq4VWPe2NfKilVRtEaFUp4mC8A+uwa7seb4Ei/ns1u3wkhTY9VOUSYj+/mffmgw1GNWfMHlC7KlXRBxddyhS+U8BJgjmxDsZH4yxmOKJZIC5AWVB1LMhGo5XcAROzcTaFEX2rTSBuAFCzsXOIBUEntG/fL2MHLqyL7anSmpjl8DLFBJ2n0BAOcszOpJTuWO7bcJggk66DiWvMHjZ4RSpQwOxhsp0kGIi9s0yM2QZf93ry57meuw+YoHY2ko1yq7wvd4q6jyyQDbIuqFLyLa49YYZu+kg6ovA3UnNx76CjOd8rxQQLZfOSMMHc5GKoD6Ixmjar47MjP8dg7By3z4jOXe+oT64SnLlQqYjZHrJtw/8JKfct7MZpzDbb5pPgm3O+Xam8KTRx/FcGUgguYIIVMas5nVrVAs5IIFtXwjCw31Vp8mNetysv7GO3IOmU3f3+377WrrZxrBaUu6XFyfYY/NTtgxuvTt34bKXXXTA/KP//dmhnWQrYr2Px0TDvmuMFKQ0iFk7GzLvGLq9i8ddDJ+fczFwdSmm0GD1n3a6vp6XRqfImnfJinSrvu6vgdRd/3SVXZU28WEPf+y+GlnAxbJ4m8MmBaLnEbXLCnnNKK1X5klIX5r9hvm0RsFMBw5t7uOgf9xXl57ibdC3FpQuLF1IeUanW5xKeHPfRvZS5LdV+Kx0qISHFxQaCGU5bgBTF2JlrkCbKaGN/DEMRoV0JX0fDa+gPB/K0rioV1pjhtbNSCtnBbgZP4B2GklZG2gOigztPtj8cdBjaBoR28tMTkePCMDDpZq1LLytjGd6Nx0OJDYFmFMhqgtxpFhbY26Js/jSBQ/gU3pKVvU6goNUKUaZQ8orEsSHWqiwZchNIx3INs+Cq5idCwkiWO5WYYS/tpT3cbn8CjTZW9A==
+api: eJy9VcFuG0cM/RWCFznAYqUUPe1NToJGKZIItloUMHQYz1LSRLsz0yHXtirsvweclSwbUpseiuoiafj2ke+Rw92jmDVjdYc2tKWRmIKEkik9UMJlgTWxTS6KCx4rvKFVIt6A8WA62ZAXZ43GgInZBV/CDf3ZuUScAdCx82uQDcEoDc9+epQRXPkgw6mxlpj18E2JBYZIKRPOaqwulFQeWG6HdFggk+2Skx1Wd3u8JpMoYXW37JcFJuIYPBNjtcefJhP9eq3n669YoA1eyItGTYzNQdH4Gytkj2w31Br9JbtIWGG4/0ZWUPmz1Frde9aRz49KscCN8XVDWGDtajU0JtUobqjq9NiJnyU5v8b+FdGl8IH6LFTgKqTWCFZHSD+k/yekxgfY+2Cx2vcFGivu4SX/fQgNGa84FiMdX2J87fDHwKIjMOAhrHLbjbWh81LCbAU6ChzJupWjutCwB8PctXk6tIKRTgb5rlWjxWzJ1+Ex977jSL6mOqfNYCNU47LPnwJ/vtT0a1PnKSWW/6r7lFJIWGBLzGZN530eABfcOsqa+QfTuPpU14enqOyLsCWVeogf/04HAxdmS9mLZX9Kfj4qz268PXfjN68XNST3V7bxf7bDBs86fdNONp8d82GyfyAlI2QTdEfEkO2KRjb/emPoOeeF0aVGb4lI5Go8jt1942xpoivvebsrTYzjpxTt+Gysr5uOeLuDaYy/O3qEq3l+tIAvAVTLG+yLM/aaS3oybWyoDGn9N8wfBgQcVMD8/S1cTU/LlupL3LlcT/IY0vYHJd9QY3aXCl6elumttnlo1XGlPndCU6qLGaJLYQBoU5xfhYx0onsJpwuYqwgbGvjjZv4OpvNZvrZta9IOK3wXvLZCXyBhBS/gI4aGnpyOB0iAr5H8dD4bMQwDCMPaKs9ELjaOgcnmd5LOsnGe4eNiMdfckGhFibwlqINlZYGjLcbXLwt4Tl/CL+T1pURgYNAKordQ6xJiycTWNA1D7RJZaXawSqHNi07TaJUHlVjhpJyUE+z773bGmLY=
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -135,6 +135,24 @@ Refresh an authentication session. Requires auth using the 'refreshJwt' (not the
                         schema={{}}
                       >
                         
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"active"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`takendown`, `suspended`, `deactivated`]"}
+                        schema={{"type":"string","description":"Hosting status of the account. If not specified, then assume 'active'.","enum":["takendown","suspended","deactivated"]}}
+                      >
+                        
                       </SchemaItem>
                     </ul>
                   </details>
@@ -143,7 +161,7 @@ Refresh an authentication session. Requires auth using the 'refreshJwt' (not the
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"accessJwt\": \"string\",\n  \"refreshJwt\": \"string\",\n  \"handle\": \"string\",\n  \"did\": \"string\",\n  \"didDoc\": {}\n}"}
+                    responseExample={"{\n  \"accessJwt\": \"string\",\n  \"refreshJwt\": \"string\",\n  \"handle\": \"string\",\n  \"did\": \"string\",\n  \"didDoc\": {},\n  \"active\": true,\n  \"status\": \"takendown\"\n}"}
                     language={"json"}
                   >
                     
