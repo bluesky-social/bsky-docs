@@ -7310,6 +7310,9 @@
                     },
                     "takedown": {
                       "$ref": "#/components/schemas/com.atproto.admin.defs.statusAttr"
+                    },
+                    "deactivated": {
+                      "$ref": "#/components/schemas/com.atproto.admin.defs.statusAttr"
                     }
                   }
                 }
@@ -10551,6 +10554,18 @@
                     },
                     "emailAuthFactor": {
                       "type": "boolean"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+                      "enum": [
+                        "takendown",
+                        "suspended",
+                        "deactivated"
+                      ]
                     }
                   }
                 }
@@ -11130,7 +11145,19 @@
                     "emailAuthFactor": {
                       "type": "boolean"
                     },
-                    "didDoc": {}
+                    "didDoc": {},
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+                      "enum": [
+                        "takendown",
+                        "suspended",
+                        "deactivated"
+                      ]
+                    }
                   }
                 }
               }
@@ -11315,7 +11342,19 @@
                       "type": "string",
                       "format": "did"
                     },
-                    "didDoc": {}
+                    "didDoc": {},
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Hosting status of the account. If not specified, then assume 'active'.",
+                      "enum": [
+                        "takendown",
+                        "suspended",
+                        "deactivated"
+                      ]
+                    }
                   }
                 }
               }
@@ -17092,6 +17131,10 @@
           },
           "inviteNote": {
             "type": "string"
+          },
+          "deactivatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -18467,6 +18510,10 @@
           },
           "inviteNote": {
             "type": "string"
+          },
+          "deactivatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -18524,6 +18571,10 @@
             "type": "string"
           },
           "emailConfirmedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deactivatedAt": {
             "type": "string",
             "format": "date-time"
           }
