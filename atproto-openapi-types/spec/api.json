@@ -7371,6 +7371,124 @@
         }
       }
     },
+    "com.atproto.admin.searchAccounts": {
+      "get": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Get list of accounts that matches your search query.",
+        "operationId": "com.atproto.admin.searchAccounts",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "accounts"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "accounts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.atproto.admin.defs.accountView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "com.atproto.admin.sendEmail": {
       "post": {
         "tags": [
@@ -14512,6 +14630,98 @@
           }
         }
       }
+    },
+    "tools.ozone.server.getConfig": {
+      "get": {
+        "tags": [
+          "tools.ozone.server"
+        ],
+        "description": "Get details about ozone's server configuration.",
+        "operationId": "tools.ozone.server.getConfig",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "appview": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.serviceConfig"
+                    },
+                    "pds": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.serviceConfig"
+                    },
+                    "blobDivert": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.serviceConfig"
+                    },
+                    "chat": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.serviceConfig"
+                    },
+                    "viewer": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.viewerConfig"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -18779,6 +18989,28 @@
             "type": "integer"
           }
         }
+      },
+      "tools.ozone.server.getConfig.serviceConfig": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "tools.ozone.server.getConfig.viewerConfig": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "tools.ozone.team.defs#roleAdmin",
+              "tools.ozone.team.defs#roleModerator",
+              "tools.ozone.team.defs#roleTriage"
+            ]
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -18851,6 +19083,9 @@
     },
     {
       "name": "tools.ozone.moderation"
+    },
+    {
+      "name": "tools.ozone.server"
     }
   ]
 }
