@@ -1145,6 +1145,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:6k6rbr4hmsvifx7qe4l7eerd',
     tags: ['othertools'],
   },
+  {
+    title: 'bskyr',
+    description: 'AT Protocol implementation in R',
+    preview: require('./showcase/bskyr-r.png'),
+    website: 'https://christophertkenny.com/bskyr/',
+    source: 'https://github.com/christopherkenny/bskyr',
+    author: 'https://bsky.app/profile/did:plc:wpe35pganb6d4pg4ekmfy6u5',
+    tags: ['protocol', 'opensource'],
+  },
 ]
 
 export type User = {
