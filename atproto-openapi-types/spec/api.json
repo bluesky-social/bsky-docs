@@ -3191,6 +3191,129 @@
         }
       }
     },
+    "app.bsky.graph.getKnownFollowers": {
+      "get": {
+        "tags": [
+          "app.bsky.graph"
+        ],
+        "description": "Enumerates accounts which follow a specified account (actor) and are followed by the viewer.",
+        "operationId": "app.bsky.graph.getKnownFollowers",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "actor",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "at-identifier"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "subject",
+                    "followers"
+                  ],
+                  "properties": {
+                    "subject": {
+                      "$ref": "#/components/schemas/app.bsky.actor.defs.profileView"
+                    },
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "followers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.actor.defs.profileView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "app.bsky.graph.getList": {
       "get": {
         "tags": [
@@ -14926,6 +15049,29 @@
           "followedBy": {
             "type": "string",
             "format": "at-uri"
+          },
+          "knownFollowers": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.knownFollowers"
+          }
+        }
+      },
+      "app.bsky.actor.defs.knownFollowers": {
+        "type": "object",
+        "description": "The subject's followers whom you also follow",
+        "required": [
+          "count",
+          "followers"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "followers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.profileViewBasic"
+            },
+            "maxItems": 5
           }
         }
       },
