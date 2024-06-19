@@ -15019,6 +15019,415 @@
           }
         }
       }
+    },
+    "tools.ozone.team.addMember": {
+      "post": {
+        "tags": [
+          "tools.ozone.team"
+        ],
+        "description": "Add a member to the ozone team. Requires admin role.",
+        "operationId": "tools.ozone.team.addMember",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did",
+                  "role"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "tools.ozone.team.defs#roleAdmin",
+                      "tools.ozone.team.defs#roleModerator",
+                      "tools.ozone.team.defs#roleTriage"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.team.defs.member"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "MemberAlreadyExists"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.team.deleteMember": {
+      "post": {
+        "tags": [
+          "tools.ozone.team"
+        ],
+        "description": "Delete a member from ozone team. Requires admin role.",
+        "operationId": "tools.ozone.team.deleteMember",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "MemberNotFound",
+                        "CannotDeleteSelf"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.team.listMembers": {
+      "get": {
+        "tags": [
+          "tools.ozone.team"
+        ],
+        "description": "List all members with access to the ozone service.",
+        "operationId": "tools.ozone.team.listMembers",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "members"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "members": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.team.defs.member"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.team.updateMember": {
+      "post": {
+        "tags": [
+          "tools.ozone.team"
+        ],
+        "description": "Update a member in the ozone service. Requires admin role.",
+        "operationId": "tools.ozone.team.updateMember",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "disabled": {
+                    "type": "boolean"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "tools.ozone.team.defs#roleAdmin",
+                      "tools.ozone.team.defs#roleModerator",
+                      "tools.ozone.team.defs#roleTriage"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.team.defs.member"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "MemberNotFound"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -19334,6 +19743,59 @@
             ]
           }
         }
+      },
+      "tools.ozone.team.defs.member": {
+        "type": "object",
+        "required": [
+          "did",
+          "role"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.profileViewDetailed"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedBy": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "#roleAdmin",
+              "#roleModerator",
+              "#roleTriage"
+            ]
+          }
+        }
+      },
+      "tools.ozone.team.defs.roleAdmin": {
+        "type": "string",
+        "format": "token",
+        "description": "Admin role. Highest level of access, can perform all actions."
+      },
+      "tools.ozone.team.defs.roleModerator": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderator role. Can perform most actions."
+      },
+      "tools.ozone.team.defs.roleTriage": {
+        "type": "string",
+        "format": "token",
+        "description": "Triage role. Mostly intended for monitoring and escalating issues."
       }
     },
     "securitySchemes": {
@@ -19409,6 +19871,9 @@
     },
     {
       "name": "tools.ozone.server"
+    },
+    {
+      "name": "tools.ozone.team"
     }
   ]
 }
