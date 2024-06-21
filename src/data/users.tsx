@@ -184,6 +184,15 @@ const Users: User[] = [
     tags: ['protocol', 'opensource', 'favorite'],
   },
   {
+    title: 'swift-atproto (Swift)',
+    description: 'AT Protocol implementation in Swift',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/nnabeyang/swift-atproto',
+    source: 'https://github.com/nnabeyang/swift-atproto',
+    author: 'https://bsky.app/profile/did:plc:bnh3bvyqr3vzxyvjdnrrusbr',
+    tags: ['protocol', 'opensource'],
+  },
+  {
     title: 'Tokimeki',
     description: 'Web client for Bluesky',
     preview: require('./showcase/tokimeki.png'),
@@ -381,6 +390,15 @@ const Users: User[] = [
     source: 'https://github.com/akiomik/seiun',
     author: 'https://bsky.app/profile/did:plc:j5cxpczcvzajlxhfuq7abivp',
     tags: ['client', 'opensource'],
+  },
+  {
+    title: 'Neosky (nvim)',
+    description: 'Neovim Client for Bluesky',
+    preview: require('./showcase/neosky.png'),
+    website: 'https://neosky.social/',
+    source: 'https://github.com/sanhajio/neosky',
+    author: 'https://bsky.app/profile/sanhajio.bsky.social',
+    tags: ['client', 'opensource',],
   },
   {
     title: 'Ozone',
@@ -819,7 +837,7 @@ const Users: User[] = [
     title: 'atp tooling',
     description: 'Tools for caching and unfollowing repos and users on Bluesky',
     preview: require('./showcase/example-1.png'),
-    website: 'https://blue.amazingca.dev/tools',
+    source: 'https://github.com/Amazingca/BSKY-Wrapper-v1',
     author: 'https://bsky.app/profile/did:plc:e2nwnarqo7kdbt7ngr3gejp6',
     tags: ['othertools'],
   },
@@ -1154,6 +1172,41 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:wpe35pganb6d4pg4ekmfy6u5',
     tags: ['protocol', 'opensource'],
   },
+  {
+    title: "Bluesky Feed Creator",
+    description: "Quickly design and customize your own Bluesky feeds, no coding knowledge required.",
+    preview: require('./showcase/bsfc.png'),
+    website: 'https://blueskyfeedcreator.com/',
+    author: 'https://bsky.app/profile/blueskyfeedcreator.com',
+    tags: ['favorite', 'customfeed'],
+  },
+  {
+    title: 'BlueRiver',
+    description: 'VSCode client for Bluesky',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://marketplace.visualstudio.com/items?itemName=zuk246.blueriver',
+    source: 'https://github.com/zuk246/BlueRiver',
+    author: 'https://bsky.app/profile/did:plc:oxqrfur74k6qr4xy4g3clfe3',
+    tags: ['client', 'opensource']
+  },
+  {
+    title: 'X.Bluesky',
+    description: 'The X.Bluesky is a .NET library designed to make it easy for developers to post messages to Bluesky.',
+    preview: require('./showcase/example-1.png'),
+    source: 'https://github.com/ernado-x/X.Bluesky',
+    website: 'https://nuget.org/packages/X.Bluesky',
+    author: 'https://bsky.app/profile/andrew.gubskiy.com',
+    tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'Blueauth',
+    description: 'Custom Bluesky Auth System',
+    preview: require('./showcase/blueauth-system.jpg'),
+    source: 'https://github.com/CryBlanka/blueauth',
+    website: 'https://github.com/CryBlanka/blueauth',
+    author: 'https://bsky.app/profile/blanka.lol',
+    tags: ['othertools', 'opensource'],
+  }
 ]
 
 export type User = {
