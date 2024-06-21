@@ -1164,6 +1164,15 @@ const Users: User[] = [
     tags: ['othertools'],
   },
   {
+    title: 'BlueRiver',
+    description: 'VSCode client for Bluesky',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://marketplace.visualstudio.com/items?itemName=zuk246.blueriver',
+    source: 'https://github.com/zuk246/BlueRiver',
+    author: 'https://bsky.app/profile/did:plc:oxqrfur74k6qr4xy4g3clfe3',
+    tags: ['client', 'opensource']
+  },
+  {
     title: 'X.Bluesky',
     description: 'The X.Bluesky is a .NET library designed to make it easy for developers to post messages to Bluesky.',
     preview: require('./showcase/example-1.png'),
@@ -1179,6 +1188,7 @@ const Users: User[] = [
     source: 'https://github.com/CryBlanka/blueauth',
     website: 'https://github.com/CryBlanka/blueauth',
     author: 'https://bsky.app/profile/blanka.lol',
+    tags: ['othertools', 'opensource'],
   }
 ]
 
