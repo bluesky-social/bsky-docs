@@ -1164,6 +1164,15 @@ const Users: User[] = [
     tags: ['othertools'],
   },
   {
+    title: 'bskyr',
+    description: 'AT Protocol implementation in R',
+    preview: require('./showcase/bskyr-r.png'),
+    website: 'https://christophertkenny.com/bskyr/',
+    source: 'https://github.com/christopherkenny/bskyr',
+    author: 'https://bsky.app/profile/did:plc:wpe35pganb6d4pg4ekmfy6u5',
+    tags: ['protocol', 'opensource'],
+  },
+  {
     title: "Bluesky Feed Creator",
     description: "Quickly design and customize your own Bluesky feeds, no coding knowledge required.",
     preview: require('./showcase/bsfc.png'),
