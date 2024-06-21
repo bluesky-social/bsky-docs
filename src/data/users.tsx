@@ -1150,7 +1150,7 @@ const Users: User[] = [
     description: 'Custom Bluesky Auth System',
     preview: require('./showcase/blueauth-system.jpg'),
     source: 'https://github.com/CryBlanka/blueauth',
-    website: 'https://blanka.lol',
+    website: 'https://github.com/CryBlanka/blueauth',
     author: 'https://bsky.app/profile/blanka.lol',
     tags: ['othertools', 'opensource'],
   },
