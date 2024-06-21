@@ -184,6 +184,15 @@ const Users: User[] = [
     tags: ['protocol', 'opensource', 'favorite'],
   },
   {
+    title: 'swift-atproto (Swift)',
+    description: 'AT Protocol implementation in Swift',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/nnabeyang/swift-atproto',
+    source: 'https://github.com/nnabeyang/swift-atproto',
+    author: 'https://bsky.app/profile/did:plc:bnh3bvyqr3vzxyvjdnrrusbr',
+    tags: ['protocol', 'opensource'],
+  },
+  {
     title: 'Tokimeki',
     description: 'Web client for Bluesky',
     preview: require('./showcase/tokimeki.png'),
