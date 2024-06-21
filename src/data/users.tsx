@@ -1152,7 +1152,7 @@ const Users: User[] = [
     source: 'https://github.com/ernado-x/X.Bluesky',
     website: 'https://nuget.org/packages/X.Bluesky',
     author: 'https://bsky.app/profile/andrew.gubskiy.com',
-    tags: ['othertools', 'opensource', 'firehose'],
+    tags: ['othertools', 'opensource'],
   },
 ]
 
