@@ -1163,6 +1163,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:6k6rbr4hmsvifx7qe4l7eerd',
     tags: ['othertools'],
   },
+    {
+    title: 'Blueauth',
+    description: 'Custom Bluesky Auth System',
+    preview: require('./showcase/blueauth-system.jpg'),
+    source: 'https://github.com/CryBlanka/blueauth',
+    website: 'https://github.com/CryBlanka/blueauth',
+    author: 'https://bsky.app/profile/blanka.lol',
+    tags: ['othertools', 'opensource'],
+  },
 ]
 
 export type User = {
