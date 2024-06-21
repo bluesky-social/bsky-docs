@@ -18,6 +18,14 @@ export type TagType =
   | 'othertools';
 
 const Users: User[] = [
+{
+    title: 'BIRU',
+    description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website:'https://bsky.makeup',
+    author: 'https://bsky.app/profile/did:plc:ivvkfsndujdk2vo5zd2gn2e6',
+    tags: ['domains'],
+  },
   {
     title: 'Japanese atproto docs',
     description: 'Japanese documentation for atproto',
