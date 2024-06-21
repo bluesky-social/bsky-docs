@@ -3191,6 +3191,129 @@
         }
       }
     },
+    "app.bsky.graph.getKnownFollowers": {
+      "get": {
+        "tags": [
+          "app.bsky.graph"
+        ],
+        "description": "Enumerates accounts which follow a specified account (actor) and are followed by the viewer.",
+        "operationId": "app.bsky.graph.getKnownFollowers",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "actor",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "at-identifier"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "subject",
+                    "followers"
+                  ],
+                  "properties": {
+                    "subject": {
+                      "$ref": "#/components/schemas/app.bsky.actor.defs.profileView"
+                    },
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "followers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.actor.defs.profileView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "app.bsky.graph.getList": {
       "get": {
         "tags": [
@@ -4163,6 +4286,93 @@
         }
       }
     },
+    "app.bsky.graph.muteThread": {
+      "post": {
+        "tags": [
+          "app.bsky.graph"
+        ],
+        "description": "Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.",
+        "operationId": "app.bsky.graph.muteThread",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "root"
+                ],
+                "properties": {
+                  "root": {
+                    "type": "string",
+                    "format": "at-uri"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "app.bsky.graph.unmuteActor": {
       "post": {
         "tags": [
@@ -4273,6 +4483,93 @@
                 ],
                 "properties": {
                   "list": {
+                    "type": "string",
+                    "format": "at-uri"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "app.bsky.graph.unmuteThread": {
+      "post": {
+        "tags": [
+          "app.bsky.graph"
+        ],
+        "description": "Unmutes the specified thread. Requires auth.",
+        "operationId": "app.bsky.graph.unmuteThread",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "root"
+                ],
+                "properties": {
+                  "root": {
                     "type": "string",
                     "format": "at-uri"
                   }
@@ -5869,7 +6166,7 @@
                     "type": "string"
                   },
                   "message": {
-                    "$ref": "#/components/schemas/chat.bsky.convo.defs.message"
+                    "$ref": "#/components/schemas/chat.bsky.convo.defs.messageInput"
                   }
                 }
               }
@@ -5964,7 +6261,8 @@
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/chat.bsky.convo.sendMessageBatch.batchItem"
-                    }
+                    },
+                    "maxItems": 100
                   }
                 }
               }
@@ -6361,6 +6659,16 @@
           }
         ],
         "parameters": [
+          {
+            "name": "convoId",
+            "in": "query",
+            "description": "Conversation that the message is from. NOTE: this field will eventually be required.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Conversation that the message is from. NOTE: this field will eventually be required."
+            }
+          },
           {
             "name": "messageId",
             "in": "query",
@@ -7299,6 +7607,127 @@
                     },
                     "takedown": {
                       "$ref": "#/components/schemas/com.atproto.admin.defs.statusAttr"
+                    },
+                    "deactivated": {
+                      "$ref": "#/components/schemas/com.atproto.admin.defs.statusAttr"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "com.atproto.admin.searchAccounts": {
+      "get": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "Get list of accounts that matches your search query.",
+        "operationId": "com.atproto.admin.searchAccounts",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "accounts"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "accounts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.atproto.admin.defs.accountView"
+                      }
                     }
                   }
                 }
@@ -7786,6 +8215,9 @@
                     ]
                   },
                   "takedown": {
+                    "$ref": "#/components/schemas/com.atproto.admin.defs.statusAttr"
+                  },
+                  "deactivated": {
                     "$ref": "#/components/schemas/com.atproto.admin.defs.statusAttr"
                   }
                 }
@@ -10175,6 +10607,10 @@
                   "name": {
                     "type": "string",
                     "description": "A short name for the App Password, to help distinguish them."
+                  },
+                  "privileged": {
+                    "type": "boolean",
+                    "description": "If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients."
                   }
                 }
               }
@@ -10536,6 +10972,18 @@
                     },
                     "emailAuthFactor": {
                       "type": "boolean"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+                      "enum": [
+                        "takendown",
+                        "suspended",
+                        "deactivated"
+                      ]
                     }
                   }
                 }
@@ -11115,7 +11563,19 @@
                     "emailAuthFactor": {
                       "type": "boolean"
                     },
-                    "didDoc": {}
+                    "didDoc": {},
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+                      "enum": [
+                        "takendown",
+                        "suspended",
+                        "deactivated"
+                      ]
+                    }
                   }
                 }
               }
@@ -11300,7 +11760,19 @@
                       "type": "string",
                       "format": "did"
                     },
-                    "didDoc": {}
+                    "didDoc": {},
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Hosting status of the account. If not specified, then assume 'active'.",
+                      "enum": [
+                        "takendown",
+                        "suspended",
+                        "deactivated"
+                      ]
+                    }
                   }
                 }
               }
@@ -12033,7 +12505,12 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "BlobNotFound",
+                        "RepoNotFound",
+                        "RepoTakendown",
+                        "RepoSuspended",
+                        "RepoDeactivated"
                       ]
                     },
                     "message": {
@@ -12107,7 +12584,12 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "BlockNotFound",
+                        "RepoNotFound",
+                        "RepoTakendown",
+                        "RepoSuspended",
+                        "RepoDeactivated"
                       ]
                     },
                     "message": {
@@ -12209,7 +12691,10 @@
                         "InvalidRequest",
                         "ExpiredToken",
                         "InvalidToken",
-                        "RepoNotFound"
+                        "RepoNotFound",
+                        "RepoTakendown",
+                        "RepoSuspended",
+                        "RepoDeactivated"
                       ]
                     },
                     "message": {
@@ -12312,7 +12797,12 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "RecordNotFound",
+                        "RepoNotFound",
+                        "RepoTakendown",
+                        "RepoSuspended",
+                        "RepoDeactivated"
                       ]
                     },
                     "message": {
@@ -12406,7 +12896,126 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "RepoNotFound",
+                        "RepoTakendown",
+                        "RepoSuspended",
+                        "RepoDeactivated"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "com.atproto.sync.getRepoStatus": {
+      "get": {
+        "tags": [
+          "com.atproto.sync"
+        ],
+        "description": "Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.",
+        "operationId": "com.atproto.sync.getRepoStatus",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "did",
+            "in": "query",
+            "description": "The DID of the repo.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The DID of the repo.",
+              "format": "did"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "did",
+                    "active"
+                  ],
+                  "properties": {
+                    "did": {
+                      "type": "string",
+                      "format": "did"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+                      "enum": [
+                        "takendown",
+                        "suspended",
+                        "deactivated"
+                      ]
+                    },
+                    "rev": {
+                      "type": "string",
+                      "description": "Optional field, the current rev of the repo, if active=true"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "RepoNotFound"
                       ]
                     },
                     "message": {
@@ -12538,7 +13147,11 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "RepoNotFound",
+                        "RepoTakendown",
+                        "RepoSuspended",
+                        "RepoDeactivated"
                       ]
                     },
                     "message": {
@@ -14314,6 +14927,507 @@
           }
         }
       }
+    },
+    "tools.ozone.server.getConfig": {
+      "get": {
+        "tags": [
+          "tools.ozone.server"
+        ],
+        "description": "Get details about ozone's server configuration.",
+        "operationId": "tools.ozone.server.getConfig",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "appview": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.serviceConfig"
+                    },
+                    "pds": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.serviceConfig"
+                    },
+                    "blobDivert": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.serviceConfig"
+                    },
+                    "chat": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.serviceConfig"
+                    },
+                    "viewer": {
+                      "$ref": "#/components/schemas/tools.ozone.server.getConfig.viewerConfig"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.team.addMember": {
+      "post": {
+        "tags": [
+          "tools.ozone.team"
+        ],
+        "description": "Add a member to the ozone team. Requires admin role.",
+        "operationId": "tools.ozone.team.addMember",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did",
+                  "role"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "tools.ozone.team.defs#roleAdmin",
+                      "tools.ozone.team.defs#roleModerator",
+                      "tools.ozone.team.defs#roleTriage"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.team.defs.member"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "MemberAlreadyExists"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.team.deleteMember": {
+      "post": {
+        "tags": [
+          "tools.ozone.team"
+        ],
+        "description": "Delete a member from ozone team. Requires admin role.",
+        "operationId": "tools.ozone.team.deleteMember",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "MemberNotFound",
+                        "CannotDeleteSelf"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.team.listMembers": {
+      "get": {
+        "tags": [
+          "tools.ozone.team"
+        ],
+        "description": "List all members with access to the ozone service.",
+        "operationId": "tools.ozone.team.listMembers",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "members"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "members": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.team.defs.member"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tools.ozone.team.updateMember": {
+      "post": {
+        "tags": [
+          "tools.ozone.team"
+        ],
+        "description": "Update a member in the ozone service. Requires admin role.",
+        "operationId": "tools.ozone.team.updateMember",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "disabled": {
+                    "type": "boolean"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "tools.ozone.team.defs#roleAdmin",
+                      "tools.ozone.team.defs#roleModerator",
+                      "tools.ozone.team.defs#roleTriage"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.team.defs.member"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "MemberNotFound"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -14518,6 +15632,29 @@
           "followedBy": {
             "type": "string",
             "format": "at-uri"
+          },
+          "knownFollowers": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.knownFollowers"
+          }
+        }
+      },
+      "app.bsky.actor.defs.knownFollowers": {
+        "type": "object",
+        "description": "The subject's followers whom you also follow",
+        "required": [
+          "count",
+          "followers"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "followers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.profileViewBasic"
+            },
+            "maxItems": 5
           }
         }
       },
@@ -15284,6 +16421,9 @@
           "like": {
             "type": "string",
             "format": "at-uri"
+          },
+          "threadMuted": {
+            "type": "boolean"
           },
           "replyDisabled": {
             "type": "boolean"
@@ -16598,27 +17738,28 @@
         "type": "object",
         "required": [
           "did",
-          "messageId"
+          "messageId",
+          "convoId"
         ],
         "properties": {
           "did": {
             "type": "string",
             "format": "did"
           },
+          "convoId": {
+            "type": "string"
+          },
           "messageId": {
             "type": "string"
           }
         }
       },
-      "chat.bsky.convo.defs.message": {
+      "chat.bsky.convo.defs.messageInput": {
         "type": "object",
         "required": [
           "text"
         ],
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "text": {
             "type": "string",
             "maxLength": 10000
@@ -16667,7 +17808,7 @@
           "embed": {
             "oneOf": [
               {
-                "$ref": "#/components/schemas/app.bsky.embed.record"
+                "$ref": "#/components/schemas/app.bsky.embed.record.view"
               }
             ]
           },
@@ -16849,7 +17990,7 @@
             "type": "string"
           },
           "message": {
-            "$ref": "#/components/schemas/chat.bsky.convo.defs.message"
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.messageInput"
           }
         }
       },
@@ -16935,6 +18076,10 @@
           },
           "inviteNote": {
             "type": "string"
+          },
+          "deactivatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -17372,6 +18517,9 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "privileged": {
+            "type": "boolean"
           }
         }
       },
@@ -17483,6 +18631,9 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "privileged": {
+            "type": "boolean"
           }
         }
       },
@@ -17505,6 +18656,18 @@
           },
           "rev": {
             "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string",
+            "description": "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+            "enum": [
+              "takendown",
+              "suspended",
+              "deactivated"
+            ]
           }
         }
       },
@@ -17595,69 +18758,22 @@
           "time": {
             "type": "string",
             "format": "date-time"
-          }
-        }
-      },
-      "com.atproto.sync.subscribeRepos.handle": {
-        "type": "object",
-        "description": "Represents an update of the account's handle, or transition to/from invalid state. NOTE: Will be deprecated in favor of #identity.",
-        "required": [
-          "seq",
-          "did",
-          "handle",
-          "time"
-        ],
-        "properties": {
-          "seq": {
-            "type": "integer"
-          },
-          "did": {
-            "type": "string",
-            "format": "did"
           },
           "handle": {
             "type": "string",
+            "description": "The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.",
             "format": "handle"
-          },
-          "time": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
-      "com.atproto.sync.subscribeRepos.migrate": {
+      "com.atproto.sync.subscribeRepos.account": {
         "type": "object",
-        "description": "Represents an account moving from one PDS instance to another. NOTE: not implemented; account migration uses #identity instead",
+        "description": "Represents a change to an account's status on a host (eg, PDS or Relay). The semantics of this event are that the status is at the host which emitted the event, not necessarily that at the currently active PDS. Eg, a Relay takedown would emit a takedown with active=false, even if the PDS is still active.",
         "required": [
           "seq",
           "did",
-          "migrateTo",
-          "time"
-        ],
-        "properties": {
-          "seq": {
-            "type": "integer"
-          },
-          "did": {
-            "type": "string",
-            "format": "did"
-          },
-          "migrateTo": {
-            "type": "string"
-          },
-          "time": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "com.atproto.sync.subscribeRepos.tombstone": {
-        "type": "object",
-        "description": "Indicates that an account has been deleted. NOTE: may be deprecated in favor of #identity or a future #account event",
-        "required": [
-          "seq",
-          "did",
-          "time"
+          "time",
+          "active"
         ],
         "properties": {
           "seq": {
@@ -17670,6 +18786,20 @@
           "time": {
             "type": "string",
             "format": "date-time"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Indicates that the account has a repository which can be fetched from the host that emitted this event."
+          },
+          "status": {
+            "type": "string",
+            "description": "If active=false, this optional field indicates a reason for why the account is not active.",
+            "enum": [
+              "takendown",
+              "suspended",
+              "deleted",
+              "deactivated"
+            ]
           }
         }
       },
@@ -18325,6 +19455,10 @@
           },
           "inviteNote": {
             "type": "string"
+          },
+          "deactivatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -18382,6 +19516,10 @@
             "type": "string"
           },
           "emailConfirmedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deactivatedAt": {
             "type": "string",
             "format": "date-time"
           }
@@ -18583,6 +19721,81 @@
             "type": "integer"
           }
         }
+      },
+      "tools.ozone.server.getConfig.serviceConfig": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "tools.ozone.server.getConfig.viewerConfig": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "tools.ozone.team.defs#roleAdmin",
+              "tools.ozone.team.defs#roleModerator",
+              "tools.ozone.team.defs#roleTriage"
+            ]
+          }
+        }
+      },
+      "tools.ozone.team.defs.member": {
+        "type": "object",
+        "required": [
+          "did",
+          "role"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.profileViewDetailed"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedBy": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "#roleAdmin",
+              "#roleModerator",
+              "#roleTriage"
+            ]
+          }
+        }
+      },
+      "tools.ozone.team.defs.roleAdmin": {
+        "type": "string",
+        "format": "token",
+        "description": "Admin role. Highest level of access, can perform all actions."
+      },
+      "tools.ozone.team.defs.roleModerator": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderator role. Can perform most actions."
+      },
+      "tools.ozone.team.defs.roleTriage": {
+        "type": "string",
+        "format": "token",
+        "description": "Triage role. Mostly intended for monitoring and escalating issues."
       }
     },
     "securitySchemes": {
@@ -18655,6 +19868,12 @@
     },
     {
       "name": "tools.ozone.moderation"
+    },
+    {
+      "name": "tools.ozone.server"
+    },
+    {
+      "name": "tools.ozone.team"
     }
   ]
 }

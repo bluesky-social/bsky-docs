@@ -5,7 +5,7 @@ description: "Get a blob associated with a given account. Returns the full blob 
 sidebar_label: "com.atproto.sync.getBlob"
 hide_title: true
 hide_table_of_contents: true
-api: eJyllFFv00AMx7+K5RcGitIK8RSeug1BhQTVmBDStIfrxW2OXc63O2dbVOW7I6ft2FgZIPISRfH9/bP9921QzDpjdYGW29JITCxc5j5YvCywpmyTi+I4YIXvScDA0vMSTM5snRGq4dZJAwbW7oYCGGu5C1LCGUmXQgZpCFad9/tjwMmtXTDe99BFz6amuoRTpgyBBRJddy4RmE6at+Da6KmloGmWPSxOv5RYIEdKRpHmNVZPsMs1ybHnJRYYTTItCSWtb4PBtIQV1q7GAp0WdN1R6vHXMs8bgtP5KfBqpN+XhAXu6GqsJHVUYLYNtQarDUofVTtLcmH9D4orTq2RHdUwFPeU9m8oT35qju0VhhWJbf4T9RnZe1478l5qohw5ZMqq/Xo61ddjyc8fsUDLQSiI/n01eYXVZhiGAt8cij82NZzRdUdZHh80MXpnx9FPvmeN3Tyti5ffycqjDlwgpcQJC2wpZ7MmtXZM6iNxW/BtwIHuUOhaVZiHG+Ndvee6HH6KPTk1bB+NkIbVpGuS0Y/SPO/YTOlmb9cueaywEYm5mkxit/TOlia6cpmv+tLEOLlL0U6eTPDYd5SvepjF+NXRLRwtxqMFfGKYddK8RLXZL+p1LunO6LqVnNa/UX63jYAdvO4jHKkkBdG5UH1Ie8QNJLecrv6AfEbe9IeAL7U1tktO+i868O3Qjskkejg1TYk7r+v3chugo3BhxWOkE6+/Zuew0CIse/h2tjiB2WKuR7u2NanHCk846CgcB92FB+EvMni6c5b1dmP4HCnMFvMXGbZWhO2KlAc2y2XIZPUT1NXGhQwfzs8XmhsSrShRsAQ126wqsG+LCfVDgPv0JbynoHch6bU81grCVxSUSyjLKGyN9xlql8iK72GVuB1XW9Mo5a5KrHBaTsspDsMPD1UU/g==
+api: eJyllE2P2zgMhv8KwUs/YDhBsSfvKTPptkGBNsgEiwWKOSgyE6uRRY1Ez4wR5L8v6CTzme1usb4YgqiXD6mX2qGYTcbqO1puSyMxsXCZ+2DxusCask0uiuOAFX4iAQMrzyswObN1RqiGOycNGNi4WwpgrOUuSAkLki6FDNIQrDvvT8eAk9u4YLzvoYueTU11CVOmDIEFEt10LhGYTprfwbXRU0tB06x6mE+vSiyQIyWjSLMaq1fY5YbkwvMKC4wmmZaEkta3w2BawgprV2OBTgu66Sj1+LLMZUMwnU2B1wP9qSQs8EhXYyWpowKzbag1WO1Q+qjaWZILm19QXHNqjRyp9vvigdL+F8rLR82hvcKwJrHN/0T9iewDrx14rzVRjhwyZdX+MB7r77nkty9YoOUgFER334/eY7Xb7/cF/nYu/sLUsKCbjrI8P2hi9M4OVz/6kTV297ouXv0gK8868B0pJU5YYEs5mw2ptWNSH4k7gB8CznSHQteqwizcGu/qRy712FeWP7gLelMLivxiuTRbCjXfheP6qsuRQk2n/SkZK+5Whwiv949wryj2h08jpGE1/YZk8Lc0P5+ATOn2ZP8ueaywEYm5Go1it/LOlia6cpW3fWliHN2naEevHHHhO8rbHiYx/unoDt7Oh6MFfGWYdNK8Q7XtC/U6l3RvdHxLTpt/UP54iIAjvM43vFVJCqL3TPU57QE3kNxx2v4L8oK86c8BX2trbJec9FdqoIMJLsgkeuoCTYnH2dH16hCgV+HCmodIJ163JkuYaxGWPfy1mF/CZD7To13bmtRjhZcc9CocB52tJ+FvMni6d5b1tWT4FilM5rM3GQ7WhsPIlWcm1WXIZHUJOiXGhQyfl8u55oZEa0oULEHNNqsKnNpiQv0U4CF9CZ8o6NtK+swPtYLwloJyCWUZhK3xPkPtElnxPawTt8NToWmU8lglVjgux+UY9/u/AVCZMRM=
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -178,8 +178,8 @@ Get a blob associated with a given account. Returns the full blob as originally 
                         name={"error"}
                         required={true}
                         schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
-                        schema={{"type":"string","enum":["InvalidRequest"]}}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `BlobNotFound`, `RepoNotFound`, `RepoTakendown`, `RepoSuspended`, `RepoDeactivated`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","BlobNotFound","RepoNotFound","RepoTakendown","RepoSuspended","RepoDeactivated"]}}
                       >
                         
                       </SchemaItem><SchemaItem
