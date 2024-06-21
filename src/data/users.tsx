@@ -20,7 +20,7 @@ export type TagType =
 const Users: User[] = [
 {
     title: 'BIRU',
-    description: Free unique handle for Bluesky',
+    description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
     preview: require('./showcase/example-1.png'), // Placeholder image
     website:'https://bsky.makeup',
     author: 'https://bsky.app/profile/did:plc:ivvkfsndujdk2vo5zd2gn2e6',
