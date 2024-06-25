@@ -59,7 +59,7 @@ for await (const entry of entries) {
 
         if (post) {
           // @ts-ignore FIXME: Also confused about ArraySchemaObject
-          paths[`${id}`] = { post };
+          paths[`/${id}`] = { post };
         }
         break;
       }
@@ -68,7 +68,7 @@ for await (const entry of entries) {
 
         if (get) {
           // @ts-ignore FIXME: Also confused about ArraySchemaObject
-          paths[`${id}`] = { get };
+          paths[`/${id}`] = { get };
         }
         break;
       }
@@ -101,15 +101,15 @@ const api: OpenAPIV3_1.Document = {
   },
   servers: [
     {
-      url: "https://public.api.bsky.app/xrpc/",
+      url: "https://public.api.bsky.app/xrpc",
       description: "Bluesky AppView (Public, No Auth)",
     },
     {
-      url: "https://pds.example.org/xrpc/",
+      url: "https://pds.example.org/xrpc",
       description: "Example atproto PDS (Authenticated)",
     },
     {
-      url: "https://bsky.network/xrpc/",
+      url: "https://bsky.network/xrpc",
       description: "Bluesky Relay (Public, No Auth)",
     },
   ],
