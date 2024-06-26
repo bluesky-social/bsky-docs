@@ -26,7 +26,7 @@ The Bluesky agent you created in the [Get Started](/docs/get-started) section ha
   <TabItem value="ts" label="Typescript">
     ```typescript title="agent.getTimeline"
     const { data } = await agent.getTimeline({
-      cursor: "...",
+      cursor: "",
       limit: 30,
     });
 
@@ -36,7 +36,7 @@ The Bluesky agent you created in the [Get Started](/docs/get-started) section ha
   </TabItem>
   <TabItem value="python" label="Python">
     ```python title="client.get_timeline"
-    data = client.get_timeline(cursor='...', limit=30)
+    data = client.get_timeline(cursor='', limit=30)
 
     feed = data.feed
     next_page = data.cursor
