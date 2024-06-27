@@ -40,8 +40,6 @@ On a technical level, prioritizing big-world indexing over small world networkin
 
 Given all that, our proposed methodology here of networking through Relays instead of server-to-server isn’t prescriptive. The protocol is actually explicitly designed to work both ways. 
 
-## Sandbox Mode
+## Self-Hosting
 
-Join the atproto federation developer sandbox [here](/blog/federation-sandbox)!
-
-This is a staging environment that will get reset often. We can use this to test future major protocol changes as well. You can participate in the sandbox as a developer or a user — just be aware that things will break, and your data will get wiped!
+You can run your own PDS instance in the federated network! For source code and directions see the PDS distribution git repository [here](https://github.com/bluesky-social/pds).
