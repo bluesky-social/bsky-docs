@@ -4,6 +4,8 @@ title: Federation Developer Sandbox Guidelines
 tags: ['federation', 'guide']
 ---
 
+_**Update June 2024:** Since earlier this year it has been possible to federate directly in the live atproto network. The sandbox environment is no longer active and has been shut down._
+
 Welcome to the atproto federation developer sandbox! ✨
 
 This is a completely separate network from our production services that allows us to test out the federation architecture and wire protocol.
