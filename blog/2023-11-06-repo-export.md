@@ -95,10 +95,10 @@ if err != nil {
 }
 ```
 
-The `go-export-repo` example from the cookbook repository implements this with the `download-repo` command:
+The `go-repo-export` example from the cookbook repository implements this with the `download-repo` command:
 
 ```shell
-> ./go-export-repo download-repo atproto.com
+> ./go-repo-export download-repo atproto.com
 resolving identity: atproto.com
 downloading from https://bsky.social to: did:plc:ewvi7nxzyoun6zhxrhs64oiz.car
 ```
@@ -196,7 +196,7 @@ return nil
 In the cookbook repository, the `go-repo-export` example implements these as `list-records` and `unpack-record`:
 
 ```shell
-> ./go-export-repo list-records did:plc:ewvi7nxzyoun6zhxrhs64oiz.car
+> ./go-repo-export list-records did:plc:ewvi7nxzyoun6zhxrhs64oiz.car
 === did:plc:ewvi7nxzyoun6zhxrhs64oiz ===
 key record_cid
 app.bsky.actor.profile/self bafyreifbxwvk2ewuduowdjkkjgspiy5li2dzyycrnlbu27gn3hfgthez3u
@@ -205,7 +205,7 @@ app.bsky.feed.like/3jucahkymkk2e    bafyreidqrmqvrnz52efgqfavvjdbwob3bc2g3vvgmhm
 app.bsky.feed.like/3jucaj3qgmk2h    bafyreig5c2atahtzr2vo4v64aovgqbv6qwivfwf3ex5gn2537wwmtnkm3e
 [...]
 
-> ./go-export-repo unpack-records did:plc:ewvi7nxzyoun6zhxrhs64oiz.car
+> ./go-repo-export unpack-records did:plc:ewvi7nxzyoun6zhxrhs64oiz.car
 writing output to: did:plc:ewvi7nxzyoun6zhxrhs64oiz
 did:plc:ewvi7nxzyoun6zhxrhs64oiz/app.bsky.actor.profile/self.json
 did:plc:ewvi7nxzyoun6zhxrhs64oiz/app.bsky.feed.like/3jucagnrmn22x.json
@@ -294,14 +294,14 @@ func blobDownloadAll(raw string) error {
 In the cookbook repository, the `go-repo-export` example implements `list-blobs` and `download-blobs` commands:
 
 ```
-> ./go-export-repo list-blobs atproto.com
+> ./go-repo-export list-blobs atproto.com
 bafkreiacrjijybmsgnq3mca6fvhtvtc7jdtjflomoenrh4ph77kghzkiii
 bafkreib4xwiqhxbqidwwatoqj7mrx6mr7wlc5s6blicq5wq2qsq37ynx5y
 bafkreibdnsisdacjv3fswjic4dp7tju7mywfdlcrpleisefvzf44c3p7wm
 bafkreiebtvblnu4jwu66y57kakido7uhiigenznxdlh6r6wiswblv5m4py
 [...]
 
-> ./go-export-repo download-blobs atproto.com
+> ./go-repo-export download-blobs atproto.com
 writing blobs to: did:plc:ewvi7nxzyoun6zhxrhs64oiz/_blob
 did:plc:ewvi7nxzyoun6zhxrhs64oiz/_blob/bafkreiacrjijybmsgnq3mca6fvhtvtc7jdtjflomoenrh4ph77kghzkiii  downloaded
 did:plc:ewvi7nxzyoun6zhxrhs64oiz/_blob/bafkreib4xwiqhxbqidwwatoqj7mrx6mr7wlc5s6blicq5wq2qsq37ynx5y  downloaded
