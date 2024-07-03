@@ -16025,6 +16025,12 @@
             },
             {
               "$ref": "#/components/schemas/app.bsky.actor.defs.hiddenPostsPref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.bskyAppStatePref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.labelersPref"
             }
           ]
         }
@@ -16295,6 +16301,36 @@
           }
         }
       },
+      "app.bsky.actor.defs.bskyAppStatePref": {
+        "type": "object",
+        "description": "A grab bag of state that's specific to the bsky.app program. Third-party apps shouldn't use this.",
+        "properties": {
+          "activeProgressGuide": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.bskyAppProgressGuide"
+          },
+          "queuedNudges": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100
+            },
+            "maxItems": 1000
+          }
+        }
+      },
+      "app.bsky.actor.defs.bskyAppProgressGuide": {
+        "type": "object",
+        "description": "If set, an active progress guide. Once completed, can be set to undefined. Should have unspecced fields tracking progress.",
+        "required": [
+          "guide"
+        ],
+        "properties": {
+          "guide": {
+            "type": "string",
+            "maxLength": 100
+          }
+        }
+      },
       "app.bsky.actor.profile": {
         "type": "object",
         "properties": {
@@ -16537,6 +16573,9 @@
               },
               {
                 "$ref": "#/components/schemas/app.bsky.labeler.defs.labelerView"
+              },
+              {
+                "$ref": "#/components/schemas/app.bsky.graph.defs.starterPackViewBasic"
               }
             ]
           }
