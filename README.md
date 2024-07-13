@@ -34,6 +34,14 @@ If you want to regenerate MDX docs from an updated `api.json` file, run `npm run
 
 The OpenAPI docs auto-update with the latest lexicon changes once a day.
 
+## Submitting to the Community Showcase
+1. Fork the bsky-docs repo
+2. In `src/data/users.tsx`, add your submission(necessary information is written in `users.tsx` itself, such as `type User`)
+3. (Optional) Add photo to `src/data/showcase/`
+4. Commit changes to a branch in your fork
+5. Make a PR to merge your branch into the main bsky-docs
+6. Done!
+
 ## Are you a developer interested in building on atproto?
 
 Bluesky is an open social network built on the AT Protocol, a flexible technology that will never lock developers out of the ecosystems that they help build. With atproto, third-party can be as seamless as first-party through custom feeds, federated services, clients, and more.
