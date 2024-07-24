@@ -1,12 +1,12 @@
 ---
-id: app-bsky-notification-get-unread-count
-title: "app.bsky.notification.getUnreadCount"
-description: "Count the number of unread notifications for the requesting account. Requires auth."
-sidebar_label: "app.bsky.notification.getUnreadCount"
+id: app-bsky-notification-put-preferences
+title: "app.bsky.notification.putPreferences"
+description: "Set notification-related preferences for an account. Requires auth."
+sidebar_label: "app.bsky.notification.putPreferences"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VduO4zYM/RWCL7sFXCct+mQUBTLbwXZQtBvMZooCQR4UmYm1sSWNRM8mNfzvC8q5zSTTC9A2L4kiXg5FnsMOWa0jFnNU3ufLuNnl1rFZGa3YOIuLDEuKOhifjgW+c61l4IrAts2SArgVtDaQKuHcMcLKhWQW6LGlyMauQWkt3jnc02NrAkVQLVc5Zug8heR3V2JxHUq+Jn5IiRIEzDCSboPhHRbzDm9IBQpYzBf9IkOvgmqIKcR0aVVDWKAPxiWHDI3U8thSkEMY4JRYrFQdKcOoK2oUFh3yzovn0rmalMW+z47RIpGd8D+PFTkYu8YMVy40irHAUjF9zaYh7AV8oOidjRTF6dvxWL6eN+HDz5ihdpbJstwq7+v9M40+RTHpLvO65SfS/AziHFNDpMs+SA/YDFmHv0++xjKtKWCfPhl+dw3VjSpTZynyvwWPQnABM2woRrWmS6CDwZXHJds2EuHOPqnalCdct1sv0WduQxazw/1wXPSnVBcxT7V/c1n7g5VRdsH8QeX/X7x2NsogTVqufjExJrh/WUqy4MoJ5dYk2b3iCgsc/W0ChqcDxdpQY4EVs4/FaOTbZW10rrwZ4ijvR9vgNb6Uk5u6pbjZwcT73wx9hrfT5JnBrw6kmq9QGPcieBlz2qrG15S7sL4e+HYwAMU+OHYw/fEjvJWIZFkKovJa6KFo4s8ubP4c8D3VancN7uIkTB+lzUOrDvJ07IRkxL06JIUZDKQpxq5csjRcy9VkBlOpQbsafr+fvoPJ9E5c26ZRYZc02UofjLOixmfmbyLUtDUyHsAOPniyk+ndmwjDAMKgQPlFkbPKRIik5Qgyy8rYCD/NZlPJDYFWFMhqgtLpQekPz6JseQ7gmD6H92RF4wkUDLUCC+cEF1PkFFiruo5QmkCa6x2sgmvSDpE0gnJfJRY4zsf5WGbcu8iNSqza6/KrwwvD9MJhfJ/V3J04+x/tuH3jmbY88rUyVuCn8ev2xHtlCb8k3iLDygnf59h1SxXpIdR9L38PS0joWJqolvXZGtrQ7vkGfFJ1K3gSC14xP664k/FCDsGIdVq2GVakyrR5u73XRGvy514XEihRjtLz/naGGcornS/cgQ7Z4YdE318pew7/+4FZkAT8BzwgT7OF/aLv+y/8MBX4
-sidebar_class_name: "get api-method"
+api: eJy9VcGO2zYQ/RViLkkBRnaLnISigDcN2kXRrrHrFAUcHWhqbDGWSC452rUr6N+LoeS1HTtpD0F9sSQO38wbvjfsgNQmQr4E5X22itt9Zh2ZtdGKjLNQSCgx6mB8es3hAUmcRrwJWCvCUviAawxoNUaxdkEoK5TWrrWUiXt8bE3AKFRLVQYSnMeQtt+WkF9PnfmW5kdMkBBRt8HQHvJlBzeoAgbIl0VfSAj42GKkG1fuIe/SqwlYQk6hRQnaWUJLvKS8r8cMk0+RKXUQdYWN4ifae4Qc3OoTagJ5ArQEH4xL6QsJPjADMhh518vKEWHlXI3KQp9+DBS9s3GI/2E65b/zxt79Br2Et9eWblSZWoiRa/omZDAEF0BCgzGqDV5yGgKOKJGCsRuQgLZtGOHWPqnalMe63u88oy/cFi3Iw/rwWvTHVBeYhx69nX5/yf2DZc24YP7G8v8nr52NBDnMWqp+NzGmcv+VSoqgyrG2vUvN8YoqyGHyn6UenjDEpPQ21JBDReRjPpn4dlUbnSlvBhzl/WQXvIbPjXpTtxi3ezHz/k+Dz+L1PO2U4g8nmM530MsL8DJmuFONrzFzYXMd+P0QIBT54MiJ+c8P4jUjoiUmhOU16IE00rML268XfI+12l8rtziOgAc+5+GsDoPg5Sg4I7cwhbAVhwA+FZbJ/XFUjEzOLcwTo5dg7NolUEMcAbOFmDNd7Wrx1/38nZjNbzlL2zQq7CGHd87ykRlnhVuLk/BXUdS4MywlQU7cebSz+e2rKAax8rBsFGUX/VhUJoqIml8F614ZG8Wvi8Wcc4sXvYjS6WHkHjqobHlawEv6TPyClgcvCiWGtghif3JdhJESsFZ1HUVpAmqq92IdXCOoGtJwlSNLyGGaTbMp+4FF3qjkQKtS07+oc3Eu9DPK3dHe3+ieGSVBuKOJr5WxXG0SZjda8gsX3+eWLCRU7OR8CV23UhE/hLrv+fNji3z+y0LCkwpGrVguSx54FaoyXVEdbHGUCLN7s+CqOLxux16dDzJ2z7BjpjV6+mpscTJs5ncPC5CwGq/BxpW8J6hnHoDqGXL4CB8h3b+MkPyTvndQK7tp00yDAZf9wm08vdQGJ8nDAzMbl5Tdn1T542BKkYb/TyBHNklr0Bd93/8DJnn0vA==
+sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
@@ -25,52 +25,69 @@ import TabItem from "@theme/TabItem";
 <h1
   className={"openapi__heading"}
 >
-  app.bsky.notification.getUnreadCount
+  app.bsky.notification.putPreferences
 </h1>
 
 <MethodEndpoint
-  method={"get"}
-  path={"/app.bsky.notification.getUnreadCount"}
+  method={"post"}
+  path={"/app.bsky.notification.putPreferences"}
 >
   
 </MethodEndpoint>
 
 
 
-Count the number of unread notifications for the requesting account. Requires auth.
+Set notification-related preferences for an account. Requires auth.
 
 ## Request
 
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<MimeTabs
+  className={"openapi-tabs__mime"}
 >
-  <summary
-    style={{}}
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
   >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
     >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"priority","in":"query","required":false,"schema":{"type":"boolean"}}}
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
       >
         
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"seenAt","in":"query","required":false,"schema":{"type":"string","format":"date-time"}}}
+      </div><ul
+        style={{"marginLeft":"1rem"}}
       >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
+        <SchemaItem
+          collapsible={false}
+          name={"priority"}
+          required={true}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
   <div>
     <ApiTabs>
       <TabItem
@@ -84,67 +101,7 @@ Count the number of unread notifications for the requesting account. Requires au
           
           
         </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"count"}
-                        required={true}
-                        schemaName={"integer"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"integer"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"count\": 0\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
+          
         </div>
       </TabItem><TabItem
         label={"400"}
