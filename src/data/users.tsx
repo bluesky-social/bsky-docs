@@ -1214,7 +1214,15 @@ const Users: User[] = [
     website: 'https://github.com/CryBlanka/blueauth',
     author: 'https://bsky.app/profile/blanka.lol',
     tags: ['othertools', 'opensource'],
-  }
+  },
+  {
+    title: 'Smoke Signal',
+    description: 'Modern event and RSVP management.',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website:'https://smokesignal.events/',
+    author: 'https://bsky.app/profile/ngerakines.me',
+    tags: ['socialtools'],
+  },
 ]
 
 export type User = {
@@ -1293,6 +1301,11 @@ export const Tags: {[type in TagType]: Tag} = {
     label: 'Other Tools',
     description: 'Miscellaneous tools for Bluesky',
     color: '#e8eaed',
+  },
+  socialtools: {
+    label: 'Social Tools',
+    description: 'Social Tools and Utilities',
+    color: '#f07b2e',
   },
 };
 
