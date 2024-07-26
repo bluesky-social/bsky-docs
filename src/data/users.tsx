@@ -15,7 +15,8 @@ export type TagType =
   | 'protocol'   // Protocol implementations
   | 'tutorial'
   | 'bot'
-  | 'othertools';
+  | 'othertools'
+  | 'socialtools';
 
 const Users: User[] = [
 {
@@ -1218,8 +1219,8 @@ const Users: User[] = [
   {
     title: 'Smoke Signal',
     description: 'Modern event and RSVP management.',
-    preview: require('./showcase/example-1.png'), // Placeholder image
-    website:'https://smokesignal.events/',
+    preview: require('./showcase/smoke-signal-events.png'),
+    website: 'https://smokesignal.events/',
     author: 'https://bsky.app/profile/ngerakines.me',
     tags: ['socialtools'],
   },
