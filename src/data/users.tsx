@@ -793,10 +793,18 @@ const Users: User[] = [
   {
     title: 'Skycle.app',
     description: 'Visualize your circle of friends on Bluesky',
-    preview: require('./showcase/example-1.png'),
+    preview: require('./showcase/skycle-app.jpg'),
     website: 'https://skycle.app',
     author: 'https://bsky.app/profile/pirmax.fr',
     tags: ['othertools'],
+  },
+  {
+    title: 'Bluesky.bot',
+    description: 'Claim your handle.bluesky.bot username for free if you have a bot on Bluesky.',
+    preview: require('./showcase/bluesky-bot.png'),
+    website: 'https://bluesky.bot',
+    author: 'https://bsky.app/profile/pirmax.fr',
+    tags: ['domains', 'favorite'],
   },
   {
     title: 'Glamorous Toolkit for AT Protocol',
