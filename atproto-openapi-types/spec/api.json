@@ -16338,6 +16338,9 @@
           "targets"
         ],
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "value": {
             "type": "string",
             "description": "The muted word itself.",
@@ -16348,6 +16351,20 @@
             "items": {
               "$ref": "#/components/schemas/app.bsky.actor.defs.mutedWordTarget"
             }
+          },
+          "actorTarget": {
+            "type": "string",
+            "description": "Groups of users to apply the muted word to. If undefined, applies to all users.",
+            "default": "all",
+            "enum": [
+              "all",
+              "exclude-following"
+            ]
+          },
+          "expiresAt": {
+            "type": "string",
+            "description": "The date and time at which the muted word will expire and no longer be applied.",
+            "format": "date-time"
           }
         }
       },
@@ -17329,6 +17346,33 @@
           },
           "termsOfService": {
             "type": "string"
+          }
+        }
+      },
+      "app.bsky.feed.detach": {
+        "type": "object",
+        "required": [
+          "post",
+          "targets",
+          "updatedAt"
+        ],
+        "properties": {
+          "post": {
+            "type": "string",
+            "description": "Reference (AT-URI) to the post record.",
+            "format": "at-uri"
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "maxItems": 50
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
