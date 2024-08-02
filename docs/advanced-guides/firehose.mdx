@@ -52,6 +52,7 @@ like "create post", "create like", "delete follow" and so on.
         for _, op := range evt.Ops {
           fmt.Printf(" - %s record %s\n", op.Action, op.Path)
         }
+        return nil
       },
     }
 
