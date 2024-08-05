@@ -28,7 +28,7 @@ provider for the `com.atproto.sync.subscribeRepos` endpoint:
 <Tabs groupId="sdk">
   <TabItem value="go" label="Go">
     ```go
-    uri := "https://bsky.network/xrpc/com.atproto.sync.subscribeRepos"
+    uri := "wss://bsky.network/xrpc/com.atproto.sync.subscribeRepos"
     con, _, err := websocket.DefaultDialer.Dial(uri, http.Header{})
     ```
   </TabItem>
@@ -52,6 +52,7 @@ like "create post", "create like", "delete follow" and so on.
         for _, op := range evt.Ops {
           fmt.Printf(" - %s record %s\n", op.Action, op.Path)
         }
+        return nil
       },
     }
 
