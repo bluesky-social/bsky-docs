@@ -11870,6 +11870,26 @@
               "description": "The DID of the service that the token will be used to authenticate with",
               "format": "did"
             }
+          },
+          {
+            "name": "exp",
+            "in": "query",
+            "description": "The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "lxm",
+            "in": "query",
+            "description": "Lexicon (XRPC) method to bind the requested token to",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Lexicon (XRPC) method to bind the requested token to",
+              "format": "nsid"
+            }
           }
         ],
         "responses": {
@@ -11907,7 +11927,8 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "BadExpiration"
                       ]
                     },
                     "message": {
@@ -17261,7 +17282,7 @@
           },
           "feedContext": {
             "type": "string",
-            "description": "Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.",
+            "description": "Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.",
             "maxLength": 2000
           }
         }
@@ -18880,7 +18901,7 @@
       },
       "com.atproto.label.defs.labelValueDefinition": {
         "type": "object",
-        "description": "Declares a label value and its expected interpertations and behaviors.",
+        "description": "Declares a label value and its expected interpretations and behaviors.",
         "required": [
           "identifier",
           "severity",
