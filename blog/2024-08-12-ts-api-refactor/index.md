@@ -152,7 +152,7 @@ class MyAgent extends BskyAgent {
   async doStuff() {
     return this.call('io.example.doStuff', {
       headers: {
-        Authorization: this.accessToken && `Bearer ${this.accessToken}`
+        'Authorization': this.accessToken && `Bearer ${this.accessToken}`
       }
     })
   }
@@ -167,23 +167,21 @@ import { Agent } from '@atproto/api'
 
 class MyAgent extends Agent {
   private accessToken?: string
+  readonly did?: string
 
   constructor(service: string | URL) {
-    super((url, init) => {
-      const headers = new Headers(init.headers)
-
-      // Add the Authorization header on every request
-      if (this.accessToken) {
-        headers.set('Authorization', `Bearer ${this.accessToken}`)
+    super({
+      service,
+      headers: {
+        'Authorization': () => this.accessToken && `Bearer ${this.accessToken}`
       }
-
-      return fetch(new URL(url, service), { ...init, headers })
     })
   }
 
-  async createOrRefleshSession(identifier: string, password: string) {
+  async createOrRefreshSession(identifier: string, password: string) {
     // custom logic here
 
+    this.did = 'did:example:123'
     this.accessToken = 'my-access-jwt'
   }
 }
