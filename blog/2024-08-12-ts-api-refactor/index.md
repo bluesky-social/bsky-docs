@@ -470,7 +470,7 @@ const instance = new XrpcClient(
 )
 ```
 
-If you need the headers or service url to be dynamic, you can define them using (`async`) functions:
+If you need the headers or service url to be dynamic, you can define them using functions:
 
 ```ts
 import { XrpcClient } from '@atproto/xrpc'
@@ -480,7 +480,7 @@ const instance = new XrpcClient(
     service: () => 'http://my-service.com',
     headers: {
       'my-header': () => 'my-value',
-      'my-ignored-header': async () => null, // ignored
+      'my-ignored-header': () => null, // ignored
     },
   },
   [
