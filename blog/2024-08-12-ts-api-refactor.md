@@ -6,7 +6,7 @@ tags: []
 
 Today we are merging some changes to how the TypeScript `@atproto/api` package works with authentication sessions. The changes are mostly backwards compatible, but some parts are now deprecated, and there are some breaking changes for advanced uses.
 
-The motivation for these changes is the need to make the `@atproto/api` package compatible with OAuth session management. We don't have OAuth client support "launched" and documented quiet yet, so you can keep using the current app password authentication system. When we do "launch" OAuth support and start encourage it's usage in the near future (see the [OAuth Roadmap](https://github.com/bluesky-social/atproto/discussions/2656)), these changes will make it easier to migrate.
+The motivation for these changes is the need to make the `@atproto/api` package compatible with OAuth session management. We don't have OAuth client support "launched" and documented quite yet, so you can keep using the current app password authentication system. When we do "launch" OAuth support and begin encouraging its usage in the near future (see the [OAuth Roadmap](https://github.com/bluesky-social/atproto/discussions/2656)), these changes will make it easier to migrate.
 
 In addition, the redesigned session management system fixes a bug that could cause the session data to become invalid when Agent clones are created (e.g. using `agent.withProxy()`).
 
@@ -16,7 +16,7 @@ We've restructured the `XrpcClient` HTTP fetch handler to be specified during th
 
 With this refactor, the XRPC client is now more modular and reusable. Session management, retries, cryptographic signing, and other request-specific logic can be implemented in the fetch handler itself rather than by the calling code.
 
-A new abstract class named `Agent`, has been added to `@atproto/api`. This class will be the base class for all Bluesky agents classes in the `@atproto` ecosystem. It is meant to be extended by implementation that provide session management and fetch handling.
+A new abstract class named `Agent`, has been added to `@atproto/api`. This class will be the base class for all Bluesky agents classes in the `@atproto` ecosystem. It is meant to be extended by implementations that provide session management and fetch handling.
 
 As you adapt your code to these changes, make sure to use the `Agent` type wherever you expect to receive an agent, and use the `AtpAgent` type (class) only to instantiate your client. The reason for this is to be forward compatible with the OAuth agent implementation that will also extend `Agent`, and not `AtpAgent`.
 
@@ -61,10 +61,10 @@ class MyClass {
 
 Most of the changes introduced in this version are backward-compatible. However, there are a couple of breaking changes you should be aware of:
 
-- Customizing `fetch`: The ability to customize the `fetch: FetchHandler` property of `@atproto/xrpc`'s `Client` and `@atproto/api`'s `AtpAgent` classes has been removed. Previously, the `fetch` property could be set to a function that would be used as the fetch handler for that instance, and was initialized to a default fetch handler. That property is still accessible in a read-only fashion through the `fetchHandler` property. That property can only be set during the instance creation. Attempting to set/get the `fetch` property will now result in an error.
+- Customizing `fetch`: The ability to customize the `fetch: FetchHandler` property of `@atproto/xrpc`'s `Client` and `@atproto/api`'s `AtpAgent` classes has been removed. Previously, the `fetch` property could be set to a function that would be used as the fetch handler for that instance, and was initialized to a default fetch handler. That property is still accessible in a read-only fashion through the `fetchHandler` property and can only be set during the instance creation. Attempting to set/get the `fetch` property will now result in an error.
 - The `fetch()` method, as well as WhatWG compliant `Request` and `Headers` constructors, must be globally available in your environment. Use a polyfill if necessary.
 - The `AtpBaseClient` has been removed. The `AtpServiceClient` has been renamed `AtpBaseClient`. Any code using either of these classes will need to be updated.
-- Instead of *wrapping* an `XrpcClient` in its `xrpc` property, the `AtpBaseClient` (formerly `AtpServiceClient`) class, created through `lex-cli`, now *extends* the `XrpcClient` class. This means that a client instance now passes the `instanceof XrpcClient` check. The `xrpc` property now returns the instance itself and has been deprecated.
+- Instead of *wrapping* an `XrpcClient` in its `xrpc` property, the `AtpBaseClient` (formerly `AtpServiceClient`) class - created through `lex-cli` - now *extends* the `XrpcClient` class. This means that a client instance now passes the `instanceof XrpcClient` check. The `xrpc` property now returns the instance itself and has been deprecated.
 - `setSessionPersistHandler` is no longer available on the `AtpAgent` or `BskyAgent` classes. The session handler can only be set though the `persistSession` options of the `AtpAgent` constructor.
 - The new class hierarchy is as follows:
   - `BskyAgent` extends `AtpAgent`: but add no functionality (hence its deprecation).
@@ -91,7 +91,7 @@ Most of the changes introduced in this version are backward-compatible. However,
 
 ### The `@atproto/api` package
 
-If you were relying on the `AtpBaseClient` class to perform validation solely, use this:
+If you were relying on the `AtpBaseClient` solely to perform validation, use this:
 
 <table>
 <tr>
@@ -251,7 +251,7 @@ class LimitedAtpAgent extends AtpAgent {
 </tr>
 </table>
 
-If you configure a static `fetch` handler on the `BskyAgent` class, for example to modify the headers of every request, you can now do this by providing your own `fetch` function:
+If you configure a static `fetch` handler on the `BskyAgent` class - for example to modify the headers of every request - you can now do this by providing your own `fetch` function:
 
 
 <table>
@@ -336,7 +336,7 @@ The `Client` and `ServiceClient` classes are now **deprecated**. If you need a l
 The deprecated `ServiceClient` class now extends the new `XrpcClient` class. Because of this, the `fetch` `FetchHandler` can no longer be configured on the `Client` instances (including the default export of the package). If you are not relying on the `fetch` `FetchHandler`, the new changes should have no impact on your code. Beware that the deprecated classes will eventually be removed in a
 future version.
 
-Because it's use was completely changed, the `FetchHandler` type was also completely changed. The new `FetchHandler` type is now a function that receives a `url` pathname and a `RequestInit` object and returns a `Promise<Response>`. This function is responsible from making the actual request to the server.
+Since its use has completely changed, the `FetchHandler` type has also completely changed. The new `FetchHandler` type is now a function that receives a `url` pathname and a `RequestInit` object and returns a `Promise<Response>`. This function is responsible from making the actual request to the server.
 
 ```ts
 export type FetchHandler = (
@@ -351,15 +351,15 @@ export type FetchHandler = (
 ) => Promise<Response>
 ```
 
-A noticeable change that was introduced is that the `uri` field of the `ServiceClient` class was _not_ ported to the new `XrpcClient` class. It is now the responsibility of the `FetchHandler` to determine the full URL to make the request to. Same goes for the `headers`, that should now be set through the `FetchHandler` function.
+A noticeable change that has been introduced is that the `uri` field of the `ServiceClient` class has _not_ been ported to the new `XrpcClient` class. It is now the responsibility of the `FetchHandler` to determine the full URL to make the request to. The same goes for the `headers`, which should now be set through the `FetchHandler` function.
 
 If you _do_ rely on the legacy `Client.fetch` property to perform custom logic upon request, you will need to migrate your code to use the new `XrpcClient` class. The `XrpcClient` class has a similar API to the old `ServiceClient` class, but with a few differences:
 
 - The `Client` + `ServiceClient` duality was removed in favor of a single `XrpcClient` class. This means that:
-  - There no longer exist a centralized lexicon registry. If you need a global lexicon registry, you can maintain one yourself using a `new Lexicons` (from `@atproto/lexicon`).
+  - There no longer exists a centralized lexicon registry. If you need a global lexicon registry, you can maintain one yourself using a `new Lexicons` (from `@atproto/lexicon`).
   - The `FetchHandler` is no longer a statically defined property of the `Client` class. Instead, it is passed as an argument to the `XrpcClient` constructor.
 - The `XrpcClient` constructor now requires a `FetchHandler` function as the first argument, and an optional `Lexicon` instance as the second argument.
-- The `setHeander` and `unsetHeader` methods were not ported to the new `XrpcClient` class. If you need to set or unset headers, you should do so in the `FetchHandler` function provided in the constructor arg.
+- The `setHeader` and `unsetHeader` methods were not ported to the new `XrpcClient` class. If you need to set or unset headers, you should do so in the `FetchHandler` function provided in the constructor arg.
 
 <table>
 <tr>
@@ -428,7 +428,7 @@ await instance.call('io.example.doStuff')
 </tr>
 </table>
 
-If your fetch handler does not require any "custom logic", and all you need is an `XrpcClient` that makes its HTTP requests towards a static service URL the previous example can be simplified to:
+If your fetch handler does not require any "custom logic", and all you need is an `XrpcClient` that makes its HTTP requests towards a static service URL, the previous example can be simplified to:
 
 ```ts
 import { XrpcClient } from '@atproto/xrpc'
