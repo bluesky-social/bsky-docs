@@ -114,7 +114,7 @@ baseClient.xrpc.lex.assertValidXrpcMessage('io.example.doStuff', {
 <td>
 
 ```ts
-import { schemas } from '@atproto/xrpc'
+import { schemas } from '@atproto/api'
 import { Lexicons } from '@atproto/lexicon'
 
 const lexicons = new Lexicons(schemas)
