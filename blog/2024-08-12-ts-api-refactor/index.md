@@ -140,7 +140,7 @@ import { BskyAgent } from '@atproto/api'
 class MyAgent extends BskyAgent {
   private accessToken?: string
 
-  async createOrRefleshSession(identifier: string, password: string) {
+  async createOrRefreshSession(identifier: string, password: string) {
     // custom logic here
 
     this.accessToken = 'my-access-jwt'
@@ -197,7 +197,7 @@ class MyAgent extends Agent {
 </table>
 
 
-If you are monkey patching the the `xrpc` service client to perform client-side rate limiting, you can now do this in the `FetchHandler` function:
+If you are monkey patching the `xrpc` service client to perform client-side rate limiting, you can now do this in the `FetchHandler` function:
 
 <table>
 <tr>
@@ -339,7 +339,7 @@ The `Client` and `ServiceClient` classes are now **deprecated**. If you need a l
 The deprecated `ServiceClient` class now extends the new `XrpcClient` class. Because of this, the `fetch` `FetchHandler` can no longer be configured on the `Client` instances (including the default export of the package). If you are not relying on the `fetch` `FetchHandler`, the new changes should have no impact on your code. Beware that the deprecated classes will eventually be removed in a
 future version.
 
-Since its use has completely changed, the `FetchHandler` type has also completely changed. The new `FetchHandler` type is now a function that receives a `url` pathname and a `RequestInit` object and returns a `Promise<Response>`. This function is responsible from making the actual request to the server.
+Since its use has completely changed, the `FetchHandler` type has also completely changed. The new `FetchHandler` type is now a function that receives a `url` pathname and a `RequestInit` object and returns a `Promise<Response>`. This function is responsible for making the actual request to the server.
 
 ```ts
 export type FetchHandler = (
