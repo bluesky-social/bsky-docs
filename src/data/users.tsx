@@ -1214,6 +1214,15 @@ const Users: User[] = [
     website: 'https://github.com/CryBlanka/blueauth',
     author: 'https://bsky.app/profile/blanka.lol',
     tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'Vup Chat',
+    description: 'Cross Platform ATProto Chat Client',
+    preview: require('./showcase/vup-chat-desktop.png'),
+    source: 'https://github.com/vup-app/vup-chat/',
+    website: 'https://github.com/vup-app/vup-chat/',
+    author: 'https://bsky.app/profile/lukehmcc.com',
+    tags: ['othertools', 'opensource'],
   }
 ]
 
