@@ -16,7 +16,9 @@ We've restructured the `XrpcClient` HTTP fetch handler to be specified during th
 
 With this refactor, the XRPC client is now more modular and reusable. Session management, retries, cryptographic signing, and other request-specific logic can be implemented in the fetch handler itself rather than by the calling code.
 
-A new abstract class named `Agent`, has been added to `@atproto/api`. This class will be the base class for all Bluesky agents classes in the `@atproto` ecosystem. It is meant to be extended by implementations that provide session management and fetch handling.
+A new abstract class named `Agent`, has been added to `@atproto/api`. This class will be the base class for all Bluesky agents classes in the `@atproto` ecosystem. It is meant to be extended by implementations that provide session management and fetch handling. Here is the class hierarchy:
+
+![AT protocol api class hierarchy](class-structure.png)
 
 As you adapt your code to these changes, make sure to use the `Agent` type wherever you expect to receive an agent, and use the `AtpAgent` type (class) only to instantiate your client. The reason for this is to be forward compatible with the OAuth agent implementation that will also extend `Agent`, and not `AtpAgent`.
 
@@ -30,9 +32,9 @@ async function setupAgent(service: string, username: string, password: string): 
       // handle session update
     },
   })
-  
+
   await agent.login(username, password)
-  
+
   return agent
 }
 ```
@@ -69,9 +71,7 @@ Most of the changes introduced in this version are backward-compatible. However,
 - The new class hierarchy is as follows:
   - `BskyAgent` extends `AtpAgent`: but add no functionality (hence its deprecation).
   - `AtpAgent` extends `Agent`: adds password based session management.
-  - `Agent` extends `AtpClient`: this abstract class that adds syntactic sugar methods `app.bsky` lexicons. It also adds abstract session management methods.
-  - `AtpClient` extends `AtpBaseClient`: adds atproto specific utilities (`labelers` & `proxy` headers, cloning capability)
-  - `AtpBaseClient` extends `XrpcClient`: automatically code that adds fully typed lexicon defined namespaces (`instance.app.bsky.feed.getPosts()`) to the `XrpcClient`.
+  - `Agent` extends `AtpBaseClient`: this abstract class that adds syntactic sugar methods `app.bsky` lexicons. It also adds abstract session management methods and adds atproto specific utilities (`labelers` & `proxy` headers, cloning capability)  - `AtpBaseClient` extends `XrpcClient`: automatically code that adds fully typed lexicon defined namespaces (`instance.app.bsky.feed.getPosts()`) to the `XrpcClient`.
   - `XrpcClient` is the base class.
 
 ## Non-breaking changes
