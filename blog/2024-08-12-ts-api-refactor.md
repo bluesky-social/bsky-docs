@@ -16,7 +16,46 @@ We've restructured the `XrpcClient` HTTP fetch handler to be specified during th
 
 With this refactor, the XRPC client is now more modular and reusable. Session management, retries, cryptographic signing, and other request-specific logic can be implemented in the fetch handler itself rather than by the calling code.
 
-A new abstract class named `Agent`, has been added to `@atproto/api`. This class will be the base class for all Bluesky agents classes in the `@atproto` ecosystem. It is meant to be extended by implementation that provide session management and fetch handling for the `AtpClient` instances.
+A new abstract class named `Agent`, has been added to `@atproto/api`. This class will be the base class for all Bluesky agents classes in the `@atproto` ecosystem. It is meant to be extended by implementation that provide session management and fetch handling.
+
+As you adapt your code to these changes, make sure to use the `Agent` type wherever you expect to receive an agent, and use the `AtpAgent` type (class) only to instantiate your client. The reason for this is to be forward compatible with the OAuth agent implementation that will also extend `Agent`, and not `AtpAgent`.
+
+```ts
+import { Agent, AtpAgent } from '@atproto/api'
+
+async function setupAgent(service: string, username: string, password: string): Promise<Agent> {
+  const agent = new AtpAgent({
+    service,
+    persistSession: (evt, session) => {
+      // handle session update
+    },
+  })
+  
+  await agent.login(username, password)
+  
+  return agent
+}
+```
+
+```ts
+import { Agent } from '@atproto/api'
+
+async function doStuffWithAgent(agent: Agent, arg: string) {
+  return agent.resolveHandle(arg)
+}
+```
+
+```ts
+import { Agent, AtpAgent } from '@atproto/api'
+
+class MyClass {
+  agent: Agent
+
+  constructor () {
+    this.agent = new AtpAgent()
+  }
+}
+```
 
 ## Breaking changes
 
