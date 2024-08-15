@@ -1224,6 +1224,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/ngerakines.me',
     tags: ['socialtools'],
   },
+  {
+    title: 'tuisky',
+    description: 'TUI client for Bluesky',
+    preview: require('./showcase/tuisky.png'),
+    website: 'https://crates.io/crates/tuisky',
+    source: 'https://github.com/sugyan/tuisky',
+    author: 'https://bsky.app/profile/did:plc:4ee6oesrsbtmuln4gqsqf6fp',
+    tags: ['client', 'opensource']
+  },
 ]
 
 export type User = {
