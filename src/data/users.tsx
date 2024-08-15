@@ -15,7 +15,8 @@ export type TagType =
   | 'protocol'   // Protocol implementations
   | 'tutorial'
   | 'bot'
-  | 'othertools';
+  | 'othertools'
+  | 'socialtools';
 
 const Users: User[] = [
 {
@@ -1224,6 +1225,31 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:qftihmjyiutlh63oyjjplwb4',
     tags: ['client', 'opensource'],
   }
+    title: 'Smoke Signal',
+    description: 'Modern event and RSVP management.',
+    preview: require('./showcase/smoke-signal-events.png'),
+    website: 'https://smokesignal.events/',
+    author: 'https://bsky.app/profile/ngerakines.me',
+    tags: ['socialtools'],
+  },
+  {
+    title: 'tuisky',
+    description: 'TUI client for Bluesky',
+    preview: require('./showcase/tuisky.png'),
+    website: 'https://crates.io/crates/tuisky',
+    source: 'https://github.com/sugyan/tuisky',
+    author: 'https://bsky.app/profile/did:plc:4ee6oesrsbtmuln4gqsqf6fp',
+    tags: ['client', 'opensource']
+  },
+  {
+    title: 'bsky-sh-cli (Bluesky in the shell)',
+    description: 'Bluesky CLI (Command Line Interface) implementation in shell script',
+    preview: require('./showcase/example-1.png'),
+    source: 'https://github.com/bills-appworks/bsky-sh-cli',
+    website: 'https://github.com/bills-appworks/bsky-sh-cli',
+    author: 'https://bsky.app/profile/did:plc:qftihmjyiutlh63oyjjplwb4',
+    tags: ['client', 'opensource']
+  }
 ]
 
 export type User = {
@@ -1302,6 +1328,11 @@ export const Tags: {[type in TagType]: Tag} = {
     label: 'Other Tools',
     description: 'Miscellaneous tools for Bluesky',
     color: '#e8eaed',
+  },
+  socialtools: {
+    label: 'Social Tools',
+    description: 'Social Tools and Utilities',
+    color: '#f07b2e',
   },
 };
 

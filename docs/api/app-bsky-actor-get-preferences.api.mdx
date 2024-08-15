@@ -463,6 +463,15 @@ Get private preferences attached to the current account. Expected use is synchro
                                           </div>
                                         </li><SchemaItem
                                           collapsible={false}
+                                          name={"id"}
+                                          required={false}
+                                          schemaName={"string"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"string"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
                                           name={"value"}
                                           required={true}
                                           schemaName={"string"}
@@ -477,6 +486,24 @@ Get private preferences attached to the current account. Expected use is synchro
                                           schemaName={"app.bsky.actor.defs.mutedWordTarget[]"}
                                           qualifierMessage={"**Possible values:** `<= 640 characters`, [`content`, `tag`]"}
                                           schema={{"type":"array","items":{"type":"string","maxLength":640,"enum":["content","tag"],"title":"app.bsky.actor.defs.mutedWordTarget"}}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"actorTarget"}
+                                          required={false}
+                                          schemaName={"string"}
+                                          qualifierMessage={"**Possible values:** [`all`, `exclude-following`]"}
+                                          schema={{"type":"string","description":"Groups of users to apply the muted word to. If undefined, applies to all users.","default":"all","enum":["all","exclude-following"]}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"expiresAt"}
+                                          required={false}
+                                          schemaName={"date-time"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"string","description":"The date and time at which the muted word will expire and no longer be applied.","format":"date-time"}}
                                         >
                                           
                                         </SchemaItem><li>
