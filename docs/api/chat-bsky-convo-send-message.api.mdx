@@ -3854,8 +3854,31 @@ chat.bsky.convo.sendMessage
                                             </details>
                                           </SchemaItem>
                                         </TabItem><TabItem
-                                          label={"app.bsky.feed.defs.generatorView"}
+                                          label={"app.bsky.embed.record.viewDetached"}
                                           value={"3-item-properties"}
+                                        >
+                                          <SchemaItem
+                                            collapsible={false}
+                                            name={"uri"}
+                                            required={true}
+                                            schemaName={"at-uri"}
+                                            qualifierMessage={undefined}
+                                            schema={{"type":"string","format":"at-uri"}}
+                                          >
+                                            
+                                          </SchemaItem><SchemaItem
+                                            collapsible={false}
+                                            name={"detached"}
+                                            required={true}
+                                            schemaName={"boolean"}
+                                            qualifierMessage={undefined}
+                                            schema={{"type":"boolean","default":true}}
+                                          >
+                                            
+                                          </SchemaItem>
+                                        </TabItem><TabItem
+                                          label={"app.bsky.feed.defs.generatorView"}
+                                          value={"4-item-properties"}
                                         >
                                           <SchemaItem
                                             collapsible={false}
@@ -5768,7 +5791,7 @@ chat.bsky.convo.sendMessage
                                           </SchemaItem>
                                         </TabItem><TabItem
                                           label={"app.bsky.graph.defs.listView"}
-                                          value={"4-item-properties"}
+                                          value={"5-item-properties"}
                                         >
                                           <SchemaItem
                                             collapsible={false}
@@ -7747,7 +7770,7 @@ chat.bsky.convo.sendMessage
                                           </SchemaItem>
                                         </TabItem><TabItem
                                           label={"app.bsky.labeler.defs.labelerView"}
-                                          value={"5-item-properties"}
+                                          value={"6-item-properties"}
                                         >
                                           <SchemaItem
                                             collapsible={false}
@@ -9409,7 +9432,7 @@ chat.bsky.convo.sendMessage
                                           </SchemaItem>
                                         </TabItem><TabItem
                                           label={"app.bsky.graph.defs.starterPackViewBasic"}
-                                          value={"6-item-properties"}
+                                          value={"7-item-properties"}
                                         >
                                           <SchemaItem
                                             collapsible={false}
@@ -10781,7 +10804,7 @@ chat.bsky.convo.sendMessage
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"id\": \"string\",\n  \"rev\": \"string\",\n  \"text\": \"string\",\n  \"facets\": [\n    {\n      \"index\": {\n        \"byteStart\": 0,\n        \"byteEnd\": 0\n      },\n      \"features\": [\n        {},\n        {},\n        {}\n      ]\n    }\n  ],\n  \"embed\": {},\n  \"sender\": {\n    \"did\": \"string\"\n  },\n  \"sentAt\": \"2024-08-21T00:25:08.112Z\"\n}"}
+                    responseExample={"{\n  \"id\": \"string\",\n  \"rev\": \"string\",\n  \"text\": \"string\",\n  \"facets\": [\n    {\n      \"index\": {\n        \"byteStart\": 0,\n        \"byteEnd\": 0\n      },\n      \"features\": [\n        {},\n        {},\n        {}\n      ]\n    }\n  ],\n  \"embed\": {},\n  \"sender\": {\n    \"did\": \"string\"\n  },\n  \"sentAt\": \"2024-08-22T00:25:17.126Z\"\n}"}
                     language={"json"}
                   >
                     

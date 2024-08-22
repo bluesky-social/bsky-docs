@@ -5024,8 +5024,31 @@ chat.bsky.convo.getConvoForMembers
                                                             </details>
                                                           </SchemaItem>
                                                         </TabItem><TabItem
-                                                          label={"app.bsky.feed.defs.generatorView"}
+                                                          label={"app.bsky.embed.record.viewDetached"}
                                                           value={"3-item-properties"}
+                                                        >
+                                                          <SchemaItem
+                                                            collapsible={false}
+                                                            name={"uri"}
+                                                            required={true}
+                                                            schemaName={"at-uri"}
+                                                            qualifierMessage={undefined}
+                                                            schema={{"type":"string","format":"at-uri"}}
+                                                          >
+                                                            
+                                                          </SchemaItem><SchemaItem
+                                                            collapsible={false}
+                                                            name={"detached"}
+                                                            required={true}
+                                                            schemaName={"boolean"}
+                                                            qualifierMessage={undefined}
+                                                            schema={{"type":"boolean","default":true}}
+                                                          >
+                                                            
+                                                          </SchemaItem>
+                                                        </TabItem><TabItem
+                                                          label={"app.bsky.feed.defs.generatorView"}
+                                                          value={"4-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -6938,7 +6961,7 @@ chat.bsky.convo.getConvoForMembers
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.graph.defs.listView"}
-                                                          value={"4-item-properties"}
+                                                          value={"5-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -8917,7 +8940,7 @@ chat.bsky.convo.getConvoForMembers
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.labeler.defs.labelerView"}
-                                                          value={"5-item-properties"}
+                                                          value={"6-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -10579,7 +10602,7 @@ chat.bsky.convo.getConvoForMembers
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.graph.defs.starterPackViewBasic"}
-                                                          value={"6-item-properties"}
+                                                          value={"7-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -12056,7 +12079,7 @@ chat.bsky.convo.getConvoForMembers
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"convo\": {\n    \"id\": \"string\",\n    \"rev\": \"string\",\n    \"members\": [\n      {\n        \"did\": \"string\",\n        \"handle\": \"string\",\n        \"displayName\": \"string\",\n        \"avatar\": \"string\",\n        \"associated\": {\n          \"lists\": 0,\n          \"feedgens\": 0,\n          \"starterPacks\": 0,\n          \"labeler\": true,\n          \"chat\": {\n            \"allowIncoming\": \"all\"\n          }\n        },\n        \"viewer\": {\n          \"muted\": true,\n          \"mutedByList\": {\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"name\": \"string\",\n            \"purpose\": \"string\",\n            \"avatar\": \"string\",\n            \"listItemCount\": 0,\n            \"labels\": [\n              {\n                \"ver\": 0,\n                \"src\": \"string\",\n                \"uri\": \"string\",\n                \"cid\": \"string\",\n                \"val\": \"string\",\n                \"neg\": true,\n                \"cts\": \"2024-08-21T00:25:07.448Z\",\n                \"exp\": \"2024-08-21T00:25:07.448Z\",\n                \"sig\": \"string\"\n              }\n            ],\n            \"viewer\": {\n              \"muted\": true,\n              \"blocked\": \"string\"\n            },\n            \"indexedAt\": \"2024-08-21T00:25:07.448Z\"\n          },\n          \"blockedBy\": true,\n          \"blocking\": \"string\",\n          \"blockingByList\": {\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"name\": \"string\",\n            \"purpose\": \"string\",\n            \"avatar\": \"string\",\n            \"listItemCount\": 0,\n            \"labels\": [\n              {\n                \"ver\": 0,\n                \"src\": \"string\",\n                \"uri\": \"string\",\n                \"cid\": \"string\",\n                \"val\": \"string\",\n                \"neg\": true,\n                \"cts\": \"2024-08-21T00:25:07.449Z\",\n                \"exp\": \"2024-08-21T00:25:07.449Z\",\n                \"sig\": \"string\"\n              }\n            ],\n            \"viewer\": {\n              \"muted\": true,\n              \"blocked\": \"string\"\n            },\n            \"indexedAt\": \"2024-08-21T00:25:07.449Z\"\n          },\n          \"following\": \"string\",\n          \"followedBy\": \"string\",\n          \"knownFollowers\": {\n            \"count\": 0,\n            \"followers\": [\n              {\n                \"did\": \"string\",\n                \"handle\": \"string\",\n                \"displayName\": \"string\",\n                \"avatar\": \"string\",\n                \"associated\": {\n                  \"lists\": 0,\n                  \"feedgens\": 0,\n                  \"starterPacks\": 0,\n                  \"labeler\": true,\n                  \"chat\": {\n                    \"allowIncoming\": \"all\"\n                  }\n                },\n                \"labels\": [\n                  {\n                    \"ver\": 0,\n                    \"src\": \"string\",\n                    \"uri\": \"string\",\n                    \"cid\": \"string\",\n                    \"val\": \"string\",\n                    \"neg\": true,\n                    \"cts\": \"2024-08-21T00:25:07.449Z\",\n                    \"exp\": \"2024-08-21T00:25:07.449Z\",\n                    \"sig\": \"string\"\n                  }\n                ],\n                \"createdAt\": \"2024-08-21T00:25:07.449Z\"\n              }\n            ]\n          }\n        },\n        \"labels\": [\n          {\n            \"ver\": 0,\n            \"src\": \"string\",\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"val\": \"string\",\n            \"neg\": true,\n            \"cts\": \"2024-08-21T00:25:07.449Z\",\n            \"exp\": \"2024-08-21T00:25:07.449Z\",\n            \"sig\": \"string\"\n          }\n        ],\n        \"chatDisabled\": true\n      }\n    ],\n    \"lastMessage\": {},\n    \"muted\": true,\n    \"unreadCount\": 0\n  }\n}"}
+                    responseExample={"{\n  \"convo\": {\n    \"id\": \"string\",\n    \"rev\": \"string\",\n    \"members\": [\n      {\n        \"did\": \"string\",\n        \"handle\": \"string\",\n        \"displayName\": \"string\",\n        \"avatar\": \"string\",\n        \"associated\": {\n          \"lists\": 0,\n          \"feedgens\": 0,\n          \"starterPacks\": 0,\n          \"labeler\": true,\n          \"chat\": {\n            \"allowIncoming\": \"all\"\n          }\n        },\n        \"viewer\": {\n          \"muted\": true,\n          \"mutedByList\": {\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"name\": \"string\",\n            \"purpose\": \"string\",\n            \"avatar\": \"string\",\n            \"listItemCount\": 0,\n            \"labels\": [\n              {\n                \"ver\": 0,\n                \"src\": \"string\",\n                \"uri\": \"string\",\n                \"cid\": \"string\",\n                \"val\": \"string\",\n                \"neg\": true,\n                \"cts\": \"2024-08-22T00:25:16.491Z\",\n                \"exp\": \"2024-08-22T00:25:16.491Z\",\n                \"sig\": \"string\"\n              }\n            ],\n            \"viewer\": {\n              \"muted\": true,\n              \"blocked\": \"string\"\n            },\n            \"indexedAt\": \"2024-08-22T00:25:16.491Z\"\n          },\n          \"blockedBy\": true,\n          \"blocking\": \"string\",\n          \"blockingByList\": {\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"name\": \"string\",\n            \"purpose\": \"string\",\n            \"avatar\": \"string\",\n            \"listItemCount\": 0,\n            \"labels\": [\n              {\n                \"ver\": 0,\n                \"src\": \"string\",\n                \"uri\": \"string\",\n                \"cid\": \"string\",\n                \"val\": \"string\",\n                \"neg\": true,\n                \"cts\": \"2024-08-22T00:25:16.491Z\",\n                \"exp\": \"2024-08-22T00:25:16.491Z\",\n                \"sig\": \"string\"\n              }\n            ],\n            \"viewer\": {\n              \"muted\": true,\n              \"blocked\": \"string\"\n            },\n            \"indexedAt\": \"2024-08-22T00:25:16.491Z\"\n          },\n          \"following\": \"string\",\n          \"followedBy\": \"string\",\n          \"knownFollowers\": {\n            \"count\": 0,\n            \"followers\": [\n              {\n                \"did\": \"string\",\n                \"handle\": \"string\",\n                \"displayName\": \"string\",\n                \"avatar\": \"string\",\n                \"associated\": {\n                  \"lists\": 0,\n                  \"feedgens\": 0,\n                  \"starterPacks\": 0,\n                  \"labeler\": true,\n                  \"chat\": {\n                    \"allowIncoming\": \"all\"\n                  }\n                },\n                \"labels\": [\n                  {\n                    \"ver\": 0,\n                    \"src\": \"string\",\n                    \"uri\": \"string\",\n                    \"cid\": \"string\",\n                    \"val\": \"string\",\n                    \"neg\": true,\n                    \"cts\": \"2024-08-22T00:25:16.491Z\",\n                    \"exp\": \"2024-08-22T00:25:16.491Z\",\n                    \"sig\": \"string\"\n                  }\n                ],\n                \"createdAt\": \"2024-08-22T00:25:16.491Z\"\n              }\n            ]\n          }\n        },\n        \"labels\": [\n          {\n            \"ver\": 0,\n            \"src\": \"string\",\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"val\": \"string\",\n            \"neg\": true,\n            \"cts\": \"2024-08-22T00:25:16.491Z\",\n            \"exp\": \"2024-08-22T00:25:16.491Z\",\n            \"sig\": \"string\"\n          }\n        ],\n        \"chatDisabled\": true\n      }\n    ],\n    \"lastMessage\": {},\n    \"muted\": true,\n    \"unreadCount\": 0\n  }\n}"}
                     language={"json"}
                   >
                     

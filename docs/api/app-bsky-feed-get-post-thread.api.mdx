@@ -4696,8 +4696,31 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                                             </details>
                                                           </SchemaItem>
                                                         </TabItem><TabItem
-                                                          label={"app.bsky.feed.defs.generatorView"}
+                                                          label={"app.bsky.embed.record.viewDetached"}
                                                           value={"3-item-properties"}
+                                                        >
+                                                          <SchemaItem
+                                                            collapsible={false}
+                                                            name={"uri"}
+                                                            required={true}
+                                                            schemaName={"at-uri"}
+                                                            qualifierMessage={undefined}
+                                                            schema={{"type":"string","format":"at-uri"}}
+                                                          >
+                                                            
+                                                          </SchemaItem><SchemaItem
+                                                            collapsible={false}
+                                                            name={"detached"}
+                                                            required={true}
+                                                            schemaName={"boolean"}
+                                                            qualifierMessage={undefined}
+                                                            schema={{"type":"boolean","default":true}}
+                                                          >
+                                                            
+                                                          </SchemaItem>
+                                                        </TabItem><TabItem
+                                                          label={"app.bsky.feed.defs.generatorView"}
+                                                          value={"4-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -6610,7 +6633,7 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.graph.defs.listView"}
-                                                          value={"4-item-properties"}
+                                                          value={"5-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -8589,7 +8612,7 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.labeler.defs.labelerView"}
-                                                          value={"5-item-properties"}
+                                                          value={"6-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -10251,7 +10274,7 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.graph.defs.starterPackViewBasic"}
-                                                          value={"6-item-properties"}
+                                                          value={"7-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -14426,8 +14449,31 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                                                   </details>
                                                                 </SchemaItem>
                                                               </TabItem><TabItem
-                                                                label={"app.bsky.feed.defs.generatorView"}
+                                                                label={"app.bsky.embed.record.viewDetached"}
                                                                 value={"3-item-properties"}
+                                                              >
+                                                                <SchemaItem
+                                                                  collapsible={false}
+                                                                  name={"uri"}
+                                                                  required={true}
+                                                                  schemaName={"at-uri"}
+                                                                  qualifierMessage={undefined}
+                                                                  schema={{"type":"string","format":"at-uri"}}
+                                                                >
+                                                                  
+                                                                </SchemaItem><SchemaItem
+                                                                  collapsible={false}
+                                                                  name={"detached"}
+                                                                  required={true}
+                                                                  schemaName={"boolean"}
+                                                                  qualifierMessage={undefined}
+                                                                  schema={{"type":"boolean","default":true}}
+                                                                >
+                                                                  
+                                                                </SchemaItem>
+                                                              </TabItem><TabItem
+                                                                label={"app.bsky.feed.defs.generatorView"}
+                                                                value={"4-item-properties"}
                                                               >
                                                                 <SchemaItem
                                                                   collapsible={false}
@@ -16340,7 +16386,7 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                                                 </SchemaItem>
                                                               </TabItem><TabItem
                                                                 label={"app.bsky.graph.defs.listView"}
-                                                                value={"4-item-properties"}
+                                                                value={"5-item-properties"}
                                                               >
                                                                 <SchemaItem
                                                                   collapsible={false}
@@ -18319,7 +18365,7 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                                                 </SchemaItem>
                                                               </TabItem><TabItem
                                                                 label={"app.bsky.labeler.defs.labelerView"}
-                                                                value={"5-item-properties"}
+                                                                value={"6-item-properties"}
                                                               >
                                                                 <SchemaItem
                                                                   collapsible={false}
@@ -19981,7 +20027,7 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                                                 </SchemaItem>
                                                               </TabItem><TabItem
                                                                 label={"app.bsky.graph.defs.starterPackViewBasic"}
-                                                                value={"6-item-properties"}
+                                                                value={"7-item-properties"}
                                                               >
                                                                 <SchemaItem
                                                                   collapsible={false}
@@ -21582,6 +21628,15 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                         
                                       </SchemaItem><SchemaItem
                                         collapsible={false}
+                                        name={"quoteCount"}
+                                        required={false}
+                                        schemaName={"integer"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"integer"}}
+                                      >
+                                        
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
                                         name={"indexedAt"}
                                         required={true}
                                         schemaName={"date-time"}
@@ -21654,6 +21709,15 @@ Get posts in a thread. Does not require auth, but additional metadata and filter
                                             </SchemaItem><SchemaItem
                                               collapsible={false}
                                               name={"replyDisabled"}
+                                              required={false}
+                                              schemaName={"boolean"}
+                                              qualifierMessage={undefined}
+                                              schema={{"type":"boolean"}}
+                                            >
+                                              
+                                            </SchemaItem><SchemaItem
+                                              collapsible={false}
+                                              name={"embeddingDisabled"}
                                               required={false}
                                               schemaName={"boolean"}
                                               qualifierMessage={undefined}
