@@ -2134,6 +2134,147 @@
         }
       }
     },
+    "/app.bsky.feed.getQuotes": {
+      "get": {
+        "tags": [
+          "app.bsky.feed"
+        ],
+        "description": "Get a list of quotes for a given post.",
+        "operationId": "app.bsky.feed.getQuotes",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "uri",
+            "in": "query",
+            "description": "Reference (AT-URI) of post record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Reference (AT-URI) of post record",
+              "format": "at-uri"
+            }
+          },
+          {
+            "name": "cid",
+            "in": "query",
+            "description": "If supplied, filters to quotes of specific version (by CID) of the post record.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If supplied, filters to quotes of specific version (by CID) of the post record.",
+              "format": "cid"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "uri",
+                    "posts"
+                  ],
+                  "properties": {
+                    "uri": {
+                      "type": "string",
+                      "format": "at-uri"
+                    },
+                    "cid": {
+                      "type": "string",
+                      "format": "cid"
+                    },
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "posts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.feed.defs.postView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/app.bsky.feed.getRepostedBy": {
       "get": {
         "tags": [
@@ -16709,6 +16850,9 @@
                 "$ref": "#/components/schemas/app.bsky.embed.record.viewBlocked"
               },
               {
+                "$ref": "#/components/schemas/app.bsky.embed.record.viewDetached"
+              },
+              {
                 "$ref": "#/components/schemas/app.bsky.feed.defs.generatorView"
               },
               {
@@ -16824,6 +16968,23 @@
           }
         }
       },
+      "app.bsky.embed.record.viewDetached": {
+        "type": "object",
+        "required": [
+          "uri",
+          "detached"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri"
+          },
+          "detached": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      },
       "app.bsky.embed.recordWithMedia": {
         "type": "object",
         "required": [
@@ -16915,6 +17076,9 @@
           "likeCount": {
             "type": "integer"
           },
+          "quoteCount": {
+            "type": "integer"
+          },
           "indexedAt": {
             "type": "string",
             "format": "date-time"
@@ -16949,6 +17113,9 @@
             "type": "boolean"
           },
           "replyDisabled": {
+            "type": "boolean"
+          },
+          "embeddingDisabled": {
             "type": "boolean"
           }
         }
@@ -17537,6 +17704,48 @@
           }
         }
       },
+      "app.bsky.feed.postgate": {
+        "type": "object",
+        "required": [
+          "post",
+          "createdAt"
+        ],
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "post": {
+            "type": "string",
+            "description": "Reference (AT-URI) to the post record.",
+            "format": "at-uri"
+          },
+          "detachedEmbeddingUris": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "maxItems": 50
+          },
+          "embeddingRules": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/app.bsky.feed.postgate.disableRule"
+                }
+              ]
+            },
+            "maxItems": 5
+          }
+        }
+      },
+      "app.bsky.feed.postgate.disableRule": {
+        "type": "object",
+        "description": "Disables embedding of this post.",
+        "properties": {}
+      },
       "app.bsky.feed.repost": {
         "type": "object",
         "required": [
@@ -17585,6 +17794,14 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "hiddenReplies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "maxItems": 50
           }
         }
       },
