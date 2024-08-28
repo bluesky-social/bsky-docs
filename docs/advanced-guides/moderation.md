@@ -159,7 +159,7 @@ The `labelValueDefinitions` defines the custom labels. It includes the `locales`
 
 To include labels from a given labeler, you set the `atproto-accept-labelers` header on the HTTP request to a comma-separated list of the DIDs of the labelers you want to include. The AppView will subscribe to the included labelers (if it hasn’t already) and attach any relevant labels. It includes the `atproto-content-labelers` header in the response to indicate which labelers were successfully included.
 
-You may include up to 10 labelers. The Bluesky application hardcodes Bluesky’s moderation for inclusion, leaving 9 additional subscriptions to the users.
+You may include up to 20 labelers. The Bluesky application hardcodes Bluesky’s moderation for inclusion, leaving 9 additional subscriptions to the users.
 
 ## Self-labels
 
