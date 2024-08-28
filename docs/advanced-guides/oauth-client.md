@@ -32,14 +32,10 @@ This guide covers three simplified types of OAuth client:
 | **PKCE** | ✅ | ✅ | ✅ |
 | **PAR** | ✅ | ✅ | ✅ |
 | **DPoP** | ✅ | ✅ | ✅ |
-| **Handle Resolution** | DNS and HTTPS | via helper service | DNS and HTTPS
-or via helper service |
+| **Handle Resolution** | DNS and HTTPS | via helper service | DNS and HTTPS or via helper service |
 | **DID Resolution** | HTTPS | HTTPS | HTTPS |
-| **Recommended Client Secret Key Storage** | Environment Variable,
-Secrets Manager,
-Hardware Enclave | ❌  | ❌  |
-| **Recommended DPoP Key Storage** | Secure Database | WebCrypto | Secure File or Database,
-Hardware Enclave |
+| **Recommended Client Secret Key Storage** | Environment Variable, Secrets Manager, Hardware Enclave | ❌  | ❌  |
+| **Recommended DPoP Key Storage** | Secure Database | WebCrypto | Secure File or Database, Hardware Enclave |
 | **Recommended Token Storage** | Secure Database | IndexedDB | Secure File or Database |
 | **SSRF + DoS Hardening** | ✅ | ✅ | ✅ |
 | **Authorization UI** | Browser Redirect  | Browser Redirect  | WebView/Browser |
