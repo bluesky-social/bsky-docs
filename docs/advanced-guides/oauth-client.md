@@ -8,19 +8,19 @@ This is a guide to implementing atproto OAuth clients "The Hard Way". Optimistic
 
 The [atproto OAuth specification](https://github.com/bluesky-social/atproto-website/pull/326) is the authoritative document on how to use OAuth with atproto. If there are discrepancies between this document and the specification, defer to the specification. This document skips over a few details and uses more atproto-specific terminology, but readers are still expected to be familiar with OAuth 2 concepts, terminology, and standards.
 
-This guide is focused on apps which use OAuth to make authorized requests to user PDS servers, for example to write records to atproto repositories, or make proxied API requests to other services. It is also possible to use the atproto identity system only for authentication.
+This guide is focused on apps which use OAuth to make authorized ("authz") requests to user PDS servers, for example to write records to atproto repositories, or make proxied API requests to other services. It is also possible to use the atproto identity system only for authentication ("authn"), similar to OpenID/OIDC.
 
 ## Types of Clients
 
 This guide covers three simplified types of OAuth client:
 
 - **Web Services**: traditional web apps which involve a server/backend running code to make actual PDS requests and talk with a database. There is some form of auth between browsers and the web service, such as cookie sessions; this auth layer is distinct from OAuth. The server may return complete HTML pages, or there may be an API between code running in the browser and code running on the server. Integrations with and extensions of existing web services also fall under this category.
-- **Browser Apps**: "single-page" applications which run in a web browser, implemented using web platform APIs and JavaScript or WASM runtimes. The server-side ("backend") component is minimal or even static file hosting.
-- **Mobile and Desktop Apps**: what they sound like: apps that run on mobile operating systems (smartphones, tablets, etc), or desktop GUI applications
+- **Browser Apps**: "single-page" applications which run in a web browser, implemented using web platform APIs and JavaScript or WASM runtimes. The server-side ("backend") component is minimal, or even just static file hosting.
+- **Mobile and Desktop Apps**: what they sound like: "native" apps that run on mobile operating systems (smartphones, tablets, etc), or desktop applications
 
 |                         | **Web Service** | **Browser App** | **Mobile or Desktop App** |
 | ---                     | ---             | ---             | ---                       |
-| **OAuth 2 Client Type** | "Confidential”  | "Public”        | "Public”                  |
+| **OAuth 2 Client Type** | "Confidential"  | "Public"        | "Public"                  |
 | `client_id` | ✅ URL to metadata | ✅ URL to metadata | ✅ URL to metadata |
 | `client_secret` | ❌  | ❌  | ❌  |
 | **OAuth 2 Grant Types** | `authorization_code`
@@ -35,8 +35,8 @@ This guide covers three simplified types of OAuth client:
 | **Handle Resolution** | DNS and HTTPS | via helper service | DNS and HTTPS or via helper service |
 | **DID Resolution** | HTTPS | HTTPS | HTTPS |
 | **Recommended Client Secret Key Storage** | Environment Variable, Secrets Manager, Hardware Enclave | ❌  | ❌  |
-| **Recommended DPoP Key Storage** | Secure Database | WebCrypto | Secure File or Database, Hardware Enclave |
-| **Recommended Token Storage** | Secure Database | IndexedDB | Secure File or Database |
+| **Recommended DPoP Key Storage** | Secure Database | non-exportable CryptoKeyPair in IndexedDB | Secure File or Database, Hardware Enclave |
+| **Recommended Token Storage** | Secure Database | IndexedDB or LocalStorage | Secure File or Database |
 | **SSRF + DoS Hardening** | ✅ | ✅ | ✅ |
 | **Authorization UI** | Browser Redirect  | Browser Redirect  | WebView/Browser |
 | `redirect_uri` | `https://` App URL | `https://` App URL | Client-specific URI scheme |
@@ -53,7 +53,7 @@ DPoP: Demonstrating Proof of Possession ([RFC 9449](https://datatracker.ietf.org
 
 Client Metadata: OAuth Client ID Metadata Document ([`draft-parecki-oauth-client-id-metadata-document`](https://datatracker.ietf.org/doc/draft-parecki-oauth-client-id-metadata-document/))
 
-Other architectures are possible. For example, a mobile app which uses a web service to mediate client authentication and refresh tokens, or a web service could act as a "Public” client. This guide focuses on the most common use-cases.
+Other architectures are possible. For example, a mobile app which uses a web service to mediate client authentication and refresh tokens, or a web service could act as a "Public" client. This guide focuses on the most common use-cases.
 
 OAuth is not currently recommended as an auth solution for for "headless" clients, such as command-line tools or bots.
 
@@ -87,10 +87,10 @@ And some optional (but recommended) metadata fields:
 - `client_name` (string, optional): human-readable name of the client
 - `client_uri` (string, optional): not to be confused with `client_id`, this is a homepage URL for the client. If provided, the `client_uri` must have the same hostname as `client_id`.
 - `logo_uri` (string, optional): HTTP URL to client logo
-- `tos_uri` (string, optional): HTTP URL to human-readable terms of service (”ToS”) for the client
+- `tos_uri` (string, optional): HTTP URL to human-readable terms of service ("ToS") for the client
 - `policy_uri` (string, optional): HTTP URL to human-readable privacy policy for the client
 
-Here is an example Browser App client metadata file, that would need to be hosted at https://app.example.com/oauth/client-metadata.json (served with Content-Type `application/json` and not using HTTP redirects):
+Here is an example Browser App client metadata file, that would need to be hosted at https://app.example.com/oauth/client-metadata.json (served with Content-Type `application/json` and HTTP status 200, no redirects):
 
 ```
 {
@@ -116,9 +116,9 @@ Here is an example Browser App client metadata file, that would need to be hoste
 
 PDS (and entryway) instances also publish public JSON documents containing authorization server metadata.
 
-The PDS publishes a "protected resource metadata" file at the well-known HTTPS path `/.well-known/oauth-protected-resource`. This contains a field `authorization_servers` with an array of string URLs indicating the authorization server host. This might be the PDS itself, or it might be a separate "entryway" service for more complex PDS deployments. The authorization server metadata endpoint is `/.well-known/oauth-authorization-server`. The response includes the following fields relevant to clients:
+The PDS publishes a "protected resource metadata" file at the well-known HTTPS path `/.well-known/oauth-protected-resource`. This contains a field `authorization_servers` with an array of URLs indicating the authorization server location (the origin or "issuer"). This might be the PDS itself (same origin), or it might be a separate "entryway" service in large multi-PDS deployments. The authorization server metadata endpoint is `/.well-known/oauth-authorization-server`. The response includes the following fields relevant to clients:
 
-- `issuer` (string, required): the "origin” URL of the Authorization Server. Must be a valid URL, with `https` scheme. There must be no path segments.
+- `issuer` (string, required): the "origin" URL of the Authorization Server. Must be a valid URL, with `https` scheme, matching the origin of URL used to fetch this document. There must be no path segments.
 - `pushed_authorization_request_endpoint` (string, required): URL for Pushed Authentication Requests (PAR)
 - `authorization_endpoint` (string, required): URL for authorization interface
 - `token_endpoint` (string, required): URL for token requests
@@ -136,9 +136,9 @@ All clients must implement PKCE. In practical terms, this means:
 - including a "challenge code" derived from this value during the Authentication Request
 - verifying the value during the first token request
 
-The "code challenge" method used is `S256`, which is the most popular PKCE challenge method. OAuth libraries sometimes provide helpers for implementing the transform. It is a relatively simple SHA-256 hash and string encoding, and could be implemented from scratch if needed. The code value can be a simple randomly-generated string token, as long as it is at least 43 characters long.
+The "code challenge" method used is `S256`, which is the most popular PKCE challenge method. The transform involves a relatively simple SHA-256 hash and base64url string encoding. It can be implemented from scratch if needed, or sometimes OAuth libraries provide a helpers. The code value is a set of 32 to 96 random bytes, encoded in base64url (resulting in 43 or more string-encoded characters).
 
-For example, given a randomly generated "verifier” token: `dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk`
+For example, given a randomly generated "verifier" token, whose base64url representation is: `dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk`
 
 The `S256` code challenge is: `E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM`
 
@@ -146,7 +146,7 @@ The `S256` code challenge is: `E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM`
 
 Pushed Authentication Requests (PAR) are required for all client types. This means that the client makes an HTTP POST request to the PDS/entryway PAR endpoint with all the authentication requests parameters as an HTTP form-encoded body, and receives a request token in response. The client then redirects the browser to the authorization endpoint with the token (and `client_id`) as a query parameter, instead of passing a long list of request fields as query parameters.
 
-The PAR request should have `Content-Type: application/x-www-form-urlencoded`.
+The PAR request is submitted to the `pushed_authorization_request_endpoint` (from server metadata), and must use `Content-Type: application/x-www-form-urlencoded`.
 
 A successful response body will be a JSON object including the field `request_uri` (not to be confused with `redirect_uri`).
 
@@ -154,17 +154,27 @@ A successful response body will be a JSON object including the field `request_ur
 
 Clients must use DPoP to bind auth tokens to a specific client device or server. DPoP nonces, provided by the auth server, must be used.
 
-Clients generate a new DPoP cryptographic keypair for each auth session, and retain the keypair for the duration of the auth session. DPoP keypairs should never be exported or moved between devices, and should never be reused across users or between sessions for the same user. Client must start DPoP at the initial authorization request (PAR).
+Clients generate a new DPoP cryptographic keypair *for each auth session*, and retain the keypair for the duration of the auth session. DPoP keypairs should never be exported or moved between devices, and should never be reused across users or between sessions for the same user. Client must start DPoP at the initial authorization request (PAR).
 
-`ES256` (NIST "P-256") is the cryptographic algorithm/curve which must be supported by all clients and auth servers. Browser Apps should use the WebCrypto API to generate non-exportable keypairs. Other clients may find implementations of this cryptographic system in generic JWT libraries, or in generic cryptographic libraries for their language or environment. DPoP is also increasingly required as part of OAuth profiles and will hopefully be support by generic OAuth libraries.
+`ES256` (NIST "P-256") is the cryptographic algorithm/curve which must be supported by all clients and auth servers. Browser Apps should use the WebCrypto API to generate non-exportable keypairs, which can be stored in IndexedDB to persist across browser sessions (not to be confused with OAuth sessions). Other clients may find implementations of this cryptographic system in generic JWT libraries, or in generic cryptographic libraries for their language or environment. DPoP is also increasingly required as part of OAuth profiles and will hopefully be support by generic OAuth libraries.
 
-DPoP involves setting a HTTP Header (`DPoP`) on every token request and every authorized request to the PDS. The header value is a self-signed JWT. There is random field in the body, and JWTs are generated and signed uniquely for every requests (DPoP JWTs should not be reused between requests).
+DPoP involves setting a HTTP Header (`DPoP`) on every token request and every authorized request to the PDS. The header value is a self-signed JWT. There is a unique random field (`jti`) in the body, and JWTs are generated and signed uniquely for every request (DPoP proof JWTs can not be reused between requests).
 
-The server returns the current DPoP nonce in the `DPoP-Nonce` HTTP header in every response. Nonce values may be shared across all users and sessions on the server, or may be scoped to individual users and sessions. Nonces may be shared between access token use (PDS requests) and authorization server requests (PDS or entryway), but they may be distinct servers, so clients should always track DPoP nonces separately for the two uses. Nonces change periodically, with a rotation period chosen by the server. Clients should persist the DPoP nonce for each session, and update the persisted value when a response is received with a different value. If the nonce is missing, or has become outdated, the server will return an HTTP 400 response with JSON body and the `error` field set to `use_dpop_nonce`. The response will include the correct nonce in the `DPoP-Nonce` header, and the client can retry the request. The client discovers the initial nonce for each server by doing this request/error/retry cycle at least once. Servers will usually accept stale/old nonce values for a short time window to reduce errors-and-retries caused by clients making multiple concurrent authorized requests. Ideally the request/error/retry cycle does not need to happen again, though clients should be ready for it at any time (eg, if the nonce has rotated multiple times between requests).
+The server returns the current DPoP nonce in the `DPoP-Nonce` HTTP header in every response. Nonce values may be shared across all users and sessions on the server, or may be scoped to individual users and sessions. Nonces may be shared between access token use (PDS requests) and authorization server requests (PDS or entryway), but they may be distinct servers, so clients should always track DPoP nonces separately for the two uses. Nonces change periodically, with a rotation period chosen by the server. Clients should persist the DPoP nonce for each session, and update the persisted value when a response is received with a different value.
+
+If the nonce is missing (because it isn't known yet), or has become outdated, the server will return an HTTP 401 ("Unauthorized") response, indicating the error type as `use_dpop_nonce` and including the current nonce value in the `DPoP-Nonce` header. The Authorization Server (entryway or PDS, when doing PAR or token requests) indicates the error type with a JSON object body with the `error` field set to `use_dpop_nonce`. The Resource Server (PDS, when making authorized requests) indicates the error type using the `WWW-Authenticate` header with an `error` value set to `use_dpop_nonce`. For example:
+
+```
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: DPoP error="use_dpop_nonce", error_description="Resource server requires nonce in DPoP proof"
+DPoP-Nonce: eyJ7S_zG.eyJH0-Z.HX4w-7v
+```
+
+For other server type, the client can retry the request with a new DPoP proof JWT including the nonce value. The client discovers the initial nonce for each server by doing this request/error/retry cycle at least once. Servers will usually accept stale/old nonce values for a short time window to reduce errors-and-retries caused by clients making multiple concurrent authorized requests. Ideally the request/error/retry cycle does not need to happen again, though clients should be ready for it at any time (eg, if the nonce has rotated multiple times between requests).
 
 When making DPoP requests to token endpoint:
 
-- JWT header fields should be:
+- JWT header fields must be:
     - `typ`: `dpop+jwt`
     - `alg`: `ES256`
     - `jwk`: DPoP public key in JSON Web Key (JWK) string format
@@ -256,7 +266,7 @@ The client persists information about the session to some form of storage. This 
 
 Then the client redirects the user via browser to the Authorization Server’s auth endpoint, including the `request_uri` as a URL parameter.
 
-The user will authenticate with the server and approve the authorization request, using the "authorization interface” on the PDS/entryway.
+The user will authenticate with the server and approve the authorization request, using the "authorization interface" on the PDS/entryway.
 
 ### Callback and Access Token Request
 
@@ -280,4 +290,4 @@ Authentication-only clients can end the flow here.
 
 Using the access token, clients are now able to make authorized requests to the PDS. They must use DPoP for all such requests, with a separate server-provided nonce, along with the access token.
 
-Tokens (both access and refresh) will need to be periodically "refreshed” by subsequent request to the Authorization Server token endpoint.
+Tokens (both access and refresh) will need to be periodically "refreshed" by subsequent request to the Authorization Server token endpoint.
