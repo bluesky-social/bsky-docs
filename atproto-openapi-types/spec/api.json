@@ -5722,6 +5722,283 @@
         }
       }
     },
+    "/app.bsky.video.getJobStatus": {
+      "get": {
+        "tags": [
+          "app.bsky.video"
+        ],
+        "description": "Get status details for a video processing job.",
+        "operationId": "app.bsky.video.getJobStatus",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "jobStatus"
+                  ],
+                  "properties": {
+                    "jobStatus": {
+                      "$ref": "#/components/schemas/app.bsky.video.defs.jobStatus"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app.bsky.video.getUploadLimits": {
+      "get": {
+        "tags": [
+          "app.bsky.video"
+        ],
+        "description": "Get video upload limits for the authenticated user.",
+        "operationId": "app.bsky.video.getUploadLimits",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "canUpload"
+                  ],
+                  "properties": {
+                    "canUpload": {
+                      "type": "boolean"
+                    },
+                    "remainingDailyVideos": {
+                      "type": "integer"
+                    },
+                    "remainingDailyBytes": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app.bsky.video.uploadVideo": {
+      "post": {
+        "tags": [
+          "app.bsky.video"
+        ],
+        "description": "Upload a video to be processed then stored on the PDS.",
+        "operationId": "app.bsky.video.uploadVideo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "video/mp4": {}
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "jobStatus"
+                  ],
+                  "properties": {
+                    "jobStatus": {
+                      "$ref": "#/components/schemas/app.bsky.video.defs.jobStatus"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/chat.bsky.actor.deleteAccount": {
       "post": {
         "tags": [
@@ -16656,6 +16933,24 @@
           }
         }
       },
+      "app.bsky.embed.defs.aspectRatio": {
+        "type": "object",
+        "description": "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
+        "required": [
+          "width",
+          "height"
+        ],
+        "properties": {
+          "width": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
       "app.bsky.embed.external": {
         "type": "object",
         "description": "A representation of some externally linked content (eg, a URL and 'card'), embedded in a Bluesky record (eg, a post).",
@@ -16760,25 +17055,7 @@
             "description": "Alt text description of the image, for accessibility."
           },
           "aspectRatio": {
-            "$ref": "#/components/schemas/app.bsky.embed.images.aspectRatio"
-          }
-        }
-      },
-      "app.bsky.embed.images.aspectRatio": {
-        "type": "object",
-        "description": "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
-        "required": [
-          "width",
-          "height"
-        ],
-        "properties": {
-          "width": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "height": {
-            "type": "integer",
-            "minimum": 1
+            "$ref": "#/components/schemas/app.bsky.embed.defs.aspectRatio"
           }
         }
       },
@@ -16820,7 +17097,7 @@
             "description": "Alt text description of the image, for accessibility."
           },
           "aspectRatio": {
-            "$ref": "#/components/schemas/app.bsky.embed.images.aspectRatio"
+            "$ref": "#/components/schemas/app.bsky.embed.defs.aspectRatio"
           }
         }
       },
@@ -16919,6 +17196,9 @@
                   "$ref": "#/components/schemas/app.bsky.embed.images.view"
                 },
                 {
+                  "$ref": "#/components/schemas/app.bsky.embed.video.view"
+                },
+                {
                   "$ref": "#/components/schemas/app.bsky.embed.external.view"
                 },
                 {
@@ -17007,6 +17287,9 @@
                 "$ref": "#/components/schemas/app.bsky.embed.images"
               },
               {
+                "$ref": "#/components/schemas/app.bsky.embed.video"
+              },
+              {
                 "$ref": "#/components/schemas/app.bsky.embed.external"
               }
             ]
@@ -17029,9 +17312,86 @@
                 "$ref": "#/components/schemas/app.bsky.embed.images.view"
               },
               {
+                "$ref": "#/components/schemas/app.bsky.embed.video.view"
+              },
+              {
                 "$ref": "#/components/schemas/app.bsky.embed.external.view"
               }
             ]
+          }
+        }
+      },
+      "app.bsky.embed.video": {
+        "type": "object",
+        "required": [
+          "video"
+        ],
+        "properties": {
+          "video": {
+            "type": "string",
+            "format": "binary",
+            "maxLength": 50000000
+          },
+          "captions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.embed.video.caption"
+            },
+            "maxItems": 20
+          },
+          "alt": {
+            "type": "string",
+            "description": "Alt text description of the video, for accessibility.",
+            "maxLength": 10000
+          },
+          "aspectRatio": {
+            "$ref": "#/components/schemas/app.bsky.embed.defs.aspectRatio"
+          }
+        }
+      },
+      "app.bsky.embed.video.caption": {
+        "type": "object",
+        "required": [
+          "lang",
+          "file"
+        ],
+        "properties": {
+          "lang": {
+            "type": "string",
+            "format": "language"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "maxLength": 20000
+          }
+        }
+      },
+      "app.bsky.embed.video.view": {
+        "type": "object",
+        "required": [
+          "cid",
+          "playlist"
+        ],
+        "properties": {
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "playlist": {
+            "type": "string",
+            "format": "uri"
+          },
+          "thumbnail": {
+            "type": "string",
+            "format": "uri"
+          },
+          "alt": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "aspectRatio": {
+            "$ref": "#/components/schemas/app.bsky.embed.defs.aspectRatio"
           }
         }
       },
@@ -17061,6 +17421,9 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/app.bsky.embed.images.view"
+              },
+              {
+                "$ref": "#/components/schemas/app.bsky.embed.video.view"
               },
               {
                 "$ref": "#/components/schemas/app.bsky.embed.external.view"
@@ -17653,6 +18016,9 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/app.bsky.embed.images"
+              },
+              {
+                "$ref": "#/components/schemas/app.bsky.embed.video"
               },
               {
                 "$ref": "#/components/schemas/app.bsky.embed.external"
@@ -18596,6 +18962,46 @@
           "byteEnd": {
             "type": "integer",
             "minimum": 0
+          }
+        }
+      },
+      "app.bsky.video.defs.jobStatus": {
+        "type": "object",
+        "required": [
+          "jobId",
+          "did",
+          "state"
+        ],
+        "properties": {
+          "jobId": {
+            "type": "string"
+          },
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "state": {
+            "type": "string",
+            "description": "The state of the video processing job. All values not listed as a known value indicate that the job is in process.",
+            "enum": [
+              "JOB_STATE_COMPLETED",
+              "JOB_STATE_FAILED"
+            ]
+          },
+          "progress": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "blob": {
+            "type": "string",
+            "format": "binary"
+          },
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
           }
         }
       },
@@ -20757,6 +21163,9 @@
     },
     {
       "name": "app.bsky.unspecced"
+    },
+    {
+      "name": "app.bsky.video"
     },
     {
       "name": "chat.bsky.actor"
