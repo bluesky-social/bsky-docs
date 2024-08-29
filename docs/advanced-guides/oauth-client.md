@@ -23,23 +23,20 @@ This guide covers three simplified types of OAuth client:
 | **OAuth 2 Client Type** | "Confidential"  | "Public"        | "Public"                  |
 | `client_id` | ✅ URL to metadata | ✅ URL to metadata | ✅ URL to metadata |
 | `client_secret` | ❌  | ❌  | ❌  |
-| **OAuth 2 Grant Types** | `authorization_code`
-`refresh_token` | `authorization_code`
-`refresh_token` | `authorization_code`
-`refresh_token` |
+| **OAuth 2 Grant Types** | `authorization_code`, `refresh_token` | `authorization_code`, `refresh_token` | `authorization_code`, `refresh_token` |
 | **Client Metadata** | ✅ Public Web | ✅ Public Web | ✅ Public Web |
 | **Client Metadata JWK** | ✅ Public Web | ❌  | ❌  |
 | **PKCE** | ✅ | ✅ | ✅ |
 | **PAR** | ✅ | ✅ | ✅ |
 | **DPoP** | ✅ | ✅ | ✅ |
-| **Handle Resolution** | DNS and HTTPS | via helper service | DNS and HTTPS or via helper service |
+| **Handle Resolution** | DNS and HTTPS | DNS-over-HTTPS and HTTPS or via helper service | DNS and HTTPS or via helper service |
 | **DID Resolution** | HTTPS | HTTPS | HTTPS |
 | **Recommended Client Secret Key Storage** | Environment Variable, Secrets Manager, Hardware Enclave | ❌  | ❌  |
 | **Recommended DPoP Key Storage** | Secure Database | non-exportable CryptoKeyPair in IndexedDB | Secure File or Database, Hardware Enclave |
 | **Recommended Token Storage** | Secure Database | IndexedDB or LocalStorage | Secure File or Database |
 | **SSRF + DoS Hardening** | ✅ | ✅ | ✅ |
 | **Authorization UI** | Browser Redirect  | Browser Redirect  | WebView/Browser |
-| `redirect_uri` | `https://` App URL | `https://` App URL | Client-specific URI scheme |
+| `redirect_uri` | App URL (HTTPS) | App URL (HTTPS) | App Link (Android), Universal Link (iOS), or Client-specific URI scheme |
 
 ✅: Required
 
@@ -92,7 +89,7 @@ And some optional (but recommended) metadata fields:
 
 Here is an example Browser App client metadata file, that would need to be hosted at https://app.example.com/oauth/client-metadata.json (served with Content-Type `application/json` and HTTP status 200, no redirects):
 
-```
+```json
 {
   "client_id": "https://app.example.com/oauth/client-metadata.json",
   "application_type": "web",
@@ -114,9 +111,9 @@ Here is an example Browser App client metadata file, that would need to be hoste
 }
 ```
 
-PDS (and entryway) instances also publish public JSON documents containing authorization server metadata.
+PDS instances (and any supporting servers) also publish public JSON documents containing authorization server metadata.
 
-The PDS publishes a "protected resource metadata" file at the well-known HTTPS path `/.well-known/oauth-protected-resource`. This contains a field `authorization_servers` with an array of URLs indicating the authorization server location (the origin or "issuer"). This might be the PDS itself (same origin), or it might be a separate "entryway" service in large multi-PDS deployments. The authorization server metadata endpoint is `/.well-known/oauth-authorization-server`. The response includes the following fields relevant to clients:
+In OAuth terminology, the PDS is a "Resource Server" which authenticated requests are made to. The PDS publishes a "protected resource metadata" file at the well-known HTTPS path `/.well-known/oauth-protected-resource`. This contains a field `authorization_servers` with an array of URLs indicating the "Authorization Server" location (the origin or "issuer"). In OAuth terminology, the "Authorization Server" is responsible for authenticating the user and providing authorization tokens. The authorization server might be the PDS itself (same origin), or it might be separate. For example, an "entryway" service in large multi-PDS deployments, or an delegated authorization provider. The authorization server metadata endpoint is `/.well-known/oauth-authorization-server`. The response includes the following fields relevant to clients:
 
 - `issuer` (string, required): the "origin" URL of the Authorization Server. Must be a valid URL, with `https` scheme, matching the origin of URL used to fetch this document. There must be no path segments.
 - `pushed_authorization_request_endpoint` (string, required): URL for Pushed Authentication Requests (PAR)
@@ -156,7 +153,7 @@ Clients must use DPoP to bind auth tokens to a specific client device or server.
 
 Clients generate a new DPoP cryptographic keypair *for each auth session*, and retain the keypair for the duration of the auth session. DPoP keypairs should never be exported or moved between devices, and should never be reused across users or between sessions for the same user. Client must start DPoP at the initial authorization request (PAR).
 
-`ES256` (NIST "P-256") is the cryptographic algorithm/curve which must be supported by all clients and auth servers. Browser Apps should use the WebCrypto API to generate non-exportable keypairs, which can be stored in IndexedDB to persist across browser sessions (not to be confused with OAuth sessions). Other clients may find implementations of this cryptographic system in generic JWT libraries, or in generic cryptographic libraries for their language or environment. DPoP is also increasingly required as part of OAuth profiles and will hopefully be support by generic OAuth libraries.
+`ES256` (NIST "P-256") is the cryptographic algorithm/curve which must be supported by all clients and auth servers. Browser Apps should use the WebCrypto API to generate non-exportable keypairs, which can be stored in IndexedDB to persist across browser sessions (not to be confused with OAuth sessions). Other clients may find implementations of this cryptographic system in generic JWT libraries, or in generic cryptographic libraries for their language or environment. DPoP is also increasingly required as part of OAuth profiles and will hopefully be supported by generic OAuth libraries.
 
 DPoP involves setting a HTTP Header (`DPoP`) on every token request and every authorized request to the PDS. The header value is a self-signed JWT. There is a unique random field (`jti`) in the body, and JWTs are generated and signed uniquely for every request (DPoP proof JWTs can not be reused between requests).
 
@@ -241,7 +238,7 @@ One use case for starting with a server URL instead of an account identifier is 
 
 When starting with an account identifier, the client must resolve the atproto identity to a DID document. If starting with a handle, it is critical (mandatory) to bidirectionally verify the handle by checking that the DID document claims the handle (see atproto Handle specification). All handle resolution techniques and all atproto-blessed DID methods must be supported to ensure interoperability with all accounts.
 
-In some client environments, it may be difficult to resolve all identity types. For example, handle resolution may involve DNS TXT queries, which are not directly supported from browser apps. Client implementations might use alternative techniques (such as DNS-over-HTTP) or could make use of a supporting web service to resolve identities.
+In some client environments, it may be difficult to resolve all identity types. For example, handle resolution may involve DNS TXT queries, which are not directly supported from browser apps. Client implementations might use alternative techniques (such as DNS-over-HTTPS) or could make use of a supporting web service to resolve identities.
 
 If the auth flow instead starts with a server (hostname or URL), the client will first attempt to fetch Resource Server metadata (and resolve to Authorization Server if found) and then attempt to fetch Authorization Server metadata. If either is successful, the client will end up with an identified Authorization Server. The Authorization Request and flow will proceed without a `login_hint` or account identifier being bound to the session, but the Authorization Server `issuer` will be bound to the session.
 
