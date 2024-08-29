@@ -2364,8 +2364,105 @@ chat.bsky.convo.sendMessageBatch
                                                               </details>
                                                             </SchemaItem>
                                                           </TabItem><TabItem
-                                                            label={"app.bsky.embed.external.view"}
+                                                            label={"app.bsky.embed.video.view"}
                                                             value={"1-item-properties"}
+                                                          >
+                                                            <SchemaItem
+                                                              collapsible={false}
+                                                              name={"cid"}
+                                                              required={true}
+                                                              schemaName={"cid"}
+                                                              qualifierMessage={undefined}
+                                                              schema={{"type":"string","format":"cid"}}
+                                                            >
+                                                              
+                                                            </SchemaItem><SchemaItem
+                                                              collapsible={false}
+                                                              name={"playlist"}
+                                                              required={true}
+                                                              schemaName={"uri"}
+                                                              qualifierMessage={undefined}
+                                                              schema={{"type":"string","format":"uri"}}
+                                                            >
+                                                              
+                                                            </SchemaItem><SchemaItem
+                                                              collapsible={false}
+                                                              name={"thumbnail"}
+                                                              required={false}
+                                                              schemaName={"uri"}
+                                                              qualifierMessage={undefined}
+                                                              schema={{"type":"string","format":"uri"}}
+                                                            >
+                                                              
+                                                            </SchemaItem><SchemaItem
+                                                              collapsible={false}
+                                                              name={"alt"}
+                                                              required={false}
+                                                              schemaName={"string"}
+                                                              qualifierMessage={"**Possible values:** `<= 10000 characters`"}
+                                                              schema={{"type":"string","maxLength":10000}}
+                                                            >
+                                                              
+                                                            </SchemaItem><SchemaItem
+                                                              collapsible={true}
+                                                              className={"schemaItem"}
+                                                            >
+                                                              <details
+                                                                style={{}}
+                                                                className={"openapi-markdown__details"}
+                                                              >
+                                                                <summary
+                                                                  style={{}}
+                                                                >
+                                                                  <span
+                                                                    className={"openapi-schema__container"}
+                                                                  >
+                                                                    <strong
+                                                                      className={"openapi-schema__property"}
+                                                                    >
+                                                                      aspectRatio
+                                                                    </strong><span
+                                                                      className={"openapi-schema__name"}
+                                                                    >
+                                                                       object
+                                                                    </span>
+                                                                  </span>
+                                                                </summary><div
+                                                                  style={{"marginLeft":"1rem"}}
+                                                                >
+                                                                  <div
+                                                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                  >
+                                                                    
+                                                                    
+                                                                    width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.
+                                                                    
+                                                                    
+                                                                  </div><SchemaItem
+                                                                    collapsible={false}
+                                                                    name={"width"}
+                                                                    required={true}
+                                                                    schemaName={"integer"}
+                                                                    qualifierMessage={"**Possible values:** `>= 1`"}
+                                                                    schema={{"type":"integer","minimum":1}}
+                                                                  >
+                                                                    
+                                                                  </SchemaItem><SchemaItem
+                                                                    collapsible={false}
+                                                                    name={"height"}
+                                                                    required={true}
+                                                                    schemaName={"integer"}
+                                                                    qualifierMessage={"**Possible values:** `>= 1`"}
+                                                                    schema={{"type":"integer","minimum":1}}
+                                                                  >
+                                                                    
+                                                                  </SchemaItem>
+                                                                </div>
+                                                              </details>
+                                                            </SchemaItem>
+                                                          </TabItem><TabItem
+                                                            label={"app.bsky.embed.external.view"}
+                                                            value={"2-item-properties"}
                                                           >
                                                             <SchemaItem
                                                               collapsible={true}
@@ -2444,7 +2541,7 @@ chat.bsky.convo.sendMessageBatch
                                                             </SchemaItem>
                                                           </TabItem><TabItem
                                                             label={"app.bsky.embed.recordWithMedia.view"}
-                                                            value={"3-item-properties"}
+                                                            value={"4-item-properties"}
                                                           >
                                                             <SchemaItem
                                                               collapsible={false}
@@ -2634,8 +2731,105 @@ chat.bsky.convo.sendMessageBatch
                                                                         </details>
                                                                       </SchemaItem>
                                                                     </TabItem><TabItem
-                                                                      label={"app.bsky.embed.external.view"}
+                                                                      label={"app.bsky.embed.video.view"}
                                                                       value={"1-item-properties"}
+                                                                    >
+                                                                      <SchemaItem
+                                                                        collapsible={false}
+                                                                        name={"cid"}
+                                                                        required={true}
+                                                                        schemaName={"cid"}
+                                                                        qualifierMessage={undefined}
+                                                                        schema={{"type":"string","format":"cid"}}
+                                                                      >
+                                                                        
+                                                                      </SchemaItem><SchemaItem
+                                                                        collapsible={false}
+                                                                        name={"playlist"}
+                                                                        required={true}
+                                                                        schemaName={"uri"}
+                                                                        qualifierMessage={undefined}
+                                                                        schema={{"type":"string","format":"uri"}}
+                                                                      >
+                                                                        
+                                                                      </SchemaItem><SchemaItem
+                                                                        collapsible={false}
+                                                                        name={"thumbnail"}
+                                                                        required={false}
+                                                                        schemaName={"uri"}
+                                                                        qualifierMessage={undefined}
+                                                                        schema={{"type":"string","format":"uri"}}
+                                                                      >
+                                                                        
+                                                                      </SchemaItem><SchemaItem
+                                                                        collapsible={false}
+                                                                        name={"alt"}
+                                                                        required={false}
+                                                                        schemaName={"string"}
+                                                                        qualifierMessage={"**Possible values:** `<= 10000 characters`"}
+                                                                        schema={{"type":"string","maxLength":10000}}
+                                                                      >
+                                                                        
+                                                                      </SchemaItem><SchemaItem
+                                                                        collapsible={true}
+                                                                        className={"schemaItem"}
+                                                                      >
+                                                                        <details
+                                                                          style={{}}
+                                                                          className={"openapi-markdown__details"}
+                                                                        >
+                                                                          <summary
+                                                                            style={{}}
+                                                                          >
+                                                                            <span
+                                                                              className={"openapi-schema__container"}
+                                                                            >
+                                                                              <strong
+                                                                                className={"openapi-schema__property"}
+                                                                              >
+                                                                                aspectRatio
+                                                                              </strong><span
+                                                                                className={"openapi-schema__name"}
+                                                                              >
+                                                                                 object
+                                                                              </span>
+                                                                            </span>
+                                                                          </summary><div
+                                                                            style={{"marginLeft":"1rem"}}
+                                                                          >
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
+                                                                              collapsible={false}
+                                                                              name={"width"}
+                                                                              required={true}
+                                                                              schemaName={"integer"}
+                                                                              qualifierMessage={"**Possible values:** `>= 1`"}
+                                                                              schema={{"type":"integer","minimum":1}}
+                                                                            >
+                                                                              
+                                                                            </SchemaItem><SchemaItem
+                                                                              collapsible={false}
+                                                                              name={"height"}
+                                                                              required={true}
+                                                                              schemaName={"integer"}
+                                                                              qualifierMessage={"**Possible values:** `>= 1`"}
+                                                                              schema={{"type":"integer","minimum":1}}
+                                                                            >
+                                                                              
+                                                                            </SchemaItem>
+                                                                          </div>
+                                                                        </details>
+                                                                      </SchemaItem>
+                                                                    </TabItem><TabItem
+                                                                      label={"app.bsky.embed.external.view"}
+                                                                      value={"2-item-properties"}
                                                                     >
                                                                       <SchemaItem
                                                                         collapsible={true}
@@ -10921,7 +11115,7 @@ chat.bsky.convo.sendMessageBatch
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"rev\": \"string\",\n      \"text\": \"string\",\n      \"facets\": [\n        {\n          \"index\": {\n            \"byteStart\": 0,\n            \"byteEnd\": 0\n          },\n          \"features\": [\n            {},\n            {},\n            {}\n          ]\n        }\n      ],\n      \"embed\": {},\n      \"sender\": {\n        \"did\": \"string\"\n      },\n      \"sentAt\": \"2024-08-28T00:25:24.419Z\"\n    }\n  ]\n}"}
+                    responseExample={"{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"rev\": \"string\",\n      \"text\": \"string\",\n      \"facets\": [\n        {\n          \"index\": {\n            \"byteStart\": 0,\n            \"byteEnd\": 0\n          },\n          \"features\": [\n            {},\n            {},\n            {}\n          ]\n        }\n      ],\n      \"embed\": {},\n      \"sender\": {\n        \"did\": \"string\"\n      },\n      \"sentAt\": \"2024-08-29T00:26:05.282Z\"\n    }\n  ]\n}"}
                     language={"json"}
                   >
                     
