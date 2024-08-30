@@ -4,7 +4,7 @@ sidebar_position: 17
 
 ## OAuth Client Implementation
 
-This is a guide to implementing atproto OAuth clients "The Hard Way". Optimistically, most developers will have an SDK available for their programming language which supports OAuth, and they can simply refer to SDK documentation. This guide is intended for early adopters, SDK maintainers, or developers with more sophisticated OAuth needs. It is agnostic to whether developers are building clients to work the the `app.bsky` microblogging Lexicons, or implementing novel application Lexicons.
+This is a guide to implementing atproto OAuth clients "The Hard Way." Optimistically, most developers will have an SDK available for their programming language which supports OAuth, and they can simply refer to SDK documentation. This guide is intended for early adopters, SDK maintainers, or developers with more sophisticated OAuth needs. It is agnostic to whether developers are building clients to work the the `app.bsky` microblogging Lexicons, or implementing novel application Lexicons.
 
 The [atproto OAuth specification](https://github.com/bluesky-social/atproto-website/pull/326) is the authoritative document on how to use OAuth with atproto. If there are discrepancies between this document and the specification, defer to the specification. This document skips over a few details and uses more atproto-specific terminology, but readers are still expected to be familiar with OAuth 2 concepts, terminology, and standards.
 
@@ -56,11 +56,11 @@ OAuth is not currently recommended as an auth solution for for "headless" client
 
 ## Components
 
-OAuth 2 is a "framework" for designing authentication systems, not a single standard or API to implement. This section describes the standards used in the specific atproto "profile" of OAuth, and components that a typical client will need to implement.
+OAuth 2 is a framework for designing authentication systems, not a single standard or API to implement. This section describes the standards used in the specific atproto "profile" of OAuth, and components that a typical client will need to implement.
 
 ### Client and Server Metadata
 
-The atproto network is decentralized: there are many independent PDS instances, and many client apps. OAuth needs to facilitate any client app being authorized against any PDS instance, without prior registration or coordination between users, developers, or service operators. The atproto OAuth profile makes this possible by combining public client metadata and public authorization server metadata.
+The atproto network is decentralized: there are many independent PDS instances and many client apps. OAuth needs to facilitate any client app being authorized against any PDS instance, without prior registration or coordination between users, developers, or service operators. The atproto OAuth profile makes this possible by combining public client metadata and public authorization server metadata.
 
 All atproto OAuth clients must publish a client metadata JSON document on the public web. The `client_id`, which globally identifies the client software instance, is the fully-qualified `https://` URL at which this JSON document can be accessed.
 
