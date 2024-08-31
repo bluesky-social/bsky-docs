@@ -1233,6 +1233,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:4ee6oesrsbtmuln4gqsqf6fp',
     tags: ['client', 'opensource']
   },
+  {
+    title: 'BlueskyTimeline',
+    description: 'Bluesky embedded timeline Code snippet',
+    preview: require('./showcase/blueskytimeline.png'),
+    website: 'https://bst.heion.net/',
+    author: 'https://bsky.app/profile/heion.net',
+    tags: ['othertools'],
+  },
 ]
 
 export type User = {
