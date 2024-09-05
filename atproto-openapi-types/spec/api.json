@@ -14428,6 +14428,11 @@
                     "type": "string",
                     "description": "Subject of the message, used in emails."
                   },
+                  "lang": {
+                    "type": "string",
+                    "description": "Message language.",
+                    "format": "language"
+                  },
                   "createdBy": {
                     "type": "string",
                     "description": "DID of the user who is creating the template.",
@@ -14465,7 +14470,8 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "DuplicateTemplateName"
                       ]
                     },
                     "message": {
@@ -14703,6 +14709,11 @@
                     "type": "string",
                     "description": "Name of the template."
                   },
+                  "lang": {
+                    "type": "string",
+                    "description": "Message language.",
+                    "format": "language"
+                  },
                   "contentMarkdown": {
                     "type": "string",
                     "description": "Content of the template, markdown supported, can contain variable placeholders."
@@ -14751,7 +14762,8 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "DuplicateTemplateName"
                       ]
                     },
                     "message": {
@@ -14845,6 +14857,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReverseTakedown"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventResolveAppeal"
                       },
                       {
                         "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEmail"
@@ -20359,6 +20374,11 @@
           },
           "disabled": {
             "type": "boolean"
+          },
+          "lang": {
+            "type": "string",
+            "description": "Message language.",
+            "format": "language"
           },
           "lastUpdatedBy": {
             "type": "string",
