@@ -12,7 +12,7 @@ The three main services are personal data servers (PDS), Relays, and App Views. 
 
 ## Personal Data Server (PDS)
 
-A PDS acts as the participant’s agent in the network. This is what hosts your data (like the posts you’ve created) in your repository. It also handles your account & login, manages your repo’s signiing key, stores any of your private data (like which accounts you have muted), and handles the services you talk to for any request. 
+A PDS acts as the participant’s agent in the network. This is what hosts your data (like the posts you’ve created) in your repository. It also handles your account & login, manages your repo’s signing key, stores any of your private data (like which accounts you have muted), and handles the services you talk to for any request. 
 
 ## Relay
 
