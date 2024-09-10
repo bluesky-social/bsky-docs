@@ -1237,7 +1237,7 @@ const Users: User[] = [
     title: 'Delete Sem Where',
     description: 'A bot for tech related content that detects when it is mentioned, generates a relevant response using AI.',
     preview: require('./showcase/deletesemwhere.png'),
-    website: 'https://github.com/wscld/bluesky-bot',
+    website: 'https://bsky.app/profile/delete.semwhere.com',
     source: 'https://github.com/wscld/bluesky-bot',
     author: 'https://bsky.app/profile/wscld.co',
     tags: ['bot', 'opensource']
