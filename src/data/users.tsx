@@ -1233,6 +1233,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:4ee6oesrsbtmuln4gqsqf6fp',
     tags: ['client', 'opensource']
   },
+  {
+    title: 'Quotidian Quotables',
+    description: 'Inspiring quotes every 4 hours',
+    preview: require('./showcase/quotidian-quotables.png'),
+    website: 'https://bsky.app/profile/quotidianquotables.bsky.social',
+    source: 'https://github.com/rodrigoant/bsky-bot',
+    author: 'https://bsky.app/profile/did:plc:fsmdbwp3wijjuvbcimcj7i27',
+    tags: ['bot', 'opensource']
+  },
 ]
 
 export type User = {
