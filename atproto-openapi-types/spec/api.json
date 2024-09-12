@@ -15503,11 +15503,23 @@
         ],
         "parameters": [
           {
+            "name": "includeAllUserRecords",
+            "in": "query",
+            "description": "All subjects belonging to the account specified in the 'subject' param will be returned.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "All subjects belonging to the account specified in the 'subject' param will be returned."
+            }
+          },
+          {
             "name": "subject",
             "in": "query",
+            "description": "The subject to get the status for.",
             "required": false,
             "schema": {
               "type": "string",
+              "description": "The subject to get the status for.",
               "format": "uri"
             }
           },
@@ -16981,6 +16993,13 @@
               "maxLength": 100
             },
             "maxItems": 1000
+          },
+          "nuxs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.nux"
+            },
+            "maxItems": 100
           }
         }
       },
@@ -16994,6 +17013,33 @@
           "guide": {
             "type": "string",
             "maxLength": 100
+          }
+        }
+      },
+      "app.bsky.actor.defs.nux": {
+        "type": "object",
+        "description": "A new user experiences (NUX) storage object",
+        "required": [
+          "id",
+          "completed"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "description": "Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.",
+            "maxLength": 3000
+          },
+          "expiresAt": {
+            "type": "string",
+            "description": "The date and time at which the NUX will expire and should be considered completed.",
+            "format": "date-time"
           }
         }
       },
@@ -20720,6 +20766,10 @@
           },
           "durationInHours": {
             "type": "integer"
+          },
+          "acknowledgeAccountSubjects": {
+            "type": "boolean",
+            "description": "If true, all other reports on content authored by this account will be resolved (acknowledged)."
           }
         }
       },
