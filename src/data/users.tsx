@@ -1233,6 +1233,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:4ee6oesrsbtmuln4gqsqf6fp',
     tags: ['client', 'opensource']
   },
+  {
+    title: 'Embed Bsky',
+    description: 'Embed Your BlueSky timeline on any website or blog with a few lines of code.',
+    preview: require('./showcase/embedbsky.png'),
+    website: 'https://embedbsky.com',
+    source: 'https://github.com/cwbuecheler/embedbsky.com',
+    author: 'https://bsky.app/profile/cwbuecheler.com',
+    tags: ['opensource', 'socialtools']
+  },
 ]
 
 export type User = {
