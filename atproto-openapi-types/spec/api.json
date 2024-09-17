@@ -936,7 +936,7 @@
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a list of posts liked by an actor. Does not require auth.",
+        "description": "Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.",
         "operationId": "app.bsky.feed.getActorLikes",
         "security": [
           {
@@ -1973,6 +1973,9 @@
                           "$ref": "#/components/schemas/app.bsky.feed.defs.blockedPost"
                         }
                       ]
+                    },
+                    "threadgate": {
+                      "$ref": "#/components/schemas/app.bsky.feed.defs.threadgateView"
                     }
                   }
                 }
@@ -2071,6 +2074,147 @@
                     "posts"
                   ],
                   "properties": {
+                    "posts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.feed.defs.postView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app.bsky.feed.getQuotes": {
+      "get": {
+        "tags": [
+          "app.bsky.feed"
+        ],
+        "description": "Get a list of quotes for a given post.",
+        "operationId": "app.bsky.feed.getQuotes",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "uri",
+            "in": "query",
+            "description": "Reference (AT-URI) of post record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Reference (AT-URI) of post record",
+              "format": "at-uri"
+            }
+          },
+          {
+            "name": "cid",
+            "in": "query",
+            "description": "If supplied, filters to quotes of specific version (by CID) of the post record.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If supplied, filters to quotes of specific version (by CID) of the post record.",
+              "format": "cid"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "uri",
+                    "posts"
+                  ],
+                  "properties": {
+                    "uri": {
+                      "type": "string",
+                      "format": "at-uri"
+                    },
+                    "cid": {
+                      "type": "string",
+                      "format": "cid"
+                    },
+                    "cursor": {
+                      "type": "string"
+                    },
                     "posts": {
                       "type": "array",
                       "items": {
@@ -4370,6 +4514,10 @@
                       "items": {
                         "$ref": "#/components/schemas/app.bsky.actor.defs.profileView"
                       }
+                    },
+                    "isFallback": {
+                      "type": "boolean",
+                      "description": "If true, response has fallen-back to generic results, and is not scoped using relativeToDid"
                     }
                   }
                 }
@@ -5525,6 +5673,283 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app.bsky.video.getJobStatus": {
+      "get": {
+        "tags": [
+          "app.bsky.video"
+        ],
+        "description": "Get status details for a video processing job.",
+        "operationId": "app.bsky.video.getJobStatus",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "jobStatus"
+                  ],
+                  "properties": {
+                    "jobStatus": {
+                      "$ref": "#/components/schemas/app.bsky.video.defs.jobStatus"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app.bsky.video.getUploadLimits": {
+      "get": {
+        "tags": [
+          "app.bsky.video"
+        ],
+        "description": "Get video upload limits for the authenticated user.",
+        "operationId": "app.bsky.video.getUploadLimits",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "canUpload"
+                  ],
+                  "properties": {
+                    "canUpload": {
+                      "type": "boolean"
+                    },
+                    "remainingDailyVideos": {
+                      "type": "integer"
+                    },
+                    "remainingDailyBytes": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app.bsky.video.uploadVideo": {
+      "post": {
+        "tags": [
+          "app.bsky.video"
+        ],
+        "description": "Upload a video to be processed then stored on the PDS.",
+        "operationId": "app.bsky.video.uploadVideo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "video/mp4": {}
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "jobStatus"
+                  ],
+                  "properties": {
+                    "jobStatus": {
+                      "$ref": "#/components/schemas/app.bsky.video.defs.jobStatus"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -9551,8 +9976,7 @@
                   },
                   "validate": {
                     "type": "boolean",
-                    "description": "Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.",
-                    "default": true
+                    "description": "Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons."
                   },
                   "writes": {
                     "type": "array",
@@ -9582,7 +10006,36 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [],
+                  "properties": {
+                    "commit": {
+                      "$ref": "#/components/schemas/com.atproto.repo.defs.commitMeta"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/components/schemas/com.atproto.repo.applyWrites.createResult"
+                          },
+                          {
+                            "$ref": "#/components/schemas/com.atproto.repo.applyWrites.updateResult"
+                          },
+                          {
+                            "$ref": "#/components/schemas/com.atproto.repo.applyWrites.deleteResult"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -9678,8 +10131,7 @@
                   },
                   "validate": {
                     "type": "boolean",
-                    "description": "Can be set to 'false' to skip Lexicon schema validation of record data.",
-                    "default": true
+                    "description": "Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons."
                   },
                   "record": {},
                   "swapCommit": {
@@ -9711,6 +10163,16 @@
                     "cid": {
                       "type": "string",
                       "format": "cid"
+                    },
+                    "commit": {
+                      "$ref": "#/components/schemas/com.atproto.repo.defs.commitMeta"
+                    },
+                    "validationStatus": {
+                      "type": "string",
+                      "enum": [
+                        "valid",
+                        "unknown"
+                      ]
                     }
                   }
                 }
@@ -9825,7 +10287,19 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "commit": {
+                      "$ref": "#/components/schemas/com.atproto.repo.defs.commitMeta"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -10414,8 +10888,7 @@
                   },
                   "validate": {
                     "type": "boolean",
-                    "description": "Can be set to 'false' to skip Lexicon schema validation of record data.",
-                    "default": true
+                    "description": "Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons."
                   },
                   "record": {},
                   "swapRecord": {
@@ -10452,6 +10925,16 @@
                     "cid": {
                       "type": "string",
                       "format": "cid"
+                    },
+                    "commit": {
+                      "$ref": "#/components/schemas/com.atproto.repo.defs.commitMeta"
+                    },
+                    "validationStatus": {
+                      "type": "string",
+                      "enum": [
+                        "valid",
+                        "unknown"
+                      ]
                     }
                   }
                 }
@@ -13636,6 +14119,11 @@
         ],
         "description": "Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.",
         "operationId": "com.atproto.sync.listRepos",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "limit",
@@ -13696,8 +14184,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -13920,6 +14432,11 @@
                     "type": "string",
                     "description": "Subject of the message, used in emails."
                   },
+                  "lang": {
+                    "type": "string",
+                    "description": "Message language.",
+                    "format": "language"
+                  },
                   "createdBy": {
                     "type": "string",
                     "description": "DID of the user who is creating the template.",
@@ -13957,7 +14474,8 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "DuplicateTemplateName"
                       ]
                     },
                     "message": {
@@ -14195,6 +14713,11 @@
                     "type": "string",
                     "description": "Name of the template."
                   },
+                  "lang": {
+                    "type": "string",
+                    "description": "Message language.",
+                    "format": "language"
+                  },
                   "contentMarkdown": {
                     "type": "string",
                     "description": "Content of the template, markdown supported, can contain variable placeholders."
@@ -14243,7 +14766,8 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "DuplicateTemplateName"
                       ]
                     },
                     "message": {
@@ -14337,6 +14861,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventReverseTakedown"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventResolveAppeal"
                       },
                       {
                         "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventEmail"
@@ -14980,11 +15507,23 @@
         ],
         "parameters": [
           {
+            "name": "includeAllUserRecords",
+            "in": "query",
+            "description": "All subjects belonging to the account specified in the 'subject' param will be returned.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "All subjects belonging to the account specified in the 'subject' param will be returned."
+            }
+          },
+          {
             "name": "subject",
             "in": "query",
+            "description": "The subject to get the status for.",
             "required": false,
             "schema": {
               "type": "string",
+              "description": "The subject to get the status for.",
               "format": "uri"
             }
           },
@@ -16458,6 +16997,13 @@
               "maxLength": 100
             },
             "maxItems": 1000
+          },
+          "nuxs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.nux"
+            },
+            "maxItems": 100
           }
         }
       },
@@ -16471,6 +17017,33 @@
           "guide": {
             "type": "string",
             "maxLength": 100
+          }
+        }
+      },
+      "app.bsky.actor.defs.nux": {
+        "type": "object",
+        "description": "A new user experiences (NUX) storage object",
+        "required": [
+          "id",
+          "completed"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "description": "Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters.",
+            "maxLength": 3000
+          },
+          "expiresAt": {
+            "type": "string",
+            "description": "The date and time at which the NUX will expire and should be considered completed.",
+            "format": "date-time"
           }
         }
       },
@@ -16509,6 +17082,24 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "app.bsky.embed.defs.aspectRatio": {
+        "type": "object",
+        "description": "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
+        "required": [
+          "width",
+          "height"
+        ],
+        "properties": {
+          "width": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1
           }
         }
       },
@@ -16616,25 +17207,7 @@
             "description": "Alt text description of the image, for accessibility."
           },
           "aspectRatio": {
-            "$ref": "#/components/schemas/app.bsky.embed.images.aspectRatio"
-          }
-        }
-      },
-      "app.bsky.embed.images.aspectRatio": {
-        "type": "object",
-        "description": "width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.",
-        "required": [
-          "width",
-          "height"
-        ],
-        "properties": {
-          "width": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "height": {
-            "type": "integer",
-            "minimum": 1
+            "$ref": "#/components/schemas/app.bsky.embed.defs.aspectRatio"
           }
         }
       },
@@ -16676,7 +17249,7 @@
             "description": "Alt text description of the image, for accessibility."
           },
           "aspectRatio": {
-            "$ref": "#/components/schemas/app.bsky.embed.images.aspectRatio"
+            "$ref": "#/components/schemas/app.bsky.embed.defs.aspectRatio"
           }
         }
       },
@@ -16707,6 +17280,9 @@
               },
               {
                 "$ref": "#/components/schemas/app.bsky.embed.record.viewBlocked"
+              },
+              {
+                "$ref": "#/components/schemas/app.bsky.embed.record.viewDetached"
               },
               {
                 "$ref": "#/components/schemas/app.bsky.feed.defs.generatorView"
@@ -16761,12 +17337,18 @@
           "likeCount": {
             "type": "integer"
           },
+          "quoteCount": {
+            "type": "integer"
+          },
           "embeds": {
             "type": "array",
             "items": {
               "oneOf": [
                 {
                   "$ref": "#/components/schemas/app.bsky.embed.images.view"
+                },
+                {
+                  "$ref": "#/components/schemas/app.bsky.embed.video.view"
                 },
                 {
                   "$ref": "#/components/schemas/app.bsky.embed.external.view"
@@ -16824,6 +17406,23 @@
           }
         }
       },
+      "app.bsky.embed.record.viewDetached": {
+        "type": "object",
+        "required": [
+          "uri",
+          "detached"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri"
+          },
+          "detached": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      },
       "app.bsky.embed.recordWithMedia": {
         "type": "object",
         "required": [
@@ -16838,6 +17437,9 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/app.bsky.embed.images"
+              },
+              {
+                "$ref": "#/components/schemas/app.bsky.embed.video"
               },
               {
                 "$ref": "#/components/schemas/app.bsky.embed.external"
@@ -16862,9 +17464,86 @@
                 "$ref": "#/components/schemas/app.bsky.embed.images.view"
               },
               {
+                "$ref": "#/components/schemas/app.bsky.embed.video.view"
+              },
+              {
                 "$ref": "#/components/schemas/app.bsky.embed.external.view"
               }
             ]
+          }
+        }
+      },
+      "app.bsky.embed.video": {
+        "type": "object",
+        "required": [
+          "video"
+        ],
+        "properties": {
+          "video": {
+            "type": "string",
+            "format": "binary",
+            "maxLength": 50000000
+          },
+          "captions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.embed.video.caption"
+            },
+            "maxItems": 20
+          },
+          "alt": {
+            "type": "string",
+            "description": "Alt text description of the video, for accessibility.",
+            "maxLength": 10000
+          },
+          "aspectRatio": {
+            "$ref": "#/components/schemas/app.bsky.embed.defs.aspectRatio"
+          }
+        }
+      },
+      "app.bsky.embed.video.caption": {
+        "type": "object",
+        "required": [
+          "lang",
+          "file"
+        ],
+        "properties": {
+          "lang": {
+            "type": "string",
+            "format": "language"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "maxLength": 20000
+          }
+        }
+      },
+      "app.bsky.embed.video.view": {
+        "type": "object",
+        "required": [
+          "cid",
+          "playlist"
+        ],
+        "properties": {
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "playlist": {
+            "type": "string",
+            "format": "uri"
+          },
+          "thumbnail": {
+            "type": "string",
+            "format": "uri"
+          },
+          "alt": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "aspectRatio": {
+            "$ref": "#/components/schemas/app.bsky.embed.defs.aspectRatio"
           }
         }
       },
@@ -16896,6 +17575,9 @@
                 "$ref": "#/components/schemas/app.bsky.embed.images.view"
               },
               {
+                "$ref": "#/components/schemas/app.bsky.embed.video.view"
+              },
+              {
                 "$ref": "#/components/schemas/app.bsky.embed.external.view"
               },
               {
@@ -16913,6 +17595,9 @@
             "type": "integer"
           },
           "likeCount": {
+            "type": "integer"
+          },
+          "quoteCount": {
             "type": "integer"
           },
           "indexedAt": {
@@ -16949,6 +17634,9 @@
             "type": "boolean"
           },
           "replyDisabled": {
+            "type": "boolean"
+          },
+          "embeddingDisabled": {
             "type": "boolean"
           }
         }
@@ -17482,6 +18170,9 @@
                 "$ref": "#/components/schemas/app.bsky.embed.images"
               },
               {
+                "$ref": "#/components/schemas/app.bsky.embed.video"
+              },
+              {
                 "$ref": "#/components/schemas/app.bsky.embed.external"
               },
               {
@@ -17537,6 +18228,48 @@
           }
         }
       },
+      "app.bsky.feed.postgate": {
+        "type": "object",
+        "required": [
+          "post",
+          "createdAt"
+        ],
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "post": {
+            "type": "string",
+            "description": "Reference (AT-URI) to the post record.",
+            "format": "at-uri"
+          },
+          "detachedEmbeddingUris": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "maxItems": 50
+          },
+          "embeddingRules": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/app.bsky.feed.postgate.disableRule"
+                }
+              ]
+            },
+            "maxItems": 5
+          }
+        }
+      },
+      "app.bsky.feed.postgate.disableRule": {
+        "type": "object",
+        "description": "Disables embedding of this post.",
+        "properties": {}
+      },
       "app.bsky.feed.repost": {
         "type": "object",
         "required": [
@@ -17585,6 +18318,14 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "hiddenReplies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "at-uri"
+            },
+            "maxItems": 50
           }
         }
       },
@@ -18376,6 +19117,46 @@
           }
         }
       },
+      "app.bsky.video.defs.jobStatus": {
+        "type": "object",
+        "required": [
+          "jobId",
+          "did",
+          "state"
+        ],
+        "properties": {
+          "jobId": {
+            "type": "string"
+          },
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "state": {
+            "type": "string",
+            "description": "The state of the video processing job. All values not listed as a known value indicate that the job is in process.",
+            "enum": [
+              "JOB_STATE_COMPLETED",
+              "JOB_STATE_FAILED"
+            ]
+          },
+          "progress": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "blob": {
+            "type": "string",
+            "format": "binary"
+          },
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
       "chat.bsky.actor.declaration": {
         "type": "object",
         "required": [
@@ -19146,6 +19927,75 @@
           }
         }
       },
+      "com.atproto.repo.applyWrites.createResult": {
+        "type": "object",
+        "required": [
+          "uri",
+          "cid"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri"
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "validationStatus": {
+            "type": "string",
+            "enum": [
+              "valid",
+              "unknown"
+            ]
+          }
+        }
+      },
+      "com.atproto.repo.applyWrites.updateResult": {
+        "type": "object",
+        "required": [
+          "uri",
+          "cid"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri"
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "validationStatus": {
+            "type": "string",
+            "enum": [
+              "valid",
+              "unknown"
+            ]
+          }
+        }
+      },
+      "com.atproto.repo.applyWrites.deleteResult": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "com.atproto.repo.defs.commitMeta": {
+        "type": "object",
+        "required": [
+          "cid",
+          "rev"
+        ],
+        "properties": {
+          "cid": {
+            "type": "string",
+            "format": "cid"
+          },
+          "rev": {
+            "type": "string"
+          }
+        }
+      },
       "com.atproto.repo.listMissingBlobs.recordBlob": {
         "type": "object",
         "required": [
@@ -19575,6 +20425,11 @@
           "disabled": {
             "type": "boolean"
           },
+          "lang": {
+            "type": "string",
+            "description": "Message language.",
+            "format": "language"
+          },
           "lastUpdatedBy": {
             "type": "string",
             "description": "DID of the user who last updated the template.",
@@ -19915,6 +20770,10 @@
           },
           "durationInHours": {
             "type": "integer"
+          },
+          "acknowledgeAccountSubjects": {
+            "type": "boolean",
+            "description": "If true, all other reports on content authored by this account will be resolved (acknowledged)."
           }
         }
       },
@@ -20534,6 +21393,9 @@
     },
     {
       "name": "app.bsky.unspecced"
+    },
+    {
+      "name": "app.bsky.video"
     },
     {
       "name": "chat.bsky.actor"

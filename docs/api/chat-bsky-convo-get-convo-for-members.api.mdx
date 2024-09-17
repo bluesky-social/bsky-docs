@@ -3241,6 +3241,15 @@ chat.bsky.convo.getConvoForMembers
                                                           >
                                                             
                                                           </SchemaItem><SchemaItem
+                                                            collapsible={false}
+                                                            name={"quoteCount"}
+                                                            required={false}
+                                                            schemaName={"integer"}
+                                                            qualifierMessage={undefined}
+                                                            schema={{"type":"integer"}}
+                                                          >
+                                                            
+                                                          </SchemaItem><SchemaItem
                                                             collapsible={true}
                                                             className={"schemaItem"}
                                                           >
@@ -3426,8 +3435,105 @@ chat.bsky.convo.getConvoForMembers
                                                                         </details>
                                                                       </SchemaItem>
                                                                     </TabItem><TabItem
-                                                                      label={"app.bsky.embed.external.view"}
+                                                                      label={"app.bsky.embed.video.view"}
                                                                       value={"1-item-properties"}
+                                                                    >
+                                                                      <SchemaItem
+                                                                        collapsible={false}
+                                                                        name={"cid"}
+                                                                        required={true}
+                                                                        schemaName={"cid"}
+                                                                        qualifierMessage={undefined}
+                                                                        schema={{"type":"string","format":"cid"}}
+                                                                      >
+                                                                        
+                                                                      </SchemaItem><SchemaItem
+                                                                        collapsible={false}
+                                                                        name={"playlist"}
+                                                                        required={true}
+                                                                        schemaName={"uri"}
+                                                                        qualifierMessage={undefined}
+                                                                        schema={{"type":"string","format":"uri"}}
+                                                                      >
+                                                                        
+                                                                      </SchemaItem><SchemaItem
+                                                                        collapsible={false}
+                                                                        name={"thumbnail"}
+                                                                        required={false}
+                                                                        schemaName={"uri"}
+                                                                        qualifierMessage={undefined}
+                                                                        schema={{"type":"string","format":"uri"}}
+                                                                      >
+                                                                        
+                                                                      </SchemaItem><SchemaItem
+                                                                        collapsible={false}
+                                                                        name={"alt"}
+                                                                        required={false}
+                                                                        schemaName={"string"}
+                                                                        qualifierMessage={"**Possible values:** `<= 10000 characters`"}
+                                                                        schema={{"type":"string","maxLength":10000}}
+                                                                      >
+                                                                        
+                                                                      </SchemaItem><SchemaItem
+                                                                        collapsible={true}
+                                                                        className={"schemaItem"}
+                                                                      >
+                                                                        <details
+                                                                          style={{}}
+                                                                          className={"openapi-markdown__details"}
+                                                                        >
+                                                                          <summary
+                                                                            style={{}}
+                                                                          >
+                                                                            <span
+                                                                              className={"openapi-schema__container"}
+                                                                            >
+                                                                              <strong
+                                                                                className={"openapi-schema__property"}
+                                                                              >
+                                                                                aspectRatio
+                                                                              </strong><span
+                                                                                className={"openapi-schema__name"}
+                                                                              >
+                                                                                 object
+                                                                              </span>
+                                                                            </span>
+                                                                          </summary><div
+                                                                            style={{"marginLeft":"1rem"}}
+                                                                          >
+                                                                            <div
+                                                                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                            >
+                                                                              
+                                                                              
+                                                                              width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.
+                                                                              
+                                                                              
+                                                                            </div><SchemaItem
+                                                                              collapsible={false}
+                                                                              name={"width"}
+                                                                              required={true}
+                                                                              schemaName={"integer"}
+                                                                              qualifierMessage={"**Possible values:** `>= 1`"}
+                                                                              schema={{"type":"integer","minimum":1}}
+                                                                            >
+                                                                              
+                                                                            </SchemaItem><SchemaItem
+                                                                              collapsible={false}
+                                                                              name={"height"}
+                                                                              required={true}
+                                                                              schemaName={"integer"}
+                                                                              qualifierMessage={"**Possible values:** `>= 1`"}
+                                                                              schema={{"type":"integer","minimum":1}}
+                                                                            >
+                                                                              
+                                                                            </SchemaItem>
+                                                                          </div>
+                                                                        </details>
+                                                                      </SchemaItem>
+                                                                    </TabItem><TabItem
+                                                                      label={"app.bsky.embed.external.view"}
+                                                                      value={"2-item-properties"}
                                                                     >
                                                                       <SchemaItem
                                                                         collapsible={true}
@@ -3506,7 +3612,7 @@ chat.bsky.convo.getConvoForMembers
                                                                       </SchemaItem>
                                                                     </TabItem><TabItem
                                                                       label={"app.bsky.embed.recordWithMedia.view"}
-                                                                      value={"3-item-properties"}
+                                                                      value={"4-item-properties"}
                                                                     >
                                                                       <SchemaItem
                                                                         collapsible={false}
@@ -3696,8 +3802,105 @@ chat.bsky.convo.getConvoForMembers
                                                                                   </details>
                                                                                 </SchemaItem>
                                                                               </TabItem><TabItem
-                                                                                label={"app.bsky.embed.external.view"}
+                                                                                label={"app.bsky.embed.video.view"}
                                                                                 value={"1-item-properties"}
+                                                                              >
+                                                                                <SchemaItem
+                                                                                  collapsible={false}
+                                                                                  name={"cid"}
+                                                                                  required={true}
+                                                                                  schemaName={"cid"}
+                                                                                  qualifierMessage={undefined}
+                                                                                  schema={{"type":"string","format":"cid"}}
+                                                                                >
+                                                                                  
+                                                                                </SchemaItem><SchemaItem
+                                                                                  collapsible={false}
+                                                                                  name={"playlist"}
+                                                                                  required={true}
+                                                                                  schemaName={"uri"}
+                                                                                  qualifierMessage={undefined}
+                                                                                  schema={{"type":"string","format":"uri"}}
+                                                                                >
+                                                                                  
+                                                                                </SchemaItem><SchemaItem
+                                                                                  collapsible={false}
+                                                                                  name={"thumbnail"}
+                                                                                  required={false}
+                                                                                  schemaName={"uri"}
+                                                                                  qualifierMessage={undefined}
+                                                                                  schema={{"type":"string","format":"uri"}}
+                                                                                >
+                                                                                  
+                                                                                </SchemaItem><SchemaItem
+                                                                                  collapsible={false}
+                                                                                  name={"alt"}
+                                                                                  required={false}
+                                                                                  schemaName={"string"}
+                                                                                  qualifierMessage={"**Possible values:** `<= 10000 characters`"}
+                                                                                  schema={{"type":"string","maxLength":10000}}
+                                                                                >
+                                                                                  
+                                                                                </SchemaItem><SchemaItem
+                                                                                  collapsible={true}
+                                                                                  className={"schemaItem"}
+                                                                                >
+                                                                                  <details
+                                                                                    style={{}}
+                                                                                    className={"openapi-markdown__details"}
+                                                                                  >
+                                                                                    <summary
+                                                                                      style={{}}
+                                                                                    >
+                                                                                      <span
+                                                                                        className={"openapi-schema__container"}
+                                                                                      >
+                                                                                        <strong
+                                                                                          className={"openapi-schema__property"}
+                                                                                        >
+                                                                                          aspectRatio
+                                                                                        </strong><span
+                                                                                          className={"openapi-schema__name"}
+                                                                                        >
+                                                                                           object
+                                                                                        </span>
+                                                                                      </span>
+                                                                                    </summary><div
+                                                                                      style={{"marginLeft":"1rem"}}
+                                                                                    >
+                                                                                      <div
+                                                                                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                                                                      >
+                                                                                        
+                                                                                        
+                                                                                        width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.
+                                                                                        
+                                                                                        
+                                                                                      </div><SchemaItem
+                                                                                        collapsible={false}
+                                                                                        name={"width"}
+                                                                                        required={true}
+                                                                                        schemaName={"integer"}
+                                                                                        qualifierMessage={"**Possible values:** `>= 1`"}
+                                                                                        schema={{"type":"integer","minimum":1}}
+                                                                                      >
+                                                                                        
+                                                                                      </SchemaItem><SchemaItem
+                                                                                        collapsible={false}
+                                                                                        name={"height"}
+                                                                                        required={true}
+                                                                                        schemaName={"integer"}
+                                                                                        qualifierMessage={"**Possible values:** `>= 1`"}
+                                                                                        schema={{"type":"integer","minimum":1}}
+                                                                                      >
+                                                                                        
+                                                                                      </SchemaItem>
+                                                                                    </div>
+                                                                                  </details>
+                                                                                </SchemaItem>
+                                                                              </TabItem><TabItem
+                                                                                label={"app.bsky.embed.external.view"}
+                                                                                value={"2-item-properties"}
                                                                               >
                                                                                 <SchemaItem
                                                                                   collapsible={true}
@@ -5024,8 +5227,31 @@ chat.bsky.convo.getConvoForMembers
                                                             </details>
                                                           </SchemaItem>
                                                         </TabItem><TabItem
-                                                          label={"app.bsky.feed.defs.generatorView"}
+                                                          label={"app.bsky.embed.record.viewDetached"}
                                                           value={"3-item-properties"}
+                                                        >
+                                                          <SchemaItem
+                                                            collapsible={false}
+                                                            name={"uri"}
+                                                            required={true}
+                                                            schemaName={"at-uri"}
+                                                            qualifierMessage={undefined}
+                                                            schema={{"type":"string","format":"at-uri"}}
+                                                          >
+                                                            
+                                                          </SchemaItem><SchemaItem
+                                                            collapsible={false}
+                                                            name={"detached"}
+                                                            required={true}
+                                                            schemaName={"boolean"}
+                                                            qualifierMessage={undefined}
+                                                            schema={{"type":"boolean","default":true}}
+                                                          >
+                                                            
+                                                          </SchemaItem>
+                                                        </TabItem><TabItem
+                                                          label={"app.bsky.feed.defs.generatorView"}
+                                                          value={"4-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -6938,7 +7164,7 @@ chat.bsky.convo.getConvoForMembers
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.graph.defs.listView"}
-                                                          value={"4-item-properties"}
+                                                          value={"5-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -8917,7 +9143,7 @@ chat.bsky.convo.getConvoForMembers
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.labeler.defs.labelerView"}
-                                                          value={"5-item-properties"}
+                                                          value={"6-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -10579,7 +10805,7 @@ chat.bsky.convo.getConvoForMembers
                                                           </SchemaItem>
                                                         </TabItem><TabItem
                                                           label={"app.bsky.graph.defs.starterPackViewBasic"}
-                                                          value={"6-item-properties"}
+                                                          value={"7-item-properties"}
                                                         >
                                                           <SchemaItem
                                                             collapsible={false}
@@ -12056,7 +12282,7 @@ chat.bsky.convo.getConvoForMembers
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"convo\": {\n    \"id\": \"string\",\n    \"rev\": \"string\",\n    \"members\": [\n      {\n        \"did\": \"string\",\n        \"handle\": \"string\",\n        \"displayName\": \"string\",\n        \"avatar\": \"string\",\n        \"associated\": {\n          \"lists\": 0,\n          \"feedgens\": 0,\n          \"starterPacks\": 0,\n          \"labeler\": true,\n          \"chat\": {\n            \"allowIncoming\": \"all\"\n          }\n        },\n        \"viewer\": {\n          \"muted\": true,\n          \"mutedByList\": {\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"name\": \"string\",\n            \"purpose\": \"string\",\n            \"avatar\": \"string\",\n            \"listItemCount\": 0,\n            \"labels\": [\n              {\n                \"ver\": 0,\n                \"src\": \"string\",\n                \"uri\": \"string\",\n                \"cid\": \"string\",\n                \"val\": \"string\",\n                \"neg\": true,\n                \"cts\": \"2024-08-16T00:24:40.277Z\",\n                \"exp\": \"2024-08-16T00:24:40.277Z\",\n                \"sig\": \"string\"\n              }\n            ],\n            \"viewer\": {\n              \"muted\": true,\n              \"blocked\": \"string\"\n            },\n            \"indexedAt\": \"2024-08-16T00:24:40.277Z\"\n          },\n          \"blockedBy\": true,\n          \"blocking\": \"string\",\n          \"blockingByList\": {\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"name\": \"string\",\n            \"purpose\": \"string\",\n            \"avatar\": \"string\",\n            \"listItemCount\": 0,\n            \"labels\": [\n              {\n                \"ver\": 0,\n                \"src\": \"string\",\n                \"uri\": \"string\",\n                \"cid\": \"string\",\n                \"val\": \"string\",\n                \"neg\": true,\n                \"cts\": \"2024-08-16T00:24:40.277Z\",\n                \"exp\": \"2024-08-16T00:24:40.277Z\",\n                \"sig\": \"string\"\n              }\n            ],\n            \"viewer\": {\n              \"muted\": true,\n              \"blocked\": \"string\"\n            },\n            \"indexedAt\": \"2024-08-16T00:24:40.277Z\"\n          },\n          \"following\": \"string\",\n          \"followedBy\": \"string\",\n          \"knownFollowers\": {\n            \"count\": 0,\n            \"followers\": [\n              {\n                \"did\": \"string\",\n                \"handle\": \"string\",\n                \"displayName\": \"string\",\n                \"avatar\": \"string\",\n                \"associated\": {\n                  \"lists\": 0,\n                  \"feedgens\": 0,\n                  \"starterPacks\": 0,\n                  \"labeler\": true,\n                  \"chat\": {\n                    \"allowIncoming\": \"all\"\n                  }\n                },\n                \"labels\": [\n                  {\n                    \"ver\": 0,\n                    \"src\": \"string\",\n                    \"uri\": \"string\",\n                    \"cid\": \"string\",\n                    \"val\": \"string\",\n                    \"neg\": true,\n                    \"cts\": \"2024-08-16T00:24:40.277Z\",\n                    \"exp\": \"2024-08-16T00:24:40.277Z\",\n                    \"sig\": \"string\"\n                  }\n                ],\n                \"createdAt\": \"2024-08-16T00:24:40.277Z\"\n              }\n            ]\n          }\n        },\n        \"labels\": [\n          {\n            \"ver\": 0,\n            \"src\": \"string\",\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"val\": \"string\",\n            \"neg\": true,\n            \"cts\": \"2024-08-16T00:24:40.277Z\",\n            \"exp\": \"2024-08-16T00:24:40.277Z\",\n            \"sig\": \"string\"\n          }\n        ],\n        \"chatDisabled\": true\n      }\n    ],\n    \"lastMessage\": {},\n    \"muted\": true,\n    \"unreadCount\": 0\n  }\n}"}
+                    responseExample={"{\n  \"convo\": {\n    \"id\": \"string\",\n    \"rev\": \"string\",\n    \"members\": [\n      {\n        \"did\": \"string\",\n        \"handle\": \"string\",\n        \"displayName\": \"string\",\n        \"avatar\": \"string\",\n        \"associated\": {\n          \"lists\": 0,\n          \"feedgens\": 0,\n          \"starterPacks\": 0,\n          \"labeler\": true,\n          \"chat\": {\n            \"allowIncoming\": \"all\"\n          }\n        },\n        \"viewer\": {\n          \"muted\": true,\n          \"mutedByList\": {\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"name\": \"string\",\n            \"purpose\": \"string\",\n            \"avatar\": \"string\",\n            \"listItemCount\": 0,\n            \"labels\": [\n              {\n                \"ver\": 0,\n                \"src\": \"string\",\n                \"uri\": \"string\",\n                \"cid\": \"string\",\n                \"val\": \"string\",\n                \"neg\": true,\n                \"cts\": \"2024-09-17T00:22:40.762Z\",\n                \"exp\": \"2024-09-17T00:22:40.762Z\",\n                \"sig\": \"string\"\n              }\n            ],\n            \"viewer\": {\n              \"muted\": true,\n              \"blocked\": \"string\"\n            },\n            \"indexedAt\": \"2024-09-17T00:22:40.762Z\"\n          },\n          \"blockedBy\": true,\n          \"blocking\": \"string\",\n          \"blockingByList\": {\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"name\": \"string\",\n            \"purpose\": \"string\",\n            \"avatar\": \"string\",\n            \"listItemCount\": 0,\n            \"labels\": [\n              {\n                \"ver\": 0,\n                \"src\": \"string\",\n                \"uri\": \"string\",\n                \"cid\": \"string\",\n                \"val\": \"string\",\n                \"neg\": true,\n                \"cts\": \"2024-09-17T00:22:40.762Z\",\n                \"exp\": \"2024-09-17T00:22:40.762Z\",\n                \"sig\": \"string\"\n              }\n            ],\n            \"viewer\": {\n              \"muted\": true,\n              \"blocked\": \"string\"\n            },\n            \"indexedAt\": \"2024-09-17T00:22:40.762Z\"\n          },\n          \"following\": \"string\",\n          \"followedBy\": \"string\",\n          \"knownFollowers\": {\n            \"count\": 0,\n            \"followers\": [\n              {\n                \"did\": \"string\",\n                \"handle\": \"string\",\n                \"displayName\": \"string\",\n                \"avatar\": \"string\",\n                \"associated\": {\n                  \"lists\": 0,\n                  \"feedgens\": 0,\n                  \"starterPacks\": 0,\n                  \"labeler\": true,\n                  \"chat\": {\n                    \"allowIncoming\": \"all\"\n                  }\n                },\n                \"labels\": [\n                  {\n                    \"ver\": 0,\n                    \"src\": \"string\",\n                    \"uri\": \"string\",\n                    \"cid\": \"string\",\n                    \"val\": \"string\",\n                    \"neg\": true,\n                    \"cts\": \"2024-09-17T00:22:40.762Z\",\n                    \"exp\": \"2024-09-17T00:22:40.762Z\",\n                    \"sig\": \"string\"\n                  }\n                ],\n                \"createdAt\": \"2024-09-17T00:22:40.762Z\"\n              }\n            ]\n          }\n        },\n        \"labels\": [\n          {\n            \"ver\": 0,\n            \"src\": \"string\",\n            \"uri\": \"string\",\n            \"cid\": \"string\",\n            \"val\": \"string\",\n            \"neg\": true,\n            \"cts\": \"2024-09-17T00:22:40.762Z\",\n            \"exp\": \"2024-09-17T00:22:40.762Z\",\n            \"sig\": \"string\"\n          }\n        ],\n        \"chatDisabled\": true\n      }\n    ],\n    \"lastMessage\": {},\n    \"muted\": true,\n    \"unreadCount\": 0\n  }\n}"}
                     language={"json"}
                   >
                     

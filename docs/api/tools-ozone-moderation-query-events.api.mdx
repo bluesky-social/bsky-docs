@@ -302,6 +302,15 @@ List moderation events related to a subject.
                                         schema={{"type":"integer"}}
                                       >
                                         
+                                      </SchemaItem><SchemaItem
+                                        collapsible={false}
+                                        name={"acknowledgeAccountSubjects"}
+                                        required={false}
+                                        schemaName={"boolean"}
+                                        qualifierMessage={undefined}
+                                        schema={{"type":"boolean","description":"If true, all other reports on content authored by this account will be resolved (acknowledged)."}}
+                                      >
+                                        
                                       </SchemaItem>
                                     </TabItem><TabItem
                                       label={"tools.ozone.moderation.defs.modEventReverseTakedown"}
@@ -887,7 +896,7 @@ List moderation events related to a subject.
                   value={"Example (from schema)"}
                 >
                   <ResponseSamples
-                    responseExample={"{\n  \"cursor\": \"string\",\n  \"events\": [\n    {\n      \"id\": 0,\n      \"event\": {},\n      \"subject\": {},\n      \"subjectBlobCids\": [\n        \"string\"\n      ],\n      \"createdBy\": \"string\",\n      \"createdAt\": \"2024-08-16T00:24:41.517Z\",\n      \"creatorHandle\": \"string\",\n      \"subjectHandle\": \"string\"\n    }\n  ]\n}"}
+                    responseExample={"{\n  \"cursor\": \"string\",\n  \"events\": [\n    {\n      \"id\": 0,\n      \"event\": {},\n      \"subject\": {},\n      \"subjectBlobCids\": [\n        \"string\"\n      ],\n      \"createdBy\": \"string\",\n      \"createdAt\": \"2024-09-17T00:22:42.074Z\",\n      \"creatorHandle\": \"string\",\n      \"subjectHandle\": \"string\"\n    }\n  ]\n}"}
                     language={"json"}
                   >
                     

@@ -1233,6 +1233,16 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:4ee6oesrsbtmuln4gqsqf6fp',
     tags: ['client', 'opensource']
   },
+  {
+    title: 'Bluesky Self Hosting Tool',
+    description: 'Tool for easy self-hosting entire bluesky components, including PLC, Relay, Appview, PDS, Feed-Generator, Ozone.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/itaru2622/bluesky-selfhost-env',
+    source: 'https://github.com/itaru2622/bluesky-selfhost-env',
+    author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
+    tags: ['othertools', 'opensource'],
+  },
+
 ]
 
 export type User = {
