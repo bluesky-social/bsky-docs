@@ -6,7 +6,7 @@ sidebar_position: 17
 
 This is a guide to implementing atproto OAuth clients "The Hard Way." Optimistically, most developers will have an SDK available for their programming language which supports OAuth, and they can simply refer to SDK documentation. This guide is intended for early adopters, SDK maintainers, or developers with more sophisticated OAuth needs. It is agnostic to whether developers are building clients to work the the `app.bsky` microblogging Lexicons, or implementing novel application Lexicons.
 
-The [atproto OAuth specification](https://github.com/bluesky-social/atproto-website/pull/326) is the authoritative document on how to use OAuth with atproto. If there are discrepancies between this document and the specification, defer to the specification. This document skips over a few details and uses more atproto-specific terminology, but readers are still expected to be familiar with OAuth 2 concepts, terminology, and standards.
+The [atproto OAuth specification](https://atproto.com/specs/auth) is the authoritative document on how to use OAuth with atproto. If there are discrepancies between this document and the specification, defer to the specification. This document skips over a few details and uses more atproto-specific terminology, but readers are still expected to be familiar with OAuth 2 concepts, terminology, and standards.
 
 This guide is focused on apps which use OAuth to make authorized ("authz") requests to user PDS servers, for example to write records to atproto repositories, or make proxied API requests to other services. It is also possible to use the atproto identity system only for authentication ("authn"), similar to OpenID/OIDC.
 
