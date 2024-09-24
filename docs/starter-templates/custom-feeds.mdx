@@ -79,6 +79,10 @@ We strongly encourage that the cursor be _unique per feed item_ to prevent unexp
 We recommend, for instance, a compound cursor with a timestamp + a CID:
 `1683654690921::bafyreia3tbsfxe3cc75xrxyyn6qc42oupi73fxiox76prlyi5bpx7hr72u`
 
+#### Language handling
+
+Implemented correctly, requests to `getFeedSkeleton` should populate the `Accept-Language` header with comma-separated BCP-47 language codes e.g. `en,fr`. You should use this to return only posts that match those languages where possible. If language filtering is applied, you should in-turn populate the `Content-Language` header with the languages you used to filter.
+
 #### Suggestions and Examples
 
 How a feed generator fulfills the `getFeedSkeleton` request is completely at their discretion. At the simplest end, a Feed Generator could supply a "feed" that only contains some hardcoded posts.
