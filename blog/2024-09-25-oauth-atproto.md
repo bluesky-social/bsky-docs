@@ -37,6 +37,6 @@ These are big priorities for user security, and the path to implementation and d
 
 While that work is in progress, we are interested in feedback from SDK developers and early adopters. What pain points do you encounter? Are there requirements which could be relaxed without reducing user security?
 
-The overall design of this OAuth profile is similar to other social web protocols, such as ActivityPub. There are some atproto-specific aspects, but we are open to collaboration and harmonization between profiles to simplify and improve security on the web generally.
+The overall design of this OAuth profile is similar to that of other social web protocols, such as ActivityPub. There are some atproto-specific aspects, but we are open to collaboration and harmonization between profiles to simplify and improve security on the web generally.
 
-Finally, a number of the specifications we adopt and build upon are still drafts undergoing advice development. We are interested in feedback on our specification, and intend to work with standards bodies (including the IETF) and tweak our profile if necessary to ensure compliance with final versions of any relevant standards and best practices.
+Finally, a number of the specifications we adopt and build upon are still drafts undergoing active development. We are interested in feedback on our specification, and intend to work with standards bodies (including the IETF) and tweak our profile if necessary to ensure compliance with final versions of any relevant standards and best practices.
