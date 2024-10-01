@@ -81,7 +81,7 @@ We recommend, for instance, a compound cursor with a timestamp + a CID:
 
 #### Language handling
 
-Implemented correctly, requests to `getFeedSkeleton` should populate the `Accept-Language` header with comma-separated BCP-47 language codes e.g. `en,fr`. You should use this to return only posts that match those languages where possible. If language filtering is applied, you should in-turn populate the `Content-Language` header with the languages you used to filter.
+When making requests to `getFeedSkeleton`, clients are encouraged to populate the `Accept-Language` HTTP header with comma-separated BCP-47 language codes e.g. `en,pr-BR`. Feed generators can use this language context to filter or rank posts. If language filtering is applied, the feed generator should use the the `Content-Language` response header indicating the parsed language codes.
 
 #### Suggestions and Examples
 
