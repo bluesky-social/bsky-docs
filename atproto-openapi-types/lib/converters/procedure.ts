@@ -2,26 +2,19 @@ import type { LexXrpcProcedure } from "@atproto/lexicon";
 import type { OpenAPIV3_1 } from "openapi-types";
 
 import { convertObject, convertProperty } from "./object.ts";
-import { calculateTag, checkEndpoint, Endpoint } from "../utils.ts";
+import { calculateTag, Endpoint } from "../utils.ts";
 
 export async function convertProcedure(
   id: string,
   name: string,
   procedure: LexXrpcProcedure,
 ): Promise<OpenAPIV3_1.OperationObject<"POST"> | undefined> {
-  const endpointType = await checkEndpoint(id, "POST");
-
-  if (endpointType === Endpoint.DoesNotExist) {
-    return;
-  }
-
-  const needsAuthentication = endpointType === Endpoint.NeedsAuthentication;
 
   const post = {
     tags: [calculateTag(id)],
     ...(procedure.description && { description: procedure.description }),
     operationId: id,
-    ...(needsAuthentication && { security: [{ Bearer: [] }] }),
+    security: [{ Bearer: [] }],
   } as OpenAPIV3_1.OperationObject<"POST">;
 
   if (procedure.input) {
@@ -73,10 +66,7 @@ export async function convertProcedure(
   }
 
   const possibleErrors = ["InvalidRequest"]; // assuming it's always possible
-
-  if (needsAuthentication) {
-    possibleErrors.push("ExpiredToken", "InvalidToken");
-  }
+  possibleErrors.push("ExpiredToken", "InvalidToken");
 
   if (procedure.errors) {
     for (const { name } of procedure.errors) {
@@ -106,27 +96,25 @@ export async function convertProcedure(
     },
   };
 
-  if (needsAuthentication) {
-    responses["401"] = {
-      description: "Unauthorized",
-      content: {
-        "application/json": {
-          schema: {
-            type: "object",
-            required: ["error", "message"],
-            properties: {
-              error: {
-                const: "AuthMissing",
-              },
-              message: {
-                type: "string",
-              },
+  responses["401"] = {
+    description: "Unauthorized",
+    content: {
+      "application/json": {
+        schema: {
+          type: "object",
+          required: ["error", "message"],
+          properties: {
+            error: {
+              const: "AuthMissing",
+            },
+            message: {
+              type: "string",
             },
           },
         },
       },
-    };
-  }
+    },
+  };
 
   post.responses = responses;
 
