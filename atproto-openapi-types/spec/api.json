@@ -6,27 +6,14 @@
     "description": "This section contains HTTP API reference docs for Bluesky and AT Protocol lexicons. Generate a bearer token to test API calls directly from the docs.",
     "version": "0.0.0"
   },
-  "servers": [
-    {
-      "url": "https://public.api.bsky.app/xrpc",
-      "description": "Bluesky AppView (Public, No Auth)"
-    },
-    {
-      "url": "https://pds.example.org/xrpc",
-      "description": "Example atproto PDS (Authenticated)"
-    },
-    {
-      "url": "https://bsky.network/xrpc",
-      "description": "Bluesky Relay (Public, No Auth)"
-    }
-  ],
+  "servers": [],
   "paths": {
-    "/app.bsky.actor.getPreferences": {
+    "/xrpc/app.bsky.actor.getPreferences": {
       "get": {
         "tags": [
           "app.bsky.actor"
         ],
-        "description": "Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.",
         "operationId": "app.bsky.actor.getPreferences",
         "security": [
           {
@@ -104,12 +91,12 @@
         }
       }
     },
-    "/app.bsky.actor.getProfile": {
+    "/xrpc/app.bsky.actor.getProfile": {
       "get": {
         "tags": [
           "app.bsky.actor"
         ],
-        "description": "Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.",
         "operationId": "app.bsky.actor.getProfile",
         "security": [
           {
@@ -192,12 +179,12 @@
         }
       }
     },
-    "/app.bsky.actor.getProfiles": {
+    "/xrpc/app.bsky.actor.getProfiles": {
       "get": {
         "tags": [
           "app.bsky.actor"
         ],
-        "description": "Get detailed profile views of multiple actors.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet detailed profile views of multiple actors.",
         "operationId": "app.bsky.actor.getProfiles",
         "security": [
           {
@@ -293,12 +280,12 @@
         }
       }
     },
-    "/app.bsky.actor.getSuggestions": {
+    "/xrpc/app.bsky.actor.getSuggestions": {
       "get": {
         "tags": [
           "app.bsky.actor"
         ],
-        "description": "Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.",
         "operationId": "app.bsky.actor.getSuggestions",
         "security": [
           {
@@ -403,12 +390,12 @@
         }
       }
     },
-    "/app.bsky.actor.putPreferences": {
+    "/xrpc/app.bsky.actor.putPreferences": {
       "post": {
         "tags": [
           "app.bsky.actor"
         ],
-        "description": "Set the private preferences attached to the account.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nSet the private preferences attached to the account.",
         "operationId": "app.bsky.actor.putPreferences",
         "security": [
           {
@@ -489,12 +476,12 @@
         }
       }
     },
-    "/app.bsky.actor.searchActors": {
+    "/xrpc/app.bsky.actor.searchActors": {
       "get": {
         "tags": [
           "app.bsky.actor"
         ],
-        "description": "Find actors (profiles) matching search criteria. Does not require auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nFind actors (profiles) matching search criteria. Does not require auth.",
         "operationId": "app.bsky.actor.searchActors",
         "security": [
           {
@@ -609,12 +596,12 @@
         }
       }
     },
-    "/app.bsky.actor.searchActorsTypeahead": {
+    "/xrpc/app.bsky.actor.searchActorsTypeahead": {
       "get": {
         "tags": [
           "app.bsky.actor"
         ],
-        "description": "Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nFind actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.",
         "operationId": "app.bsky.actor.searchActorsTypeahead",
         "security": [
           {
@@ -718,12 +705,12 @@
         }
       }
     },
-    "/app.bsky.feed.describeFeedGenerator": {
+    "/xrpc/app.bsky.feed.describeFeedGenerator": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).",
         "operationId": "app.bsky.feed.describeFeedGenerator",
         "security": [
           {
@@ -812,12 +799,12 @@
         }
       }
     },
-    "/app.bsky.feed.getActorFeeds": {
+    "/xrpc/app.bsky.feed.getActorFeeds": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a list of feeds (feed generator records) created by the actor (in the actor's repo).",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a list of feeds (feed generator records) created by the actor (in the actor's repo).",
         "operationId": "app.bsky.feed.getActorFeeds",
         "security": [
           {
@@ -931,12 +918,12 @@
         }
       }
     },
-    "/app.bsky.feed.getActorLikes": {
+    "/xrpc/app.bsky.feed.getActorLikes": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a list of posts liked by an actor. Requires auth, actor must be the requesting account.",
         "operationId": "app.bsky.feed.getActorLikes",
         "security": [
           {
@@ -1052,12 +1039,12 @@
         }
       }
     },
-    "/app.bsky.feed.getAuthorFeed": {
+    "/xrpc/app.bsky.feed.getAuthorFeed": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.",
         "operationId": "app.bsky.feed.getAuthorFeed",
         "security": [
           {
@@ -1198,12 +1185,12 @@
         }
       }
     },
-    "/app.bsky.feed.getFeed": {
+    "/xrpc/app.bsky.feed.getFeed": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a hydrated feed from an actor's selected feed generator. Implemented by App View.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a hydrated feed from an actor's selected feed generator. Implemented by App View.",
         "operationId": "app.bsky.feed.getFeed",
         "security": [
           {
@@ -1318,12 +1305,12 @@
         }
       }
     },
-    "/app.bsky.feed.getFeedGenerator": {
+    "/xrpc/app.bsky.feed.getFeedGenerator": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get information about a feed generator. Implemented by AppView.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet information about a feed generator. Implemented by AppView.",
         "operationId": "app.bsky.feed.getFeedGenerator",
         "security": [
           {
@@ -1424,12 +1411,12 @@
         }
       }
     },
-    "/app.bsky.feed.getFeedGenerators": {
+    "/xrpc/app.bsky.feed.getFeedGenerators": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get information about a list of feed generators.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet information about a list of feed generators.",
         "operationId": "app.bsky.feed.getFeedGenerators",
         "security": [
           {
@@ -1524,12 +1511,12 @@
         }
       }
     },
-    "/app.bsky.feed.getFeedSkeleton": {
+    "/xrpc/app.bsky.feed.getFeedSkeleton": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.",
         "operationId": "app.bsky.feed.getFeedSkeleton",
         "security": [
           {
@@ -1646,12 +1633,12 @@
         }
       }
     },
-    "/app.bsky.feed.getLikes": {
+    "/xrpc/app.bsky.feed.getLikes": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get like records which reference a subject (by AT-URI and CID).",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet like records which reference a subject (by AT-URI and CID).",
         "operationId": "app.bsky.feed.getLikes",
         "security": [
           {
@@ -1787,12 +1774,12 @@
         }
       }
     },
-    "/app.bsky.feed.getListFeed": {
+    "/xrpc/app.bsky.feed.getListFeed": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.",
         "operationId": "app.bsky.feed.getListFeed",
         "security": [
           {
@@ -1909,12 +1896,12 @@
         }
       }
     },
-    "/app.bsky.feed.getPostThread": {
+    "/xrpc/app.bsky.feed.getPostThread": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.",
         "operationId": "app.bsky.feed.getPostThread",
         "security": [
           {
@@ -2043,12 +2030,12 @@
         }
       }
     },
-    "/app.bsky.feed.getPosts": {
+    "/xrpc/app.bsky.feed.getPosts": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.",
         "operationId": "app.bsky.feed.getPosts",
         "security": [
           {
@@ -2145,12 +2132,12 @@
         }
       }
     },
-    "/app.bsky.feed.getQuotes": {
+    "/xrpc/app.bsky.feed.getQuotes": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a list of quotes for a given post.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a list of quotes for a given post.",
         "operationId": "app.bsky.feed.getQuotes",
         "security": [
           {
@@ -2286,12 +2273,12 @@
         }
       }
     },
-    "/app.bsky.feed.getRepostedBy": {
+    "/xrpc/app.bsky.feed.getRepostedBy": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a list of reposts for a given post.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a list of reposts for a given post.",
         "operationId": "app.bsky.feed.getRepostedBy",
         "security": [
           {
@@ -2427,12 +2414,12 @@
         }
       }
     },
-    "/app.bsky.feed.getSuggestedFeeds": {
+    "/xrpc/app.bsky.feed.getSuggestedFeeds": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a list of suggested feeds (feed generators) for the requesting account.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a list of suggested feeds (feed generators) for the requesting account.",
         "operationId": "app.bsky.feed.getSuggestedFeeds",
         "security": [
           {
@@ -2537,12 +2524,12 @@
         }
       }
     },
-    "/app.bsky.feed.getTimeline": {
+    "/xrpc/app.bsky.feed.getTimeline": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.",
         "operationId": "app.bsky.feed.getTimeline",
         "security": [
           {
@@ -2657,12 +2644,12 @@
         }
       }
     },
-    "/app.bsky.feed.searchPosts": {
+    "/xrpc/app.bsky.feed.searchPosts": {
       "get": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Find posts matching search criteria, returning views of those posts.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nFind posts matching search criteria, returning views of those posts.",
         "operationId": "app.bsky.feed.searchPosts",
         "security": [
           {
@@ -2885,12 +2872,12 @@
         }
       }
     },
-    "/app.bsky.feed.sendInteractions": {
+    "/xrpc/app.bsky.feed.sendInteractions": {
       "post": {
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "Send information about interactions with feed items back to the feed generator that served them.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nSend information about interactions with feed items back to the feed generator that served them.",
         "operationId": "app.bsky.feed.sendInteractions",
         "security": [
           {
@@ -2987,12 +2974,12 @@
         }
       }
     },
-    "/app.bsky.graph.getActorStarterPacks": {
+    "/xrpc/app.bsky.graph.getActorStarterPacks": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Get a list of starter packs created by the actor.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a list of starter packs created by the actor.",
         "operationId": "app.bsky.graph.getActorStarterPacks",
         "security": [
           {
@@ -3106,12 +3093,12 @@
         }
       }
     },
-    "/app.bsky.graph.getBlocks": {
+    "/xrpc/app.bsky.graph.getBlocks": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates which accounts the requesting account is currently blocking. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates which accounts the requesting account is currently blocking. Requires auth.",
         "operationId": "app.bsky.graph.getBlocks",
         "security": [
           {
@@ -3216,12 +3203,12 @@
         }
       }
     },
-    "/app.bsky.graph.getFollowers": {
+    "/xrpc/app.bsky.graph.getFollowers": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates accounts which follow a specified account (actor).",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates accounts which follow a specified account (actor).",
         "operationId": "app.bsky.graph.getFollowers",
         "security": [
           {
@@ -3339,12 +3326,12 @@
         }
       }
     },
-    "/app.bsky.graph.getFollows": {
+    "/xrpc/app.bsky.graph.getFollows": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates accounts which a specified account (actor) follows.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates accounts which a specified account (actor) follows.",
         "operationId": "app.bsky.graph.getFollows",
         "security": [
           {
@@ -3462,12 +3449,12 @@
         }
       }
     },
-    "/app.bsky.graph.getKnownFollowers": {
+    "/xrpc/app.bsky.graph.getKnownFollowers": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates accounts which follow a specified account (actor) and are followed by the viewer.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates accounts which follow a specified account (actor) and are followed by the viewer.",
         "operationId": "app.bsky.graph.getKnownFollowers",
         "security": [
           {
@@ -3585,12 +3572,12 @@
         }
       }
     },
-    "/app.bsky.graph.getList": {
+    "/xrpc/app.bsky.graph.getList": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Gets a 'view' (with additional context) of a specified list.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGets a 'view' (with additional context) of a specified list.",
         "operationId": "app.bsky.graph.getList",
         "security": [
           {
@@ -3710,12 +3697,12 @@
         }
       }
     },
-    "/app.bsky.graph.getListBlocks": {
+    "/xrpc/app.bsky.graph.getListBlocks": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Get mod lists that the requesting account (actor) is blocking. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet mod lists that the requesting account (actor) is blocking. Requires auth.",
         "operationId": "app.bsky.graph.getListBlocks",
         "security": [
           {
@@ -3820,12 +3807,12 @@
         }
       }
     },
-    "/app.bsky.graph.getListMutes": {
+    "/xrpc/app.bsky.graph.getListMutes": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates mod lists that the requesting account (actor) currently has muted. Requires auth.",
         "operationId": "app.bsky.graph.getListMutes",
         "security": [
           {
@@ -3930,12 +3917,12 @@
         }
       }
     },
-    "/app.bsky.graph.getLists": {
+    "/xrpc/app.bsky.graph.getLists": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates the lists created by a specified account (actor).",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates the lists created by a specified account (actor).",
         "operationId": "app.bsky.graph.getLists",
         "security": [
           {
@@ -4051,12 +4038,12 @@
         }
       }
     },
-    "/app.bsky.graph.getMutes": {
+    "/xrpc/app.bsky.graph.getMutes": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates accounts that the requesting account (actor) currently has muted. Requires auth.",
         "operationId": "app.bsky.graph.getMutes",
         "security": [
           {
@@ -4161,12 +4148,12 @@
         }
       }
     },
-    "/app.bsky.graph.getRelationships": {
+    "/xrpc/app.bsky.graph.getRelationships": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates public relationships between one account, and a list of other accounts. Does not require auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates public relationships between one account, and a list of other accounts. Does not require auth.",
         "operationId": "app.bsky.graph.getRelationships",
         "security": [
           {
@@ -4286,12 +4273,12 @@
         }
       }
     },
-    "/app.bsky.graph.getStarterPack": {
+    "/xrpc/app.bsky.graph.getStarterPack": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Gets a view of a starter pack.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGets a view of a starter pack.",
         "operationId": "app.bsky.graph.getStarterPack",
         "security": [
           {
@@ -4382,12 +4369,12 @@
         }
       }
     },
-    "/app.bsky.graph.getStarterPacks": {
+    "/xrpc/app.bsky.graph.getStarterPacks": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Get views for a list of starter packs.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet views for a list of starter packs.",
         "operationId": "app.bsky.graph.getStarterPacks",
         "security": [
           {
@@ -4483,12 +4470,12 @@
         }
       }
     },
-    "/app.bsky.graph.getSuggestedFollowsByActor": {
+    "/xrpc/app.bsky.graph.getSuggestedFollowsByActor": {
       "get": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.",
         "operationId": "app.bsky.graph.getSuggestedFollowsByActor",
         "security": [
           {
@@ -4584,12 +4571,12 @@
         }
       }
     },
-    "/app.bsky.graph.muteActor": {
+    "/xrpc/app.bsky.graph.muteActor": {
       "post": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.",
         "operationId": "app.bsky.graph.muteActor",
         "security": [
           {
@@ -4671,12 +4658,12 @@
         }
       }
     },
-    "/app.bsky.graph.muteActorList": {
+    "/xrpc/app.bsky.graph.muteActorList": {
       "post": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.",
         "operationId": "app.bsky.graph.muteActorList",
         "security": [
           {
@@ -4758,12 +4745,12 @@
         }
       }
     },
-    "/app.bsky.graph.muteThread": {
+    "/xrpc/app.bsky.graph.muteThread": {
       "post": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nMutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.",
         "operationId": "app.bsky.graph.muteThread",
         "security": [
           {
@@ -4845,12 +4832,12 @@
         }
       }
     },
-    "/app.bsky.graph.unmuteActor": {
+    "/xrpc/app.bsky.graph.unmuteActor": {
       "post": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Unmutes the specified account. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUnmutes the specified account. Requires auth.",
         "operationId": "app.bsky.graph.unmuteActor",
         "security": [
           {
@@ -4932,12 +4919,12 @@
         }
       }
     },
-    "/app.bsky.graph.unmuteActorList": {
+    "/xrpc/app.bsky.graph.unmuteActorList": {
       "post": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Unmutes the specified list of accounts. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUnmutes the specified list of accounts. Requires auth.",
         "operationId": "app.bsky.graph.unmuteActorList",
         "security": [
           {
@@ -5019,12 +5006,12 @@
         }
       }
     },
-    "/app.bsky.graph.unmuteThread": {
+    "/xrpc/app.bsky.graph.unmuteThread": {
       "post": {
         "tags": [
           "app.bsky.graph"
         ],
-        "description": "Unmutes the specified thread. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUnmutes the specified thread. Requires auth.",
         "operationId": "app.bsky.graph.unmuteThread",
         "security": [
           {
@@ -5106,12 +5093,12 @@
         }
       }
     },
-    "/app.bsky.labeler.getServices": {
+    "/xrpc/app.bsky.labeler.getServices": {
       "get": {
         "tags": [
           "app.bsky.labeler"
         ],
-        "description": "Get information about a list of labeler services.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet information about a list of labeler services.",
         "operationId": "app.bsky.labeler.getServices",
         "security": [
           {
@@ -5221,12 +5208,12 @@
         }
       }
     },
-    "/app.bsky.notification.getUnreadCount": {
+    "/xrpc/app.bsky.notification.getUnreadCount": {
       "get": {
         "tags": [
           "app.bsky.notification"
         ],
-        "description": "Count the number of unread notifications for the requesting account. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCount the number of unread notifications for the requesting account. Requires auth.",
         "operationId": "app.bsky.notification.getUnreadCount",
         "security": [
           {
@@ -5323,12 +5310,12 @@
         }
       }
     },
-    "/app.bsky.notification.listNotifications": {
+    "/xrpc/app.bsky.notification.listNotifications": {
       "get": {
         "tags": [
           "app.bsky.notification"
         ],
-        "description": "Enumerate notifications for the requesting account. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerate notifications for the requesting account. Requires auth.",
         "operationId": "app.bsky.notification.listNotifications",
         "security": [
           {
@@ -5457,12 +5444,12 @@
         }
       }
     },
-    "/app.bsky.notification.putPreferences": {
+    "/xrpc/app.bsky.notification.putPreferences": {
       "post": {
         "tags": [
           "app.bsky.notification"
         ],
-        "description": "Set notification-related preferences for an account. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nSet notification-related preferences for an account. Requires auth.",
         "operationId": "app.bsky.notification.putPreferences",
         "security": [
           {
@@ -5543,12 +5530,12 @@
         }
       }
     },
-    "/app.bsky.notification.registerPush": {
+    "/xrpc/app.bsky.notification.registerPush": {
       "post": {
         "tags": [
           "app.bsky.notification"
         ],
-        "description": "Register to receive push notifications, via a specified service, for the requesting account. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRegister to receive push notifications, via a specified service, for the requesting account. Requires auth.",
         "operationId": "app.bsky.notification.registerPush",
         "security": [
           {
@@ -5647,12 +5634,12 @@
         }
       }
     },
-    "/app.bsky.notification.updateSeen": {
+    "/xrpc/app.bsky.notification.updateSeen": {
       "post": {
         "tags": [
           "app.bsky.notification"
         ],
-        "description": "Notify server that the requesting account has seen notifications. Requires auth.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nNotify server that the requesting account has seen notifications. Requires auth.",
         "operationId": "app.bsky.notification.updateSeen",
         "security": [
           {
@@ -5734,12 +5721,12 @@
         }
       }
     },
-    "/app.bsky.video.getJobStatus": {
+    "/xrpc/app.bsky.video.getJobStatus": {
       "get": {
         "tags": [
           "app.bsky.video"
         ],
-        "description": "Get status details for a video processing job.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet status details for a video processing job.",
         "operationId": "app.bsky.video.getJobStatus",
         "security": [
           {
@@ -5827,12 +5814,12 @@
         }
       }
     },
-    "/app.bsky.video.getUploadLimits": {
+    "/xrpc/app.bsky.video.getUploadLimits": {
       "get": {
         "tags": [
           "app.bsky.video"
         ],
-        "description": "Get video upload limits for the authenticated user.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet video upload limits for the authenticated user.",
         "operationId": "app.bsky.video.getUploadLimits",
         "security": [
           {
@@ -5922,12 +5909,12 @@
         }
       }
     },
-    "/app.bsky.video.uploadVideo": {
+    "/xrpc/app.bsky.video.uploadVideo": {
       "post": {
         "tags": [
           "app.bsky.video"
         ],
-        "description": "Upload a video to be processed then stored on the PDS.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUpload a video to be processed then stored on the PDS.",
         "operationId": "app.bsky.video.uploadVideo",
         "security": [
           {
@@ -6011,7 +5998,7 @@
         }
       }
     },
-    "/chat.bsky.actor.deleteAccount": {
+    "/xrpc/chat.bsky.actor.deleteAccount": {
       "post": {
         "tags": [
           "chat.bsky.actor"
@@ -6088,10 +6075,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.actor.exportAccountData": {
+    "/xrpc/chat.bsky.actor.exportAccountData": {
       "get": {
         "tags": [
           "chat.bsky.actor"
@@ -6158,10 +6146,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.deleteMessageForSelf": {
+    "/xrpc/chat.bsky.convo.deleteMessageForSelf": {
       "post": {
         "tags": [
           "chat.bsky.convo"
@@ -6254,10 +6243,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.getConvo": {
+    "/xrpc/chat.bsky.convo.getConvo": {
       "get": {
         "tags": [
           "chat.bsky.convo"
@@ -6346,10 +6336,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.getConvoForMembers": {
+    "/xrpc/chat.bsky.convo.getConvoForMembers": {
       "get": {
         "tags": [
           "chat.bsky.convo"
@@ -6443,10 +6434,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.getLog": {
+    "/xrpc/chat.bsky.convo.getLog": {
       "get": {
         "tags": [
           "chat.bsky.convo"
@@ -6554,10 +6546,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.getMessages": {
+    "/xrpc/chat.bsky.convo.getMessages": {
       "get": {
         "tags": [
           "chat.bsky.convo"
@@ -6678,10 +6671,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.leaveConvo": {
+    "/xrpc/chat.bsky.convo.leaveConvo": {
       "post": {
         "tags": [
           "chat.bsky.convo"
@@ -6782,10 +6776,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.listConvos": {
+    "/xrpc/chat.bsky.convo.listConvos": {
       "get": {
         "tags": [
           "chat.bsky.convo"
@@ -6891,10 +6886,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.muteConvo": {
+    "/xrpc/chat.bsky.convo.muteConvo": {
       "post": {
         "tags": [
           "chat.bsky.convo"
@@ -6991,10 +6987,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.sendMessage": {
+    "/xrpc/chat.bsky.convo.sendMessage": {
       "post": {
         "tags": [
           "chat.bsky.convo"
@@ -7087,10 +7084,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.sendMessageBatch": {
+    "/xrpc/chat.bsky.convo.sendMessageBatch": {
       "post": {
         "tags": [
           "chat.bsky.convo"
@@ -7194,10 +7192,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.unmuteConvo": {
+    "/xrpc/chat.bsky.convo.unmuteConvo": {
       "post": {
         "tags": [
           "chat.bsky.convo"
@@ -7294,10 +7293,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.convo.updateRead": {
+    "/xrpc/chat.bsky.convo.updateRead": {
       "post": {
         "tags": [
           "chat.bsky.convo"
@@ -7397,10 +7397,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.moderation.getActorMetadata": {
+    "/xrpc/chat.bsky.moderation.getActorMetadata": {
       "get": {
         "tags": [
           "chat.bsky.moderation"
@@ -7498,10 +7499,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.moderation.getMessageContext": {
+    "/xrpc/chat.bsky.moderation.getMessageContext": {
       "get": {
         "tags": [
           "chat.bsky.moderation"
@@ -7628,10 +7630,11 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/chat.bsky.moderation.updateActorAccess": {
+    "/xrpc/chat.bsky.moderation.updateActorAccess": {
       "post": {
         "tags": [
           "chat.bsky.moderation"
@@ -7721,15 +7724,16 @@
               }
             }
           }
-        }
+        },
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
-    "/com.atproto.admin.deleteAccount": {
+    "/xrpc/com.atproto.admin.deleteAccount": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Delete a user account as an administrator.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDelete a user account as an administrator.",
         "operationId": "com.atproto.admin.deleteAccount",
         "security": [
           {
@@ -7811,12 +7815,12 @@
         }
       }
     },
-    "/com.atproto.admin.disableAccountInvites": {
+    "/xrpc/com.atproto.admin.disableAccountInvites": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Disable an account from receiving new invite codes, but does not invalidate existing codes.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDisable an account from receiving new invite codes, but does not invalidate existing codes.",
         "operationId": "com.atproto.admin.disableAccountInvites",
         "security": [
           {
@@ -7902,12 +7906,12 @@
         }
       }
     },
-    "/com.atproto.admin.disableInviteCodes": {
+    "/xrpc/com.atproto.admin.disableInviteCodes": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Disable some set of codes and/or all codes associated with a set of users.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDisable some set of codes and/or all codes associated with a set of users.",
         "operationId": "com.atproto.admin.disableInviteCodes",
         "security": [
           {
@@ -7994,12 +7998,12 @@
         }
       }
     },
-    "/com.atproto.admin.enableAccountInvites": {
+    "/xrpc/com.atproto.admin.enableAccountInvites": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Re-enable an account's ability to receive invite codes.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRe-enable an account's ability to receive invite codes.",
         "operationId": "com.atproto.admin.enableAccountInvites",
         "security": [
           {
@@ -8085,12 +8089,12 @@
         }
       }
     },
-    "/com.atproto.admin.getAccountInfo": {
+    "/xrpc/com.atproto.admin.getAccountInfo": {
       "get": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Get details about an account.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about an account.",
         "operationId": "com.atproto.admin.getAccountInfo",
         "security": [
           {
@@ -8171,12 +8175,12 @@
         }
       }
     },
-    "/com.atproto.admin.getAccountInfos": {
+    "/xrpc/com.atproto.admin.getAccountInfos": {
       "get": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Get details about some accounts.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about some accounts.",
         "operationId": "com.atproto.admin.getAccountInfos",
         "security": [
           {
@@ -8271,12 +8275,12 @@
         }
       }
     },
-    "/com.atproto.admin.getInviteCodes": {
+    "/xrpc/com.atproto.admin.getInviteCodes": {
       "get": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Get an admin view of invite codes.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet an admin view of invite codes.",
         "operationId": "com.atproto.admin.getInviteCodes",
         "security": [
           {
@@ -8394,12 +8398,12 @@
         }
       }
     },
-    "/com.atproto.admin.getSubjectStatus": {
+    "/xrpc/com.atproto.admin.getSubjectStatus": {
       "get": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Get the service-specific admin status of a subject (account, record, or blob).",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet the service-specific admin status of a subject (account, record, or blob).",
         "operationId": "com.atproto.admin.getSubjectStatus",
         "security": [
           {
@@ -8522,12 +8526,12 @@
         }
       }
     },
-    "/com.atproto.admin.searchAccounts": {
+    "/xrpc/com.atproto.admin.searchAccounts": {
       "get": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Get list of accounts that matches your search query.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet list of accounts that matches your search query.",
         "operationId": "com.atproto.admin.searchAccounts",
         "security": [
           {
@@ -8640,12 +8644,12 @@
         }
       }
     },
-    "/com.atproto.admin.sendEmail": {
+    "/xrpc/com.atproto.admin.sendEmail": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Send email to a user's account email address.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nSend email to a user's account email address.",
         "operationId": "com.atproto.admin.sendEmail",
         "security": [
           {
@@ -8758,12 +8762,12 @@
         }
       }
     },
-    "/com.atproto.admin.updateAccountEmail": {
+    "/xrpc/com.atproto.admin.updateAccountEmail": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Administrative action to update an account's email.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nAdministrative action to update an account's email.",
         "operationId": "com.atproto.admin.updateAccountEmail",
         "security": [
           {
@@ -8850,12 +8854,12 @@
         }
       }
     },
-    "/com.atproto.admin.updateAccountHandle": {
+    "/xrpc/com.atproto.admin.updateAccountHandle": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Administrative action to update an account's handle.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nAdministrative action to update an account's handle.",
         "operationId": "com.atproto.admin.updateAccountHandle",
         "security": [
           {
@@ -8942,12 +8946,12 @@
         }
       }
     },
-    "/com.atproto.admin.updateAccountPassword": {
+    "/xrpc/com.atproto.admin.updateAccountPassword": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Update the password for a user account as an administrator.",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUpdate the password for a user account as an administrator.",
         "operationId": "com.atproto.admin.updateAccountPassword",
         "security": [
           {
@@ -9033,12 +9037,12 @@
         }
       }
     },
-    "/com.atproto.admin.updateSubjectStatus": {
+    "/xrpc/com.atproto.admin.updateSubjectStatus": {
       "post": {
         "tags": [
           "com.atproto.admin"
         ],
-        "description": "Update the service-specific admin status of a subject (account, record, or blob).",
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUpdate the service-specific admin status of a subject (account, record, or blob).",
         "operationId": "com.atproto.admin.updateSubjectStatus",
         "security": [
           {
@@ -9163,12 +9167,12 @@
         }
       }
     },
-    "/com.atproto.identity.getRecommendedDidCredentials": {
+    "/xrpc/com.atproto.identity.getRecommendedDidCredentials": {
       "get": {
         "tags": [
           "com.atproto.identity"
         ],
-        "description": "Describe the credentials that should be included in the DID doc of an account that is migrating to this service.",
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDescribe the credentials that should be included in the DID doc of an account that is migrating to this service.",
         "operationId": "com.atproto.identity.getRecommendedDidCredentials",
         "security": [
           {
@@ -9254,12 +9258,12 @@
         }
       }
     },
-    "/com.atproto.identity.requestPlcOperationSignature": {
+    "/xrpc/com.atproto.identity.requestPlcOperationSignature": {
       "post": {
         "tags": [
           "com.atproto.identity"
         ],
-        "description": "Request an email with a code to in order to request a signed PLC operation. Requires Auth.",
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRequest an email with a code to in order to request a signed PLC operation. Requires Auth.",
         "operationId": "com.atproto.identity.requestPlcOperationSignature",
         "security": [
           {
@@ -9322,13 +9326,18 @@
         }
       }
     },
-    "/com.atproto.identity.resolveHandle": {
+    "/xrpc/com.atproto.identity.resolveHandle": {
       "get": {
         "tags": [
           "com.atproto.identity"
         ],
-        "description": "Resolves a handle (domain name) to a DID.",
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nResolves a handle (domain name) to a DID.",
         "operationId": "com.atproto.identity.resolveHandle",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "handle",
@@ -9376,8 +9385,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -9390,12 +9423,12 @@
         }
       }
     },
-    "/com.atproto.identity.signPlcOperation": {
+    "/xrpc/com.atproto.identity.signPlcOperation": {
       "post": {
         "tags": [
           "com.atproto.identity"
         ],
-        "description": "Signs a PLC operation to update some value(s) in the requesting DID's document.",
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nSigns a PLC operation to update some value(s) in the requesting DID's document.",
         "operationId": "com.atproto.identity.signPlcOperation",
         "security": [
           {
@@ -9501,12 +9534,12 @@
         }
       }
     },
-    "/com.atproto.identity.submitPlcOperation": {
+    "/xrpc/com.atproto.identity.submitPlcOperation": {
       "post": {
         "tags": [
           "com.atproto.identity"
         ],
-        "description": "Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry",
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nValidates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry",
         "operationId": "com.atproto.identity.submitPlcOperation",
         "security": [
           {
@@ -9585,12 +9618,12 @@
         }
       }
     },
-    "/com.atproto.identity.updateHandle": {
+    "/xrpc/com.atproto.identity.updateHandle": {
       "post": {
         "tags": [
           "com.atproto.identity"
         ],
-        "description": "Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.",
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUpdates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.",
         "operationId": "com.atproto.identity.updateHandle",
         "security": [
           {
@@ -9673,12 +9706,12 @@
         }
       }
     },
-    "/com.atproto.label.queryLabels": {
+    "/xrpc/com.atproto.label.queryLabels": {
       "get": {
         "tags": [
           "com.atproto.label"
         ],
-        "description": "Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.",
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nFind labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.",
         "operationId": "com.atproto.label.queryLabels",
         "security": [
           {
@@ -9808,12 +9841,12 @@
         }
       }
     },
-    "/com.atproto.moderation.createReport": {
+    "/xrpc/com.atproto.moderation.createReport": {
       "post": {
         "tags": [
           "com.atproto.moderation"
         ],
-        "description": "Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.",
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nSubmit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.",
         "operationId": "com.atproto.moderation.createReport",
         "security": [
           {
@@ -9954,12 +9987,12 @@
         }
       }
     },
-    "/com.atproto.repo.applyWrites": {
+    "/xrpc/com.atproto.repo.applyWrites": {
       "post": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nApply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.",
         "operationId": "com.atproto.repo.applyWrites",
         "security": [
           {
@@ -10098,12 +10131,12 @@
         }
       }
     },
-    "/com.atproto.repo.createRecord": {
+    "/xrpc/com.atproto.repo.createRecord": {
       "post": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Create a single new repository record. Requires auth, implemented by PDS.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreate a single new repository record. Requires auth, implemented by PDS.",
         "operationId": "com.atproto.repo.createRecord",
         "security": [
           {
@@ -10240,12 +10273,12 @@
         }
       }
     },
-    "/com.atproto.repo.deleteRecord": {
+    "/xrpc/com.atproto.repo.deleteRecord": {
       "post": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDelete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.",
         "operationId": "com.atproto.repo.deleteRecord",
         "security": [
           {
@@ -10362,13 +10395,18 @@
         }
       }
     },
-    "/com.atproto.repo.describeRepo": {
+    "/xrpc/com.atproto.repo.describeRepo": {
       "get": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Get information about an account and repository, including the list of collections. Does not require auth.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet information about an account and repository, including the list of collections. Does not require auth.",
         "operationId": "com.atproto.repo.describeRepo",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "repo",
@@ -10436,8 +10474,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -10450,13 +10512,18 @@
         }
       }
     },
-    "/com.atproto.repo.getRecord": {
+    "/xrpc/com.atproto.repo.getRecord": {
       "get": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Get a single record from a repository. Does not require auth.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a single record from a repository. Does not require auth.",
         "operationId": "com.atproto.repo.getRecord",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "repo",
@@ -10543,8 +10610,32 @@
                       "type": "string",
                       "enum": [
                         "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
                         "RecordNotFound"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -10557,12 +10648,12 @@
         }
       }
     },
-    "/com.atproto.repo.importRepo": {
+    "/xrpc/com.atproto.repo.importRepo": {
       "post": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nImport a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.",
         "operationId": "com.atproto.repo.importRepo",
         "security": [
           {
@@ -10631,12 +10722,12 @@
         }
       }
     },
-    "/com.atproto.repo.listMissingBlobs": {
+    "/xrpc/com.atproto.repo.listMissingBlobs": {
       "get": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nReturns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.",
         "operationId": "com.atproto.repo.listMissingBlobs",
         "security": [
           {
@@ -10741,13 +10832,18 @@
         }
       }
     },
-    "/com.atproto.repo.listRecords": {
+    "/xrpc/com.atproto.repo.listRecords": {
       "get": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "List a range of records in a repository, matching a specific collection. Does not require auth.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nList a range of records in a repository, matching a specific collection. Does not require auth.",
         "operationId": "com.atproto.repo.listRecords",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "repo",
@@ -10841,8 +10937,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -10855,12 +10975,12 @@
         }
       }
     },
-    "/com.atproto.repo.putRecord": {
+    "/xrpc/com.atproto.repo.putRecord": {
       "post": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nWrite a repository record, creating or updating it as needed. Requires auth, implemented by PDS.",
         "operationId": "com.atproto.repo.putRecord",
         "security": [
           {
@@ -11003,12 +11123,12 @@
         }
       }
     },
-    "/com.atproto.repo.uploadBlob": {
+    "/xrpc/com.atproto.repo.uploadBlob": {
       "post": {
         "tags": [
           "com.atproto.repo"
         ],
-        "description": "Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.",
+        "description": "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUpload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.",
         "operationId": "com.atproto.repo.uploadBlob",
         "security": [
           {
@@ -11093,12 +11213,12 @@
         }
       }
     },
-    "/com.atproto.server.activateAccount": {
+    "/xrpc/com.atproto.server.activateAccount": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nActivates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.",
         "operationId": "com.atproto.server.activateAccount",
         "security": [
           {
@@ -11161,12 +11281,12 @@
         }
       }
     },
-    "/com.atproto.server.checkAccountStatus": {
+    "/xrpc/com.atproto.server.checkAccountStatus": {
       "get": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nReturns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.",
         "operationId": "com.atproto.server.checkAccountStatus",
         "security": [
           {
@@ -11277,12 +11397,12 @@
         }
       }
     },
-    "/com.atproto.server.confirmEmail": {
+    "/xrpc/com.atproto.server.confirmEmail": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Confirm an email using a token from com.atproto.server.requestEmailConfirmation.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nConfirm an email using a token from com.atproto.server.requestEmailConfirmation.",
         "operationId": "com.atproto.server.confirmEmail",
         "security": [
           {
@@ -11371,13 +11491,18 @@
         }
       }
     },
-    "/com.atproto.server.createAccount": {
+    "/xrpc/com.atproto.server.createAccount": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Create an account. Implemented by PDS.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreate an account. Implemented by PDS.",
         "operationId": "com.atproto.server.createAccount",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -11475,6 +11600,8 @@
                       "type": "string",
                       "enum": [
                         "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
                         "InvalidHandle",
                         "InvalidPassword",
                         "InvalidInviteCode",
@@ -11491,16 +11618,38 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
-    "/com.atproto.server.createAppPassword": {
+    "/xrpc/com.atproto.server.createAppPassword": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Create an App Password.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreate an App Password.",
         "operationId": "com.atproto.server.createAppPassword",
         "security": [
           {
@@ -11594,12 +11743,12 @@
         }
       }
     },
-    "/com.atproto.server.createInviteCode": {
+    "/xrpc/com.atproto.server.createInviteCode": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Create an invite code.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreate an invite code.",
         "operationId": "com.atproto.server.createInviteCode",
         "security": [
           {
@@ -11699,12 +11848,12 @@
         }
       }
     },
-    "/com.atproto.server.createInviteCodes": {
+    "/xrpc/com.atproto.server.createInviteCodes": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Create invite codes.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreate invite codes.",
         "operationId": "com.atproto.server.createInviteCodes",
         "security": [
           {
@@ -11815,13 +11964,18 @@
         }
       }
     },
-    "/com.atproto.server.createSession": {
+    "/xrpc/com.atproto.server.createSession": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Create an authentication session.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreate an authentication session.",
         "operationId": "com.atproto.server.createSession",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -11918,9 +12072,33 @@
                       "type": "string",
                       "enum": [
                         "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
                         "AccountTakedown",
                         "AuthFactorTokenRequired"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -11933,12 +12111,12 @@
         }
       }
     },
-    "/com.atproto.server.deactivateAccount": {
+    "/xrpc/com.atproto.server.deactivateAccount": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDeactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.",
         "operationId": "com.atproto.server.deactivateAccount",
         "security": [
           {
@@ -12018,13 +12196,18 @@
         }
       }
     },
-    "/com.atproto.server.deleteAccount": {
+    "/xrpc/com.atproto.server.deleteAccount": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDelete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.",
         "operationId": "com.atproto.server.deleteAccount",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -12072,8 +12255,32 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
+                        "InvalidToken",
+                        "ExpiredToken",
                         "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -12086,12 +12293,12 @@
         }
       }
     },
-    "/com.atproto.server.deleteSession": {
+    "/xrpc/com.atproto.server.deleteSession": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Delete the current session. Requires auth.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDelete the current session. Requires auth.",
         "operationId": "com.atproto.server.deleteSession",
         "security": [
           {
@@ -12154,13 +12361,18 @@
         }
       }
     },
-    "/com.atproto.server.describeServer": {
+    "/xrpc/com.atproto.server.describeServer": {
       "get": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Describes the server's account creation requirements and capabilities. Implemented by PDS.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDescribes the server's account creation requirements and capabilities. Implemented by PDS.",
         "operationId": "com.atproto.server.describeServer",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -12216,8 +12428,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -12230,12 +12466,12 @@
         }
       }
     },
-    "/com.atproto.server.getAccountInviteCodes": {
+    "/xrpc/com.atproto.server.getAccountInviteCodes": {
       "get": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Get all invite codes for the current account. Requires auth.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet all invite codes for the current account. Requires auth.",
         "operationId": "com.atproto.server.getAccountInviteCodes",
         "security": [
           {
@@ -12339,12 +12575,12 @@
         }
       }
     },
-    "/com.atproto.server.getServiceAuth": {
+    "/xrpc/com.atproto.server.getServiceAuth": {
       "get": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Get a signed token on behalf of the requesting DID for the requested service.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a signed token on behalf of the requesting DID for the requested service.",
         "operationId": "com.atproto.server.getServiceAuth",
         "security": [
           {
@@ -12456,12 +12692,12 @@
         }
       }
     },
-    "/com.atproto.server.getSession": {
+    "/xrpc/com.atproto.server.getSession": {
       "get": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Get information about the current auth session. Requires auth.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet information about the current auth session. Requires auth.",
         "operationId": "com.atproto.server.getSession",
         "security": [
           {
@@ -12567,12 +12803,12 @@
         }
       }
     },
-    "/com.atproto.server.listAppPasswords": {
+    "/xrpc/com.atproto.server.listAppPasswords": {
       "get": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "List all App Passwords.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nList all App Passwords.",
         "operationId": "com.atproto.server.listAppPasswords",
         "security": [
           {
@@ -12654,12 +12890,12 @@
         }
       }
     },
-    "/com.atproto.server.refreshSession": {
+    "/xrpc/com.atproto.server.refreshSession": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRefresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').",
         "operationId": "com.atproto.server.refreshSession",
         "security": [
           {
@@ -12765,12 +13001,12 @@
         }
       }
     },
-    "/com.atproto.server.requestAccountDelete": {
+    "/xrpc/com.atproto.server.requestAccountDelete": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Initiate a user account deletion via email.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nInitiate a user account deletion via email.",
         "operationId": "com.atproto.server.requestAccountDelete",
         "security": [
           {
@@ -12833,12 +13069,12 @@
         }
       }
     },
-    "/com.atproto.server.requestEmailConfirmation": {
+    "/xrpc/com.atproto.server.requestEmailConfirmation": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Request an email with a code to confirm ownership of email.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRequest an email with a code to confirm ownership of email.",
         "operationId": "com.atproto.server.requestEmailConfirmation",
         "security": [
           {
@@ -12901,12 +13137,12 @@
         }
       }
     },
-    "/com.atproto.server.requestEmailUpdate": {
+    "/xrpc/com.atproto.server.requestEmailUpdate": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Request a token in order to update email.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRequest a token in order to update email.",
         "operationId": "com.atproto.server.requestEmailUpdate",
         "security": [
           {
@@ -12984,13 +13220,18 @@
         }
       }
     },
-    "/com.atproto.server.requestPasswordReset": {
+    "/xrpc/com.atproto.server.requestPasswordReset": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Initiate a user account password reset via email.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nInitiate a user account password reset via email.",
         "operationId": "com.atproto.server.requestPasswordReset",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -13027,8 +13268,32 @@
                     "error": {
                       "type": "string",
                       "enum": [
-                        "InvalidRequest"
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -13041,12 +13306,12 @@
         }
       }
     },
-    "/com.atproto.server.reserveSigningKey": {
+    "/xrpc/com.atproto.server.reserveSigningKey": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nReserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.",
         "operationId": "com.atproto.server.reserveSigningKey",
         "security": [
           {
@@ -13142,13 +13407,18 @@
         }
       }
     },
-    "/com.atproto.server.resetPassword": {
+    "/xrpc/com.atproto.server.resetPassword": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Reset a user account password using a token.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nReset a user account password using a token.",
         "operationId": "com.atproto.server.resetPassword",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -13191,8 +13461,32 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
+                        "InvalidToken",
+                        "ExpiredToken",
                         "InvalidToken"
                       ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
                     },
                     "message": {
                       "type": "string"
@@ -13205,12 +13499,12 @@
         }
       }
     },
-    "/com.atproto.server.revokeAppPassword": {
+    "/xrpc/com.atproto.server.revokeAppPassword": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Revoke an App Password by name.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRevoke an App Password by name.",
         "operationId": "com.atproto.server.revokeAppPassword",
         "security": [
           {
@@ -13291,12 +13585,12 @@
         }
       }
     },
-    "/com.atproto.server.updateEmail": {
+    "/xrpc/com.atproto.server.updateEmail": {
       "post": {
         "tags": [
           "com.atproto.server"
         ],
-        "description": "Update an account's email.",
+        "description": "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUpdate an account's email.",
         "operationId": "com.atproto.server.updateEmail",
         "security": [
           {
@@ -13387,13 +13681,18 @@
         }
       }
     },
-    "/com.atproto.sync.getBlob": {
+    "/xrpc/com.atproto.sync.getBlob": {
       "get": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.",
         "operationId": "com.atproto.sync.getBlob",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "did",
@@ -13440,6 +13739,8 @@
                       "type": "string",
                       "enum": [
                         "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
                         "BlobNotFound",
                         "RepoNotFound",
                         "RepoTakendown",
@@ -13454,16 +13755,38 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
-    "/com.atproto.sync.getBlocks": {
+    "/xrpc/com.atproto.sync.getBlocks": {
       "get": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.",
         "operationId": "com.atproto.sync.getBlocks",
         "security": [
           {
@@ -13559,12 +13882,12 @@
         }
       }
     },
-    "/com.atproto.sync.getLatestCommit": {
+    "/xrpc/com.atproto.sync.getLatestCommit": {
       "get": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Get the current commit CID & revision of the specified repo. Does not require auth.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet the current commit CID & revision of the specified repo. Does not require auth.",
         "operationId": "com.atproto.sync.getLatestCommit",
         "security": [
           {
@@ -13664,12 +13987,12 @@
         }
       }
     },
-    "/com.atproto.sync.getRecord": {
+    "/xrpc/com.atproto.sync.getRecord": {
       "get": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.",
         "operationId": "com.atproto.sync.getRecord",
         "security": [
           {
@@ -13772,12 +14095,12 @@
         }
       }
     },
-    "/com.atproto.sync.getRepo": {
+    "/xrpc/com.atproto.sync.getRepo": {
       "get": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDownload a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.",
         "operationId": "com.atproto.sync.getRepo",
         "security": [
           {
@@ -13870,12 +14193,12 @@
         }
       }
     },
-    "/com.atproto.sync.getRepoStatus": {
+    "/xrpc/com.atproto.sync.getRepoStatus": {
       "get": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.",
         "operationId": "com.atproto.sync.getRepoStatus",
         "security": [
           {
@@ -13985,12 +14308,12 @@
         }
       }
     },
-    "/com.atproto.sync.listBlobs": {
+    "/xrpc/com.atproto.sync.listBlobs": {
       "get": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "List blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nList blob CIDs for an account, since some repo revision. Does not require auth; implemented by PDS.",
         "operationId": "com.atproto.sync.listBlobs",
         "security": [
           {
@@ -14121,12 +14444,12 @@
         }
       }
     },
-    "/com.atproto.sync.listRepos": {
+    "/xrpc/com.atproto.sync.listRepos": {
       "get": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.",
         "operationId": "com.atproto.sync.listRepos",
         "security": [
           {
@@ -14231,12 +14554,12 @@
         }
       }
     },
-    "/com.atproto.sync.notifyOfUpdate": {
+    "/xrpc/com.atproto.sync.notifyOfUpdate": {
       "post": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nNotify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.",
         "operationId": "com.atproto.sync.notifyOfUpdate",
         "security": [
           {
@@ -14318,12 +14641,12 @@
         }
       }
     },
-    "/com.atproto.sync.requestCrawl": {
+    "/xrpc/com.atproto.sync.requestCrawl": {
       "post": {
         "tags": [
           "com.atproto.sync"
         ],
-        "description": "Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.",
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRequest a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.",
         "operationId": "com.atproto.sync.requestCrawl",
         "security": [
           {
@@ -14405,12 +14728,12 @@
         }
       }
     },
-    "/tools.ozone.communication.createTemplate": {
+    "/xrpc/tools.ozone.communication.createTemplate": {
       "post": {
         "tags": [
           "tools.ozone.communication"
         ],
-        "description": "Administrative action to create a new, re-usable communication (email for now) template.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nAdministrative action to create a new, re-usable communication (email for now) template.",
         "operationId": "tools.ozone.communication.createTemplate",
         "security": [
           {
@@ -14520,12 +14843,12 @@
         }
       }
     },
-    "/tools.ozone.communication.deleteTemplate": {
+    "/xrpc/tools.ozone.communication.deleteTemplate": {
       "post": {
         "tags": [
           "tools.ozone.communication"
         ],
-        "description": "Delete a communication template.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDelete a communication template.",
         "operationId": "tools.ozone.communication.deleteTemplate",
         "security": [
           {
@@ -14606,12 +14929,12 @@
         }
       }
     },
-    "/tools.ozone.communication.listTemplates": {
+    "/xrpc/tools.ozone.communication.listTemplates": {
       "get": {
         "tags": [
           "tools.ozone.communication"
         ],
-        "description": "Get list of all communication templates.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet list of all communication templates.",
         "operationId": "tools.ozone.communication.listTemplates",
         "security": [
           {
@@ -14692,12 +15015,12 @@
         }
       }
     },
-    "/tools.ozone.communication.updateTemplate": {
+    "/xrpc/tools.ozone.communication.updateTemplate": {
       "post": {
         "tags": [
           "tools.ozone.communication"
         ],
-        "description": "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nAdministrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
         "operationId": "tools.ozone.communication.updateTemplate",
         "security": [
           {
@@ -14812,12 +15135,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.emitEvent": {
+    "/xrpc/tools.ozone.moderation.emitEvent": {
       "post": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "Take a moderation action on an actor.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nTake a moderation action on an actor.",
         "operationId": "tools.ozone.moderation.emitEvent",
         "security": [
           {
@@ -14972,12 +15295,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.getEvent": {
+    "/xrpc/tools.ozone.moderation.getEvent": {
       "get": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "Get details about a moderation event.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about a moderation event.",
         "operationId": "tools.ozone.moderation.getEvent",
         "security": [
           {
@@ -15057,12 +15380,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.getRecord": {
+    "/xrpc/tools.ozone.moderation.getRecord": {
       "get": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "Get details about a record.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about a record.",
         "operationId": "tools.ozone.moderation.getRecord",
         "security": [
           {
@@ -15153,12 +15476,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.getRecords": {
+    "/xrpc/tools.ozone.moderation.getRecords": {
       "get": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "Get details about some records.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about some records.",
         "operationId": "tools.ozone.moderation.getRecords",
         "security": [
           {
@@ -15261,12 +15584,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.getRepo": {
+    "/xrpc/tools.ozone.moderation.getRepo": {
       "get": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "Get details about a repository.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about a repository.",
         "operationId": "tools.ozone.moderation.getRepo",
         "security": [
           {
@@ -15348,12 +15671,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.getRepos": {
+    "/xrpc/tools.ozone.moderation.getRepos": {
       "get": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "Get details about some repositories.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about some repositories.",
         "operationId": "tools.ozone.moderation.getRepos",
         "security": [
           {
@@ -15456,12 +15779,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.queryEvents": {
+    "/xrpc/tools.ozone.moderation.queryEvents": {
       "get": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "List moderation events related to a subject.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nList moderation events related to a subject.",
         "operationId": "tools.ozone.moderation.queryEvents",
         "security": [
           {
@@ -15718,12 +16041,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.queryStatuses": {
+    "/xrpc/tools.ozone.moderation.queryStatuses": {
       "get": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "View moderation statuses of subjects (record or repo).",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nView moderation statuses of subjects (record or repo).",
         "operationId": "tools.ozone.moderation.queryStatuses",
         "security": [
           {
@@ -16016,12 +16339,12 @@
         }
       }
     },
-    "/tools.ozone.moderation.searchRepos": {
+    "/xrpc/tools.ozone.moderation.searchRepos": {
       "get": {
         "tags": [
           "tools.ozone.moderation"
         ],
-        "description": "Find repositories based on a search term.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nFind repositories based on a search term.",
         "operationId": "tools.ozone.moderation.searchRepos",
         "security": [
           {
@@ -16134,12 +16457,12 @@
         }
       }
     },
-    "/tools.ozone.server.getConfig": {
+    "/xrpc/tools.ozone.server.getConfig": {
       "get": {
         "tags": [
           "tools.ozone.server"
         ],
-        "description": "Get details about ozone's server configuration.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about ozone's server configuration.",
         "operationId": "tools.ozone.server.getConfig",
         "security": [
           {
@@ -16226,12 +16549,12 @@
         }
       }
     },
-    "/tools.ozone.team.addMember": {
+    "/xrpc/tools.ozone.team.addMember": {
       "post": {
         "tags": [
           "tools.ozone.team"
         ],
-        "description": "Add a member to the ozone team. Requires admin role.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nAdd a member to the ozone team. Requires admin role.",
         "operationId": "tools.ozone.team.addMember",
         "security": [
           {
@@ -16330,12 +16653,12 @@
         }
       }
     },
-    "/tools.ozone.team.deleteMember": {
+    "/xrpc/tools.ozone.team.deleteMember": {
       "post": {
         "tags": [
           "tools.ozone.team"
         ],
-        "description": "Delete a member from ozone team. Requires admin role.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDelete a member from ozone team. Requires admin role.",
         "operationId": "tools.ozone.team.deleteMember",
         "security": [
           {
@@ -16419,12 +16742,12 @@
         }
       }
     },
-    "/tools.ozone.team.listMembers": {
+    "/xrpc/tools.ozone.team.listMembers": {
       "get": {
         "tags": [
           "tools.ozone.team"
         ],
-        "description": "List all members with access to the ozone service.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nList all members with access to the ozone service.",
         "operationId": "tools.ozone.team.listMembers",
         "security": [
           {
@@ -16529,12 +16852,12 @@
         }
       }
     },
-    "/tools.ozone.team.updateMember": {
+    "/xrpc/tools.ozone.team.updateMember": {
       "post": {
         "tags": [
           "tools.ozone.team"
         ],
-        "description": "Update a member in the ozone service. Requires admin role.",
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUpdate a member in the ozone service. Requires admin role.",
         "operationId": "tools.ozone.team.updateMember",
         "security": [
           {
