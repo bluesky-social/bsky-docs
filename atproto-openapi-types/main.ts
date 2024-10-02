@@ -84,7 +84,7 @@ for await (const entry of entries) {
             }
           }
           // @ts-ignore FIXME: Also confused about ArraySchemaObject
-          paths[`/${id}`] = { post };
+          paths[`/xrpc/${id}`] = { post };
         }
         break;
       }
@@ -100,7 +100,7 @@ for await (const entry of entries) {
             }
           }
           // @ts-ignore FIXME: Also confused about ArraySchemaObject
-          paths[`/${id}`] = { get };
+          paths[`/xrpc/${id}`] = { get };
         }
         break;
       }
@@ -131,20 +131,7 @@ const api: OpenAPIV3_1.Document = {
     description: "This section contains HTTP API reference docs for Bluesky and AT Protocol lexicons. Generate a bearer token to test API calls directly from the docs.",
     version: "0.0.0", // This will be a living document for now, so no versioning yet
   },
-  servers: [
-    {
-      url: "https://public.api.bsky.app/xrpc",
-      description: "Bluesky AppView (Public, No Auth)",
-    },
-    {
-      url: "https://pds.example.org/xrpc",
-      description: "Example atproto PDS (Authenticated)",
-    },
-    {
-      url: "https://bsky.network/xrpc",
-      description: "Bluesky Relay (Public, No Auth)",
-    },
-  ],
+  servers: [],
   paths,
   components,
   tags: Array.from(tagNames).map((name) => ({ name })),
