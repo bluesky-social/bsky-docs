@@ -42,7 +42,7 @@ post = {
 }
 
 resp = requests.post(
-    "https://bsky.social/xrpc/com.atproto.repo.createRecord",
+    pds_url + "/xrpc/com.atproto.repo.createRecord",
     headers={"Authorization": "Bearer " + session["accessJwt"]},
     json={
         "repo": session["did"],
@@ -180,7 +180,7 @@ def parse_facets(text: str) -> List[Dict]:
     facets = []
     for m in parse_mentions(text):
         resp = requests.get(
-            "https://bsky.social/xrpc/com.atproto.identity.resolveHandle",
+            pds_url + "/xrpc/com.atproto.identity.resolveHandle",
             params={"handle": m["handle"]},
         )
         # If the handle can't be resolved, just skip it!
@@ -258,7 +258,7 @@ def get_reply_refs(parent_uri: str) -> Dict:
     uri_parts = parse_uri(parent_uri)
 
     resp = requests.get(
-        "https://bsky.social/xrpc/com.atproto.repo.getRecord",
+        pds_url + "/xrpc/com.atproto.repo.getRecord",
         params=uri_parts,
     )
     resp.raise_for_status()
@@ -269,7 +269,7 @@ def get_reply_refs(parent_uri: str) -> Dict:
         root_uri = parent_reply["root"]["uri"]
         root_repo, root_collection, root_rkey = root_uri.split("/")[2:5]
         resp = requests.get(
-            "https://bsky.social/xrpc/com.atproto.repo.getRecord",
+            pds_url + "/xrpc/com.atproto.repo.getRecord",
             params={
                 "repo": root_repo,
                 "collection": root_collection,
@@ -340,7 +340,7 @@ if len(img_bytes) > 1000000:
 # TODO: strip EXIF metadata here, if needed
 
 resp = requests.post(
-    "https://bsky.social/xrpc/com.atproto.repo.uploadBlob",
+    pds_url + "/xrpc/com.atproto.repo.uploadBlob",
     headers={
         "Content-Type": IMAGE_MIMETYPE,
         "Authorization": "Bearer " + session["accessJwt"],
@@ -482,7 +482,7 @@ def fetch_embed_url_card(access_token: str, url: str) -> Dict:
         resp.raise_for_status()
 
         blob_resp = requests.post(
-            "https://bsky.social/xrpc/com.atproto.repo.uploadBlob",
+            pds_url + "/xrpc/com.atproto.repo.uploadBlob",
             headers={
                 "Content-Type": IMAGE_MIMETYPE,
                 "Authorization": "Bearer " + access_token,

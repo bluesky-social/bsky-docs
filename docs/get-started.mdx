@@ -46,16 +46,16 @@ Create an authentication session with your username and password.
       service: 'https://bsky.social'
     })
     await agent.login({
-      identifier: 'example.com',
+      identifier: 'handle.example.com',
       password: 'hunter2'
     })
     ```
   </TabItem>
   <TabItem value="curl" label="CURL">
-    Replace `$BLUESKY_HANDLE` and `$BLUESKY_PASSWORD` with your credentials.
+    Replace `$BLUESKY_HANDLE` and `$BLUESKY_PASSWORD` with your credentials, and `$PDSHOST` with your PDS host (including `https://`).
 
     ```bash
-    curl -X POST https://bsky.social/xrpc/com.atproto.server.createSession \
+    curl -X POST $PDSHOST/xrpc/com.atproto.server.createSession \
         -H "Content-Type: application/json" \
         -d '{"identifier": "'"$BLUESKY_HANDLE"'", "password": "'"$BLUESKY_PASSWORD"'"}'
     ```
@@ -64,8 +64,8 @@ Create an authentication session with your username and password.
       ```python
       from atproto import Client
 
-      client = Client(base_url='https://bsky.social')
-      client.login('example.com', 'hunter2')
+      client = Client()
+      client.login('handle.example.com', 'hunter2')
       ```
     </TabItem>
 </Tabs>
@@ -100,10 +100,10 @@ Now you can create a post by sending a POST request to the createRecord endpoint
     ```
   </TabItem>
   <TabItem value="curl" label="CURL">
-    Replace `$BLUESKY_HANDLE` with your handle and and `$ACCESS_JWT` with the JWT in the response from createSession.
+    Replace `$BLUESKY_HANDLE` with your handle, `$PDSHOST` with your PDS host (including `https://`), and and `$ACCESS_JWT` with the JWT in the response from createSession.
 
     ```bash
-    curl -X POST https://bsky.social/xrpc/com.atproto.repo.createRecord \
+    curl -X POST $PDSHOST/xrpc/com.atproto.repo.createRecord \
         -H "Authorization: Bearer $ACCESS_JWT" \
         -H "Content-Type: application/json" \
         -d "{\"repo\": \"$BLUESKY_HANDLE\", \"collection\": \"app.bsky.feed.post\", \"record\": {\"text\": \"Hello world! I posted this via the API.\", \"createdAt\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}}"
