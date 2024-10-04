@@ -1,11 +1,11 @@
 ---
 id: com-atproto-sync-notify-of-update
 title: "com.atproto.sync.notifyOfUpdate"
-description: "Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay."
+description: "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*"
 sidebar_label: "com.atproto.sync.notifyOfUpdate"
 hide_title: true
 hide_table_of_contents: true
-api: eJzdVk1v20YQ/SuDucQBWEotcmKLAnISNEbRWLDlIoCiw2o5kjYmdze7Q8uMwP9ezJKy5EhJeyh6qC762OHMmzdv3mqHrNYRizlqV+eKfXDs8thajYsMS4o6GM/GWSzwvWOzakGBDmpbGbuGSOHBaAK3AgWBNFmGxpeKKQNlS+CN4qPojWuqEgLFpqYcriyTLamEJhKYCGrFFEDBWnlYEm+JLATyDiIHUjXQA1mOoFUTSVLTKQ52UJqonbWkOYc3jiJYxxDoc2MCgWp48zOY2ldUk2UqYdnCDVWqzTFD5yko6fWqxOKEj9ym9q9Xd6lBzDCSboLhFov5Di9JBQpYzBfdIkMpSJEvXdliscOhfokFh4Yy1E56ZzlS3ldGp7KjT1F43mHUG6qVfOLWExbolp9IM2ZHiea4cZGtqkkG5YOAZ0NRnno6OWSIHIxd49cjfTdEygQTo00IMsQ9oRdNbFRVydCnb25f9gM1iVSzaoV6txomnmOXXgIyemdjj+Wn8Vjenpe9/h27DF+dO7pUJdz07OG/RBSF4AJmWFOMan2Grz7gDFlkm1oyXNkHVZnygOvto5fsM3dPFrP9ef910R1KneTcc/Rq/ONp73dWBOqC+ULlf9+8djYyFjhpePOHiTHB/dtWUgRvnKyMd4kcr3iDBY7+yQaFBwoxLVATKixww+xjMRr5ZlkZnStv8mW8b3Pl/egxeH2i4MuqoXjfwsT7Pw1t4WKanszgvQPp5CV22UnyMub0qMQGchfW5xO/7QNg6ED0DxeSkSzLKKg8lzqBtcRbF+6/DzjZzjm4i4Oz3MqI+zHt/eVpClJRKEwhWOCyD5CBiEJuDg40dPLcGZ6mmKGxK5cSG5YonMxgKi1rV8GHm+lrmEyvpFJT1yq0WOBrZ2VsxllZ/6PwFxEqejSiJPHia092Mr16EaHXKqxcqBXnJ5zMNiZCJC1fQWSvjI3wbjabSm0ItKJAVhOUTkfJAnsW5ZY5xrsvn8NvZMXOCRT01ADLegoupsgpsVZVFaE0gTRXLayCq5MNShlBOXSJBY7zcT4WskTjtUoLOBD5DZnD9QqehP6s3d1hs//3d+ogVqZHHvlKGSscppXZDT5x+s/ja59YZEm3ErrbLVWku1B1nfz8uSER5HyR4YMKRi1Fv3Mx4A2pMl3HO7ynQbNC+Q8zASThVSPAToxVVrp/YqI1ef5u7OLI/KbXtzPMcDlc+bUr5ZmgtmLIaosFfsSPmP5mSIa01On3HVbKrpvksdjnlSUWXo/WfVjvbP9BOhuOlG2PUP7SOwWky+hXzIZukvixW3Rd9xcz1ntZ
+api: eJztVk1v40YM/SsEL/sBRU6LPalFgWR30QRFGyNxgAKOD+MZypqNNKOdoZxoDf/3giM5durstoeip/XFtoZDPj6Sj9ogq1XEYo7aN7niNnj2eeydxkWGhqIOtmXrHRY4q2wEcqb11jHYCK0KDL4ErgjGqxCo9dGyDz2Ilyp4Z78o8QBn08uYwzV97ihyhC52qq57MB6cZwj0ubOBQHVckWOr06UMlDOglYMlQaMMAXuYfrgB61g5TRF8gGuqVQ/WxeFR/vbO3bm3Mw81qeCg8eJ26TsGrerautUT2rPp5VNGEWp7T8CSpXeUQSRKqc3F6sILZgFz1nG1eD0xXseJMmsJaU5WnTUUJ6q1J8YG0kLAG0hPBzh/eLZlDwp0UA8JQ6SwtpqEQAWBNDmGrjWKaUiaK8UH1pXvagOBYtdQDpeOyRky0EWSUqiSKYCClWphSfxA5FIpIHIg1QCtSTLUqotkUlZHONiDsVF750hzDh88xaPC/AS2aWtqyDEZWPYD9Tlm6FsKqWKXBoujZspdSv+qvE0JYoaRdBcs91jMN3hOKlDAYr7YLjIMQ4ece9NjscExvsGCQ0cZai+5sxyptq3HRpl8itKkG4y6okbJL+5bwgL98hNpxuzA0RwrH9mphqTL2yDg2VKUW08new+Rg3Ur/Ps8XIyWuxHQXQhSxB2hr3cdrqRj3wwFtYlUW/ZCvS/Hiue4TR8BGVvv4oDlx9NT+Xoe9uo33Gb47qWjc2V284X/EVEUgg+YYUMxqtULfA0GL5BFrmvEw6Vbq9qaPa6Pj614n/l7cpjtzoe/i+0+1JHPHUfvTn84zv3WSYP6YL+Q+f+T195FxgJFHH63MSa4/5hKsuDKy8i0PpHTKq6wwMljaPXk34xRWFMQAV/sZ+pGkhsA7ibrKX7F3Mq9ZIIFLgcDgSLcXO9n7+Ojkll/PhNP+DO0rvTJsWWxwrMZTAWp9jX8eT19L+IqkbqmUaHHAt97J1hlFfgSDsxfRajp0QqHokJXLbmz6eWrCEOVoPShUZwfDWBaSJF02i5ScGVdhIvZbJqEPVBJgZwmEK0WL3BedxTv+0HHD/DuwufwKzkRMgIFAzXA0piCiylycixbJMKg83UPZfBNEgAJIyjHLLHA0/w0PxWypLqNSq03EvmV2sJVCU/VfZbuZt/T31fx91X89VU8TjrTI0/aWlknDdiFWlpokJc5irwklfy2wCyyNPtyY7NZqki3od5u5fHnjmSoRXbWKli1FA2Yi3xXpExa5hu8p3HupW1PZoJLzOtO8B3J8jbb3TjTmlr+pu3iQDqnVzczzHA5vjA03sidoB5EztUDFniHd5heUsRDEsb0fIO1cqsuKTQOfkUIhd4DyRwlMtv9kMzGI+X6A5Q/D2oLaZX9gtmYTRIQ3C622+1fjLYIjQ==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
@@ -30,12 +30,16 @@ import TabItem from "@theme/TabItem";
 
 <MethodEndpoint
   method={"post"}
-  path={"/com.atproto.sync.notifyOfUpdate"}
+  path={"/xrpc/com.atproto.sync.notifyOfUpdate"}
 >
   
 </MethodEndpoint>
 
 
+
+This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
 
 Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.
 

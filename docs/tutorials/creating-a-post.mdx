@@ -33,7 +33,7 @@ Each post requires these fields: `text` and `createdAt` (a timestamp).
       service: 'https://bsky.social'
     })
     await agent.login({
-      identifier: 'example.com',
+      identifier: 'handle.example.com',
       password: 'hunter2'
     })
 
@@ -58,8 +58,8 @@ Each post requires these fields: `text` and `createdAt` (a timestamp).
     ```python
     from atproto import Client
 
-    client = Client(base_url='https://bsky.social/xrpc')
-    client.login('example.com', 'hunter2')
+    client = Client()
+    client.login('handle.example.com', 'hunter2')
     post = client.send_post('Hello world! I posted this via the Python SDK.')
     ```
 
