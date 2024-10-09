@@ -1,0 +1,283 @@
+---
+id: tools-ozone-set-delete-set
+title: "tools.ozone.set.deleteSet"
+description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*"
+sidebar_label: "tools.ozone.set.deleteSet"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVlFv20YM/isEX9IGipwNexKKAU7TrcGwxkhcYIDjh7OOtq453Sl3VGLV8H8feJJjp8nahxZ7al4i63jkx4/kR22Q1SpiMUP23sbcf/aO8kiM8ww1xTKYho13WODxtDIRyOnGG8dgIjQqMPglcEUwu5SbUHtNQckNiBTuTUnzVxVzE4vRqPed4oxew3hyEXO4oruWIkdoY6us7SDQXWsCgWq5IsemTM4yUIFAm0Alkwb2KWYbKRxFmJxfg3GsXEkZKKehCX5t9mY9MuNiMgHjtHglDYsunZ9fnINx6XHAnDx0xq2gIqUp5DDWtXEDqD0sqFUHykYPC4LGx2gWljJ4MFylRCgyRHI8ILfdy5Dy4xt3446nHiyp4KD2QsDCtwylslZwKG6CZy+sPZYggjW3BCxl8Y4yiER9LcTqvRdahY5xy9X81Uj7Mo6UvpeI+mTVGk1xpBpz0oPzoXsN6W0P55wsMYFyIPkG4YZzGDNT3bBAYg96sJEz4EoxaE8RnGegtYkMD8ZaCBRby0KxOAvBhxwz9M3QKBcaiy+7L+89XxNjhpHKNhjusJht8IxUoIDFbL6dZziQfOZ1h8UGh+bRWHBoKcPSOybHcqSaxg5VG32K0tAbjGVFtZIn7hrCAv3iE5UScu9ohk7VJNPQBIHMhqLcSG/3NyMH41b45cx8UDXtJiRxtOMMt+lPIsXGu9g7/fX0VP499XH5F35HJk9QDzF/eynMmdK7afyeeIfMpVpjhjXFqFYvkNgbvMAiubYWDxfuXlmj97jerRvxPvW35DDbne9+XhN/8PyHb53G+XYf+FmE7SMTvzxn4qOTOffBfCb9/1NRehcZC5Sp/dvEmOB+M5VkwZWXWWp8oqpRXGGBo3VoytHX5yvcU5AlMN8P27Wk1UPbjdxjZBF0uZdMsMBFbyAghJWr/VC+W6u6sbQfmEfUGRq39MmpYbHA8RQmonGlt/DP1eStaJ1EaetahQ4LfOud4BTd9Us4MD+KYGlthDmZsMuG3HhycRShrw0sfagV58+mMy20SGWScimzMi7C++l0knQ20JICycoQ6RQvcGZbirddL6sHeHfhc/iTnOiaiGJPC7A0ZxJ+WQfiWEQ97nfCMvg6KYSEEZRDlljgaX6anwpZUtNauQMiX64o9CV9kudm38I/l/jPJf4jl/ggCExrHjVWGSe92gYrTdfrzwxFf8T0PxVonmElklXMcLNZqEgfg91u5fVdSzL5okv3Khi1EKGYibL3JU1fBLc0iIO0+MlUEIm5bQXZM8XeZrsb47Kkhr9qOz9Q1cnl9RQzXAyfGjIjWGBQD6L06gELvMEbTB824iEpZ3q/Qavcqk3ijb1fUUppwwNNHTQ02z1IZsORct0Byje9HEPaeb9jNmSTVAa38+12+y8M5ChE
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1
+  className={"openapi__heading"}
+>
+  tools.ozone.set.deleteSet
+</h1>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/tools.ozone.set.deleteSet"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Delete an entire set. Attempting to delete a set that does not exist will result in an error.
+
+## Request
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Name of the set to delete"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs>
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`, `SetNotFound`]"}
+                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","SetNotFound"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"error"}
+                        required={true}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"const":"AuthMissing"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"message"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"message\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
