@@ -14,8 +14,7 @@ A recent incident in the live network brought many of these abstract threads int
 
 ### What Happened?
 
-On October 10, Bluesky released version 1.92 of our main app. This release added support for "pinned posts," a long-requested feature. This update added a `pinnedPost` field to the `app.bsky.actor.profile` record. This [field is declared](https://github.com/bluesky-social/atproto/blob/2676206e422233fefbf2d9d182e8d462f0957c93/lexicons/app/bsky/actor/profile.json#
-L44) as a `strongRef`, which is an object containing both the URL and a hash (CID) of the referenced data record.
+On October 10, Bluesky released version 1.92 of our main app. This release added support for "pinned posts," a long-requested feature. This update added a `pinnedPost` field to the `app.bsky.actor.profile` record. This [field is declared](https://github.com/bluesky-social/atproto/blob/2676206e422233fefbf2d9d182e8d462f0957c93/lexicons/app/bsky/actor/profile.json#L44) as a `com.atproto.repo.strongRef`, which is an object containing both the URL and a hash (CID) of the referenced data record.
 
 <!-- EMBED v1.92 announcement: https://bsky.app/profile/bsky.app/post/3l66vf2q4pi26 -->
 <blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:z72i7hdynmk6r22z27h6tvur/app.bsky.feed.post/3l66vf2q4pi26" data-bluesky-cid="bafyreibonvobqqubi5aklhvd3t56utmp6yf5c5riifd4lobowdwi6sayei"><p lang="en">📢 App Version 1.92 is rolling out now (1/5)Pinned posts are here! Plus lots of UI improvements, including new font options, and the ability to filter your searches by language.Open this thread for more details. 🧵<br><br><a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3l66vf2q4pi26?ref_src=embed">[image or embed]</a></p>&mdash; Bluesky (<a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur?ref_src=embed">@bsky.app</a>) <a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3l66vf2q4pi26?ref_src=embed">Oct 10, 2024 at 3:24 PM</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
@@ -78,7 +77,7 @@ The validation behaviors for the `unknown` and `union` Lexicon types [have been 
 
 The schema validation behavior when records are created at PDS instances has been updated, and will be reflected in the specifications soon ([a summary is available](https://github.com/bluesky-social/atproto-website/issues/353)).
 
-Generic run-time Lexicon validation support [was added to the Go SDK](https://github.com/bluesky-social/indigo/pull/420) (indigo), and test vectors were [added to the atproto interop tests repository](https://github.com/bluesky-social/atproto-interop-tests/tree/main/lexicon).
+Generic run-time Lexicon validation support was [added to the Go SDK](https://github.com/bluesky-social/indigo/pull/420) (indigo), and test vectors were [added to the atproto interop tests repository](https://github.com/bluesky-social/atproto-interop-tests/tree/main/lexicon).
 
 Finally, an end-to-end [tutorial on building an example app](https://atproto.com/guides/applications) ("Statusphere") using custom Lexicons was added to the updated atproto documentation website.
 
