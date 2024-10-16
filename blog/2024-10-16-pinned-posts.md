@@ -60,7 +60,7 @@ Another extension mechanism is "open unions". These are places in schemas where 
 
 If sidecar records are not an option, and developers feel they must add data directly to existing record types, we very strongly recommend against field names that might conflict. Even if you think other developers might want to use the same extension, you should intentionally choose long unique prefixes for field names to prevent conflicts both with the "authoritative" Lexicon author, and other developers who might try to make the same extension. What we currently recommend is using a long, unique, non-generic project name (`grayskyPinnedPost`; not `devPinnedPost` or `extPinnedPost`), or even a full NSID for the field name (`app.graysky.pinnedPost`).
 
-While there has been some clever and admirable use of extension fields (the SkyFeed configuration mechanism comes to mind), we don't see inserting fields into data specified by other parties as a reliable or responsible practice in the long run. We acknowledge that there is a demonstrated demand for a simple extension mechanism, and safer ways to insert extension data in records might be specified in the future.
+While there has been some clever and admirable use of extension fields (the [SkyFeed configuration mechanism](https://astrolabe-famz.onrender.com/at/redsolver.dev/app.bsky.feed.generator/aaaf7pgw4xqhu) in `app.bsky.feed.generator` records comes to mind), we don't see inserting fields into data specified by other parties as a reliable or responsible practice in the long run. We acknowledge that there is a demonstrated demand for a simple extension mechanism, and safer ways to insert extension data in records might be specified in the future.
 
 Proposals welcome!
 
