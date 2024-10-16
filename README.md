@@ -45,7 +45,7 @@ To re-generate all of the MDX files from the OpenAPI schema file:
 
 You can test that the output is valid:
 
-    npm docusaurus-mdx-checker
+    npx docusaurus-mdx-checker
 
 Then you would usually check that the entire site can still build (this is slow):
 

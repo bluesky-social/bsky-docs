@@ -16,7 +16,7 @@ build: ## Build the website, output in ./build/
 
 .PHONY: test
 test: ## Run all tests
-	npm docusaurus-mdx-checker
+	npx docusaurus-mdx-checker
 
 #.PHONY: fmt
 #fmt: ## Run syntax re-formatting
