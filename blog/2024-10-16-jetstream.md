@@ -31,7 +31,7 @@ Why are we promoting Jetstream at this time?
 
 Two  factors came to a head in early September: we released an example project for building new applications on atproto ([Statusphere](https://atproto.com/guides/applications)), and we had an unexpectedly large surge in traffic in Brazil. Suddenly we had a situation where new developers would be subscribing to a torrential full-network firehose (over a thousand events per second), just to pluck out a handful of individual events from a handful of accounts. Everything about this continued to function, even on a laptop on a WiFi connection, but it feels a bit wild as an introduction to the protocol.
 
-We knew from early on that while the current firehose is extremely powerful, it was not well-suited to some use cases.Until recently, it hadn’t been a priority to develop alternatives. The firehose is a bit overpowered, but it does Just Work.
+We knew from early on that while the current firehose is extremely powerful, it was not well-suited to some use cases. Until recently, it hadn’t been a priority to develop alternatives. The firehose is a bit overpowered, but it does Just Work.
 
 Has the Relay encountered scaling problems or become unaffordable to operate?
 
