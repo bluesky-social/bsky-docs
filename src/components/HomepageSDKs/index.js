@@ -23,6 +23,12 @@ const FeatureList = [
     href: 'https://atprotodart.com/',
   },
   {
+    title: 'PHP',
+    Svg: require('@site/static/img/languages/php.svg').default,
+    description: <>Community SDK maintained by @shahmal1yev</>,
+    href: 'https://github.com/shahmal1yev/blueskysdk'
+  },
+  {
     title: 'Go',
     Svg: require('@site/static/img/languages/go.svg').default,
     description: <>SDK maintained by Bluesky PBC</>,
