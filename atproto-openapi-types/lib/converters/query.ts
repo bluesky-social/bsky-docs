@@ -4,7 +4,6 @@ import type { OpenAPIV3_1 } from "openapi-types";
 import { convertObject, convertProperty } from "./object.ts";
 import {
   calculateTag,
-  checkEndpoint,
   Endpoint,
   isEmptyObject,
 } from "../utils.ts";
@@ -14,21 +13,12 @@ export async function convertQuery(
   name: string,
   query: LexXrpcQuery,
 ): Promise<OpenAPIV3_1.OperationObject<"GET"> | undefined> {
-  const endpointType = await checkEndpoint(id, "GET");
-
-  if (endpointType === Endpoint.DoesNotExist) {
-    return;
-  }
-
-  const needsAuthentication = endpointType === Endpoint.NeedsAuthentication;
 
   const get = {
     tags: [calculateTag(id)],
     ...(query.description && { description: query.description }),
     operationId: id,
-    ...(needsAuthentication && {
-      security: [{ Bearer: [] }],
-    }),
+    security: [{ Bearer: [] }],
   } as OpenAPIV3_1.OperationObject<"GET">;
 
   if (query.parameters && !isEmptyObject(query.parameters.properties)) {
@@ -81,10 +71,7 @@ export async function convertQuery(
   }
 
   const possibleErrors = ["InvalidRequest"]; // assuming it's always possible
-
-  if (needsAuthentication) {
-    possibleErrors.push("ExpiredToken", "InvalidToken");
-  }
+  possibleErrors.push("ExpiredToken", "InvalidToken");
 
   if (query.errors) {
     for (const { name } of query.errors) {
@@ -113,27 +100,25 @@ export async function convertQuery(
     },
   };
 
-  if (needsAuthentication) {
-    responses["401"] = {
-      description: "Unauthorized",
-      content: {
-        "application/json": {
-          schema: {
-            type: "object",
-            required: ["error", "message"],
-            properties: {
-              error: {
-                const: "AuthMissing",
-              },
-              message: {
-                type: "string",
-              },
+  responses["401"] = {
+    description: "Unauthorized",
+    content: {
+      "application/json": {
+        schema: {
+          type: "object",
+          required: ["error", "message"],
+          properties: {
+            error: {
+              const: "AuthMissing",
+            },
+            message: {
+              type: "string",
             },
           },
         },
       },
-    };
-  }
+    },
+  };
 
   get.responses = responses;
 

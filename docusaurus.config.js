@@ -163,6 +163,8 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      // disable openapi language snippets
+      languageTabs: [],
       algolia: {
         appId: 'T5MN80JFZF',
         // Public API key: it is safe to commit it
