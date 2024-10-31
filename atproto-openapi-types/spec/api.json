@@ -15856,13 +15856,41 @@
             }
           },
           {
+            "name": "collections",
+            "in": "query",
+            "description": "If specified, only events where the subject belongs to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "nsid"
+              },
+              "maxItems": 20
+            }
+          },
+          {
+            "name": "subjectType",
+            "in": "query",
+            "description": "If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If specified, only events where the subject is of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+              "enum": [
+                "account",
+                "record"
+              ]
+            }
+          },
+          {
             "name": "includeAllUserRecords",
             "in": "query",
-            "description": "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned",
+            "description": "If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned.",
             "required": false,
             "schema": {
               "type": "boolean",
-              "description": "If true, events on all record types (posts, lists, profile etc.) owned by the did are returned"
+              "description": "If true, events on all record types (posts, lists, profile etc.) or records from given 'collections' param, owned by the did are returned."
             }
           },
           {
@@ -16057,11 +16085,11 @@
           {
             "name": "includeAllUserRecords",
             "in": "query",
-            "description": "All subjects belonging to the account specified in the 'subject' param will be returned.",
+            "description": "All subjects, or subjects from given 'collections' param, belonging to the account specified in the 'subject' param will be returned.",
             "required": false,
             "schema": {
               "type": "boolean",
-              "description": "All subjects belonging to the account specified in the 'subject' param will be returned."
+              "description": "All subjects, or subjects from given 'collections' param, belonging to the account specified in the 'subject' param will be returned."
             }
           },
           {
@@ -16259,6 +16287,34 @@
             "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "collections",
+            "in": "query",
+            "description": "If specified, subjects belonging to the given collections will be returned. When subjectType is set to 'account', this will be ignored.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "nsid"
+              },
+              "maxItems": 20
+            }
+          },
+          {
+            "name": "subjectType",
+            "in": "query",
+            "description": "If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If specified, subjects of the given type (account or record) will be returned. When this is set to 'account' the 'collections' parameter will be ignored. When includeAllUserRecords or subject is set, this will be ignored.",
+              "enum": [
+                "account",
+                "record"
+              ]
             }
           }
         ],
@@ -21108,6 +21164,12 @@
           "deactivatedAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "threatSignatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.admin.defs.threatSignature"
+            }
           }
         }
       },
@@ -21141,6 +21203,21 @@
           "recordUri": {
             "type": "string",
             "format": "at-uri"
+          }
+        }
+      },
+      "com.atproto.admin.defs.threatSignature": {
+        "type": "object",
+        "required": [
+          "property",
+          "value"
+        ],
+        "properties": {
+          "property": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
           }
         }
       },
@@ -22571,6 +22648,12 @@
           "deactivatedAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "threatSignatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.admin.defs.threatSignature"
+            }
           }
         }
       },
@@ -22634,6 +22717,12 @@
           "deactivatedAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "threatSignatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/com.atproto.admin.defs.threatSignature"
+            }
           }
         }
       },
