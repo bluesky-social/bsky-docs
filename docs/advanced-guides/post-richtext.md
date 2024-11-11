@@ -89,7 +89,7 @@ Strings in the network are UTF-8 encoded. Facet ranges are indexed using byte of
 :::warning
 It's important to pay attention to this when working with facets. Incorrect indexing will produce bad data.
 
-If you are using TypeScript/Javascript, you **cannot** use `.slice()` or any of the native methods. It's suggested you use the [official atproto API's RichText library](https://npm.im/@atproto/api)
+If you are using TypeScript/JavaScript, you **cannot** use `.slice()` or any of the native methods. It's suggested you use the [official atproto API's RichText library](https://npm.im/@atproto/api)
 :::
 
 To understand this fully, let's look at some of the kinds of indexing that Unicode supports:
