@@ -1,5 +1,5 @@
 
-import {sortBy} from '@site/src/utils/jsUtils';
+import { sortBy } from '@site/src/utils/jsUtils';
 
 export type TagType =
   // DO NOT USE THIS TAG: we choose sites to add to favorites
@@ -19,11 +19,11 @@ export type TagType =
   | 'socialtools';
 
 const Users: User[] = [
-{
+  {
     title: 'BIRU',
     description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
     preview: require('./showcase/example-1.png'), // Placeholder image
-    website:'https://bsky.makeup',
+    website: 'https://bsky.makeup',
     author: 'https://bsky.app/profile/did:plc:ivvkfsndujdk2vo5zd2gn2e6',
     tags: ['domains'],
   },
@@ -348,7 +348,7 @@ const Users: User[] = [
     preview: require('./showcase/fedica.png'),
     website: 'https://fedica.com/social-media/bluesky',
     author: 'https://bsky.app/profile/did:plc:n7nimjfhrwsrgsuothysn2h6',
-      tags: ['client', 'bridge'],
+    tags: ['client', 'bridge'],
   },
   {
     title: 'Subium',
@@ -490,7 +490,7 @@ const Users: User[] = [
     tags: ['client', 'opensource'],
   },
   {
-    title: 'blue-sky-cli (Typescript)',
+    title: 'blue-sky-cli (TypeScript)',
     description: 'CLI client for Bluesky',
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/wesbos/blue-sky-cli',
@@ -602,7 +602,7 @@ const Users: User[] = [
     website: 'https://wave.level06.com/',
     source: 'https://github.com/easychen/bluesky-wave',
     author: 'https://bsky.app/profile/did:plc:vlt4uq7tqbbinku5q7u4u43r',
-    tags: ['othertools','opensource'],
+    tags: ['othertools', 'opensource'],
   },
   {
     title: 'Goodfeeds',
@@ -748,7 +748,7 @@ const Users: User[] = [
   },
   {
     title: 'atproto-firehose',
-    description: 'NodeJS/Typescript library for accessing AT Protocol Event Stream (aka firehose) and a CLI for streaming Bluesky Social events',
+    description: 'NodeJS/TypeScript library for accessing AT Protocol Event Stream (aka firehose) and a CLI for streaming Bluesky Social events',
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/kcchu/atproto-firehose',
     source: 'https://github.com/kcchu/atproto-firehose',
@@ -1154,8 +1154,8 @@ const Users: User[] = [
     source: 'https://github.com/marcomaroni-github/instagram-to-bluesky',
     author: 'https://bsky.app/profile/marcomaroni.it',
     tags: ['bridge', 'opensource'],
- },
- {
+  },
+  {
     title: 'Twitter to Bluesky',
     description: 'mport all tweets exported from X/Twitter to a Bluesky account.',
     preview: require('./showcase/example-1.png'),
@@ -1261,10 +1261,10 @@ export type Tag = {
   color: string;
 };
 
-export const Tags: {[type in TagType]: Tag} = {
+export const Tags: { [type in TagType]: Tag } = {
   favorite: {
     label: 'Favorite',
-    description:'Staff picks',
+    description: 'Staff picks',
     color: '#D00C61',
   },
   opensource: {

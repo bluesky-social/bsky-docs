@@ -89,7 +89,7 @@ Strings in the network are UTF-8 encoded. Facet ranges are indexed using byte of
 :::warning
 It's important to pay attention to this when working with facets. Incorrect indexing will produce bad data.
 
-If you are using Typescript/Javascript, you **cannot** use `.slice()` or any of the native methods. It's suggested you use the [official atproto API's RichText library](https://npm.im/@atproto/api)
+If you are using TypeScript/Javascript, you **cannot** use `.slice()` or any of the native methods. It's suggested you use the [official atproto API's RichText library](https://npm.im/@atproto/api)
 :::
 
 To understand this fully, let's look at some of the kinds of indexing that Unicode supports:
@@ -107,7 +107,7 @@ Clients to Bluesky should produce facets using parsers. It's perfectly valid to 
 Here are two example parsers to help you understand this behavior, but do *not* use these. We recommend that you use one of the existing libraries in the ecosystem ([TypeScript](https://github.com/bluesky-social/atproto/tree/main/packages/api), [Python](https://atproto.blue/), [Dart](https://atprotodart.com/), [Go](https://github.com/bluesky-social/indigo/tree/main)).
 
 <Tabs groupId="sdk">
-  <TabItem value="ts" label="Typescript">
+  <TabItem value="ts" label="TypeScript">
 ```ts
 import TLDs from 'tlds'
 import { AppBskyRichtextFacet } from '@atproto/api'
