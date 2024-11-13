@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Skymoji',
+    description: 'A leaderboard of the most used Emoji in Bluesky posts over time.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://skymoji.com',
+    author: 'https://bsky.app/profile/lukeacl.com',
+    tags: ['stats', 'othertools'],
+  },
 ]
 
 export type User = {
