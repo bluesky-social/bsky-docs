@@ -1242,6 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Statuzer',
+    description : 'Multi-accounts, multi-columns Mastodon and Bluesky web client',
+    preview: require('./showcase/statuzer.jpg'),
+    website: 'https://bsky.statuzer.com',
+    author : 'https://bsky.app/profile/textoo.bsky.social',
+    tags: ['client']
+  }
 
 ]
 
