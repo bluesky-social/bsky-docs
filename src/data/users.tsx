@@ -1,5 +1,5 @@
 
-import {sortBy} from '@site/src/utils/jsUtils';
+import { sortBy } from '@site/src/utils/jsUtils';
 
 export type TagType =
   // DO NOT USE THIS TAG: we choose sites to add to favorites
@@ -1242,6 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Epic Rap Battles of Bluesky',
+    description: 'Generate rap battles between any two Bluesky users',
+    preview: require('./showcase/battlesky.png'),
+    website: 'https://battlesky.ai',
+    author: 'https://bsky.app/profile/jlowin.dev',
+    tags: ['othertools'],
+  }
 
 ]
 
