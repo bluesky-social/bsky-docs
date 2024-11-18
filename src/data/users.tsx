@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Starter Packs',
+    description: 'Discover and follow Starter Packs from Bluesky.',
+    preview: require('./showcase/starter-packs.png'),
+    website: 'https://www.starterpacks.net',
+    author: 'https://bsky.app/profile/ryanhefner.com',
+    tags: ['othertools','socialtools'],
+  },
 ]
 
 export type User = {
