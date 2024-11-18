@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Beeskie',
+    description: 'A native Windows app for Bluesky',
+    preview: require('./showcase/beeskie.png'),
+    website: 'https://apps.microsoft.com/detail/9pcgnr7qhqgp?cid=bskyShowcase',
+    source: 'https://github.com/jenius-apps/beeskie',
+    author: 'https://bsky.app/profile/kidjenius.bsky.social',
+    tags: ['client', 'opensource'],
+  },
 
 ]
 
