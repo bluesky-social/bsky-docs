@@ -33,7 +33,7 @@ Running the MDX generation process requires `deno`.
 
 Source code for these helpers are in `./atproto-openapi-types/`.
 
-The raw Lexicon files are in `atproto-openapi-types/lexicons/`, with a helper script (`get-lexicons.sh`) which is run automatically by Github CI every day.
+The raw Lexicon files are in `atproto-openapi-types/lexicons/`, with a helper script (`get-lexicons.sh`) which is run automatically by GitHub CI every day.
 
 To re-generate the OpenAPI file:
 

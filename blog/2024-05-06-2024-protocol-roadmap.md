@@ -4,7 +4,7 @@ title: 2024 Protocol Roadmap
 tags: ['updates']
 ---
 
-*Discuss this post in our Github Discussion forums [here](https://github.com/bluesky-social/atproto/discussions/2469)*
+*Discuss this post in our GitHub Discussion forums [here](https://github.com/bluesky-social/atproto/discussions/2469)*
 
 This roadmap is an update on our progress and lays out our general goals and focus for the coming months. This document is written for developers working on atproto clients, implementations, and applications (including Bluesky-specific projects). This is not a product announcement: while some product features are hinted at, we aren't promising specific timelines here. As always, most Bluesky software is free and open source, and observant folks can follow along with our progress week by week in GitHub.
 
