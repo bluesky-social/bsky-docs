@@ -1157,7 +1157,7 @@ const Users: User[] = [
  },
  {
     title: 'Twitter to Bluesky',
-    description: 'import all tweets exported from X/Twitter to a Bluesky account.',
+    description: 'Import all tweets exported from X/Twitter to a Bluesky account.',
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/marcomaroni-github/twitter-to-bluesky',
     source: 'https://github.com/marcomaroni-github/twitter-to-bluesky',
