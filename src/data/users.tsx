@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Old wildlife illustrations bot',
+    description: 'Posts random images from the Biodiversity Heritage Library (unaffiliated)',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:ujsrwgtqk26kdz6ljxkrw4po',
+    source: 'https://github.com/nathanrooy/bhl-bot',
+    author: 'https://github.com/nathanrooy',
+    tags: ['bot', 'opensource'],
+  },
 
 ]
 
