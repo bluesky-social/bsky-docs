@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Share on Bluesky',
+    description: 'WordPress plugin that allows you to automatically share new posts using your Bluesky-Profile.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://wordpress.org/plugins/share-on-bluesky/',
+    source: 'https://github.com/pfefferle/wordpress-share-on-bluesky',
+    author: 'https://bsky.app/profile/notiz.blog',
+    tags: ['othertools', 'opensource'],
+  },
 
 ]
 
