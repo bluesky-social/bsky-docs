@@ -27,6 +27,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ivvkfsndujdk2vo5zd2gn2e6',
     tags: ['domains'],
   },
+{
+    title: 'NFDomains',
+    description: 'The Non-Fungible Domains (NFD) registry allows permissionless minting of unique domains with ownership secured and verified by the Algorand blockchain.',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website:'https://app.nf.domains',
+    author: 'https://bsky.app/profile/did:plc:odryubkjhsldft5nfmt2xcwy',
+    tags: ['domains'],
+  },
+  
   {
     title: 'Japanese atproto docs',
     description: 'Japanese documentation for atproto',
