@@ -30,7 +30,7 @@ const Users: User[] = [
 {
     title: 'NFDomains',
     description: 'The Non-Fungible Domains (NFD) registry allows permissionless minting of unique domains with ownership secured and verified by the Algorand blockchain.',
-    preview: require('./showcase/example-1.png'), // Placeholder image
+    preview: require('./showcase/NFD-pfp_orange.png'),
     website:'https://app.nf.domains',
     author: 'https://bsky.app/profile/did:plc:odryubkjhsldft5nfmt2xcwy',
     tags: ['domains'],
