@@ -1,6 +1,6 @@
 ---
 slug: ts-api-refactor
-title: Typescript API Package Auth Refactor
+title: TypeScript API Package Auth Refactor
 tags: []
 ---
 
