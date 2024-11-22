@@ -72,7 +72,7 @@ decoding of the data coming over the websocket and calls into the event handler
 we wrote.
 
 If you want a more simplified firehose where events are JSON, you can connect
-to the [JetStream](https://jazco.dev/2024/09/24/jetstream/) websocket:
+to the [JetStream](https://docs.bsky.app/blog/jetstream) websocket:
 <Tabs>
   <TabItem value="python" label="Python">
     ```python
@@ -86,6 +86,7 @@ to the [JetStream](https://jazco.dev/2024/09/24/jetstream/) websocket:
         while True:
           try:
             message = await websocket.recv()
+            print(message)
           except websockets.ConnectionClosed as e:
             print(f"Connection closed: {e}")
             break
