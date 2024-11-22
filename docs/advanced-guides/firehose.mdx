@@ -36,8 +36,7 @@ provider for the `com.atproto.sync.subscribeRepos` endpoint:
 
 
 From there, you need to read off each message as it comes in, and decode the
-CBOR event data. More details on this can be found here (TODO: link to lexicon
-page).
+CBOR event data. More details on this can be found [here](https://atproto.com/specs/lexicon)
 
 Most SDKs have a nice wrapper for this though, In this example we will just
 print each repo operation in each event we receive. These operations are things
@@ -71,3 +70,29 @@ limited concurrency based on who the event is for.
 Once we have a scheduler, we call into `HandleRepoStream` which does the actual
 decoding of the data coming over the websocket and calls into the event handler
 we wrote.
+
+If you want a more simplified firehose where events are JSON, you can connect
+to the [JetStream](https://jazco.dev/2024/09/24/jetstream/) websocket:
+<Tabs>
+  <TabItem value="python" label="Python">
+    ```python
+    import asyncio
+    import websockets
+
+    uri = "wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post"
+
+    async def listen_to_websocket(keywords, log):
+      async with websockets.connect(uri) as websocket:
+        while True:
+          try:
+            message = await websocket.recv()
+          except websockets.ConnectionClosed as e:
+            print(f"Connection closed: {e}")
+            break
+          except Exception as e:
+            print(f"Error: {e}")
+    
+    asyncio.get_event_loop().run_until_complete(listen_to_websocket(args.keywords, args.log))
+    ```
+  </TabItem>
+</Tabs>
