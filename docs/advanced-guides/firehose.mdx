@@ -81,7 +81,7 @@ to the [JetStream](https://jazco.dev/2024/09/24/jetstream/) websocket:
 
     uri = "wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post"
 
-    async def listen_to_websocket(keywords, log):
+    async def listen_to_websocket():
       async with websockets.connect(uri) as websocket:
         while True:
           try:
@@ -92,7 +92,7 @@ to the [JetStream](https://jazco.dev/2024/09/24/jetstream/) websocket:
           except Exception as e:
             print(f"Error: {e}")
     
-    asyncio.get_event_loop().run_until_complete(listen_to_websocket(args.keywords, args.log))
+    asyncio.get_event_loop().run_until_complete(listen_to_websocket())
     ```
   </TabItem>
 </Tabs>
