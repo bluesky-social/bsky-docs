@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Longpost',
+    description: 'Tool to create threads from your long posts',
+    preview: require('./bsky-longpost.png'),
+    website: 'https://mohit2152sharma.github.io/bsky-projects/',
+    source: 'https://github.com/mohit2152sharma/bsky-projects',
+    author: 'https://bsky.app/profile/montepy.in',
+    tags: ['opensource', 'socialtools']
+  }
 
 ]
 
