@@ -276,7 +276,7 @@ Replies and quote posts contain **strong references** to other records. A strong
 - **AT URI:** indicates the repository DID, collection, and record key
 - **CID:** the hash of the record itself
 
-Posts can have several types of embeds: record embeds, images and exernal embeds (like link/webpage cards, which is the preview that shows up when you post a URL).
+Posts can have several types of embeds: record embeds, images and external embeds (like link/webpage cards, which is the preview that shows up when you post a URL).
 
 ### Replies
 

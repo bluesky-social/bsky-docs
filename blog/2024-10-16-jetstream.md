@@ -23,7 +23,7 @@ Jetstream was originally written as a side project by one of our engineers, [Jaz
 - `jetstream1.us-west.bsky.network`
 - `jetstream2.us-west.bsky.network`
 
-You can read more technical details about Jetstream in the [Github repo](https://github.com/bluesky-social/jetstream).
+You can read more technical details about Jetstream in the [GitHub repo](https://github.com/bluesky-social/jetstream).
 
 ## Why Now?
 

@@ -59,7 +59,7 @@ If sidecar records are not an option, and developers feel they must add data dir
 
 While there has been some clever and admirable use of extension fields (the [SkyFeed configuration mechanism](https://astrolabe-famz.onrender.com/at/redsolver.dev/app.bsky.feed.generator/aaaf7pgw4xqhu) in `app.bsky.feed.generator` records comes to mind), we don't see inserting fields into data specified by other parties as a reliable or responsible practice in the long run. We acknowledge that there is a demonstrated demand for a simple extension mechanism, and safer ways to insert extension data in records might be specified in the future.
 
-Proposals and discussion welcome! There is an [existing thread on Github](https://github.com/bluesky-social/atproto/discussions/1889).
+Proposals and discussion welcome! There is an [existing thread on GitHub](https://github.com/bluesky-social/atproto/discussions/1889).
 
 ### Progress with Lexicons
 
