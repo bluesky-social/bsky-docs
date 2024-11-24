@@ -19,6 +19,14 @@ export type TagType =
   | 'socialtools';
 
 const Users: User[] = [
+  {
+    title: 'Bluesky feed ~ Wordpress plugin',
+    description: 'A Wordpress plugin to show your Bluesky feed on your website',
+    preview: require('./showcase/bluesky-wordpress-plugin.png'),
+    website: 'https://github.com/stephanj/blueskyFeedWordpressPlugin',
+    author: 'https://bsky.app/profile/did=did:plc:tjpmictnnpohrfxblpfco6ps',
+    tags: ['opensource'],
+  },
 {
     title: 'BIRU',
     description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
