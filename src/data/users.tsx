@@ -1242,6 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'birulangit.web.id',
+    description: 'Community handle with birulangit.web.id domain for Indonesian community',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website:'https://birulangit.web.id',
+    author: 'https://bsky.app/profile/did:plc:vkxfmu7735ysk7mkhnwgqwwp',
+    tags: ['domains'],
+  },
 
 ]
 
