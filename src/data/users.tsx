@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Use Bluesky as comments for any web page (Chrome extension)',
+    description: 'A Google Chrome Extension that enables the user to comment on the current page using Bluesky.',
+    preview: require('./showcase/bluesky-comments-chrome.png'),
+    website: 'https://github.com/joneslloyd/bluesky-comments-chrome',
+    source: 'https://github.com/joneslloyd/bluesky-comments-chrome',
+    author: 'https://bsky.app/profile/joneslloyd.bsky.social',
+    tags: ['othertools', 'socialtools', 'opensource'],
+  }
 
 ]
 
