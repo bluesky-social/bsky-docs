@@ -1242,6 +1242,22 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Airview',
+    description: 'Publishing, scheduling and detailed analytics for Bluesky.',
+    preview: require('./showcase/airview.png'),
+    website: 'https://airview.so',
+    author: 'https://bsky.app/profile/danrowden.com',
+    tags: ['stats', 'socialtools'],
+  },
+  {
+    title: 'ilo',
+    description: 'All of your internet stats (including Bluesky) in one dashboard.',
+    preview: require('./showcase/ilo.png'),
+    website: 'https://ilo.so',
+    author: 'https://bsky.app/profile/danrowden.com',
+    tags: ['stats'],
+  },
 
 ]
 
