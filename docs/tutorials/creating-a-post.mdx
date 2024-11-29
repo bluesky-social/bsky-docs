@@ -164,9 +164,9 @@ Learn about how mentions and links work under the hood with the [Link, mentions,
   Use TextBuilder to construct a post with mentions and links.
 
     ```python
-    from atproto import TextBuilder
+    from atproto import client_utils
 
-    tb = TextBuilder()
+    tb = client_utils.TextBuilder()
     tb.text('✨ example mentioning ')
     tb.mention('atproto.com', 'did:plc:ewvi7nxzyoun6zhxrhs64oiz')
     tb.text(' to share the URL ')
