@@ -1242,6 +1242,41 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Account backup with GitHub Actions',
+    description: 'Automatic backup of your account with free hosting on GitHub Actions',
+    website: 'https://github.com/imax9000/bluesky-repo-backup',
+    source: 'https://github.com/imax9000/bluesky-repo-backup',
+    tags: ['opensource'],
+  },
+  {
+    title: 'Labeler implementation in Go',
+    description: 'Policy and workflow-agnostic labeler implementation, ready for integration into any moderation system',
+    website: 'https://github.com/bsky-watch/labeler',
+    source: 'https://github.com/bsky-watch/labeler',
+    tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'Self-hosted mirror of plc.directory',
+    description: 'Drop-in mirror of https://plc.directory, for building services that query it a lot',
+    website: 'https://github.com/bsky-watch/plc-mirror',
+    source: 'https://github.com/bsky-watch/plc-mirror',
+    tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'Utility library in Go',
+    description: 'Various useful bits of code for interacting with Bluesky APIs',
+    website: 'https://github.com/bsky-watch/utils',
+    source: 'https://github.com/bsky-watch/utils',
+    tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'XRPC CLI',
+    description: 'Simple JSON-based client that handles authentication and pagination',
+    website: 'https://github.com/bsky-watch/utils/tree/main/cmd/xrpc',
+    source: 'https://github.com/bsky-watch/utils/tree/main/cmd/xrpc',
+    tags: ['client', 'opensource'],
+  },
 
 ]
 
