@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Bluesky Mastodon Sync Tool',
+    description: 'A tool for bidirectional synchronization between Mastodon and Bluesky。',
+    preview: require('./showcase/bluesky-mastodon-sync.png'),
+    website: 'https://github.com/CurtainTears/mastodon-bluesky-sycn',
+    source: 'https://github.com/CurtainTears/mastodon-bluesky-sycn',
+    author: 'https://bsky.app/profile/did:plc:td5bedyo4jpsfphzxp524lq6',
+    tags: ['bridge', 'opensource'],
+  },
 
 ]
 
