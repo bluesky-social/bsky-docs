@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Treeverse',
+    description: 'A tool for navigating Bluesky threads using a tree visualization.',
+    preview: require('./showcase/treeverse.png'),
+    website: 'https://treeverse.app',
+    source: 'https://github.com/paulgb/treeverse',
+    author: 'https://bsky.app/profile/paulbutler.org',
+    tags: ['othertools', 'opensource'],
+  },
 
 ]
 
