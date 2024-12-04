@@ -16046,11 +16046,11 @@
           {
             "name": "comment",
             "in": "query",
-            "description": "If specified, only events with comments containing the keyword are returned",
+            "description": "If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "If specified, only events with comments containing the keyword are returned"
+              "description": "If specified, only events with comments containing the keyword are returned. Apply || separator to use multiple keywords and match using OR condition."
             }
           },
           {
@@ -17624,7 +17624,12 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "_unknown_": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
                 }
               }
             }
@@ -19004,7 +19009,8 @@
               "oldest",
               "newest",
               "most-likes",
-              "random"
+              "random",
+              "hotness"
             ]
           },
           "prioritizeFollowedUsers": {
@@ -19698,75 +19704,7 @@
         }
       },
       "app.bsky.feed.defs.postView": {
-        "type": "object",
-        "required": [
-          "uri",
-          "cid",
-          "author",
-          "record",
-          "indexedAt"
-        ],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "format": "at-uri"
-          },
-          "cid": {
-            "type": "string",
-            "format": "cid"
-          },
-          "author": {
-            "$ref": "#/components/schemas/app.bsky.actor.defs.profileViewBasic"
-          },
-          "record": {},
-          "embed": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/app.bsky.embed.images.view"
-              },
-              {
-                "$ref": "#/components/schemas/app.bsky.embed.video.view"
-              },
-              {
-                "$ref": "#/components/schemas/app.bsky.embed.external.view"
-              },
-              {
-                "$ref": "#/components/schemas/app.bsky.embed.record.view"
-              },
-              {
-                "$ref": "#/components/schemas/app.bsky.embed.recordWithMedia.view"
-              }
-            ]
-          },
-          "replyCount": {
-            "type": "integer"
-          },
-          "repostCount": {
-            "type": "integer"
-          },
-          "likeCount": {
-            "type": "integer"
-          },
-          "quoteCount": {
-            "type": "integer"
-          },
-          "indexedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "viewer": {
-            "$ref": "#/components/schemas/app.bsky.feed.defs.viewerState"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/com.atproto.label.defs.label"
-            }
-          },
-          "threadgate": {
-            "$ref": "#/components/schemas/app.bsky.feed.defs.threadgateView"
-          }
-        }
+        "WARNING": "Schema Docs Have Been Truncated!"
       },
       "app.bsky.feed.defs.viewerState": {
         "type": "object",
