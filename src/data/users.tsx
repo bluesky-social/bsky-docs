@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: "Dopplersky",
+    description: "Account Analytics Suite for Bluesky",
+    preview: require("./showcase/dopplersky.png"),
+    website: "https://dopplersky.com",
+    author: "https://bsky.app/profile/acey.wrenware.dev",
+    tags: ["stats"],
+  },
 ]
 
 export type User = {
