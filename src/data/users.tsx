@@ -319,6 +319,15 @@ const Users: User[] = [
     tags: ['client', 'opensource'],
   },
   {
+    title: 'skeet',
+    description: 'Post from your command line to Bluesky or other supported atproto sites',
+    preview: null,
+    website: 'https://crates.io/crates/skeet',
+    source: 'https://github.com/sharunkumar/skeet',
+    author: 'https://bsky.app/profile/sharunkumar.com',
+    tags: ['CLI', 'opensource', 'othertools'],
+  },
+  {
     title: 'vSky',
     description: 'Web client for Bluesky',
     preview: require('./showcase/example-1.png'),
