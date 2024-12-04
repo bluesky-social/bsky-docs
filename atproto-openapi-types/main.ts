@@ -71,7 +71,7 @@ for await (const entry of entries) {
         break;
       case "object":
         if (id == "app.bsky.feed.defs" && name == "postView") {
-          components.schemas![identifier] = {};
+          components.schemas![identifier] = {"WARNING": "Schema Docs Have Been Truncated!"};
           break;
         }
         components.schemas![identifier] = convertObject(id, name, def);
