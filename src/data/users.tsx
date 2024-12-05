@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Bluesky Stats&&Trends',
+    description: 'Offering follower leaderboards, and trending post discovery across different feeds.',
+    preview: require('./showcase/trends.png'),
+    website: 'https://blueskystats.online',
+    author: 'https://bsky.app/profile/did:plc:tvyyznigfyp4pnlejjxtftyu',
+    tags: ['stats']
+  },
 ]
 
 export type User = {
