@@ -409,8 +409,8 @@ A complete post record, containing two images, would look something like:
           "size": 760898
         },
         "aspectRatio": {
-            "width": 1280,
-            "height": 760
+          "width": 1280,
+          "height": 760
         }
       },
       {
@@ -424,8 +424,8 @@ A complete post record, containing two images, would look something like:
           "size": 13208
         },
         "aspectRatio": {
-            "width": 500,
-            "height": 300
+          "width": 500,
+          "height": 300
         }
       }
     ]
