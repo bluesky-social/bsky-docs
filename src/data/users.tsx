@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Skygram',
+    description: 'Photofeed viewer for Bluesky',
+    preview: require('./showcase/skygram.png'),
+    website: 'https:/skygram.app',
+    source: 'https://github.com/shelob9/skygram',
+    author: 'https://bsky.app/profile/did:plc:payluere6eb3f6j5nbmo2cwy',
+    tags: ['client', 'opensource']
+  },
 
 ]
 
