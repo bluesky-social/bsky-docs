@@ -434,7 +434,7 @@ A complete post record, containing two images, would look something like:
 }
 ```
 
-Each post contains up to four images, and each image can have its own alt text and aspect ratio. Individual images are limited to 1,000,000 bytes in size each. Image files are *referenced* by posts, but are not actually *included* in the post (eg, using `bytes` with base64 encoding). The image files are first uploaded as "blobs" using `com.atproto.repo.uploadBlob`, which returns a `blob` metadata object, which is then embedded in the post record itself.
+Each post contains up to four images, and each image can have its own alt text and aspect ratio. Individual images are limited to 1,000,000 bytes in size. Image files are *referenced* by posts, but are not actually *included* in the post (eg, using `bytes` with base64 encoding). The image files are first uploaded as "blobs" using `com.atproto.repo.uploadBlob`, which returns a `blob` metadata object, which is then embedded in the post record itself.
 
 It's strongly recommended best practice to strip image metadata before uploading. The server (PDS) may be more strict about blocking upload of such metadata by default in the future, but it is currently the responsibility of clients (and apps) to sanitize files before upload today.
 
