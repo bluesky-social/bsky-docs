@@ -1129,6 +1129,15 @@ const Users: User[] = [
     tags: ['opensource', 'bot'],
   },
   {
+    title: 'ChessliseBot',
+    description: 'Chess bot that posts puzzles and challenge links',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/jalpp/ChessliseSky',
+    source: 'https://github.com/jalpp/ChessliseSky',
+    author: 'https://bsky.app/profile/nmp123.bsky.social',
+    tags: ['opensource', 'bot'],
+  },
+  {
     title: '@skyware/bot',
     description: 'A TS/JS framework for building bots on Bluesky',
     preview: require('./showcase/skyware-bot.png'),
