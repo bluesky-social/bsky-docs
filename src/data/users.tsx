@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Butterfly for Bluesky',
+    description: 'Bluesky on your watch!',
+    preview: require('./showcase/butterfly.jpg'),
+    website: 'https://apps.apple.com/us/app/butterfly-for-bluesky/id6738070758',
+    author: 'https://bsky.app/profile/butterflyfor.bsky.social',
+    tags: ['client'],
+  },
 ]
 
 export type User = {
