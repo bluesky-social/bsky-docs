@@ -31,7 +31,7 @@ BLUESKY_PASSWORD=
 The below script will post 🙂 every three hours.
 
 ```TypeScript
-import { BskyAgent } from '@atproto/api';
+import { AtpAgent } from '@atproto/api';
 import * as dotenv from 'dotenv';
 import { CronJob } from 'cron';
 import * as process from 'process';
@@ -39,7 +39,7 @@ import * as process from 'process';
 dotenv.config();
 
 // Create a Bluesky Agent 
-const agent = new BskyAgent({
+const agent = new AtpAgent({
     service: 'https://bsky.social',
   })
 
