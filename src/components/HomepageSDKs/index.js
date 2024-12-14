@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 
 const FeatureList = [
   {
-    title: 'Typescript',
+    title: 'TypeScript',
     Svg: require('@site/static/img/languages/typescript.svg').default,
     description: <>Official SDK maintained by Bluesky PBC</>,
     href: 'https://github.com/bluesky-social/atproto/tree/main/packages/api',

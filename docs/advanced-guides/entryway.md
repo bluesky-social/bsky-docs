@@ -28,7 +28,7 @@ Of course, a developer can always short-circuit this behavior and go directly to
 
 We recommend this behavior, and to enable it, we return the user's DID document (which contains the user's actual PDS hostname) in all session management routes (including `createAccount`). 
 
-The [Typescript API library](https://www.npmjs.com/package/@atproto/api) published by Bluesky takes care of this dynamic routing automatically. Developers may configure it to communicate with `bsky.social`. On session creation, it will reconfigure the agent to send requests to the user's actual PDS.
+The [TypeScript API library](https://www.npmjs.com/package/@atproto/api) published by Bluesky takes care of this dynamic routing automatically. Developers may configure it to communicate with `bsky.social`. On session creation, it will reconfigure the agent to send requests to the user's actual PDS.
 
 ### Engaging with Entryway as a developer
 
@@ -38,4 +38,4 @@ Ideally, developers should not have to engage much with the concepts surrounding
 - when offering signup/login to a user, Bluesky PDSs should be communicated as `bsky.social`
 - most application requests can be sent to _either_ the Entryway _or_ the PDS
 - for non-session related routes, we encourage going directly to the PDS in order to avoid the extra hop
-- if using the Bluesky Typescript SDK, you may configure it with `bsky.social` and the library will handle the dynamic routing for you
+- if using the Bluesky TypeScript SDK, you may configure it with `bsky.social` and the library will handle the dynamic routing for you

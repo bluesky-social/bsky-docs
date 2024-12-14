@@ -33,9 +33,9 @@ Other noteworthy projects included translation bots, deep fake detectors, a frie
 
 We prepared some starter templates for the hackathon, and want to share them below for anyone who couldn’t attend the event in person! 
 
-* [Bot Starter Repo (Typescript)](https://github.com/skygaze-ai/bot-typescript)
+* [Bot Starter Repo (TypeScript)](https://github.com/skygaze-ai/bot-typescript)
 * [Bot Starter Repo (Python)](https://github.com/skygaze-ai/bot-python)
-* [Feed Generator Starter Repo (Typescript)](https://github.com/skygaze-ai/feed-generator-typescript)
+* [Feed Generator Starter Repo (TypeScript)](https://github.com/skygaze-ai/feed-generator-typescript)
 * [AT Proto 101 by Jett Hollister](https://github.com/skygaze-ai/atproto-101) 
 
 And if you’re interested in hosting your own bluesky hackathon but don’t know where to start, please feel free to copy [all of our invite copy, starter repos, and datasets](https://docs.google.com/document/d/1cMNzLm1yDMeE4P6M_ZWubz9uiHGMnthfO7v94B16ELY/edit?usp=sharing).
