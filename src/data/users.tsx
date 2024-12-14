@@ -490,7 +490,7 @@ const Users: User[] = [
     tags: ['client', 'opensource'],
   },
   {
-    title: 'blue-sky-cli (Typescript)',
+    title: 'blue-sky-cli (TypeScript)',
     description: 'CLI client for Bluesky',
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/wesbos/blue-sky-cli',
@@ -748,7 +748,7 @@ const Users: User[] = [
   },
   {
     title: 'atproto-firehose',
-    description: 'NodeJS/Typescript library for accessing AT Protocol Event Stream (aka firehose) and a CLI for streaming Bluesky Social events',
+    description: 'NodeJS/TypeScript library for accessing AT Protocol Event Stream (aka firehose) and a CLI for streaming Bluesky Social events',
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/kcchu/atproto-firehose',
     source: 'https://github.com/kcchu/atproto-firehose',

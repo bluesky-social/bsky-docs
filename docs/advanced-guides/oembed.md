@@ -12,7 +12,7 @@ Bluesky posts can be embedded in other websites a couple different ways. For a n
 
 **oEmbed:** individual post pages on bsky.app have HTML metadata which points to the oEmbed API endpoint. This enables automatic oEmbed discovery when pasting bsky.app URLs in to third party applications, like blog or website composers.
 
-HTML snippets include a basic version of the post text as a `<blockquote>`, as well as a Javascript `<script>` tag. The Javascript widget will overwrite the blockquote with an iframe which re-loads the post via API and renders it appropriately, including any media embeds, quote-posts, etc.
+HTML snippets include a basic version of the post text as a `<blockquote>`, as well as a JavaScript `<script>` tag. The JavaScript widget will overwrite the blockquote with an iframe which re-loads the post via API and renders it appropriately, including any media embeds, quote-posts, etc.
 
 The public content policy is the same as the logged-out public web interface at [https://bsky.app](https://bsky.app): adult-only content is redacted, deleted posts or accounts are redacted, and the "no unauthenticated viewers" preference on Bluesky account preferences (a self-label on the profile record) is checked and enforced.
 

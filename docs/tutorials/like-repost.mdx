@@ -16,7 +16,7 @@ Liking a post requires the post's URI and its CID.
 The URI indicates the repository DID, collection, and record key. The CID is the hash of the record itself.
 
 <Tabs groupId="sdk">
-  <TabItem value="ts" label="Typescript">
+  <TabItem value="ts" label="TypeScript">
     ```typescript title="agent.like"
       const { uri } = await agent.like(uri, cid)
     ```
@@ -39,7 +39,7 @@ Unliking a post requires only the post's URI, which refers to its record.
 In the case of a Like, unliking the post means deleting the Like record.
 
 <Tabs groupId="sdk">
-  <TabItem value="ts" label="Typescript">
+  <TabItem value="ts" label="TypeScript">
     ```typescript title="agent.deleteLike"
       await agent.deleteLike(uri)
     ```
@@ -61,7 +61,7 @@ Reposting and un-reposting looks almost exactly the same as liking and
 unliking.
 
 <Tabs groupId="sdk">
-  <TabItem value="ts" label="Typescript">
+  <TabItem value="ts" label="TypeScript">
     ```typescript title="agent.repost"
       const { uri } = await agent.repost(uri, cid)
     ```
@@ -84,7 +84,7 @@ Same as unlike, un-reposting a post requires only the post's URI, whose record
 we want to delete.
 
 <Tabs groupId="sdk">
-  <TabItem value="ts" label="Typescript">
+  <TabItem value="ts" label="TypeScript">
     ```typescript title="agent.deleteRepost"
       await agent.deleteRepost(uri)
     ```
