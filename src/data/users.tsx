@@ -1242,6 +1242,16 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'BlueSky Multiple PLC Relay',
+    description: 'This project provides a simple relay/proxy service to allow validate DIDs on multiple PLC directories.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/eddieoz/bsky-plc-relay',
+    source: 'https://github.com/eddieoz/bsky-plc-relay',
+    author: 'https://bsky.app/profile/did:plc:f6beqf2stqdl34t5nr4mlodp',
+    tags: ['othertools', 'opensource', 'protocol'],
+  },
+
 
 ]
 
