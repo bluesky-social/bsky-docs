@@ -1244,7 +1244,7 @@ const Users: User[] = [
   },
   {
     title: 'Postoad',
-    description: 'A service that lets Discord server staff easily post to Bluesky without sharing the account password.',
+    description: 'A service that lets Discord server staff easily interact with Bluesky without sharing the account password.',
     preview: require('./showcase/postoad.png'),
     website: 'https://github.com/DaDragonDen/postoad',
     source: 'https://github.com/DaDragonDen/postoad',
