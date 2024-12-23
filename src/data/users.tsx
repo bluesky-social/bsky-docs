@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Postoad',
+    description: 'A service that lets Discord server staff easily post to Bluesky without sharing the account password.',
+    preview: require('./showcase/postoad.png'),
+    website: 'https://github.com/DaDragonDen/postoad',
+    source: 'https://github.com/DaDragonDen/postoad',
+    author: 'https://bsky.app/profile/did:plc:4dpodtt6ak56zxlwydrx5d2b',
+    tags: ['bridge', 'socialtools', 'opensource', 'bot']
+  }
 ]
 
 export type User = {
