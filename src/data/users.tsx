@@ -1244,10 +1244,10 @@ const Users: User[] = [
   },
   {
     title: 'Longpost',
-    description: 'Tool to create threads from your long posts',
-    preview: require('./bsky-longpost.png'),
-    website: 'https://mohit2152sharma.github.io/bsky-projects/',
-    source: 'https://github.com/mohit2152sharma/bsky-projects',
+    description: 'Share beautiful code snippets on bluesky',
+    preview: require('./showcase/longpost.png'),
+    website: 'https://longpost.in',
+    source: 'https://github.com/mohit2152sharma/longpost',
     author: 'https://bsky.app/profile/montepy.in',
     tags: ['opensource', 'socialtools']
   }
