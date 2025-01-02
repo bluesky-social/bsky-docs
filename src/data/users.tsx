@@ -1242,7 +1242,16 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Lining',
+    description: 'A go based library for building bots on Bluesky',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/watzon/lining',
+    source: 'https://github.com/watzon/lining',
+    author: 'https://bsky.app/profile/did:plc:4wtsg4rf2dwlt6lsuqrnfrvl',
+    tags: ['bot', 'opensource'],
+  },
+  
 ]
 
 export type User = {
