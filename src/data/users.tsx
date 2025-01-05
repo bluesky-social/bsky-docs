@@ -1244,7 +1244,7 @@ const Users: User[] = [
   {
     title: 'Bluniversal Comments',
     description: 'Start a conversation next to any web page using your Bluesky account',
-    preview: require('./showcase/bluesky-comments-chrome.png'),
+    preview: require('./showcase/bluniversal-comments.png'),
     website: 'https://github.com/joneslloyd/bluniversal-comments',
     source: 'https://github.com/joneslloyd/bluniversal-comments',
     author: 'https://bsky.app/profile/lloydjones.io',
