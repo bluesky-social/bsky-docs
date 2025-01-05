@@ -1,4 +1,3 @@
-
 import {sortBy} from '@site/src/utils/jsUtils';
 
 export type TagType =
@@ -1242,6 +1241,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Bluniversal Comments',
+    description: 'Start a conversation next to any web page using your Bluesky account',
+    preview: require('./showcase/bluniversal-comments.png'),
+    website: 'https://github.com/joneslloyd/bluniversal-comments',
+    source: 'https://github.com/joneslloyd/bluniversal-comments',
+    author: 'https://bsky.app/profile/lloydjones.io',
+    tags: ['othertools', 'socialtools', 'opensource'],
+  }
 
 ]
 
