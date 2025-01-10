@@ -263,7 +263,7 @@ if (isImages(invalidEmbed)) {
 
 The root of the issue here is that the `is*` utility methods perform type casting of objects solely based on the value of their `$type` property. There were basically two ways of fixing this issue:
 
-1. Alter the implementation to actually validate the object's structure. This is a non breaking change that has a big negative impact on performances.
+1. Alter the implementation to actually validate the object's structure. This is a non-breaking change that has a negative impact on performance.
 2. Alter the function signature to describe what the function actually does. This is a breaking change because TypeScript would start (rightfully) returning lots of errors in places where these functions are used.
 
 Because this release introduces other breaking changes, and because adapting our own code base to this change showed it made more sense, we decided to adopt the latter option.
