@@ -266,7 +266,7 @@ The root of the issue here is that the `is*` utility methods perform type castin
 1. Alter the implementation to actually validate the object's structure. This is a non-breaking change that has a negative impact on performance.
 2. Alter the function signature to describe what the function actually does. This is a breaking change because TypeScript would start (rightfully) returning lots of errors in places where these functions are used.
 
-Because this release introduces other breaking changes, and because adapting our own code base to this change showed it made more sense, we decided to adopt the latter option.
+Because this release introduces other breaking changes, and because adapting our own codebase to this change showed it made more sense, we decided to adopt the latter option.
 
 In lots of cases where data needs to be discriminated, this change in the signature of the `is*` function will actually not cause any issue when upgrading the version of the SDK. This is the case for example when working with data obtained from the API. Because an API is a "contract" between a server and a client, the data returned by the server is "guaranteed" to be valid. In these cases, the `is*` utility methods provide a convenient way to discriminate between valid values.
 
