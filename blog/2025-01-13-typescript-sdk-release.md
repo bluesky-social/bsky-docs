@@ -221,7 +221,7 @@ The example above shows how data can be discriminated based on the `$type` prope
 - Having to use inline strings yields a lot of code, hurting readability and bundle size.
 - In particular instances, the `$type` property can actually have two values to describe the same lexicon. An "images" embed, for example, can use both `app.bsky.embed.images` and `app.bsky.embed.images#main` as `$type`. This makes the previous point even worse.
 
-In order to alleviate these issues, the SDK provides type checking predicate functions. In their previous implementation, the `is*` utilities where defined as follows:
+In order to alleviate these issues, the SDK provides type checking predicate functions. In their previous implementation, the `is*` utilities were defined as follows:
 
 ```typescript
 export interface Main {
