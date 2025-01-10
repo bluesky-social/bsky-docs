@@ -15,12 +15,12 @@ This release is a big step forward, significantly improving the type safety of o
 
 ## Context
 
-Atproto is an “open protocol”. This means a lot of things. One of these things is that the data structures handled through the protocol are extensible. Lexicons (which is the syntax used to define the schema of the data structures) can be used to describe placeholders where arbitrary data types (defined through third party Lexicons) can be used.
+Atproto is an "open protocol". This means a lot of things. One of these things is that the data structures handled through the protocol are extensible. Lexicons (which is the syntax used to define the schema of the data structures) can be used to describe placeholders where arbitrary data types (defined through third party Lexicons) can be used.
 
 An example of such placeholder exists in the lexicon definition of a Bluesky post
 ([`app.bsky.feed.post`](https://github.com/bluesky-social/atproto/blob/5ece8c6aeab9c5c3f51295d93ed6e27c3c6095c2/lexicons/app/bsky/feed/post.json#L5-L64)). That schema defines that posts can have an `embed` property defined as follows:
 
-```json
+```javascript
   "embed": {
     "type": "union",
     "refs": [
@@ -33,26 +33,24 @@ An example of such placeholder exists in the lexicon definition of a Bluesky pos
   }
 ```
 
-The type of the `embed` property is what is called an “open union”. It means that the `embed` field can basically contain anything, though we usually expect it to be one of the known types defined in the `refs` array of the lexicon schema (an image, a video, a link or another post).
+The type of the `embed` property is what is called an "open union". It means that the `embed` field can basically contain anything, though we usually expect it to be one of the known types defined in the `refs` array of the lexicon schema (an image, a video, a link or another post).
 
 Systems consuming Bluesky posts need to be able to determine what type of embed they are dealing with. This is where the `$type` property comes in. This property allows to uniquely determine the lexicon schema that must be used to interpret the data. That field **must** be provided everywhere a union is expected. For example, a post with a video would look like this:
 
-```json
+```javascript
 {
   "text": "Hey, check this out!",
   "createdAt": "2021-09-01T12:34:56Z",
   "embed": {
     "$type": "app.bsky.embed.video",
-    "video": {
-      /* reference to the video file, omitted for brevity */
-    }
+    "video": { /* reference to the video file, omitted for brevity */ }
   }
 }
 ```
 
 Since `embed` is an open union, it can be used to store anything. For example, a post with a calendar event embed could look like this:
 
-```json
+```javascript
 {
   "text": "Hey, check this out!",
   "createdAt": "2021-09-01T12:34:56Z",
@@ -63,6 +61,8 @@ Since `embed` is an open union, it can be used to store anything. For example, a
   }
 }
 ```
+
+> Note: Only systems that know about the `com.example.calendar.event` lexicon can interpret this data. The official Bluesky app will typically only know about the data types defined in the `app.bsky` lexicons.
 
 ## Revamped TypeScript interfaces
 
@@ -146,7 +146,7 @@ export interface Main {
 }
 ```
 
-Notice how the `$type` property is defined as optional (`?:`) here. This is due to the fact that lexicons can define schemas that can be referenced from other places than open unions. In those places, there might not be any ambiguity as to how the data should be interpreted. For example, an embed that represents “a Record with media” has a `record` property that expects an `app.bsky.embed.record` object:
+Notice how the `$type` property is defined as optional (`?:`) here. This is due to the fact that lexicons can define schemas that can be referenced from other places than open unions. In those places, there might not be any ambiguity as to how the data should be interpreted. For example, an embed that represents a "Record With Media" has a `record` property that expects an `app.bsky.embed.record` object:
 
 ```typescript
 export interface Main {
@@ -156,7 +156,7 @@ export interface Main {
 }
 ```
 
-Since there is no ambiguity as to the type of the data here, making the `$type` property required would cause a huge un-necessary bloat. Making the `$type` property optional allows to declare a "record with media" as follows:
+Since there is no ambiguity as to the type of the data here, making the `$type` property required would cause a huge un-necessary bloat. Making the `$type` property optional allows to declare a "Record With Media" as follows:
 
 ```typescript
 const recordWithMedia: RecordWithMedia = {
@@ -173,7 +173,7 @@ const recordWithMedia: RecordWithMedia = {
 }
 ```
 
-Because we have this duality between "ref" that do not require a `$type` in the object, and "unions" which do, we need a mechanism to make it required based on the context these interfaces are used in. This is where the new `$Typed` utility comes in.
+Because the `$type` property of objects is required in some contexts while optional in others, we introduced a new utility type to make it required when needed. The `$Typed` utility allows to mark an interface’s `$type` property non optional in contexts where it is required:
 
 ```typescript
 export type $Typed<V> = V & { $type: string }
@@ -194,7 +194,7 @@ export interface Record {
 }
 ```
 
-In addition to preventing the _creation_ of invalid data as seen in the previous section, this change also allows to properly discriminate types when _accessing_ the data. For example, one can now do:
+In addition to preventing the _creation_ of invalid data as seen at the beginning of this section, this change also allows to properly discriminate types when _accessing_ the data. For example, one can now do:
 
 ```tsx
 import { AppBskyFeedPost } from '@atproto/api'
@@ -218,8 +218,8 @@ if (embed?.$type === 'app.bsky.embed.images') {
 
 The example above shows how data can be discriminated based on the `$type` property. There are, however, several disadvantages to relying on string comparison for discriminating data types:
 
-- Having to use inline strings (`'app.bsky.embed.images'`) yields a lot of code, hurting readability and bundle size.
-- In particular instances, the `$type` property can actually have two values to describe the same lexicon. An "images" embed, for example, can use `$type: 'app.bsky.embed.images'` or `$type: 'app.bsky.embed.images#main'`. This makes the previous point even worse.
+- Having to use inline strings yields a lot of code, hurting readability and bundle size.
+- In particular instances, the `$type` property can actually have two values to describe the same lexicon. An "images" embed, for example, can use both `app.bsky.embed.images` and `app.bsky.embed.images#main` as `$type`. This makes the previous point even worse.
 
 In order to alleviate these issues, the SDK provides type checking predicate functions. In their previous implementation, the `is*` utilities where defined as follows:
 
@@ -233,13 +233,14 @@ export function isMain(value: unknown): values is Main {
   return (
     value != null &&
     typeof value === 'object' &&
+    '$type' in value &&
     (value.$type === 'app.bsky.embed.images' ||
       value.$type === 'app.bsky.embed.images#main')
   )
 }
 ```
 
-As can be seen from the example implementation above, the predicate functions would cast any value containing the expected `$type` property into the corresponding interface, without checking for the validity of other properties. This could yield runtime errors that could have been avoided during development:
+As can be seen from the example implementation above, the predicate functions would cast any object containing the expected `$type` property into the corresponding type, without checking for the actual validity of other properties. This could yield runtime errors that could have been avoided during development:
 
 ```typescript
 import { AppBskyEmbedImages } from '@atproto/api'
@@ -260,9 +261,9 @@ if (isImages(invalidEmbed)) {
 }
 ```
 
-The root of the issue here is that the `is*` utility methods perform type casting of objects solely based on the value of their `$type` property. There are basically two ways of fixing this issue:
+The root of the issue here is that the `is*` utility methods perform type casting of objects solely based on the value of their `$type` property. There were basically two ways of fixing this issue:
 
-1. Alter the implementation to actually validate in addition to checking the `$type` property. This is a non breaking change that has a big negative impact on performances.
+1. Alter the implementation to actually validate the object's structure. This is a non breaking change that has a big negative impact on performances.
 2. Alter the function signature to describe what the function actually does. This is a breaking change because TypeScript would start (rightfully) returning lots of errors in places where these functions are used.
 
 Because this release introduces other breaking changes, and because adapting our own code base to this change showed it made more sense, we decided to adopt the latter option.
@@ -302,7 +303,7 @@ if (isValidImages(embed)) {
 }
 ```
 
-These method perform data validation, making them somewhat slow.
+These method perform data validation, making them somewhat slower than the `is*` utility methods. They can however be used in place of the `is*` utilities when migrating to this new version of the SDK.
 
 ## `validate*` utility methods
 
