@@ -156,7 +156,7 @@ export interface Main {
 }
 ```
 
-Since there is no ambiguity as to the type of the data here, making the `$type` property required would cause a huge un-necessary bloat. Making the `$type` property optional allows to declare a "Record With Media" as follows:
+Since there is no ambiguity as to the type of the data here, making the `$type` property required would cause unnecessary bloat. Making the `$type` property optional allows to declare a "Record With Media" as follows:
 
 ```typescript
 const recordWithMedia: RecordWithMedia = {
