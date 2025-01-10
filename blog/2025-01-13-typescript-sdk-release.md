@@ -4,7 +4,7 @@ title: '@atproto/api v0.14.0 release notes'
 tags: ['updates', 'guide']
 ---
 
-Today we are excited to announce the availability of version 0.14 or our TypeScript SDK on [NPM](https://www.npmjs.com/package/@atproto/api).
+Today we are excited to announce the availability of version 0.14 or our TypeScript SDK on [npm](https://www.npmjs.com/package/@atproto/api).
 
 This release is a big step forward, significantly improving the type safety of our `@atproto/api` package. Let’s take a look at the highlights:
 
