@@ -1242,6 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Openvibe',
+    description: 'One app for Bluesky, Mastodon, and beyond — available on iOS and Android',
+    preview: require('./showcase/openvibe.png'),
+    website: 'https://openvibe.social',
+    author: 'https://bsky.app/profile/openvibe.social',
+    tags: ['socialtools', 'client'],
+  },
 
 ]
 
