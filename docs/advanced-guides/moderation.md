@@ -133,7 +133,7 @@ Labelers publish an `/app.bsky.labeler.service/self` record to declare that they
   "$type": "app.bsky.labeler.service",
   "policies": {
     "labelValues": ["porn", "spider"],
-    "labelValueDefitions": [
+    "labelValueDefinitions": [
       {
         "identifier": "spider",
         "severity": "alert",
