@@ -28,7 +28,7 @@ The official oEmbed endpoint for Bluesky posts is `https://embed.bsky.app/oembed
 
 The rendered height of posts is not known until rendered, so the `maxheight` is ignored and the `height` field in the response JSON is always `null`. This follows the precedent of Twitter tweet embeds.
 
-The oEmebd response contains roughly the same HTML snippet as found at `embed.bsky.app`, with the same public content policy mentioned above.
+The oEmbed response contains roughly the same HTML snippet as found at `embed.bsky.app`, with the same public content policy mentioned above.
 
 The HTTP URL patterns which the oEmbed endpoint supports are:
 
