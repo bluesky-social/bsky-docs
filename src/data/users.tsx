@@ -1242,6 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Bluesky Directory',
+    description: 'A curated collection of all things relating to the Bluesky social media platform.',
+    preview: require('./showcase/bluesky-directory-showcase.png'),
+    website: 'https://blueskydirectory.com/',
+    author: 'https://bsky.app/profile/mubashariqbal.com',
+    tags: ['othertools', 'socialtools'],
+  },
 
 ]
 
