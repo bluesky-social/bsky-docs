@@ -1246,7 +1246,7 @@ const Users: User[] = [
     title: 'Skycord',
     description: 'Skycord is a discord bot that allows you to forward bluesky posts from accounts of your choice almost instantly to your discord server, it supports posts, replies and reposts. It also has a blacklist and whitelist to filter posts it sends.',
     preview: require('./showcase/skycord.png'),
-    website: 'https://skycord.app/invite',
+    website: 'https://skycord.app/',
     author: 'https://bsky.app/profile/did:plc:cgynugrjidwc6eugchvyb3f6',
     tags: ['othertools', 'bridge', 'socialtools'],
   },
