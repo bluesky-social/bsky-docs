@@ -1242,6 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Bluesky-Insights',
+    description: 'Track and analyze Bluesky social profiles with real-time analytics and history tracking.',
+    preview: require('./showcase/bluesky-insights.jpg'),
+    website: 'https://bluesky-insights.dwagentai.com/',
+    author: 'https://bsky.app/profile/mustafae.bsky.social',
+    tags: ['stats', 'socialtools'],
+  },
 
 ]
 
