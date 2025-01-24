@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'A Block-Them-All Tool for Bluesky',
+    description: 'Blocks all of the followers of the specified user.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://a-block-them-all-tool-for-bluesky-6040df.gitlab.io/',
+    source: 'https://gitlab.com/hakabahitoyo/a-block-them-all-tool-for-bluesky',
+    author: 'https://hakabahitoyo.gitlab.io/',
+    tags: ['othertools', 'opensource'],
+  },
 
 ]
 
