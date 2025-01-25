@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'WatchedSky',
+    description: 'Get alerts from the US National Weather Service in a custom feed for the areas important to you',
+    preview: require('./showcase/watchedsky.jpg'),
+    website: 'https://watchedsky.social',
+    source: 'https://github.com/watchedsky-social',
+    author: 'https://bsky.app/profile/did:plc:e2fun4xcfwtcrqfdwhfnghxk',
+    tags: ['bot', 'opensource', 'customfeed', 'othertools'],
+  }
 ]
 
 export type User = {
