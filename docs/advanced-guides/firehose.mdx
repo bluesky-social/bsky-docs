@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 # Firehose
 
 One of the core primitives of the AT Protocol that underlies Bluesky is the
-*firehose*. It is an authenticated stream of events used to efficiently sync
+*firehose*. It is a partially authenticated stream of events used to efficiently sync
 user updates (posts, likes, follows, handle changes, etc).
 
 Many applications people will want to build on top of atproto and Bluesky will
@@ -71,3 +71,24 @@ limited concurrency based on who the event is for.
 Once we have a scheduler, we call into `HandleRepoStream` which does the actual
 decoding of the data coming over the websocket and calls into the event handler
 we wrote.
+
+## Authentication
+
+The firehose provides partial authentication of its stream of events, this means
+that there are certain events which cannot be trusted without additional
+verification.
+
+All events are authenticated to ensure that no one can pretend to create events
+on other actor's user repos. But this doesn't stop actors from creating records
+on their user repos that purport to be a part of another user's repo.
+
+One way this can be achieved is by creating a
+[listitem record](https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/graph/listitem.json)
+with a `list` field which points at another user's list. In that case the actor
+who created the listitem will not match the owner of the list. An example of
+such a record is available at
+[here](https://pdsls.dev/at/did:plc:oisofpd7lj26yvgiivf3lxsi/app.bsky.graph.listitem/3lfpwv6z7zc26).
+The firehose will send such records out to subscribers, so it is important to verify
+the ownership of a list when ingesting these events.
+
+
