@@ -1242,6 +1242,24 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Hugfairy Bot',
+    description: 'Bot that allows you to send hugs to other users. You can send hugs anonymously as well.',
+    preview: require('./showcase/hugfairy.png'),
+    website: 'https://hugfairy.haider.id/',
+    source: 'https://github.com/haideralipunjabi/bluesky-hugfairy',
+    author: 'https://bsky.app/profile/haider.bsky.social',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'Year Progress Bot',
+    description: 'Bot that allows you to send hugs to other users. You can send hugs anonymously as well.',
+    preview: require('./showcase/yearprogress.png'),
+    website: 'https://bsky.app/profile/yearprogress.bsky.social',
+    source: 'https://github.com/haideralipunjabi/bluesky-year-progress-bot',
+    author: 'https://bsky.app/profile/haider.bsky.social',
+    tags: ['bot', 'opensource'],
+  },
 
 ]
 
