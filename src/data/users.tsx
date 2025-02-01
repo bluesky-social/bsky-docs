@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Jetpack Social',
+    description: 'Automatically share posts from your WordPress site to your Bluesky account using this WordPress plugin.',
+    preview: require('./showcase/jetpack-social.png'),
+    website: 'https://jetpack.com/social/',
+    source: 'https://github.com/automattic/jetpack/',
+    author: 'https://bsky.app/profile/did:plc:7rjd7ieykm4uveqs3cfegnix',
+    tags: ['socialtools', 'bot', 'opensource'],
+  },
 ]
 
 export type User = {
