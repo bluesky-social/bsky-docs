@@ -38,4 +38,4 @@ In the coming months we will be hardening this feature and making it safer and e
 
 ## Getting Started
 
-To get started, join the [PDS Administrators Discord](https://discord.gg/UWS6FFdhMe), and check out the [bluesky-social/pds](https://github.com/bluesky-social/pds) repo on Github. The README will provide all necessary information on getting your PDS setup and running.
+To get started, join the [PDS Administrators Discord](https://discord.gg/UWS6FFdhMe), and check out the [bluesky-social/pds](https://github.com/bluesky-social/pds) repo on GitHub. The README will provide all necessary information on getting your PDS setup and running.
