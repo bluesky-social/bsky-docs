@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'bluesky-post',
+    description: 'A Web Component to display Bluesky posts and their metadata',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://darn.es/bluesky-post-web-component/',
+    source: 'https://github.com/daviddarnes/bluesky-post',
+    author: 'https://bsky.app/profile/darn.es',
+    tags: ['othertools', 'opensource'],
+  },
 ]
 
 export type User = {
