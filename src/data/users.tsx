@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'BlueskyMeter',
+    description: 'Get beautiful analytics for any Bluesky user!',
+    preview: require('./showcase/blueskymeter.png'),
+    website: 'https://blueskymeter.com',
+    author: 'https://bsky.app/profile/andrei.blue',
+    tags: ['stats'],
+  },
 ]
 
 export type User = {
