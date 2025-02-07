@@ -25,7 +25,7 @@ const Users: User[] = [
     preview: require('./showcase/dfly_showcase.png'), // Placeholder image
     website:'https://dfly.app',
     author: 'https://bsky.app/profile/dfly.app',
-    tags: ['client', 'favorite'],
+    tags: ['client'],
   },
   {
     title: 'BIRU',
