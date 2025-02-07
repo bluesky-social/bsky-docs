@@ -19,7 +19,15 @@ export type TagType =
   | 'socialtools';
 
 const Users: User[] = [
-{
+  {
+    title: 'Dragonfly',
+    description: 'Mac OS Desktop Client for Bluesky. Windows and Linux coming soon.',
+    preview: require('./showcase/dfly_showcase.png'), // Placeholder image
+    website:'https://dfly.app',
+    author: 'https://bsky.app/profile/dfly.app',
+    tags: ['client', 'favorite'],
+  },
+  {
     title: 'BIRU',
     description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
     preview: require('./showcase/example-1.png'), // Placeholder image
