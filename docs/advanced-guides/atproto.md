@@ -42,7 +42,7 @@ While the Web exchanges documents, the AT Protocol exchanges schematic and seman
 
 Personal data servers are your home in the cloud. They host your data, distribute it, manage your identity, and orchestrate requests to other services to give you your views.
 
-Relays handle all of your events, like retrieving large-scale metrics (likes, reposts, followers), content discovery (algorithms), and user search.
+Indexers handle all of your events, like retrieving large-scale metrics (likes, reposts, followers), content discovery (algorithms), and user search.
 
 ![PDS and Relay](/img/docs/small-big-world.jpg#rounded)
 
