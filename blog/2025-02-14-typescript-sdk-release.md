@@ -376,7 +376,7 @@ const embed: AppBskyEmbedVideo.Main = {
   $type: 'app.bsky.embed.video',
   video: { /* omitted */ }
 
-  // Next line wil result in a TypeScript
+  // Next line will result in a TypeScript
   // error (a string is expected).
   alt: 123,
 
