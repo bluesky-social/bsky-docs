@@ -210,7 +210,8 @@ const { embed } = post
 
 // We can now use the `$type` property to disambiguate
 if (embed?.$type === 'app.bsky.embed.images') {
-  // The `embed` variable is fully typed as `$Typed<AppBskyEmbedImages.Main>` here !
+  // The `embed` variable is fully typed as
+  // `$Typed<AppBskyEmbedImages.Main>` here !
 }
 ```
 
@@ -254,9 +255,11 @@ const invalidEmbed = {
   // notice how the `images` property is missing here
 }
 
-// This predicate function only checks the value of the `$type` property, making the condition "true" here
+// This predicate function only checks the value of
+// the `$type` property, making the condition "true" here
 if (isImages(invalidEmbed)) {
-  // No TypeScript error, BUT causes a runtime error because there is no "images" property !
+  // No TypeScript error, BUT causes a runtime
+  // error because there is no "images" property !
   console.log('First image:', invalidEmbed.images[0])
 }
 ```
@@ -268,7 +271,13 @@ The root of the issue here is that the `is*` utility methods perform type castin
 
 Because this release introduces other breaking changes, and because adapting our own codebase to this change showed it made more sense, we decided to adopt the latter option.
 
-In lots of cases where data needs to be discriminated, this change in the signature of the `is*` function will actually not cause any issue when upgrading the version of the SDK. This is the case for example when working with data obtained from the API. Because an API is a "contract" between a server and a client, the data returned by the server is "guaranteed" to be valid. In these cases, the `is*` utility methods provide a convenient way to discriminate between valid values.
+:::tip
+
+In lots of cases where data needs to be discriminated, this change in the signature of the `is*` function will actually not cause any issue when upgrading the version of the SDK.
+
+:::
+
+This is the case for example when working with data obtained from the API. Because an API is a "contract" between a server and a client, the data returned by the server is "guaranteed" to be valid. In these cases, the `is*` utility methods provide a convenient way to discriminate between valid values.
 
 ```typescript
 import { AppBskyEmbedImages } from '@atproto/api'
@@ -276,12 +285,15 @@ import { AppBskyEmbedImages } from '@atproto/api'
 // Aliased for clarity
 const isImages = AppBskyEmbedImages.isMain
 
-// Get a post from the API (the API's contract guarantees the validity of the data)
+// Get a post from the API (the API's contract
+// guarantees the validity of the data)
 declare const post: BlueskyPost
 
-// The `is*` utilities are an efficient way to discriminate **valid** data based on their `$type`
+// The `is*` utilities are an efficient way to
+// discriminate **valid** data based on their `$type`
 if (isImages(post.embed)) {
-  // `post.embed` is fully typed as `$Typed<AppBskyEmbedImages.Main>` here !
+  // `post.embed` is fully typed as
+  // `$Typed<AppBskyEmbedImages.Main>` here !
 }
 ```
 
@@ -297,7 +309,8 @@ const isValidImages = AppBskyEmbedImages.isValidMain
 // Get an embed with unknown validity somehow
 declare const embed: unknown
 
-// The following condition will be true if, and only if, the value matches the `Image` interface
+// The following condition will be true if, and only
+// if, the value matches the `Image` interface.
 if (isValidImages(embed)) {
   // `embed` is of type `Images` here
 }
@@ -323,7 +336,8 @@ declare const data: unknown
 const result = validateImages(data)
 
 if (result.success) {
-  // The `value` property was previously typed as `unknown` and is now properly typed as `Image`
+  // The `value` property was previously typed as `unknown`
+  // and is now properly typed as `Image`
   const images = result.value
 }
 ```
@@ -369,7 +383,7 @@ const Video = AppBskyEmbedVideo.Main
 const embed: Video = {
   $type: 'app.bsky.embed.video',
   video: { /* omitted */ }
-  // @ts-expect-error - custom field, prefixed to avoid clashes with future versions of the lexicon
-  comExampleCustomProp: 'custom value', // OK thanks to the "ts-expect-error" directive
+  // @ts-expect-error - custom field
+  comExampleCustomProp: 'custom value',
 }
 ```
