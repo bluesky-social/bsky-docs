@@ -43,7 +43,9 @@ Systems consuming Bluesky posts need to be able to determine what type of embed 
   "createdAt": "2021-09-01T12:34:56Z",
   "embed": {
     "$type": "app.bsky.embed.video",
-    "video": { /* reference to the video file, omitted for brevity */ }
+    "video": {
+      /* reference to the video file, omitted for brevity */
+    }
   }
 }
 ```
@@ -62,7 +64,9 @@ Since `embed` is an open union, it can be used to store anything. For example, a
 }
 ```
 
-> Note: Only systems that know about the `com.example.calendar.event` lexicon can interpret this data. The official Bluesky app will typically only know about the data types defined in the `app.bsky` lexicons.
+:::note
+Only systems that know about the `com.example.calendar.event` lexicon can interpret this data. The official Bluesky app will typically only know about the data types defined in the `app.bsky` lexicons.
+:::
 
 ## Revamped TypeScript interfaces
 
@@ -85,15 +89,13 @@ Because the `$type` property is missing from that interface, developers could wr
 ```typescript
 import { AppBskyFeedPost } from '@atproto/api'
 
-// Aliased for clarity
-type BlueskyPost = AppBskyFeedPost.Main
-
-// Invalid post, but TypeScript did not complain
-const myPost: BlueskyPost = {
+const myPost: AppBskyFeedPost.Main = {
   text: 'Hey, check this out!',
   createdAt: '2021-09-01T12:34:56Z',
   embed: {
-    // Notice how we are missing the `$type` property here
+    // Notice how we are missing the `$type` property
+    // here. TypeScript did not complain about this.
+
     video: {
       /* reference to the video file, omitted for brevity */
     },
@@ -101,7 +103,7 @@ const myPost: BlueskyPost = {
 }
 ```
 
-Similarly, because Bluesky post’s `embed` property was previously [typed](https://github.com/bluesky-social/atproto/blob/5ece8c6aeab9c5c3f51295d93ed6e27c3c6095c2/packages/api/src/client/types/app/bsky/feed/post.ts#L25-L31) like this:
+Similarly, because Bluesky post’s `embed` property was [previously](https://github.com/bluesky-social/atproto/blob/5ece8c6aeab9c5c3f51295d93ed6e27c3c6095c2/packages/api/src/client/types/app/bsky/feed/post.ts#L25-L31) typed like this:
 
 ```typescript
 export interface Record {
@@ -121,15 +123,15 @@ It was possible to create a post with a completely invalid "video" embed, and st
 ```typescript
 import { AppBskyFeedPost } from '@atproto/api'
 
-// Aliased for clarity
-type BlueskyPost = AppBskyFeedPost.Main
-
-const myPost: BlueskyPost = {
+const myPost: AppBskyFeedPost.Main = {
   text: 'Hey, check this out!',
   createdAt: '2021-09-01T12:34:56Z',
+
+  // This is an invalid ember, but TypeScript
+  // does not complain.
   embed: {
     $type: 'app.bsky.embed.video',
-    video: 43, // This is invalid, but TypeScript does not complain
+    video: 43,
   },
 }
 ```
@@ -194,7 +196,7 @@ export interface Record {
 }
 ```
 
-In addition to preventing the _creation_ of invalid data as seen at the beginning of this section, this change also allows to properly discriminate types when _accessing_ the data. For example, one can now do:
+In addition to preventing the _creation_ of invalid data as seen before, this change also allows to properly discriminate types when _accessing_ the data. For example, one can now do:
 
 ```tsx
 import { AppBskyFeedPost } from '@atproto/api'
@@ -202,7 +204,8 @@ import { AppBskyFeedPost } from '@atproto/api'
 // Aliased for clarity
 type BlueskyPost = AppBskyFeedPost.Main
 
-// Say we got some random post somehow (typically via an api call)
+// Say we got some random post somehow (typically
+// via an api call)
 declare const post: BlueskyPost
 
 // And we want to know what kind of embed it contains
@@ -217,12 +220,7 @@ if (embed?.$type === 'app.bsky.embed.images') {
 
 ### `is*` utility methods
 
-The example above shows how data can be discriminated based on the `$type` property. There are, however, several disadvantages to relying on string comparison for discriminating data types:
-
-- Having to use inline strings yields a lot of code, hurting readability and bundle size.
-- In particular instances, the `$type` property can actually have two values to describe the same lexicon. An "images" embed, for example, can use both `app.bsky.embed.images` and `app.bsky.embed.images#main` as `$type`. This makes the previous point even worse.
-
-In order to alleviate these issues, the SDK provides type checking predicate functions. In their previous implementation, the `is*` utilities were defined as follows:
+The example above shows how data can be discriminated based on the `$type` property. The SDK provides utility methods to perform this kind of discrimination. These methods are named `is*` and are generated from the lexicons. For example, the `app.bsky.embed.images` lexicon used to generate the following `isMain` utility method:
 
 ```typescript
 export interface Main {
@@ -241,13 +239,15 @@ export function isMain(value: unknown): values is Main {
 }
 ```
 
-As can be seen from the example implementation above, the predicate functions would cast any object containing the expected `$type` property into the corresponding type, without checking for the actual validity of other properties. This could yield runtime errors that could have been avoided during development:
+That implementation of the discriminator is invalid.
+
+- Fist because a `$type` is not allowed to end with `#main` (as per atproto specification).
+- Second because the `isMain` function does not actually check the structure of the object, only its `$type` property.
+
+This invalid behavior could yield runtime errors that could otherwise have been avoided during development:
 
 ```typescript
 import { AppBskyEmbedImages } from '@atproto/api'
-
-// Alias, for clarity
-const isImages = AppBskyEmbedImages.isMain
 
 // Get an invalid embed somehow
 const invalidEmbed = {
@@ -257,16 +257,17 @@ const invalidEmbed = {
 
 // This predicate function only checks the value of
 // the `$type` property, making the condition "true" here
-if (isImages(invalidEmbed)) {
-  // No TypeScript error, BUT causes a runtime
-  // error because there is no "images" property !
+if (AppBskyEmbedImages.isMain(invalidEmbed)) {
+  // However, the `images` property is missing here.
+  // TypeScript does not complain about this, but the
+  // following line will throw a runtime error:
   console.log('First image:', invalidEmbed.images[0])
 }
 ```
 
-The root of the issue here is that the `is*` utility methods perform type casting of objects solely based on the value of their `$type` property. There were basically two ways of fixing this issue:
+The root of the issue here is that the `is*` utility methods perform type casting of objects solely based on the value of their `$type` property. There were basically two ways we could fix this behavior:
 
-1. Alter the implementation to actually validate the object's structure. This is a non-breaking change that has a negative impact on performance.
+1. Alter the implementation to actually validate the object's structure. This would be a non-breaking change that has a negative impact on performance.
 2. Alter the function signature to describe what the function actually does. This is a breaking change because TypeScript would start (rightfully) returning lots of errors in places where these functions are used.
 
 Because this release introduces other breaking changes, and because adapting our own codebase to this change showed it made more sense, we decided to adopt the latter option.
@@ -282,12 +283,9 @@ This is the case for example when working with data obtained from the API. Becau
 ```typescript
 import { AppBskyEmbedImages } from '@atproto/api'
 
-// Aliased for clarity
-const isImages = AppBskyEmbedImages.isMain
-
 // Get a post from the API (the API's contract
 // guarantees the validity of the data)
-declare const post: BlueskyPost
+declare const post: AppBskyEmbedImages.isMain
 
 // The `is*` utilities are an efficient way to
 // discriminate **valid** data based on their `$type`
@@ -344,7 +342,7 @@ if (result.success) {
 
 ## Removal of the `[x: string]` index signature
 
-Another property of Atproto being an "open protocol" is the fact that objects are allowed to contain additional, unspecified, properties (though this should be done with caution to avoid incompatibility with properties added in the future). This used to be represented in the type system using a `[k: string]: unknown` index signature in generated interfaces. This is how the video embed was represented:
+Another property of Atproto being an "open protocol" is the fact that objects are allowed to contain additional &mdash; unspecified &mdash; properties (though this should be done with caution to avoid incompatibility with properties added in the future). This used to be represented in the type system using a `[k: string]: unknown` index signature in generated interfaces. This is how the video embed used to be represented:
 
 ```typescript
 export interface Main {
@@ -361,10 +359,7 @@ This signature allowed for undetectable mistakes to be performed:
 ```typescript
 import { AppBskyEmbedVideo } from '@atproto/api'
 
-// Aliased for clarity
-const Video = AppBskyEmbedVideo.Main
-
-const embed: Video = {
+const embed: AppBskyEmbedVideo.Main = {
   $type: 'app.bsky.embed.video',
   video: { /* omitted */ }
   // Notice the typo in `alt`, not resulting in a TypeScript error
@@ -377,13 +372,37 @@ We removed that signature, requiring any un-specified fields intentionally added
 ```typescript
 import { AppBskyEmbedVideo } from '@atproto/api'
 
-// Aliased for clarity
-const Video = AppBskyEmbedVideo.Main
-
-const embed: Video = {
+const embed: AppBskyEmbedVideo.Main = {
   $type: 'app.bsky.embed.video',
   video: { /* omitted */ }
+
+  // Next line wil result in a TypeScript
+  // error (a string is expected).
+  alt: 123,
+
+  // Un-specified fields must now be explicitly
+  // marked as such:
+
   // @ts-expect-error - custom field
   comExampleCustomProp: 'custom value',
 }
 ```
+
+## New `asPredicate` function
+
+The SDK exposes a new `asPredicate` function. This function allows to convert a `validate*` function into a predicate function. This can be useful when working with libraries that expect a predicate function to be passed as an argument.
+
+```typescript
+import { AppBskyEmbedImages, asPredicate } from '@atproto/api'
+
+const isValidImage = asPredicate(AppBskyEmbedImages.validateMain)
+
+declare const someArray: unknown[]
+
+// This will be typed as `AppBskyEmbedImages.Main[]`
+const images = someArray.filter(isValidImage)
+```
+
+## Other considerations
+
+When upgrading, please make sure that your project does not depend on multiple versions of the `@atproto/*` packages. Use [resolutions](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) or [overrides](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides) in your `package.json` to pin the dependencies to the same version.
