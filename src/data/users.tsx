@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Wamellow - Discord Bot',
+    description: 'The Wamellow Discord Bot allows you to send bluesky post notifications directly to your discord server in real time - all for free.',
+    preview: require('./showcase/wamellow.jpg'),
+    website: 'https://wamellow.com/docs/notifications',
+    author: 'https://bsky.app/profile/did:plc:irs2tcoeuvuwj3m4yampbuco',
+    tags: ['othertools', 'bridge', 'socialtools'],
+  },
+  
 ]
 
 export type User = {
