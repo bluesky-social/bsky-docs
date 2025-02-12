@@ -4,21 +4,21 @@ title: '@atproto/api v0.14.0 release notes'
 tags: ['updates', 'guide']
 ---
 
-Today we are excited to announce the availability of version 0.14 or our TypeScript SDK on [npm](https://www.npmjs.com/package/@atproto/api).
+Today we are excited to announce the availability of version 0.14 of our TypeScript SDK on [npm](https://www.npmjs.com/package/@atproto/api).
 
 This release is a big step forward, significantly improving the type safety of our `@atproto/api` package. Let’s take a look at the highlights:
 
 - Lexicon derived interfaces now have an explicitly defined `$type` property, allowing to properly discriminate unions.
 - Lexicon derived `is*` utility methods no longer unsafely type cast their input.
 - Lexicon derived `validate*` utility methods now return a more precise type.
-- A new lexicon derived `isValid*` utility methods are now available.
+- New Lexicon derived `isValid*` utility methods are now available.
 
 ## Context
 
-Atproto is an "open protocol". This means a lot of things. One of these things is that the data structures handled through the protocol are extensible. Lexicons (which is the syntax used to define the schema of the data structures) can be used to describe placeholders where arbitrary data types (defined through third party Lexicons) can be used.
+Atproto is an "open protocol" which means a lot of things. One of these things is that the data structures handled through the protocol are extensible. Lexicons (which is the syntax used to define the schema of the data structures) can be used to describe placeholders where arbitrary data types (defined through third party Lexicons) can be used.
 
-An example of such placeholder exists in the lexicon definition of a Bluesky post
-([`app.bsky.feed.post`](https://github.com/bluesky-social/atproto/blob/5ece8c6aeab9c5c3f51295d93ed6e27c3c6095c2/lexicons/app/bsky/feed/post.json#L5-L64)). That schema defines that posts can have an `embed` property defined as follows:
+An example of such a placeholder exists in the Lexicon definition of a Bluesky post
+([`app.bsky.feed.post`](https://github.com/bluesky-social/atproto/blob/5ece8c6aeab9c5c3f51295d93ed6e27c3c6095c2/lexicons/app/bsky/feed/post.json#L5-L64)), which enables posts to have an `embed` property defined as follows:
 
 ```javascript
   "embed": {
@@ -33,9 +33,9 @@ An example of such placeholder exists in the lexicon definition of a Bluesky pos
   }
 ```
 
-The type of the `embed` property is what is called an "open union". It means that the `embed` field can basically contain anything, though we usually expect it to be one of the known types defined in the `refs` array of the lexicon schema (an image, a video, a link or another post).
+The type of the `embed` property is what is called an "open union". It means that the `embed` field can basically contain anything, although we usually expect it to be one of the known types defined in the `refs` array of the Lexicon schema (an image, a video, a link or another post).
 
-Systems consuming Bluesky posts need to be able to determine what type of embed they are dealing with. This is where the `$type` property comes in. This property allows to uniquely determine the lexicon schema that must be used to interpret the data. That field **must** be provided everywhere a union is expected. For example, a post with a video would look like this:
+Systems consuming Bluesky posts need to be able to determine what type of embed they are dealing with. This is where the `$type` property comes in. This property allows systems to uniquely determine the Lexicon schema that must be used to interpret the data, and it **must** be provided everywhere a union is expected. For example, a post with a video would look like this:
 
 ```javascript
 {
@@ -65,7 +65,7 @@ Since `embed` is an open union, it can be used to store anything. For example, a
 ```
 
 :::note
-Only systems that know about the `com.example.calendar.event` lexicon can interpret this data. The official Bluesky app will typically only know about the data types defined in the `app.bsky` lexicons.
+Only systems that know about the `com.example.calendar.event` Lexicon can interpret this data. The official Bluesky app will typically only know about the data types defined in the `app.bsky` lexicons.
 :::
 
 ## Revamped TypeScript interfaces
@@ -103,7 +103,7 @@ const myPost: AppBskyFeedPost.Main = {
 }
 ```
 
-Similarly, because Bluesky post’s `embed` property was [previously](https://github.com/bluesky-social/atproto/blob/5ece8c6aeab9c5c3f51295d93ed6e27c3c6095c2/packages/api/src/client/types/app/bsky/feed/post.ts#L25-L31) typed like this:
+Similarly, a Bluesky post’s `embed` property was [previously](https://github.com/bluesky-social/atproto/blob/5ece8c6aeab9c5c3f51295d93ed6e27c3c6095c2/packages/api/src/client/types/app/bsky/feed/post.ts#L25-L31) typed like this:
 
 ```typescript
 export interface Record {
@@ -118,7 +118,7 @@ export interface Record {
 }
 ```
 
-It was possible to create a post with a completely invalid "video" embed, and still get no error from the type system:
+It was therefore possible to create a post with a completely invalid "video" embed, and still get no error from the type system:
 
 ```typescript
 import { AppBskyFeedPost } from '@atproto/api'
@@ -127,7 +127,7 @@ const myPost: AppBskyFeedPost.Main = {
   text: 'Hey, check this out!',
   createdAt: '2021-09-01T12:34:56Z',
 
-  // This is an invalid ember, but TypeScript
+  // This is an invalid embed, but TypeScript
   // does not complain.
   embed: {
     $type: 'app.bsky.embed.video',
@@ -158,7 +158,7 @@ export interface Main {
 }
 ```
 
-Since there is no ambiguity as to the type of the data here, making the `$type` property required would cause unnecessary bloat. Making the `$type` property optional allows to declare a "Record With Media" as follows:
+Since there is no ambiguity as to the type of the data here, making the `$type` property required would cause unnecessary bloat. Making the `$type` property optional allows declaring a "Record With Media" as follows:
 
 ```typescript
 const recordWithMedia: RecordWithMedia = {
@@ -181,7 +181,7 @@ Because the `$type` property of objects is required in some contexts while optio
 export type $Typed<V> = V & { $type: string }
 ```
 
-That utility allows to mark an interface’s `$type` property non optional. The `embed` property of posts is now defined as follows:
+The `embed` property of posts is now defined as follows:
 
 ```typescript
 export interface Record {
@@ -196,7 +196,7 @@ export interface Record {
 }
 ```
 
-In addition to preventing the _creation_ of invalid data as seen before, this change also allows to properly discriminate types when _accessing_ the data. For example, one can now do:
+In addition to preventing the _creation_ of invalid data as seen before, this change also allows properly discriminating types when _accessing_ the data. For example, one can now do:
 
 ```tsx
 import { AppBskyFeedPost } from '@atproto/api'
@@ -220,7 +220,7 @@ if (embed?.$type === 'app.bsky.embed.images') {
 
 ### `is*` utility methods
 
-The example above shows how data can be discriminated based on the `$type` property. The SDK provides utility methods to perform this kind of discrimination. These methods are named `is*` and are generated from the lexicons. For example, the `app.bsky.embed.images` lexicon used to generate the following `isMain` utility method:
+The example above shows how data can be discriminated based on the `$type` property. The SDK provides utility methods to perform this kind of discrimination. These methods are named `is*` and are generated from the lexicons. For example, the `app.bsky.embed.images` Lexicon used to generate the following `isMain` utility method:
 
 ```typescript
 export interface Main {
@@ -278,7 +278,7 @@ In lots of cases where data needs to be discriminated, this change in the signat
 
 :::
 
-This is the case for example when working with data obtained from the API. Because an API is a "contract" between a server and a client, the data returned by the server is "guaranteed" to be valid. In these cases, the `is*` utility methods provide a convenient way to discriminate between valid values.
+For example, this is the case when working with data obtained from the API. Because an API is a "contract" between a server and a client, the data returned by the server is "guaranteed" to be valid. In these cases, the `is*` utility methods provide a convenient way to discriminate between valid values.
 
 ```typescript
 import { AppBskyEmbedImages } from '@atproto/api'
@@ -314,7 +314,7 @@ if (isValidImages(embed)) {
 }
 ```
 
-These method perform data validation, making them somewhat slower than the `is*` utility methods. They can however be used in place of the `is*` utilities when migrating to this new version of the SDK.
+These methods perform data validation, making them somewhat slower than the `is*` utility methods. They can, however, be used in place of the `is*` utilities when migrating to this new version of the SDK.
 
 ## `validate*` utility methods
 
@@ -342,7 +342,7 @@ if (result.success) {
 
 ## Removal of the `[x: string]` index signature
 
-Another property of Atproto being an "open protocol" is the fact that objects are allowed to contain additional &mdash; unspecified &mdash; properties (though this should be done with caution to avoid incompatibility with properties added in the future). This used to be represented in the type system using a `[k: string]: unknown` index signature in generated interfaces. This is how the video embed used to be represented:
+Another property of Atproto being an "open protocol" is the fact that objects are allowed to contain additional &mdash; unspecified &mdash; properties (although this should be done with caution to avoid incompatibility with properties that are added in the future). This used to be represented in the type system using a `[k: string]: unknown` index signature in generated interfaces. This is how the video embed used to be represented:
 
 ```typescript
 export interface Main {
