@@ -11,7 +11,6 @@ This release is a big step forward, significantly improving the type safety of o
 - Lexicon derived interfaces now have an explicitly defined `$type` property, allowing to properly discriminate unions.
 - Lexicon derived `is*` utility methods no longer unsafely type cast their input.
 - Lexicon derived `validate*` utility methods now return a more precise type.
-- New Lexicon derived `isValid*` utility methods are now available.
 
 ## Context
 
@@ -153,7 +152,7 @@ Notice how the `$type` property is defined as optional (`?:`) here. This is due 
 ```typescript
 export interface Main {
   $type?: 'app.bsky.embed.recordWithMedia'
-  record: AppBskyEmbedRecord.Main // Also used in post's `embed` property
+  record: AppBskyEmbedRecord.Main
   media: /* omitted */
 }
 ```
@@ -161,10 +160,13 @@ export interface Main {
 Since there is no ambiguity as to the type of the data here, making the `$type` property required would cause unnecessary bloat. Making the `$type` property optional allows declaring a "Record With Media" as follows:
 
 ```typescript
-const recordWithMedia: RecordWithMedia = {
+const recordWithMedia: $Typed<RecordWithMedia> = {
+  // $type is required here because of the $Typed<> utility
   $type: 'app.bsky.embed.recordWithMedia',
+
   record: {
-    // $type is not needed here
+    // $type is not needed here, as there is no ambiguity
+
     record: {
       /* omitted */
     },
@@ -218,6 +220,10 @@ if (embed?.$type === 'app.bsky.embed.images') {
 }
 ```
 
+### `$type` property in `record` definitions
+
+While optional in interfaces generated from Lexicon `object` definitions, the `$type` property is **required** in interfaces generated from Lexicon `record` definitions.
+
 ### `is*` utility methods
 
 The example above shows how data can be discriminated based on the `$type` property. The SDK provides utility methods to perform this kind of discrimination. These methods are named `is*` and are generated from the lexicons. For example, the `app.bsky.embed.images` Lexicon used to generate the following `isMain` utility method:
@@ -241,7 +247,7 @@ export function isMain(value: unknown): values is Main {
 
 That implementation of the discriminator is invalid.
 
-- Fist because a `$type` is not allowed to end with `#main` (as per atproto specification).
+- Fist because a `$type` is not allowed to end with `#main` ([as per AT Protocol specification](https://atproto.com/specs/lexicon#lexicon-files)).
 - Second because the `isMain` function does not actually check the structure of the object, only its `$type` property.
 
 This invalid behavior could yield runtime errors that could otherwise have been avoided during development:
@@ -316,7 +322,7 @@ if (isValidImages(embed)) {
 
 These methods perform data validation, making them somewhat slower than the `is*` utility methods. They can, however, be used in place of the `is*` utilities when migrating to this new version of the SDK.
 
-## `validate*` utility methods
+### `validate*` utility methods
 
 As part of this update, the signature of the `validate*` utility methods was updated to properly describe the type of the `value` in case of success:
 
@@ -338,6 +344,21 @@ if (result.success) {
   // and is now properly typed as `Image`
   const images = result.value
 }
+```
+
+### New `asPredicate` function
+
+The SDK exposes a new `asPredicate` function. This function allows to convert a `validate*` function into a predicate function. This can be useful when working with libraries that expect a predicate function to be passed as an argument.
+
+```typescript
+import { AppBskyEmbedImages, asPredicate } from '@atproto/api'
+
+const isValidImage = asPredicate(AppBskyEmbedImages.validateMain)
+
+declare const someArray: unknown[]
+
+// This will be typed as `AppBskyEmbedImages.Main[]`
+const images = someArray.filter(isValidImage)
 ```
 
 ## Removal of the `[x: string]` index signature
@@ -386,21 +407,6 @@ const embed: AppBskyEmbedVideo.Main = {
   // @ts-expect-error - custom field
   comExampleCustomProp: 'custom value',
 }
-```
-
-## New `asPredicate` function
-
-The SDK exposes a new `asPredicate` function. This function allows to convert a `validate*` function into a predicate function. This can be useful when working with libraries that expect a predicate function to be passed as an argument.
-
-```typescript
-import { AppBskyEmbedImages, asPredicate } from '@atproto/api'
-
-const isValidImage = asPredicate(AppBskyEmbedImages.validateMain)
-
-declare const someArray: unknown[]
-
-// This will be typed as `AppBskyEmbedImages.Main[]`
-const images = someArray.filter(isValidImage)
 ```
 
 ## Other considerations
