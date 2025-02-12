@@ -140,7 +140,7 @@ We have fixed these issues by making the `$type` property in the generated inter
 
 ```typescript
 export interface Main {
-  $type?: $Type<'app.bsky.embed.video', 'main'>
+  $type?: 'app.bsky.embed.video'
   video: BlobRef
   captions?: Caption[]
   alt?: string
@@ -152,7 +152,7 @@ Notice how the `$type` property is defined as optional (`?:`) here. This is due 
 
 ```typescript
 export interface Main {
-  $type?: $Type<'app.bsky.embed.recordWithMedia', 'main'>
+  $type?: 'app.bsky.embed.recordWithMedia'
   record: AppBskyEmbedRecord.Main // Also used in post's `embed` property
   media: /* omitted */
 }
