@@ -64,7 +64,6 @@ Since `embed` is an open union, it can be used to store anything. For example, a
 ```
 
 :::note
-:::
 Only systems that know about the `com.example.calendar.event` Lexicon can interpret this data. The official Bluesky app will typically only know about the data types defined in the `app.bsky` lexicons.
 :::
 
