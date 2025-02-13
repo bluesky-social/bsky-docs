@@ -161,15 +161,15 @@ For example, a "Bluesky Like" (`app.bsky.feed.like`) defines the following prope
 
 As can be seen, the `subject` property is defined as a reference to a `com.atproto.repo.strongRef` object. In this case, there is no ambiguity as to how the `subject` of a like should be interpreted, and the `$type` property is not needed.
 
-```javascript
+```typescript
 const like: AppBskyFeedLike.Record = {
   $type: 'app.bsky.feed.like',
   createdAt: '2021-09-01T12:34:56Z',
   subject: {
     // No `$type` property needed here
     uri: 'at://did:plc:123/app.bsky.feed.post/456',
-    cid: '[...]'
-  }
+    cid: '[...]',
+  },
 }
 ```
 
@@ -196,7 +196,7 @@ export interface Record {
 
 In addition to preventing the _creation_ of invalid data as seen before, this change also allows properly discriminating types when _accessing_ the data. For example, one can now do:
 
-```tsx
+```typescript
 import { AppBskyFeedPost } from '@atproto/api'
 
 // Say we got some random post somehow (typically
@@ -373,9 +373,12 @@ import { AppBskyEmbedVideo } from '@atproto/api'
 
 const embed: AppBskyEmbedVideo.Main = {
   $type: 'app.bsky.embed.video',
-  video: { /* omitted */ }
+  video: {
+    /* omitted */
+  },
+
   // Notice the typo in `alt`, not resulting in a TypeScript error
-  atl: 'My video'
+  atl: 'My video',
 }
 ```
 
@@ -386,11 +389,15 @@ import { AppBskyEmbedVideo } from '@atproto/api'
 
 const embed: AppBskyEmbedVideo.Main = {
   $type: 'app.bsky.embed.video',
-  video: { /* omitted */ }
+  video: {
+    /* omitted */
+  },
 
-  // Next line will result in a TypeScript
-  // error (a string is expected).
-  alt: 123,
+  // Next line will result in the following
+  //  TypeScript error: "Object literal may only
+  // specify known properties, and 'atl' does not
+  // exist in type 'Main'"
+  atl: 'My video',
 
   // Unspecified fields must now be explicitly
   // marked as such:
