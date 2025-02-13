@@ -1242,6 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Kyst',
+    description: 'A tool to bookmark and organize your favorite posts on Bluesky',
+    preview: require('./showcase/kyst-banner-1280-720.png'),
+    website: 'https://kyst.app',
+    author: 'https://bsky.app/profile/did:plc:vk4brqfoersrab5e5guerzcs',
+    tags: ['socialtools'],
+  },
 
 ]
 
