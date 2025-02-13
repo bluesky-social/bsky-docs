@@ -147,7 +147,7 @@ export interface Main {
 }
 ```
 
-Notice how the `$type` property is defined as optional (`?:`) here. This is due to the fact that lexicons can define schemas that can be referenced from other places than open unions. In those places, there might not be any ambiguity as to how the data should be interpreted. For example, an embed that represents a "Record With Media" has a `record` property that expects an `app.bsky.embed.record` object:
+Notice how the `$type` property is defined as optional (`?:`) here. This is due to the fact that lexicons can define schemas that can be referenced in places other than open unions. In those places, there might not be any ambiguity as to how the data should be interpreted. For example, an embed that represents a "Record With Media" has a `record` property that expects an `app.bsky.embed.record` object:
 
 ```typescript
 export interface Main {
@@ -247,8 +247,8 @@ export function isMain(value: unknown): values is Main {
 
 That implementation of the discriminator is invalid.
 
-- Fist because a `$type` is not allowed to end with `#main` ([as per AT Protocol specification](https://atproto.com/specs/lexicon#lexicon-files)).
-- Second because the `isMain` function does not actually check the structure of the object, only its `$type` property.
+- First, because a `$type` is not allowed to end with `#main` ([as per AT Protocol specification](https://atproto.com/specs/lexicon#lexicon-files)).
+- Second, because the `isMain` function does not actually check the structure of the object, only its `$type` property.
 
 This invalid behavior could yield runtime errors that could otherwise have been avoided during development:
 
@@ -280,11 +280,11 @@ Because this release introduces other breaking changes, and because adapting our
 
 :::tip
 
-In lots of cases where data needs to be discriminated, this change in the signature of the `is*` function will actually not cause any issue when upgrading the version of the SDK.
+In many cases where data needs to be discriminated, this change in the signature of the `is*` function won't actually cause any issues when upgrading the version of the SDK.
 
 :::
 
-For example, this is the case when working with data obtained from the API. Because an API is a "contract" between a server and a client, the data returned by the server is "guaranteed" to be valid. In these cases, the `is*` utility methods provide a convenient way to discriminate between valid values.
+For example, this is the case when working with data obtained from the API. Because an API is a "contract" between a server and a client, **the data returned by Bluesky's server APIs is "guaranteed" to be valid.** In these cases, the `is*` utility methods provide a convenient way to discriminate between valid values.
 
 ```typescript
 import { AppBskyEmbedImages } from '@atproto/api'
@@ -333,7 +333,7 @@ import { AppBskyEmbedImages } from '@atproto/api'
 const Images = AppBskyEmbedImages.Main
 const validateImages = AppBskyEmbedImages.validateMain
 
-// Get some date somehow
+// Get some data somehow
 declare const data: unknown
 
 // Validate the data against a particular schema (images here)
