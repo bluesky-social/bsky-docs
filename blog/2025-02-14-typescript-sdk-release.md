@@ -8,9 +8,23 @@ Today we are excited to announce the availability of version 0.14 of our TypeScr
 
 This release is a big step forward, significantly improving the type safety of our `@atproto/api` package. Let’s take a look at the highlights:
 
-- Lexicon derived interfaces now have an explicitly defined `$type` property, allowing to properly discriminate unions.
-- Lexicon derived `is*` utility methods no longer unsafely type cast their input.
-- Lexicon derived `validate*` utility methods now return a more precise type.
+- **Lexicon derived interfaces now have an explicitly defined `$type` property**, allowing to properly discriminate unions.
+- **Lexicon derived `is*` utility methods no longer unsafely type cast their input**.
+- **Lexicon derived `validate*` utility methods now return a more precise type**.
+
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Context](#context)
+- [Revamped TypeScript interfaces](#revamped-typescript-interfaces)
+  - [`$type` property in `record` definitions](#type-property-in-record-definitions)
+  - [`is*` utility methods](#is-utility-methods)
+  - [`validate*` utility methods](#validate-utility-methods)
+  - [New `asPredicate` function](#new-aspredicate-function)
+- [Removal of the `[x: string]` index signature](#removal-of-the-x-string-index-signature)
+- [Other considerations](#other-considerations)
+- [Recap](#recap)
+  - [Migration TL;DR:](#migration-tldr)
 
 ## Context
 
@@ -412,3 +426,15 @@ const embed: AppBskyEmbedVideo.Main = {
 ## Other considerations
 
 When upgrading, please make sure that your project does not depend on multiple versions of the `@atproto/*` packages. Use [resolutions](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) or [overrides](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides) in your `package.json` to pin the dependencies to the same version.
+
+## Recap
+
+We hope this release helps you build better codebases with improved type safety. During our own migration, we found and fixed a few small bugs, and we believe these changes will benefit the entire developer community.
+
+### Migration TL;DR:
+
+- Need to be absolutely sure of your data? Use `asPredicate` or `validate*` utilities.
+- Using data from the Bluesky app view? You can use `is*` utilities.
+- Building lex objects for writing? Make sure you use `$Typed` when building those.
+
+Happy coding!
