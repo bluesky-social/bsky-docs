@@ -148,37 +148,31 @@ export interface Main {
 }
 ```
 
-Notice how the `$type` property is defined as optional (`?:`) here. This is due to the fact that lexicons can define schemas that can be referenced in places other than open unions. In those places, there might not be any ambiguity as to how the data should be interpreted. For example, an embed that represents a "Record With Media" has a `record` property that expects an `app.bsky.embed.record` object:
+Notice how the `$type` property is defined as optional (`?:`) here. This is due to the fact that the schema definitions are not always used from open unions. In some cases, a particular schema can be referenced from another schema (using a `"type": "ref"`). In those cases, there will be no ambiguity as to how the data should be interpreted.
+
+For example, a "Bluesky Like" (`app.bsky.feed.like`) defines the following properties in its schema:
 
 ```typescript
-export interface Main {
-  $type?: 'app.bsky.embed.recordWithMedia'
-  record: AppBskyEmbedRecord.Main
-  media: /* omitted */
+  "properties": {
+    "createdAt": { "type": "string", "format": "datetime" },
+    "subject": { "type": "ref", "ref": "com.atproto.repo.strongRef" }
+  },
+```
+
+As can be seen, the `subject` property is defined as a reference to a `com.atproto.repo.strongRef` object. In this case, there is no ambiguity as to how the `subject` of a like should be interpreted, and the `$type` property is not needed.
+
+```javascript
+{
+  "createdAt": "2021-09-01T12:34:56Z",
+  "subject": {
+    // No `$type` property needed here
+    "uri": "at://did:plc:123/app.bsky.feed.post/456",
+    "cid": "[...]"
+  }
 }
 ```
 
-Since there is no ambiguity as to the type of the data here, making the `$type` property required would cause unnecessary bloat. Making the `$type` property optional allows declaring a "Record With Media" as follows:
-
-```typescript
-const recordWithMedia: $Typed<RecordWithMedia> = {
-  // $type is required here because of the $Typed<> utility
-  $type: 'app.bsky.embed.recordWithMedia',
-
-  record: {
-    // $type is not needed here, as there is no ambiguity
-
-    record: {
-      /* omitted */
-    },
-  },
-  media: {
-    /* omitted */
-  },
-}
-```
-
-Because the `$type` property of objects is required in some contexts while optional in others, we introduced a new utility type to make it required when needed. The `$Typed` utility allows marking an interface’s `$type` property non-optional in contexts where it is required:
+Because the `$type` property of objects is required in some contexts while optional in others, we introduced a new type utility type to make it required when needed. The `$Typed` utility allows marking an interface’s `$type` property non-optional in contexts where it is required:
 
 ```typescript
 export type $Typed<V> = V & { $type: string }
