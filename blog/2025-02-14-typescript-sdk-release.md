@@ -64,6 +64,7 @@ Since `embed` is an open union, it can be used to store anything. For example, a
 ```
 
 :::note
+:::
 Only systems that know about the `com.example.calendar.event` Lexicon can interpret this data. The official Bluesky app will typically only know about the data types defined in the `app.bsky` lexicons.
 :::
 
@@ -203,12 +204,9 @@ In addition to preventing the _creation_ of invalid data as seen before, this ch
 ```tsx
 import { AppBskyFeedPost } from '@atproto/api'
 
-// Aliased for clarity
-type BlueskyPost = AppBskyFeedPost.Main
-
 // Say we got some random post somehow (typically
 // via an API call)
-declare const post: BlueskyPost
+declare const post: AppBskyFeedPost.Main
 
 // And we want to know what kind of embed it contains
 const { embed } = post
@@ -301,27 +299,6 @@ if (isImages(post.embed)) {
 }
 ```
 
-For other cases, when the data's validity is not known at dev time, we added new `isValid*` utility methods allowing to ensure that a value properly satisfies the interface.
-
-```typescript
-import { AppBskyEmbedImages } from '@atproto/api'
-
-// Aliased for clarity
-const Images = AppBskyEmbedImages.Main
-const isValidImages = AppBskyEmbedImages.isValidMain
-
-// Get an embed with unknown validity somehow
-declare const embed: unknown
-
-// The following condition will be true if, and only
-// if, the value matches the `Image` interface.
-if (isValidImages(embed)) {
-  // `embed` is of type `Images` here
-}
-```
-
-These methods perform data validation, making them somewhat slower than the `is*` utility methods. They can, however, be used in place of the `is*` utilities when migrating to this new version of the SDK.
-
 ### `validate*` utility methods
 
 As part of this update, the signature of the `validate*` utility methods was updated to properly describe the type of the `value` in case of success:
@@ -346,20 +323,39 @@ if (result.success) {
 }
 ```
 
+These methods perform data validation, making them somewhat slower than the `is*` utility methods. They can, however, be used in place of the `is*` utilities when migrating to this new version of the SDK.
+
 ### New `asPredicate` function
 
 The SDK exposes a new `asPredicate` function. This function allows converting a `validate*` function into a predicate function. This can be useful when working with libraries that expect a predicate function to be passed as an argument.
 
 ```typescript
-import { AppBskyEmbedImages, asPredicate } from '@atproto/api'
+import { asPredicate, AppBskyEmbedImages } from '@atproto/api'
 
-const isValidImage = asPredicate(AppBskyEmbedImages.validateMain)
+// Aliased for clarity
+const Images = AppBskyEmbedImages.Main
+const isValidImages = asPredicate(AppBskyEmbedImages.validateMain)
 
+// Get an embed with unknown validity somehow
+declare const embed: unknown
+
+// The following condition will be true if, and only
+// if, the value matches the `Image` interface.
+if (isValidImages(embed)) {
+  // `embed` is of type `Images` here
+}
+
+// Similarly, the type predicate can be used to
+// infer the type of an array of unknown values:
 declare const someArray: unknown[]
 
-// This will be typed as `AppBskyEmbedImages.Main[]`
-const images = someArray.filter(isValidImage)
+// This will be typed as `Images[]`
+const images = someArray.filter(isValidImages)
 ```
+
+:::note
+We decided to introduce the `asPredicate` function to provide an explicit way to convert `validate*` functions into predicate functions. More importantly, this function allowed us limit the bundle size increase that would have been caused by the introduction new `isValid*` utility methods as part of this release.
+:::
 
 ## Removal of the `[x: string]` index signature
 
