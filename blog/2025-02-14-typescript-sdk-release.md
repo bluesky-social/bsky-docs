@@ -8,7 +8,7 @@ Today we are excited to announce the availability of version 0.14 of our TypeScr
 
 This release is a big step forward, significantly improving the type safety of our `@atproto/api` package. Let’s take a look at the highlights:
 
-- **Lexicon derived interfaces now have an explicitly defined `$type` property**, allowing to properly discriminate unions.
+- **Lexicon derived interfaces now have an explicitly defined `$type` property**, allowing proper discrimination of unions.
 - **Lexicon derived `is*` utility methods no longer unsafely type cast their input**.
 - **Lexicon derived `validate*` utility methods now return a more precise type**.
 
@@ -28,7 +28,7 @@ This release is a big step forward, significantly improving the type safety of o
 
 ## Context
 
-Atproto is an "open protocol" which means a lot of things. One of these things is that the data structures handled through the protocol are extensible. Lexicons (which is the syntax used to define the schema of the data structures) can be used to describe placeholders where arbitrary data types (defined through third party Lexicons) can be used.
+Atproto is an "open protocol" which means a lot of things. One of these things is that the data structures handled through the protocol are extensible. Lexicons (which is the syntax used to define the schema of the data structures) can be used to describe placeholders where arbitrary data types (defined through third-party Lexicons) can be used.
 
 An example of such a placeholder exists in the Lexicon definition of a Bluesky post
 ([`app.bsky.feed.post`](https://github.com/bluesky-social/atproto/blob/5ece8c6aeab9c5c3f51295d93ed6e27c3c6095c2/lexicons/app/bsky/feed/post.json#L5-L64)), which enables posts to have an `embed` property defined as follows:
@@ -46,7 +46,7 @@ An example of such a placeholder exists in the Lexicon definition of a Bluesky p
   }
 ```
 
-The type of the `embed` property is what is called an "open union". It means that the `embed` field can basically contain anything, although we usually expect it to be one of the known types defined in the `refs` array of the Lexicon schema (an image, a video, a link or another post).
+The type of the `embed` property is what is called an "open union". It means that the `embed` field can basically contain anything, although we usually expect it to be one of the known types defined in the `refs` array of the Lexicon schema (an image, a video, a link, or another post).
 
 Systems consuming Bluesky posts need to be able to determine what type of embed they are dealing with. This is where the `$type` property comes in. This property allows systems to uniquely determine the Lexicon schema that must be used to interpret the data, and it **must** be provided everywhere a union is expected. For example, a post with a video would look like this:
 
@@ -191,7 +191,7 @@ const recordWithMedia: $Typed<RecordWithMedia> = {
 }
 ```
 
-Because the `$type` property of objects is required in some contexts while optional in others, we introduced a new utility type to make it required when needed. The `$Typed` utility allows to mark an interface’s `$type` property non optional in contexts where it is required:
+Because the `$type` property of objects is required in some contexts while optional in others, we introduced a new utility type to make it required when needed. The `$Typed` utility allows marking an interface’s `$type` property non-optional in contexts where it is required:
 
 ```typescript
 export type $Typed<V> = V & { $type: string }
@@ -221,7 +221,7 @@ import { AppBskyFeedPost } from '@atproto/api'
 type BlueskyPost = AppBskyFeedPost.Main
 
 // Say we got some random post somehow (typically
-// via an api call)
+// via an API call)
 declare const post: BlueskyPost
 
 // And we want to know what kind of embed it contains
@@ -230,7 +230,7 @@ const { embed } = post
 // We can now use the `$type` property to disambiguate
 if (embed?.$type === 'app.bsky.embed.images') {
   // The `embed` variable is fully typed as
-  // `$Typed<AppBskyEmbedImages.Main>` here !
+  // `$Typed<AppBskyEmbedImages.Main>` here!
 }
 ```
 
@@ -248,7 +248,7 @@ export interface Main {
   [x: string]: unknown
 }
 
-export function isMain(value: unknown): values is Main {
+export function isMain(value: unknown): value is Main {
   return (
     value != null &&
     typeof value === 'object' &&
@@ -311,7 +311,7 @@ declare const post: AppBskyEmbedImages.isMain
 // discriminate **valid** data based on their `$type`
 if (isImages(post.embed)) {
   // `post.embed` is fully typed as
-  // `$Typed<AppBskyEmbedImages.Main>` here !
+  // `$Typed<AppBskyEmbedImages.Main>` here!
 }
 ```
 
@@ -362,7 +362,7 @@ if (result.success) {
 
 ### New `asPredicate` function
 
-The SDK exposes a new `asPredicate` function. This function allows to convert a `validate*` function into a predicate function. This can be useful when working with libraries that expect a predicate function to be passed as an argument.
+The SDK exposes a new `asPredicate` function. This function allows converting a `validate*` function into a predicate function. This can be useful when working with libraries that expect a predicate function to be passed as an argument.
 
 ```typescript
 import { AppBskyEmbedImages, asPredicate } from '@atproto/api'
@@ -402,7 +402,7 @@ const embed: AppBskyEmbedVideo.Main = {
 }
 ```
 
-We removed that signature, requiring any un-specified fields intentionally added to be now explicitly marked as such:
+We removed that signature, requiring any unspecified fields intentionally added to be now explicitly marked as such:
 
 ```typescript
 import { AppBskyEmbedVideo } from '@atproto/api'
@@ -415,7 +415,7 @@ const embed: AppBskyEmbedVideo.Main = {
   // error (a string is expected).
   alt: 123,
 
-  // Un-specified fields must now be explicitly
+  // Unspecified fields must now be explicitly
   // marked as such:
 
   // @ts-expect-error - custom field
