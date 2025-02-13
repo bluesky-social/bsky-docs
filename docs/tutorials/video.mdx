@@ -1,0 +1,145 @@
+---
+sidebar_position: 13
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Uploading Video
+
+Video uploads differ slightly from image uploads, since they are typically much larger files and have a significantly long processing time.
+
+## Simple method
+
+The easiest way to upload a video is to upload it as you would an image - use `uploadBlob` to upload the file directly to the PDS, and reference the returned blob.
+
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="uploadBlob"
+    const { data } = await userAgent.com.atproto.repo.uploadBlob(
+      fs.readFileSync(videoPath),
+    );
+
+    await agent.post({
+      text: "This post should have a video attached",
+      langs: ["en"],
+      embed: {
+        $type: "app.bsky.embed.video",
+        video: data.blob,
+        aspectRatio: await getAspectRatio(videoPath),
+      } satisfies AppBskyEmbedVideo.Main,
+    });
+    ```
+  </TabItem>
+</Tabs>
+
+However, this has the significant downside that the video only starts processing after the post is submitted - the video service only knows about the video once the post appears in the firehose. This means that people will be able to see the post before processing is complete, which will show a missing video for several seconds.
+
+Instead, we can send the video directly to the video service for preprocessing.
+
+## Recommended method
+
+This is a little more involved, and involves communicating directly with the video service. The steps are:
+
+Create a service token with an audience of your PDS, a scope allowing `uploadBlob`, and a slightly longer expiry - 30 minutes is recommended
+Upload the video directly to `https://video.bsky.app` with the appropriate access token
+Query `https://video.bsky.app` for the status of the processing job until it returns the BlobRef of the video
+Use the BlobRef in your post
+
+Here is a code snippet for the full flow:
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="uploadVideo"
+    const { data: serviceAuth } = await userAgent.com.atproto.server.getServiceAuth(
+      {
+        aud: `did:web:${userAgent.dispatchUrl.host}`,
+        lxm: "com.atproto.repo.uploadBlob",
+        exp: Date.now() / 1000 + 60 * 30, // 30 minutes
+      },
+    );
+
+    const token = serviceAuth.token;
+
+    const uploadUrl = new URL(
+      "https://video.bsky.app/xrpc/app.bsky.video.uploadVideo",
+    );
+    uploadUrl.searchParams.append("did", userAgent.session!.did);
+    uploadUrl.searchParams.append("name", videoPath.split("/").pop()!);
+
+    const uploadResponse = await fetch(uploadUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "video/mp4",
+        "Content-Length": fs.statSync(videoPath).size
+      },
+      body: fs.readFileSync(videoPath),
+    });
+
+    const jobStatus = (await uploadResponse.json()) as AppBskyVideoDefs.JobStatus;
+
+    let blob: BlobRef | undefined = jobStatus.blob;
+
+    const videoAgent = new AtpAgent({ service: "https://video.bsky.app" });
+
+    while (!blob) {
+      const { data: status } = await videoAgent.app.bsky.video.getJobStatus(
+        { jobId: jobStatus.jobId },
+      );
+      console.log(
+        "Status:",
+        status.jobStatus.state,
+        status.jobStatus.progress || "",
+      );
+      if (status.jobStatus.blob) {
+        blob = status.jobStatus.blob;
+      }
+      // wait a second
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+
+    await userAgent.post({
+      text: "This post should have a video attached",
+      langs: ["en"],
+      embed: {
+        $type: "app.bsky.embed.video",
+        video: blob,
+        aspectRatio: await getAspectRatio(videoPath),
+      } satisfies AppBskyEmbedVideo.Main,
+    });
+    ```
+  </TabItem>
+</Tabs>
+
+What is happening behind the scenes is the video service runs the processing step on your video, then saves an optimised version of the video to your PDS on your behalf using the service token. It then returns the BlobRef it gets from your PDS to you via the `getJobStatus` API. Then, when you make your post, the video service already has the video ready immediately without a delay.
+
+This method also allows for better UX, since you can show the processing state to the user and let them know if the processing job fails before they make the post.
+
+There are complete code samples for both methods here (using Deno):
+
+- [Simple Method](https://gist.github.com/mozzius/39a21b19f0d3af4caead07a3152257f9)
+- [Video Service](https://gist.github.com/mozzius/5cbbd15e12cdc0cb1d0d992b7c3b1d0f)
+
+### Aspect Ratios
+
+Note: as with images, we need to give it an aspect ratio. This is a little tricky to find - if you’re in the browser, you can load the video into a `<video>` and observe the dimensions when loaded. If you’re in a native app, you’ll most likely be able to get it via the media picker APIs. Alternatively, you can use a tool like ffmprobe - here’s how you’d do it with Deno:
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Deno">
+    ```typescript title="getAspectRatio"
+    import { ffprobe } from "https://deno.land/x/fast_forward@0.1.6/ffprobe.ts";
+
+    export async function getAspectRatio(fileName: string) {
+      const { streams } = await ffprobe(fileName, {});
+      const videoSteam = streams.find((stream) => stream.codec_type === "video");
+      return {
+        width: videoSteam.width,
+        height: videoSteam.height,
+      };
+    }
+    ```
+  </TabItem>
+</Tabs>
+
