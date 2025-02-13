@@ -284,7 +284,7 @@ import { AppBskyEmbedImages } from '@atproto/api'
 
 // Get a post from the API (the API's contract
 // guarantees the validity of the data)
-declare const post: AppBskyEmbedImages.isMain
+declare const post: AppBskyEmbedImages.Main
 
 // The `is*` utilities are an efficient way to
 // discriminate **valid** data based on their `$type`
