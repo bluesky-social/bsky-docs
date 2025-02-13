@@ -12,20 +12,6 @@ This release is a big step forward, significantly improving the type safety of o
 - **Lexicon derived `is*` utility methods no longer unsafely type cast their input**.
 - **Lexicon derived `validate*` utility methods now return a more precise type**.
 
-## Table of Contents
-
-- [Table of Contents](#table-of-contents)
-- [Context](#context)
-- [Revamped TypeScript interfaces](#revamped-typescript-interfaces)
-  - [`$type` property in `record` definitions](#type-property-in-record-definitions)
-  - [`is*` utility methods](#is-utility-methods)
-  - [`validate*` utility methods](#validate-utility-methods)
-  - [New `asPredicate` function](#new-aspredicate-function)
-- [Removal of the `[x: string]` index signature](#removal-of-the-x-string-index-signature)
-- [Other considerations](#other-considerations)
-- [Recap](#recap)
-  - [Migration TL;DR:](#migration-tldr)
-
 ## Context
 
 Atproto is an "open protocol" which means a lot of things. One of these things is that the data structures handled through the protocol are extensible. Lexicons (which is the syntax used to define the schema of the data structures) can be used to describe placeholders where arbitrary data types (defined through third-party Lexicons) can be used.
