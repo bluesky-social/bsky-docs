@@ -162,12 +162,13 @@ For example, a "Bluesky Like" (`app.bsky.feed.like`) defines the following prope
 As can be seen, the `subject` property is defined as a reference to a `com.atproto.repo.strongRef` object. In this case, there is no ambiguity as to how the `subject` of a like should be interpreted, and the `$type` property is not needed.
 
 ```javascript
-{
-  "createdAt": "2021-09-01T12:34:56Z",
-  "subject": {
+const like: AppBskyFeedLike.Record = {
+  $type: 'app.bsky.feed.like',
+  createdAt: '2021-09-01T12:34:56Z',
+  subject: {
     // No `$type` property needed here
-    "uri": "at://did:plc:123/app.bsky.feed.post/456",
-    "cid": "[...]"
+    uri: 'at://did:plc:123/app.bsky.feed.post/456',
+    cid: '[...]'
   }
 }
 ```
