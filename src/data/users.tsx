@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Skycord',
+    description: 'Skycord is a free Discord app that automatically shares your BlueSky posts directly in your Discord chats, keeping your members up-to-date with your latest updates.',
+    preview: require('./showcase/skycord.png'),
+    website: 'https://skycord.app/',
+    author: 'https://bsky.app/profile/did:plc:cgynugrjidwc6eugchvyb3f6',
+    tags: ['othertools', 'bridge', 'socialtools'],
+  },
+  
 ]
 
 export type User = {
