@@ -396,6 +396,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "api/chat-bsky-convo-accept-convo",
+          label: "chat.bsky.convo.acceptConvo",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/chat-bsky-convo-delete-message-for-self",
           label: "chat.bsky.convo.deleteMessageForSelf",
           className: "api-method post",
@@ -404,6 +410,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/chat-bsky-convo-get-convo",
           label: "chat.bsky.convo.getConvo",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/chat-bsky-convo-get-convo-availability",
+          label: "chat.bsky.convo.getConvoAvailability",
           className: "api-method get",
         },
         {
@@ -458,6 +470,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/chat-bsky-convo-unmute-convo",
           label: "chat.bsky.convo.unmuteConvo",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/chat-bsky-convo-update-all-read",
+          label: "chat.bsky.convo.updateAllRead",
           className: "api-method post",
         },
         {
@@ -594,14 +612,32 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/com-atproto-identity-refresh-identity",
+          label: "com.atproto.identity.refreshIdentity",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-identity-request-plc-operation-signature",
           label: "com.atproto.identity.requestPlcOperationSignature",
           className: "api-method post",
         },
         {
           type: "doc",
+          id: "api/com-atproto-identity-resolve-did",
+          label: "com.atproto.identity.resolveDid",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-identity-resolve-handle",
           label: "com.atproto.identity.resolveHandle",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/com-atproto-identity-resolve-identity",
+          label: "com.atproto.identity.resolveIdentity",
           className: "api-method get",
         },
         {
@@ -924,6 +960,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/com-atproto-sync-list-repos-by-collection",
+          label: "com.atproto.sync.listReposByCollection",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-sync-notify-of-update",
           label: "com.atproto.sync.notifyOfUpdate",
           className: "api-method post",
@@ -998,6 +1040,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/tools-ozone-moderation-get-repo",
           label: "tools.ozone.moderation.getRepo",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-moderation-get-reporter-stats",
+          label: "tools.ozone.moderation.getReporterStats",
           className: "api-method get",
         },
         {
