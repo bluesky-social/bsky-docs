@@ -145,6 +145,9 @@ Labelers publish an `/app.bsky.labeler.service/self` record to declare that they
       }
     ]
   },
+  "subjectTypes": ["record"],
+  "subjectCollections": ["app.bsky.feed.post", "app.bsky.actor.profile"],
+  "reasonTypes": ["com.atproto.moderation.defs#reasonOther"],
   "createdAt": "2024-03-03T05:31:08.938Z"
 }
 ```
@@ -153,6 +156,7 @@ The `labelValues` declares what to expect from the Labeler. It may include globa
 
 The `labelValueDefinitions` defines the custom labels. It includes the `locales` field for specifying human-readable copy in various languages. If the user’s language is not found, it will use the first set of strings in the array.
 
+`subjectTypes`, `subjectCollections`, and `reasonTypes` declare what type of moderation reports are reviewed by the Labeler. `subjectTypes` can include `record` for individual pieces of content, and `account` for overall accounts. `subjectCollections` is a list of NSIDs of record types; if not defined, any record type is allowed. `reasonTypes` is a list of report reason codes (Lexicon references).
 
 
 ## Labeler subscriptions
@@ -190,6 +194,8 @@ agent
     subject: { did: 'did:web:bob.com' },
   })
 ```
+
+Clients should not send reports to Labelers which do not match the subject and report type metadata in the declaration record (see above).
 
 ## Official SDK
 
