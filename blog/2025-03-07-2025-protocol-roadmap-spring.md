@@ -1,4 +1,8 @@
-## 2025 Protocol Roadmap (Spring and Summer)
+---
+slug: 2025-protocol-roadmap-spring
+title: 2025 Protocol Roadmap (Spring and Summer)
+tags: ['updates']
+---
 
 *Join the [Github](https://github.com/bluesky-social/atproto/discussions/3616) discussion here.*
 
