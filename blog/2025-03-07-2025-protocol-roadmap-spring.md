@@ -28,13 +28,13 @@ We are iterating on the core public data synchronization components of the proto
 
 ## Auth Scopes
 
-We are updating [OAuth for AT Protocol](https://docs.bsky.app/blog/oauth-atproto) with a way to request and grant granular permissions. For example, it should be possible to give a client permission to read and write posts on Bluesky, but not insert arbitrary block records or access DMs. This is obviously important for user control, privacy, and account security.The system will allow application designers to declare their own auth scopes, as part of the Lexicon system. PDS implementations will be able to enforce these permissions in an interoperable way, at runtime. We will share more details soon.
+We are updating [OAuth for AT Protocol](https://docs.bsky.app/blog/oauth-atproto) with a way to request and grant granular permissions. For example, it should be possible to give a client permission to read and write posts on Bluesky, but not insert arbitrary block records or access DMs. This is obviously important for user control, privacy, and account security. The system will allow application designers to declare their own auth scopes, as part of the Lexicon system. PDS implementations will be able to enforce these permissions in an interoperable way, at runtime. We will share more details soon.
 
 In addition to completing OAuth for existing apps, Auth Scopes will be necessary for upcoming protocol features, like group-private data and on-protocol DMs.
 
 ## PDS Account Management
 
-More and more folks are building independent apps on atproto. While they can use OAuth to authenticate users from any PDS instance, account signup is more complicated. In theory it is possible to implement account creation using the `com.atproto.*` Lexicons, but in practice this is difficult (or impossible) to implement in independent apps, because of anti-bot measures. This results in developers directing new users to sign up with Bluesky,, which is a bad user experience, and conflates having an account on the AT Protocol with having a Bluesky account.
+More and more folks are building independent apps on atproto. While they can use OAuth to authenticate users from any PDS instance, account signup is more complicated. In theory it is possible to implement account creation using the `com.atproto.*` Lexicons, but in practice this is difficult (or impossible) to implement in independent apps, because of anti-bot measures. This results in developers directing new users to sign up with Bluesky, which is a bad user experience, and conflates having an account on the AT Protocol with having a Bluesky account.
 
 To improve this situation, we are implementing a web interface in the PDS reference distribution which will give users a less-branded account sign-up experience. The PDS technically already has a web interface, used for the OAuth authorization flow, and this simply extends that. Over time, we expect the web interface to provide generic account management capabilities, such as password recovery flows, additional 2FA mechanisms, management of active auth sessions, account deactivation, etc.
 
