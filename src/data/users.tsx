@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Followers Analyzer',
+    description: 'App for analyze growth of your Bluesky account, tracking users, unfollowers, and more! Followers Analyzer provides simple, smart, and efficient tools to understand your Bluesky network, get growth analytics!',
+    preview: require('./showcase/cover-followers-analyzer.png'),
+    website: 'https://bit.ly/4jbOKNF',
+    source: 'https://bit.ly/4jbOKNF',
+    author: 'https://bsky.app/profile/did:plc:penqtbz3uzpb3zagwhbzex4d',
+    tags: ['stats', 'socialtools', 'othertools'],
+  },
 ]
 
 export type User = {
