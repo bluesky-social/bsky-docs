@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Graze Social',
+    description: 'Feed builder and sponsorship platform',
+    preview: require('./showcase/graze-social.png'),
+    website: 'https://graze.social',
+    author: 'https://bsky.app/profile/graze.social',
+    tags: ['customfeed', 'socialtools']
+  },
 ]
 
 export type User = {
