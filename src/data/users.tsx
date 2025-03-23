@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Videos For Bluesky (iOS)',
+    description: 'Scroll through the infinite video reel, watch interesting videos in For You, Follow, or any of the custom feeds.',
+    preview: require('./showcase/videos-for-bluesky-ios.jpg'),
+    website: 'https://apps.apple.com/app/videos-for-bluesky/id6740755135',
+    author: 'https://bsky.app/profile/mszpro.com',
+    tags: ['client'],
+  },
 ]
 
 export type User = {
