@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'bsky-sh-cli (Bluesky in the shell)',
+    description: 'Bluesky CLI (Command Line Interface) implementation in shell script',
+    preview: require('./showcase/example-1.png'),
+    source: 'https://github.com/bills-appworks/bsky-sh-cli',
+    website: 'https://github.com/bills-appworks/bsky-sh-cli',
+    author: 'https://bsky.app/profile/did:plc:qftihmjyiutlh63oyjjplwb4',
+    tags: ['client', 'opensource']
+  },
 ]
 
 export type User = {
