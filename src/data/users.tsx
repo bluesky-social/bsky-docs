@@ -893,6 +893,15 @@ const Users: User[] = [
     tags: ['othertools'],
   },
   {
+    title: 'WordPress Plugin - Social Integration for Bluesky',
+    description: 'WordPress plugin to auto-post on Bluesky, display a feed of your latest posts from Bluesky, or display a Bluesky profile card.',
+    preview: require('./showcase/wordpress-plugin-social-integration-for-bluesky.png'),
+    website: 'https://wordpress.org/plugins/social-integration-for-bluesky/',
+    source: 'https://github.com/geoffreycrofte/bluesky-social-plugin-for-wordpress',
+    author: 'https://bsky.app/profile/did:plc:idpproqkbc4wchwsemeotkvr',
+    tags: ['othertools', 'opensource'],
+  },
+  {
     title: 'Neznam Atproto share',
     description: 'WordPress plugin to automatically share posts from WordPress to timeline',
     preview: require('./showcase/neznam-atproto-share.png'),
