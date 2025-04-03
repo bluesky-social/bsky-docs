@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'profanity.accountant',
+    description: 'A bot for Bluesky which tells you how much profanity a user has poasted.',
+    preview: require('./showcase/example-1.png'),
+    source: 'https://github.com/himynameisdave/bsky-profanity-counter/',
+    website: 'http://profanity.accountant',
+    author: 'https://bsky.app/profile/himynameisdave.com',
+    tags: ['bot', 'opensource', 'stats'],
+  }
 ]
 
 export type User = {
