@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Bluejeans',
+    description: 'Art-centric web client for Bluesky',
+    preview: require('./showcase/bluejeans-alpha-site-card.png'),
+    website: 'https://bluejeans.app',
+    author: 'https://bsky.app/profile/did:plc:ymc5fo3ssinylbq2xdgao4ge',
+    tags: ['client'],
+  },
 ]
 
 export type User = {
