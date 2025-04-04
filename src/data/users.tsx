@@ -1242,7 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Bits of Saturn',
+    description: 'Raw images of Saturn',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/bitsofsaturn.bsky.social',
+    source: 'https://github.com/supiket/bitsofsaturn',
+    author: 'https://bsky.app/profile/perceptualmachine.bsky.social',
+    tags: ['opensource', 'bot'],
+  },
 ]
 
 export type User = {
