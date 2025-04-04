@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'bsky-follows',
+    description: 'Export your Bluesky followers',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/numenoai/bsky-tools/tree/main/packages/follow-tools',
+    source: 'https://github.com/numenoai/bsky-tools/tree/main/packages/follow-tools',
+    author: 'https://bsky.app/profile/did:plc:6f4ass3v2q2zykb36gccmtqy',
+    tags: ['othertools', 'opensource'],
+  },
 
 ]
 
