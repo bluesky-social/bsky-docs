@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Twilight',
+    description: 'Tiktok Inspired Video Client for Bluesky',
+    preview: require('./showcase/twilight.png'),
+    website: 'https://github.com/fredabila/twilight---tiktok-alternative-atproto',
+    source: 'https://github.com/fredabila/twilight---tiktok-alternative-atproto',
+    author: 'https://bsky.app/profile/buzzchat.site',
+    tags: ['client', 'opensource'],
+  },
 
 ]
 
