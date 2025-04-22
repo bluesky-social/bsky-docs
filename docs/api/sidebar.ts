@@ -402,6 +402,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/chat-bsky-convo-add-reaction",
+          label: "chat.bsky.convo.addReaction",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/chat-bsky-convo-delete-message-for-self",
           label: "chat.bsky.convo.deleteMessageForSelf",
           className: "api-method post",
@@ -452,6 +458,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/chat-bsky-convo-mute-convo",
           label: "chat.bsky.convo.muteConvo",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/chat-bsky-convo-remove-reaction",
+          label: "chat.bsky.convo.removeReaction",
           className: "api-method post",
         },
         {
@@ -590,6 +602,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/com-atproto-admin-update-account-password",
           label: "com.atproto.admin.updateAccountPassword",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/com-atproto-admin-update-account-signing-key",
+          label: "com.atproto.admin.updateAccountSigningKey",
           className: "api-method post",
         },
         {
@@ -924,6 +942,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/com-atproto-sync-get-host-status",
+          label: "com.atproto.sync.getHostStatus",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-sync-get-latest-commit",
           label: "com.atproto.sync.getLatestCommit",
           className: "api-method get",
@@ -950,6 +974,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/com-atproto-sync-list-blobs",
           label: "com.atproto.sync.listBlobs",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/com-atproto-sync-list-hosts",
+          label: "com.atproto.sync.listHosts",
           className: "api-method get",
         },
         {
@@ -1052,6 +1082,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/tools-ozone-moderation-get-repos",
           label: "tools.ozone.moderation.getRepos",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-moderation-get-subjects",
+          label: "tools.ozone.moderation.getSubjects",
           className: "api-method get",
         },
         {
