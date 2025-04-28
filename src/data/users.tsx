@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Tickr Bot',
+    description: 'Posts US financial market updates',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:z46r5qbh2axfrkurqrmsy7b2',
+    source: 'https://github.com/enerrio/stock-bots',
+    author: 'https://bsky.app/profile/did:plc:oqo2tuwlm53jjp35yjpyhtn6',
+    tags: ['opensource', 'bot'],
+  },
 
 ]
 
