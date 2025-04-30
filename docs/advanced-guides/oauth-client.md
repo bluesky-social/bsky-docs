@@ -18,25 +18,25 @@ This guide covers three simplified types of OAuth client:
 - **Browser Apps**: "single-page" applications which run in a web browser, implemented using web platform APIs and JavaScript or WASM runtimes. The server-side ("backend") component is minimal, or even just static file hosting.
 - **Mobile and Desktop Apps**: what they sound like: "native" apps that run on mobile operating systems (smartphones, tablets, etc), or desktop applications
 
-|                         | **Web Service** | **Browser App** | **Mobile or Desktop App** |
-| ---                     | ---             | ---             | ---                       |
-| **OAuth 2 Client Type** | "Confidential"  | "Public"        | "Public"                  |
-| `client_id` | ✅ URL to metadata | ✅ URL to metadata | ✅ URL to metadata |
-| `client_secret` | ❌  | ❌  | ❌  |
-| **OAuth 2 Grant Types** | `authorization_code`, `refresh_token` | `authorization_code`, `refresh_token` | `authorization_code`, `refresh_token` |
-| **Client Metadata** | ✅ Public Web | ✅ Public Web | ✅ Public Web |
-| **Client Metadata JWK** | ✅ Public Web | ❌  | ❌  |
-| **PKCE** | ✅ | ✅ | ✅ |
-| **PAR** | ✅ | ✅ | ✅ |
-| **DPoP** | ✅ | ✅ | ✅ |
-| **Handle Resolution** | DNS and HTTPS | DNS-over-HTTPS and HTTPS or via helper service | DNS and HTTPS or via helper service |
-| **DID Resolution** | HTTPS | HTTPS | HTTPS |
-| **Recommended Client Secret Key Storage** | Environment Variable, Secrets Manager, Hardware Enclave | ❌  | ❌  |
-| **Recommended DPoP Key Storage** | Secure Database | non-exportable CryptoKeyPair in IndexedDB | Secure File or Database, Hardware Enclave |
-| **Recommended Token Storage** | Secure Database | IndexedDB or LocalStorage | Secure File or Database |
-| **SSRF + DoS Hardening** | ✅ | ✅ | ✅ |
-| **Authorization UI** | Browser Redirect  | Browser Redirect  | WebView/Browser |
-| `redirect_uri` | App URL (HTTPS) | App URL (HTTPS) | App Link (Android), Universal Link (iOS), or Client-specific URI scheme |
+|                                           | **Web Service**                                         | **Browser App**                                | **Mobile or Desktop App**                                               |
+| ----------------------------------------- | ------------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------- |
+| **OAuth 2 Client Type**                   | "Confidential"                                          | "Public"                                       | "Public"                                                                |
+| `client_id`                               | ✅ URL to metadata                                      | ✅ URL to metadata                             | ✅ URL to metadata                                                      |
+| `client_secret`                           | ❌                                                      | ❌                                             | ❌                                                                      |
+| **OAuth 2 Grant Types**                   | `authorization_code`, `refresh_token`                   | `authorization_code`, `refresh_token`          | `authorization_code`, `refresh_token`                                   |
+| **Client Metadata**                       | ✅ Public Web                                           | ✅ Public Web                                  | ✅ Public Web                                                           |
+| **Client Metadata JWK**                   | ✅ Public Web                                           | ❌                                             | ❌                                                                      |
+| **PKCE**                                  | ✅                                                      | ✅                                             | ✅                                                                      |
+| **PAR**                                   | ✅                                                      | ✅                                             | ✅                                                                      |
+| **DPoP**                                  | ✅                                                      | ✅                                             | ✅                                                                      |
+| **Handle Resolution**                     | DNS and HTTPS                                           | DNS-over-HTTPS and HTTPS or via helper service | DNS and HTTPS or via helper service                                     |
+| **DID Resolution**                        | HTTPS                                                   | HTTPS                                          | HTTPS                                                                   |
+| **Recommended Client Secret Key Storage** | Environment Variable, Secrets Manager, Hardware Enclave | ❌                                             | ❌                                                                      |
+| **Recommended DPoP Key Storage**          | Secure Database                                         | non-exportable CryptoKeyPair in IndexedDB      | Secure File or Database, Hardware Enclave                               |
+| **Recommended Token Storage**             | Secure Database                                         | IndexedDB or LocalStorage                      | Secure File or Database                                                 |
+| **SSRF + DoS Hardening**                  | ✅                                                      | ✅                                             | ✅                                                                      |
+| **Authorization UI**                      | Browser Redirect                                        | Browser Redirect                               | WebView/Browser                                                         |
+| `redirect_uri`                            | App URL (HTTPS)                                         | App URL (HTTPS)                                | App Link (Android), Universal Link (iOS), or Client-specific URI scheme |
 
 ✅: Required
 
@@ -68,24 +68,24 @@ All atproto OAuth clients must publish a client metadata JSON document on the pu
 
 Client metadata fields include:
 
-- `client_id` (string, required): must exactly match the full URL used to fetch the client metadata JSON itself
-- `application_type` (string, optional): must be one of `web` (default) or `native`
-- `grant_types` (array of strings, required): usually `authorization_code` and `refresh_token`
-- `scope` (string, sub-strings space-separated, required): any scope values which *might* be requested by this client are declared here. The `atproto` scope is required.
-- `response_types` (array of strings, required): usually just `code`.
-- `redirect_uris` (array of strings, required): the fully-qualified redirect/callback URL is declared here.
-- `dpop_bound_access_tokens` (boolean, required): must be `true` (DPoP is mandatory)
-- `token_endpoint_auth_method` (string, optional): confidential clients must set this to `private_key_jwt`.
-- `token_endpoint_auth_signing_alg` (string, optional): confidential client set this to `ES256`
-- `jwks` (object with array of JWKs, optional) or `jwks_uri` (string URL, optional): confidential clients must supply at least one public key in JWK format for use with JWT client authentication.
+- `client_id` (string, required): must exactly match the full URL used to fetch the client metadata JSON itself
+- `application_type` (string, optional): must be one of `web` (default) or `native`
+- `grant_types` (array of strings, required): usually `authorization_code` and `refresh_token`
+- `scope` (string, sub-strings space-separated, required): any scope values which _might_ be requested by this client are declared here. The `atproto` scope is required.
+- `response_types` (array of strings, required): usually just `code`.
+- `redirect_uris` (array of strings, required): the fully-qualified redirect/callback URL is declared here.
+- `dpop_bound_access_tokens` (boolean, required): must be `true` (DPoP is mandatory)
+- `token_endpoint_auth_method` (string, optional): confidential clients must set this to `private_key_jwt`.
+- `token_endpoint_auth_signing_alg` (string, optional): confidential client set this to `ES256`
+- `jwks` (object with array of JWKs, optional) or `jwks_uri` (string URL, optional): confidential clients must supply at least one public key in JWK format for use with JWT client authentication.
 
 And some optional (but recommended) metadata fields:
 
-- `client_name` (string, optional): human-readable name of the client
-- `client_uri` (string, optional): not to be confused with `client_id`, this is a homepage URL for the client. If provided, the `client_uri` must have the same hostname as `client_id`.
-- `logo_uri` (string, optional): HTTP URL to client logo
-- `tos_uri` (string, optional): HTTP URL to human-readable terms of service ("ToS") for the client
-- `policy_uri` (string, optional): HTTP URL to human-readable privacy policy for the client
+- `client_name` (string, optional): human-readable name of the client
+- `client_uri` (string, optional): not to be confused with `client_id`, this is a homepage URL for the client. If provided, the `client_uri` must have the same hostname as `client_id`.
+- `logo_uri` (string, optional): HTTP URL to client logo
+- `tos_uri` (string, optional): HTTP URL to human-readable terms of service ("ToS") for the client
+- `policy_uri` (string, optional): HTTP URL to human-readable privacy policy for the client
 
 Here is an example Browser App client metadata file, that would need to be hosted at https://app.example.com/oauth/client-metadata.json (served with Content-Type `application/json` and HTTP status 200, no redirects):
 
@@ -96,16 +96,9 @@ Here is an example Browser App client metadata file, that would need to be hoste
   "client_name": "Example Browser App",
   "client_uri": "https://app.example.com",
   "dpop_bound_access_tokens": true,
-  "grant_types": [
-    "authorization_code",
-    "refresh_token"
-  ],
-  "redirect_uris": [
-    "https://app.example.com/oauth/callback"
-  ],
-  "response_types": [
-    "code"
-  ],
+  "grant_types": ["authorization_code", "refresh_token"],
+  "redirect_uris": ["https://app.example.com/oauth/callback"],
+  "response_types": ["code"],
   "scope": "atproto transition:generic",
   "token_endpoint_auth_method": "none"
 }
@@ -115,11 +108,11 @@ PDS instances (and any supporting servers) also publish public JSON documents co
 
 In OAuth terminology, the PDS is a "Resource Server" which authenticated requests are made to. The PDS publishes a "protected resource metadata" file at the well-known HTTPS path `/.well-known/oauth-protected-resource`. This contains a field `authorization_servers` with an array of URLs indicating the "Authorization Server" location (the origin or "issuer"). In OAuth terminology, the "Authorization Server" is responsible for authenticating the user and providing authorization tokens. The authorization server might be the PDS itself (same origin), or it might be separate. For example, an "entryway" service in large multi-PDS deployments, or an delegated authorization provider. The authorization server metadata endpoint is `/.well-known/oauth-authorization-server`. The response includes the following fields relevant to clients:
 
-- `issuer` (string, required): the "origin" URL of the Authorization Server. Must be a valid URL, with `https` scheme, matching the origin of URL used to fetch this document. There must be no path segments.
-- `pushed_authorization_request_endpoint` (string, required): URL for Pushed Authentication Requests (PAR)
-- `authorization_endpoint` (string, required): URL for authorization interface
-- `token_endpoint` (string, required): URL for token requests
-- `scopes_supported` (space-separated string, required): must include `atproto`, to confirm that this server supports the atproto profile of OAuth. If supporting the transitional grants, they should be included here as well.
+- `issuer` (string, required): the "origin" URL of the Authorization Server. Must be a valid URL, with `https` scheme, matching the origin of URL used to fetch this document. There must be no path segments.
+- `pushed_authorization_request_endpoint` (string, required): URL for Pushed Authentication Requests (PAR)
+- `authorization_endpoint` (string, required): URL for authorization interface
+- `token_endpoint` (string, required): URL for token requests
+- `scopes_supported` (space-separated string, required): must include `atproto`, to confirm that this server supports the atproto profile of OAuth. If supporting the transitional grants, they should be included here as well.
 
 There is a longer list of fields that clients may want to confirm/validate in the atproto OAuth specification.
 
@@ -151,7 +144,7 @@ A successful response body will be a JSON object including the field `request_ur
 
 Clients must use DPoP to bind auth tokens to a specific client device or server. DPoP nonces, provided by the auth server, must be used.
 
-Clients generate a new DPoP cryptographic keypair *for each auth session*, and retain the keypair for the duration of the auth session. DPoP keypairs should never be exported or moved between devices, and should never be reused across users or between sessions for the same user. Client must start DPoP at the initial authorization request (PAR).
+Clients generate a new DPoP cryptographic keypair _for each auth session_, and retain the keypair for the duration of the auth session. DPoP keypairs should never be exported or moved between devices, and should never be reused across users or between sessions for the same user. Client must start DPoP at the initial authorization request (PAR).
 
 `ES256` (NIST "P-256") is the cryptographic algorithm/curve which must be supported by all clients and auth servers. Browser Apps should use the WebCrypto API to generate non-exportable keypairs, which can be stored in IndexedDB to persist across browser sessions (not to be confused with OAuth sessions). Other clients may find implementations of this cryptographic system in generic JWT libraries, or in generic cryptographic libraries for their language or environment. DPoP is also increasingly required as part of OAuth profiles and will hopefully be supported by generic OAuth libraries.
 
@@ -172,24 +165,24 @@ For other server type, the client can retry the request with a new DPoP proof JW
 When making DPoP requests to token endpoint:
 
 - JWT header fields must be:
-    - `typ`: `dpop+jwt`
-    - `alg`: `ES256`
-    - `jwk`: DPoP public key in JSON Web Key (JWK) string format
+  - `typ`: `dpop+jwt`
+  - `alg`: `ES256`
+  - `jwk`: DPoP public key in JSON Web Key (JWK) string format
 - JWT fields should include:
-    - `jti`: random token string (unique per request)
-    - `htm`: HTTP method (eg, "POST" or "GET")
-    - `htu`: HTTP request URL
-    - `iat`: current UNIX time (integer seconds)
-    - `exp`: optional, expiration UNIX time (integer seconds) in the near future
-    - `nonce`: server-provided nonce string. If nonce isn’t known yet, don’t include this field, then receive the nonce via header in the error response
+  - `jti`: random token string (unique per request)
+  - `htm`: HTTP method (eg, "POST" or "GET")
+  - `htu`: HTTP request URL
+  - `iat`: current UNIX time (integer seconds)
+  - `exp`: optional, expiration UNIX time (integer seconds) in the near future
+  - `nonce`: server-provided nonce string. If nonce isn’t known yet, don’t include this field, then receive the nonce via header in the error response
 - JWT string in the `DPoP` HTTP header
 
 When making DPoP requests to PDS endpoints:
 
 - same JWT header fields as above
 - same JWT body fields as above, plus:
-    - `iss`: authorization server issuer
-    - `ath`: hash of the access token, using the same mechanism as the `S256` PKCE challenge hash
+  - `iss`: authorization server issuer
+  - `ath`: hash of the access token, using the same mechanism as the `S256` PKCE challenge hash
 - JWT string in the `DPoP` HTTP header
 - access token in the `Authorization` HTTP header, with type `DPoP` (so header looks like `Authorization: DPoP <token>`)
 
@@ -204,14 +197,14 @@ When constructing an assertion JWT:
 - assertion JWTs must not be reused: they include a random token, and must be generated and signed on every relevant request
 - the `ES256` cryptographic system must be supported by all clients and auth servers
 - JWT header fields include:
-    - `alg`: `ES256`
-    - `kid`: string indicating which of the declared keys (in JWKS) is being used
+  - `alg`: `ES256`
+  - `kid`: string indicating which of the declared keys (in JWKS) is being used
 - JWT body fields include:
-    - `iss`: the `client_id`
-    - `sub`: the `client_id`
-    - `aud`: the authorization server issuer URL (origin)
-    - `jti`: randomly generated token string
-    - `iat`: current UNIX time (integer seconds)
+  - `iss`: the `client_id`
+  - `sub`: the `client_id`
+  - `aud`: the authorization server issuer URL (origin)
+  - `jti`: randomly generated token string
+  - `iat`: current UNIX time (integer seconds)
 
 ### Token Management
 
@@ -240,7 +233,7 @@ When starting with an account identifier, the client must resolve the atproto id
 
 In some client environments, it may be difficult to resolve all identity types. For example, handle resolution may involve DNS TXT queries, which are not directly supported from browser apps. Client implementations might use alternative techniques (such as DNS-over-HTTPS) or could make use of a supporting web service to resolve identities.
 
-If the auth flow instead starts with a server (hostname or URL), the client will first attempt to fetch Resource Server metadata (and resolve to Authorization Server if found) and then attempt to fetch Authorization Server metadata. If either is successful, the client will end up with an identified Authorization Server. The Authorization Request and flow will proceed without a `login_hint` or account identifier being bound to the session, but the Authorization Server `issuer` will be bound to the session.
+If the auth flow instead starts with a server (hostname or URL), the client will first attempt to fetch Resource Server metadata (and resolve to Authorization Server if found) and then attempt to fetch Authorization Server metadata. If either is successful, the client will end up with an identified Authorization Server. The Authorization Request and flow will proceed without a `login_hint` or account identifier being bound to the session, but the Authorization Server `issuer` will be bound to the session.
 
 Either way, by the end of the authorization flow it will be important to resolve the DID of the authorized account and verify that it is consistent with the authorization server being talked to, and that the server granted access tokens for the expected account.
 
@@ -248,20 +241,20 @@ Either way, by the end of the authorization flow it will be important to resolve
 
 The client next makes a Pushed Authorization Request via HTTP POST request to the `pushed_authorization_request_endpoint`. Notable details include:
 
-- a randomly generated `state` token is required, and will be used to reference this authorization request with the subsequent response callback
+- a randomly generated `state` token is required, and will be used to reference this authorization request with the subsequent response callback
 - PKCE is required, so a secret value is generated and stored, and a derived challenge is included in the request
-- `scopes` value is included here, and must include `atproto`
-- for confidential clients, a `client_assertion` is included, with type `jwt-bearer`, signed using the secret client authentication key
+- `scopes` value is included here, and must include `atproto`
+- for confidential clients, a `client_assertion` is included, with type `jwt-bearer`, signed using the secret client authentication key
 - the client generates a new DPoP key for the user/session and uses it starting with the PAR request
-- if the auth flow started with an account identifier, the client should pass that starting identifier via the `login_hint` field
+- if the auth flow started with an account identifier, the client should pass that starting identifier via the `login_hint` field
 
 The initial response will be a DPoP error, with the server nonce included in an HTTP header. The client includes this nonce in a new DPoP JWT and retries the request.
 
-The Authorization Server will receive the PAR request and use the `client_id` URL to resolve the client metadata document. If all goes well, the server returns a `request_uri` token to the client.
+The Authorization Server will receive the PAR request and use the `client_id` URL to resolve the client metadata document. If all goes well, the server returns a `request_uri` token to the client.
 
 The client persists information about the session to some form of storage. This might be a database (for a web service backend) or web platform storage like IndexedDB (for a browser app).
 
-Then the client redirects the user via browser to the Authorization Server’s auth endpoint, including the `request_uri` as a URL parameter.
+Then the client redirects the user via browser to the Authorization Server’s auth endpoint, including the `request_uri` as a URL parameter.
 
 The user will authenticate with the server and approve the authorization request, using the "authorization interface" on the PDS/entryway.
 
