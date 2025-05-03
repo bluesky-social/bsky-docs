@@ -20,6 +20,14 @@ export type TagType =
 
 const Users: User[] = [
 {
+    title: 'Skyblaze',
+    description: 'Grow on Bluesky with ai-powered content generation, scheduling and engagement',
+    preview: require('./showcase/example-1.png'), // Placeholder image
+    website:'https://skyblaze.app',
+    author: 'https://bsky.app/profile/william-jin.bsky.social',
+    tags: ['client', 'socialtools'],
+},
+{
     title: 'BIRU',
     description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
     preview: require('./showcase/example-1.png'), // Placeholder image
