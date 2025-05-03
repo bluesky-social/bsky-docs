@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Longpost',
+    description: 'Share beautiful code snippets on bluesky',
+    preview: require('./showcase/longpost.png'),
+    website: 'https://longpost.in',
+    source: 'https://github.com/mohit2152sharma/longpost',
+    author: 'https://bsky.app/profile/montepy.in',
+    tags: ['opensource', 'socialtools']
+  }
 
 ]
 
