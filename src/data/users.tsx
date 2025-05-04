@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'BlueskyPlugin',
+    description: 'A plugin that can link the game “Minecraft” and the social media “Bluesky”.',
+    preview: require('./showcase/blueskyplugin.png'),
+    website: 'https://hangar.papermc.io/louis_c_novel/blueskyplugin',
+    source: 'https://github.com/louiscnovel2/BlueskyPlugin',
+    author: 'https://bsky.app/profile/did:plc:fporki4626psbdnxzeh7lhg5',
+    tags: ['othertools', 'open-source'],
+  },
 
 ]
 
