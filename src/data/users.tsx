@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: "Live NSW Traffic",
+    description: "Query the Transport NSW Live Traffic API and publish new events (not associated to any NSW gov agency)",
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/livenswtraffic.bsky.social',
+    author: 'https://bsky.app/profile/did:plc:hmffrfeyk2clbezqvlxsh42d',
+    tags: ['bot'],
+  },
 ]
 
 export type User = {
