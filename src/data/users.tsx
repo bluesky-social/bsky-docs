@@ -1242,6 +1242,25 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'BlueSky Multiple PLC Relay',
+    description: 'This project provides a simple relay/proxy service to allow validate DIDs on multiple PLC directories.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/eddieoz/bsky-plc-relay',
+    source: 'https://github.com/eddieoz/bsky-plc-relay',
+    author: 'https://bsky.app/profile/did:plc:f6beqf2stqdl34t5nr4mlodp',
+    tags: ['othertools', 'opensource', 'protocol'],
+  },
+  {
+    title: 'Bluesky Crypto Scam/Spam AI Labeller Bot',
+    description: 'This project uses AI to detects crypto spammers, scammers, phishing attempts, and other malicious activities, ensuring a safer and more transparent environment for users.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://github.com/eddieoz/atproto-scam-detector',
+    source: 'https://github.com/eddieoz/atproto-scam-detector',
+    author: 'https://bsky.app/profile/did:plc:f6beqf2stqdl34t5nr4mlodp',
+    tags: ['othertools', 'opensource', 'bot'],
+  },
+
 
 ]
 
