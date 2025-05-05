@@ -1242,6 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'The Blue',
+    description: 'Browse, filter and discover Bluesky Starter Packs',
+    preview: require('./showcase/the-blue.png'),
+    website: 'https://theblue.social',
+    author: 'https://bsky.app/profile/did:plc:bryys25pc2fnagnyxqgsglhd',
+    tags: ['socialtools', 'stats'],
+  }
 
 ]
 
