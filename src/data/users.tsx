@@ -1242,6 +1242,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
+  {
+    title: 'Skyzoo',
+    description: 'Primarily, Assigns you a Bluesky animal based on your recent activity! & More!',
+    preview: require('./showcase/skyzoo.png'),
+    website: 'https://skyzoo.blue',
+    source: 'https://github.com/jycouet/jyc.dev',
+    author: 'https://github.com/jycouet',
+    tags: ['othertools', 'opensource', 'stats'],
+  },
 
 ]
 
