@@ -1251,6 +1251,15 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Old wildlife illustrations bot',
+    description: 'Posts random images from the Biodiversity Heritage Library (unaffiliated)',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:ujsrwgtqk26kdz6ljxkrw4po',
+    source: 'https://github.com/nathanrooy/bhl-bot',
+    author: 'https://github.com/nathanrooy',
+    tags: ['bot', 'opensource'],
+  },
+  {
     title: 'Treeverse',
     description: 'A tool for navigating Bluesky threads using a tree visualization.',
     preview: require('./showcase/treeverse.png'),
