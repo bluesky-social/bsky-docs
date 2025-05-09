@@ -1,0 +1,75 @@
+---
+id: com-atproto-sync-list-hosts
+title: "com.atproto.sync.listHosts"
+description: "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*"
+sidebar_label: "com.atproto.sync.listHosts"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVkuP2zYQ/iuDueQBxXaCntTTJg2SRVvE2HiBAo4PtDS2mKVILWe0WMXQfw+Gkr3e2klaoChQoD5YlDicbz7Oc4ditoz5EotQT4w0MUiYcOcLXGVYEhfRNmKDxxwXlWUgXzbBegHL0JgoEDYgFcF4FCI1ga2E2IFqqWLw9otRDXAxv+QJXNFtSywMLbfGuQ7KAD4IRLptbSQwrVTkxRbpUAbGl1AYD2uC2pQEEmD+y0ewXowviCFEuCJnOrCeh0+T55/8J/98EcCRiR7qoGrXoRUojHPWbw/WXswvD4wYnL0hEGUZPGXARInaUqXeB7VZjblopVo9nZah4Kkp7xSyfLFtbUk8NY19UdpIhV7AM0hfB3Pe+ramaIQY2oYlkqmhSjqf0jZLlEKE+JjJM5DKyGASU7yzBUERPLc1MWxiqCdwWTeOavJCJay7QQFPMMPQKJwN/rLE/MS7E2dZEifMkKloo5UO8+UOX5OJFDFfrvpVho2JpiahyGnTm5owR2drK5ih1bC4bSl2mOHowBLzjXFMGXJRUW0w36F0jR6zXmhLETOsrbd1W2P+MsPa3I/r2WymMbcxrRPMX81mfZ8dMIs2coh/H5QlWr/FXtlE4iZ4Jtb9V7OZPh7H+IdfMcMieCEvumuaxo2hOP3MKrI7hQjrz1TII2uWmJyrSdREdYXYAXWkcWpfNp542DExGuVohWr+K3Dppk4QDzsnmH9O8L2k5rSGG8WfU2oauL76DZ76AIk6PVNrmW7PuLbP0BRFaL280b/zEixGWj5nD3kNhCWaQuwdKffS6SNsNs56XUkVg4ijEjNcG++pVMZixdG5MC9pwxPl9XHA7PvvCB9yIp3Afvhl+NO5SHltyn0t+6dChmJMEV4Ts9meceUg8J17u/R3xtnywa63941qX4Qb8pjt94fXVf8AdSZf9txfnnK/9lqlQ7Rfkh/+ZfJaAQVz1EL8u2Ue0+cHVJKEVEGr4ZYUvTFSYY7T+9gU0x8USE0GLYGrh2r5MeVCMm1fMw/IlUiDYzHS9/UgoEZYvwlJcozCiwXMFbUIDv64mr/RnqRH27o2scMc3wSv4NpBwwaOxJ8wOLq3eh3aFT805C/ml094yFIDmxBrI5OTNF8M7aRITVl9Z6xneL9YzFM/jLShSL4g0BanWuC1a4lvuqH9Hdm7h5/AO/Kpu4GBgSuIxpjaJcSSFGvzZRjao+tS/0r9VWHUypEl5jibzCYz9WkTWGqTomjfBs75CfaOekR09xCY/88u/6nZZcwioXuZNs5Yr7HQRqc+HbJ2iZq1qfZ8M29XQ0tV4d1ubZiuo+t7/TxMDzrQlJbN2h3NDzfUHQ04d8a1agnqIPIN2cNg8iC80pdoVToNUhlWZMo0Ve3GUxdFQc0xxEnlVC2HivXu7QIz1Pg6qjJjVcn2C9W+nx18d6R7txskUt3ve9ybnnIU+1Xf918B/IQ1QQ==
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"com.atproto.sync.listHosts"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/xrpc/com.atproto.sync.listHosts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Enumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000,"default":200}},{"name":"cursor","in":"query","required":false,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["hosts"],"properties":{"cursor":{"type":"string"},"hosts":{"type":"array","items":{"type":"object","required":["hostname"],"properties":{"hostname":{"type":"string","description":"hostname of server; not a URL (no scheme)"},"seq":{"type":"integer"},"accountCount":{"type":"integer"},"status":{"type":"string","enum":["active","idle","offline","throttled","banned"],"title":"com.atproto.sync.defs.hostStatus"}},"title":"com.atproto.sync.listHosts.host"}}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -6389,6 +6389,120 @@
         "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
       }
     },
+    "/xrpc/chat.bsky.convo.addReaction": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nAdds an emoji reaction to a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in a single reaction.",
+        "operationId": "chat.bsky.convo.addReaction",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "convoId",
+                  "messageId",
+                  "value"
+                ],
+                "properties": {
+                  "convoId": {
+                    "type": "string"
+                  },
+                  "messageId": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "ReactionMessageDeleted",
+                        "ReactionLimitReached",
+                        "ReactionInvalidValue"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/chat.bsky.convo.deleteMessageForSelf": {
       "post": {
         "tags": [
@@ -6827,10 +6941,25 @@
                             "$ref": "#/components/schemas/chat.bsky.convo.defs.logLeaveConvo"
                           },
                           {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logMuteConvo"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logUnmuteConvo"
+                          },
+                          {
                             "$ref": "#/components/schemas/chat.bsky.convo.defs.logCreateMessage"
                           },
                           {
                             "$ref": "#/components/schemas/chat.bsky.convo.defs.logDeleteMessage"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logReadMessage"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logAddReaction"
+                          },
+                          {
+                            "$ref": "#/components/schemas/chat.bsky.convo.defs.logRemoveReaction"
                           }
                         ]
                       }
@@ -7355,6 +7484,119 @@
           }
         },
         "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
+      }
+    },
+    "/xrpc/chat.bsky.convo.removeReaction": {
+      "post": {
+        "tags": [
+          "chat.bsky.convo"
+        ],
+        "description": "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRemoves an emoji reaction from a message. Requires authentication. It is idempotent, so multiple calls from the same user with the same emoji result in that reaction not being present, even if it already wasn't.",
+        "operationId": "chat.bsky.convo.removeReaction",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "convoId",
+                  "messageId",
+                  "value"
+                ],
+                "properties": {
+                  "convoId": {
+                    "type": "string"
+                  },
+                  "messageId": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "ReactionMessageDeleted",
+                        "ReactionInvalidValue"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/xrpc/chat.bsky.convo.sendMessage": {
@@ -9443,6 +9685,99 @@
                   },
                   "password": {
                     "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/com.atproto.admin.updateAccountSigningKey": {
+      "post": {
+        "tags": [
+          "com.atproto.admin"
+        ],
+        "description": "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nAdministrative action to update an account's signing key in their Did document.",
+        "operationId": "com.atproto.admin.updateAccountSigningKey",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "did",
+                  "signingKey"
+                ],
+                "properties": {
+                  "did": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "signingKey": {
+                    "type": "string",
+                    "description": "Did-key formatted public key",
+                    "format": "did"
                   }
                 }
               }
@@ -14643,6 +14978,111 @@
         }
       }
     },
+    "/xrpc/com.atproto.sync.getHostStatus": {
+      "get": {
+        "tags": [
+          "com.atproto.sync"
+        ],
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nReturns information about a specified upstream host, as consumed by the server. Implemented by relays.",
+        "operationId": "com.atproto.sync.getHostStatus",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hostname",
+            "in": "query",
+            "description": "Hostname of the host (eg, PDS or relay) being queried.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Hostname of the host (eg, PDS or relay) being queried."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "hostname"
+                  ],
+                  "properties": {
+                    "hostname": {
+                      "type": "string"
+                    },
+                    "seq": {
+                      "type": "integer"
+                    },
+                    "accountCount": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "$ref": "#/components/schemas/com.atproto.sync.defs.hostStatus"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "HostNotFound"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/com.atproto.sync.getLatestCommit": {
       "get": {
         "tags": [
@@ -15213,6 +15653,116 @@
         }
       }
     },
+    "/xrpc/com.atproto.sync.listHosts": {
+      "get": {
+        "tags": [
+          "com.atproto.sync"
+        ],
+        "description": "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates upstream hosts (eg, PDS or relay instances) that this service consumes from. Implemented by relays.",
+        "operationId": "com.atproto.sync.listHosts",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000,
+              "default": 200
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "hosts"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "hosts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/com.atproto.sync.listHosts.host"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/com.atproto.sync.listRepos": {
       "get": {
         "tags": [
@@ -15581,7 +16131,8 @@
                       "enum": [
                         "InvalidRequest",
                         "ExpiredToken",
-                        "InvalidToken"
+                        "InvalidToken",
+                        "HostBanned"
                       ]
                     },
                     "message": {
@@ -16725,6 +17276,106 @@
                             "$ref": "#/components/schemas/tools.ozone.moderation.defs.repoViewNotFound"
                           }
                         ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/tools.ozone.moderation.getSubjects": {
+      "get": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet details about subjects.",
+        "operationId": "tools.ozone.moderation.getSubjects",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "subjects",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "subjects"
+                  ],
+                  "properties": {
+                    "subjects": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.subjectView"
                       }
                     }
                   }
@@ -19313,6 +19964,14 @@
         ],
         "parameters": [
           {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "disabled",
             "in": "query",
             "required": false,
@@ -19575,6 +20234,9 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.verificationState"
           }
         }
       },
@@ -19624,6 +20286,9 @@
             "items": {
               "$ref": "#/components/schemas/com.atproto.label.defs.label"
             }
+          },
+          "verification": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.verificationState"
           }
         }
       },
@@ -19692,6 +20357,9 @@
           },
           "pinnedPost": {
             "$ref": "#/components/schemas/com.atproto.repo.strongRef"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.verificationState"
           }
         }
       },
@@ -19784,6 +20452,72 @@
           }
         }
       },
+      "app.bsky.actor.defs.verificationState": {
+        "type": "object",
+        "description": "Represents the verification information about the user this object is attached to.",
+        "required": [
+          "verifications",
+          "verifiedStatus",
+          "trustedVerifierStatus"
+        ],
+        "properties": {
+          "verifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.verificationView"
+            }
+          },
+          "verifiedStatus": {
+            "type": "string",
+            "description": "The user's status as a verified account.",
+            "enum": [
+              "valid",
+              "invalid",
+              "none"
+            ]
+          },
+          "trustedVerifierStatus": {
+            "type": "string",
+            "description": "The user's status as a trusted verifier.",
+            "enum": [
+              "valid",
+              "invalid",
+              "none"
+            ]
+          }
+        }
+      },
+      "app.bsky.actor.defs.verificationView": {
+        "type": "object",
+        "description": "An individual verification for an associated subject.",
+        "required": [
+          "issuer",
+          "uri",
+          "isValid",
+          "createdAt"
+        ],
+        "properties": {
+          "issuer": {
+            "type": "string",
+            "description": "The user who issued this verification.",
+            "format": "did"
+          },
+          "uri": {
+            "type": "string",
+            "description": "The AT-URI of the verification record.",
+            "format": "at-uri"
+          },
+          "isValid": {
+            "type": "boolean",
+            "description": "True if the verification passes validation, otherwise false."
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Timestamp when the verification was created.",
+            "format": "date-time"
+          }
+        }
+      },
       "app.bsky.actor.defs.preferences": {
         "type": "array",
         "items": {
@@ -19826,6 +20560,9 @@
             },
             {
               "$ref": "#/components/schemas/app.bsky.actor.defs.postInteractionSettingsPref"
+            },
+            {
+              "$ref": "#/components/schemas/app.bsky.actor.defs.verificationPrefs"
             }
           ]
         }
@@ -20175,6 +20912,17 @@
             "type": "string",
             "description": "The date and time at which the NUX will expire and should be considered completed.",
             "format": "date-time"
+          }
+        }
+      },
+      "app.bsky.actor.defs.verificationPrefs": {
+        "type": "object",
+        "description": "Preferences for how verified accounts appear in the app.",
+        "required": [],
+        "properties": {
+          "hideBadges": {
+            "type": "boolean",
+            "description": "Hide the blue check badges for verified accounts and trusted verifiers."
           }
         }
       },
@@ -22007,6 +22755,36 @@
           }
         }
       },
+      "app.bsky.graph.verification": {
+        "type": "object",
+        "required": [
+          "subject",
+          "handle",
+          "displayName",
+          "createdAt"
+        ],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "DID of the subject the verification applies to.",
+            "format": "did"
+          },
+          "handle": {
+            "type": "string",
+            "description": "Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying.",
+            "format": "handle"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying."
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Date of when the verification was created.",
+            "format": "date-time"
+          }
+        }
+      },
       "app.bsky.labeler.defs.labelerView": {
         "type": "object",
         "required": [
@@ -22179,6 +22957,10 @@
           }
         }
       },
+      "app.bsky.notification.defs.recordDeleted": {
+        "type": "object",
+        "properties": {}
+      },
       "app.bsky.notification.listNotifications.notification": {
         "type": "object",
         "required": [
@@ -22204,7 +22986,7 @@
           },
           "reason": {
             "type": "string",
-            "description": "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.",
+            "description": "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', 'starterpack-joined', 'verified', and 'unverified'.",
             "enum": [
               "like",
               "repost",
@@ -22212,7 +22994,9 @@
               "mention",
               "reply",
               "quote",
-              "starterpack-joined"
+              "starterpack-joined",
+              "verified",
+              "unverified"
             ]
           },
           "reasonSubject": {
@@ -22414,7 +23198,10 @@
           },
           "chatDisabled": {
             "type": "boolean",
-            "description": "Set to true when the actor cannot actively participate in converations"
+            "description": "Set to true when the actor cannot actively participate in conversations"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.verificationState"
           }
         }
       },
@@ -22496,6 +23283,12 @@
               }
             ]
           },
+          "reactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/chat.bsky.convo.defs.reactionView"
+            }
+          },
           "sender": {
             "$ref": "#/components/schemas/chat.bsky.convo.defs.messageViewSender"
           },
@@ -22541,6 +23334,53 @@
           }
         }
       },
+      "chat.bsky.convo.defs.reactionView": {
+        "type": "object",
+        "required": [
+          "value",
+          "sender",
+          "createdAt"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.reactionViewSender"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.reactionViewSender": {
+        "type": "object",
+        "required": [
+          "did"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.messageAndReactionView": {
+        "type": "object",
+        "required": [
+          "message",
+          "reaction"
+        ],
+        "properties": {
+          "message": {
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+          },
+          "reaction": {
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.reactionView"
+          }
+        }
+      },
       "chat.bsky.convo.defs.convoView": {
         "type": "object",
         "required": [
@@ -22570,6 +23410,13 @@
               },
               {
                 "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+              }
+            ]
+          },
+          "lastReaction": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.messageAndReactionView"
               }
             ]
           },
@@ -22738,6 +23585,66 @@
                 "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
               }
             ]
+          }
+        }
+      },
+      "chat.bsky.convo.defs.logAddReaction": {
+        "type": "object",
+        "required": [
+          "rev",
+          "convoId",
+          "message",
+          "reaction"
+        ],
+        "properties": {
+          "rev": {
+            "type": "string"
+          },
+          "convoId": {
+            "type": "string"
+          },
+          "message": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+              },
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+              }
+            ]
+          },
+          "reaction": {
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.reactionView"
+          }
+        }
+      },
+      "chat.bsky.convo.defs.logRemoveReaction": {
+        "type": "object",
+        "required": [
+          "rev",
+          "convoId",
+          "message",
+          "reaction"
+        ],
+        "properties": {
+          "rev": {
+            "type": "string"
+          },
+          "convoId": {
+            "type": "string"
+          },
+          "message": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.messageView"
+              },
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.deletedMessageView"
+              }
+            ]
+          },
+          "reaction": {
+            "$ref": "#/components/schemas/chat.bsky.convo.defs.reactionView"
           }
         }
       },
@@ -23534,6 +24441,37 @@
           }
         }
       },
+      "com.atproto.sync.defs.hostStatus": {
+        "type": "string",
+        "enum": [
+          "active",
+          "idle",
+          "offline",
+          "throttled",
+          "banned"
+        ]
+      },
+      "com.atproto.sync.listHosts.host": {
+        "type": "object",
+        "required": [
+          "hostname"
+        ],
+        "properties": {
+          "hostname": {
+            "type": "string",
+            "description": "hostname of server; not a URL (no scheme)"
+          },
+          "seq": {
+            "type": "integer"
+          },
+          "accountCount": {
+            "type": "integer"
+          },
+          "status": {
+            "$ref": "#/components/schemas/com.atproto.sync.defs.hostStatus"
+          }
+        }
+      },
       "com.atproto.sync.listRepos.repo": {
         "type": "object",
         "required": [
@@ -24182,6 +25120,34 @@
           },
           "recordsStats": {
             "$ref": "#/components/schemas/tools.ozone.moderation.defs.recordsStats"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.subjectView": {
+        "type": "object",
+        "description": "Detailed view of a subject. For record subjects, the author's repo and profile will be returned.",
+        "required": [
+          "type",
+          "subject"
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/com.atproto.moderation.defs.subjectType"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.subjectStatusView"
+          },
+          "repo": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.repoViewDetail"
+          },
+          "profile": {
+            "oneOf": []
+          },
+          "record": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.recordViewDetail"
           }
         }
       },
