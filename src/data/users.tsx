@@ -1251,6 +1251,14 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Graze Social',
+    description: 'Feed builder and sponsorship platform',
+    preview: require('./showcase/graze-social.png'),
+    website: 'https://graze.social',
+    author: 'https://bsky.app/profile/graze.social',
+    tags: ['customfeed', 'socialtools']
+  },
+  {
     title: 'Bluejeans',
     description: 'Art-centric web client for Bluesky',
     preview: require('./showcase/bluejeans-alpha-site-card.png'),
