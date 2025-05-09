@@ -1251,6 +1251,14 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Kyst',
+    description: 'A tool to bookmark and organize your favorite posts on Bluesky',
+    preview: require('./showcase/kyst-banner-1280-720.png'),
+    website: 'https://kyst.app',
+    author: 'https://bsky.app/profile/did:plc:vk4brqfoersrab5e5guerzcs',
+    tags: ['socialtools'],
+  },
+  {
     title: 'bluesky-post',
     description: 'A Web Component to display Bluesky posts and their metadata',
     preview: require('./showcase/example-1.png'),
@@ -1337,7 +1345,8 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/mszpro.com',
     tags: ['client'],
   },
-  {    title: 'Graze Social',
+  {
+    title: 'Graze Social',
     description: 'Feed builder and sponsorship platform',
     preview: require('./showcase/graze-social.png'),
     website: 'https://graze.social',
