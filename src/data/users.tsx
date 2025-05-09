@@ -1251,6 +1251,15 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'NeoDB',
+    description: 'an open-source software and federated community to manage and explore collections, reviews, and ratings for various cultural products, including books, movies, music, podcasts, games, and performances.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://neodb.net',
+    source: 'https://github.com/neodb-social/neodb',
+    author: 'https://bsky.app/profile/neodb.bsky.social',
+    tags: ['socialtools', 'bridge', 'opensource'],
+  },
+  {
     title: 'bsky-sh-cli (Bluesky in the shell)',
     description: 'Bluesky CLI (Command Line Interface) implementation in shell script',
     preview: require('./showcase/example-1.png'),
