@@ -28,13 +28,13 @@ You can experiment with this flow by entering a PDS hostname (or `https://bsky.s
 
 ### Account Management Interface
 
-The reference implementation's account management interface is at the path `/account`. This specific path does not need to be a protocol norm or requirement, and we intend to make any account management URL machine-discoverable in the future. For an independent PDS at [`pds.example.com`](http://pds.example.com), the full URL would be [https://pds.example.com/account](https://pds.example.com/account). For an account hosted on Bluesky's hosting service, the URL is [https://bsky.social/account](https://bsky.social/account). 
+The reference implementation's account management interface is at the path `/account`. This specific path does not need to be a protocol norm or requirement, and we intend to make any account management URL machine-discoverable in the future. For an independent PDS at `pds.example.com`, the full URL would be `https://pds.example.com/account`. For an account hosted on Bluesky's hosting service, the URL is [https://bsky.social/account](https://bsky.social/account).
 
 ![Web Sign-In interface, asking for "Identifier" and "Password". There is a "Forgot Password?" link, and a language selector drop-down.](pds-mgmt-signin.png)
 
 *Web Sign-In interface, asking for "Identifier" and "Password". There is a "Forgot Password?" link, and a language selector drop-down.*
 
-Users will already be signed in if they have done an OAuth approval flow for an app. If not, they should sign in using their full account password (not an app password). Multiple accounts on the same PDS can be signed in at the same time, with an account selector dialog.  
+Users will already be signed in if they have done an OAuth approval flow for an app. If not, they should sign in using their full account password (not an app password). Multiple accounts on the same PDS can be signed in at the same time, with an account selector dialog.
 
 ![Web interface for "Your Account". Shows a list of "Connected apps" (Statusphere React App and OAuth Flask Backend Demo), with "Revoke access" buttons for each. Also has a list of "My Devices", showing "Linux \- Firefox" and "Linux \- Chrome", the latter indicated as "This device", both with "Sign Out" buttons.](pds-mgmt-sessions.png)
 
