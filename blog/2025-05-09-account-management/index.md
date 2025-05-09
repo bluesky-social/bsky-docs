@@ -51,3 +51,10 @@ The specific design and features for account management are largely left to impl
 The protocol team released an initial [Auth Scopes design sketch in March](https://github.com/bluesky-social/atproto/discussions/3655), and expects to have a working version in the network before long. In the meanwhile, we are planning to introduce an email-specific transitional OAuth scope, which will let OAuth clients access account email addresses and email verification status.
 
 App developers in the ecosystem have been implementing atproto OAuth clients of both the "public" and "confidential" types. While the "public" client type can be easier to implement, we need to emphasize that long-lived auth sessions (eg, more than a couple days or weeks before re-authentication)  are only possible with "confidential" clients. This requires some degree of auth offload to an app server which holds cryptographic private keys and signs token refresh requests. You can read more about this in the "Confidential Client Authentication" section of the [atproto OAuth specifications](https://atproto.com/specs/oauth).
+
+As always, we encourage you to check in on both official and community channels for updates on AT Protocol. An increasing share of development is happening out in the ecosystem, with more projects and organizations getting started by the week:
+
+- [@atproto.com](https://bsky.app/profile/atproto.com) account on Bluesky
+- [Discussions](https://github.com/bluesky-social/atproto/discussions) on Github
+- [The Fediverse Report](https://fediversereport.com/) includes weekly AT Protocol coverage
+- [atprotocol.dev](https://atprotocol.dev/) Working Groups
