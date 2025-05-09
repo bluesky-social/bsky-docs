@@ -1242,7 +1242,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Helico for Bluesky',
+    description: 'Super minimum(yet) Bluesky client',
+    preview: require('./showcase/helico.png'),
+    website: 'https://apps.apple.com/jp/app/helico-for-bluesky/id6744268859',
+    author: 'https://bsky.app/profile/zakuni.bsky.social',
+    tags: ['client'],
+  },
 ]
 
 export type User = {
