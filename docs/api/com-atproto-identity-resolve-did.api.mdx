@@ -1,0 +1,73 @@
+---
+id: com-atproto-identity-resolve-did
+title: "com.atproto.identity.resolveDid"
+description: "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
+sidebar_label: "com.atproto.identity.resolveDid"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU2P4zYM/SsEL/sBr5MWPfmW2Wx3g6LdYJoFCmRzUCQm0Y4seSQ6GNfwfy9oO5NMM5juoeihuTiSKPKR4ntskdU+YbFGHcpccRUDh9wa8my5wU2GhpKOtmIbPBb4dhXAkYoeyhAJ1DbUDFo5Z/0exuswWy6AvKmC9ZzA2TsCPtgEwVMGiWRFsBarTyFxAuUNzGo+bF5PTNBposxReU3m3b62htJEVfadsZE0h9i8gX43f/vVf/W3lII7UoL5Yg4c+o8Jui7Jcw7zQAl8YNie7tvglXMNHCnaXQMH5Y2jHDMMFUUlxwuDxbO1yOMQa24NZphI11EqVKxbvCEVKWKx3nSbDCsVVUlMMfWHXpWEBZr+mpUa3tcUG/x7ZccMxiiCKdJ9bSMZLDjWlGHSByoVFi1yU4nPxNH6/Xd42oVYKh5RdAIyUqqCT5TE3Y/TqXyeevn8C2aog2fyLKeqqpzVfY0m35KYtNeIwvYbaX6CfS1B50FLL1VR6sx2CDvuF23X/zL86TkcN8rALd3XlPjfAkQxhogZlpSS2tM1ssHgmUKTr0vxsPBH5aw54/rwUIn3Vbgjj9np/LScW/Nb4J9D7c2wmpPSbI+KyeCmOyO5CnkuzQ/XpfniVc2HEO2fZP772ujgk/SUMPdXm1IP9x9T6S34EIRme5LoleIDFjh5iJWefA/z4nHg1uZMw98ltwHfiYyP4Q/MFY7skfV2MBAk1u9Cb2nZydFsBUsJrYODP26X70XJ5Gpdlio2WOD74CW4DR7CDi7MXyVw9GClJsK9zxX52XLxKsFQdRgYmF9xdSW6mAZlAnlAZX2CT6vVslfRSDuK5DWJqiXxAjeupnTXDKJ5gfcUPoeP5EXMCBQMuQJLHwoupsS9Y5HsBIMougZ2MZS9KksYQTlmiQVO82k+lYetQuJS9a00atpLjwXDaz3Jtj236P92kIxNx/TAk8op66V0dXSS/dDpa5RO7/n6cq9vMjwEodga23arEn2Jrutke5ggMl2MTWrrhLo75RK9UPDXtyPL38D1gHgW9R01j4PrqFwtFijD46iilaj9xMvwQMr0468dr8y0poovbl3JkXh5lIGPH1aYoUjZBWtHlmanP+J9PFK+ufDdtoNFr7Vdhyfcfc9jt+m67i8W1BUm
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"com.atproto.identity.resolveDid"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/xrpc/com.atproto.identity.resolveDid"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Resolves DID to DID document. Does not bi-directionally verify handle.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"did","in":"query","description":"DID to resolve.","required":true,"schema":{"type":"string","description":"DID to resolve.","format":"did"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["didDoc"],"properties":{"didDoc":{}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","DidNotFound","DidDeactivated"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
