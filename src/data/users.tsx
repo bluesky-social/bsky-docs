@@ -1251,6 +1251,15 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'ATProtoKit (Swift)',
+    description: 'A straightforward solution for the ATProtoKit and Bluesky, written in Swift.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://atprotokit.cjrriley.com/documentation/atprotokit/',
+    source: 'https://github.com/MasterJ93/ATProtoKit',
+    author: 'https://bsky.app/profile/did:plc:wlef3srsa3hlyzj2hy6yncrh',
+    tags: ['protocol', 'opensource']
+  },
+  {
     title: 'Videos For Bluesky (iOS)',
     description: 'Scroll through the infinite video reel, watch interesting videos in For You, Follow, or any of the custom feeds.',
     preview: require('./showcase/videos-for-bluesky-ios.jpg'),
