@@ -1382,7 +1382,7 @@ const Users: User[] = [
     title: 'Blu.Ski',
     description: 'Short URLs and other tools for Bluesky',
     preview: require('./showcase/bluski.png'),
-    website: 'https://bsky.app/profile/blu.ski',
+    website: 'https://blu.ski',
     author: 'https://bsky.app/profile/sri.xyz',
     tags: ['othertools'],
   },
