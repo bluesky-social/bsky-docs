@@ -1,0 +1,75 @@
+---
+id: tools-ozone-setting-remove-options
+title: "tools.ozone.setting.removeOptions"
+description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*"
+sidebar_label: "tools.ozone.setting.removeOptions"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVt9v2zgM/lcIvmwr3CQ33JPf0nW4BYdDgzYDDsiMQbGZRIstqaKcxgv8vx8oO3W69dYDBtzT+lJHosiPvz7yiEFtGNMlBmtLHtmv1tCIKQRtNpglWBDnXrugrcEULxZbzUCmcFabAJrBKR/AriFsCZY38hoqW5BX8gKY/F7nlL3ehuA4HY87/dHW+A1M5zMewS3d18SBoeZalWUDnu5r7QlUHbZkgs6jsgSUJyi0pzxQAcFGmzWTf8Uwv74DbYIyOSWgTAHO24MexDpk2nAUAW0K0UoFrJp4fz27Bm3iZ485ami02cCWVEF+BNOi0qYHNcCCSjWgSrawInCWWa9KSuBBh210hDgAkwk98rJ5HtLo4pP5ZC4WFkpS3kBlJQArWwfIVVkKDhWct8FK1B5TwFDqHUGQtFhDCTBRlwuR+mAlrBKOaR222etxYXMeq2IvFovLTa0L4rFy+rIDZ33zBuJpB+eaSgoSkVgOLMHaUYMJWtdneFZg+lzpjDxVdk83sXAYE2TKa69Dg+nyiFekPHlMl1mbJdhH6coWDaZH7LNfYBp8TQnm1gQyQa6Uc2Uf9vEXloo8IudbqpR8hcYRpmhXXygPmJwpWuKOmogit46krJ0XF4ImlpfxdtCgvFfipQ5UnZ9z8NIVCa6tr1TAFA3rAtsEK3WYdcJvJ5P2ZOeZl2TqSvCc0o4JOvJsjSoxa+OfAGdnDXfY3k4m8u9pH978iT8RmKfOf67NztgH8/lF0fYE8PfnMF2p4tTKPwPuPGvkvfWYYEXMavNM4jqBH8R5Zvaq1MWA6/3BifaF3ZHB5HTf/czawdR3Ogfff/ve949GaMF6/ZWK/9/53BqWapQm/0szR7gvuhIlwtZKBzsbg+NU2GKK44N3+fi/dbXfk5f5kQ0tfifudRBPjf6IQOZA7EMRwRRXnYCAkejcDlTw/qAqV9LQnssT/Oyxv4Y2ahPUZm2jJR3kGU4XMBe+zG0Jf9/O3wlvium6qpRvMMV31gh44XC7hjPxVwwlHbSEVcj6xpGZzmevGLrEQdf+I/x2OsbhyJTHsSA1oLRh+LBYzCNne1qTJxk/QsOiBa7KmnjXdBR9hvdkfgR/kBGqJVDQxQqC1GocIjJaRLEMCB7my9rbKs4AMSMoey8xxcloMppIsCThlYrVaFTMxL+nG4Z8P/H3ONT5r8Xg12IQF4O+zQMdwtiVShspttqXUi0duyxR2EVEX+SXLMGtEFO6xONxpZg++rJt5fi+JmlhYZ298lqtpOOXwt9dTuKWIYhil0uNXi4EmYiXdZzx3/Jym5xeTPOcXPihbHbGnfObuwUmuOrXFylyTNGrB+Fz9YApxoWpc0n2Gzk7YqnMpo70jJ1O4UCpoTO27NkxOX2IV6cdxTRnCI/HTiLOsbbFpHclcgW2sln8AzN9MmU=
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"tools.ozone.setting.removeOptions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/tools.ozone.setting.removeOptions"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Delete settings by key
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["keys","scope"],"properties":{"keys":{"type":"array","items":{"type":"string","format":"nsid"},"maxItems":200},"scope":{"type":"string","enum":["instance","personal"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"_unknown_":{"type":"object","properties":{}}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

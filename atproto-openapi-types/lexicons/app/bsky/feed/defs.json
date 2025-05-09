@@ -44,7 +44,15 @@
         "like": { "type": "string", "format": "at-uri" },
         "threadMuted": { "type": "boolean" },
         "replyDisabled": { "type": "boolean" },
-        "embeddingDisabled": { "type": "boolean" }
+        "embeddingDisabled": { "type": "boolean" },
+        "pinned": { "type": "boolean" }
+      }
+    },
+    "threadContext": {
+      "type": "object",
+      "description": "Metadata about this post within the context of the thread it is in.",
+      "properties": {
+        "rootAuthorLike": { "type": "string", "format": "at-uri" }
       }
     },
     "feedViewPost": {
@@ -53,7 +61,7 @@
       "properties": {
         "post": { "type": "ref", "ref": "#postView" },
         "reply": { "type": "ref", "ref": "#replyRef" },
-        "reason": { "type": "union", "refs": ["#reasonRepost"] },
+        "reason": { "type": "union", "refs": ["#reasonRepost", "#reasonPin"] },
         "feedContext": {
           "type": "string",
           "description": "Context provided by feed generator that may be passed back alongside interactions.",
@@ -88,6 +96,10 @@
         "indexedAt": { "type": "string", "format": "datetime" }
       }
     },
+    "reasonPin": {
+      "type": "object",
+      "properties": {}
+    },
     "threadViewPost": {
       "type": "object",
       "required": ["post"],
@@ -103,7 +115,8 @@
             "type": "union",
             "refs": ["#threadViewPost", "#notFoundPost", "#blockedPost"]
           }
-        }
+        },
+        "threadContext": { "type": "ref", "ref": "#threadContext" }
       }
     },
     "notFoundPost": {
@@ -157,6 +170,13 @@
           "items": { "type": "ref", "ref": "com.atproto.label.defs#label" }
         },
         "viewer": { "type": "ref", "ref": "#generatorViewerState" },
+        "contentMode": {
+          "type": "string",
+          "knownValues": [
+            "app.bsky.feed.defs#contentModeUnspecified",
+            "app.bsky.feed.defs#contentModeVideo"
+          ]
+        },
         "indexedAt": { "type": "string", "format": "datetime" }
       }
     },
@@ -171,7 +191,10 @@
       "required": ["post"],
       "properties": {
         "post": { "type": "string", "format": "at-uri" },
-        "reason": { "type": "union", "refs": ["#skeletonReasonRepost"] },
+        "reason": {
+          "type": "union",
+          "refs": ["#skeletonReasonRepost", "#skeletonReasonPin"]
+        },
         "feedContext": {
           "type": "string",
           "description": "Context that will be passed through to client and may be passed to feed generator back alongside interactions.",
@@ -185,6 +208,10 @@
       "properties": {
         "repost": { "type": "string", "format": "at-uri" }
       }
+    },
+    "skeletonReasonPin": {
+      "type": "object",
+      "properties": {}
     },
     "threadgateView": {
       "type": "object",
@@ -249,6 +276,14 @@
     "clickthroughEmbed": {
       "type": "token",
       "description": "User clicked through to the embedded content of the feed item"
+    },
+    "contentModeUnspecified": {
+      "type": "token",
+      "description": "Declares the feed generator returns any types of posts."
+    },
+    "contentModeVideo": {
+      "type": "token",
+      "description": "Declares the feed generator returns posts containing app.bsky.embed.video embeds."
     },
     "interactionSeen": {
       "type": "token",

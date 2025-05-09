@@ -1,417 +1,75 @@
 ---
 id: app-bsky-video-upload-video
 title: "app.bsky.video.uploadVideo"
-description: "Upload a video to be processed then stored on the PDS."
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*"
 sidebar_label: "app.bsky.video.uploadVideo"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9Vm1v2zYQ/iuH+9IO0GR36CdhGOAk3uatXYzEKQa4RkGJZ4uxRLIkldgz9N+Ho+TYqb0EGIb5gyzqjs+9PXfkDoNYeczmKKxNc7/epg9KksFFgpJ84ZQNymjM8M5WRkgQEOUQDOQE1pmCvCcJoSQNPhhHEozmJUyvblNM0FhygkEmErNvzKRNRP0UTSboqWicClvM5ju8IOHIYTZftIsEHX1tyIcLI7eY7eJSOZKYBddQgoXRgXRgUQQe1PY9Zru2bXmrt0Z78iz9YTjkv+exXf+OzyCEtZUqotODe88qO/RFSbXgt7C1hBma/J6KgMmRL3O8N/ltEKHxnEDrOPagOssH0esYE4kJSsVPH0Sgs2iczyckH5zSK2y7bSffE1waV4uAWZS3e9wzis9TMysJoiqYZaxqV/6+8Eqv4N7kKYyqCh5E1ZAHbQJUygeSIDwIWGvzqDshKC05rwShFCHC3ZsclAel95BMGdJNzZn47friy+1sNBt/ubz+OP0wno2vMDn6+vNo8mF8hYs2ZmflyB8nV+lAK3KYYK20qhlymGAtNt37u+GwTTCvTP5iunKlhdtyxsg5486mvCbvxepMNpl+QYWKTpkvaenTAyfa+Evw/Tl+XggJN10D/FdE7YI5uH5CsH+I9lCciX4QlZIHv8Yby+gzsyaNyV7eLRcvZ2kf+7vT2O+0aEJpnPqL5P8ffGG0ZxaMmlB+VJHwrxS8j6WmUBoeeNbE5FgRSsxw8Mr8cw/kfBx/jaswwzIE67PBwDZ5pYpUWNXtFtYONs4WJ/16wT243sLI2k+KHuHtNO5M4A8DHMR32CYn4NKntBG1rSg1bnUeeNwpgAjWmWB4usNbRiQdYk/Lc9DRWU3h0bj1yw7fUCW259xdHM6FW65uV6H96fBUALbIKYwq3LedAtdC6aWJmn0njmYw5RgKU8GfN9NLGE0nvLWpa271DC+N5jooo3nqHam/8VDRRjEr+AS8tqRH08kbDx3voJsa6Zkpqjx4KngJTGGhtIdfZ7Mp2wZHS3KkCwJpCs8osE+L0PLYgSfzKfxCmg9WAgFdrBC41divQD5E4EJUlQepHBWh2sLSmTpOXTbDXvZRYobDdJgOmdrM11rEZtKiPjO4OsrCnrPPAt0d+vPfXxj6ggbahIGthNLsVqTVrm+jb28rz9pokWDJPZfNcbfLhac7V7Utf/7aEJd3vkjwQTglcmbDnEdTSULGu8YO19QzgMP4fsa+sHrVsE+HuwVTvVMdFQXZcKR0MpeYwk/zYHp9O8ME8/4iUxvJe5x45BklHjHDz/gZOWSee0cE7wmd7F/Y2V4k9PbI/o9db0CcvD9h0vsZ2YHtom3bvwFju2sH
+api: eJztVk1v2zgQ/SuDuaQNFNld9KSb02S32W0Ro3GLBVyjpcSxxUQiWZJy4hr674uhpNhp3ORS7Kk+2LI4nM83b2aLQaw8ZnMU1qa5v9mkayXJ4CJBSb5wygZlNGZ4PCuVB9LSGqUDKA9WuABmCaEkOK0a8jcbENZWqhB8B97RnSqMhsn0wsOLr/cGjr++TGHa5JUq7vV5uC1VUYI0+iiAo2+NcgSiCSXpMCgshIacoBaSQCpHRag2IFZCaR+iF7ZTOjgzsfaTolt2IIMyBOuz0aiTSYVVnTfsFkx2hkhG8+SDB+EIGt+Iqtp0VoOJdhpP7sjD9OwqgVsVSnbU1CKoAjy5tSoIrDN3G6VXP9XdB9N4krA0DnITyiEAoSVoo0/sD0lKjz/rz/p4ZqAi4TTUhpOUmyZAIapK6RWIYJ0JhmPeS26lbggCF9BoSsATxTjmLPXWxFC1jJ4uXoykKfxIyLXQBcmTVaMk+ZGw6qTLuXGblxDfdu58tJUREgRE4HCK8hh+QZ5j4+DBB+NIgtHR7PTsKsUEjSUXC3shMfsBf2kTtX6KWEzQU9E4FTaYzbd4SsKRw2y+aBcJ9gk9NXKD2RZ76EjMgmsowcLoQDrwUVQ8qu1rzLZt2/JVb4325Pn0j/GYfx6C/vIffKBiD96ja88iW/RFSbXgp7CxhBma/JqKgMmeL3O8NvlVEKHx3FnWcexBdZZ3R8/ruJCYoFT87YMIdFAb5/Nekw9O6RW23bVH7xNcGleLgFk8bwe9BwQfpmZWEkTRgQK68veFZyhemzyFSVXBWnBDgjYBKuW5C4QHATfa3OruEJSWsUEglKLr5WuTM8koPahkyJBuas7E35enX65mk9n5lzeX76fvzmfnZ5jsvf1zcvHu/AwXbczOypHfT67SgVbkMMFaaVWzynGCtbjrnl+Nx22CeWXyJ9OVKy3chjNGzhl3MOU1eS9WB7LJ8AsqVPQY+ZKWPt1hoo2fBF8fwuepkPCha4BfBdQumJ3rjwD2k2h3xbnQa1EpufPr/M6y9pm5IY3JcN79XTydpSH2V49j/6h5PBinvpP8/4MvjPaMAubM9yoC/pmC97HUFErDhGdNTI4VocQMR3fOFqNnSNCtyfGwXuwY8Yrj6nwbePHeNI88vhdFGLGdAHuh9NJEyR6DkxlMeW4UpoJ/P0zf8Pzgq01dM8gzfGM0G+cxbJawJ37koeoGvWfuv7SkJ9OLIw9dxqHrl/QAfygPnopushsdeIzD29lsGmeXoyU50gUBj6M4Ie93DB5Ve/4O5lP4izSPFAIBXawQGGRxbJMPUTEPSr9bH5bO1JFv2Ax72UeJGY7TcTrmonKlahFhpEV9oGW7OsFQqAeBbnfI/L1D/d6hfvEO1Xd6oLswspVQmvHauIpx1zHLHJlZMHlqwVokWDIbZXPcbnPh6aOr2pZff2uI258ZZy2cEjmzxZxJuyQh4xa2xRvqGYJhfjJjl1i8ati13dbVJoPopCjIhj2hR4zNm909U04vr2aYYN6veLWRfMeJW2ZvcYsZctQM9D3y68kuGR7Y0f5I6M2e7e22k4jzqG0x6Z2M1IHtom3b/wA9/JaH
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"app.bsky.video.uploadVideo"}
 >
-  app.bsky.video.uploadVideo
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/app.bsky.video.uploadVideo"}
+  path={"/xrpc/app.bsky.video.uploadVideo"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Upload a video to be processed then stored on the PDS.
 
-## Request
-
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"video/mp4"}
-    value={"video/mp4-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        any
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                jobStatus
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <SchemaItem
-                              collapsible={false}
-                              name={"jobId"}
-                              required={true}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"did"}
-                              required={true}
-                              schemaName={"did"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string","format":"did"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"state"}
-                              required={true}
-                              schemaName={"string"}
-                              qualifierMessage={"**Possible values:** [`JOB_STATE_COMPLETED`, `JOB_STATE_FAILED`]"}
-                              schema={{"type":"string","description":"The state of the video processing job. All values not listed as a known value indicate that the job is in process.","enum":["JOB_STATE_COMPLETED","JOB_STATE_FAILED"]}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"progress"}
-                              required={false}
-                              schemaName={"integer"}
-                              qualifierMessage={"**Possible values:** `<= 100`"}
-                              schema={{"type":"integer","minimum":0,"maximum":100}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"blob"}
-                              required={false}
-                              schemaName={"binary"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string","format":"binary"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"error"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"message"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem>
-                          </div>
-                        </details>
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"jobStatus\": {\n    \"jobId\": \"string\",\n    \"did\": \"string\",\n    \"state\": \"JOB_STATE_COMPLETED\",\n    \"progress\": 0,\n    \"blob\": \"string\",\n    \"error\": \"string\",\n    \"message\": \"string\"\n  }\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"video/mp4":{}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["jobStatus"],"properties":{"jobStatus":{"type":"object","required":["jobId","did","state"],"properties":{"jobId":{"type":"string"},"did":{"type":"string","format":"did"},"state":{"type":"string","description":"The state of the video processing job. All values not listed as a known value indicate that the job is in process.","enum":["JOB_STATE_COMPLETED","JOB_STATE_FAILED"]},"progress":{"type":"integer","minimum":0,"maximum":100},"blob":{"type":"string","format":"binary"},"error":{"type":"string"},"message":{"type":"string"}},"title":"app.bsky.video.defs.jobStatus"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

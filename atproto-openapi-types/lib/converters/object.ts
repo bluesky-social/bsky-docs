@@ -18,7 +18,7 @@ export function convertObject(
   var properties = convertProperties(id, name, object.properties);
 
   // TODO: HACK(bnewbold): prevent "MimeTabs missing TabItem" error
-  if ((id == "app.bsky.feed.sendInteractions" || id == "chat.bsky.actor.deleteAccount") && Object.keys(properties).length == 0) {
+  if ((id == "app.bsky.feed.sendInteractions" || id == "chat.bsky.actor.deleteAccount" || id == "tools.ozone.set.deleteSet" || id == "tools.ozone.setting.removeOptions") && Object.keys(properties).length == 0) {
     properties = {
       _unknown_: {
         type: "object",

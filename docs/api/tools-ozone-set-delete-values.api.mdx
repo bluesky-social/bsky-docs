@@ -1,0 +1,75 @@
+---
+id: tools-ozone-set-delete-values
+title: "tools.ozone.set.deleteValues"
+description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*"
+sidebar_label: "tools.ozone.set.deleteValues"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1z2zYQ/Ss7e3HioSW30xNvcpw2nk5jja10OqPoAJErETEI0MBSFqPhf+8sSJryR5NL21N8MQUsdh/e7r7FAVltA6ZLZOdMmLivztIkEOMqwZxC5nXF2llM8XRR6ABk88ppy6ADVMozuA1wQbC8lpNQupy8khMQyO90Rqs3BXMV0um08x3jTN/CbH4VJnBD9zUFDlCHWhnTgKf7WnsCVXNBlnUWnSWgPEGuPWVMObCLMetA/iTA/PIWtGVlM0pA2Rwq7/Z6NOuQaRuiCWibi1fKYd3E/curS9A2fvaYo4dG2y0UpHLyE5jlpbY9qBEWlKoBZYKDNUHlQtBrQwk8aC7iRSgwBLLcIzfN65Amp5/tZ3u6cGBIeQulEwLWrmbIlDGCQ3HlHTth7TEFAYy+I2BJi7OUQCDqciFWH5zQKnTMai5Wb6a5y8JU5TuJmJ9ta51TmKpKn3XgnG/eQlzt4FySISbYKVNTgI13JSgIFWV6ozMIxBOYMVNZseBjB/mTA1wojkmzjkd2GR60MXHNU6hN3FIWyHvnMUFX9dVzlWP6vCQnXYQ/YwBMMFBWe80NpssDXpDy5DFdrtpVgj35Fy5vMD1gX1Q5puxrSjBzlsmybKmqMn02p1+CFPoBQ1ZQqeSLm4owRbf+QhljcuRoiVaVhAl295V2qbzAZ01Bjsbt0UVgr+0WnzfVR1XS0EJCzwsehXhsH8OMDpX3qsEENVMZXgZquz+BHCpnQ3f25/Nz+fcUw/XvEuCX17YuVD60KP5LtA2pLikEtaWXxHUGrzBHti7Fw5XdKaPzEdf7fSXeF+6OLCbD/vDzlvij419dbXNctWPgf6BMmPjpJROfrDS/8/or5f8/FZmzgTFFaeU/dAgR7nevEi24cNJLlYtUVYoLTHG691U2/W5/+R15GQ6rsdlu5WYduqHlHoOL0Mu5aIIprjsDwSHE3IxN+X6vysrQ2CdjlodCXw5LkjNtNy4G0iyncLaAuehh5gz8dTN/J7ookeuyVL7BFN85K9hFo90GjsxPAhjaayFUmu26IjubX50E6FIGG+dLxZMXjRqHX6Asyr5kX2kb4MNiMY+a7GlDnmS8iMyKF7iQe9w1nQQf4R3CT+A3siJ3BAo6qoClZuOQkNEhjmUAhHF+RB0WsZAwgrK/JaZ4PjmfnEtVSKpLZY/IfT3R8JjpJ1c9jMX9Y+b/mPn/+czvxYNpz9PKKG2lhmtvpBI7uVqiyJWYfkuwVgkWInLpEg+HtQr0yZu2leX7mkQURMZ2ymu1Fg1Ziq50qY4PiDvqdUNK/2whoHoxkmH7XOPbZDgxyzKq+Ju2qyMdnl/fLjDBdf8ykd7BFL16kNmgHjDF+AyS01Fk49oBjbLbOko9dj5FVKU0j+S3l9tk+JBbDY8F2xwhPBw6izgh2xaT/ipRfbBdtW37N6KsQjA=
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"tools.ozone.set.deleteValues"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/tools.ozone.set.deleteValues"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Delete values from a specific set. Attempting to delete values that are not in the set will not result in an error
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","values"],"properties":{"name":{"type":"string","description":"Name of the set to delete values from"},"values":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","SetNotFound"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,75 @@
+---
+id: tools-ozone-set-upsert-set
+title: "tools.ozone.set.upsertSet"
+description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*"
+sidebar_label: "tools.ozone.set.upsertSet"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVsFuGzcQ/ZXBXJIYa0lxcwj2JttBY7SFhVgpCig6UMuRxHiXZMhZW7Kw/14Md+VVbDXNIWgvOYnizgzfzBu+4Q5ZrSLmM2TnyjhwD87SIBLjPENNsQjGs3EWczyZrk0Esto7YxlMBK8Cg1sCrwlm1+IJldMUlHhApHBnCpq/XDP7mA+Hbex0zvAVjCdXcQAf6EtNkSPUsVZluYVAX2oTCFTNa7JsihQsAxUItAlUMGlgl86sI4UXESaXN2AsK1tQBspq8MFtTG/WIjM2JhMwVktU0rDYpu+XV5dgbFp2mFOErbErWJPSFAYw1pWxHageFlRqC6qMDhYE3sVoFiVlcG94nRKhyBDJcoe83B6HNDj5ZD/Zk6mDklSwUDkpwMLVDIUqS8Gh2AfHTqr2SEGE0twSsNDiLGUQiVouxOq9k7JKOcY1r+cvh9oVcaj0nZyoT1e10RSHypvTFpwL21eQdls4F4EUE7gAtdeyisRQESutWGGGzndEX2nMn3bPoPaRAt8QY4aRijoY3mI+2+E5qUAB89m8mWfYFenc6S3mO+zI15hzqCnDwlkmy/JJeV92VR9+jtKQO4zFmiolK956whzd4jMVcmQfaIZWVSTd7INAZkNRPNJu7xk5GLvCDCtjfye74jXmv2RYqc3+3+uzt82TK3HE+8B+dPZm1DQZsuGSjpRI0zKmm9Y0YhYoemdji+5sNJKfry/g9W/4I0sixPCNeZBVkcjWYzFs6Zb1/1W0HllvbSzTigI2h2CPBFu6UCnGHCWJUzYViUuf03e6fAdvfxq677h7c4yuc6X38vajeKMQXJCKUYxqdaSrW4MjOZKtK4lwZe9UaXSP693GS/SpuyWL2f57+3fe9Ec9i9k0+9xfP8/9oxWpdME8kP7vky+cjcKnCN8fJsYE919TSRa8diJn3qXieCVNicNN8MXw2xIX7ijIHJ33encjabXQ9qr3eLLMRPFLJpjjojUQEFKVD70uvtuoypfUX7+e1K9rvk8mQ2OXLp3VdfB4ChOZHoUr4a8PkwuZInJ4XVUqbDHHC2cFvkw0t4QD8xcRStoYKaiMrmtPdjy5ehGhpQzaqzN4hiU9FSIVaUgK+8rYCO+n00maYIGWFEiGsQwliQLnZU3xdtsOrAO8++MH8CtZmTgECtpqAUuXppEqg1YCy7iM/bRdBleliSjHCMouS8xxNBgNRlIsobpS9qC+x4mGluknWvbY2T+fRz+fR4fPo+6eM2146EtlbBpDoZSmaWVlhiIrYvqPwjLPcC1KlM9wt1uoSB9D2TSy/aUmubkiN3cqGLWQiz4TwW4pSW+tW+out7To6VQQiXlZC7JnQtxke49xUZDnb9rOD8Rycn0zxQwX3SNOehxzDOpeBFzdY47puSjeSQzT3g5LZVd10mNsY4r4SQsdyGQni9l+IVl1n5TdHiDc7VqLNLiaBrMulSQR2MybpvkbXVWGHg==
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"tools.ozone.set.upsertSet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/tools.ozone.set.upsertSet"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Create or update set metadata
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name"],"properties":{"name":{"type":"string","minLength":3,"maxLength":128},"description":{"type":"string","maxLength":10240}},"title":"tools.ozone.set.defs.set"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["name","setSize","createdAt","updatedAt"],"properties":{"name":{"type":"string","minLength":3,"maxLength":128},"description":{"type":"string","maxLength":10240},"setSize":{"type":"integer"},"createdAt":{"type":"string","format":"date-time"},"updatedAt":{"type":"string","format":"date-time"}},"title":"tools.ozone.set.defs.setView"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

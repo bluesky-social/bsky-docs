@@ -1,274 +1,75 @@
 ---
 id: app-bsky-graph-unmute-actor
 title: "app.bsky.graph.unmuteActor"
-description: "Unmutes the specified account. Requires auth."
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*"
 sidebar_label: "app.bsky.graph.unmuteActor"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VVFv2zYQ/ivEvbQDWNkb+iQMA5y22IJhi5E4wwBXDzR1tlhLJEOeEnuC/vtwlBw7sdFiwFC/WBKPH7+7+75jB6Q2EfIlKO+zVdzus01QvoJCQolRB+PJOAs53NumJYyCKhTRozZrg6VQWrvWUiZu8aE1AaNQLVUZSHAeg+K91yXkr9CzNoHNNLkAEiLqNhjaQ77s4ApVwAD5sugLCQEfWox05co95F16NQFLyCm0KEE7S2iJl5T3tdHpxMmXyJQ7iLrCRvET7T1CDm71BTWBPAFagko0Cgk+MGkyGBNg+nzcGykYuwEJaxcaRZwUvTMlWuJSBOjTj6GjdzYOID9Np/z3spQ3v0Mv4f2lpStVplJiZJb/S3oYQqpygzGqDZ4nOgRcSBRt2zDCtX1UtSmPvD7tPKMv3BYtyMP68Fr0x6POMA81ej/98Tz3e8vaccH8g+X3T147G7mps5aqP0yMie43U0kRVDnWuHepOF5RBTlMviH58IghJsW3oYYcKiIf88nEt6va6Ex5M+xW3k92wWt4bcirusW43YuZ938ZfBJv52mnFH86wUn8AL08Ay9jhjvV+BozFzaXgT8NAUKRD46cmH+8E28ZkaWuFWF5CTqRtUhPLmy/TvgWa7W/RLc4joI77u7QocNAeG4An8glTCGQw2oI4F6wOG6PI2PM5MTNz92TYOzaJVRDHAKzhZhzvtrV4u/b+Qcxm1/zMW3TqLCHHD44yz0zzgq3Fifhb6KocWdYQYKcuPFoZ/PrN1EMGhXDwMjOCrKoTBQRNb8KlrsyNorfFos5ny0CrjGg1ShKpyOjiEMJlS1PCTwfn4lf0fLcRaHEUBdBbEvmRRgpAWtV11GUJqCmei/WwTVprPMxzHLMEnKYZtNsysVibTcqGc+qVPWL8hYHfb9ItDt6+T9fI2PPCXc08bUyltkk5XWj015fXS+cVkio2Jb5ErpupSLeh7rv+fNDi9zVZSHhUQWjViyCJU+vClWZbqAOtjg2ntm/WzAXDq/bsQIvpxKbYtgx0xo9fTW2OJkc85u7BUhYjbdc40reE9QTTzP1BDl8hs+QLlVGSLZI3zuold20aUDBgMs24OKdGGY0iDw8cGbjkrL7E5Y/D14TaZL/AnLMJikI+qLv+38BrR3VwA==
+api: eJztlk1vGzcQhv/KYC5OjNVHi5z2JqdBY7SFBVsuCigCMiJHWsa7JENybSnC/vdiuJIlx25yCXqKLpJ3hzPvfPAZ7zDROmI5R/J+uIx32+E6kK9wUaDmqILxyTiLJZ7PKhOBrfbO2AQmgqeQwK0gVQwXdcvxbgvkfW0UyRn4kzdGOQuT6WWEVx8fA5x/fD2EabusjXr0F+GhMqoC7exZgsCfWxMYqE0V23RwqMjCkqEhzaBNYJXqLdCajI0pq/C904OYifd/G34QASVUKflYjka9zZC86dWILJgcA7HO4TmmCBQY2thSXW/7qMnlOG3kcBZh+ttNAQ8mVSLUNZSMgsjh3igGH9xma+z6P33vk2kja1i5AEuXqkMCZDVYZwf+qyINzz/YD/Z85qBmChYaJ0VaujaBoro2dg2UfHDJSc4nxa3NHUOSBjrLBUTmnMdcrN67nKrVWeni1Ug7FUek78kq1oN1azTHEXkz6GvuwvY15Ke9nFvbtIljdhg9K7MyrIGUcq1NQ7juexlzM4dYoPMccj8vNZZfjd2wzc4mEgULjKzaYNIWy/kOL5gCByzni25R4L6OF05vsdzhfmI0lim0XKByNrFN8upkJEefoszyDqOquCH5lbaesUS3/MQqYXHiaI6UZSwK9EFEJ8MxO8yPj2djCsauscCVCw0lSSoNjJaerwwH7PJHXEfvbOyd/Doey9fTO3b1B3YFvnnp1QXpXEqOovKHpMch5Co3HCOt+XmivcELibJtG/Fwae+pNvqo693Gi/eZu2OLxeF9/+eiO4Z65vNQozfjX57nfmtldlwwX1j//8krZ6M0VW7HXybGLPe7qWSLVDmZce9ycTylCkscbYJXo+/MfbjnIFheHC/BjeTVaztchcfQAjc5l02wxGVvICqkLNfHy/JuQ42v+WSOH3UXaOzKZa8miQlOZjAVmihXwz/X07dCFQnTNg2FLZb41lkRKnB2KzgxP4tQ9/iPAs0rz3YyvTyL0HcH+qsiOHja6rxkIque984mgTu8n82mmWiBVxzYKgaBVObm4+YRgJ3oPYQfwu9shTgMBH1dIMlAZphzTNmx4DMel8oquCYDTcKIyn2WWOJ4OB6OpVjS1YbyyFnKVX+xp3Bo6pNEd8cp/rlZf27WH7NZ9zBIvEkjX5OxMqZtqGXcevjMUeCDxbfW7qLASoBVznG3W1Lk21B3nTz+3LLceoHSPQVDS4HEXLheMem8m3d4x3swyHQPZiJJzOt2f0Oe8rorDicmSrFP37RdnDB1enUzwwKX+/3fOC1nAj0I5+kBS8z/asjpjMz8bIc12XWbsY29T0Gk1O8Epnt4FocfktX+FdnticLdrrfI+63rsNinkvGC3aLrun8BEIUBTw==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"app.bsky.graph.unmuteActor"}
 >
-  app.bsky.graph.unmuteActor
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/app.bsky.graph.unmuteActor"}
+  path={"/xrpc/app.bsky.graph.unmuteActor"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Unmutes the specified account. Requires auth.
 
-## Request
-
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"actor"}
-          required={true}
-          schemaName={"at-identifier"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","format":"at-identifier"}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["actor"],"properties":{"actor":{"type":"string","format":"at-identifier"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

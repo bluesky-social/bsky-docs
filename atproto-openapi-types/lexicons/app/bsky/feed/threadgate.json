@@ -5,7 +5,7 @@
     "main": {
       "type": "record",
       "key": "tid",
-      "description": "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository..",
+      "description": "Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository.",
       "record": {
         "type": "object",
         "required": ["post", "createdAt"],
@@ -16,11 +16,17 @@
             "description": "Reference (AT-URI) to the post record."
           },
           "allow": {
+            "description": "List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply.",
             "type": "array",
             "maxLength": 5,
             "items": {
               "type": "union",
-              "refs": ["#mentionRule", "#followingRule", "#listRule"]
+              "refs": [
+                "#mentionRule",
+                "#followerRule",
+                "#followingRule",
+                "#listRule"
+              ]
             }
           },
           "createdAt": { "type": "string", "format": "datetime" },
@@ -39,6 +45,11 @@
     "mentionRule": {
       "type": "object",
       "description": "Allow replies from actors mentioned in your post.",
+      "properties": {}
+    },
+    "followerRule": {
+      "type": "object",
+      "description": "Allow replies from actors who follow you.",
       "properties": {}
     },
     "followingRule": {

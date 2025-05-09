@@ -1,525 +1,73 @@
 ---
 id: chat-bsky-moderation-get-actor-metadata
 title: "chat.bsky.moderation.getActorMetadata"
-description: "chat.bsky.moderation.getActorMetadata"
+description: "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*"
 sidebar_label: "chat.bsky.moderation.getActorMetadata"
 hide_title: true
 hide_table_of_contents: true
-api: eJztVk2P2zYQ/SvEXLIBBNktehKKAt5kkS6KNIbXKQoYPoylscVYIrnkyLFq6L8XI8kfG6uJD0FP8cWmOXzzZvhmOAdg3ARIFpDmyPEqbOu4tBl5ZG0NLCOwrl88ZpAMWsUb4knK1r8nxgwZIYJAaeU115AsDnBP6MlDslg2ywgceiyJyYd202BJkAAKAESgDSTwXJGvIQJPz5X2lEHCvqIIQppTiZAcgGsnpwJ7bTYQwdr6EhkSyHQGjbjxFJw1gYKY/zwey1dGIfXataEl8OEPiCC1hsmw7KJzhU7bkEafgpgcrj3a1SdK+QW3BWQobEtrOIcIsCgkcc5L6lh3DMTkGyglhYAbCk/CJzotZ5SS3lHWkd3ZcPrxxOiZsmtnL5DOXrVh2pCHZgB80Kr395W9I4UBkyYC1lzQraqJy6N8mmMufyTs5oSJ6H6k68Z0tZ8IfhnqCveYqRk9VxT4e7UH8r7tbX1SrvPZGQy0NTJVKQiPZoeFzs68HvZO0Od2Swai4363XJ7zf415jv2n69g/Gqw4t17/c5TD/xl8ak2QFj6pOH+vQ2jpfjOUJvoiiFufqJI4t/KmbUg4O5SGA6PbXzi/O75hlS8ggZzZhWQ0ctWq0GmMTnc46Nxo710KXzK9LyoK21pNnPtL02d1N21PRupPqyQJr6GJrsCzENMeS1dQbP1mGPihM1DIzlu2avr2Sd0JIhmWW6RsCLola4g/W7/9OuEZFVgP0V2eX/4nUUd3w8f3/3SB4hH651zWq85A7lKbtW0t+9KezNVUYkhtof6eTd+oyfRRjlZlib6GBN5YI/egrVF2rS7MXwVV0F6LqhRb9cGRmUwfXwXV6VZ1I0N8FeQ810EFSmWppARQm6B+n8+n4lt5WpMnk5LKbBoERR3Tgia7JHByH6t3ZERKpFB1sSqWUhVeTIFb4BSLIqhMe0q5qNXa21Jx3rkRln2UkMA4HsdjKQ1nA5fYFmM/Rv2XelUrX3Wh3xdBn26Gac8jV6A2gt/q49CXxvCIeF0aywhyK4W8gMNhhYE++qJp5O9urJOCyXTAVSENYo1FoCs2p84Dd7O+l7xWEA2z3FJ9MUDusKjEphXjDr0WR+3sGUFOmLWD6KE/NElTcnxx6qrPCcqpU7x7mMt8V70YTXrxRscfgt5voakvsH/t6kC1Xfo3OBJvlQDNsmmafwGMfQlF
+api: eJztV0tv20gM/isEL00C1c4u9qSbkxRtsAgaJC6wgGugtETb00gzygzljdbQfy84kh+p3TaHxQILxBdrNBQfHz9yOGsUWgRMJ5gtSQaz8NAMSpezJzHO4jRBV/WL6xzTo1KDBcsoE+dvWCgnIUwwcFZ7Iw2mkzVeMHn2mE6m7TTBijyVLOxD3LRUMqZIqgATNBZTfKzZN5ig58faeM4xFV9zgiFbckmYrlGaSr8K4o1dYIJz50sSTDE3ObZqxnOonA0cVPz383P9yzlk3lQxtBQ//okJZs4KW9FdqqrCZDGk4degIutDi272lTN55tsEc1JvS2dliQlSUShwlVfoxHQeqMgvtJQcAi043Ks/yXZ5xxmbFeedsysXtg/3Ql44PzT2TNPOqrHCC/bYHlF+VKq395O9jQtHRNoExUjBL2XNoNzQp91g+QrYiwFT0r3C9UK44i/BP451hQvK4Y4faw7yb7UH9j72th6UQzw7gSNtjW1dqoZru6LC5Du/3j1Vqn3sHthistnvltMd/oc6d7H/dhj7J0u1LJ03/2zo8F8GnzkbtIWPalnemBCiu78MpU2+C+JsvDQB2OaVM1bABKjIC7g5yJLhoqg5PDRwuSSBk6ubcAqj2+sw2OQ8QB1qKooG+iBAIWErffQJkGfIjedMOAdxUWsd2L8JcHt1D8YK2YwTIJtD5d2T2YlpSAVDxlY8FaC0hcB+ZTKGWQOBRYxdRFGqFCVvSHgrcnV9BSdfcpOnf/Mspcp0nFc1X07B2M5GL6ymG9W2ZMrZD84+28/2bOygYPIWSqehzVwtkFFRqCBJ5Z04xWMLX4DCPDCIQuosJxCYo5mJSn1wCpgGqjmbngxzl4Uh5StFIH+7qE3OYUiVedsB5nxzCvHt4CxSQpZOp4oFK2sq0paPwydfZcOXDxp+1Y0S093Uca/M7Ni1mT225FmKVNiPErqedQLKI2PnLkr2bWU0hltFJHMF/HV3e6nI6Kd1WZJvMMVLZ9W4cVbptSf+JkDBT0YZrbn/WLEd3V6/CdDVDHTjygC/526kbuBMl6DlR8YG+DAe38aseJ6zZ5sxKNCqZcvnmIQ9fzfmB/CereLHQNDFCqJtInKSg0TFSoHQs7poYO5dGbOsZtTLPkpM8XxwPjjXsqxckJJiI+hHuB+lDGLOYC9pz4Je7/rMa+3+b2q3rybhJxlWBRmrnKh9HEK6Qp6gFrIeIy8q5WmCS6f9f4Lr9YwCf/JF2+rr7jagd4XcBJoVeq7MqQj8EyKd3PVH0Cn8yNkHbvbuHSsqapVBvTusyBs1FK8sCXZZiB50H42yjCvZ++rgeFQt2/b2/t1YrwX1s4m27zvJ5kG191tkmz3d63UnEQ/3tsWN57GKsZ22bfsN3RDVyA==
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"chat.bsky.moderation.getActorMetadata"}
 >
-  chat.bsky.moderation.getActorMetadata
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/chat.bsky.moderation.getActorMetadata"}
+  path={"/xrpc/chat.bsky.moderation.getActorMetadata"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
-chat.bsky.moderation.getActorMetadata
+*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*
 
-## Request
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
 
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"actor","in":"query","required":true,"schema":{"type":"string","format":"did"}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                day
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <SchemaItem
-                              collapsible={false}
-                              name={"messagesSent"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"messagesReceived"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"convos"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"convosStarted"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem>
-                          </div>
-                        </details>
-                      </SchemaItem><SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                month
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <SchemaItem
-                              collapsible={false}
-                              name={"messagesSent"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"messagesReceived"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"convos"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"convosStarted"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem>
-                          </div>
-                        </details>
-                      </SchemaItem><SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                all
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <SchemaItem
-                              collapsible={false}
-                              name={"messagesSent"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"messagesReceived"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"convos"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"convosStarted"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem>
-                          </div>
-                        </details>
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"day\": {\n    \"messagesSent\": 0,\n    \"messagesReceived\": 0,\n    \"convos\": 0,\n    \"convosStarted\": 0\n  },\n  \"month\": {\n    \"messagesSent\": 0,\n    \"messagesReceived\": 0,\n    \"convos\": 0,\n    \"convosStarted\": 0\n  },\n  \"all\": {\n    \"messagesSent\": 0,\n    \"messagesReceived\": 0,\n    \"convos\": 0,\n    \"convosStarted\": 0\n  }\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"actor","in":"query","required":true,"schema":{"type":"string","format":"did"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["day","month","all"],"properties":{"day":{"type":"object","required":["messagesSent","messagesReceived","convos","convosStarted"],"properties":{"messagesSent":{"type":"integer"},"messagesReceived":{"type":"integer"},"convos":{"type":"integer"},"convosStarted":{"type":"integer"}},"title":"chat.bsky.moderation.getActorMetadata.metadata"},"month":{"type":"object","required":["messagesSent","messagesReceived","convos","convosStarted"],"properties":{"messagesSent":{"type":"integer"},"messagesReceived":{"type":"integer"},"convos":{"type":"integer"},"convosStarted":{"type":"integer"}},"title":"chat.bsky.moderation.getActorMetadata.metadata"},"all":{"type":"object","required":["messagesSent","messagesReceived","convos","convosStarted"],"properties":{"messagesSent":{"type":"integer"},"messagesReceived":{"type":"integer"},"convos":{"type":"integer"},"convosStarted":{"type":"integer"}},"title":"chat.bsky.moderation.getActorMetadata.metadata"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

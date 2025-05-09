@@ -1,334 +1,75 @@
 ---
 id: com-atproto-server-reserve-signing-key
 title: "com.atproto.server.reserveSigningKey"
-description: "Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented."
+description: "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*"
 sidebar_label: "com.atproto.server.reserveSigningKey"
 hide_title: true
 hide_table_of_contents: true
-api: eJztVk2P2zYQ/SuDuSQFVHlb9KQWBbwfaI20u8auUxRwfKDJscVYIhmSWlsx/N+LoeSPjZ00QIue6pNtjt7Mm3nzxC1GsQxYTFHaOhfReRttHsg/k8dZhoqC9NpFbQ0W+EjpBAR4chaCXhptlrCiNoOF9dAEgrWOJQgpbWMiSE+Cn83hniSFIHwLwUIsRQQBt6NbGP92A41TIhJYRz5FgxQG5gTSmhB9IyMpUI3nVMIcsGu99EJHBh8380pLEEaBshTA2AiePjTaE4gmlj+Crl1FNRmGmrcwvn3K4f5hcldALHUAMspZzaCiBVkKsyRYl2Rg0VTVy4ypQB1OEXPM8FD8SGFxoZm573r31PXsDbWYYSDZeB1bLKZbvCbhyWMxne1mGXL5FOK1VS0WW+zZKCyibyhDaU0kE/lIOFdpmXIP3gee0xaDLKkW/C22jrBAO39PMmKGznOlUVPgU6XVSVCI3GP8dOqTktKoogV/EMCKWh45U19YX4uIRULbpQ/XH5w1oUvz/dVVyvYC9uEN/gMex4ZMMRx7OvuU4cnZVxF1nZR6ehBL2pNWL/WuDSitCg4M5LWo9MdO6ocW/HCJ9bVQ8NjN9t+iT95bjxnWvGBLOu9BF3CBPpmmZoSReRaVVse67jaO0Sd2RQaz/Xn3c7Y7pjrDPHL/7pz7W8PLaL3+SOq/J5/cBAscNrH8XYeQyv1bKikilpa32tnUHCdiiQUOvnrJ+SikHW98hQWWMbpQDAad1nLhdD4PqzYXzg023skzYV5XDYVVC0Pn/tC0hted4WVwb4HpfIO77AxchZw2gl0qt355GfiuC4CeBvsivGZEMpHnQeoSdCrWUFxbv/pywY9UifZSubOj+T3xnLtZ7S3wMArOyC1MIVjgvAvgqbBMHo8m2TM5mNphihlqs7AJU0cOwOEExsxW2gr+fBzfwHA84iRNXQvfYoE31vDE2OjtAk7CXwWoaKNZSeyGD47McDx6FaDTKnROmF8wFh0gkOxebtZEoU2AXyeTMecGTwvyZCSBsjIk39k3kF9pp/Xu0+fwCxl+47AXd12ByOvJdUUKMQFLUVUBlPYkY9XCwts6ORqn4Sp7lljgVX6VX3GzWOO1SAtoROr552UOvc6hE/oLztvjev9/bfj8taHXeaRNHLhKaMMzSNu27X3m0s3sgs/MMizZnoopbrdzEeitr3Y7/vtDQ6zq6SzDZ+G1mPMSTNnFSxIq3Ti2uKJe+DyybydcFYdXDVd35s5sCd0TQynJxS/Gzk4cdPzwNMEM5/2tpraKn/Fiza4u1ljgO3yH6TrFCMkU0v9brIRZNsmoscNlE+ApndhFbw/Z/gsz64+EaU+q/KlzGkhvtJ8x69mkDcLdbLfb/QUpjOHN
+api: eJztVktv4zYQ/iuDuaQNFDktelJPzgNdY9uNkXiBAl4faHJscS2RCkkl0Rr678WQ8iObtA3Qx2lzcsThzPfN4xtuMYi1x2KO0ta5CI2zweae3AM5XGSoyEunm6CtwQJPZ6X2QEY1VpsA2kMjXAC7glASDLdhenUHyQMIo0BIaVsToBZGrKkmE2A8nfgcbum+JR882FUgA47uW+0IRBtKMkFLwVGTC0dQC0WgtCMZqg6CjSFbT+7Eg300Mao2PggjKT/9ZD6Z05mFioQzUFv2u7RtACmqSpv1Hux4OtkT8lDpDUFgktZQBp4ohpmz1TvLWBnOuA3l4ruRstKPhHrgiOps3WpFfiQafZZQWtd9D/FrgnNLMSkgwFFjweu1YSAb6jJYWcdc4FGHcp8w6SimIIcPJMl74TrwzFsEEHA1uYLpr5fQNkoEAtuQSwmTwsCSQFrjg2tlIAWqdZGzORRDr53QgZ1P22WlZSSmLHkwNjyrxc+g66aKhSMFy44zncOHm9l1kVK174dadCBLYdYEjyUZWLVV9TxiBKj9scccM9yDnygsXunE3KXc3aWcvacOM/QkW6dDh8V8ixckHDks5ot+kaFLnXVhVYfFFgc2CovgWspQWhPIBD4STVMNnTb67LnJt+hlSbXgX6FrCAu0y88kA2bYOEYaNHk+VVodGfnAOcavR2ZWUixVsOD2DbChjkvO1FfW1SJgEb318Y/x+8Yan8L8eH4eoz1ze/Me/wGPQ0Lm6A85XXzN8OjsTUSb1EoDvTg6A2n1vN+1AaVVwYaenBaV/pJafZ+Cn15jfSHUTjX+LfrknHWYYc0DtqaXOUgGr9An09bsYWIeRKXVAdf1U8PeZ3ZDBrPdefp30R9CvfB54P7DS+4fDQ+jdfoLqf+ffFQTLJCl7zftfYT7t1SiRSgtT3VjY3IaEUoscPTkGjl686TzEW+pxWHs75hhQrkb/j2IMoSG70UTLHCZDBgPJ+j2IA/XT4KlaD/Oe/wZarOy0acObIDjGUwZqbQV/H47veTVwUHauhauwwIvrWGYLHF2BUfmJx4qetKcQ9aBm4bMeDo58ZCqBEkD8ldGSnvwJJOsWxOENh7ezWbTuLYcrciRkQS8ieLEXVQt+U2XttQR3l34HH4hw1rLKpSyAoEbMy5U8nE1xx3pD7t25WwdZ5nDMMqBJRZ4np/n55wsrm4tYusZEXP+57WFobiQqvuM8/bQ2N9eG99eG//Ja2MQiUBPYdRUQhtu4NZV3H1JnubI8hRV9g0CtciwZHEr5rjdLoWnj67qe/583xIrA8vWg3BaLFlI5rwDShIqvle2uKFBPLjtz2YMjs2rlkG+0PY+290YS0lN+EvbxZH+Tm/uZpjhcngT1VbxHSceeSeIRywwPsT4dhTV+G2LlTDrNko8Jp8solyoI7kd5DXb/WBWw5Ew3RHC7TZZxF3Y95gNVKIEYb/o+/4PdKFtKQ==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"com.atproto.server.reserveSigningKey"}
 >
-  com.atproto.server.reserveSigningKey
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/com.atproto.server.reserveSigningKey"}
+  path={"/xrpc/com.atproto.server.reserveSigningKey"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
 
-## Request
-
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"did"}
-          required={false}
-          schemaName={"did"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","description":"The DID to reserve a key for.","format":"did"}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"signingKey"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","description":"The public key for the reserved signing key, in did:key serialization."}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"signingKey\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"did":{"type":"string","description":"The DID to reserve a key for.","format":"did"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["signingKey"],"properties":{"signingKey":{"type":"string","description":"The public key for the reserved signing key, in did:key serialization."}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

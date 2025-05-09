@@ -1,0 +1,53 @@
+---
+sidebar_position: 18
+---
+
+# API Hosts and Auth
+
+Lexicon API definitions do not always indicate which network services implement the endpoint, and whether auth is required when making HTTP requests. This guide describes the most common API request patterns, and lists the specific hostnames for Bluesky-operated services.
+
+As a reminder, the Bluesky application is built on atproto, a decentralized social web protocol. Unlike some social media platforms, there is not one centralized API. More like the classic web, there can be multiple independent service providers and account hosts.
+
+
+## Common Request Types
+
+Most client API requests fall in one of a few categories.
+
+**Data record writes, and account management:** all public data in the network exists as records in user repositories on their PDS instance, which means all data creation, update, and deletion, for all applications, involves repository API calls to the PDS. This includes things like creating posts, updating profiles, following and unfollowing, etc. These actions require authentication, are made to the user's PDS instance (which needs to be resolved or discovered as part of creating an auth session), and usually involve the `com.atproto.*` Lexicons. Account management requests, such as updating the account handle, also go directly to the PDS. See [PDS Entryway](/docs/advanced-guides/entryway) for the distinction between PDS instances and the "entryway" service.
+
+**Authenticated Bluesky app requests:** API requests relevant to the Bluesky Social app (`app.bsky.*` Lexicon endpoints) are routed to a Bluesky AppView. This includes reads, as well as private data writes which don't involve repository records, such as "mutes". In the current atproto architecture, these requests all go through the user PDS instance, and get proxied to the correct service. For most services, the proxying is controlled by the `atproto-proxy` header, but as of Fall 2024 this is still configured server-side for the Bluesky AppView, and the `atproto-proxy` is not required.
+
+**Public Bluesky app requests:** many Bluesky Lexicon endpoints are public, and do not require authentication. These endpoints can be made directly against the Bluesky AppView, preferably via the `https://public.api.bsky.app` hostname, which includes additional caching.
+
+Note that it is perfectly fine for authenticated clients to use authenticated requests to hit public Bluesky API endpoints. It is often simpler for authenticated clients to make all requests via the PDS and proxying, instead of juggling multiple API client connections.
+
+**Firehose:** data updates from the entire network can be streamed over a WebSocket using the `com.atproto.sync.subscribeRepos` Lexicon endpoint. This endpoint does not require auth, and can be made to individual PDS instances (for data just from that PDS), or to a Relay to receive updates from the entire network.
+
+**Other Proxied App Requests:** for example, the `chat.bsky.*` centralized chat/DM APIs, or the `tools.ozone.*` moderation APIs. These are generally authenticated, routed via the PDS, and use service proxying to route to the relevant service instance.
+
+
+## Other Request Types
+
+There are a few other patterns of API requests.
+
+**Fetching Content from Original PDS:** sometimes a service or tool needs to request blobs, account status, or repository directly from the original PDS. These are usually un-authenticated requests, and use `com.atproto.*` Lexicons. The specific PDS hostname needs to be resolved from the relevant account's identity (DID document).
+
+**Inter-Service Requests:** most clients can rely on PDS instances to handle service request proxying, but PDS implementations themselves need to handle those requests. Service DIDs need to be resolved to specific HTTPS hostnames, and service auth tokens generated and signed. Receiving services need to decode and verify the auth token.
+
+**Admin Auth:** used for a few specific operational tasks, like administering PDS instances, or bulk operations against Ozone moderation services. Requests are made directly to the relevant service, using fixed/static Bearer tokens.
+
+**Bulk Data Requests:** for example, when backfilling existing data from the network in to a new service instance, like an AppView instance. It is possible to distribute load across all the PDS instances, or centralize requests to a Relay instance, which may have a faster network connection.
+
+
+## Bluesky Services
+
+This table summarizes the hostnames for Bluesky-operated atproto network services.
+
+| Type | Host URL | Service DID |
+| ---- | --- | ----------- |
+| Relay | `https://bsky.network` | n/a |
+| Entryway | `https://bsky.social` | n/a |
+| PDS Instances | `https://<NAME>.<REGION>.host.bsky.network` | n/a |
+| bsky AppView | `https://api.bsky.app` | `did:web:api.bsky.app#bsky_appview` |
+| Chat / DMs | `https://api.bsky.chat` | `did:web:api.bsky.chat#bsky_chat` |
+| Ozone / Moderation | `https://mod.bsky.app` | `did:plc:ar7c4by46qjdydhdevvrndac#atproto_labeler` |

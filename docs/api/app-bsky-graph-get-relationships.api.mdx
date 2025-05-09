@@ -1,430 +1,75 @@
 ---
 id: app-bsky-graph-get-relationships
 title: "app.bsky.graph.getRelationships"
-description: "Enumerates public relationships between one account, and a list of other accounts. Does not require auth."
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*"
 sidebar_label: "app.bsky.graph.getRelationships"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9Vm1vGzcM/iuEviQBrmfv5ZMxDHCarDO2NUbqDgMCf5DvaJ9qnaRKvMSu4f8+UPL5vW6HDs0X5+4k8nlIPiRXguQsiN6TkM7lkzBf5jMvXSXGmSgxFF45UtaInrg3TY1eEgZwzUSrAjxqyR9DpVyACdILogFrEGRR2MZQBtKUIEGrQGCnYKlC334MOdxZDGAsgcePjfIIsqEqF5mwjj0pawal6B0hy2dIj/ueRSYCFo1XtBS9p5W4RenRi97TeD3OhJNe1kjoQ/xoZI1ssiDrRSYUM/vYoF+KY75Dr2rply3ciBEDKTM7Ij61njFvOJSiR77BTISiwlqK3krQ0rHPQF6Z2Tf7mVpfS2IO9EqVaEhNFXqxXmdbdjHO4TK9Pzc5uYqHr7ZZAbIwweQaS5jIYs6vqEJwCekh2anU4Rxb6b1kr4qwDuei8DkemajlYpBu/dRdcw49BmdNwGjnx26Xfw7ZPPwhMlFYQ2iIv0rntCpi8DofAh9ZnUK0kw9Y0AGbJ3EQc1aB81yNpJL3VDiX6JSqZBKHdi7ExRp8mMbaPIZ1SJFFFGIeJupVqTwW/EFqiKq4KEayHq5ZZ8qUHBUsQZloKvm6SULlFyT9DCndCXDNr+4Gd6BMoZvy5N5R7Jj6OBOkSOOpbkuchnwfpuCSvUy6BczEJYGESppSI1gfYRW20WXsILFkg9XPWB6BaqVuLP1mG/NFhO25fry3Hq/TXyZ+Pld4t7KEx6TY/6sC0fsIuMYQ5AxPazAdOFODaJqaLQzMs9Sq3OG6Xzi2PrJzNCJrv7ePkenbbXjWO9cnPnax+OE0Fu8N92/r1aeYhO8cjMKawPrrN1T9pUKIcL9IJZ6gyvKcmSF7d5Iq0ROdr5k6/rmdK43XoicqIhd6nU4akLl0KpmQznUW3hUn9X2rGwzzJfSd+1vhC1wP480M3lpgIjdRI0fGy5DjQtZOY2797Lzh+3QAJDlvycLw7h1cs0VutLEFnDMdwRqkF+vnlwFzLJbn4I530/gdZzhlqZ3J2ySwR7EZG/w8SQc4H8pMbTy5EWl/BEPmUFgN/zwOX0N/OOCrTc3TSPTEa2s4D8oaHmh7x68CaFworgyeYQ8OTX84uAqQag9Sz85PSI4qFSCkBgtcxlKZAL+PRkP2DR6n6NEUCKUt4lyGNizcRvfxtu5zeIMmbk8gIXEFYvnF2YqBouFCah0g9Xa9hKm3dey27IZRbliKnujm3bzL5e1soFpGQbWrzUndwnHhHrBd7YT6XXe8TSEQLqjjtFSG6cRyXG00eLyTnmpwnInKsuqfxGo1kQHfe71e8+u09LAySxXkRO+tKp9lf/24aTw38F+XsrNk5rjcWzWfpW74TJTd14P6tj3tAq7tkrgDNuYHrxhZXJ8zUaEs4y692tzqFwU62rt10trZyralvrkfiUxwyve0v9F61v6zt/tIs9yz/UtqGxAH1a+iRR6FkybzvzfacmY=
+api: eJztV9tuGzcQ/ZUBX3zBWnIvT3qT4zQRmjaCIxcFHAHhkiMtYy7JkFzbW0H/Xgyp1dWxk6ZoX6IXSbvkzDlz4+GCRT4PbHDDuHO9Mty2vbnnrmLTgkkMwisXlTVswE4nlQqARjqrTAQVwHEfwc4gVggXusFw2wJ3TivBaQ+8wQclrIHheBTg+MPawemHkx6Mm1IrsbYX4L5SogJpzVEEj58a5RF4Eys0sTMouIESoeYSQSqPIuoW+JwrE2JC4bLRDszQuT8U3hOAAVQxujDo9/OaHncqoyFYMNw4QpncY4gBuEdoQsO1brPXaJOfJqA/CjC+fFfAvYoVAbU1j0pAQH+nBILz9qFVZv5Z2ysyTUAJM+uhtLHqCHAjwVhz5vaC1Dt9b96b04kFjdwbqC0FqbRNBMG1VmYOPDpvoyXOW8HV6hYhUgKtwQICYuJxQ6te20TVyIR0etyXVoQ+l3fcCJRn80ZJDH3u1FmOufXtCaSnGc5L09ToecTQwfeoU8JCpVyAEuM9oiHPwIWwjYlFcsdBq5AqyMYKffcy9ODSYgBjdwuhxwpmHXlS1owkG+yVbG+O8WrbMytYQNF4FVs2uFmwC+QePRvcTJfTgjnueY0RfUgvDa+RTBI/VjBFJf+pQd+y/UYYe1Vz33Zwu4xS8HeJz6wnzCsOkg2ib7BgQVRYczZYsNg68hmiV2b+zX5m1tc8Eod4piRV3EyhZ8tlsWaX4hyepvdmlZOjtPhonRWq/RKza5RQcnHbtYPLSHfJzrgOj7Hl3nPyqiLW4bEofI5HwWr+MMq7fjpfUg49BmdNwGTnx/Nz+tpl8/ZXVjBhTUQT6e3WfOp/DLRkcQjRlh9RxB02N2wn5jQenadqjCp7z4XzFB2pJJHYtfNEXKzBt7NUm/uwdilSE4WUh7JrUWUN15C64slmjNbDMfWZMnI1n5RJprKvk9yo9CByP8eY9wQ4pkeXo0tQRuhGHuzbix1RP4gYPfyCeM2s1vae3j3bMSqfRZlX3hfy1LscXRb5l8qhGk7Orq9G3emV14JHYb3cK8HGqw0MlBftV+JQAbq9ULZbcKgq6ej6J3iWBYsqajwcghJnobedc0b9/3QFddknKDwCh4obqRGsTzkWttEyjePU/8HqO5R7Ge7mprHxF9uYR9L9fIMc9Pva2GZXaa1GbhKFGW90zFP1uYB0loYJxHK6zJ+C/fzY0LjgEq7ytP23pgd6n+JTYwh8jofhyQseCQ+apiYLI3PHtZIbXC8fHFmf2FukeKzed38T09/X2VhuXB/42MTih8NYXBs6e61Xf6Wc/8fBENYEKg1SJr+pEBLcZ6mkFbGypBHmSN4djxUbsP6Dd6L/JbLB32VhMN1oiHfELePrlMTaPYlLtjrsUpnmBYREmZlNK1flOZzAmBSasBr+vBq/IKVGW5uazlA2YC+sIeckeO0MtpYfBdBZUqfD+K1DMxyPjgLkqENupN5BeyfhHvKxsJk6ryeTcVKJHmfo0QgEEn5Ji67VPInCLbyd+x68QpM0H3DIXCFS4SVFgCEmwyRJw0aoz7yt03QjN4RyxZIN2HnvvHdOiXU2xJqnUuoE2UGyYD9bO2wXmxL9fmX5fmX5/68sqwkR8SH2nebKUJ03XlOp5rF0w2gsseLZ+8y0YJWleXjDFouSB7z2ermkx1nKk1aUKvBSbwnwz3bH8dVqJJ/A1141HuV0i+3WBeqO64bWJPnx5aC+7fbxBK711WcDbEp/vCJk6VJYsAq5TDfExWrXUAh0cWvXwaFHVtaHzauXE0pjQ1ndSJZ8FhTdjy1Fz027ZXuxyCvSEb5csg56mqxZtPwNc+k3lw==
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"app.bsky.graph.getRelationships"}
 >
-  app.bsky.graph.getRelationships
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/app.bsky.graph.getRelationships"}
+  path={"/xrpc/app.bsky.graph.getRelationships"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
 
-## Request
-
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"actor","in":"query","description":"Primary account requesting relationships for.","required":true,"schema":{"type":"string","description":"Primary account requesting relationships for.","format":"at-identifier"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"others","in":"query","description":"List of 'other' accounts to be related back to the primary.","required":false,"schema":{"type":"array","items":{"type":"string","format":"at-identifier"},"maxItems":30}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"actor"}
-                        required={false}
-                        schemaName={"did"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","format":"did"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                relationships
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object[]
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
-                              >
-                                Array [
-                              </div>
-                            </li><div>
-                              <span
-                                className={"badge badge--info"}
-                              >
-                                oneOf
-                              </span><SchemaTabs>
-                                <TabItem
-                                  label={"app.bsky.graph.defs.relationship"}
-                                  value={"0-item-properties"}
-                                >
-                                  <SchemaItem
-                                    collapsible={false}
-                                    name={"did"}
-                                    required={true}
-                                    schemaName={"did"}
-                                    qualifierMessage={undefined}
-                                    schema={{"type":"string","format":"did"}}
-                                  >
-                                    
-                                  </SchemaItem><SchemaItem
-                                    collapsible={false}
-                                    name={"following"}
-                                    required={false}
-                                    schemaName={"at-uri"}
-                                    qualifierMessage={undefined}
-                                    schema={{"type":"string","description":"if the actor follows this DID, this is the AT-URI of the follow record","format":"at-uri"}}
-                                  >
-                                    
-                                  </SchemaItem><SchemaItem
-                                    collapsible={false}
-                                    name={"followedBy"}
-                                    required={false}
-                                    schemaName={"at-uri"}
-                                    qualifierMessage={undefined}
-                                    schema={{"type":"string","description":"if the actor is followed by this DID, contains the AT-URI of the follow record","format":"at-uri"}}
-                                  >
-                                    
-                                  </SchemaItem>
-                                </TabItem><TabItem
-                                  label={"app.bsky.graph.defs.notFoundActor"}
-                                  value={"1-item-properties"}
-                                >
-                                  <SchemaItem
-                                    collapsible={false}
-                                    name={"actor"}
-                                    required={true}
-                                    schemaName={"at-identifier"}
-                                    qualifierMessage={undefined}
-                                    schema={{"type":"string","format":"at-identifier"}}
-                                  >
-                                    
-                                  </SchemaItem><SchemaItem
-                                    collapsible={false}
-                                    name={"notFound"}
-                                    required={true}
-                                    schemaName={"boolean"}
-                                    qualifierMessage={undefined}
-                                    schema={{"type":"boolean","default":true}}
-                                  >
-                                    
-                                  </SchemaItem>
-                                </TabItem>
-                              </SchemaTabs>
-                            </div><li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
-                              >
-                                ]
-                              </div>
-                            </li>
-                          </div>
-                        </details>
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"actor\": \"string\",\n  \"relationships\": [\n    {},\n    {}\n  ]\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`, `ActorNotFound`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","ActorNotFound"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"actor","in":"query","description":"Primary account requesting relationships for.","required":true,"schema":{"type":"string","description":"Primary account requesting relationships for.","format":"at-identifier"}},{"name":"others","in":"query","description":"List of 'other' accounts to be related back to the primary.","required":false,"schema":{"type":"array","items":{"type":"string","format":"at-identifier"},"maxItems":30}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["relationships"],"properties":{"actor":{"type":"string","format":"did"},"relationships":{"type":"array","items":{"oneOf":[{"type":"object","description":"lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)","required":["did"],"properties":{"did":{"type":"string","format":"did"},"following":{"type":"string","description":"if the actor follows this DID, this is the AT-URI of the follow record","format":"at-uri"},"followedBy":{"type":"string","description":"if the actor is followed by this DID, contains the AT-URI of the follow record","format":"at-uri"}},"title":"app.bsky.graph.defs.relationship"},{"type":"object","description":"indicates that a handle or DID could not be resolved","required":["actor","notFound"],"properties":{"actor":{"type":"string","format":"at-identifier"},"notFound":{"type":"boolean","default":true}},"title":"app.bsky.graph.defs.notFoundActor"}]}}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","ActorNotFound"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

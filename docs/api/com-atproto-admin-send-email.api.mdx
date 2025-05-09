@@ -1,370 +1,75 @@
 ---
 id: com-atproto-admin-send-email
 title: "com.atproto.admin.sendEmail"
-description: "Send email to a user's account email address."
+description: "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*"
 sidebar_label: "com.atproto.admin.sendEmail"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VlFv4zYM/isEX3oDPKcb9mQMA9K7YiuGrUGbGwbk8qBITKyLLOkkuWkW+L8PlN3EXYK7DTgsL7ElivzIj/ysAyaxiVgtULqmFMkHl1wpVKMtLgtUFGXQPmlnscJHsgqoEdpAciCgjRSuIggpXWvTsCOUChRjiQU6T0Hw2TuF1XmAMpJVt3wIC4wk26DTHqvFAW9IBApYLZbdssBAn1qK6capPVaH/KoDKaxSaKlA6Wwim3hLeG+0zCEnHyNjPmCUNTWCn9LeE1boVh9JJixGjhYYSGqvyaZ3WuHJJ+OyigKvLgv0gVNKmmIPZHTm5D+moO0GC1y70IiEFSqtsHsF9LVpV2Bse1QX944Q/lWQprkY5J9kTpXS/CgMDGdgtYdUE/TxINUiwc7ZqwQrYq4VaJsNeqJ1imTWsGoT1GT8us1d4YN70oqgcYEgZ/ycYO0CNE5xN7gQJ4GeNO0oROzyj6mI3tnY1/X762v+ew33/lf8SlRH9nBGZnxdtJVzhoQ9AvzhEqYboeChb86vBY5CcAELbChGsaFznL3BBXbJtg17uLNPwmh1wnX77Nn73G3JYvGy378uu1Oo89Y75v7dee7vrWhT7YL+i9T/n7x0NnLTT9tU/6ZjHCblC6lki1Q7ViPvcnG8SDVWOPmSOIUnblfWpjYYrLBOycdqMvHtymhZCq/LVdzuS+H95Dl4eTZuN6aluN3D1Ps/NO3gzSyfLOB3B5zFN9gVZ85VLOlZNN5Q6cLmsuPb3gAG9DB79whv2CPZxDSQuuQ6g7WUdi5sPw/4gYzYX4K7PIn2I9PbU/Qi3UcGOCKXMJvwZPUGTAZ3x8NJ3IdMzqX11OTHNjstHZVztHQSzPHRQRhHyqrt2mWoOnFcnM5hxkWUzsCfD7O3MJ3d5RBNI8IeK3zrLDeCdhbcGkbmVxEMPWvuS1bBe092Oru7itB3PvQyXZ5VeV7rCJEkv2a5FNpG+GU+n3FsCLSmQFYSKCdj1tEXXoRVYwDH8CX8TJaVlkBAX2xIPOyMK1FM2bEUxkRQOpBMZg/r4Jos7RyGUQ5ZYoXX5XV5zcXiiWlEHmcrMpWXhwZepuZVpocRd//1HjF0En9KJt4IbRlO7ufDMMAXri+jAV4WWPO4Vws8HFYi0vtguo6XP7XEvC6WBT6JoMWK22DBqliTUPkKcsAtDdQz/G/nDIbNTcugztSOZ60/MZWSfPqs7XKkSLP7xzkWuBquOfy9xAqD2LFKih1W+AE/YL5WsYf+CsLrBzTCbtosfNj75elifR5/0fq5K14eOLNhS9j9COWP/QhD/kL8hMWQTe4h7JZd1/0NRxKKXQ==
+api: eJztVktv4zYQ/iuDuaQNFDstetLN2V10g6KIkXiBAl4fxuLY4oYiFZJy4hr678WQ8iN12u1h21NziUzO45vXN9xhpHXAco6Va0YUW++iG5FqtMVFgYpD5XUbtbNY4uWs1gHYqtZpG0EHaMlHcCuINcOgDNP3D9CQpTU3bCNMprdhBPf81HGIAbrQkTFb8PzUac+QXAF1sWYbdUXiCsgqIM/QkGJQ2nMVzRaiS37EvrYhkq14dPnZfraXMweGyVtonJhcui5CRcZouz7AmkxvD9ADGP3IECUcZ7mAwJxsz0XqoxOggmHSxXrx3Vi5KoxJbcSjulp3WnEYU6uvMjTnt99DOs1wHtgq4Ia0EcgEXWB/EYCqynU2DjeklOcQRliga9mnuG8Vlud1GAW26oMoYYGBq87ruMVyvsMbJs8ey/miXxToc4pvnNpiucMhwQrL6DsusHI2so1yRW1rhlSPvwQp7Q5DVXND8hW3LWOJbvmFq4jFiaE5eq50q9nG91rh0abgsoq9nC4KbL2EFDWHDORE52g/RK/tGgtcOd9QxBKVVti/AvpatC8wdBnVm3cHCP/ISdO86eTPPT9RSssnGRh0YLlNvZL9QawpwrOzFxGWLLVWoG0SyIXWMbBZwbKLULNpV13qita7jVacGzZF/BJh5Tw0Tkk3OB/Gnjean9kH7NOflCK0zoac1x+vr+Xfa7h3v+A3KnUQC2fFDK+TtnTOMNkDwJ/ewnRDaj//3woce+88FthwCLTmc5xZ4I3qsu0asXBrN2S0OuL68NKK9Zl7ZIvF/j7/XPRHV+etd4j9h/PYP1mhNuf176z+++ArZ4M0vfDYrzqEYVK+EkqSiLUTNmpdSk5LscYSxy++rcZfYyi/kZ4t54sjXT1IYBncnrQOvusYW9FLItJTWUBgSF7uj7T24YWa1vA5qRzLe0jw8ejAGSdHR6o4VR0o4YRTtF25BFVH8YuTGUwl7soZ+O1++k62SnLRNOS3WOI7ZyV6WWJuBSfiFwEMv2ipiMz/Xct2Mr29CJBrDpmgRmf8k1Zu4CrtRYmOtA3wcTabpo3mecWebcUgSyoxyI3pODxu8wI7wbt3P4Kf2QrHMBDkZEOUNk8LlkNa2Wl9huPuXXnXJFITN4JyiBJLvB5dj64lWdIrDaVGtpRK+XanwL5VXkW6O6nd/w+Nf+WhMQyc7Jpxa0hbqVrnjSQ/T/gcZcLzMPzljC8KrIUWyjnudksK/Mmbvpfjp45lCmTyN+Q1LWVo5sKeNZNKT5UdPvIwKFLsq5lgEnHTCbYzVuyLvcakqriNfyu7OGGu6d3DDAtcDs8h2atYoqdnYVN6xhLT00u08zNFznZoyK67RI6YbQoPSdecbr3MUMX+Q6IarshuTxDudlkibZG+x2IIJY0b9ou+7/8AwqYF6Q==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"com.atproto.admin.sendEmail"}
 >
-  com.atproto.admin.sendEmail
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/com.atproto.admin.sendEmail"}
+  path={"/xrpc/com.atproto.admin.sendEmail"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Send email to a user's account email address.
 
-## Request
-
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"recipientDid"}
-          required={true}
-          schemaName={"did"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","format":"did"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"content"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"subject"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"senderDid"}
-          required={true}
-          schemaName={"did"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","format":"did"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"comment"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","description":"Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers"}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"sent"}
-                        required={true}
-                        schemaName={"boolean"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"boolean"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"sent\": true\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["recipientDid","content","senderDid"],"properties":{"recipientDid":{"type":"string","format":"did"},"content":{"type":"string"},"subject":{"type":"string"},"senderDid":{"type":"string","format":"did"},"comment":{"type":"string","description":"Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["sent"],"properties":{"sent":{"type":"boolean"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

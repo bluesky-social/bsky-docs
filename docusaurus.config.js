@@ -23,6 +23,7 @@ const config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  onBrokenAnchors: 'ignore',
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -68,6 +69,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/bluesky-social/bsky-docs/tree/main/",
           blogSidebarCount: "ALL",
+          onInlineAuthors: 'ignore',
+          onUntruncatedBlogPosts: 'ignore',
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -163,6 +166,8 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      // disable openapi language snippets
+      languageTabs: [],
       algolia: {
         appId: 'T5MN80JFZF',
         // Public API key: it is safe to commit it

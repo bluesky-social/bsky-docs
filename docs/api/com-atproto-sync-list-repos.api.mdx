@@ -1,412 +1,75 @@
 ---
 id: com-atproto-sync-list-repos
 title: "com.atproto.sync.listRepos"
-description: "Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay."
+description: "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*"
 sidebar_label: "com.atproto.sync.listRepos"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVtuO2zYQ/ZXBvCQFBK1TtC/qBdgbUqNoY2w2RYGFH2hqbDOmSIYceVcx9O/FUPKuN3azKFAU9YstczTnzOUMZ4esVgmrO9S+KRWH6NmXqXMa5wXWlHQ0gY13WOG1axuKiimBshZ4TXA1vSog0rYA5WrQvmkMw+X0CpY+ZqNIwSdY+8RUw6IDXpsEieLWaCrhylMC5xkifWpNJFAtr38A0wRLDbnxndnV++z+hqzqSizQB6FhvJvWWB0RL61JfCO4WGAi3UbDHVZ3O7wgFSlidTfv5wUGFVVDTDHlQ6cawgqtaQxjgUYi/tRS7LDAkV6N1VLZRAUmvaZGYbVD7oK8ZhzTiiIW2BhnmrbB6k2BjXoYf08mE0nnUrWWsfp+Mun74hFTtzH5+M9BE0fjVthLNJFS8C5RkvNvJxP5el6+d79igdo7JsdyqkKwRuc8nn1MYrI7hvCLj6T5GZs7zEWV/ghRSsFmQB3DOOZXjG88nagYlcRomJr0ElxtaixwTarOB9tjZLE4gi1w6WOjGKt83o8uTtg9z9NlGyM5zq170NKH/vTgT7icilZpNls6OFp4b0k5OUusuE0vs5guYXDz01D9QTk+HysLS0O2BuNqqaAIEoJPySwsQSSVvMsKvF93WaZKa986BjOobXBcwhcYWWTOw0BRjFMrPUK1oJPLrkTK0KhNFi5oq0zzDCpX2rCP3YAG1rsVRViQcatxEIiGyYku7pDVhlzt752ItU2BXE11zkampphqnPd9gWzY0lflXgo29sOnwO9OieBCyRz51FLif0sNFGMWb0MpqRUdd+dgcKLi+xxM3VZZUz/xun4I4v3Wb0jyMp4Pj/P+CerEKNjH/uY49g9OxquP5nPO8H8cvPYuiXbOW17/ZlIatfJCKNmC114G/YoEPSheY4VnL4z9uN0P9jZarHDNHFJ1dhbahTW6VMGUi7TpShXC2UMM+kiAF7altOngPIQ/DN3D61l+s4DfPUgM36BM8C+c16mkByXXV+nj6rTj68EARvL5enstHslxVnN9ynUm64jvfdx8nXC+Jk/RnT9dh++luEOB9pfiY/4FEcfbJg+vwUBKYdzSZ8tRi+e3MJMYtLfw583sEs5n06zjplGxk1nqndTBeAd+CQfmrxJYejDSFMAe3gVy57PpqwRD28EwasujIG+H/UHLI0gHK+MS/HJ7OxNsiLSkSE4T1F6nPJj2aZHhdsh3D1/CW3J5rQEFQ6zAojThxZQ4O9bK2gS1iaTZdrCMvsnjTmCE5RglVjgpJ+VEOjv4xI3KWtrf86daFvY9+yzQ3ZM8/z9719ggTA98Fqwy+ULLbbobZXm8Rh7Icl6gEBKr3W6hEn2Itu/l72HlEbHWJqmFPVh6NtQdbGVbZVuhkAXyN7aP29ST8VweohHrvP0Nq0BeBXfjW+daUziEOJqJ4uVxFr29vsUCJW2H1/yglGL/Q7zvFx7XHfj+cRAd5In+M+6Z57bDft73/V88IgAR
+api: eJztVk2P2zYQ/SuDuaQNFNsp2ouLHvYLiVEUMTYOUMDxgabGFrMUqZAjZ1VD/70YUl57600WBYoeivpiSRzOezOcGb49stpGnC5R+3qkuAme/Sh2TuOqwJKiDqZh4x1OcVGZCOTKxhvHYCI0KjD4DXBFMGyFQI2Phn3oQLxUwTvzhxIPcDGfxRHc0ueWIkdoY6us7aD04DxDoM+tCQSq5YocG502FaBcCVo5WBPUqiRgD/Pr92AcK6cpgg9wS1Z1YFzMn0YvP7qP7uXCgyUVHNRe3K59y6CVtcZtH9hezGcPEUWw5o6AJUrvqIBIlEJbitVbL5yFzEXL1eq7cel1HKtyJ5Dlq21rSopj1ZhXpQmkJQHfQ/qa6dy4tqagmCIoa5Pf69l1AYF2Q4y+rg3D1ewaNj4ko5RLqHxkKmHdZWqRws5oGsG1p3iWuZ/B1I2lmtywR3Il7lOORligb4SG8W5W4vTs1EfWRL4VXCwwkm6D4Q6nyz1ekgoUcLpc9asCGxVUTUwhpkWnasIpWlMbxgKNlMvnlkKHBQ70SpxulI1UYNQV1Qqne+SukW3GMW0pYIG1caZua5y+LrBW98PzZDKRWtyo1jJOf5pM+r54wNRtiD78fdDIwbgt9hJNoNh4FynK+g+Tifw9rv13v2KB2jsmx7KqmsYOJTr+FMVkfw7h159I8yM2S0yHKs3VBDkKNhl1COOcXzHsOK6oEJTEaJjq+BxcaUossCJVpoXdObJYnMEWuPGhVozTtN4PLp6we5ynqzYEcpxK96SkT/3p7E+4fAuWs5nSbHZ0Yrn23pJyshZZcRufJzXbQHbzSy6GocfTsrKwMWRLMK6UA5X+hMbHaNaWIJCK3qWG/FJ1edBp7ds8/6T5suMR/AUj9ZzzkCmKcWylZKgUdHLJlXQ21Oou9TFoq0z9COpkliY0sN5tKcCaZIbluSAtTU7aZIms7siV/ouT3m1jQ66kMmXDEg9PiaQ6vB1HdPrAVfDMlkpc9X2BbNjSN4fESChin38F/vhU61yq8jD0/6keohBSy9cUo9rSeU1ngycK45Cqmdspa8ojr5v7Rrwv/B1J+ob1/Lrqj1BPDJBD7K/PY//gZCj7MOT3Xw5eexelleTG+s3EOMyTZ0JJFlx5uR62JOiN4gqnOL4PjR4/c2OEXb4TVsfr472ElakdLpEH5Iq5wWE6p+7OBkLCuI1PlkMVXixgLqjaW/j9dn4ll3cq9LpWoZPZ452Ai9TwGzgxfxHB0r2RdIh8eNeQu5jPXkTICYc8c0Znc2OR71ud1IucnTIuwtvFYp6EQ6ANBXKaQLRA6txL21K867JOOOF7gB/BG3JJBoCCHCuw1JjwYoqcHItKiZB1hO1gE3yd5oHACMshSpziZDQZTeRMGx+5VqmKDvfiU+cEh4N6FOj+WJj/i7z/hMgbuovpnseNVSZdl22wcta5m5co3Zxm0lf7eVWg8BLj/X6tIn0Itu/lc5ZZovxKE9XangitO+pOlOBO2VaYoCi2r9g+KLij8UpeghHrpDiz/Ejycz/sutCamlOIs4kqXh4m2ZubBRYo2TvVEnnaFIcH8X4QWa478b3fZ4t0H/Q9Hqin3sV+1ff9n0DcoU4=
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"com.atproto.sync.listRepos"}
 >
-  com.atproto.sync.listRepos
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/com.atproto.sync.listRepos"}
+  path={"/xrpc/com.atproto.sync.listRepos"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
 
-## Request
-
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"limit","in":"query","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000,"default":500}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"cursor","in":"query","required":false,"schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"cursor"}
-                        required={false}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                repos
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object[]
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
-                              >
-                                Array [
-                              </div>
-                            </li><SchemaItem
-                              collapsible={false}
-                              name={"did"}
-                              required={true}
-                              schemaName={"did"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string","format":"did"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"head"}
-                              required={true}
-                              schemaName={"cid"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string","description":"Current repo commit CID","format":"cid"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"rev"}
-                              required={true}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"active"}
-                              required={false}
-                              schemaName={"boolean"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"boolean"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"status"}
-                              required={false}
-                              schemaName={"string"}
-                              qualifierMessage={"**Possible values:** [`takendown`, `suspended`, `deactivated`]"}
-                              schema={{"type":"string","description":"If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.","enum":["takendown","suspended","deactivated"]}}
-                            >
-                              
-                            </SchemaItem><li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
-                              >
-                                ]
-                              </div>
-                            </li>
-                          </div>
-                        </details>
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"cursor\": \"string\",\n  \"repos\": [\n    {\n      \"did\": \"string\",\n      \"head\": \"string\",\n      \"rev\": \"string\",\n      \"active\": true,\n      \"status\": \"takendown\"\n    }\n  ]\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","minimum":1,"maximum":1000,"default":500}},{"name":"cursor","in":"query","required":false,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["repos"],"properties":{"cursor":{"type":"string"},"repos":{"type":"array","items":{"type":"object","required":["did","head","rev"],"properties":{"did":{"type":"string","format":"did"},"head":{"type":"string","description":"Current repo commit CID","format":"cid"},"rev":{"type":"string","format":"tid"},"active":{"type":"boolean"},"status":{"type":"string","description":"If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.","enum":["takendown","suspended","deleted","deactivated","desynchronized","throttled"]}},"title":"com.atproto.sync.listRepos.repo"}}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

@@ -1,230 +1,73 @@
 ---
 id: com-atproto-identity-resolve-handle
 title: "com.atproto.identity.resolveHandle"
-description: "Resolves a handle (domain name) to a DID."
+description: "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
 sidebar_label: "com.atproto.identity.resolveHandle"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVcFu2zgQ/ZXBXJoAgmwUe9LNaYrWKLA1XO9igcAHmhpbrCmSIUduBEP/vhjJTpxaDbrA+mJInHnzhvPm6YisdgmLB9S+zhWH6NnnpiTHhltcZ1hS0tEENt5hgUtK3h4ogYJKudIS3JS+VsaBUzXdAntQcD+/zzFDHygqyZuXWIzi53GA+9xDYYZBRVUTUxRKRxRMLLA6Hxuh8NhQbPFnYquKzozYwwlXWER6bEykEguODWWYdEW1wuKI3AZBTxyN2/0+4NbHWvELra5bS5UUvEuUBPj9dCp/r/G+fsEMtXdMjuVUhWCN7u9n8j1JyPGam998J82vunjA0pQymBDlgtkMNeXlSE/PZOW8638Z/jHG706VsKTHhhL/X0QpRh8xw5pSUju6Jj0EjNAm19SCMHcHZU155rXuXsCusrpzezVx5UVyO+JeU1xhgZPfEmCieDirr4lWpswcUjGZhGZjjc5VMPkm7dtchTB5ikFfCefONpT2LcxC+NvQD7hZ9JkZ/Olh1nB1i112BV6mnJ5UHSzlPu7GgT8OAXBqAhb33+BGEKUXrZjKMeierCP+4eP+bcJLsqodo7uWe9FNNNx+k8EPw7sjFelyelIRTwsmz5shQEZi3Nb3kYatHM1WsJAetLfwz3LxAWaLuaQ2da1iiwV+8E7mYLwDv4WL8HcJLD0Z7V2SvfwayM0W83cJBknCIPh8ZJ1NgkRaHkHUrYxL8Hm1WkhtiLSlSE4TlF4nQYHztShXXhJ4Lp/DJ3LicAQKhl6B/Z6c8GJK3ANrZW2C0kTSbFvYRl8DV0MZYXnqEguc5tN8il2GwSeuVb9nJwN8S7rwrN1XDR9fVvg/mfZplkxPPAlWGSeMekUdT5s0/qn4aZPWGVY+sUQfjxuV6K9ou05eD/Yt+1WapDZWrGKrbKI3GrhZnlzlFn5py6PE99Refj8OyjYS1Ev6oKKR+lg8iK9UpEqR88PxlDXTmgJfZF0ZoaA8m82njyvsun8BdK2GRA==
+api: eJztVU2P2zYQ/SuDuWQ3UGS36Ek3b5xmjaKNsXWAAo4PtDi2mKVILTkyVjX034uR5I+t3SSHIKcaMGyJ8/FmOO/NHlltI2ZLzH2ZKq6CZ58aTY4NN7hKUFPMg6nYeIcZvl54sKSCg9IHArX2NUOurDVuC4M7TOYzIKcrbxxHsOaRgAsTwTtKIJI8ESzF6t5HjqCchknNxepmpH0eR0rvlMtJv9nWRlMcqcq80SZQzj40t9C9TV9/cp/cA0VvdyQhjtkL5bQluCl8ZKdKugX2oGA6m6Yw9RTBeQZHOcWogrENrA/RjXfK2gZ2FMymAbVVxkXu0Mp3OpuC9nldkuMUE/QVBSVOM43Z1f6locd330HCBCPldZDGZss93pEKFDBbrtpVgpUKqiSmELtDQY4ZFgdPI91/qik0+O87WRR0KJo9DCkFYKCn2gTSmHGoKcGYF1QqzPbITSXRIwfjtt8ecONDqfgEqxXggWLlXaQogX8ej+XnZbwPv2GCuXdMjuVUVZU1ede60ecoJvtLbH79mXJ+UcUStdEyk1WQ3rPpc8rLKzUdwcp5230S/OUavjul4YGeaor8vYBSCD5ggqVM2ZYuQfcGV2CTq0uJMHM7ZY0+4Xr3XEn0hX8kh8nh/PDYj9gfnn/1tdO4ak+5L5KcmvHTZTM+OlVz4YP5m/SP70buXZQ7Ezn43cTYwf1qKZ0FF154uCXJXikuMMPRc6jy0TdSM+x68q1OPP1TyushHth6RFAwVziQSp7XvYGAMW7jO0vDVo4mC5hL9txb+Oth/lYUUlzrslShwQzfeifJjXfgN3Bm/iqCpWcjbREufqjITeazVxH6xkM/5OkVCpsIsdc0kDsUKYP7xWLeqXOgDQVyOYmgRYkCd7am+Nj0YnyG95A+hffkRPAIFPS1AsvwCS6myF1gWQURejm1DWyCLzvtlDSCcqgSMxyn43Qsd1v5yKXqpmkQvS/dFxwv7EXB+9Og/r+jznbUMKtMzzyqrDJOOl4HKx3rObJE4UjH9K+yZJWgIBan/X6tIn0Mtm3ldb+ZZHFpE9XaCu83ykb6wj3dPAwScQv/uXGu4n+k5nw17pStxQhlG+1UMJK/W6sJFqR0t2P3g9ckz6niM68LVZMoRzV5/26BCYoinjF/YHpy+CPRhyPlmrPY+31v0Yl02+IBescbbFdt2/4Dhu9PMg==
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"com.atproto.identity.resolveHandle"}
 >
-  com.atproto.identity.resolveHandle
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/com.atproto.identity.resolveHandle"}
+  path={"/xrpc/com.atproto.identity.resolveHandle"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
-Resolves a handle (domain name) to a DID.
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
 
-## Request
+Resolves an atproto handle (hostname) to a DID. Does not necessarily bi-directionally verify against the the DID document.
 
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"handle","in":"query","description":"The handle to resolve.","required":true,"schema":{"type":"string","description":"The handle to resolve.","format":"handle"}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"did"}
-                        required={true}
-                        schemaName={"did"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","format":"did"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"did\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`]"}
-                        schema={{"type":"string","enum":["InvalidRequest"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"handle","in":"query","description":"The handle to resolve.","required":true,"schema":{"type":"string","description":"The handle to resolve.","format":"handle"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["did"],"properties":{"did":{"type":"string","format":"did"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","HandleNotFound"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

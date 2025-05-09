@@ -1,210 +1,75 @@
 ---
 id: com-atproto-server-delete-account
 title: "com.atproto.server.deleteAccount"
-description: "Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth."
+description: "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*"
 sidebar_label: "com.atproto.server.deleteAccount"
 hide_title: true
 hide_table_of_contents: true
-api: eJzFVcGO2zYQ/ZXBXDYFVNkoetLNuwnaRYGusesWBRwfxtTYYiyRXJJaWxD878VQcu3ETtBDgOgkkaM3bx7nDXuMtA1YLFHZJqfovI02D+zf2OMqw5KD8tpFbQ0W+J5rjgxkgFS0/i4AKWVbE2GvYwUE0e7YAJkSHIWwt77M4YEMWFN3sGZQVNdcAm0ie/D82nKI2myBoBRobc0AkcMzv7bacwBqY5VjhtaxJ4l4LLG4wTZPCDwbCGGGI/y9LTss+vSpPZdYRN9yhsqayCbKFjlXa5XAJ5+CVNpjUBU3JG+xc4wF2vUnVifcAWiJpS4xw1OtmGFiL8I5L4Sj5iAYEneGCtFrs8UMN9Y3FLFI+8cLoKvY4wn6eic9Qis4a8KQ75fpNKX97PSe/hCYX29t3VOZFOcgFX4Xadh76zHDhkOgLV9rMgTcUIVN2wjCo3mjWpdnXh8OTtAXSYjstD98ro7nVF/RKEXEykr/OJsQHcUKC5z8j3YalsUqPba+xgKrGF0oJhPXrmutcnI6X4ddl5Nzk4N3Cr+0z33dcth1MHPub817eDdPf2bwp4VZG6uf8JhdgZch5wM1rubc+u1t4A9DAIwlwPz9C7wTRDZRTo/LW9CJrOG4t373bcLPXFN3i+5KdFGt17F7ka4YTvaeyfPl0UpGkTCFYIHrIUBORJrq+ezUsZL/PHPuirM3zmujJS5Mos3GpsQ6CgrOFjAXSZSt4Z/n+QPM5o/CpG0a8h0W+GCNHKtMHruBi/C7ADUftLImQLTw5NjM5o93AYb2h8G7+ZVmi0oHCKzSMBMnkTYBfl8s5pIbPG/Ys1EMpVVBUOCksozNS76n9Dn8xkaGHwPBIN04aKOFyCEmYBmtAUrtWcW6g423DcRqSCMsxyqxwGk+zadp3NgQG0qeNpQO5qs+gLMRPiu3Pw+LH3o7jI0W+RAnriZtpL7U7v1o8ls33BcmX2VYyVwoltj3awr8l6+PR1l+bVm6ZbnK8I28prU011JmTsVUSq8ve9zx2FCix88LYSThdSvMrgap+HH4Y6YUu/jN2NXF6Jo/vSwww/V4rzW2lH887WUA0x4L/IgfMd2YgpAcmdZ7rMls2zQhccCV518JCslC
+api: eJztVlFv4zYM/isEX7oVbpIN9+S3tHfYFcPQoM0BA3J5YCwm1tWWVElumxn+7wfKTpyivbs9DAMGLE+JRJEfP5If02KkXcB8hYWtJxSdt9FOAvtH9rjOUHEovHZRW4M5ni9LHYCNclabCDqAIx/BbiGWDMNrWLy/g94DkFFARWEbE6EmQzuu2USYL67DBG75oeEQA9htZAOeHxrtGaiJJZuoC5KovQvPUJNiUNpzEas9RJtCNoH9WQD7ZFJUbUIkU/Dk/LP5bM6XFiomb6C24ndjmwgFVZU2uyPY+eL6mFCASt8zREnSGs4gMKcwK7H6aAWrwJk3sVz/NFW2CFNSjxJRXewarThMyemLHqX1+58hnfZw3nPFkYEMkFyehSMzTzqWQBDtPff5OgrhyXo1gSsyYE21hw0n6KyAtpF9YotDTKmAEtdCVnLRM6s9h8TlBDO0jn2i81ph/kapJ8kDz3tAmGHgovE67jFftXjJ5Nljvlp36wyHyJdW7TFvcSibwjz6hjMsrIlsolyRc9VQxumXIB3UYihKrkm+xb1jzNFuvnAhIUdHK1RaYYYHGjDDlJg0pPOSS9QcxIfYja5C9NrsMMOt9TVFzNN9d+LolW13cP36Jn0EVnDWhD7er7NZCvtiKm5+Fzfv3rq6JHVoc/yHqGHvrccMaw6Bdvyak97gDVbYNLV4uDaPVGk14vrw7MT7MhGRHe4PP793u+5GIN9k8N3sl9fMfDLSm9brv1j9+9QU1gTpD5nkP3QIQyv8IJVkEUsrM+Rsos5RLDHH6bN3xfRvzZUci+CuxyG7k+x6hIdROwIoY3TyLplgjpveQLAIObfjMH54ptpVfByLsfBj+49nQ9efzIE2W5sC6yhecL6EhaRS2Ar+vF1ciVQKkqauye8xxytrJBfRHbuFE/OzABU/ayFZhPrGsZkvrs8C9GWEfjxFl172RNougYskZdIRpE2Aj8vlIsm05y17NgWDKK94gcuq4XC/71X5BO8h/AR+YyPSx0DQUzfIrCwQDmkVJWEN427Zelsn2ZcwgnLIEnOcTWaTWVIUG2JNqTcNpcJ8s/gwVv9Fuu3Y9P8v1v/qYh2mNPJznLqKtJHmaHwl5e21YYWiDUnifqAO6wxLUZV8hW27ocCffNV1cvzQsEycaMYjeU0bGdCViG/JpNJqbvGeh6GUnrpYCjAxrxoB+EpUu+zwYl4U7OJ3bdcnwre4uVtihpth/ddWyRtPTyLG9IQ5pv8b8jopWjprsSKza5K2Yu9TFExYPNG6QduywxfJargisz9B2La9RVpCXYfZkEovat2667qvT+bMvQ==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"com.atproto.server.deleteAccount"}
 >
-  com.atproto.server.deleteAccount
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/com.atproto.server.deleteAccount"}
+  path={"/xrpc/com.atproto.server.deleteAccount"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
 
-## Request
-
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"did"}
-          required={true}
-          schemaName={"did"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","format":"did"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"password"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"token"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["did","password","token"],"properties":{"did":{"type":"string","format":"did"},"password":{"type":"string"},"token":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

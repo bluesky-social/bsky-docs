@@ -1,274 +1,73 @@
 ---
 id: com-atproto-identity-submit-plc-operation
 title: "com.atproto.identity.submitPlcOperation"
-description: "Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry"
+description: "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
 sidebar_label: "com.atproto.identity.submitPlcOperation"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVU1v4zYQ/SuDuWQLqLJb7EkoCjjpog36ESHxLgp4faCpicWNRHLJURJX0H8vhpJjb22kKFAU9cWSOHwzb/jesEdW24jFCrVrc8U+OHa5qciy4R2uM6wo6mA8G2exwA+qMZViiqCg/OUKnKegZA3YAdnYBQKuFYNhqBxFe8HwaFyjmEBBpPBoNF1E0M5GDspYjuACbImBa4J9YjCWHSjYqAoiK6ZMli3EbtMajoLOLu2QIgJtTeSwwwxf6rmusDjLKR8xykbf7GMxw0i6C8K4WPV4SSpQwGK1HtYZBvrcUeRLV+2w6NOrCVRhwaGjDLWzTJZlSXnfGJ0gZ5+i9KvHqGtqlTzxzhMW6DafSDNmR0CrQ9nScR/klQ1F2XZYKvoh/WRr9M7GMeDb+Vz+vjynm59xyPDtuaVLVcHtyAn/pfIpBBcww5ZiVFs6JTEGHFAiB2O3mCHZrhWEa/soyjrU9e7ZC/rSPZCcz7Q+vq6HQ6oTzH2P3s6/OeX+3qqOaxfMH1T99+ST6LHARcf1rybGVO7fUkkRXDsRtHepOV5xjQXO/om+wyOFmOTdhQYLrJl9LGYz320ao3PlTb6JD7tceT97Dl7jX61/2XQUH3aw8P6DoSd4U6adGfzmQBh9hUN2Al7FnJ5V6xvKXdieB343BsDEBMof7uCNIAohrZiqc9CpWEv85MLD6wXfUqN258pdH3x/J0c9Htfe/S+nIRmlhSkEC9yMAXIwopTbw3yYmJzaNkNj713CNCwBuFhCKWy1a+D32/IKFuW1JOnaVoUdFnjlrJyYjFZ3D0fhFxEaejYiJhmCN57sory+iDDKFe5daBXnJ+1Y1iZCJJ2mtShfGRvhp+WylNwQ6J4CWU1QOR0FBfYNVLY6LuAlfQ4/khWaMtvHrgCLQ9NwpsgJWKumiVCZQJqbHdwH16bJLWmkyoklFjjP5/lcHCEyb1XyoFWp568oHcpGw7HWv6DdH0z+v7+8Jr0xPfPMN8pY6UVSfT9Z/vw1fc7y6wxrGRbFCvt+oyK9D80wyOfPHYnAVusMH1UwaiN6XMlMrUlV6d7r8YEmDUrrvl5KYRLedFLgyawUd447FlqT51dj10fzrLy5W2KGm+lubV0le4J6khmrnrDAj/gR070uCMmf6XuPjbLbLo1NHHHFZTLdj5w7OTXbPwizaUnZ3VGV342mh3S/fI/ZxCaJGYf1MAx/AjcFM+s=
+api: eJztVcGOGzcM/RWCl22DWdstcpqbdxE0i7ZYY+MUBRwfaIm2lZ2RJhLHsTuYfy+osWOnDtIGKHqqLx5JJPVIPj51KLRJWC7QhHpE0sQgYeQse3FywGWBlpOJrhEXPJb4Yh6gYooe6hAZaBVaAUNV5fwGju4wnT0Ae9sE5yVB5Z4ZZOsSBM8FJNYVw0KtXockCchbmLayXX43tsGkMdkdecP2dtM6y2lMjbu1LrKREA/fQ94dvXjn3/nfqHKWhBMQzH65h9BwJIUKEoB9aqNeRgJOwAZO/kZg50JFwkCQOO6c4ZsEJvgkkTLeEGHDkjGe6gDOSwCCFVlIQsKFHntI7ap2kjS6hOyhICJvXJJ4wAI/4XmwWH6xxKMhxqwyjydbLDCxaaM2oFx0eMcUOWK5WPbLAiN/aDnJXbAHLLu8dJEtlhJbLtAEL+xFj6hpKmdyyPH7pO3rMJkt16RfcmgYSwyr92wEi4tAizNsJUATdSmOk7qdj8quzz91TU3waTD4cTLRv89p8/gz9gW+/NLRHVl4GnLCfwk+xxgiFlhzSrTh6yQGg3OUJNH5DRbIvq01woPfKbPOuF7tG40+D8+s/TmeD8tlf77qKuapRi8nP1zn/tZTK9sQ3R9s//vkM+mxRB29X11KGe7fppItZBuU0E3IxWlItljieB8bM/4WkscdRxWf5ZnxbzTJAeiJ959wbEUa9csmWOJqMFBIWqOn82S82lPdVHxN2AKdX4cc04ka4HQOMwVrQgW/P83uVb30krauKR6wxPvgFaaKSljDhflNgor3Tsuo4//YsJ/OHm4SDI2CdYg1yQj/qqFz1cLEJuuU9pycT/B6Pp9l5Yy85sjeMKgYahS4q1pOz4dBKC/wnq4fwU/sNU1VtaEqIMrNLEucJAdWmU4wCGl1gHUMddYsvUZRHrPEEiejyWiiXNAG15TZ5ynX/CvthVll4LLBn6Xdnen9/yvyba/Ikf7Cexk3FTmvrWljpUUdZm+BOntZQv7Z9C0L3OrwlgvsuhUlfhurvtftDy0r7XUmdxQdrXRKFqpxWyab36EOn/k4GdrQ27niU/OqVZxX2tUXJ4+pMdzIV22XF/oye3wzxwJXx7euDlZ9In1UzaOPWGJ+Y9U7K0be67Aiv2mzhOEQU+delfZCS47aUZw+NKvjEfnDBcKuGyyy1vc9FsdU8nxhv+z7/k93EkFC
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"com.atproto.identity.submitPlcOperation"}
 >
-  com.atproto.identity.submitPlcOperation
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/com.atproto.identity.submitPlcOperation"}
+  path={"/xrpc/com.atproto.identity.submitPlcOperation"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
 
-## Request
-
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"operation"}
-          required={true}
-          schemaName={""}
-          qualifierMessage={undefined}
-          schema={{}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["operation"],"properties":{"operation":{}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

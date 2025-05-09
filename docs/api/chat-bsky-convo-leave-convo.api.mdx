@@ -1,343 +1,73 @@
 ---
 id: chat-bsky-convo-leave-convo
 title: "chat.bsky.convo.leaveConvo"
-description: "chat.bsky.convo.leaveConvo"
+description: "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*"
 sidebar_label: "chat.bsky.convo.leaveConvo"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VV2P0zgU/SvWfYGVQlrQPllopQ4gqFbsVDOd1UolD65z25g6trGdTkOV/46uk07LtDsICdGXxva9x+fcL+8hinUAvgBZiZgvw6bNpTVbC0UG1qEXUVkzLYE/Nsg1ii2+SbYZBJSNV7EFvtjDFQqPHvii6IoMPH5pMMQrW7bA92mpPJbAo28wA2lNRBPpSDinlUw3jj4Ha2gvyAprQV+xdQgc7PIzygjZCdACEqNpSaSdJ9pRYSCnw8HRP0SvzBq69COU4KwJvfWr8Zj+SgzSK0c8gMP13/CLWdLu9me49g7/q+HPS7SvRMlu+tD/Kv7ovfWQQY0hiDWeK+gNznhmgKapCWFqtkKr8sjr3c4R+txu0EB2OO+XRXe86gntL8+13xnRxMp69RXL3y9eWhMicJg0sfqoQhhS+AMpXfZIxJP9VmOsLHWlsymOTsQKOIx+0KR+iz6kHm28Bg5VjC7w0cg1S61kLpzqnYVzo513Eh6TutINhk3LJs79q/CePZ8lz4z9Yxnp/QO67Ay8DDnuRO005tavLwO/6w2YiM7baNns7S17TohoIiUMy0vQiazBeG/95mnCN6hFe4lucRxet1QIfTIPI+whV3QjhTCZAIdlb0Bpozq6OQ65Qcl3HX3SycqsbMJVkYxgMmczUiytZv/dzN6wyWxKFzV1LXwLHCh76IOyhtkVOzF/FpjGnaJyY9Gya4dmMps+C6wvaLayvhYxPwvJvFKBBZS0ZNQbQpnAPsznM7qbeVyhRyORlVYGQmGHIApTnhJ4uD5n79HQW4FMsD4yLFIPE6+IISZgKbQOrFQeZdQtW3lbs1j11xDLQSVwGOfjfEzBouquRepSI1LcLxY4O1T4d0IfchdxF0dOC2UIM1XQfuiYs3fvtGOKDCpqL76A/X4pAt553XW0/aVBys2iyGArvBJLSuWCBlaFokxv3x42OKSPhs+LOXEhc90Qp7NBRMXde0ykRBeftC1OJsDs+nYOGSyH97W2Jfl4cU8DTNwDh0/wCYCec0JI5Z3296CFWTdpJkGPS+VMo/MkeEOhZ4cPUjYcCdOesHzd9wxLw/svyAY1qQ6gK7qu+waAqup4
+api: eJztVttu4zYQ/ZXBvOQCxU6LPunNSRZdo1jESLxAAa+BHUsTixuK5JKUY9XQvxdDybE32QsKLAoUqF8skYdzPXOoHUZaB8wXWFQUR6vw2I4KazYWlxlax56ismZaYv4SMNJMG75O2AwDF41XscV8scMrJs8e88WyW2bo+XPDIV7ZssV8l16V5xLz6BvOsLAmsomyRc5pVSSP40/BGlkLRcU1yVNsHWOOdvWJi4jZkaEFpoimpQTtvIQdFQc5tN84nA/RK7PGLv3ESnDWhB796+Wl/JUcCq+cxIE53v6BPzlKWd38k1j7A9/M4bevhX1FJdz1pf9Z8bP31mOGNYdAa36dQQ94FWeGbJpaLEzNhrQqD3G92TqxPrePbDDb7/evy+7g6ju5//I69/eGmlhZr/7i8t9PvrAmRMxx0sTqnQphaOEPUumyF0mczysVgE3prDIRVABHPoJ9gFgxXOmGw2ML1xVFOL15F85gMpuG0b7nAZrQkNYtDEmAlIRNHLLPgDxDqTwXkUuINlltAvuTALObe1Amkik4AzIlOG+36gCTlDRDwSZ60iDKAIH9RhUMqxYCx6jMOkHJSZW8osjPkJvpDZx+LFWZP/EqJ6cGWakofjwDZXofA1hct2KtYirZj84/mA/mfG5BM3kDtZXUVraJUJDWAqTovI1W6vFcvgBaPTJEKak1nEFgTm4WgnprpWCSqPRseToubRHGVG6kAuXFulElhzE5ddEXzPr2DNLq6DxRIlZWJNLZRGpHscIcx1vvivEPZNNv2Iv+Lg8aei987Dm1V9JnylQxOjmXIJjjqgcIe4TOdwetfbOl2mn+QliOBEWZB5vsqiggnMxhJlUrrIY/72bXUj1x1NQ1+RZzlJDZB2WNUPAIfhJA81YJ64Uft47NZDY9CdDPFTxYX1Mc4Ut+J3oHLuQVZERJmQBv5/NZ6pznB/ZsCgZphlh55nxq1FG8e/cj+J2NXFkMBH1lIIqUJN5yiMmw0CQMzNctPHhbJyaIG4lyyBJzvBxdji6lWNLXmpJYGEp1/2pXYd/WLxLdHfTn/5n+z8z0MG+Rt3HsNCkjPGi8ln72871AmW+5Xr494csMK9GEfIG73YoCv/e662T5c8MyVjL3G/KKVjKFC7ny+pqkD6lHHiZP6HMxl5AErhsJ7dVV1mX7E5OiYBe/i10eydbs9n6OGa6GL7TalnLG05NcgfSEOaJ8DMrppEppbYeazLpJNxr2NkWFhJFHejXoU7Z/kKyGLTLtUYS7XY9IV3/XYTakkuYXu2XXdX8DoJG6Yw==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"chat.bsky.convo.leaveConvo"}
 >
-  chat.bsky.convo.leaveConvo
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/chat.bsky.convo.leaveConvo"}
+  path={"/xrpc/chat.bsky.convo.leaveConvo"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
-chat.bsky.convo.leaveConvo
+*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*
 
-## Request
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
 
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"convoId"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"convoId"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"rev"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"convoId\": \"string\",\n  \"rev\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["convoId"],"properties":{"convoId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["convoId","rev"],"properties":{"convoId":{"type":"string"},"rev":{"type":"string"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

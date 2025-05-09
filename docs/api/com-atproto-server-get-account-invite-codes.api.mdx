@@ -1,480 +1,75 @@
 ---
 id: com-atproto-server-get-account-invite-codes
 title: "com.atproto.server.getAccountInviteCodes"
-description: "Get all invite codes for the current account. Requires auth."
+description: "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*"
 sidebar_label: "com.atproto.server.getAccountInviteCodes"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9Vttu40YM/RWCL9kCqpwWfRKKAk42SIOiXSPrFAUCP4xHtDWb0Yx2hkqiGvr3BSX5klhJm3bbJ11mSB6Sh5cNslpHzG5R+zJVXAXPPo0U7ingIsGcog6mYuMdZnhJDMpaMO7eMIH2OUVY+QBcEOg6BHIMSmtfO07hmj7XJlAEVXORYoK+oqBE1VWO2YjBdE087aWvOgvnYgATjKTrYLjB7HaDZ6QCBcxuF+0iwUoFVRJTiN2hUyVhhsZpW+d0EynHBI1g/1xTaDDB0KPKMVspGynBqAsqFWYb5KYS4aX3lpRD8X6lasuYcaipbZOdfh1IMU3vlbFqaem5jadRO/eOg7cRHgriggIo14CjBzghFRzlJ7CsGZxnOOn15idDhCPEwtc2hyXBcJS+2YX/FMqzCC0EXKy8ixQFzvenp/J4CuLDL5ig9o7JsZyqqrJGd8SYfIpyZXPskV9+Is1PnBfOCj+EBUG4xaa32v/ey6oQlKTFMJXx7+jEBNVBbnMT5U2otPJhYKj40MfhrNm/T+V/HV9CdWA8cjBuje2hqf2pcUxrCnK8s36c3vYJoDHde4ivnE5HZDvNpWLMMFdM37IpSUTq+M9DW8chWPIy5eMQDRdeBWPyAcYbYLcJsmFL410np1VMza7h3ESReJOI3G87mR/GCH+m8q4ZUuSvxXwKwQdMsKQY1ZqOQ9lfGIkPuboUDVfuXlmT73FdPFaife7vSBrHcL79fF/3UOm84wwu2r3xY2rtovHdcTRunMwDH8yfXUX9z+HQ3kVhx7Tm4lcT41AJf+FKd4MLL3NrTWK9UlxghpM3TTE57udUHSxmWDBXMZtMqnppjU5VZdJlvGtSVVWTx1Dpo/59ZmuKdw1Mq+p3Qw/wbtZJJvCbB/HoG5Qh9Ux5HlN6VGVlKfVhPa74or8Agyswe/8R3olGctylPR9T3YF1xA8+3L0O+JqsasbgLvbT/aOkuk/XdsbvsiEWcRh0XQfsL0hijFv57uZQrtM5zMQH7S38cT07h+nsSkTrslSh6Yeg5MF4B34FB9dPIlh6NEIRYA8fKnLT2dVJhJ6E0LeW9MjJeWEiRNLyCcJnZVyEn+fzmdiGQCsK5DRB7nW/L23Dolx+CGBnPoVLcrIsESjofQWWShRcTJE7xVpZGyE3gTTbBlbBl90mJmYE5eAlZnianqanwvPKRy5VV1nbVWaUwDAwGHoKw5bDTxzf7Iv3366GQ5qZHnlSWWW62daRbTOU2tiG+kKpLRIsvFT5LW42SxXpJti2ld/9giYFuJ+qww51R83R4nivbC2wOuofSbwYi6++ZY1Gpwd8vInuQS/kI5h+tbiVjl2QyrvdeTOIT7Wmig+kjnqwaNn1vsuLuexGtSRkv430tZhsX0T7dj1wzYHuH/uyhm6m/IRbFzpiY7to2/YLvMdbdA==
+api: eJztVktvGzcQ/isDXtQaG8ktetJNdoLEKIoIiQwUUHSgdkdaxlxyzRk6VoX978WQq4cjJY2LtL30pBU5j28enPm2ivWa1HiuSt8MNbfBsx8ShgcMalGoCqkMpmXjnRqri1ltCNBVrTeOwRC0OjD4FXCN0GvD9OV7yBZAuwp0WfroGBrt9BobdAyT6Q0N4R3eRyQm8CtGBwHvowkIOnKNjk2pxWs2ERAaXSFUJmDJdgPsk8tIGAYE/pNLXo0j1q7E4cUH98FdzDxY1MFB48Xu0keGUltr3HoPdjK92QdEYM0dAkuQ3mEBhJjczEXqjResAmcSuV78MKp8SSNdPYjH6sU6mgpppFvzIqP0YfMjpNMM5zUyaGvBuAfDCKWvkGDlQ/JQxhAkM32ycnJMQErpGKpC+RZDyshNpcZnqjVcI0+y9k3ycC0OVKEIyxgMb9R4vlVXqAMGNZ4vukWhWh10g4yB0qXTDaqxMq60scJbwkoVykjh7yOGjSpUX6NKjVfaEhaKyhobrcZbxZtWlJfeW9ROSeusdLSsxhwidl2xt18G1IyTB22sXlr83MfTlrv2joO3BJ9q5Dq11AYcfoKBVBarASwjg/MMg2y3GvQZJqDaR1vBEqG/Gj47hH8UymcZWgg4ar0jJIHz8+Wl/DwF8fZXVajSO0bHcqvb1vZPZfSRRGR7GpFffsSSnwQvD176Q7ogSG+xyV7z8UFXh6ClLIaxoW+xqQqlj2pbGZIvaaWVD32HSgw5D1ebw/dEziN9CdWRc+Jg3Fp1x64Ot8YxrjHI9d77aXm7J4DO2T5A/Mrt5IxustxoVmNVacYXbBoUlUh/P7WR+mTJx4RPU9QLfBWMqXoYz4DdFYoNWzw/dSpc0dDsB84ticazVES+Szq/nGv4K13tNsX36nwMwQdVqAaJ9BpPU5kFzuQHXWzEwo170NZUB1yvHluxPvN3KIOjv9/9fRkzVLxOPaMW3cH5aWvts/HTaTZunewDH8wf6UX9y+kovSPpDlmAvxmi/iX8RShJgmsve2uN4r3VXKuxGj2Gthw9a5XJtSyrxWGvvZcgM9DddtvjqJlb1Y/49PazgEAybuWTZN+okxlMBUPpLfz+bnotzEBUY9PosMnjX5wLJ/ErOBIfEFh8NJIc4SVvW3ST6c2AIKcf8qManuyTRKYIy0RzpJLaOII3s9k0sZKAKwzoSgQhGokpXNmIdLfJJOQI7879EF6jE5qAoCHHCiw9mPgSUmJeiQLRgUqtgm8SBxE3grKPUo3V5fByeCkVbj1xo1NP7Zb42apBXzbIdYNd4Z4Evj207f+M8j9klP0bYXzkUWu1SSsxBisVyi90ruSFpjnzjW90Uajay4yYq+12qQlvg+06Oc70TmjmYSf3DOwONye080HbKOiUEMcTjS/203fnaGeTlAGf8tgD6IX8CSYTk7nM+xp1lZj3tleflCW2fKR1MsHFyn5yvn41E2YVpS4HLpPnWbH7EOs7cuE2R7a32yyRNlLXqV0MaTqobtF13Z+EuOe9
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"com.atproto.server.getAccountInviteCodes"}
 >
-  com.atproto.server.getAccountInviteCodes
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
-  path={"/com.atproto.server.getAccountInviteCodes"}
+  path={"/xrpc/com.atproto.server.getAccountInviteCodes"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
+*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
 Get all invite codes for the current account. Requires auth.
 
-## Request
-
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"includeUsed","in":"query","required":false,"schema":{"type":"boolean","default":true}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"createAvailable","in":"query","description":"Controls whether any new 'earned' but not 'created' invites should be created.","required":false,"schema":{"type":"boolean","description":"Controls whether any new 'earned' but not 'created' invites should be created.","default":true}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                codes
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object[]
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
-                              >
-                                Array [
-                              </div>
-                            </li><SchemaItem
-                              collapsible={false}
-                              name={"code"}
-                              required={true}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"available"}
-                              required={true}
-                              schemaName={"integer"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"disabled"}
-                              required={true}
-                              schemaName={"boolean"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"boolean"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"forAccount"}
-                              required={true}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"createdBy"}
-                              required={true}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"createdAt"}
-                              required={true}
-                              schemaName={"date-time"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string","format":"date-time"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={true}
-                              className={"schemaItem"}
-                            >
-                              <details
-                                style={{}}
-                                className={"openapi-markdown__details"}
-                              >
-                                <summary
-                                  style={{}}
-                                >
-                                  <span
-                                    className={"openapi-schema__container"}
-                                  >
-                                    <strong
-                                      className={"openapi-schema__property"}
-                                    >
-                                      uses
-                                    </strong><span
-                                      className={"openapi-schema__name"}
-                                    >
-                                       object[]
-                                    </span><span
-                                      className={"openapi-schema__divider"}
-                                    >
-                                      
-                                    </span><span
-                                      className={"openapi-schema__required"}
-                                    >
-                                      required
-                                    </span>
-                                  </span>
-                                </summary><div
-                                  style={{"marginLeft":"1rem"}}
-                                >
-                                  <li>
-                                    <div
-                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
-                                    >
-                                      Array [
-                                    </div>
-                                  </li><SchemaItem
-                                    collapsible={false}
-                                    name={"usedBy"}
-                                    required={true}
-                                    schemaName={"did"}
-                                    qualifierMessage={undefined}
-                                    schema={{"type":"string","format":"did"}}
-                                  >
-                                    
-                                  </SchemaItem><SchemaItem
-                                    collapsible={false}
-                                    name={"usedAt"}
-                                    required={true}
-                                    schemaName={"date-time"}
-                                    qualifierMessage={undefined}
-                                    schema={{"type":"string","format":"date-time"}}
-                                  >
-                                    
-                                  </SchemaItem><li>
-                                    <div
-                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
-                                    >
-                                      ]
-                                    </div>
-                                  </li>
-                                </div>
-                              </details>
-                            </SchemaItem><li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
-                              >
-                                ]
-                              </div>
-                            </li>
-                          </div>
-                        </details>
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"codes\": [\n    {\n      \"code\": \"string\",\n      \"available\": 0,\n      \"disabled\": true,\n      \"forAccount\": \"string\",\n      \"createdBy\": \"string\",\n      \"createdAt\": \"2024-09-17T00:22:42.011Z\",\n      \"uses\": [\n        {\n          \"usedBy\": \"string\",\n          \"usedAt\": \"2024-09-17T00:22:42.011Z\"\n        }\n      ]\n    }\n  ]\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`, `DuplicateCreate`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","DuplicateCreate"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"includeUsed","in":"query","required":false,"schema":{"type":"boolean","default":true}},{"name":"createAvailable","in":"query","description":"Controls whether any new 'earned' but not 'created' invites should be created.","required":false,"schema":{"type":"boolean","description":"Controls whether any new 'earned' but not 'created' invites should be created.","default":true}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["codes"],"properties":{"codes":{"type":"array","items":{"type":"object","required":["code","available","disabled","forAccount","createdBy","createdAt","uses"],"properties":{"code":{"type":"string"},"available":{"type":"integer"},"disabled":{"type":"boolean"},"forAccount":{"type":"string"},"createdBy":{"type":"string"},"createdAt":{"type":"string","format":"date-time"},"uses":{"type":"array","items":{"type":"object","required":["usedBy","usedAt"],"properties":{"usedBy":{"type":"string","format":"did"},"usedAt":{"type":"string","format":"date-time"}},"title":"com.atproto.server.defs.inviteCodeUse"}}},"title":"com.atproto.server.defs.inviteCode"}}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","DuplicateCreate"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       
