@@ -18,9 +18,9 @@ The PDS now allows users to create new accounts during the OAuth flow where clie
 
 *Web interface for "pds.example.com", with buttons "Create a new account", "Sign in", and "Cancel". There is a language-selection drop-down menu in the lower right corner.*
 
-!["Create Account" web interface, prompting user to "Chose a username" as "Step 1 of 2"](pds-create-account.png)
+!["Create Account" web interface, prompting user to "Choose a username" as "Step 1 of 2"](pds-create-account.png)
 
-*"Create Account" web interface, prompting user to "Chose a username" as "Step 1 of 2"*
+*"Create Account" web interface, prompting user to "Choose a username" as "Step 1 of 2"*
 
 On an independent or self-hosted PDS instance, this process is unbranded and independent of Bluesky Social by default. PDS operators can customize the interface with the `PDS_LOGO_URL`, `PDS_SERVICE_NAME`, and other configuration variables. When using Bluesky's hosting service (`bsky.social`), the flow will indicate that Bluesky (the company) is the hosting provider.
 
