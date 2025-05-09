@@ -18,7 +18,7 @@ The PDS now allows users to create new accounts during the OAuth flow where clie
 
 *Web interface for "pds.example.com", with buttons "Create a new account", "Sign in", and "Cancel". There is a language-selection drop-down menu in the lower right corner.*
 
-!["Create Account" web interface, prompting user to "Chose a username" as "Step 1 of 2"](pds-mgmt-sessions.png)
+!["Create Account" web interface, prompting user to "Chose a username" as "Step 1 of 2"](pds-create-account.png)
 
 *"Create Account" web interface, prompting user to "Chose a username" as "Step 1 of 2"*
 
