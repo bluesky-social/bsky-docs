@@ -1251,6 +1251,14 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Openvibe',
+    description: 'One app for Bluesky, Mastodon, and beyond — available on iOS and Android',
+    preview: require('./showcase/openvibe.png'),
+    website: 'https://openvibe.social',
+    author: 'https://bsky.app/profile/openvibe.social',
+    tags: ['socialtools', 'client'],
+  },
+  {
     title: 'ATProtoKit (Swift)',
     description: 'A straightforward solution for the ATProtoKit and Bluesky, written in Swift.',
     preview: require('./showcase/example-1.png'),
