@@ -35,6 +35,10 @@ nvm-setup: ## Use NVM to install and activate node+npm
 deps: ## Installs dependent libs using 'npm install'
 	npm install
 
+.PHONY: update-lexicons
+update-lexicons: ## Re-fetch Lexicons from github
+	./atproto-openapi-types/scripts/get-lexicons.sh
+
 .PHONY: update-openapi
 update-openapi: ## Update the OpenAPI schema from local Lexicon files
 	deno task run

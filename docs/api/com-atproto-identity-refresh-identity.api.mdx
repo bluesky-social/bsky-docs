@@ -1,0 +1,73 @@
+---
+id: com-atproto-identity-refresh-identity
+title: "com.atproto.identity.refreshIdentity"
+description: "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
+sidebar_label: "com.atproto.identity.refreshIdentity"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVlFv2zYQ/iuHe0lbyLI39El7SppuMYYtRuoCA1w/0OTZYiORKkm50QT99+EoKVYWr+tDsKf5xaR4PH53991HthjEwWO2QWnLVITK2WBTrcgEHRrcJqjIS6eroK3BDN+sLRQknIHSOgKxs3UAKYpCmwMM2+FytQQyqrLaBA+FvicIufZgDSXgiWcEG7a6sT54EEbBZR3y7au5stLPhToKI0nNDrVW5Oei0jOlHclgXfMa4tf0zSfzydzRl5p8gJCLEL16ckdy4GjmyNviSCAMjOHAq+vldTwtF0YV9DqF9WlPKRrQB8NhRbSu952AdXGsOd465OxLCs5HAooqMopjtyae72xBCeiyKqgkEwYzPrKyhZYN2P0EZ4oJ2opcNFsqzM5WIXW0d+Tz5ViVBD3J2vEw27R4RcKRw2yz7bYJDrCvrGowa3FArjALrqYEpTWBTOAlUVXFEMn8s+fytuhlTqXgUWgqwgzt7jPJgMnE0QZ7ZHtNjhlSOY4haPK8b7J28uKD0+aACe6tK0XADEWYTSy7+ONDfGWN7z39uFjw31MC3v6KLxSE0goT7JmACU+vrXweD5t9KxBe7x79nLF8ip8JdxSFViLQyMORFEJKW5vwEzPuol9KtYnWF6B7m2GH0gqMDbAbO0NbI4qigVIEmUdL5rqysmYeplPEA9TuMeas5dwHHTiA8xRUtPePs6XZW+wL9vZcja6EgqEzX6pY5Jx1mGBJ3osDPS9Tb3Am/WTqkj0s+0SecL1/qNj72t6TwWRcH6c3MUm/2/CzrQ0T5Vqrp7NrEjLoI9cRt90J2jMMI7nfLn54nquPhjXFOv0nqf8+WdIaz5Rg9f1Nex/h/mso0SLklgWrsjGZlQg5Zjh/cJWcf7eIsQby5bM9KdoHjrBHOeraI4g8hIr3RRPMcNcbMB5O0N1J+d4/CJbgv+vRYxgJauYwux5Yf7mGFQOWtoA/7lbv+BLjs+qyFK7BDN9Zw2i1NdyuE/MLDwU9aE4lBAu3FZnL1fLCQ18s6PsuPaME2oPvWxe47kIbDzfr9SpeoI725MhI4ib27AWuipr8fdPflxO84/Ep/EKGbxMCAX1yIDCfGVfge5Id823toVeNooG9s2XUCz6GUQ5RYoaLdJEuOFlc5FJEBhpR/qNIDCWGSY2fhNye6P3/Q+LFHxJDkwR6CPOqENpw5WpXcN779twgt2dUme9o0G2COTd3tsG23QlPH13Rdfz5S03cEty2R+G02HEHbVgDcxIqPkVavKeha7jgszWDY/OiZpDPtK1Lxh2XUlIVvmm7nejP6vbDGhPcDc+d0ire48RX1kTxFTOMbyzeHUUlfmuxEOZQR4nD3ieLCBdlIjeDvCTjgKMaloRpJgjbtreId0fXYTKEEnsPu23XdX8BldYALg==
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"com.atproto.identity.refreshIdentity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/com.atproto.identity.refreshIdentity"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Request that the server re-resolve an identity (DID and handle). The server may ignore this request, or require authentication, depending on the role, implementation, and policy of the server.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["identifier"],"properties":{"identifier":{"type":"string","format":"at-identifier"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["did","handle","didDoc"],"properties":{"did":{"type":"string","format":"did"},"handle":{"type":"string","description":"The validated handle of the account; or 'handle.invalid' if the handle did not bi-directionally match the DID document.","format":"handle"},"didDoc":{}},"title":"com.atproto.identity.defs.identityInfo"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","HandleNotFound","DidNotFound","DidDeactivated"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

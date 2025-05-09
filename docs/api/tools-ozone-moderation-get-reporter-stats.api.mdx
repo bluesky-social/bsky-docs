@@ -1,0 +1,75 @@
+---
+id: tools-ozone-moderation-get-reporter-stats
+title: "tools.ozone.moderation.getReporterStats"
+description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*"
+sidebar_label: "tools.ozone.moderation.getReporterStats"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vGzkM/SsEL2mCqe0u9uSb2xRpsFg0SFxgAdcHeUTbajTSVNSkmRrz3wtK49ipnaQLLPZUXzyjeSQfP0Ryg1GtGMczjN5bHvjv3tGg8pqCisY7nBeoictg6vQ6xrPp2jCQ07U3LoJhqFWI4JcQ1wSzj6IAdgqAKdyZkuav1jHWPB4Os4lkbngKk6tLHsA1fW2II0PDjbK2hUBfGxMIVBPX5KIpk7ICVCDQJlAZSUP0yWbDFE4Yrs5vwLioXEkFKKehDv7e7GCZmXGcIGCcFq2kYdGm7+eX52Bceuw5Jw2tcStYk9IUBjDRlXE9qR0tqFQLyrKHBUHtmc3CUgHfTFwnR4gjMLnYM7ftcUqDs8/uszuberCkgoPKSwAWvolQKmuFh4p18NFL1B5SwGDNLUGUtHhHBTBRzoWgPngJq4Rj0sT1/NVQ+5KHSt+JRf161RhNPFS1eZ3J+dCeQjrNdC4oQqDah0gBOKrIsPQBFFjDKesSfR5ggb7uU36pcfxEOQ1WFK97bTeiDAtkKptgYovj2QbfkgoUcDybd/MCaxVURZECp49OVYRj1EaLnJFq/NpQaLHAvl40jmNoqEAu11QpHG8wtrUIqRCUAE2kivfOOQbjVljg0odKxaweuwIrdX+ZsW9Go07YBOLaO6Yk/sdoJH+P78bHv7DA0rtILspXVde2r5HhFxbI5pCZX3yhMj7yYYYp0nL56iBxjSZbzccve3VUpzhWoCpL37g+C+/kMcFKH/TPZylPepIFfj6+TiLb06huyWn/zf2Efjh/DLdqQfZAdX+6Dz2IgDjxC9k74uVOyrhIKwqCO3T8CdiRWDyL3HfiKPB4xJ6Hvqj0WFyfA76gUGybaOnp+6xpyYPw6EZ3+Vfgn8euyFult93+v7orFIIPWGBFzGpFhzWTAUeqhlxTiYZLd6es0Tte7+9r0T71t+Sw2H7Pr/NuZ+pA5873N4e+f3IyOXww30n//86X3rHcEJkDfxvmRPdFVxIirr309BWJ9VrFNY5xeB/qcvhv2ny4y418vuv5N+Jj5rnt/A80ZF/AvpPL+yIDhJFxS5+QfXFOpnAlc7H0Fv65vnon81FEm6pSocUxvvNOjMus9kvYg58wWLo3EhsZyh9rcpOryxOGHH3IfUXG2+NUpiWIqUzjXxKpjGP4MJ1epdkcaEmBZM2QcZsm5lvbEN+2eRTv8d2aH8AFOYkfgYLsK0QpuLQsyAohimUR4N0esQy+SrNezAjL3ksc42gwGowkwbXnWKlUUv0AfTppsM0abNP2yO3NrmZ/74G/98Dje2B/fSPdx2FtlXFShE2wUj65d8xQeodAf7F7zAtce2leM9xsForpU7BdJ8d5/5PlUBtWCytNcaks0zOV++q675+n8BTdW2p3i+adso1AUJbAOxWM2EkraoG5IBKBLDMpS6rjntRBaxctDy314v1UdrJGwvLQ+fpOV2wfRPt24XPtnu7NJiPSYOo63BJPfQO7edd1PwB/uuj5
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"tools.ozone.moderation.getReporterStats"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/xrpc/tools.ozone.moderation.getReporterStats"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Get reporter stats for a list of users.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"dids","in":"query","required":true,"schema":{"type":"array","items":{"type":"string","format":"did"},"maxItems":100}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["stats"],"properties":{"stats":{"type":"array","items":{"type":"object","required":["did","accountReportCount","recordReportCount","reportedAccountCount","reportedRecordCount","takendownAccountCount","takendownRecordCount","labeledAccountCount","labeledRecordCount"],"properties":{"did":{"type":"string","format":"did"},"accountReportCount":{"type":"integer"},"recordReportCount":{"type":"integer"},"reportedAccountCount":{"type":"integer"},"reportedRecordCount":{"type":"integer"},"takendownAccountCount":{"type":"integer"},"takendownRecordCount":{"type":"integer"},"labeledAccountCount":{"type":"integer"},"labeledRecordCount":{"type":"integer"}},"title":"tools.ozone.moderation.defs.reporterStats"}}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

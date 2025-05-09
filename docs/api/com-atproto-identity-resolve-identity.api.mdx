@@ -1,0 +1,73 @@
+---
+id: com-atproto-identity-resolve-identity
+title: "com.atproto.identity.resolveIdentity"
+description: "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
+sidebar_label: "com.atproto.identity.resolveIdentity"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVlFvGzcM/isEX5IUFzsb9nR7SpquMYatQeYCA1w/yBLtU6OTrhLPiGfcfx94Ojt2Y6QdMOxlT/adKPLjx4/kbZHVKmE5Qx3qkeImBg4ja8iz5Q3OCzSUdLQN2+CxxDfTAI5U9FCHSKAWoWXQyjnrVzBch+v7CZA3TbCeEzj7SMCVTRA8FZBInghmYnUXEidQ3sB1y9X8fGyCTmNl1sprMper1hpKY9XYS2MjaQ5xcwH929GbT/6Tf6AU3JrEBexAw/nt5BZChDvljaML4AAKlq1zX5mYoNuaPPfx1xTt0pKBKt8aYYGhoagk8YnB8iRBo5gBTHaEFZhIt1H+lrMt3pCKFLGczbt5gY2KqiammPpDr2rCErOvpaWIBVoh+UtLUVwdU5/TkcQEPAcYYgvSSF9aG8lgybGlApOuqFZYbpE3jQRJHK1f/SOfyxBrxVii4ssDjJ1kEik1wSdKEuLHqyv5Ofb84VcsUAfP5FlOVdM4q3s2x5+TmGxfogyLz6T5KJ8ZGmuwwFwWScCa26BFmU2UArHNKMTsRL77LOS82/v5JjPTimCtnDWK96KAsOylq7QOreefhbezfDSyvrc+A5tthhvGGvCBYbFTsA1eObeBWrGuestDKR7xPkDt9jmX264rkC1LAqf1aGiZ9k8TvwzYdXLpp1M1ulEGHuhLS4n/rWJRjEF0XFNKakUvy5QNTtBPvq3FwyQT+Yzr3VMj3qfhkTwWu/PdY1bw74F/Ca0Xodxac/x0S0qzXUsdcd49Q3uBoet2XP3wkquPXrVchWj/IvPfk6WDTyIJmZK/2ZR6uN9MpbfgKsj0WpFEbxRXWOL4KTZ6/N0DLa7zyJo/T7c/JMEMcjfj9hgq5gaHGSTPi2wgcKwoUiwHDV9P4V7i6+Dgz4f7t7I65Gpb1ypusMS3wUtwG7w034H5WQJHT1aIkbn1oSF/fT85S5Cph9xFoxN9bROk3IggVVTWJ7ibTu/7tRVpSZG8JmnJJF7gxrWUHjd5Sx3g3YUfwXvysigIFORcgUWdgospce9YdmSCPAPcBpYx1H33SxhBOWSJJV6NrkZXUt0mJK5Vr6dhVbxWMTgo2VHK22ex/r/W9yBHpiceN05ZL6S20QkluRFmKI3Qt/N3tMK8wCpIG85wu12oRB+j6zp5nRe27HRjk1o4ae+lcoleKcX5wzAJLuC1LXwyiUfafP3hsFauFUOU9bxW0QqM/sOjwIqU6b9CtsPNa62p4YNbL2aYeNnPjvfvpligzL+DLh+6utj9Ee/DkfKbA9/bbbboJ3bX4Q5+3yPYzbuu+xvP0adt
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"com.atproto.identity.resolveIdentity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/xrpc/com.atproto.identity.resolveIdentity"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Resolves an identity (DID or Handle) to a full identity (DID document and verified handle).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"identifier","in":"query","description":"Handle or DID to resolve.","required":true,"schema":{"type":"string","description":"Handle or DID to resolve.","format":"at-identifier"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["did","handle","didDoc"],"properties":{"did":{"type":"string","format":"did"},"handle":{"type":"string","description":"The validated handle of the account; or 'handle.invalid' if the handle did not bi-directionally match the DID document.","format":"handle"},"didDoc":{}},"title":"com.atproto.identity.defs.identityInfo"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","HandleNotFound","DidNotFound","DidDeactivated"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
