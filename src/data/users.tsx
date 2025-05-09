@@ -1250,6 +1250,23 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ymc5fo3ssinylbq2xdgao4ge',
     tags: ['client'],
   },
+  {
+    title: 'Bits of Saturn',
+    description: 'Raw images of Saturn',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/bitsofsaturn.bsky.social',
+    source: 'https://github.com/supiket/bitsofsaturn',
+    author: 'https://bsky.app/profile/perceptualmachine.bsky.social',
+    tags: ['opensource', 'bot'],
+  },
+  {
+    title: 'Helico for Bluesky',
+    description: 'Super minimum(yet) Bluesky client',
+    preview: require('./showcase/helico.png'),
+    website: 'https://apps.apple.com/jp/app/helico-for-bluesky/id6744268859',
+    author: 'https://bsky.app/profile/zakuni.bsky.social',
+    tags: ['client'],
+  },
 ]
 
 export type User = {
