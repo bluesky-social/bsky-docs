@@ -1243,6 +1243,14 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Bluejeans',
+    description: 'Art-centric web client for Bluesky',
+    preview: require('./showcase/bluejeans-alpha-site-card.png'),
+    website: 'https://bluejeans.app',
+    author: 'https://bsky.app/profile/did:plc:ymc5fo3ssinylbq2xdgao4ge',
+    tags: ['client'],
+  },
+  {
     title: 'Bits of Saturn',
     description: 'Raw images of Saturn',
     preview: require('./showcase/example-1.png'),
