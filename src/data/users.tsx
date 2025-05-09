@@ -19,7 +19,15 @@ export type TagType =
   | 'socialtools';
 
 const Users: User[] = [
-{
+  {
+    title: 'Dragonfly',
+    description: 'Mac OS Desktop Client for Bluesky. Windows and Linux coming soon.',
+    preview: require('./showcase/dfly_showcase.png'), // Placeholder image
+    website:'https://dfly.app',
+    author: 'https://bsky.app/profile/dfly.app',
+    tags: ['client'],
+  },
+  {
     title: 'BIRU',
     description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
     preview: require('./showcase/example-1.png'), // Placeholder image
@@ -1251,7 +1259,81 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/notiz.blog',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Old wildlife illustrations bot',
+    description: 'Posts random images from the Biodiversity Heritage Library (unaffiliated)',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:ujsrwgtqk26kdz6ljxkrw4po',
+    source: 'https://github.com/nathanrooy/bhl-bot',
+    author: 'https://github.com/nathanrooy',
+    tags: ['bot', 'opensource'],
+  },
+  {
+    title: 'Treeverse',
+    description: 'A tool for navigating Bluesky threads using a tree visualization.',
+    preview: require('./showcase/treeverse.png'),
+    website: 'https://treeverse.app',
+    source: 'https://github.com/paulgb/treeverse',
+    author: 'https://bsky.app/profile/paulbutler.org',
+    tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'Openvibe',
+    description: 'One app for Bluesky, Mastodon, and beyond — available on iOS and Android',
+    preview: require('./showcase/openvibe.png'),
+    website: 'https://openvibe.social',
+    author: 'https://bsky.app/profile/openvibe.social',
+    tags: ['socialtools', 'client'],
+  },
+  {
+    title: 'ATProtoKit (Swift)',
+    description: 'A straightforward solution for the ATProtoKit and Bluesky, written in Swift.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://atprotokit.cjrriley.com/documentation/atprotokit/',
+    source: 'https://github.com/MasterJ93/ATProtoKit',
+    author: 'https://bsky.app/profile/did:plc:wlef3srsa3hlyzj2hy6yncrh',
+    tags: ['protocol', 'opensource']
+  },
+  {
+    title: 'Videos For Bluesky (iOS)',
+    description: 'Scroll through the infinite video reel, watch interesting videos in For You, Follow, or any of the custom feeds.',
+    preview: require('./showcase/videos-for-bluesky-ios.jpg'),
+    website: 'https://apps.apple.com/app/videos-for-bluesky/id6740755135',
+    author: 'https://bsky.app/profile/mszpro.com',
+    tags: ['client'],
+  },
+  {    title: 'Graze Social',
+    description: 'Feed builder and sponsorship platform',
+    preview: require('./showcase/graze-social.png'),
+    website: 'https://graze.social',
+    author: 'https://bsky.app/profile/graze.social',
+    tags: ['customfeed', 'socialtools']
+  },
+  {
+    title: 'Bluejeans',
+    description: 'Art-centric web client for Bluesky',
+    preview: require('./showcase/bluejeans-alpha-site-card.png'),
+    website: 'https://bluejeans.app',
+    author: 'https://bsky.app/profile/did:plc:ymc5fo3ssinylbq2xdgao4ge',
+    tags: ['client'],
+  },
+  {
+    title: 'Bits of Saturn',
+    description: 'Raw images of Saturn',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/bitsofsaturn.bsky.social',
+    source: 'https://github.com/supiket/bitsofsaturn',
+    author: 'https://bsky.app/profile/perceptualmachine.bsky.social',
+    tags: ['opensource', 'bot'],
+  },
+  {
+    title: 'Helico for Bluesky',
+    description: 'Super minimum(yet) Bluesky client',
+    preview: require('./showcase/helico.png'),
+    website: 'https://apps.apple.com/jp/app/helico-for-bluesky/id6744268859',
+    author: 'https://bsky.app/profile/zakuni.bsky.social',
+    tags: ['client'],
+  },
 ]
 
 export type User = {
