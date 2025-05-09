@@ -8,6 +8,14 @@
       "parameters": {
         "type": "params",
         "properties": {
+          "reasons": {
+            "description": "Notification reasons to include in response.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "A reason that matches the reason property of #notification."
+            }
+          },
           "limit": {
             "type": "integer",
             "minimum": 1,
@@ -53,7 +61,7 @@
         "author": { "type": "ref", "ref": "app.bsky.actor.defs#profileView" },
         "reason": {
           "type": "string",
-          "description": "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', and 'starterpack-joined'.",
+          "description": "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', 'starterpack-joined', 'verified', and 'unverified'.",
           "knownValues": [
             "like",
             "repost",
@@ -61,7 +69,9 @@
             "mention",
             "reply",
             "quote",
-            "starterpack-joined"
+            "starterpack-joined",
+            "verified",
+            "unverified"
           ]
         },
         "reasonSubject": { "type": "string", "format": "at-uri" },

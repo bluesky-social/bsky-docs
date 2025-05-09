@@ -17,14 +17,14 @@ Custom feeds work very simply: the server receives a request from a user's serve
 A Feed Generator service can host one or more algorithms. The service itself is identified by DID, while each algorithm that it hosts is declared by a record in the repo of the account that created it. For instance, feeds offered by Bluesky will likely be declared in `@bsky.app`'s repo. Therefore, a given algorithm is identified by the at-uri of the declaration record. This declaration record includes a pointer to the service's DID along with some profile information for the feed.
 
 The general flow of providing a custom algorithm to a user is as follows:
-- A user requests a feed from their server (PDS) using the at-uri of the declared feed
-- The PDS resolves the at-uri and finds the DID doc of the Feed Generator
-- The PDS sends a `getFeedSkeleton` request to the service endpoint declared in the Feed Generator's DID doc
+- A user requests a feed from the AppView using the at-uri of the declared feed
+  - (Currently, this request is proxied via the PDS, but it will hit the AppView directly in the future)
+- The AppView resolves the at-uri and finds the DID doc of the Feed Generator
+- The AppView sends a `getFeedSkeleton` request to the service endpoint declared in the Feed Generator's DID doc
   - This request is authenticated by a JWT signed by the user's repo signing key
-- The Feed Generator returns a skeleton of the feed to the user's PDS
-- The PDS hydrates the feed (user info, post contents, aggregates, etc.)
-  - In the future, the PDS will hydrate the feed with the help of an App View, but for now, the PDS handles hydration itself
-- The PDS returns the hydrated feed to the user
+- The Feed Generator returns a skeleton of the feed to the AppView
+- The AppView hydrates the feed (user info, post contents, aggregates, etc.)
+- The AppView returns the hydrated feed to the user
 
 For users, this should feel like visiting a page in the app. Once they subscribe to a custom algorithm, it will appear in their home interface as one of their available feeds.
 
@@ -72,7 +72,7 @@ Install dependencies with `yarn` and then run the server with `yarn start`. This
 
 You'll notice that the `getFeedSkeleton` method returns a `cursor` in its response and takes a `cursor` param as input.
 
-This cursor is treated as an opaque value and fully at the Feed Generator's discretion. It is simply passed through the PDS directly to and from the client.
+This cursor is treated as an opaque value and fully at the Feed Generator's discretion. It is simply passed through the AppView directly to and from the client.
 
 We strongly encourage that the cursor be _unique per feed item_ to prevent unexpected behavior in pagination.
 

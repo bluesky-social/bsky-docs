@@ -1,7 +1,8 @@
 name: Generate OpenAPI Schemas from Atproto Lexicons
-on:
-  schedule:
-    - cron: "0 0 * * *" # once a day
+on: workflow_dispatch
+# NOTE: disabled 2024-11-18 due to overall broken builds
+#  schedule:
+#   - cron: "0 0 * * *" # once a day
 
 jobs:
   generate_openapi_schema:
