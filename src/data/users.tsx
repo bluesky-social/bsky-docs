@@ -19,7 +19,15 @@ export type TagType =
   | 'socialtools';
 
 const Users: User[] = [
-{
+  {
+    title: 'Dragonfly',
+    description: 'Mac OS Desktop Client for Bluesky. Windows and Linux coming soon.',
+    preview: require('./showcase/dfly_showcase.png'), // Placeholder image
+    website:'https://dfly.app',
+    author: 'https://bsky.app/profile/dfly.app',
+    tags: ['client'],
+  },
+  {
     title: 'BIRU',
     description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
     preview: require('./showcase/example-1.png'), // Placeholder image
@@ -1249,6 +1257,31 @@ const Users: User[] = [
     website: 'https://graze.social',
     author: 'https://bsky.app/profile/graze.social',
     tags: ['customfeed', 'socialtools']
+  },
+  {
+    title: 'Bluejeans',
+    description: 'Art-centric web client for Bluesky',
+    preview: require('./showcase/bluejeans-alpha-site-card.png'),
+    website: 'https://bluejeans.app',
+    author: 'https://bsky.app/profile/did:plc:ymc5fo3ssinylbq2xdgao4ge',
+    tags: ['client'],
+  },
+  {
+    title: 'Bits of Saturn',
+    description: 'Raw images of Saturn',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/bitsofsaturn.bsky.social',
+    source: 'https://github.com/supiket/bitsofsaturn',
+    author: 'https://bsky.app/profile/perceptualmachine.bsky.social',
+    tags: ['opensource', 'bot'],
+  },
+  {
+    title: 'Helico for Bluesky',
+    description: 'Super minimum(yet) Bluesky client',
+    preview: require('./showcase/helico.png'),
+    website: 'https://apps.apple.com/jp/app/helico-for-bluesky/id6744268859',
+    author: 'https://bsky.app/profile/zakuni.bsky.social',
+    tags: ['client'],
   },
 ]
 
