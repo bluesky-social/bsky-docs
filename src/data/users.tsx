@@ -1251,6 +1251,14 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Bluesky Directory',
+    description: 'A curated collection of all things relating to the Bluesky social media platform.',
+    preview: require('./showcase/bluesky-directory-showcase.png'),
+    website: 'https://blueskydirectory.com/',
+    author: 'https://bsky.app/profile/mubashariqbal.com',
+    tags: ['othertools', 'socialtools'],
+  },
+  {
     title: 'Share on Bluesky',
     description: 'WordPress plugin that allows you to automatically share new posts using your Bluesky-Profile.',
     preview: require('./showcase/example-1.png'),
