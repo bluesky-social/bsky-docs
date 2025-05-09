@@ -1378,6 +1378,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/zakuni.bsky.social',
     tags: ['client'],
   },
+  {
+    title: 'Blu.Ski',
+    description: 'Short URLs and other tools for Bluesky',
+    preview: require('./showcase/bluski.png'),
+    website: 'https://blu.ski',
+    author: 'https://bsky.app/profile/sri.xyz',
+    tags: ['othertools'],
+  },
 ]
 
 export type User = {
