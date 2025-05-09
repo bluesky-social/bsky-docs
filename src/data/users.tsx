@@ -1251,6 +1251,15 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'bluesky-post',
+    description: 'A Web Component to display Bluesky posts and their metadata',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://darn.es/bluesky-post-web-component/',
+    source: 'https://github.com/daviddarnes/bluesky-post',
+    author: 'https://bsky.app/profile/darn.es',
+    tags: ['othertools', 'opensource'],
+  },
+  {
     title: 'NeoDB',
     description: 'an open-source software and federated community to manage and explore collections, reviews, and ratings for various cultural products, including books, movies, music, podcasts, games, and performances.',
     preview: require('./showcase/example-1.png'),
