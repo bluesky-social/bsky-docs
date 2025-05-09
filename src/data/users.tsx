@@ -728,7 +728,7 @@ const Users: User[] = [
     website: "https://useouranos.app/",
     source: "https://github.com/pdelfan/ouranos",
     author: "https://bsky.app/profile/did:plc:3sapfnszmvjc6wa4ml3ybkwb",
-    tags: ["client", "opensource"],
+    tags: ["client", "opensource", "favorite"],
   },
   {
     title: 'swifties.social',
@@ -1098,7 +1098,7 @@ const Users: User[] = [
     preview: require('./showcase/bluefeed.jpg'),
     website: 'https://www.bluefeed.app',
     author: 'https://bsky.app/profile/did:plc:pxwzal3aspfg2xnbbt2fjami',
-    tags: ['customfeed', 'favorite']
+    tags: ['customfeed']
   },
   {
     title: 'Word of the Day Bot',
@@ -1230,7 +1230,7 @@ const Users: User[] = [
     preview: require('./showcase/smoke-signal-events.png'),
     website: 'https://smokesignal.events/',
     author: 'https://bsky.app/profile/ngerakines.me',
-    tags: ['socialtools'],
+    tags: ['socialtools', 'favorite'],
   },
   {
     title: 'tuisky',
@@ -1309,7 +1309,7 @@ const Users: User[] = [
     website: 'https://bsky.app/profile/did:plc:ujsrwgtqk26kdz6ljxkrw4po',
     source: 'https://github.com/nathanrooy/bhl-bot',
     author: 'https://github.com/nathanrooy',
-    tags: ['bot', 'opensource'],
+    tags: ['bot', 'opensource', 'favorite'],
   },
   {
     title: 'Treeverse',
@@ -1351,7 +1351,7 @@ const Users: User[] = [
     preview: require('./showcase/graze-social.png'),
     website: 'https://graze.social',
     author: 'https://bsky.app/profile/graze.social',
-    tags: ['customfeed', 'socialtools']
+    tags: ['customfeed', 'socialtools', 'favorite']
   },
   {
     title: 'Bluejeans',
