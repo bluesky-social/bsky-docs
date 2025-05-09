@@ -1,0 +1,73 @@
+---
+id: chat-bsky-convo-accept-convo
+title: "chat.bsky.convo.acceptConvo"
+description: "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*"
+sidebar_label: "chat.bsky.convo.acceptConvo"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVttu2zgQ/ZXBvOQCxfYu+qS3XIqtsShiJC6wgGugY2lisZFJlhw50Rr692IoO3Yu2z4UWGCB9Ysl6nCuZw65QaFlxHyGRUUyWMT7dlA4u3Y4z9B5DiTG2XGJ+UvAgIqCvVwmcIaRiyYYaTGfbfCCKXDAfDbv5hkG/tZwlAtXtphv0qsJXGIuoeEMC2eFregn8r42RXI5/Bqd1bVYVLwifZLWM+boFl+5EMwODM0whTQuNWofNG4xHHXT7sN+f5Rg7BK79FMr0Tsbe/Tvo5H+lRyLYLzGgTle/4m/EOXzcAKvX4eSvXB4w2t4qNiCVAwpAXigCH3BuRzA+A6sE/CBI1vJXuLqwFS2e/xTru/eSu+CSrjpW/QreR52g0NwATNccYy05Ndd6QFvFIJts1ILY7um2pT7uN4/erU+dfdsMdt971/n3d7VP/b53ei317l/stRI5YL5m8t/P/nC2SiY43kj1UcTYwr3p6l0L+lyOq1MBLald8YKmAiegoC7S7y4qBuO9y1cViRwfPUxnsD5ZBwHu55HaGJDdd3CNgnQkrCVbfYZUGAoTeBCuARxyWoTORxFmFzdgrFCtuAMyJbgg3s0e5imVDMUbCVQDSohEDmsTcGwaCGyiLHLBCWvVQqGhJ8gV+MrOP5SmjJ/4EVO3mz1pyL5cgKmH5AdWF23aq1iKjkMTj/bz/Z06qBmChZWTlNbuEagoLpWIIkPTpzW46l8EWpzzyBaUmc5g8ic3MwU9cFpwTRR7dn8eFi6Ig6pXGsFyrNlY0qOQ/LmrC+YC+0JpNXBaaKEVE611LtEak9SYY7Dx+CL4c/0Naw5qFLP92J7q4TsSbWT3CfOVCJe9yUI5rjoAUof5fPNXpTfP9LK1/xMLZ8ol6Gxdy7ZNaIgPJ/CRMtWuBr+uplcavnUUbNaUWgxRw2ZQzTOKgcP4EcRan40SnslyLVnez4ZH0XoBwvuXFiRDF7pYeJ35EJfVeeEjI3wYTqdpNYFvuPAtmDQbqiVJ9KnTh3Eu3M/gD/Y6uHGQNBXBkS1JBGXoyTDypO4pX7dwl1wq0QFdaNRbrPEHEeD0WCkxdLGriiphaVU97fbCru+Pst0s1eg/6f6PzPV24ETfpShr8lYJUITau1nP+Ez1AnXA+YHMz7PsFJZyGe42Swo8qdQd50uf2tYB0snf03B0ELncKanXl+UdOe65+3sKX/OphqTwutGY3t1mnXZbsd5CuGH2PmBck2ub6eY4WJ7mVu5UvcEetBTkB4wR9SLo+7uLzy6tsGa7LJJhxr2NlWHlJIHirVVqGz3oFltP5FtDyLcbHpEOv27DrNtKmmCsZt3Xfcd1wzLGg==
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"chat.bsky.convo.acceptConvo"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/chat.bsky.convo.acceptConvo"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["convoId"],"properties":{"convoId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"rev":{"type":"string","description":"Rev when the convo was accepted. If not present, the convo was already accepted."}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
