@@ -1251,6 +1251,15 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Treeverse',
+    description: 'A tool for navigating Bluesky threads using a tree visualization.',
+    preview: require('./showcase/treeverse.png'),
+    website: 'https://treeverse.app',
+    source: 'https://github.com/paulgb/treeverse',
+    author: 'https://bsky.app/profile/paulbutler.org',
+    tags: ['othertools', 'opensource'],
+  },
+  {
     title: 'Openvibe',
     description: 'One app for Bluesky, Mastodon, and beyond — available on iOS and Android',
     preview: require('./showcase/openvibe.png'),
