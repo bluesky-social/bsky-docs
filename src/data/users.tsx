@@ -1243,6 +1243,15 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Bits of Saturn',
+    description: 'Raw images of Saturn',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/bitsofsaturn.bsky.social',
+    source: 'https://github.com/supiket/bitsofsaturn',
+    author: 'https://bsky.app/profile/perceptualmachine.bsky.social',
+    tags: ['opensource', 'bot'],
+  },
+  {
     title: 'Helico for Bluesky',
     description: 'Super minimum(yet) Bluesky client',
     preview: require('./showcase/helico.png'),
