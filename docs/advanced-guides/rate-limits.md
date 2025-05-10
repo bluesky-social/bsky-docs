@@ -29,7 +29,7 @@ The limit is 5,000 points per hour and 35,000 points per day. Points are counted
 
 Under this system, an account may create at most 1,666 records per hour and 11,666 records per day. That means an account can like up to 1,666 records in one hour with no problem. We took the most active human users on the network into account when we set this threshold (you surpassed our expectations!).
 
-Note that moderation systems and other application-specific limits may apply, or that services may degrade in some situations. For example, following other users and "liking" content both count as interactions in the in the Bluesky app, and bulk or spammy interactions are against the Community Guidelines.
+Note that moderation systems and other application-specific limits may apply, or that services may degrade in some situations. For example, following other users and "liking" content both count as interactions in the Bluesky app, and bulk or spammy interactions are against the Community Guidelines.
 
 
 ## Hosted Account (PDS) Limits
