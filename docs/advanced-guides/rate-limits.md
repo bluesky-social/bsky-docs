@@ -55,7 +55,7 @@ Most authenticated API requests in go through the account's PDS host, which appl
   - 50 per 5 minutes
 - `com.atproto.server.resetPassword`
   - Measured per IP
-  - 50 per minutes
+  - 50 per 5 minutes
 
 The PDS also applies a maximum size limit on individual blob uploads (separate from any application-specific blob size limit). The current limit is 52,428,800 bytes (50 MByte).
 
