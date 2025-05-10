@@ -1040,6 +1040,18 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "tools.ozone.hosting",
+      items: [
+        {
+          type: "doc",
+          id: "api/tools-ozone-hosting-get-account-history",
+          label: "tools.ozone.hosting.getAccountHistory",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "tools.ozone.moderation",
       items: [
         {
@@ -1238,6 +1250,30 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/tools-ozone-team-update-member",
           label: "tools.ozone.team.updateMember",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "tools.ozone.verification",
+      items: [
+        {
+          type: "doc",
+          id: "api/tools-ozone-verification-grant-verifications",
+          label: "tools.ozone.verification.grantVerifications",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-verification-list-verifications",
+          label: "tools.ozone.verification.listVerifications",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-verification-revoke-verifications",
+          label: "tools.ozone.verification.revokeVerifications",
           className: "api-method post",
         },
       ],
