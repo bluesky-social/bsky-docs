@@ -2,12 +2,12 @@
 sidebar_position: 3
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 # Viewing threads
 
-A *thread* refers to a post, its replies (descendants), and its parents
+A _thread_ refers to a post, its replies (descendants), and its parents
 (ancestors). Fetching a thread is done with the `getPostThread` method, which accepts the following parameters:
 
 | Parameter      | Type     | Description                                                 | Required | Default | Minimum | Maximum |
@@ -49,8 +49,8 @@ interface ThreadViewPost {
 }
 ```
 
-Here, the `post` is the "root" — whose URI you provided the `getPostThread`
-method. The `parent` is a nested tree of ancestors (if any), and the `replies`
+Here, the `post` is the "root" - whose URI you provided the `getPostThread`
+method. The `parent` is a nested tree of ancestors (if any), and the `replies`
 is a one-dimentional array of replies (if any).
 
 Because `replies` is one-dimensional, to facilitate the construction of a tree

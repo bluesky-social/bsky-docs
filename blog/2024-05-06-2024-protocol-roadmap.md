@@ -4,7 +4,7 @@ title: 2024 Protocol Roadmap
 tags: ['updates']
 ---
 
-*Discuss this post in our Github Discussion forums [here](https://github.com/bluesky-social/atproto/discussions/2469)*
+_Discuss this post in our Github Discussion forums [here](https://github.com/bluesky-social/atproto/discussions/2469)_
 
 This roadmap is an update on our progress and lays out our general goals and focus for the coming months. This document is written for developers working on atproto clients, implementations, and applications (including Bluesky-specific projects). This is not a product announcement: while some product features are hinted at, we aren't promising specific timelines here. As always, most Bluesky software is free and open source, and observant folks can follow along with our progress week by week in GitHub.
 
@@ -14,7 +14,7 @@ After this big push on the protocol, the Bluesky engineering team is spending a 
 
 Summary-level notes:
 
-- Federation is now open: you don't need to pre-register in Discord any more. 
+- Federation is now open: you don't need to pre-register in Discord any more.
 - It is increasingly possible to build independent apps and integrations on atproto. One early example is https://whtwnd.com/, a blogging web app built on atproto.
 - The timeline for a formal standards body process is being pushed back until we have additional independent active projects building on the protocol.
 
@@ -64,7 +64,6 @@ While we will continue to make progress on additional objectives (see below), we
 
 **Protocol Tech Debt:** there are a few other small technical issues to resolve or clean up; these are tracked in [this GitHub discussion](https://github.com/bluesky-social/atproto/discussions/2128)
 
-
 ## On the Horizon
 
 There are a few other pieces of protocol work which we are starting to plan out, but which are not currently scheduled to complete in 2024. It is very possible that priorities and schedules will be shuffled, but we mostly want to call these out as things we do want to complete, but will take a bit more time.
@@ -79,9 +78,7 @@ There are a few other pieces of protocol work which we are starting to plan out,
 
 **PLC Transparency Log:** we are exploring technical and organizational mechanisms to further de-centralize the DID PLC directory service. The most promising next step looks to be publishing a transparency log of all directory operations. This will make it easier for other organizations to audit the behavior of the directory and maintain verifiable replicas. The recent "tiling" transparency log design used for [https://sunlight.dev/](https://sunlight.dev/) ([described here](https://filippo.io/a-different-CT-log)) is particularly promising. Compatibility with [RFC 6962 (Certificate Transparency)](https://www.rfc-editor.org/rfc/rfc6962) could allow future integration with an existing ecosystem of witnesses and auditors.
 
-
 **Identity Key Self-Management UX:** the DID PLC system has a concept of "rotation keys" to control the identity itself (in the form of the DID document). We would like to make it possible for users to optionally register additional keys on their personal devices, password managers, or hardware security keys. If done right, this should improve the resilience of the system and reduce some of the burden of responsibility on PDS operators. While this is technically possible today, it will require careful product design and security review to make this a safe and widely-adopted option.
-
 
 ## Standards Body Timeline
 
