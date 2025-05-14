@@ -1,0 +1,75 @@
+---
+id: com-atproto-sync-list-repos-by-collection
+title: "com.atproto.sync.listReposByCollection"
+description: "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS instances or Relay instances.*"
+sidebar_label: "com.atproto.sync.listReposByCollection"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv20YQ/iuDuTRJGYkJ2gtvdhwkQpFGcBSggKLDejkSN17uMjtLx4zA/17Mkno4spMUKIIe6ou83NmZ+ebxzWwxqg1jsUTt64mKTfDRT7hzGlcZlsQ6mCYa77DARWUYyJWNNy6CYWhUiODXECuC8SkEajyb6EMHoqUK3pkvSjTA2XzGE7ikTy1xZGi5VdZ2UHpwPkKgT60JBKqNFblodHqUgXIlaOXgiqBWJUH0ML94B8ZxVE4Tgw9wSVZ1h0+TJx/cB/dk4cGSCg5qL3qvfBtBK2uN2+zdPZvP9pAYrLkmiALTO8qAiRK2pUi99uK0eHPWxmr1aFp6zVNV3ojJ8ummNSXxVDXmaWkCaYnAY0hfB3deuramoCIxKGuT3ovZBcPnyugKKnVDEEj7UDJ8NrFKAhtzQw60t5Z0CuGf72YXE8zQN6LKeDcrsThJ3cQajpeSiPPuxf4xZsik22Bih8Vyi+ekAgUslqt+lWGjgqopUuB06VRNSfPRayNF8Kml0GGGY7pKLGJoKUPWFdUKiy3GrpGnHINxG8xw7UOtIhbo2JTY99leuzW1iV8rvltzb9Stqdsa2HwhKbVA3HjHBExRakn7uiZXyjGmvIJVYSOlMrx79CzP818fw+eKHNCYAhEcxC5mFyDB4skdSGtl+T5MxkXaUMAMa+NEPxbPMhxtYfE8z3MBsFatjVj8nufHaHUb2IeH4/iQ0TGQvWRpB5/l/nmey8/dgL39AzPU3kVyUW5V09ixl6YfWUS2pyb81UfS8Y43S0ydLCzQBCm3aAarI4xT/7LxxeFGhaAEo4lU8/fMlaY8NSYfv1VS5VBRGE209MOdMBFHsR/+Mvztvjieq3JHVf9WQCmElP+amNWGTtEOAvfglcIVDTN3o6wpD369vG1E+8Jfk3ToeD8cV/3B1D3VtMP+7BT7eyck7IP5QuXPB6+9Y8mt0OwbwzwW13egJIlYeeHDDYn1RsUKC5zehkZP/wFFhpuBBFcHvnwnEAc3d6y596KKscGxbeV8NQiIQ8atfZIcq/NsAXPxQHsLf13OX8j0kadtXavQYYEvvBPjwvR+DUfivzBYujUSGhmAbxtyZ/PZLwxD8GFoiMkJfaaRzePwkDwq4xheLxbzNPkCrSmQ0wQyzEQLnNuW+LobBt2RvzvzE3hFLs0xUDBghSj1Jn5F4pgUy5hlGAah7WAdfJ0GmpgRL0eUWGA+ySe55LfxHGuVKmo/fO7JGaSkwXkHd9J2B/b2ULL/Ly3/naVlbJhIt3HaWGWcpL0NVhI2NOsSpVkT5fxQu64yrLyQxRK32yvF9D7YvpfPw3iVTaY0rK7s0YB9sFQeXY589Rge8vaauq+3ohtlWxFEGfU/buxnLjbfgLJbwb6NYoS9W2AOwis5BCPSaZHMsCJVpq1yO74605qaYxMnM0S07Ln71csFZij9dMSxI6dmu39E+27HcN2R7u12kEgTsO9x53piKOxXfd//DQFYhA4=
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"com.atproto.sync.listReposByCollection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/xrpc/com.atproto.sync.listReposByCollection"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS instances or Relay instances.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Enumerates all the DIDs which have records with the given collection NSID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"collection","in":"query","required":true,"schema":{"type":"string","format":"nsid"}},{"name":"limit","in":"query","description":"Maximum size of response set. Recommend setting a large maximum (1000+) when enumerating large DID lists.","required":false,"schema":{"type":"integer","minimum":1,"maximum":2000,"default":500}},{"name":"cursor","in":"query","required":false,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["repos"],"properties":{"cursor":{"type":"string"},"repos":{"type":"array","items":{"type":"object","required":["did"],"properties":{"did":{"type":"string","format":"did"}},"title":"com.atproto.sync.listReposByCollection.repo"}}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

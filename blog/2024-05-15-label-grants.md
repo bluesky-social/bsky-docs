@@ -10,11 +10,13 @@ Moderation is the backbone of healthy social spaces online. Bluesky has our own 
 
 Labeling services on Bluesky allow users and communities to participate in a stackable ecosystem of services. Users can create and subscribe to filters from independent moderation services, which are layered on top of Bluesky’s own service. You can read more about how stackable moderation works on Bluesky [here](https://bsky.social/about/blog/03-12-2024-stackable-moderation).
 
-#### To support the first labelers in our ecosystem and encourage more, we are launching a microgrants program for labeling services. To apply for a grant, please fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLScwMOjYiqmaqTG6YS1MHPyjstgzhUHXiSYb1UDDa2DDycHNBw/viewform).
+**Update:** As of 2025 we are not currently accepting further grant applications.
+
+#### To support the first labelers in our ecosystem and encourage more, we are launching a microgrants program for labeling services.
 
 ## Program Details
 
-For this program, we have an allocation of $10,000. We will be distributing $500 per labeling service that is approved for a grant. Please submit an application [here](https://docs.google.com/forms/d/e/1FAIpQLScwMOjYiqmaqTG6YS1MHPyjstgzhUHXiSYb1UDDa2DDycHNBw/viewform).
+For this program, we have an allocation of $10,000. We will be distributing $500 per labeling service that is approved for a grant.
 
 The application has a rolling deadline, and we will announce both the recipients of the grants and when all of the grants have been distributed. We pay out grants via public GitHub Sponsorships. 
 

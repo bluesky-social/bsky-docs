@@ -1,0 +1,75 @@
+---
+id: com-atproto-admin-update-account-signing-key
+title: "com.atproto.admin.updateAccountSigningKey"
+description: "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*"
+sidebar_label: "com.atproto.admin.updateAccountSigningKey"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vGzcQ/SuDuaQ11pJa5LQ3OQ4aIygs2ApQQNFhRI4kxrskTXIdq4v978VwVx+G3CYFivZSnVbLmeGbj/dmW0y0iVguULl6RMkHl9yIdG0sLgvUHFUwPhlnscSL+dZEYKu9MzaBieApJHBrSFuGwRlm1/dQk6UN12wTTGc3cQR3/NhwTBGa2FBV7SDwY2MCQ74KqElbtskokquArAYKDDVpBm0Cq1TtILl8j8Q3NiayikcXn+1nezF3UDEFC7WTkCvXJFBUVcZuDrCms5sD9AiVeWBIko6zXEBkzrEXYvXBCVDBMG3SdvnDWDsVx6Sf5EZ9uWmM5jgmby57aC7sfoT8toczlZRMTIGSeWIglXNKDhqvKTGQBVLKNTa9iRDNxgrMB96BsQLCBLg2GrRTjRRwhAU6zyFX5kZjed6pUR942ge97yN+5B0WGFk1waQdlosWr5gCBywXy25ZYOhbcuX0DssWh4ZoLFNouEDlbGKb5Ii8r4bWjL9EGYUWo9pyTfKUdp6xRLf6wiphcRJogdpoAXFEtCzQB0knGY7iLRbHIDEFYzdY4NqFmhKW+bx7EeIV65djem30pZSzj5FYg29WlVFS47PQ+Sego3c29ph+nkwytBdRbz8KjrevHV2R3g84/kOF4xBcwAJrjpE2fF633uCVWrBtaolwY5+oMvqI6/2zl+hz98AWi/15/3fZHa86i7mv0dvJT+e5f7LCXRfM76z//eSVs1FaKUT91cSY4X4zlWyRtk7I5F0ujqe0xRLHz8Gr8d8jWHjiIAq6PLLtXtLsoe45d0CyTcmLXzbBEle9gYCSKt0dWfn+mWpf8YElxx6fsuGQWoHGrl2+ySRxw+kcZpKEchX8djd7Jxoo3k1dUxDXd84KeJEnt4YT8zcRKn42Ul4RrlvPdjq7EbnKDRyoNTqjXl4QkXvFk1kgYyN8mM9nWX8DrzmwVSzqFiUKXFUNx4ddL7cnePfXj+AXtqJ+DAR9rSDJzOZ1wDEvmCz28bgp1sHVWc/lGkE5ZIklTkaT0USKJY2vKU+lpdyJP2s7DH2HofHQd/5F5u1x8v9fk//VmhwYlvg5jX1Fxkqfm1BJe3qCL1AInnXqeym+LHArGlEusG1XFPlTqLpOXj82LCwS4j9RMLQS0i1ESrdMOi/aFh94IJoMx+VcEIp51QjSM4nsir3HVCn26S9tlycyNru9n2OBq2GZ106LT6CvIq30FUvMnxHinWUpv2uxIrtpslJiH1NkSKbsRLAGgSr2D5LVcER2d4KwbXuLvFK6DoshlUxX7JZd1/0BAuyoYg==
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"com.atproto.admin.updateAccountSigningKey"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/com.atproto.admin.updateAccountSigningKey"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Administrative action to update an account's signing key in their Did document.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["did","signingKey"],"properties":{"did":{"type":"string","format":"did"},"signingKey":{"type":"string","description":"Did-key formatted public key","format":"did"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

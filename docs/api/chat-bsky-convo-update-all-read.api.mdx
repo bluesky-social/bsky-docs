@@ -1,0 +1,73 @@
+---
+id: chat-bsky-convo-update-all-read
+title: "chat.bsky.convo.updateAllRead"
+description: "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*"
+sidebar_label: "chat.bsky.convo.updateAllRead"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vGzcQ/SuDucQ21pJb9LQ32Q4aowgs2ApQQBEQajnWMqZIhpyVtRX034Phrj5sB86hRYEC1UX7MTt8b+bNIzfIapGwnGJVKx7M02M7qLxbeZwV6ANFxca7G43ly4BBE7RiGll7R0pjgYmqJhpusZxu8JJUpIjldLadFRjpW0OJL71usdzkWxNJY8mxoQIr75gcyysVgjVVXnT4NXknz1JV01LJFbeBsEQ//0oVY4EhCkQ2lHIcK27SUVziaNwCCyTXLIVjjwMLVFVFgUnjbJt/gjEF71KX6teLC/nTlKpogqDBEm//wL+B9UB6il3p9JVvHEuhn/N49vaQyTimBUXcAf7tRxgvlYa7Pct/BCzF6CMWuKSU1IJe4+0C3ij7jVspa/QB1/t1kOwT/0gOi9377na2PSz1KueB+y+vuX9yquHaR/MX6X+ffOVdYixx1HD90aSU4f6UyrZ4QeJsUpsE5HTwxjGYBEFFBv8AXBNc2obSYwtXtWI4uf6YTmE0vkmDXc8TNKlR1rbQkwApCTnu2RegIoE2kSomDexz1iZRfJdgfH0PxiVWrqIClNMQol+bQ5xwsgQVOY7KghgCJIorUxHMW0jEbNwih6ogZYpGMe1Drm+u4eSLNrp8onmpgundpFb85RSM69bog2XpVrLVpDTFwdln99mdTTxYUtHB0gu3uW8YKmWtBCoO0bOXguzrl8CaRwKWmnpHBSSivMxUoj54qZgQlabNTobaV2mo9EoqoM8XjdGUhiqY865iPrankJ8OzrImuPbijMFnVQfFNZY4XMdQDX/ulnFFUZx3drDOe9Fkp6udge5lUzMH+S6HYInzLkAUJJK+O1js+7VaBkvHlrh3vm2Bxj34nNewBOFoAmMpXOUt/Hk3vpICykLNcqliiyVeeSdQjXciw6PwdwksrY0oXyRyG8iNxjfvEnSzBQ8+LhUP8KXGs8QTVXILMqbKuAQfJpNxbl6kB4rkKgLph2TZ6z736gjvbvkB/E5ONisCBV1lgMVOsnQpcU4sSkm9+m0LD9EvsxhkGUHZs8QSLwYXgwsplrR2qbJhOJXr/uPGwsha6Fv7jOzm4EP/z/Z/Z7b7oWNa8zBYZZyIoYlWGtrN+RRlzmWfeXPSZwXWYg/lFDebuUr0KdrtVh5/a0jGS+Z/paJRc5nGqWx/XVnyOeqR+gkUCZ1PBJWE20bQvdrWtsXui1E+37wZOztysPHt/QQLnPcHtKXX8k1UT7IdqicsEeU4KF9nd8rPNmiVWzR5d8Mup7iRqPLIt3qfKnYXwqp/pVx7hHCz6SLyMWC7xaKnkucYt3JQ+w6cN7yX
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"chat.bsky.convo.updateAllRead"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/chat.bsky.convo.updateAllRead"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"status":{"type":"string","enum":["request","accepted"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["updatedCount"],"properties":{"updatedCount":{"type":"integer"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

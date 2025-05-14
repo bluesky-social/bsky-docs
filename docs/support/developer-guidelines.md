@@ -11,9 +11,9 @@ Developers who federate their apps or services on the AT Protocol must adhere to
     2. Any method to automate generating followers or interactions, including account generation tools
     3. Spambots
 2. Apps with user-generated content or social networking features must include:
-    4. A method to report illegal content
-    5. A method for blocking forbidden content from being shared in the app
-    6. A method for blocking abusive users from the app
+    1. A method to report illegal content
+    2. A method for blocking forbidden content from being shared in the app
+    3. A method for blocking abusive users from the app
 3. All services must have a method for deleting content a user has requested to be deleted.
 4. Developers must have a system for appropriately responding to all user reports of violations within their apps.
 5. Developers must maintain updated contact information accessible to the public including an email address that is regularly monitored.

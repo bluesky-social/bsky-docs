@@ -1,0 +1,75 @@
+---
+id: com-atproto-sync-get-host-status
+title: "com.atproto.sync.getHostStatus"
+description: "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS instances or Relay instances.*"
+sidebar_label: "com.atproto.sync.getHostStatus"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVt1v20YM/1cIvjQpVDsb9qQ3J+saY9hqJC4wwPXDWaKta6Q75UgFUQ397wVP8kdmIxuGYsCA+cGS7njkjx/3I7coZsOYLjDz1chIHbz4Ebcuw2WCOXEWbC3WO0xxXlgGcnntrROwDLUJAn4NUhAMRyFQ7dmKDy2oliJ4Z78a1QCT2ZRHcEePDbEwNNyYsmwh9+C8QKDHxgYC00hBTmwWDyVgXA6ZcbAiqExOIB5mP9+DdSzGZcTgA9xRadrD0ujtZ/fZvZ17KMkEB5VXvSvfCGSmLK3b7OFOZtO9SwylfSAQddM7SoCJom8Llbr1ClrRTBoplhfj3Gc8NvmTmszfbRqbE49Nbd/lNlCmEbiEuNrDuSNpgmOwbu1D1Uekx2SAa8rs2lIOTc0SyFRQeJYEDEPmHTcV5bBqIxim8ERhBNOqLqkiJ/1W0BDwCBP0NYWofppjepLW0YZEXbkXIw1jgkxZE6y0mC62eE0mUMB0seyWCdYmmIqEAsdNZyrCFBVZfE3Qalk8NhRa/HOx3A5Su/rQU3BBmyRmz4ce8CWsSNOhOizlCn+ogxxTCQ0lyFlBlcF0i9LWap8lWLf5XgY7dTQQ194xsZr58epKHy+1f/wVE8y8E3Kiu6auy6FEx19YRbanSP3qC2XywqfFIXwa4KDJEtsb3u+c+Nppmh6P1q0T2lDQDZNlvnFyo3/nJbhP9ZkIkmsqxWQysU8xoXmpD79el9bpmxTBi5SUY4Ir4xzliluslHSuuHJa86g4lFcXfwn+dC6m1ybfscH3Ci6F4AMmWBGz2ZyJcS/wSiim7smUNj/gev9cq/a5fyCHyW5/96lV97uXX3zjclx2B8unOdyH4ofTUHxySns+2K8x0v9yLJRiBFNUYvvNMg8l9xeuRAkpvLLMhtR6baTAFMfPoc7Gf4N4lMiUWpYHFrpX13p4Oy7aWy9EahwIQb9XvYACUVKNkkNhTuYwU8uZL+GPu9mN8rwebarKhBZTvPFOjSsJ+zUcib9hKOnZaki01XysyU1m0zcMfdChJ+/RCf3E5siURV7X/BnrGG7n81nsMYHWFMhlBNo2VAtclw3xQ9u3lCO8O/Mj+EBOqZzAQO8riJad4hJiiYq1oTH0LadsYR18FelPzSjKwUtM8Wp0NbrSvNaepTKxkgZKP5er2PBgn60X3m4PFfr/VPDfmAqGOyT0LOO6NNZpJTSh1GT293aBem8j+7x6c5dJ7FR6YLtdGaZPoew6Xe4nAR0VcstmpV0jXZuS6ZXyubgbKOsS/vHIcNa3B2pfDitPpmxUDLXjP5lgFWEcdRIsyORx7tkO5yZZRrUcnTrhYdWy578P7+eYoBbpEV8N/JTsXlT7sGVce6R7u+0lYlPpOtyBj7cdu2XXdd8ABZ0XCw==
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"com.atproto.sync.getHostStatus"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/xrpc/com.atproto.sync.getHostStatus"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS instances or Relay instances.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Returns information about a specified upstream host, as consumed by the server. Implemented by relays.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"hostname","in":"query","description":"Hostname of the host (eg, PDS or relay) being queried.","required":true,"schema":{"type":"string","description":"Hostname of the host (eg, PDS or relay) being queried."}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["hostname"],"properties":{"hostname":{"type":"string"},"seq":{"type":"integer"},"accountCount":{"type":"integer"},"status":{"type":"string","enum":["active","idle","offline","throttled","banned"],"title":"com.atproto.sync.defs.hostStatus"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","HostNotFound"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

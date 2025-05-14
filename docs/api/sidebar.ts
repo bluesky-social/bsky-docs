@@ -396,6 +396,18 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "api/chat-bsky-convo-accept-convo",
+          label: "chat.bsky.convo.acceptConvo",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/chat-bsky-convo-add-reaction",
+          label: "chat.bsky.convo.addReaction",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/chat-bsky-convo-delete-message-for-self",
           label: "chat.bsky.convo.deleteMessageForSelf",
           className: "api-method post",
@@ -404,6 +416,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/chat-bsky-convo-get-convo",
           label: "chat.bsky.convo.getConvo",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/chat-bsky-convo-get-convo-availability",
+          label: "chat.bsky.convo.getConvoAvailability",
           className: "api-method get",
         },
         {
@@ -444,6 +462,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/chat-bsky-convo-remove-reaction",
+          label: "chat.bsky.convo.removeReaction",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/chat-bsky-convo-send-message",
           label: "chat.bsky.convo.sendMessage",
           className: "api-method post",
@@ -458,6 +482,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/chat-bsky-convo-unmute-convo",
           label: "chat.bsky.convo.unmuteConvo",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/chat-bsky-convo-update-all-read",
+          label: "chat.bsky.convo.updateAllRead",
           className: "api-method post",
         },
         {
@@ -576,6 +606,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/com-atproto-admin-update-account-signing-key",
+          label: "com.atproto.admin.updateAccountSigningKey",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-admin-update-subject-status",
           label: "com.atproto.admin.updateSubjectStatus",
           className: "api-method post",
@@ -594,14 +630,32 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/com-atproto-identity-refresh-identity",
+          label: "com.atproto.identity.refreshIdentity",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-identity-request-plc-operation-signature",
           label: "com.atproto.identity.requestPlcOperationSignature",
           className: "api-method post",
         },
         {
           type: "doc",
+          id: "api/com-atproto-identity-resolve-did",
+          label: "com.atproto.identity.resolveDid",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-identity-resolve-handle",
           label: "com.atproto.identity.resolveHandle",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/com-atproto-identity-resolve-identity",
+          label: "com.atproto.identity.resolveIdentity",
           className: "api-method get",
         },
         {
@@ -888,6 +942,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/com-atproto-sync-get-host-status",
+          label: "com.atproto.sync.getHostStatus",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-sync-get-latest-commit",
           label: "com.atproto.sync.getLatestCommit",
           className: "api-method get",
@@ -918,8 +978,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/com-atproto-sync-list-hosts",
+          label: "com.atproto.sync.listHosts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/com-atproto-sync-list-repos",
           label: "com.atproto.sync.listRepos",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/com-atproto-sync-list-repos-by-collection",
+          label: "com.atproto.sync.listReposByCollection",
           className: "api-method get",
         },
         {
@@ -968,6 +1040,18 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "tools.ozone.hosting",
+      items: [
+        {
+          type: "doc",
+          id: "api/tools-ozone-hosting-get-account-history",
+          label: "tools.ozone.hosting.getAccountHistory",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "tools.ozone.moderation",
       items: [
         {
@@ -1002,8 +1086,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/tools-ozone-moderation-get-reporter-stats",
+          label: "tools.ozone.moderation.getReporterStats",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/tools-ozone-moderation-get-repos",
           label: "tools.ozone.moderation.getRepos",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-moderation-get-subjects",
+          label: "tools.ozone.moderation.getSubjects",
           className: "api-method get",
         },
         {
@@ -1154,6 +1250,30 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/tools-ozone-team-update-member",
           label: "tools.ozone.team.updateMember",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "tools.ozone.verification",
+      items: [
+        {
+          type: "doc",
+          id: "api/tools-ozone-verification-grant-verifications",
+          label: "tools.ozone.verification.grantVerifications",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-verification-list-verifications",
+          label: "tools.ozone.verification.listVerifications",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-verification-revoke-verifications",
+          label: "tools.ozone.verification.revokeVerifications",
           className: "api-method post",
         },
       ],
