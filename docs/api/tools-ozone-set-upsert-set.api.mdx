@@ -1,383 +1,75 @@
 ---
 id: tools-ozone-set-upsert-set
 title: "tools.ozone.set.upsertSet"
-description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*"
+description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*"
 sidebar_label: "tools.ozone.set.upsertSet"
 hide_title: true
 hide_table_of_contents: true
-api: eJztVlFv2zYQ/iuHe2kbKLab9aEQhgFOUqzBNsRI3GGA4wdaPNtsJFIhT4kVQ/99OEqO3MTr+lBsL30yTR3vvrvv+B23yGoVMJ0hO5eHgXt0lgaBGOcJagqZNyUbZzHFo+naBCCrS2csgwlQKs/glsBrgtmlnITCafJKTkAgf28ymr9eM5chHQ5b3zHO8A2MJxdhAFd0V1HgAFWoVJ7X4OmuMp5AVbwmyyaLzhJQnkAbTxmTBnYxZhXIvwowOb8GY1nZjBJQVkPp3cb0Zi0yY0M0AWO1eCUNizp+P784B2PjssMcPdTGrmBNSpMfwFgXxnagelhQqBpUHhwsCEoXglnklMCD4XVMhAJDIMsd8rw+DGlwdGNv7NHUQU7KWyicFGDhKoZM5bngUFx6x06q9kRBgNzcErDQ4iwlEIhaLsTqo5OySjnGFa/nr4faZWGo9L1E1MerymgKQ1Wa4xac8/UbiLstnDNPigmch6rUsgrEUBArrVhhgq7siL7QmD7vnkFVBvJ8TYwJBsoqb7jGdLbFU1KePKazeTNPsCvSqdM1plvsyNeYsq8owcxZJsvySZVl3lV9+DlIQ24xZGsqlKy4LglTdIvPlEnI3tEMrSpIurn0ApkNBTkRd/uTgb2xK0ywMPZ3siteY/pTgoXa7P69PXnfPLsSB07v2Y9O3o2aJkE2nNOBEmlahnjTmkbMPIXS2dCiOxmN5OfLC3j5G37PkggxfG0eZZVFsvVYDFu6Zf1/Fa1H1lsby7Qij80+2APOls4XijFFSeKYTUFypM/pG498A29/GnrouHt3iK5TpXfy9r14I++dl4pRCGp1oKtbgwM5kq0K8XBh71VudI/rw6YU71N3SxaT3ff277zpQ73w2TS73N++zP2TFal03jyS/u+Tz5wNwqcI3x8mhAj3X1OJFrx2Imeli8UplTQlDje+zIZflzh/T17m6LzXu2tJq4W2U72nyDIT5Vw0wRQXrYGAkKpc9br4YaOKMqf++vWkflnzXTIJGrt0MVbXweMpTGR6ZC6Hv64mZzJFJHhVFMrXmOKZswJfJppbwp75qwA5bYwUVEbXZUl2PLl4FaClDNqrM3iBJT4VAmVxSAr7ytgAH6fTSZxgnpbkSYaxDCXxAqd5ReG2bgfWHt5d+AH8SlYmDoGCtlrA0qVxpMqgFccyLkM/bZfeFXEiShhB2WWJKY4Go8FIiiVUF8ru1fcw0dAy/UzLnjr7x/Pox/No/3nU3XOmDQ/LXBkbx5DPpWlaWZmhyIqY/qOwzBNcixKlM9xuFyrQJ583jWzfVSQ3V+TmXnmjFnLRZyLYLSXxrXVL3eWWFj2eCiIxzytB9kKIm2R3YpxlVPJXbed7Yjm5vJ5igovuESc9jil69SACrh4wxRu8wfhkFA9REOP+FnNlV1XUZGz9igBKG+1JZSeNyW4hmXWflK33UP7cqizE4fULJl02USWwmTdN8zegAoWk
+api: eJztVsFuGzcQ/ZXBXJwYa0lxcwj2JttBY7SFhVgpCig6UMuRxHiXpMlZW4qw/14Md5VVbDXNIWgvOYnizgzfzBu+4Q5ZrSLmM2Tnyjhwn52lQSTGeYaaYhGMZ+Ms5ng6XZsIZLV3xjKYCF4FBrcEXhPMbsQTKqcpKPGASOHBFDR/sWb2MR8O29jpnOFLGE+u4wDe031NkSPUsVZluYVA97UJBKrmNVk2RQqWgQoE2gQqmDSwS2fWkcJJhMnVLRgbWdmCMlBWgw9uY3q7FtreBIzVEpY0LLbp+9X1FRiblh3oFGFr7ArWpDSFAYx1ZewTVFCpLagyOlgQeBejWZSUwaPhdcqDIkMkyx3wcnsc0OD0o/1oT6cOSlLBQuUk/4WrGQpVloJCsQ+OnRTtCwMRSnNHwMKKs5RBJGqpEKt3TqoqxRjXvJ6/GGpXxKHSD3KiPlvVRlMcKm/OWnAubF9C2m3hXAZSTOAC1F7LKhJDRay0YoUZOt/xfK0xf9o8g9pHCnxLjBlGKupgeIv5bIcXpAIFzGfzZp5hV6QLp7eY77DjXmPOoaYMC2eZLMsn5X3ZVX34KUo/7jAWa6qUrHjrCXN0i09UyJF9oBlaVZE0sw8CmQ1F8Ui7vWfkYOwKM6yM/Z3siteY/5JhpTb7f6/O3zRPbsQR7wP70fnrUdNkyIZLOlIiTcuYLlrTiFmg6J2NLbrz0Uh+vr5/N7/hjyyJEMO35rOsikS2HothS7es/6+i9ch6a2OZVhSwOQR7JNjShUox5ihJnLGpSFz6nL7T5Tt4+9PQY8fd62N0XSi9V7cfxRuF4IJUjGJUqyNd3RocyZFsXUmEa/ugSqN7XG83XqJP3R1ZzPbf27/zpj/qWcym2ef+6nnuH6wIpQvmM+n/PvnC2Sh8ivD9YWJMcP81lWTBaydy5l0qjlfSlDjcBF8Mvy1x4YGCjNF5r3e3klYLba96X06WkSh+yQRzXLQGAkKq8r7XxbcbVfmS+uvXk/p1zffJZGjs0qWzug4eT2Ei06NwJfz1fnIpU0QOr6tKhS3meOmswJeJ5pZwYH4SoaSNkYLK6LrxZMeT65MILWXQXp3BMyzppRCpSENS2FfGRng3nU7SBAu0pEAyimUoSRS4KGuKd9t2YB3g3R8/gF/JysQhUNBWC1i6NI1UGbQSWMZl7KftMrgqTUQ5RlB2WWKOo8FoMJJiCdWVsgf1PU40tEw/0bIvnf3zdfTzdXTwOuquOdOGh75UxqYpFErpmVZVZiiqIqb/qCvzDNciRPkMd7uFivQhlE0j2/c1ycUVtXlQwaiF3POZ6HVLSHpq3VF3t6VDz6aCSMzLWpA90+Em23uMi4I8f9N2fqCVk5vbKWa46N5w0uKYY1CPot/qEXNMr0XxTlqY9nZYKruqkxxjG1O0TxroQCU7Vcz2C8mq+6Ts9gDhbtdapLnVNJh1qSSFwGbeNM3fBD6FXg==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"tools.ozone.set.upsertSet"}
 >
-  tools.ozone.set.upsertSet
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
   path={"/xrpc/tools.ozone.set.upsertSet"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
-*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*
+*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*
 
 *To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
 
 Create or update set metadata
 
-## Request
-
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"name"}
-          required={true}
-          schemaName={"string"}
-          qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 128 characters`"}
-          schema={{"type":"string","minLength":3,"maxLength":128}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"description"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={"**Possible values:** `<= 10240 characters`"}
-          schema={{"type":"string","maxLength":10240}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"name"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 128 characters`"}
-                        schema={{"type":"string","minLength":3,"maxLength":128}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"description"}
-                        required={false}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** `<= 10240 characters`"}
-                        schema={{"type":"string","maxLength":10240}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"setSize"}
-                        required={true}
-                        schemaName={"integer"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"integer"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"createdAt"}
-                        required={true}
-                        schemaName={"date-time"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","format":"date-time"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"updatedAt"}
-                        required={true}
-                        schemaName={"date-time"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","format":"date-time"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"setSize\": 0,\n  \"createdAt\": \"2024-11-13T00:27:49.672Z\",\n  \"updatedAt\": \"2024-11-13T00:27:49.672Z\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name"],"properties":{"name":{"type":"string","minLength":3,"maxLength":128},"description":{"type":"string","maxLength":10240}},"title":"tools.ozone.set.defs.set"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["name","setSize","createdAt","updatedAt"],"properties":{"name":{"type":"string","minLength":3,"maxLength":128},"description":{"type":"string","maxLength":10240},"setSize":{"type":"integer"},"createdAt":{"type":"string","format":"date-time"},"updatedAt":{"type":"string","format":"date-time"}},"title":"tools.ozone.set.defs.setView"}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

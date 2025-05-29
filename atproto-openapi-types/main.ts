@@ -50,13 +50,13 @@ for await (const entry of entries) {
     let descriptionPrefix = "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
 
     if (id.startsWith("tools.ozone.")) {
-      descriptionPrefix = "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*\n\n" + descriptionPrefix
+      descriptionPrefix = "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n" + descriptionPrefix
     } else if (id.startsWith("chat.bsky.")) {
-      descriptionPrefix = "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n" + descriptionPrefix
+      descriptionPrefix = "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n" + descriptionPrefix
     } else if (id.startsWith("com.atproto.admin.")) {
       descriptionPrefix = "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n" + descriptionPrefix
     } else if (id.startsWith("com.atproto.sync.")) {
-      descriptionPrefix = "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS intances or Relay instances.*\n\n" + descriptionPrefix
+      descriptionPrefix = "This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication, and can be made to PDS instances or Relay instances.*\n\n" + descriptionPrefix
     } else if (id.startsWith("com.atproto.repo.")) {
       descriptionPrefix = "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n" + descriptionPrefix
     } else if (id.startsWith("com.atproto.server.")) {
@@ -70,6 +70,10 @@ for await (const entry of entries) {
         components.schemas![identifier] = convertArray(id, name, def);
         break;
       case "object":
+        if (id == "app.bsky.feed.defs" && name == "postView") {
+          components.schemas![identifier] = {"WARNING": "Schema Docs Have Been Truncated!"};
+          break;
+        }
         components.schemas![identifier] = convertObject(id, name, def);
         break;
       case "procedure": {

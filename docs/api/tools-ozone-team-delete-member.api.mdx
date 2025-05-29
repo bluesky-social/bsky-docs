@@ -1,278 +1,75 @@
 ---
 id: tools-ozone-team-delete-member
 title: "tools.ozone.team.deleteMember"
-description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*"
+description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*"
 sidebar_label: "tools.ozone.team.deleteMember"
 hide_title: true
 hide_table_of_contents: true
-api: eJztlt9v2zYQx/+Vw72kDRTbG/okDAOcpFuDoYuRuMAAxw+0eLbYUKTCo1Krhv734Sg5dpCs3cOwp+ZJIY/H7/360DuMasOYLzB6b3nkv3pHo0iqwmWGmrgIpo7GO8zxdF4aBnK69sZFMAy1ChH8GmJJsLiWo1B5TUHJCWAKj6ag5Zsyxprz8XhwLheN38J0dsUjuKGHhjgyNNwoa1sI9NCYQKCaWJKLpkjOMlCBQJtARSQN0ac7G6ZwwjC7vAXjonIFZaCchjr4rTmY9cqM42QCxmnxShpWbdq/vLoE49LnoDl5aI3bQElKUxjBVFfGDaIOsqBSLSjLHlYEtWc2K0sZfDGxTIEQR2BycVBu29cljU7v3J07nXuwpIKDyksCVr6JUChrRYeKdfDRS9aeSsBgzT1BlLJ4RxkwUV8LsfrgJa2SjmkTy+WbsfYFj5V+lBv12aYxmnisanPWi/OhfQtptZdzSZYigYKKqhUFWAdfQSohSH/0pTOBGFTKTfCWRpihr4cGuNKYv2irkU5uPyafmCFT0QQTW8wXOzwnFShgvlh2ywyHBJ573WK+w6ExNOYxNJRh4V0kF2VL1bUdKjL+zNKsO+SipErJV2xrwhz96jMVEbMjRwvURkuj10FUR0MsB2TxcI5jMG6DGa59qFTEPO136U+cce0d9wd/nkzS+Wdjc/0Hdhm+e23rXOn9AOB/FBCF4CWvFTGrDb0Mrjd4JTxyTSUertyjskYfdL3f1uJ97u/JYbbf3//bV/JPH3/zjdOY4YVyzse+e27JrnHZHeS8uHefx3eTn17m55OTgfPBfCX9/yeo8I6l3DI+Hw1zkvvdUJJFLL00f+1TAmsVS8xxvA11Mf7+QIRHCoLk5WE6biW0Xt5+Rp5uF7rKuWSCOa56AxEimbk5TNH7rapqS08t/iQ8Q+PWPvk0UQxwOoeZ8KbwFv66mV0Id+SSpqpUaDHHC+9EpjDQr+HI/ITB0tZI8gR21zW56ezqhKEvD/RTJKB4Xuv0uDAVCatSaWUcw4f5fJaYF2hNgQTfgjHxAue2Ib5ve8Qd6d1fP4LfyQmLBGJ9ViBK1yYIC5rFsQCWD3xOlBOGyjWicogSc5yMJqOJJEvKWqnUc06lnP9DUeGpqs9i3R06+cej+uNR/TeP6jDrkbZxXFtlnPRhE6w0U4+XBQpexPSbgFlmWAqV8gXudivF9CnYrpPlh4ZksgU7jyoYtRIQLATefbnSC31Pw/BL+57NRZWY20bUvYByl+1PTIuC6vhN2+UROGfXt3PMcDU8/dL/mGNQXwTm6gvmeId3mH5siIcExrS+Q6vcpkl8xt6vgFBa7AiZAyKz/YdENmwp1x6p/KWnLaTH7lfMhmgSRbBbdl33N6018yI=
+api: eJztlk1v2zgQhv/KYC5pA8X2LnrSzUm622DRjZG4wAKuD7Q4tthQpMKhEquG/nsxlBw7m2y7h8WempNCDofvfD30DqPaMOYLjN5bHvmv3tEokqpwmaEmLoKpo/EOczydl4aBnK69cREMQ61CBL+GWBIsruUoVF5TUHICmMKDKWj5poyx5nw8HpzLReO3MJ1d8Qhu6L4hjgwNN8raFgLdNyYQqCaW5KIpkrMMVCDQJlARSUP06c6GKZwwzC5vwTiOyhWUgXIa6uC35mDXS9ubgHFa3JKGVZv2L68uwbj0OYhOHlrjNlCS0hRGMNWVcX9TBZVqQVn2sCKoPbNZWcrg0cQyxUEcgcnFQbhtXxc0Ov3sPrvTuQdLKjiovMS/8k2EQlkrKlSsg49ekvZUAQZr7giiVMU7yoCJ+lKI1QcvWZVkTJtYLt+MtS94rPSD3KjPNo3RxGNVm7NenA/tW0irvZxLshQJFFRUrSjAOvgKUgVB2qOvnAnEoFJmgrc0wgx9PdT/SmP+oqtGOrn9mHxihkxFE0xsMV/s8JxUoID5YtktMxwSeO51i/kOh77QmMfQUIaFd5FclC1V13aoyPgLS6/ukIuSKiVfsa0Jc/SrL1REzI4cLVAbLX1eB1EdDbEckMXDOY7BuA1muPahUhHztN+lP3HGtXfcH/x1Mknnn03N9R/YZfjuta1zpff9j/9RQBSCl7xWxKw29DK43uCV8Mg1lXi4cg/KGn3Q9X5bi/e5vyOH2X5//29fyT99/M03TmOGF8o5H/vuuSW7xmV3kPPi3n0e301+eZmfT07GzQfzlfT/n6DCO5Zyy/h8NMxJ7g9DSRax9NL8tU8JrFUsMcfxNtTF+McDER4oCJGXh+m4ldB6efsZebpd4CrnkgnmuOoNRIhk5uYwRe+3qqotPbX4k/AMjVv75NNEMcDpHGbCm8Jb+OtmdiHckUuaqlKhxRwvvBOZwkC/hiPzEwZLWyPJE9hd1+Sms6sThr480E+RgOJ5rdPbwlQkrEqllXEMH+bzWWJeoDUFEngLxsQLnNuG+K7tEXekd3/9CH4nJywSiPVZgShdmyAsaBbHAlg+8DlRThgq14jKIUrMcTKajCaSLClrpVLPOZVy/g9FhaeqPot1d+jkn2/qzzf1X7ypw6hH2sZxbZVx0oZNsNJLPV0WKHQR0+/yZZlhKVDKF7jbrRTTp2C7TpbvG5LBFuo8qGDUSjiwEHb3xUoP9B0Nsy/dezYXVWJuG1H3gsldtj8xLQqq43dtl0fcnF3fzjHD1fDyS/tjjkE9CsvVI+aYfmfI6cTEtLZDq9ymSWjG3qcwUJrriJYDHbP9h0Q1bCnXHinc7XqL9M51HWZDKIkg2C27rvsG+2vy3A==
 sidebar_class_name: "post api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"tools.ozone.team.deleteMember"}
 >
-  tools.ozone.team.deleteMember
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
   path={"/xrpc/tools.ozone.team.deleteMember"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
-*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*
+*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*
 
 *To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
 
 Delete a member from ozone team. Requires admin role.
 
-## Request
-
-<MimeTabs
-  className={"openapi-tabs__mime"}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <TabItem
-    label={"application/json"}
-    value={"application/json-schema"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details mime"}
-      data-collapsed={false}
-      open={true}
-    >
-      <summary
-        style={{}}
-        className={"openapi-markdown__details-summary-mime"}
-      >
-        <h3
-          className={"openapi-markdown__details-summary-header-body"}
-        >
-          Body
-        </h3><strong
-          className={"openapi-schema__required"}
-        >
-          required
-        </strong>
-      </summary><div
-        style={{"textAlign":"left","marginLeft":"1rem"}}
-      >
-        
-      </div><ul
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"did"}
-          required={true}
-          schemaName={"did"}
-          qualifierMessage={undefined}
-          schema={{"type":"string","format":"did"}}
-        >
-          
-        </SchemaItem>
-      </ul>
-    </details>
-  </TabItem>
-</MimeTabs><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`, `MemberNotFound`, `CannotDeleteSelf`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","MemberNotFound","CannotDeleteSelf"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["did"],"properties":{"did":{"type":"string","format":"did"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","MemberNotFound","CannotDeleteSelf"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

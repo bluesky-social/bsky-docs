@@ -164,9 +164,9 @@ Learn about how mentions and links work under the hood with the [Link, mentions,
   Use TextBuilder to construct a post with mentions and links.
 
     ```python
-    from atproto import TextBuilder
+    from atproto import client_utils
 
-    tb = TextBuilder()
+    tb = client_utils.TextBuilder()
     tb.text('✨ example mentioning ')
     tb.mention('atproto.com', 'did:plc:ewvi7nxzyoun6zhxrhs64oiz')
     tb.text(' to share the URL ')
@@ -184,7 +184,7 @@ Replies and quote posts contain **strong references** to other records. A strong
 - **AT URI:** indicates the repository DID, collection, and record key
 - **CID:** the hash of the record itself
 
-Posts can have several types of embeds: record embeds, images and exernal embeds (like link/webpage cards, which is the preview that shows up when you post a URL).
+Posts can have several types of embeds: record embeds, images and external embeds (like link/webpage cards, which is the preview that shows up when you post a URL).
 
 ### Replies
 

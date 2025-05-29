@@ -1,375 +1,75 @@
 ---
 id: tools-ozone-signature-find-correlation
 title: "tools.ozone.signature.findCorrelation"
-description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*"
+description: "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*"
 sidebar_label: "tools.ozone.signature.findCorrelation"
 hide_title: true
 hide_table_of_contents: true
-api: eJztVt9v2zYQ/lcO95IfUO2s2JMwDHCSrg2GIUHrAgNcP9Di2WJDkQqPcqMa+t+Lo+TYgZ21A4Y91S+WxOPdd3cfv+MGo1ox5jOM3lse+a/e0YjNyqnYBMJ5hpq4CKaOxjvM8XxaGgZyuvbGRTAMtQoR/BJiSTC7lf1QeU1ByQ5gCmtT0Py0jLHmfDzuI6Ro4zOY3N3wCN7TQ0McGRpulLUtBHpoTCBQTSzJRVMkZxmoQKBNoCKShuhTzIYpnDDcXX8A46JyBWWgnIY6+EezM+uRGcfJBIzT4pU0LNq0fn1zDcalxwFz8tAat4KSlKYwgomujBtA7WBBpVpQlj0sCGrPbBaWMvhiYpkSIY7A5OKA3LbHIY3OP7lP7nzqwZIKDiovBVj4JkKhrBUcKtbBRy9Ve2oBgzX3BFHa4h1lwER9L8TqnZeySjkmTSznp2PtCx4rvZaI+tWqMZp4rGrzqgfnQ3sG6WsP5w/jNChrofAhkE0Fi2UgFeGJJAwLil+IHLwGHwbcReEbF3mEGfp6IMONxvw4z0ZL4/TVEEKIliFT0QQTW8xnG7wkFShgPpt38wxrFVRFkQKnRacqwhy10YwZGmHpQ0OhxQwHHmnMY2goQy5KqhTmG4xtLZtUCEoMTaSK975zDMatMMOlD5WKvXvsOgkfiGvvmJL964sL+Xt+SG7/xAwL7yK5KKuqru1AlvFnFpPNIRS/+ExFfAZ6hpqiMpblHNZBChlNH3e78P1UjvodnIn9WtmGDgM8WRwUpdvuOVzpMowmWnqxz5qWLK/XCb4UVH4Z/nqsjJdKb6Xhv6onheADZlgRs1odSbs3OEIEck0lHm7cWlmjd7jePNbifervSXg7rPev824X6ki1trn/cpj7Rycy44P5Svr/T77wjoX0Ihp/Geah7d9JJVnE0ssxX5FEr1UsMcfxY6iL8Y+f/LDuz/Z8JwMfJMMe5VYMnkDIaMHhcMv7ojcQPMYtfbIcWDmZwp1IaOEt/P3+7kqkVLY2VaVCizleeSfBRdb9EvbMTxgsPRqpjOj3bU1ucndzwtDXHnqhEL173sg0L5mKNCmkjco4hnfT6V2S8UBLCiQTSZRZvMClbYjv21619/Buw4/gLTmRVAIFfa4QhW5prsi0EccyM3g3cpbBV2ksSBhBOWSJOV6MLkYX0t7ac6xUItSgqS+3DJ737FnOmx1df94Xft4X/u19YTjVkR7juLbKOOFmE2yaSklQZiiCIqY/JCnzDEsvejbDzWahmD4G23Xyub8nyCVCG1YLKzq5VJbpHxh9+n6Q1DN4Cew9tbsLyTArEeXusFbBSJx0lcmwJ0oC0O+ZFAXVcW/XgdqLlyeVfftmihkKwfbkcJC/bPsg3rd3BNfu+f6tV1JIs+p33OJOWoLdvOu6b8XYRMc=
+api: eJztVk1v2zgQ/SuDueQDqp0t9qSbk3TbYLGIkbrAAq4PtDi22FCkwqHSqIb++2IoOXbWzrYLLPZUXyyJw5k3M49vuMGo1oz5HKP3lkf+m3c0YrN2KjaBcJGhJi6CqaPxDnM8n5WGgZyuvXERDEOtQgS/glgSzG9lP1ReU1CyA5jCoylocVrGWHM+HvcRUrTxGUymNzyCO3poiCNDw42ytoVAD40JBKqJJbloiuQsAxUItAlURNIQfYrZMIUThun1RzCOo3IFZaCchjr4J7Oz66FtTcA4LW5Jw7JN69c312BcehxAJw+tcWsoSWkKI5joyri/oYJKtaAse1gS1J7ZLC1l8NXEMuVBHIHJxQG4bY8DGp1/dp/d+cyDJRUcVF7yX/omQqGsFRQq1sFHL0V77gCDNfcEUbriHWXARH0rxOqDl6pKMSZNLBenY+0LHiv9KBH1m3VjNPFY1eZND86H9gzS1x7Ob8ZpUNZC4UMgm8oVy0AqwjNHGJYUvxI5eAs+DLiLwjcu8ggz9PXAhRuN+XGajVbG6ashhPAsQ6aiCSa2mM83eEkqUMB8vugWGdYqqIoiBU6LTlWEOWqjGTM0QtKHhkKLGQ400pjH0FCGXJRUKcw3GNtaNqkQlBiaSBXvfecYjFtjhisfKhV799h1Ej4Q194xJfu3Fxfy9/KM3P6OGRbeRXJRVlVd24Es4y8sJptDKH75hYr4AvQcNUVlLMsxrIMUMpo+7nbh+6kc9Ts4E/tHZRs6DPBscVCUbrvncKXLMJpo6dU+a1qxvF4n+FJQ+WX467EyXiq9VYb/qp4Ugg+YYUXMan0k7d7gCBHINZV4uHGPyhq9w/XuqRbvM39PwtthvX9ddLtQR6q1zf2Xw9w/OREZH8w30v9/8oV3LKQX0fjDMA9t/04qySKWXo75miR6rWKJOY6fQl2Mf/zkh8f+bC92MvBRMuxRbsXgGYRMFhwOt7wvewPBY9zKJ8uBlZMZTEVCC2/hz7vplUipbG2qSoUWc7zyToKLrPsV7JmfMFh6MlIZ0e/bmtxkenPC0NceeqEQvXvZyDQumYo0KaSNyjiGD7PZNMl4oBUFknkkyixe4NI2xPdtr9p7eLfhR/CenEgqgYI+V4hCtzRXZNqIY5kZvBs5q+CrNBYkjKAcssQcL0YXowtpb+05VioRatDU11sGL3v2IufNjq4/rws/rwv/8rowHOpIT3FcW2WcULMJNg2lpCdzFD0R0x9SlEWGpRc5m+Nms1RMn4LtOvncXxPkDqENq6UVmVwpy/QPhD69GxT1DF4De0/t7j4yjEpEuTo8qmAkTrrJZNjTJAHo90yKguq4t+tA7MXLs8i+fzfDDIVee2o4qF+2fRDv2yuCa/d8bza9RRpVXYdb4ElLsFt0XfcXXjFFfQ==
 sidebar_class_name: "get api-method"
 info_path: docs/api/at-protocol-xrpc-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
-<h1
+<Heading
+  as={"h1"}
   className={"openapi__heading"}
+  children={"tools.ozone.signature.findCorrelation"}
 >
-  tools.ozone.signature.findCorrelation
-</h1>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
   path={"/xrpc/tools.ozone.signature.findCorrelation"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
 
 
 
-*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS intance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authenentication may also be possible, with request sent directly to the Ozone instance.*
+*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*
 
 *To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
 
 Find all correlated threat signatures between 2 or more accounts.
 
-## Request
-
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"dids","in":"query","required":true,"schema":{"type":"array","items":{"type":"string","format":"did"}}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs>
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          OK
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                details
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object[]
-                              </span><span
-                                className={"openapi-schema__divider"}
-                              >
-                                
-                              </span><span
-                                className={"openapi-schema__required"}
-                              >
-                                required
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
-                              >
-                                Array [
-                              </div>
-                            </li><SchemaItem
-                              collapsible={false}
-                              name={"property"}
-                              required={true}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"value"}
-                              required={true}
-                              schemaName={"string"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string"}}
-                            >
-                              
-                            </SchemaItem><li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
-                              >
-                                ]
-                              </div>
-                            </li>
-                          </div>
-                        </details>
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"details\": [\n    {\n      \"property\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"400"}
-        value={"400"}
-      >
-        <div>
-          
-          
-          Bad Request
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={"**Possible values:** [`InvalidRequest`, `ExpiredToken`, `InvalidToken`]"}
-                        schema={{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"error\": \"InvalidRequest\",\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem><TabItem
-        label={"401"}
-        value={"401"}
-      >
-        <div>
-          
-          
-          Unauthorized
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"error"}
-                        required={true}
-                        schemaName={""}
-                        qualifierMessage={undefined}
-                        schema={{"const":"AuthMissing"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"message"}
-                        required={true}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"message\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"dids","in":"query","required":true,"schema":{"type":"array","items":{"type":"string","format":"did"}}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["details"],"properties":{"details":{"type":"array","items":{"type":"object","required":["property","value"],"properties":{"property":{"type":"string"},"value":{"type":"string"}},"title":"tools.ozone.signature.defs.sigDetail"}}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       

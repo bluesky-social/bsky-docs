@@ -10,7 +10,7 @@ In March, we [announced](https://docs.bsky.app/blog/atproto-grants) the AT Proto
 
 In this batch, we distributed $4,800 total in grants. There is $2,200 remaining in the initial allocation of $10,000. Congratulations to all of the recipients so far, and thank you to everyone who has applied — we're very lucky to have such a great developer ecosystem.
 
-Reminder: You can apply for a grant for your own project by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSd6gPCN6oXz0QfOvi_AIIZ4MqNWpze9Y-aOS0KibN9hNTg-ZQ/viewform). We’re excited to hear what you’re working on! 
+**Update:** As of 2025 we are not currently accepting further grant applications.
 
 ---
 
@@ -48,4 +48,4 @@ SkeetStats is currently running and used actively by 400+ users. It tracks accou
 
 ---
 
-Thank you to everyone who has applied for a grant so far! As mentioned above, we have $2,200 remaining in the initial allocation of $10,000 for this program. If you’re an atproto developer and haven’t applied for a grant yet, we encourage you to do so — the application is [here](https://docs.google.com/forms/d/e/1FAIpQLSd6gPCN6oXz0QfOvi_AIIZ4MqNWpze9Y-aOS0KibN9hNTg-ZQ/viewform). 
+Thank you to everyone who has applied for a grant so far!
