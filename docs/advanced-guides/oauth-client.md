@@ -188,10 +188,14 @@ When making DPoP requests to PDS endpoints:
 
 - same JWT header fields as above
 - same JWT body fields as above, plus:
-    - `iss`: authorization server issuer
     - `ath`: hash of the access token, using the same mechanism as the `S256` PKCE challenge hash
 - JWT string in the `DPoP` HTTP header
 - access token in the `Authorization` HTTP header, with type `DPoP` (so header looks like `Authorization: DPoP <token>`)
+
+:::note
+An earlier version of this guide indicated that `iss` should be included in the JWT body for DPoP requests to PDS endpoints, with the value being the authorization server issuer. Currently clients SHOULD NOT include this value, or any value, in the `iss` field for these JWTs.
+:::
+
 
 ### Confidential Client Authentication
 
