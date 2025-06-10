@@ -24,7 +24,7 @@ Using the sandbox environment means you agree to adhere to our Guidelines. Pleas
 
 **Keep the emphasis on testing.** We’re striving to maintain a sandbox environment that fosters learning and technical growth. We will defederate with instances that recruit users without making it clear that this is a test environment.
 
-**Do limit account creation**. We don't want any one server using a majority of the resources in the  sandbox. To keep things balanced, to start, we’re only federating with Personal Data Servers (PDS) with up to 1000 accounts. However, we may change this if needed.
+**Do limit account creation**. We don't want any one server using a majority of the resources in the sandbox. To keep things balanced, to start, we’re only federating with Personal Data Servers (PDS) with up to 1000 accounts. However, we may change this if needed.
 
 **Don’t expect persistence or uptime**. We will routinely be wiping the data on our infrastructure. This is intended to reset the network state and to test sync protocols. Accounts and content should not be mirrored or migrated between the sandbox and real-world environments.
 
@@ -34,7 +34,7 @@ Using the sandbox environment means you agree to adhere to our Guidelines. Pleas
 
 ## Status and Wipes
 
-**🐉 Beware of dragons!**
+**🐉 Beware of dragons!**
 
 This hasn’t been production tested yet. It seems to work pretty well, but who knows what’s lurking under the surface — that's what this sandbox is for! Have patience with us as we prep for federation.
 
@@ -52,7 +52,7 @@ When we wipe data, we will be wiping it on all services (BGS, App View, PLC). We
 
 Now that you've read the sandbox guidelines, you're ready to self-host a PDS in the developer sandbox. **For complete instructions on getting your PDS set up, check out the [README](https://github.com/bluesky-social/pds).**
 
-To access your account, you’ll log in with the client of your choice in the exact same way that you log into production Bluesky, for instance the [Bluesky web client](https://app.bsky-sandbox.dev/). When you do so, please provide the url of *your PDS* as the service that you wish to log in to.
+To access your account, you’ll log in with the client of your choice in the exact same way that you log into production Bluesky, for instance the [Bluesky web client](https://app.bsky-sandbox.dev/). When you do so, please provide the url of _your PDS_ as the service that you wish to log in to.
 
 ### Auto-updates
 
@@ -66,19 +66,19 @@ You are within your rights to disable Watchtower auto-updates, but we strongly e
 
 # Odds & Ends & Warnings & Reminders
 
-🧪 Experiment & have fun! 
+🧪 Experiment & have fun!
 
-🤖 Run [feed generators](https://github.com/bluesky-social/feed-generator). They should work the exact same way as production - be sure to adjust your env to listen to Sandbox BGS!
+🤖 Run [feed generators](https://github.com/bluesky-social/feed-generator). They should work the exact same way as production - be sure to adjust your env to listen to Sandbox BGS!
 
 🌈 Feel free to run your own AppView or BGS - although it’s a bit more involved & we’ll be providing limited support for this.
 
-👤 Your PDS will provide your handle by default. Custom domain handles should work exactly the same in sandbox as they do on production Bluesky. Although you will not be able to re-use your handle from production Bluesky as you can only have one DID set per handle.
+👤 Your PDS will provide your handle by default. Custom domain handles should work exactly the same in sandbox as they do on production Bluesky. Although you will not be able to re-use your handle from production Bluesky as you can only have one DID set per handle.
 
 🚨 If you follow the self-hosted PDS setup instructions, you’ll have private key material in your env file - be careful about sharing that!
 
-📣 This is a sandbox version of a **public broadcast protocol** - please do not share sensitive information.
+📣 This is a sandbox version of a **public broadcast protocol** - please do not share sensitive information.
 
-🤝 Help each other out! Respond to issues & discussions, chat in the community-run [Matrix](https://matrix.to/#/%23bluesky-dev:matrix.org) or [Discord](https://discord.gg/3srmDsHSZJ), etc.
+🤝 Help each other out! Respond to issues & discussions, chat in the community-run [Matrix](https://matrix.to/#/%23bluesky-dev:matrix.org) or [Discord](https://discord.gg/3srmDsHSZJ), etc.
 
 # Learn more about atproto federation
 
@@ -116,7 +116,7 @@ If you’re familiar with the Bluesky production firehose, you can subscribe to 
 
 **Code:** https://github.com/bluesky-social/atproto/tree/main/packages/bsky
 
-The Bluesky App View aggregates data from across the network to service the Bluesky microblogging application.  It consumes the firehose from the BGS, processing it into serviceable views of the network such as feeds, post threads, and user profiles. It functions as a fairly traditional web service.
+The Bluesky App View aggregates data from across the network to service the Bluesky microblogging application. It consumes the firehose from the BGS, processing it into serviceable views of the network such as feeds, post threads, and user profiles. It functions as a fairly traditional web service.
 
 When you request a Bluesky-related view from your PDS (`getProfile` for instance), your PDS will actually proxy the request up to App View.
 
