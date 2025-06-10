@@ -19,7 +19,15 @@ export type TagType =
   | 'socialtools';
 
 const Users: User[] = [
-{
+  {
+    title: 'Dragonfly',
+    description: 'Mac OS Desktop Client for Bluesky. Windows and Linux coming soon.',
+    preview: require('./showcase/dfly_showcase.png'), // Placeholder image
+    website:'https://dfly.app',
+    author: 'https://bsky.app/profile/dfly.app',
+    tags: ['client'],
+  },
+  {
     title: 'BIRU',
     description: 'Assigns unique handles from various domains to Bluesky users, managed by the Indonesian community',
     preview: require('./showcase/example-1.png'), // Placeholder image
@@ -720,7 +728,7 @@ const Users: User[] = [
     website: "https://useouranos.app/",
     source: "https://github.com/pdelfan/ouranos",
     author: "https://bsky.app/profile/did:plc:3sapfnszmvjc6wa4ml3ybkwb",
-    tags: ["client", "opensource"],
+    tags: ["client", "opensource", "favorite"],
   },
   {
     title: 'swifties.social',
@@ -1090,7 +1098,7 @@ const Users: User[] = [
     preview: require('./showcase/bluefeed.jpg'),
     website: 'https://www.bluefeed.app',
     author: 'https://bsky.app/profile/did:plc:pxwzal3aspfg2xnbbt2fjami',
-    tags: ['customfeed', 'favorite']
+    tags: ['customfeed']
   },
   {
     title: 'Word of the Day Bot',
@@ -1222,7 +1230,7 @@ const Users: User[] = [
     preview: require('./showcase/smoke-signal-events.png'),
     website: 'https://smokesignal.events/',
     author: 'https://bsky.app/profile/ngerakines.me',
-    tags: ['socialtools'],
+    tags: ['socialtools', 'favorite'],
   },
   {
     title: 'tuisky',
@@ -1242,7 +1250,142 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:aeu4zvcwmdk774qmqcyed5sa',
     tags: ['othertools', 'opensource'],
   },
-
+  {
+    title: 'Kyst',
+    description: 'A tool to bookmark and organize your favorite posts on Bluesky',
+    preview: require('./showcase/kyst-banner-1280-720.png'),
+    website: 'https://kyst.app',
+    author: 'https://bsky.app/profile/did:plc:vk4brqfoersrab5e5guerzcs',
+    tags: ['socialtools'],
+  },
+  {
+    title: 'bluesky-post',
+    description: 'A Web Component to display Bluesky posts and their metadata',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://darn.es/bluesky-post-web-component/',
+    source: 'https://github.com/daviddarnes/bluesky-post',
+    author: 'https://bsky.app/profile/darn.es',
+    tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'NeoDB',
+    description: 'an open-source software and federated community to manage and explore collections, reviews, and ratings for various cultural products, including books, movies, music, podcasts, games, and performances.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://neodb.net',
+    source: 'https://github.com/neodb-social/neodb',
+    author: 'https://bsky.app/profile/neodb.bsky.social',
+    tags: ['socialtools', 'bridge', 'opensource'],
+  },
+  {
+    title: 'bsky-sh-cli (Bluesky in the shell)',
+    description: 'Bluesky CLI (Command Line Interface) implementation in shell script',
+    preview: require('./showcase/example-1.png'),
+    source: 'https://github.com/bills-appworks/bsky-sh-cli',
+    website: 'https://github.com/bills-appworks/bsky-sh-cli',
+    author: 'https://bsky.app/profile/did:plc:qftihmjyiutlh63oyjjplwb4',
+    tags: ['client', 'opensource']
+  },
+  {
+    title: 'Bluesky Directory',
+    description: 'A curated collection of all things relating to the Bluesky social media platform.',
+    preview: require('./showcase/bluesky-directory-showcase.png'),
+    website: 'https://blueskydirectory.com/',
+    author: 'https://bsky.app/profile/mubashariqbal.com',
+    tags: ['othertools', 'socialtools'],
+  },
+  {
+    title: 'Share on Bluesky',
+    description: 'WordPress plugin that allows you to automatically share new posts using your Bluesky-Profile.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://wordpress.org/plugins/share-on-bluesky/',
+    source: 'https://github.com/pfefferle/wordpress-share-on-bluesky',
+    author: 'https://bsky.app/profile/notiz.blog',
+    tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'Old wildlife illustrations bot',
+    description: 'Posts random images from the Biodiversity Heritage Library (unaffiliated)',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/did:plc:ujsrwgtqk26kdz6ljxkrw4po',
+    source: 'https://github.com/nathanrooy/bhl-bot',
+    author: 'https://github.com/nathanrooy',
+    tags: ['bot', 'opensource', 'favorite'],
+  },
+  {
+    title: 'Treeverse',
+    description: 'A tool for navigating Bluesky threads using a tree visualization.',
+    preview: require('./showcase/treeverse.png'),
+    website: 'https://treeverse.app',
+    source: 'https://github.com/paulgb/treeverse',
+    author: 'https://bsky.app/profile/paulbutler.org',
+    tags: ['othertools', 'opensource'],
+  },
+  {
+    title: 'Openvibe',
+    description: 'One app for Bluesky, Mastodon, and beyond — available on iOS and Android',
+    preview: require('./showcase/openvibe.png'),
+    website: 'https://openvibe.social',
+    author: 'https://bsky.app/profile/openvibe.social',
+    tags: ['socialtools', 'client'],
+  },
+  {
+    title: 'ATProtoKit (Swift)',
+    description: 'A straightforward solution for the ATProtoKit and Bluesky, written in Swift.',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://atprotokit.cjrriley.com/documentation/atprotokit/',
+    source: 'https://github.com/MasterJ93/ATProtoKit',
+    author: 'https://bsky.app/profile/did:plc:wlef3srsa3hlyzj2hy6yncrh',
+    tags: ['protocol', 'opensource']
+  },
+  {
+    title: 'Videos For Bluesky (iOS)',
+    description: 'Scroll through the infinite video reel, watch interesting videos in For You, Follow, or any of the custom feeds.',
+    preview: require('./showcase/videos-for-bluesky-ios.jpg'),
+    website: 'https://apps.apple.com/app/videos-for-bluesky/id6740755135',
+    author: 'https://bsky.app/profile/mszpro.com',
+    tags: ['client'],
+  },
+  {
+    title: 'Graze Social',
+    description: 'Feed builder and sponsorship platform',
+    preview: require('./showcase/graze-social.png'),
+    website: 'https://graze.social',
+    author: 'https://bsky.app/profile/graze.social',
+    tags: ['customfeed', 'socialtools', 'favorite']
+  },
+  {
+    title: 'Bluejeans',
+    description: 'Art-centric web client for Bluesky',
+    preview: require('./showcase/bluejeans-alpha-site-card.png'),
+    website: 'https://bluejeans.app',
+    author: 'https://bsky.app/profile/did:plc:ymc5fo3ssinylbq2xdgao4ge',
+    tags: ['client'],
+  },
+  {
+    title: 'Bits of Saturn',
+    description: 'Raw images of Saturn',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://bsky.app/profile/bitsofsaturn.bsky.social',
+    source: 'https://github.com/supiket/bitsofsaturn',
+    author: 'https://bsky.app/profile/perceptualmachine.bsky.social',
+    tags: ['opensource', 'bot'],
+  },
+  {
+    title: 'Helico for Bluesky',
+    description: 'Super minimum(yet) Bluesky client',
+    preview: require('./showcase/helico.png'),
+    website: 'https://apps.apple.com/jp/app/helico-for-bluesky/id6744268859',
+    author: 'https://bsky.app/profile/zakuni.bsky.social',
+    tags: ['client'],
+  },
+  {
+    title: 'Blu.Ski',
+    description: 'Short URLs and other tools for Bluesky',
+    preview: require('./showcase/bluski.png'),
+    website: 'https://blu.ski',
+    author: 'https://bsky.app/profile/sri.xyz',
+    tags: ['othertools'],
+  },
 ]
 
 export type User = {

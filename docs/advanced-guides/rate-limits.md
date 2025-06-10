@@ -29,7 +29,7 @@ The limit is 5,000 points per hour and 35,000 points per day. Points are counted
 
 Under this system, an account may create at most 1,666 records per hour and 11,666 records per day. That means an account can like up to 1,666 records in one hour with no problem. We took the most active human users on the network into account when we set this threshold (you surpassed our expectations!).
 
-Note that moderation systems and other application-specific limits may apply, or that services may degrade in some situations. For example, following other users and "liking" content both count as interactions in the in the Bluesky app, and bulk or spammy interactions are against the Community Guidelines.
+Note that moderation systems and other application-specific limits may apply, or that services may degrade in some situations. For example, following other users and "liking" content both count as interactions in the Bluesky app, and bulk or spammy interactions are against the [Community Guidelines](https://bsky.social/about/support/community-guidelines).
 
 
 ## Hosted Account (PDS) Limits
@@ -55,7 +55,7 @@ Most authenticated API requests in go through the account's PDS host, which appl
   - 50 per 5 minutes
 - `com.atproto.server.resetPassword`
   - Measured per IP
-  - 50 per minutes
+  - 50 per 5 minutes
 
 The PDS also applies a maximum size limit on individual blob uploads (separate from any application-specific blob size limit). The current limit is 52,428,800 bytes (50 MByte).
 
