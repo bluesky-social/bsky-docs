@@ -34,7 +34,7 @@ There will always be shorter session lifetimes for public clients, but we think 
 
 Remember that the maximum lifetime of OAuth *access tokens* is much shorter: the specification recommends a limit of 30 minutes, and the reference implementation uses 15 minutes.
 
-There is a tracking issue here: [https://github.com/bluesky-social/atproto/pull/3883](https://github.com/bluesky-social/atproto/pull/3883) 
+There is a tracking issue here: [bluesky-social/atproto#3883](https://github.com/bluesky-social/atproto/pull/3883) 
 
 ## Auth Scopes
 
