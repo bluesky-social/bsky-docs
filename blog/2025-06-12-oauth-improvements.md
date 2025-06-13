@@ -48,6 +48,8 @@ We will begin server-side implementation and integration work on this feature so
 
 The DPoP JWTs created by the `@atproto/oauth-client` TypeScript package incorrectly included query parameters as part of the `htu` request URL field, which goes against the DPoP specification. The client package has been fixed as of version [0.3.18](https://www.npmjs.com/package/@atproto/oauth-client?activeTab=versions).
 
+The Authorization Server used to require a DPoP proof during Pushed Authorization Requests when the parameters contained a `dpop_jkt`. This was not valid per [spec](https://datatracker.ietf.org/doc/html/rfc9449#section-10.1-2.1) and is thus no longer the case.
+
 The OAuth Client Implementation Guide previously instructed developers to include the Auth Server Issuer (host URL) in DPoP JWTs included on authenticated requests to the PDS, in the `iss` field. The example Python code and TypeScript OAuth client implementation also included this field. This is not required by the DPoP specification, and should *not* be implemented by clients or SDKs. We have updated the guide and implementations to remove this field.
 
 The TypeScript OAuth client SDK was incorrectly sending HTTP POST requests using JSON bodies, instead of form-encoding (the server was flexible to either encoding). This has been corrected, and requests that should use form-encoding (like PAR) now do.
