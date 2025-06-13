@@ -57,7 +57,15 @@ A couple of subtle bugs with the TypeScript OAuth client SDK and DPoP nonce cach
 If a client app redirects to the reference PDS without a `login_hint`, and the user was already logged in, the auth flow now proceeds directly to an account selector, instead of displaying a "Create Account or Log In" page. This makes the flow smoother and reduces a click.
 
 The client app redirect URL no longer needs to be on the same host origin as the client metadata document.
+## Deprecation notice
 
+The following invalid behaviors were detected in our reference implementation. As of now, these are considered as deprecated and might change in the future. Make sure you use the latest version of our SDKs, and if you implemented your own, please check that it is compliant.
+
+- DPoP proofs that contain a query or fragment in the `htu` claim should be rejected.
+
+- JWT for the client attestation using the `private_key_jwt` authentication method [MUST](https://www.rfc-editor.org/rfc/rfc7523.html#section-3) contain an `exp` claim. This is currently not enforced by the reference implementation.
+
+- When performing a Pushed Authorization Request, the client [must](https://datatracker.ietf.org/doc/html/rfc9449#section-10.1-2.1) either provide a `dpop_jkt` authorization request parameter, or provide a DPoP proof header. The reference implementation does not enforce this, allowing the DPoP proof header to be provided only during the token exchange.
 ## Remaining Limitations
 
 The account management interface on the reference PDS implementation allows revoking OAuth client sessions. On a free-standing PDS, this has an immediate effect: both access and refresh tokens stop working immediately. But the Bluesky-hosted PDS instances ("mushroom servers") use an "entryway" service as an OAuth Auth Server. A side-effect of this is that revoking client sessions could take up to 15 minutes to take effect: refresh tokens immediately stop working, but access tokens do not. This is a relatively common design tradeoff in auth systems involving many servers but is not currently well communicated in the interface.
