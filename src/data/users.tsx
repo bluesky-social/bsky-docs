@@ -20,6 +20,14 @@ export type TagType =
 
 const Users: User[] = [
   {
+    title: 'Tracker - Manager for Bluesky',
+    description: 'Real-time tracker and manager for Bluesky followers, unfollowers, blocks, posts & more.',
+    preview: require('./showcase/tracker-manager.png'), // Placeholder image
+    website:'https://bsky.app/profile/bluesky-tracker.bsky.social',
+    author: 'https://bsky.app/profile/pavlostze.programmer.blue',
+    tags: ['stats, socialtools'],
+  },
+  {
     title: 'Dragonfly',
     description: 'Mac OS Desktop Client for Bluesky. Windows and Linux coming soon.',
     preview: require('./showcase/dfly_showcase.png'), // Placeholder image
