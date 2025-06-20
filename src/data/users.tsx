@@ -657,14 +657,6 @@ const Users: User[] = [
     tags: ['customfeed', 'opensource'],
   },
   {
-    title: 'Bluesky Social Feeds',
-    description: 'A tool to search and build custom feeds without code or regex',
-    preview: require('./showcase/example-1.png'),
-    website: 'https://blueskyfeeds.com',
-    author: 'https://bsky.app/profile/did:plc:eubjsqnf5edgvcc6zuoyixhw',
-    tags: ['customfeed'],
-  },
-  {
     title: 'ATScan',
     description: 'A tool for analyzing AT Protocol usage',
     preview: require('./showcase/example-1.png'),
