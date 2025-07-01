@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 
 Video uploads differ slightly from image uploads, since they are typically much larger files and have a significantly long processing time.
 
+The Bluesky video CDN also applies additional account-level limits on publishing videos. Bluesky-hosted accounts need to have verified their account email before uploading video, and there are limits on the number of video posts which can be posted per day. Apps can check email verification status using the `com.atproto.server.getSession` endpoint on the PDS.
+
 ## Simple method
 
 The easiest way to upload a video is to upload it as you would an image - use `uploadBlob` to upload the file directly to the PDS, and reference the returned blob.
@@ -124,7 +126,7 @@ There are complete code samples for both methods here (using Deno):
 
 ### Aspect Ratios
 
-Note: as with images, we need to give it an aspect ratio. This is a little tricky to find - if you’re in the browser, you can load the video into a `<video>` and observe the dimensions when loaded. If you’re in a native app, you’ll most likely be able to get it via the media picker APIs. Alternatively, you can use a tool like ffmprobe - here’s how you’d do it with Deno:
+As with images, we need to give video embeds an aspect ratio. This metadata can be a little tricky to compute. If you’re in the browser, you can load the video into a `<video>` and observe the dimensions when loaded. If you’re in a native app, you’ll most likely be able to get it via the media picker APIs. Alternatively, you can use a tool like `ffmprobe` - here’s how you’d do it with Deno:
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Deno">
