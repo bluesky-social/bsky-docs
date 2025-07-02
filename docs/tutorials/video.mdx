@@ -123,6 +123,8 @@ There are complete code samples for both methods here (using Deno):
 - [Simple Method](https://gist.github.com/mozzius/39a21b19f0d3af4caead07a3152257f9)
 - [Video Service](https://gist.github.com/mozzius/5cbbd15e12cdc0cb1d0d992b7c3b1d0f)
 
+Note: When querying for the job status, if the same source video has already been processed the video service will return an error with the message `already_exists`. When this happens, it will return the BlobRef of the previously processed video for you to use, hence why we recommend checking for the presence of a BlobRef in the response.
+
 ### Aspect Ratios
 
 As with images, we need to give video embeds an aspect ratio. This metadata can be a little tricky to compute. If you’re in the browser, you can load the video into a `<video>` and observe the dimensions when loaded. If you’re in a native app, you’ll most likely be able to get it via the media picker APIs. Alternatively, you can use a tool like `ffmprobe` - here’s how you’d do it with Deno:
