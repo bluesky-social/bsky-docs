@@ -15,7 +15,6 @@ The Bluesky video CDN also applies additional account-level limits on publishing
 
 The easiest way to upload a video is to upload it as you would an image - use `uploadBlob` to upload the file directly to the PDS, and reference the returned blob.
 
-
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
     ```typescript title="uploadBlob"
@@ -44,10 +43,10 @@ Instead, we can send the video directly to the video service for preprocessing.
 
 This is a little more involved, and involves communicating directly with the video service. The steps are:
 
-Create a service token with an audience of your PDS, a scope allowing `uploadBlob`, and a slightly longer expiry - 30 minutes is recommended
-Upload the video directly to `https://video.bsky.app` with the appropriate access token
-Query `https://video.bsky.app` for the status of the processing job until it returns the BlobRef of the video
-Use the BlobRef in your post
+1. Create a service token with an audience of your PDS, a scope allowing `uploadBlob`, and a slightly longer expiry - 30 minutes is recommended
+2. Upload the video directly to `https://video.bsky.app` with the appropriate access token
+3. Query `https://video.bsky.app` for the status of the processing job until it returns the BlobRef of the video
+4. Use the BlobRef in your post
 
 Here is a code snippet for the full flow:
 
@@ -124,6 +123,8 @@ There are complete code samples for both methods here (using Deno):
 - [Simple Method](https://gist.github.com/mozzius/39a21b19f0d3af4caead07a3152257f9)
 - [Video Service](https://gist.github.com/mozzius/5cbbd15e12cdc0cb1d0d992b7c3b1d0f)
 
+Note: If the source video has already been processed by the video service, `getJobStatus` will return an error with the message `already_exists`. When this happens, it will return the BlobRef of the previously processed video for you to use, hence why we recommend checking for the presence of a BlobRef in the response regardless of the success or failure of the job.
+
 ### Aspect Ratios
 
 As with images, we need to give video embeds an aspect ratio. This metadata can be a little tricky to compute. If you’re in the browser, you can load the video into a `<video>` and observe the dimensions when loaded. If you’re in a native app, you’ll most likely be able to get it via the media picker APIs. Alternatively, you can use a tool like `ffmprobe` - here’s how you’d do it with Deno:
@@ -144,4 +145,3 @@ As with images, we need to give video embeds an aspect ratio. This metadata can 
     ```
   </TabItem>
 </Tabs>
-
