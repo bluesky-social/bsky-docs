@@ -15,7 +15,6 @@ The Bluesky video CDN also applies additional account-level limits on publishing
 
 The easiest way to upload a video is to upload it as you would an image - use `uploadBlob` to upload the file directly to the PDS, and reference the returned blob.
 
-
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
     ```typescript title="uploadBlob"
@@ -44,10 +43,10 @@ Instead, we can send the video directly to the video service for preprocessing.
 
 This is a little more involved, and involves communicating directly with the video service. The steps are:
 
-Create a service token with an audience of your PDS, a scope allowing `uploadBlob`, and a slightly longer expiry - 30 minutes is recommended
-Upload the video directly to `https://video.bsky.app` with the appropriate access token
-Query `https://video.bsky.app` for the status of the processing job until it returns the BlobRef of the video
-Use the BlobRef in your post
+1. Create a service token with an audience of your PDS, a scope allowing `uploadBlob`, and a slightly longer expiry - 30 minutes is recommended
+2. Upload the video directly to `https://video.bsky.app` with the appropriate access token
+3. Query `https://video.bsky.app` for the status of the processing job until it returns the BlobRef of the video
+4. Use the BlobRef in your post
 
 Here is a code snippet for the full flow:
 
@@ -144,4 +143,3 @@ As with images, we need to give video embeds an aspect ratio. This metadata can 
     ```
   </TabItem>
 </Tabs>
-
