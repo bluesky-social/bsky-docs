@@ -4,7 +4,7 @@ sidebar_position: 14
 
 # PDS Entryway
 
-Bluesky runs many PDSs. Each PDS runs as a completely separate service in the network with its own identity. They federate with the rest of the network in the exact same manner that a non-Bluesky PDS would. These PDSs have hostnames such as `morel.us-east.host.bsky.network`.
+Bluesky runs many PDSs. Each PDS runs as a completely separate service in the network with its own identity. They federate with the rest of the network in the exact same manner that a non-Bluesky PDS does. These PDSs have hostnames such as `morel.us-east.host.bsky.network`.
 
 However, the user-facing concept for Bluesky's "PDS Service" is simply `bsky.social`. This is reflected in the provided subdomain that users on a Bluesky PDS have access to (i.e. their default handle suffix), as well as the hostname that they may provide at login in order to route their login request to the correct service. A user should not be expected to understand or remember the specific host that their account is on.
 
