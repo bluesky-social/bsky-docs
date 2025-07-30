@@ -45,7 +45,7 @@ like "create post", "create like", "delete follow" and so on.
 <Tabs groupId="sdk">
   <TabItem value="go" label="Go">
     ```go
-    rsc := &events.RepoStreamCallbacks{
+    rsc := &stream.RepoStreamCallbacks{
       RepoCommit: func(evt *atproto.SyncSubscribeRepos_Commit) error {
         fmt.Println("Event from ", evt.Repo)
         for _, op := range evt.Ops {
@@ -56,7 +56,7 @@ like "create post", "create like", "delete follow" and so on.
     }
 
     sched := sequential.NewScheduler("myfirehose", rsc.EventHandler)
-    events.HandleRepoStream(context.Background(), con, sched)
+    stream.HandleRepoStream(context.Background(), con, sched, nil)
 ```
   </TabItem>
 </Tabs>
