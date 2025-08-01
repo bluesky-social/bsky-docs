@@ -35,7 +35,7 @@ Choose the SDK you want to work with. Below, we use TypeScript and Python. You c
 
 ## Create a session
 
-Create an authentication session with your username and password.
+Create an authentication session with your username and password. Remember to use your Bluesky domain as your username, and to create an App Password in your account.
 
 <Tabs groupId="sdk">
   <TabItem value="ts" label="Typescript">
@@ -69,6 +69,8 @@ Create an authentication session with your username and password.
       ```
     </TabItem>
 </Tabs>
+
+To create a new App Password, login to your account and go to `Settings`. In the Advanced parameters, click on `App Passwords` and follow the instructions. Use the generated password as the second parameter in `client.login()`.
 
 The `com.atproto.server.createSession` API endpoint returns a session object containing two API tokens:
 * `accessJwt`: an access token which is used to authenticate requests but expires after a few minutes
