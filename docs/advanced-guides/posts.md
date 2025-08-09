@@ -24,7 +24,7 @@ Bluesky posts are repository records with the [Lexicon type](https://github.com/
 
 Each post requires these fields: `text` and `createdAt` (a timestamp).
 
-This script below will create a simple post with just a text field and a timestamp. You'll need the `datetime` package installed.
+This script below will create a simple post with just a text field and a timestamp.
 
 ```python
 import json
