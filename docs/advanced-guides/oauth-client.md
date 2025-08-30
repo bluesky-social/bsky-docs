@@ -233,7 +233,7 @@ Clients can start an auth flow in one of two ways:
 
 One use case for starting with a server URL instead of an account identifier is when the user does not remember their full account handle or only knows their account email. Another is for authentication when a user’s handle is broken. The user still needs to know their hosting provider in these situations.
 
-When starting with an account identifier, the client must resolve the atproto identity to a DID document. If starting with a handle, it is critical (mandatory) to bidirectionally verify the handle by checking that the DID document claims the handle (see atproto Handle specification). All handle resolution techniques and all atproto-blessed DID methods must be supported to ensure interoperability with all accounts.
+When starting with an account identifier, the client must resolve the atproto identity to a DID document. If starting with a handle, it is critical (mandatory) to bidirectionally verify the handle by checking that the DID document claims the handle (see atproto [Handle specification](https://atproto.com/specs/handle#handle-resolution)). All handle resolution techniques and all atproto-blessed DID methods must be supported to ensure interoperability with all accounts.
 
 In some client environments, it may be difficult to resolve all identity types. For example, handle resolution may involve DNS TXT queries, which are not directly supported from browser apps. Client implementations might use alternative techniques (such as DNS-over-HTTPS) or could make use of a supporting web service to resolve identities.
 
