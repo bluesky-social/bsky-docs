@@ -9,6 +9,7 @@ Last week we posted two drafts to the IETF Data Tracker. This is the first major
 In particular, we’ve submitted two Internet-Drafts:
 
 [Authenticated Transfer Repository and Synchronization](https://datatracker.ietf.org/doc/draft-holmgren-at-repository/): a proposed standard that specifies the AT repository format and sync semantics
+
 [Authenticated Transfer: Architecture Overview](https://datatracker.ietf.org/doc/draft-newbold-at-architecture/): an informational draft that goes over the architecture of the broader network and describes how the repository fits into it.
 
 Just today, we were approved for a Birds of a Feather (BOF) session at [IETF 124](https://www.ietf.org/meeting/124/) in Montreal from November 1-7. Details on the BOF can be found [Here](https://datatracker.ietf.org/doc/bofreq-newbold-authenticated-transfer/).
