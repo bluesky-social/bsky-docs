@@ -48,7 +48,7 @@ PAR: Pushed Authorization Requests ([RFC 9126](https://datatracker.ietf.org/doc/
 
 DPoP: Demonstrating Proof of Possession ([RFC 9449](https://datatracker.ietf.org/doc/html/rfc9449))
 
-Client Metadata: OAuth Client ID Metadata Document ([`draft-parecki-oauth-client-id-metadata-document`](https://datatracker.ietf.org/doc/draft-parecki-oauth-client-id-metadata-document/))
+Client Metadata: OAuth Client ID Metadata Document ([`draft-ietf-oauth-client-id-metadata-document`](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/))
 
 Other architectures are possible. For example, a mobile app which uses a web service to mediate client authentication and refresh tokens, or a web service could act as a "Public" client. This guide focuses on the most common use-cases.
 
