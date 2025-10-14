@@ -4,7 +4,7 @@ title: Enabling Account Migration Back to Bluesky’s PDS
 tags: ['federation', 'updates']
 ---
 
-One of the core promises of AT is seamless account migration between PDS hosts. Since federation opened up in the AT network, it has been possible to migrate away from the Bluesky PDS and between non-Blueksky PDSs. However, once you left the Bluesky PDS, returning wasn’t an option.
+One of the core promises of AT is seamless account migration between PDS hosts. Since federation opened up in the AT network, it has been possible to migrate away from the Bluesky PDS and between non-Bluesky PDSs. However, once you left the Bluesky PDS, returning wasn’t an option.
 
 Today, we’re removing that restriction and allowing returning users to migrate back to the Bluesky PDS. We hope this gives more users the confidence to explore other PDSs in the network, knowing they can return if needed. That being said, account migration remains a potentially destructive operation, so users should be aware of the risks before migrating between hosts.
 
