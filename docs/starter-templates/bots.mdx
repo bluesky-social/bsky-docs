@@ -10,40 +10,53 @@ You can skip the below tutorial and find the full starter script [here](https://
 
 ## Starter Template
 
-Here's a TypeScript script that creates a bot that posts a smiley emoji on an automated schedule once every three hours.
+Here's a TypeScript script that creates a bot that posts a smiley emoji on an automated schedule once every three hours. This guide assumes you already have typescript installed, and some familiarity with your terminal.
 
 ### Getting Started
 
-Install TypeScript and Node.
+Install TypeScript, Node and the ATProto API
 ```
 npm i -g typescript
 npm i -g ts-node
+npm i @atproto/api
 ```
 
-Then, save your bot's username and password to a `.env` file.
+### Create your Script
+
+Let's write the actual code which will run our bot. We will create a bot which posts 🙂 every three hours. 
+
+Our example will require some packages. Install dotenv, cron, and process, and initialise Typescript
 ```
-BLUESKY_USERNAME=
-BLUESKY_PASSWORD=
+npm i dotenv
+npm i cron
+npm i process
+npm install --save-dev @types/node
+npx tsc --init
 ```
 
-### Create a Script
+Next, save your bot's username and password to a `.env` file. This file should not be shared publicly.
+```
+BLUESKY_USERNAME=exampleUsername@bsky.social
+BLUESKY_PASSWORD=examplePassword123
+```
 
-The below script will post 🙂 every three hours.
-
+Now we can start writing our bot! Create a file called main.ts, and write the following code:
 ```TypeScript
-import { BskyAgent } from '@atproto/api';
+// Import our packages
+import { AtpAgent } from '@atproto/api';
 import * as dotenv from 'dotenv';
 import { CronJob } from 'cron';
 import * as process from 'process';
 
 dotenv.config();
 
-// Create a Bluesky Agent 
-const agent = new BskyAgent({
+// Create a ATProto Agent using a given PDS.
+// For most people, just use https://bsky.social
+const agent = new AtpAgent({
     service: 'https://bsky.social',
-  })
+})
 
-
+// Our main code -- this will be run every three hours
 async function main() {
     await agent.login({ identifier: process.env.BLUESKY_USERNAME!, password: process.env.BLUESKY_PASSWORD!})
     await agent.post({
@@ -52,10 +65,11 @@ async function main() {
     console.log("Just posted!")
 }
 
+// Run main() once, on startup
 main();
 
 
-// Run this on a cron job
+// Create a 'cronjob' which will automatically run main() again, once every three hours
 const scheduleExpressionMinute = '* * * * *'; // Run once every minute for testing
 const scheduleExpression = '0 */3 * * *'; // Run once every three hours in prod
 
@@ -63,6 +77,14 @@ const job = new CronJob(scheduleExpression, main); // change to scheduleExpressi
 
 job.start();
 ```
+
+Now, let's build and run our bot. Open a console in the bot's directory, and type:
+```
+npx tsc
+node index.js
+```
+
+Congratulations! You've now built you first Bluesky bot. Check its' account to view the post(s).
 
 ### Deploying Your Bot
 
