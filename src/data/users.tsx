@@ -35,6 +35,15 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/did:plc:ivvkfsndujdk2vo5zd2gn2e6',
     tags: ['domains'],
   },
+{
+    title: 'NFDomains',
+    description: 'The Non-Fungible Domains (NFD) registry enables permissionless minting of unique domains (usable as Bluesky handles), with ownership secured and verified on the Algorand blockchain. NFDs have two-way verification, linking your NFD to your Bluesky handle and vice versa.',
+    preview: require('./showcase/NFD-pfp_orange.png'),
+    website:'https://app.nf.domains',
+    author: 'https://bsky.app/profile/did:plc:odryubkjhsldft5nfmt2xcwy',
+    tags: ['domains'],
+  },
+  
   {
     title: 'Japanese atproto docs',
     description: 'Japanese documentation for atproto',
