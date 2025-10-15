@@ -1243,6 +1243,14 @@ const Users: User[] = [
     tags: ['othertools', 'opensource'],
   },
   {
+    title: 'Statuzer',
+    description : 'Multi-accounts, multi-columns Mastodon and Bluesky web client',
+    preview: require('./showcase/statuzer.jpg'),
+    website: 'https://bsky.statuzer.com',
+    author : 'https://bsky.app/profile/textoo.bsky.social',
+    tags: ['client']
+  },
+  {
     title: 'Kyst',
     description: 'A tool to bookmark and organize your favorite posts on Bluesky',
     preview: require('./showcase/kyst-banner-1280-720.png'),
