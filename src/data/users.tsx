@@ -559,6 +559,14 @@ const Users: User[] = [
     tags: ['bridge', 'opensource'],
   },
   {
+    title: 'Sticky Store',
+    description: 'Free Social Commerce iOS App for Bluesky users. Get your own store filled with products that you love.',
+    preview: require('./showcase/sticky-store.png'),
+    website:'https://stickystore.ai',
+    author: 'https://bsky.app/profile/stickystore.bsky.social',
+    tags: ['othertools', 'socialtools'],
+  },
+  {
     title: 'Twitter-to-Bsky',
     description: 'Tool to import your Twitter archive to Bluesky',
     preview: require('./showcase/example-1.png'),
