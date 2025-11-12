@@ -46,14 +46,10 @@ const agent = new BskyAgent({
 
 async function main() {
     await agent.login({ identifier: process.env.BLUESKY_USERNAME!, password: process.env.BLUESKY_PASSWORD!})
-    // Post every three hours
-    for (let i = 0; i < 10; i++) {
-        await agent.post({
-            text: "🙂"
-        });
-        console.log("Just posted!");
-        sleep(1000 * 60 * 60 * 3);
-    }
+    await agent.post({
+        text: "🙂"
+    });
+    console.log("Just posted!");
 }
 
 main();
@@ -67,6 +63,23 @@ You can deploy a simple bot for no or low cost on a variety of platforms, such a
 
 Keep in mind that bots should respect the network's [rate limits](/docs/advanced-guides/rate-limits). Automated bots that post to an account on an regular interval are welcome. If your bot interacts with other users, please only interact (like, repost, reply, etc.) if the user has tagged the bot account. It must be an opt-in interaction, or else your bot may be taken for spam.
 
-:::tip
-Note that calling `agent.login()` multiple times in a short period may trigger rate limits. You only need to call `agent.login()` once per session to authenticate your agent, and can call `agent.post()` multiple times after that, as in the above example.
-:::
+### Session Management
+
+Rate limits for [logging in](https://docs.bsky.app/docs/advanced-guides/rate-limits#hosted-account-pds-limits) are much lower than for [write operations like posting](https://docs.bsky.app/docs/advanced-guides/rate-limits#content-write-operations-per-account). Calling `agent.login()` multiple times in a short period may trigger rate limits. You only need to call `agent.login()` once per session to authenticate your agent, and can call `agent.post()` multiple times after that.
+
+You may want to persist your session to disk after logging in to avoid hitting login rate limits. You could do that by using helper functions like `readSessionFromDisk` and `writeSessionToDisk`:
+
+```ts
+const session = readSessionFromDisk()
+if (session) {
+    agent.resumeSession(session)
+} else {
+    await agent.login({ identifier: process.env.BLUESKY_USERNAME!, password: process.env.BLUESKY_PASSWORD!})
+    writeSessionToDisk(agent.session)
+}
+
+await agent.post({
+    text: "🙂"
+});
+```
+
