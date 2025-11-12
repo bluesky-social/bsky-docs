@@ -67,7 +67,7 @@ Keep in mind that bots should respect the network's [rate limits](/docs/advanced
 
 Rate limits for [logging in](https://docs.bsky.app/docs/advanced-guides/rate-limits#hosted-account-pds-limits) are much lower than for [write operations like posting](https://docs.bsky.app/docs/advanced-guides/rate-limits#content-write-operations-per-account). Calling `agent.login()` multiple times in a short period may trigger rate limits. You only need to call `agent.login()` once per session to authenticate your agent, and can call `agent.post()` multiple times after that.
 
-You may want to persist your session to disk after logging in to avoid hitting login rate limits. You could do that by using helper functions like `readSessionFromDisk` and `writeSessionToDisk`:
+You may want to persist your session to disk after logging in to avoid hitting login rate limits. You could do that by using helper functions like `readSessionFromDisk` and `writeSessionToDisk` with `agent.resumeSession()`:
 
 ```ts
 const session = readSessionFromDisk()
@@ -83,3 +83,4 @@ await agent.post({
 });
 ```
 
+For more information about session management, see [API Hosts and Auth](https://docs.bsky.app/docs/advanced-guides/api-directory).
