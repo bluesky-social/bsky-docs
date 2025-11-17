@@ -97,7 +97,7 @@ const config = {
             label: "Docs",
           },
           { to: "/blog", label: "Blog", position: "left" },
-          { to: "/showcase", label: "Showcase", position: "left" },
+          { href: "https://blueskydirectory.com/", label: "Directory", position: "left" },
           {
             href: "https://github.com/bluesky-social",
             label: "GitHub",
