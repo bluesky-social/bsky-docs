@@ -15,7 +15,7 @@ Another concern is consensual usage. The contact upload should only be used for 
 
 These issues have meant, until now, we have foregone this common utility.
 
-We believe we have now found a solution to the security risks of contact-list imports, which we will describe in this blogpost. We offer this initial writeup to solicit critical feedback from the community. If you have questions or concerns about the design of this scheme, please raise them here \[link\]
+We believe we have now found a solution to the security risks of contact-list imports, which we will describe in this blogpost. We offer this initial writeup to solicit critical feedback from the community. If you have questions or concerns about the design of this scheme, please raise them [here](https://github.com/bluesky-social/atproto/discussions/4356).
 
 ## Requirements
 
@@ -141,4 +141,4 @@ The following features all work together, to construct a contact discovery syste
 
 We resist API-level enumeration, while *also* mitigating the consequences of a full database compromise, all while keeping the system (and its deployment) simple. Deployments of this design could be additionally hardened through use of trusted computing environments, but this is out of scope for our initial plans.
 
-As stated in the introduction, we offer this writeup with the hope of receiving any critiques that might highlight issues with the construction. If you have any concerns to share, please provide them here \[link\].
+As stated in the introduction, we offer this writeup with the hope of receiving any critiques that might highlight issues with the construction. If you have any concerns to share, please provide them [here](https://github.com/bluesky-social/atproto/discussions/4356).
