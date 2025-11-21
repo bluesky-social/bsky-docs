@@ -489,6 +489,15 @@ const Users: User[] = [
     tags: ['client'],
   },
   {
+    title: 'atrrr (R)',
+    description: 'R package that wraps the AT Protocol behind Bluesky',
+    preview: require('./showcase/example-1.png'),
+    website: 'https://jbgruber.github.io/atrrr',
+    source: 'https://github.com/JBGruber/atrrr',
+    author: 'https://bsky.app/profile/did:plc:ntd53albt5ffa4rgervvgibd',
+    tags: ['client'],
+  },
+  {
     title: 'bluesky_cli (Dart)',
     description: 'CLI client for Bluesky',
     preview: require('./showcase/example-1.png'),
