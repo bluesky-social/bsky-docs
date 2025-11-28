@@ -1378,6 +1378,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/sri.xyz',
     tags: ['othertools'],
   },
+  {
+    title: 'Fursona',
+    description: 'Furry-first iOS client for Bluesky',
+    preview: require('./showcase/fursona.jpeg'),
+    website: 'https://ifurry.io',
+    author: 'https://bsky.app/profile/did:plc:fynelmajwyd4arrdpmm2mkqu',
+    tags: ['client'],
+  },
 ]
 
 export type User = {
