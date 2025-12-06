@@ -173,6 +173,11 @@ function getRefLabel(id: string, ref: string) {
     return `${id}${ref.replace("#", ".")}`;
   }
 
+  // remove #main suffix
+  if (ref.endsWith("#main")) {
+    return ref.replace("#main", "");
+  }
+
   // Reference already includes the lexicon name
   if (ref.includes("#")) {
     return ref.replace("#", ".");
