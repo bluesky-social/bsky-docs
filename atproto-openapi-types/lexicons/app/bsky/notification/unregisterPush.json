@@ -1,10 +1,10 @@
 {
   "lexicon": 1,
-  "id": "app.bsky.notification.registerPush",
+  "id": "app.bsky.notification.unregisterPush",
   "defs": {
     "main": {
       "type": "procedure",
-      "description": "Register to receive push notifications, via a specified service, for the requesting account. Requires auth.",
+      "description": "The inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -17,11 +17,7 @@
               "type": "string",
               "knownValues": ["ios", "android", "web"]
             },
-            "appId": { "type": "string" },
-            "ageRestricted": {
-              "type": "boolean",
-              "description": "Set to true when the actor is age restricted"
-            }
+            "appId": { "type": "string" }
           }
         }
       }
