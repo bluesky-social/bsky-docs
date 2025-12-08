@@ -56,6 +56,54 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "app.bsky.ageassurance",
+      items: [
+        {
+          type: "doc",
+          id: "api/app-bsky-ageassurance-begin",
+          label: "app.bsky.ageassurance.begin",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-ageassurance-get-config",
+          label: "app.bsky.ageassurance.getConfig",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-ageassurance-get-state",
+          label: "app.bsky.ageassurance.getState",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "app.bsky.bookmark",
+      items: [
+        {
+          type: "doc",
+          id: "api/app-bsky-bookmark-create-bookmark",
+          label: "app.bsky.bookmark.createBookmark",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-bookmark-delete-bookmark",
+          label: "app.bsky.bookmark.deleteBookmark",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-bookmark-get-bookmarks",
+          label: "app.bsky.bookmark.getBookmarks",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "app.bsky.feed",
       items: [
         {
@@ -228,6 +276,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/app-bsky-graph-get-lists-with-membership",
+          label: "app.bsky.graph.getListsWithMembership",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/app-bsky-graph-get-mutes",
           label: "app.bsky.graph.getMutes",
           className: "api-method get",
@@ -248,6 +302,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/app-bsky-graph-get-starter-packs",
           label: "app.bsky.graph.getStarterPacks",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-graph-get-starter-packs-with-membership",
+          label: "app.bsky.graph.getStarterPacksWithMembership",
           className: "api-method get",
         },
         {
@@ -318,8 +378,20 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "api/app-bsky-notification-get-preferences",
+          label: "app.bsky.notification.getPreferences",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/app-bsky-notification-get-unread-count",
           label: "app.bsky.notification.getUnreadCount",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-notification-list-activity-subscriptions",
+          label: "app.bsky.notification.listActivitySubscriptions",
           className: "api-method get",
         },
         {
@@ -330,14 +402,32 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/app-bsky-notification-put-activity-subscription",
+          label: "app.bsky.notification.putActivitySubscription",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/app-bsky-notification-put-preferences",
           label: "app.bsky.notification.putPreferences",
           className: "api-method post",
         },
         {
           type: "doc",
+          id: "api/app-bsky-notification-put-preferences-v-2",
+          label: "app.bsky.notification.putPreferencesV2",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/app-bsky-notification-register-push",
           label: "app.bsky.notification.registerPush",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-notification-unregister-push",
+          label: "app.bsky.notification.unregisterPush",
           className: "api-method post",
         },
         {
@@ -686,6 +776,18 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/com-atproto-label-query-labels",
           label: "com.atproto.label.queryLabels",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "com.atproto.lexicon",
+      items: [
+        {
+          type: "doc",
+          id: "api/com-atproto-lexicon-resolve-lexicon",
+          label: "com.atproto.lexicon.resolveLexicon",
           className: "api-method get",
         },
       ],
@@ -1056,9 +1158,21 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "api/tools-ozone-moderation-cancel-scheduled-actions",
+          label: "tools.ozone.moderation.cancelScheduledActions",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/tools-ozone-moderation-emit-event",
           label: "tools.ozone.moderation.emitEvent",
           className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-moderation-get-account-timeline",
+          label: "tools.ozone.moderation.getAccountTimeline",
+          className: "api-method get",
         },
         {
           type: "doc",
@@ -1104,6 +1218,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/tools-ozone-moderation-list-scheduled-actions",
+          label: "tools.ozone.moderation.listScheduledActions",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/tools-ozone-moderation-query-events",
           label: "tools.ozone.moderation.queryEvents",
           className: "api-method get",
@@ -1116,9 +1236,51 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/tools-ozone-moderation-schedule-action",
+          label: "tools.ozone.moderation.scheduleAction",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/tools-ozone-moderation-search-repos",
           label: "tools.ozone.moderation.searchRepos",
           className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "tools.ozone.safelink",
+      items: [
+        {
+          type: "doc",
+          id: "api/tools-ozone-safelink-add-rule",
+          label: "tools.ozone.safelink.addRule",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-safelink-query-events",
+          label: "tools.ozone.safelink.queryEvents",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-safelink-query-rules",
+          label: "tools.ozone.safelink.queryRules",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-safelink-remove-rule",
+          label: "tools.ozone.safelink.removeRule",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/tools-ozone-safelink-update-rule",
+          label: "tools.ozone.safelink.updateRule",
+          className: "api-method post",
         },
       ],
     },

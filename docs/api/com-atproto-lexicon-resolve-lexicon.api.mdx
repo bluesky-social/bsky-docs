@@ -1,0 +1,73 @@
+---
+id: com-atproto-lexicon-resolve-lexicon
+title: "com.atproto.lexicon.resolveLexicon"
+description: "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*"
+sidebar_label: "com.atproto.lexicon.resolveLexicon"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVt9v20YM/lcOfGlSKLI37ElvTtq1xrbWcB1ggOuH84m2rpHulCNlxBP0vw/Uj9ievSYDhgHziy0fj/w+8iOpGlhvCZIlGF/Emsvg2cc5PlnjHawiSJFMsCVb7yCBtwuvctTBqcIHVHrtK1ZG57l1W9XfVpPZVKFLS28dk8rtAyrOLCnvMFKE8oRqKVYfPTEp7VI1qThbXY1Sb2ik0512BtObbWVTpJEu7U1qAxr2YX+t2n/jt1/dVzdH8vkOxcVz9B67uvr0ZfruWrFXWpHJsNAxROBLDFrITFNILnGOQ+fz1z4FERCaKljeQ7Ks4RZ1wADJctWsIih10AUyBmoPnS4QEnBkU4jASsIeKwx7+GsaFxk+4xSYgrKPKyADPlY2YAoJhwoj6OBDUgPvS4lAHKzb/lO3Gx8KzQPARggEpNI7QhLnP47H8nXq8/MvEIHxjtGxnOqyzK1pUzj6RmJSn+Pz629o+ITJEqpgxVWbm/6GpDBISdh2EOT0VTTvpu+U37RKGhh3PlVA40N6wle8NhfSeBHmkfZPsQ0Hh/vWMW4xQNNEwJZz/BtJ9YGbqM3Bq/hNFjf38+nrKWq+Ed9N+4ngp0ulvNWpmuNjhcT/Vk0xBB8gggKJ9BbPk9YZXKCMrirEw9TtdG7TA673T6V4X/gHlO7rz4fHvi0/ef7ZVy6FVXMIfhblkI0fzrNx73TFmQ/2D0z/+3QY70jqJnPvN0vUwn2RSmvBmZfZtUWJXmrOIIHRUyjN6JXjLOy6gbU6zLYvQq+DOEy4ZwQZczm0rDyvOwMBY93Gt5a9+CcLNZPoxufq9/nsTlaBXK2KQoc9JHDnnQS33om0j8zf0CBykqn1uUQ3mU3f0CD5TujxhV6xpAiNPCqpobaO1MfFYtauoYAbDOgMKtks4kXd5hXSw77bOkd4h/Cx+oBOlgQqrTquikV9gouRuHUsO49Ut5XyvdoEX7SdKmEEZc8SEhjH43gstS09caFbNfWL4jv1UoeCnRCuD0L9/y/jXmCMTzwqc21dNyJzodkJewki7LY9X5T2KoLMS1Mtoa7XmvA+5E0jf3dLWDZ0akmvc2nWjc4Jv5Pcq3nf19fqhbV6kcUD7g9vAjudV2ICsnJ3OljB0L5DRJChTtsXirq/MzEGSz66dTaOxMvzGPjwfgERyCg7atm+RaPhh3jvj7TbH/mu686iHa9NAwPwVvDQrJqm+RMQgoHX
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"com.atproto.lexicon.resolveLexicon"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/xrpc/com.atproto.lexicon.resolveLexicon"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Resolves an atproto lexicon (NSID) to a schema.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"nsid","in":"query","description":"The lexicon NSID to resolve.","required":true,"schema":{"type":"string","description":"The lexicon NSID to resolve.","format":"nsid"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","required":["uri","cid","schema"],"properties":{"cid":{"type":"string","description":"The CID of the lexicon schema record.","format":"cid"},"schema":{"type":"object","required":["lexicon"],"properties":{"lexicon":{"type":"integer"}},"title":"com.atproto.lexicon.schema"},"uri":{"type":"string","description":"The AT-URI of the lexicon schema record.","format":"at-uri"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","LexiconNotFound"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

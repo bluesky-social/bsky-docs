@@ -708,6 +708,589 @@
         }
       }
     },
+    "/xrpc/app.bsky.ageassurance.begin": {
+      "post": {
+        "tags": [
+          "app.bsky.ageassurance"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nInitiate Age Assurance for an account.",
+        "operationId": "app.bsky.ageassurance.begin",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "language",
+                  "countryCode"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "The user's email address to receive Age Assurance instructions."
+                  },
+                  "language": {
+                    "type": "string",
+                    "description": "The user's preferred language for communication during the Age Assurance process."
+                  },
+                  "countryCode": {
+                    "type": "string",
+                    "description": "An ISO 3166-1 alpha-2 code of the user's location."
+                  },
+                  "regionCode": {
+                    "type": "string",
+                    "description": "An optional ISO 3166-2 code of the user's region or state within the country."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.state"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "InvalidEmail",
+                        "DidTooLong",
+                        "InvalidInitiation",
+                        "RegionNotSupported"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.ageassurance.getConfig": {
+      "get": {
+        "tags": [
+          "app.bsky.ageassurance"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nReturns Age Assurance configuration for use on the client.",
+        "operationId": "app.bsky.ageassurance.getConfig",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.config"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.ageassurance.getState": {
+      "get": {
+        "tags": [
+          "app.bsky.ageassurance"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nReturns server-computed Age Assurance state, if available, and any additional metadata needed to compute Age Assurance state client-side.",
+        "operationId": "app.bsky.ageassurance.getState",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "countryCode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "regionCode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "state",
+                    "metadata"
+                  ],
+                  "properties": {
+                    "state": {
+                      "$ref": "#/components/schemas/app.bsky.ageassurance.defs.state"
+                    },
+                    "metadata": {
+                      "$ref": "#/components/schemas/app.bsky.ageassurance.defs.stateMetadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.bookmark.createBookmark": {
+      "post": {
+        "tags": [
+          "app.bsky.bookmark"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCreates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.",
+        "operationId": "app.bsky.bookmark.createBookmark",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "uri",
+                  "cid"
+                ],
+                "properties": {
+                  "uri": {
+                    "type": "string",
+                    "format": "at-uri"
+                  },
+                  "cid": {
+                    "type": "string",
+                    "format": "cid"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "UnsupportedCollection"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.bookmark.deleteBookmark": {
+      "post": {
+        "tags": [
+          "app.bsky.bookmark"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nDeletes a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.",
+        "operationId": "app.bsky.bookmark.deleteBookmark",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "uri"
+                ],
+                "properties": {
+                  "uri": {
+                    "type": "string",
+                    "format": "at-uri"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "UnsupportedCollection"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.bookmark.getBookmarks": {
+      "get": {
+        "tags": [
+          "app.bsky.bookmark"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGets views of records bookmarked by the authenticated user. Requires authentication.",
+        "operationId": "app.bsky.bookmark.getBookmarks",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "bookmarks"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "bookmarks": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.bookmark.defs.bookmarkView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/app.bsky.feed.describeFeedGenerator": {
       "get": {
         "tags": [
@@ -1578,6 +2161,11 @@
                       "items": {
                         "$ref": "#/components/schemas/app.bsky.feed.defs.skeletonFeedPost"
                       }
+                    },
+                    "reqId": {
+                      "type": "string",
+                      "description": "Unique identifier per request that may be passed back alongside interactions.",
+                      "maxLength": 100
                     }
                   }
                 }
@@ -2653,7 +3241,7 @@
         "tags": [
           "app.bsky.feed"
         ],
-        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nFind posts matching search criteria, returning views of those posts.",
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nFind posts matching search criteria, returning views of those posts. Note that this API endpoint may require authentication (eg, not public) for some service providers and implementations.",
         "operationId": "app.bsky.feed.searchPosts",
         "security": [
           {
@@ -3963,6 +4551,22 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "purposes",
+            "in": "query",
+            "description": "Optional filter by list purpose. If not specified, all supported types are returned.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "modlist",
+                  "curatelist"
+                ]
+              }
+            }
           }
         ],
         "responses": {
@@ -3983,6 +4587,143 @@
                       "type": "array",
                       "items": {
                         "$ref": "#/components/schemas/app.bsky.graph.defs.listView"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.graph.getListsWithMembership": {
+      "get": {
+        "tags": [
+          "app.bsky.graph"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates the lists created by the session user, and includes membership information about `actor` in those lists. Only supports curation and moderation lists (no reference lists, used in starter packs). Requires auth.",
+        "operationId": "app.bsky.graph.getListsWithMembership",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "actor",
+            "in": "query",
+            "description": "The account (actor) to check for membership.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The account (actor) to check for membership.",
+              "format": "at-identifier"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "purposes",
+            "in": "query",
+            "description": "Optional filter by list purpose. If not specified, all supported types are returned.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "modlist",
+                  "curatelist"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "listsWithMembership"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "listsWithMembership": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.graph.getListsWithMembership.listWithMembership"
                       }
                     }
                   }
@@ -4415,6 +5156,127 @@
                       "type": "array",
                       "items": {
                         "$ref": "#/components/schemas/app.bsky.graph.defs.starterPackViewBasic"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.graph.getStarterPacksWithMembership": {
+      "get": {
+        "tags": [
+          "app.bsky.graph"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerates the starter packs created by the session user, and includes membership information about `actor` in those starter packs. Requires auth.",
+        "operationId": "app.bsky.graph.getStarterPacksWithMembership",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "actor",
+            "in": "query",
+            "description": "The account (actor) to check for membership.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The account (actor) to check for membership.",
+              "format": "at-identifier"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "starterPacksWithMembership"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "starterPacksWithMembership": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.graph.getStarterPacksWithMembership.starterPackWithMembership"
                       }
                     }
                   }
@@ -5335,6 +6197,89 @@
         }
       }
     },
+    "/xrpc/app.bsky.notification.getPreferences": {
+      "get": {
+        "tags": [
+          "app.bsky.notification"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet notification-related preferences for an account. Requires auth.",
+        "operationId": "app.bsky.notification.getPreferences",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "preferences"
+                  ],
+                  "properties": {
+                    "preferences": {
+                      "$ref": "#/components/schemas/app.bsky.notification.defs.preferences"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/app.bsky.notification.getUnreadCount": {
       "get": {
         "tags": [
@@ -5379,6 +6324,116 @@
                   "properties": {
                     "count": {
                       "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.notification.listActivitySubscriptions": {
+      "get": {
+        "tags": [
+          "app.bsky.notification"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nEnumerate all accounts to which the requesting account is subscribed to receive notifications for. Requires auth.",
+        "operationId": "app.bsky.notification.listActivitySubscriptions",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "subscriptions"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string"
+                    },
+                    "subscriptions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/app.bsky.actor.defs.profileView"
+                      }
                     }
                   }
                 }
@@ -5584,6 +6639,116 @@
         }
       }
     },
+    "/xrpc/app.bsky.notification.putActivitySubscription": {
+      "post": {
+        "tags": [
+          "app.bsky.notification"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nPuts an activity subscription entry. The key should be omitted for creation and provided for updates. Requires auth.",
+        "operationId": "app.bsky.notification.putActivitySubscription",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "subject",
+                  "activitySubscription"
+                ],
+                "properties": {
+                  "subject": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "activitySubscription": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.activitySubscription"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "subject"
+                  ],
+                  "properties": {
+                    "subject": {
+                      "type": "string",
+                      "format": "did"
+                    },
+                    "activitySubscription": {
+                      "$ref": "#/components/schemas/app.bsky.notification.defs.activitySubscription"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/app.bsky.notification.putPreferences": {
       "post": {
         "tags": [
@@ -5670,6 +6835,140 @@
         }
       }
     },
+    "/xrpc/app.bsky.notification.putPreferencesV2": {
+      "post": {
+        "tags": [
+          "app.bsky.notification"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nSet notification-related preferences for an account. Requires auth.",
+        "operationId": "app.bsky.notification.putPreferencesV2",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.chatPreference"
+                  },
+                  "follow": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+                  },
+                  "like": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+                  },
+                  "likeViaRepost": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+                  },
+                  "mention": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+                  },
+                  "quote": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+                  },
+                  "reply": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+                  },
+                  "repost": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+                  },
+                  "repostViaRepost": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+                  },
+                  "starterpackJoined": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.preference"
+                  },
+                  "subscribedPost": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.preference"
+                  },
+                  "unverified": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.preference"
+                  },
+                  "verified": {
+                    "$ref": "#/components/schemas/app.bsky.notification.defs.preference"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "preferences"
+                  ],
+                  "properties": {
+                    "preferences": {
+                      "$ref": "#/components/schemas/app.bsky.notification.defs.preferences"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/app.bsky.notification.registerPush": {
       "post": {
         "tags": [
@@ -5677,6 +6976,114 @@
         ],
         "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRegister to receive push notifications, via a specified service, for the requesting account. Requires auth.",
         "operationId": "app.bsky.notification.registerPush",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "serviceDid",
+                  "token",
+                  "platform",
+                  "appId"
+                ],
+                "properties": {
+                  "serviceDid": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "token": {
+                    "type": "string"
+                  },
+                  "platform": {
+                    "type": "string",
+                    "enum": [
+                      "ios",
+                      "android",
+                      "web"
+                    ]
+                  },
+                  "appId": {
+                    "type": "string"
+                  },
+                  "ageRestricted": {
+                    "type": "boolean",
+                    "description": "Set to true when the actor is age restricted"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/app.bsky.notification.unregisterPush": {
+      "post": {
+        "tags": [
+          "app.bsky.notification"
+        ],
+        "description": "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nThe inverse of registerPush - inform a specified service that push notifications should no longer be sent to the given token for the requesting account. Requires auth.",
+        "operationId": "app.bsky.notification.unregisterPush",
         "security": [
           {
             "Bearer": []
@@ -10929,6 +12336,115 @@
         }
       }
     },
+    "/xrpc/com.atproto.lexicon.resolveLexicon": {
+      "get": {
+        "tags": [
+          "com.atproto.lexicon"
+        ],
+        "description": "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nResolves an atproto lexicon (NSID) to a schema.",
+        "operationId": "com.atproto.lexicon.resolveLexicon",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "nsid",
+            "in": "query",
+            "description": "The lexicon NSID to resolve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The lexicon NSID to resolve.",
+              "format": "nsid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "uri",
+                    "cid",
+                    "schema"
+                  ],
+                  "properties": {
+                    "cid": {
+                      "type": "string",
+                      "description": "The CID of the lexicon schema record.",
+                      "format": "cid"
+                    },
+                    "schema": {
+                      "$ref": "#/components/schemas/com.atproto.lexicon.schema"
+                    },
+                    "uri": {
+                      "type": "string",
+                      "description": "The AT-URI of the lexicon schema record.",
+                      "format": "at-uri"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "LexiconNotFound"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/com.atproto.moderation.createReport": {
       "post": {
         "tags": [
@@ -10969,6 +12485,9 @@
                         "$ref": "#/components/schemas/com.atproto.repo.strongRef"
                       }
                     ]
+                  },
+                  "modTool": {
+                    "$ref": "#/components/schemas/com.atproto.moderation.createReport.modTool"
                   }
                 }
               }
@@ -16712,6 +18231,108 @@
         }
       }
     },
+    "/xrpc/tools.ozone.moderation.cancelScheduledActions": {
+      "post": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nCancel all pending scheduled moderation actions for specified subjects",
+        "operationId": "tools.ozone.moderation.cancelScheduledActions",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "subjects"
+                ],
+                "properties": {
+                  "subjects": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "did"
+                    },
+                    "maxItems": 100
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Optional comment describing the reason for cancellation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.moderation.cancelScheduledActions.cancellationResults"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/tools.ozone.moderation.emitEvent": {
       "post": {
         "tags": [
@@ -16794,6 +18415,21 @@
                       },
                       {
                         "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventPriorityScore"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.ageAssuranceEvent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.ageAssuranceOverrideEvent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.revokeAccountCredentialsEvent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.scheduleTakedownEvent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.cancelScheduledTakedownEvent"
                       }
                     ]
                   },
@@ -16817,6 +18453,13 @@
                   "createdBy": {
                     "type": "string",
                     "format": "did"
+                  },
+                  "modTool": {
+                    "$ref": "#/components/schemas/tools.ozone.moderation.defs.modTool"
+                  },
+                  "externalId": {
+                    "type": "string",
+                    "description": "An optional external ID for the event, used to deduplicate events from external systems. Fails when an event of same type with the same external ID exists for the same subject."
                   }
                 }
               }
@@ -16851,7 +18494,106 @@
                         "InvalidRequest",
                         "ExpiredToken",
                         "InvalidToken",
-                        "SubjectHasAction"
+                        "SubjectHasAction",
+                        "DuplicateExternalId"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/tools.ozone.moderation.getAccountTimeline": {
+      "get": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nGet timeline of all available events of an account. This includes moderation events, account history and did history.",
+        "operationId": "tools.ozone.moderation.getAccountTimeline",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "did",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "did"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "timeline"
+                  ],
+                  "properties": {
+                    "timeline": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.getAccountTimeline.timelineItem"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "RepoNotFound"
                       ]
                     },
                     "message": {
@@ -17572,6 +19314,151 @@
         }
       }
     },
+    "/xrpc/tools.ozone.moderation.listScheduledActions": {
+      "post": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nList scheduled moderation actions with optional filtering",
+        "operationId": "tools.ozone.moderation.listScheduledActions",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "statuses"
+                ],
+                "properties": {
+                  "startsAfter": {
+                    "type": "string",
+                    "description": "Filter actions scheduled to execute after this time",
+                    "format": "date-time"
+                  },
+                  "endsBefore": {
+                    "type": "string",
+                    "description": "Filter actions scheduled to execute before this time",
+                    "format": "date-time"
+                  },
+                  "subjects": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "did"
+                    },
+                    "maxItems": 100
+                  },
+                  "statuses": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "pending",
+                        "executed",
+                        "cancelled",
+                        "failed"
+                      ]
+                    }
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 50
+                  },
+                  "cursor": {
+                    "type": "string",
+                    "description": "Cursor for pagination"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "actions"
+                  ],
+                  "properties": {
+                    "actions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.defs.scheduledActionView"
+                      }
+                    },
+                    "cursor": {
+                      "type": "string",
+                      "description": "Cursor for next page of results"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/xrpc/tools.ozone.moderation.queryEvents": {
       "get": {
         "tags": [
@@ -17786,6 +19673,55 @@
                 "type": "string",
                 "description": "If specified, only events where the action policies match any of the given policies are returned"
               }
+            }
+          },
+          {
+            "name": "modTool",
+            "in": "query",
+            "description": "If specified, only events where the modTool name matches any of the given values are returned",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "batchId",
+            "in": "query",
+            "description": "If specified, only events where the batchId matches the given value are returned",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If specified, only events where the batchId matches the given value are returned"
+            }
+          },
+          {
+            "name": "ageAssuranceState",
+            "in": "query",
+            "description": "If specified, only events where the age assurance state matches the given value are returned",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If specified, only events where the age assurance state matches the given value are returned",
+              "enum": [
+                "pending",
+                "assured",
+                "unknown",
+                "reset",
+                "blocked"
+              ]
+            }
+          },
+          {
+            "name": "withStrike",
+            "in": "query",
+            "description": "If specified, only events where strikeCount value is set are returned.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "If specified, only events where strikeCount value is set are returned."
             }
           },
           {
@@ -18073,7 +20009,13 @@
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Specify when fetching subjects in a certain state"
+              "description": "Specify when fetching subjects in a certain state",
+              "enum": [
+                "tools.ozone.moderation.defs#reviewOpen",
+                "tools.ozone.moderation.defs#reviewClosed",
+                "tools.ozone.moderation.defs#reviewEscalated",
+                "tools.ozone.moderation.defs#reviewNone"
+              ]
             }
           },
           {
@@ -18245,6 +20187,33 @@
               "minimum": 0,
               "maximum": 100
             }
+          },
+          {
+            "name": "minStrikeCount",
+            "in": "query",
+            "description": "If specified, only subjects that belong to an account that has at least this many active strikes will be returned.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "ageAssuranceState",
+            "in": "query",
+            "description": "If specified, only subjects with the given age assurance state will be returned.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "If specified, only subjects with the given age assurance state will be returned.",
+              "enum": [
+                "pending",
+                "assured",
+                "unknown",
+                "reset",
+                "blocked"
+              ]
+            }
           }
         ],
         "responses": {
@@ -18268,6 +20237,124 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/tools.ozone.moderation.scheduleAction": {
+      "post": {
+        "tags": [
+          "tools.ozone.moderation"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nSchedule a moderation action to be executed at a future time",
+        "operationId": "tools.ozone.moderation.scheduleAction",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "action",
+                  "subjects",
+                  "createdBy",
+                  "scheduling"
+                ],
+                "properties": {
+                  "action": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/tools.ozone.moderation.scheduleAction.takedown"
+                      }
+                    ]
+                  },
+                  "subjects": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "did"
+                    },
+                    "maxItems": 100
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "format": "did"
+                  },
+                  "scheduling": {
+                    "$ref": "#/components/schemas/tools.ozone.moderation.scheduleAction.schedulingConfig"
+                  },
+                  "modTool": {
+                    "$ref": "#/components/schemas/tools.ozone.moderation.defs.modTool"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.moderation.scheduleAction.scheduledActionResults"
                 }
               }
             }
@@ -18407,6 +20494,624 @@
                         "InvalidRequest",
                         "ExpiredToken",
                         "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/tools.ozone.safelink.addRule": {
+      "post": {
+        "tags": [
+          "tools.ozone.safelink"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nAdd a new URL safety rule",
+        "operationId": "tools.ozone.safelink.addRule",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url",
+                  "pattern",
+                  "action",
+                  "reason"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "description": "The URL or domain to apply the rule to"
+                  },
+                  "pattern": {
+                    "$ref": "#/components/schemas/tools.ozone.safelink.defs.patternType"
+                  },
+                  "action": {
+                    "$ref": "#/components/schemas/tools.ozone.safelink.defs.actionType"
+                  },
+                  "reason": {
+                    "$ref": "#/components/schemas/tools.ozone.safelink.defs.reasonType"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Optional comment about the decision"
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "description": "Author DID. Only respected when using admin auth",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.safelink.defs.event"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "InvalidUrl",
+                        "RuleAlreadyExists"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/tools.ozone.safelink.queryEvents": {
+      "post": {
+        "tags": [
+          "tools.ozone.safelink"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nQuery URL safety audit events",
+        "operationId": "tools.ozone.safelink.queryEvents",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cursor": {
+                    "type": "string",
+                    "description": "Cursor for pagination"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 50
+                  },
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "patternType": {
+                    "type": "string",
+                    "description": "Filter by pattern type"
+                  },
+                  "sortDirection": {
+                    "type": "string",
+                    "description": "Sort direction",
+                    "default": "desc",
+                    "enum": [
+                      "asc",
+                      "desc"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "events"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string",
+                      "description": "Next cursor for pagination. Only present if there are more results."
+                    },
+                    "events": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.safelink.defs.event"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/tools.ozone.safelink.queryRules": {
+      "post": {
+        "tags": [
+          "tools.ozone.safelink"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nQuery URL safety rules",
+        "operationId": "tools.ozone.safelink.queryRules",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cursor": {
+                    "type": "string",
+                    "description": "Cursor for pagination"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 50
+                  },
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "patternType": {
+                    "type": "string",
+                    "description": "Filter by pattern type"
+                  },
+                  "actions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "reason": {
+                    "type": "string",
+                    "description": "Filter by reason type"
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "description": "Filter by rule creator",
+                    "format": "did"
+                  },
+                  "sortDirection": {
+                    "type": "string",
+                    "description": "Sort direction",
+                    "default": "desc",
+                    "enum": [
+                      "asc",
+                      "desc"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "rules"
+                  ],
+                  "properties": {
+                    "cursor": {
+                      "type": "string",
+                      "description": "Next cursor for pagination. Only present if there are more results."
+                    },
+                    "rules": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/tools.ozone.safelink.defs.urlRule"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/tools.ozone.safelink.removeRule": {
+      "post": {
+        "tags": [
+          "tools.ozone.safelink"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nRemove an existing URL safety rule",
+        "operationId": "tools.ozone.safelink.removeRule",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url",
+                  "pattern"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "description": "The URL or domain to remove the rule for"
+                  },
+                  "pattern": {
+                    "$ref": "#/components/schemas/tools.ozone.safelink.defs.patternType"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Optional comment about why the rule is being removed"
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "description": "Optional DID of the user. Only respected when using admin auth.",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.safelink.defs.event"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "RuleNotFound"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "const": "AuthMissing"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xrpc/tools.ozone.safelink.updateRule": {
+      "post": {
+        "tags": [
+          "tools.ozone.safelink"
+        ],
+        "description": "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*\n\nUpdate an existing URL safety rule",
+        "operationId": "tools.ozone.safelink.updateRule",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url",
+                  "pattern",
+                  "action",
+                  "reason"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "description": "The URL or domain to update the rule for"
+                  },
+                  "pattern": {
+                    "$ref": "#/components/schemas/tools.ozone.safelink.defs.patternType"
+                  },
+                  "action": {
+                    "$ref": "#/components/schemas/tools.ozone.safelink.defs.actionType"
+                  },
+                  "reason": {
+                    "$ref": "#/components/schemas/tools.ozone.safelink.defs.reasonType"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Optional comment about the update"
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "description": "Optional DID to credit as the creator. Only respected for admin_token authentication.",
+                    "format": "did"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/tools.ozone.safelink.defs.event"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error",
+                    "message"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidRequest",
+                        "ExpiredToken",
+                        "InvalidToken",
+                        "RuleNotFound"
                       ]
                     },
                     "message": {
@@ -20782,6 +23487,9 @@
             "type": "string",
             "maxLength": 640
           },
+          "pronouns": {
+            "type": "string"
+          },
           "avatar": {
             "type": "string",
             "format": "uri"
@@ -20807,7 +23515,8 @@
           },
           "status": {
             "$ref": "#/components/schemas/app.bsky.actor.defs.statusView"
-          }
+          },
+          "debug": {}
         }
       },
       "app.bsky.actor.defs.profileView": {
@@ -20828,6 +23537,9 @@
           "displayName": {
             "type": "string",
             "maxLength": 640
+          },
+          "pronouns": {
+            "type": "string"
           },
           "description": {
             "type": "string",
@@ -20862,7 +23574,8 @@
           },
           "status": {
             "$ref": "#/components/schemas/app.bsky.actor.defs.statusView"
-          }
+          },
+          "debug": {}
         }
       },
       "app.bsky.actor.defs.profileViewDetailed": {
@@ -20887,6 +23600,13 @@
           "description": {
             "type": "string",
             "maxLength": 2560
+          },
+          "pronouns": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri"
           },
           "avatar": {
             "type": "string",
@@ -20936,7 +23656,8 @@
           },
           "status": {
             "$ref": "#/components/schemas/app.bsky.actor.defs.statusView"
-          }
+          },
+          "debug": {}
         }
       },
       "app.bsky.actor.defs.profileAssociated": {
@@ -20956,6 +23677,9 @@
           },
           "chat": {
             "$ref": "#/components/schemas/app.bsky.actor.defs.profileAssociatedChat"
+          },
+          "activitySubscription": {
+            "$ref": "#/components/schemas/app.bsky.actor.defs.profileAssociatedActivitySubscription"
           }
         }
       },
@@ -20971,6 +23695,22 @@
               "all",
               "none",
               "following"
+            ]
+          }
+        }
+      },
+      "app.bsky.actor.defs.profileAssociatedActivitySubscription": {
+        "type": "object",
+        "required": [
+          "allowSubscriptions"
+        ],
+        "properties": {
+          "allowSubscriptions": {
+            "type": "string",
+            "enum": [
+              "followers",
+              "mutuals",
+              "none"
             ]
           }
         }
@@ -21005,6 +23745,9 @@
           },
           "knownFollowers": {
             "$ref": "#/components/schemas/app.bsky.actor.defs.knownFollowers"
+          },
+          "activitySubscription": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.activitySubscription"
           }
         }
       },
@@ -21303,10 +24046,6 @@
               "random",
               "hotness"
             ]
-          },
-          "prioritizeFollowedUsers": {
-            "type": "boolean",
-            "description": "Show followed users at the top of all replies."
           }
         }
       },
@@ -21585,6 +24324,15 @@
             "description": "Free-form profile description text.",
             "maxLength": 2560
           },
+          "pronouns": {
+            "type": "string",
+            "description": "Free-form pronouns text.",
+            "maxLength": 200
+          },
+          "website": {
+            "type": "string",
+            "format": "uri"
+          },
           "avatar": {
             "type": "string",
             "format": "binary",
@@ -21649,6 +24397,342 @@
         "type": "string",
         "format": "token",
         "description": "Advertises an account as currently offering live content."
+      },
+      "app.bsky.ageassurance.defs.access": {
+        "type": "string",
+        "description": "The access level granted based on Age Assurance data we've processed.",
+        "enum": [
+          "unknown",
+          "none",
+          "safe",
+          "full"
+        ]
+      },
+      "app.bsky.ageassurance.defs.status": {
+        "type": "string",
+        "description": "The status of the Age Assurance process.",
+        "enum": [
+          "unknown",
+          "pending",
+          "assured",
+          "blocked"
+        ]
+      },
+      "app.bsky.ageassurance.defs.state": {
+        "type": "object",
+        "description": "The user's computed Age Assurance state.",
+        "required": [
+          "status",
+          "access"
+        ],
+        "properties": {
+          "lastInitiatedAt": {
+            "type": "string",
+            "description": "The timestamp when this state was last updated.",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.status"
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.stateMetadata": {
+        "type": "object",
+        "description": "Additional metadata needed to compute Age Assurance state client-side.",
+        "required": [],
+        "properties": {
+          "accountCreatedAt": {
+            "type": "string",
+            "description": "The account creation timestamp.",
+            "format": "date-time"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.config": {
+        "type": "object",
+        "required": [
+          "regions"
+        ],
+        "properties": {
+          "regions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/app.bsky.ageassurance.defs.configRegion"
+            }
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.configRegion": {
+        "type": "object",
+        "description": "The Age Assurance configuration for a specific region.",
+        "required": [
+          "countryCode",
+          "rules"
+        ],
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "The ISO 3166-1 alpha-2 country code this configuration applies to."
+          },
+          "regionCode": {
+            "type": "string",
+            "description": "The ISO 3166-2 region code this configuration applies to. If omitted, the configuration applies to the entire country."
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.configRegionRuleDefault"
+                },
+                {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.configRegionRuleIfDeclaredOverAge"
+                },
+                {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.configRegionRuleIfDeclaredUnderAge"
+                },
+                {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.configRegionRuleIfAssuredOverAge"
+                },
+                {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.configRegionRuleIfAssuredUnderAge"
+                },
+                {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.configRegionRuleIfAccountNewerThan"
+                },
+                {
+                  "$ref": "#/components/schemas/app.bsky.ageassurance.defs.configRegionRuleIfAccountOlderThan"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.configRegionRuleDefault": {
+        "type": "object",
+        "description": "Age Assurance rule that applies by default.",
+        "required": [
+          "access"
+        ],
+        "properties": {
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.configRegionRuleIfDeclaredOverAge": {
+        "type": "object",
+        "description": "Age Assurance rule that applies if the user has declared themselves equal-to or over a certain age.",
+        "required": [
+          "age",
+          "access"
+        ],
+        "properties": {
+          "age": {
+            "type": "integer"
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.configRegionRuleIfDeclaredUnderAge": {
+        "type": "object",
+        "description": "Age Assurance rule that applies if the user has declared themselves under a certain age.",
+        "required": [
+          "age",
+          "access"
+        ],
+        "properties": {
+          "age": {
+            "type": "integer"
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.configRegionRuleIfAssuredOverAge": {
+        "type": "object",
+        "description": "Age Assurance rule that applies if the user has been assured to be equal-to or over a certain age.",
+        "required": [
+          "age",
+          "access"
+        ],
+        "properties": {
+          "age": {
+            "type": "integer"
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.configRegionRuleIfAssuredUnderAge": {
+        "type": "object",
+        "description": "Age Assurance rule that applies if the user has been assured to be under a certain age.",
+        "required": [
+          "age",
+          "access"
+        ],
+        "properties": {
+          "age": {
+            "type": "integer"
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.configRegionRuleIfAccountNewerThan": {
+        "type": "object",
+        "description": "Age Assurance rule that applies if the account is equal-to or newer than a certain date.",
+        "required": [
+          "date",
+          "access"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "The date threshold as a datetime string.",
+            "format": "date-time"
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.configRegionRuleIfAccountOlderThan": {
+        "type": "object",
+        "description": "Age Assurance rule that applies if the account is older than a certain date.",
+        "required": [
+          "date",
+          "access"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "The date threshold as a datetime string.",
+            "format": "date-time"
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          }
+        }
+      },
+      "app.bsky.ageassurance.defs.event": {
+        "type": "object",
+        "description": "Object used to store Age Assurance data in stash.",
+        "required": [
+          "createdAt",
+          "status",
+          "access",
+          "attemptId",
+          "countryCode"
+        ],
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time of this write operation.",
+            "format": "date-time"
+          },
+          "attemptId": {
+            "type": "string",
+            "description": "The unique identifier for this instance of the Age Assurance flow, in UUID format."
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the Age Assurance process.",
+            "enum": [
+              "unknown",
+              "pending",
+              "assured",
+              "blocked"
+            ]
+          },
+          "access": {
+            "type": "string",
+            "description": "The access level granted based on Age Assurance data we've processed.",
+            "enum": [
+              "unknown",
+              "none",
+              "safe",
+              "full"
+            ]
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow."
+          },
+          "regionCode": {
+            "type": "string",
+            "description": "The ISO 3166-2 region code provided when beginning the Age Assurance flow."
+          },
+          "email": {
+            "type": "string",
+            "description": "The email used for Age Assurance."
+          },
+          "initIp": {
+            "type": "string",
+            "description": "The IP address used when initiating the Age Assurance flow."
+          },
+          "initUa": {
+            "type": "string",
+            "description": "The user agent used when initiating the Age Assurance flow."
+          },
+          "completeIp": {
+            "type": "string",
+            "description": "The IP address used when completing the Age Assurance flow."
+          },
+          "completeUa": {
+            "type": "string",
+            "description": "The user agent used when completing the Age Assurance flow."
+          }
+        }
+      },
+      "app.bsky.bookmark.defs.bookmark": {
+        "type": "object",
+        "description": "Object used to store bookmark data in stash.",
+        "required": [
+          "subject"
+        ],
+        "properties": {
+          "subject": {
+            "$ref": "#/components/schemas/com.atproto.repo.strongRef"
+          }
+        }
+      },
+      "app.bsky.bookmark.defs.bookmarkView": {
+        "type": "object",
+        "required": [
+          "subject",
+          "item"
+        ],
+        "properties": {
+          "subject": {
+            "$ref": "#/components/schemas/com.atproto.repo.strongRef"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "item": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/app.bsky.feed.defs.blockedPost"
+              },
+              {
+                "$ref": "#/components/schemas/app.bsky.feed.defs.notFoundPost"
+              },
+              {
+                "$ref": "#/components/schemas/app.bsky.feed.defs.postView"
+              }
+            ]
+          }
+        }
       },
       "app.bsky.embed.defs.aspectRatio": {
         "type": "object",
@@ -22127,6 +25211,9 @@
             "type": "string",
             "format": "at-uri"
           },
+          "bookmarked": {
+            "type": "boolean"
+          },
           "threadMuted": {
             "type": "boolean"
           },
@@ -22177,6 +25264,11 @@
             "type": "string",
             "description": "Context provided by feed generator that may be passed back alongside interactions.",
             "maxLength": 2000
+          },
+          "reqId": {
+            "type": "string",
+            "description": "Unique identifier per request that may be passed back alongside interactions.",
+            "maxLength": 100
           }
         }
       },
@@ -22227,6 +25319,14 @@
         "properties": {
           "by": {
             "$ref": "#/components/schemas/app.bsky.actor.defs.profileViewBasic"
+          },
+          "uri": {
+            "type": "string",
+            "format": "at-uri"
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid"
           },
           "indexedAt": {
             "type": "string",
@@ -22506,6 +25606,11 @@
             "type": "string",
             "description": "Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.",
             "maxLength": 2000
+          },
+          "reqId": {
+            "type": "string",
+            "description": "Unique identifier per request that may be passed back alongside interactions.",
+            "maxLength": 100
           }
         }
       },
@@ -22691,6 +25796,9 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "via": {
+            "$ref": "#/components/schemas/com.atproto.repo.strongRef"
           }
         }
       },
@@ -22834,6 +25942,9 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "via": {
+            "$ref": "#/components/schemas/com.atproto.repo.strongRef"
           }
         }
       },
@@ -22879,7 +25990,7 @@
               "type": "string",
               "format": "at-uri"
             },
-            "maxItems": 50
+            "maxItems": 300
           }
         }
       },
@@ -23239,6 +26350,26 @@
             "type": "string",
             "description": "if the actor is followed by this DID, contains the AT-URI of the follow record",
             "format": "at-uri"
+          },
+          "blocking": {
+            "type": "string",
+            "description": "if the actor blocks this DID, this is the AT-URI of the block record",
+            "format": "at-uri"
+          },
+          "blockedBy": {
+            "type": "string",
+            "description": "if the actor is blocked by this DID, contains the AT-URI of the block record",
+            "format": "at-uri"
+          },
+          "blockingByList": {
+            "type": "string",
+            "description": "if the actor blocks this DID via a block list, this is the AT-URI of the listblock record",
+            "format": "at-uri"
+          },
+          "blockedByList": {
+            "type": "string",
+            "description": "if the actor is blocked by this DID via a block list, contains the AT-URI of the listblock record",
+            "format": "at-uri"
           }
         }
       },
@@ -23256,6 +26387,39 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "via": {
+            "$ref": "#/components/schemas/com.atproto.repo.strongRef"
+          }
+        }
+      },
+      "app.bsky.graph.getListsWithMembership.listWithMembership": {
+        "type": "object",
+        "description": "A list and an optional list item indicating membership of a target user to that list.",
+        "required": [
+          "list"
+        ],
+        "properties": {
+          "list": {
+            "$ref": "#/components/schemas/app.bsky.graph.defs.listView"
+          },
+          "listItem": {
+            "$ref": "#/components/schemas/app.bsky.graph.defs.listItemView"
+          }
+        }
+      },
+      "app.bsky.graph.getStarterPacksWithMembership.starterPackWithMembership": {
+        "type": "object",
+        "description": "A starter pack and an optional list item indicating membership of a target user to that starter pack.",
+        "required": [
+          "starterPack"
+        ],
+        "properties": {
+          "starterPack": {
+            "$ref": "#/components/schemas/app.bsky.graph.defs.starterPackView"
+          },
+          "listItem": {
+            "$ref": "#/components/schemas/app.bsky.graph.defs.listItemView"
           }
         }
       },
@@ -23602,9 +26766,174 @@
           }
         }
       },
+      "app.bsky.notification.declaration": {
+        "type": "object",
+        "required": [
+          "allowSubscriptions"
+        ],
+        "properties": {
+          "allowSubscriptions": {
+            "type": "string",
+            "description": "A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'.",
+            "enum": [
+              "followers",
+              "mutuals",
+              "none"
+            ]
+          }
+        }
+      },
       "app.bsky.notification.defs.recordDeleted": {
         "type": "object",
         "properties": {}
+      },
+      "app.bsky.notification.defs.chatPreference": {
+        "type": "object",
+        "required": [
+          "include",
+          "push"
+        ],
+        "properties": {
+          "include": {
+            "type": "string",
+            "enum": [
+              "all",
+              "accepted"
+            ]
+          },
+          "push": {
+            "type": "boolean"
+          }
+        }
+      },
+      "app.bsky.notification.defs.filterablePreference": {
+        "type": "object",
+        "required": [
+          "include",
+          "list",
+          "push"
+        ],
+        "properties": {
+          "include": {
+            "type": "string",
+            "enum": [
+              "all",
+              "follows"
+            ]
+          },
+          "list": {
+            "type": "boolean"
+          },
+          "push": {
+            "type": "boolean"
+          }
+        }
+      },
+      "app.bsky.notification.defs.preference": {
+        "type": "object",
+        "required": [
+          "list",
+          "push"
+        ],
+        "properties": {
+          "list": {
+            "type": "boolean"
+          },
+          "push": {
+            "type": "boolean"
+          }
+        }
+      },
+      "app.bsky.notification.defs.preferences": {
+        "type": "object",
+        "required": [
+          "chat",
+          "follow",
+          "like",
+          "likeViaRepost",
+          "mention",
+          "quote",
+          "reply",
+          "repost",
+          "repostViaRepost",
+          "starterpackJoined",
+          "subscribedPost",
+          "unverified",
+          "verified"
+        ],
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.chatPreference"
+          },
+          "follow": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+          },
+          "like": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+          },
+          "likeViaRepost": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+          },
+          "mention": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+          },
+          "quote": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+          },
+          "reply": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+          },
+          "repost": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+          },
+          "repostViaRepost": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.filterablePreference"
+          },
+          "starterpackJoined": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.preference"
+          },
+          "subscribedPost": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.preference"
+          },
+          "unverified": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.preference"
+          },
+          "verified": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.preference"
+          }
+        }
+      },
+      "app.bsky.notification.defs.activitySubscription": {
+        "type": "object",
+        "required": [
+          "post",
+          "reply"
+        ],
+        "properties": {
+          "post": {
+            "type": "boolean"
+          },
+          "reply": {
+            "type": "boolean"
+          }
+        }
+      },
+      "app.bsky.notification.defs.subjectActivitySubscription": {
+        "type": "object",
+        "description": "Object used to store activity subscription data in stash.",
+        "required": [
+          "subject",
+          "activitySubscription"
+        ],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "did"
+          },
+          "activitySubscription": {
+            "$ref": "#/components/schemas/app.bsky.notification.defs.activitySubscription"
+          }
+        }
       },
       "app.bsky.notification.listNotifications.notification": {
         "type": "object",
@@ -23631,7 +26960,7 @@
           },
           "reason": {
             "type": "string",
-            "description": "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', 'quote', 'starterpack-joined', 'verified', and 'unverified'.",
+            "description": "The reason why this notification was delivered - e.g. your post was liked, or you received a new follower.",
             "enum": [
               "like",
               "repost",
@@ -23641,7 +26970,10 @@
               "quote",
               "starterpack-joined",
               "verified",
-              "unverified"
+              "unverified",
+              "like-via-repost",
+              "repost-via-repost",
+              "subscribed-post"
             ]
           },
           "reasonSubject": {
@@ -24698,6 +28030,20 @@
           }
         }
       },
+      "com.atproto.moderation.createReport.modTool": {
+        "type": "object",
+        "description": "Moderation tool information for tracing the source of the action",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name/identifier of the source (e.g., 'bsky-app/android', 'bsky-web/chrome')"
+          },
+          "meta": {}
+        }
+      },
       "com.atproto.moderation.defs.reasonType": {
         "oneOf": [
           {
@@ -24720,43 +28066,163 @@
           },
           {
             "$ref": "#/components/schemas/com.atproto.moderation.defs.reasonAppeal"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonAppeal"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonOther"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonViolenceAnimal"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonViolenceThreats"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonViolenceGraphicContent"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonViolenceGlorification"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonViolenceExtremistContent"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonViolenceTrafficking"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonViolenceOther"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSexualAbuseContent"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSexualNCII"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSexualDeepfake"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSexualAnimal"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSexualUnlabeled"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSexualOther"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonChildSafetyCSAM"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonChildSafetyGroom"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonChildSafetyPrivacy"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonChildSafetyHarassment"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonChildSafetyOther"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonHarassmentTroll"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonHarassmentTargeted"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonHarassmentHateSpeech"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonHarassmentDoxxing"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonHarassmentOther"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonMisleadingBot"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonMisleadingImpersonation"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonMisleadingSpam"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonMisleadingScam"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonMisleadingElections"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonMisleadingOther"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonRuleSiteSecurity"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonRuleProhibitedSales"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonRuleBanEvasion"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonRuleOther"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSelfHarmContent"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSelfHarmED"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSelfHarmStunts"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSelfHarmSubstances"
+          },
+          {
+            "$ref": "#/components/schemas/tools.ozone.report.defs.reasonSelfHarmOther"
           }
         ]
       },
       "com.atproto.moderation.defs.reasonSpam": {
         "type": "string",
         "format": "token",
-        "description": "Spam: frequent unwanted promotion, replies, mentions"
+        "description": "Spam: frequent unwanted promotion, replies, mentions. Prefer new lexicon definition `tools.ozone.report.defs#reasonMisleadingSpam`."
       },
       "com.atproto.moderation.defs.reasonViolation": {
         "type": "string",
         "format": "token",
-        "description": "Direct violation of server rules, laws, terms of service"
+        "description": "Direct violation of server rules, laws, terms of service. Prefer new lexicon definition `tools.ozone.report.defs#reasonRuleOther`."
       },
       "com.atproto.moderation.defs.reasonMisleading": {
         "type": "string",
         "format": "token",
-        "description": "Misleading identity, affiliation, or content"
+        "description": "Misleading identity, affiliation, or content. Prefer new lexicon definition `tools.ozone.report.defs#reasonMisleadingOther`."
       },
       "com.atproto.moderation.defs.reasonSexual": {
         "type": "string",
         "format": "token",
-        "description": "Unwanted or mislabeled sexual content"
+        "description": "Unwanted or mislabeled sexual content. Prefer new lexicon definition `tools.ozone.report.defs#reasonSexualUnlabeled`."
       },
       "com.atproto.moderation.defs.reasonRude": {
         "type": "string",
         "format": "token",
-        "description": "Rude, harassing, explicit, or otherwise unwelcoming behavior"
+        "description": "Rude, harassing, explicit, or otherwise unwelcoming behavior. Prefer new lexicon definition `tools.ozone.report.defs#reasonHarassmentOther`."
       },
       "com.atproto.moderation.defs.reasonOther": {
         "type": "string",
         "format": "token",
-        "description": "Other: reports not falling under another report category"
+        "description": "Reports not falling under another report category. Prefer new lexicon definition `tools.ozone.report.defs#reasonOther`."
       },
       "com.atproto.moderation.defs.reasonAppeal": {
         "type": "string",
         "format": "token",
-        "description": "Appeal: appeal a previously taken moderation action"
+        "description": "Appeal a previously taken moderation action"
       },
       "com.atproto.moderation.defs.subjectType": {
         "type": "string",
@@ -25524,6 +28990,47 @@
           }
         }
       },
+      "tools.ozone.moderation.cancelScheduledActions.cancellationResults": {
+        "type": "object",
+        "required": [
+          "succeeded",
+          "failed"
+        ],
+        "properties": {
+          "succeeded": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "did"
+            }
+          },
+          "failed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tools.ozone.moderation.cancelScheduledActions.failedCancellation"
+            }
+          }
+        }
+      },
+      "tools.ozone.moderation.cancelScheduledActions.failedCancellation": {
+        "type": "object",
+        "required": [
+          "did",
+          "error"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "error": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          }
+        }
+      },
       "tools.ozone.moderation.defs.modEventView": {
         "type": "object",
         "required": [
@@ -25596,6 +29103,21 @@
               },
               {
                 "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventPriorityScore"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.ageAssuranceEvent"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.ageAssuranceOverrideEvent"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.revokeAccountCredentialsEvent"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.scheduleTakedownEvent"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.cancelScheduledTakedownEvent"
               }
             ]
           },
@@ -25631,6 +29153,9 @@
           },
           "subjectHandle": {
             "type": "string"
+          },
+          "modTool": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.modTool"
           }
         }
       },
@@ -25706,6 +29231,21 @@
               },
               {
                 "$ref": "#/components/schemas/tools.ozone.moderation.defs.modEventPriorityScore"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.ageAssuranceEvent"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.ageAssuranceOverrideEvent"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.revokeAccountCredentialsEvent"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.scheduleTakedownEvent"
+              },
+              {
+                "$ref": "#/components/schemas/tools.ozone.moderation.defs.cancelScheduledTakedownEvent"
               }
             ]
           },
@@ -25738,6 +29278,9 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "modTool": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.modTool"
           }
         }
       },
@@ -25761,6 +29304,9 @@
               },
               {
                 "$ref": "#/components/schemas/com.atproto.repo.strongRef"
+              },
+              {
+                "$ref": "#/components/schemas/chat.bsky.convo.defs.messageRef"
               }
             ]
           },
@@ -25853,6 +29399,28 @@
           },
           "recordsStats": {
             "$ref": "#/components/schemas/tools.ozone.moderation.defs.recordsStats"
+          },
+          "accountStrike": {
+            "$ref": "#/components/schemas/tools.ozone.moderation.defs.accountStrike"
+          },
+          "ageAssuranceState": {
+            "type": "string",
+            "description": "Current age assurance state of the subject.",
+            "enum": [
+              "pending",
+              "assured",
+              "unknown",
+              "reset",
+              "blocked"
+            ]
+          },
+          "ageAssuranceUpdatedBy": {
+            "type": "string",
+            "description": "Whether or not the last successful update to age assurance was made by the user or admin.",
+            "enum": [
+              "admin",
+              "user"
+            ]
           }
         }
       },
@@ -25935,13 +29503,35 @@
           }
         }
       },
+      "tools.ozone.moderation.defs.accountStrike": {
+        "type": "object",
+        "description": "Strike information for an account",
+        "properties": {
+          "activeStrikeCount": {
+            "type": "integer"
+          },
+          "totalStrikeCount": {
+            "type": "integer"
+          },
+          "firstStrikeAt": {
+            "type": "string",
+            "description": "Timestamp of the first strike received",
+            "format": "date-time"
+          },
+          "lastStrikeAt": {
+            "type": "string",
+            "description": "Timestamp of the most recent strike received",
+            "format": "date-time"
+          }
+        }
+      },
       "tools.ozone.moderation.defs.subjectReviewState": {
         "type": "string",
         "enum": [
-          "#reviewOpen",
-          "#reviewEscalated",
-          "#reviewClosed",
-          "#reviewNone"
+          "tools.ozone.moderation.defs#reviewOpen",
+          "tools.ozone.moderation.defs#reviewEscalated",
+          "tools.ozone.moderation.defs#reviewClosed",
+          "tools.ozone.moderation.defs#reviewNone"
         ]
       },
       "tools.ozone.moderation.defs.reviewOpen": {
@@ -25984,6 +29574,28 @@
               "type": "string"
             },
             "maxItems": 5
+          },
+          "severityLevel": {
+            "type": "string",
+            "description": "Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.)."
+          },
+          "targetServices": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "appview",
+                "pds"
+              ]
+            }
+          },
+          "strikeCount": {
+            "type": "integer"
+          },
+          "strikeExpiresAt": {
+            "type": "string",
+            "description": "When the strike should expire. If not provided, the strike never expires.",
+            "format": "date-time"
           }
         }
       },
@@ -25994,6 +29606,20 @@
           "comment": {
             "type": "string",
             "description": "Describe reasoning behind the reversal."
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5
+          },
+          "severityLevel": {
+            "type": "string",
+            "description": "Severity level of the violation. Usually set from the last policy infraction's severity."
+          },
+          "strikeCount": {
+            "type": "integer"
           }
         }
       },
@@ -26084,6 +29710,103 @@
           }
         }
       },
+      "tools.ozone.moderation.defs.ageAssuranceEvent": {
+        "type": "object",
+        "description": "Age assurance info coming directly from users. Only works on DID subjects.",
+        "required": [
+          "createdAt",
+          "status",
+          "attemptId"
+        ],
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time of this write operation.",
+            "format": "date-time"
+          },
+          "attemptId": {
+            "type": "string",
+            "description": "The unique identifier for this instance of the age assurance flow, in UUID format."
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the Age Assurance process.",
+            "enum": [
+              "unknown",
+              "pending",
+              "assured"
+            ]
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow."
+          },
+          "regionCode": {
+            "type": "string",
+            "description": "The ISO 3166-2 region code provided when beginning the Age Assurance flow."
+          },
+          "initIp": {
+            "type": "string",
+            "description": "The IP address used when initiating the AA flow."
+          },
+          "initUa": {
+            "type": "string",
+            "description": "The user agent used when initiating the AA flow."
+          },
+          "completeIp": {
+            "type": "string",
+            "description": "The IP address used when completing the AA flow."
+          },
+          "completeUa": {
+            "type": "string",
+            "description": "The user agent used when completing the AA flow."
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.ageAssuranceOverrideEvent": {
+        "type": "object",
+        "description": "Age assurance status override by moderators. Only works on DID subjects.",
+        "required": [
+          "comment",
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status to be set for the user decided by a moderator, overriding whatever value the user had previously. Use reset to default to original state.",
+            "enum": [
+              "assured",
+              "reset",
+              "blocked"
+            ]
+          },
+          "access": {
+            "$ref": "#/components/schemas/app.bsky.ageassurance.defs.access"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment describing the reason for the override.",
+            "minLength": 1
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.revokeAccountCredentialsEvent": {
+        "type": "object",
+        "description": "Account credentials revocation by moderators. Only works on DID subjects.",
+        "required": [
+          "comment"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string",
+            "description": "Comment describing the reason for the revocation.",
+            "minLength": 1
+          }
+        }
+      },
       "tools.ozone.moderation.defs.modEventAcknowledge": {
         "type": "object",
         "properties": {
@@ -26169,6 +29892,29 @@
           "comment": {
             "type": "string",
             "description": "Additional comment about the outgoing comm."
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5
+          },
+          "severityLevel": {
+            "type": "string",
+            "description": "Severity level of the violation. Normally 'sev-1' that adds strike on repeat offense"
+          },
+          "strikeCount": {
+            "type": "integer"
+          },
+          "strikeExpiresAt": {
+            "type": "string",
+            "description": "When the strike should expire. If not provided, the strike never expires.",
+            "format": "date-time"
+          },
+          "isDelivered": {
+            "type": "boolean",
+            "description": "Indicates whether the email was successfully delivered to the user's inbox."
           }
         }
       },
@@ -26292,6 +30038,36 @@
           "timestamp": {
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.scheduleTakedownEvent": {
+        "type": "object",
+        "description": "Logs a scheduled takedown action for an account.",
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "executeAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "executeAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "executeUntil": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "tools.ozone.moderation.defs.cancelScheduledTakedownEvent": {
+        "type": "object",
+        "description": "Logs cancellation of a scheduled takedown action for an account.",
+        "properties": {
+          "comment": {
+            "type": "string"
           }
         }
       },
@@ -26723,6 +30499,673 @@
           }
         }
       },
+      "tools.ozone.moderation.defs.modTool": {
+        "type": "object",
+        "description": "Moderation tool information for tracing the source of the action",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name/identifier of the source (e.g., 'automod', 'ozone/workspace')"
+          },
+          "meta": {}
+        }
+      },
+      "tools.ozone.moderation.defs.timelineEventPlcCreate": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderation event timeline event for a PLC create operation"
+      },
+      "tools.ozone.moderation.defs.timelineEventPlcOperation": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderation event timeline event for generic PLC operation"
+      },
+      "tools.ozone.moderation.defs.timelineEventPlcTombstone": {
+        "type": "string",
+        "format": "token",
+        "description": "Moderation event timeline event for a PLC tombstone operation"
+      },
+      "tools.ozone.moderation.defs.scheduledActionView": {
+        "type": "object",
+        "description": "View of a scheduled moderation action",
+        "required": [
+          "id",
+          "action",
+          "did",
+          "createdBy",
+          "createdAt",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "action": {
+            "type": "string",
+            "description": "Type of action to be executed",
+            "enum": [
+              "takedown"
+            ]
+          },
+          "eventData": {},
+          "did": {
+            "type": "string",
+            "description": "Subject DID for the action",
+            "format": "did"
+          },
+          "executeAt": {
+            "type": "string",
+            "description": "Exact time to execute the action",
+            "format": "date-time"
+          },
+          "executeAfter": {
+            "type": "string",
+            "description": "Earliest time to execute the action (for randomized scheduling)",
+            "format": "date-time"
+          },
+          "executeUntil": {
+            "type": "string",
+            "description": "Latest time to execute the action (for randomized scheduling)",
+            "format": "date-time"
+          },
+          "randomizeExecution": {
+            "type": "boolean",
+            "description": "Whether execution time should be randomized within the specified range"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "DID of the user who created this scheduled action",
+            "format": "did"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the scheduled action was created",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the scheduled action was last updated",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the scheduled action",
+            "enum": [
+              "pending",
+              "executed",
+              "cancelled",
+              "failed"
+            ]
+          },
+          "lastExecutedAt": {
+            "type": "string",
+            "description": "When the action was last attempted to be executed",
+            "format": "date-time"
+          },
+          "lastFailureReason": {
+            "type": "string",
+            "description": "Reason for the last execution failure"
+          },
+          "executionEventId": {
+            "type": "integer"
+          }
+        }
+      },
+      "tools.ozone.moderation.getAccountTimeline.timelineItem": {
+        "type": "object",
+        "required": [
+          "day",
+          "summary"
+        ],
+        "properties": {
+          "day": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tools.ozone.moderation.getAccountTimeline.timelineItemSummary"
+            }
+          }
+        }
+      },
+      "tools.ozone.moderation.getAccountTimeline.timelineItemSummary": {
+        "type": "object",
+        "required": [
+          "eventSubjectType",
+          "eventType",
+          "count"
+        ],
+        "properties": {
+          "eventSubjectType": {
+            "type": "string",
+            "enum": [
+              "account",
+              "record",
+              "chat"
+            ]
+          },
+          "eventType": {
+            "type": "string",
+            "enum": [
+              "tools.ozone.moderation.defs#modEventTakedown",
+              "tools.ozone.moderation.defs#modEventReverseTakedown",
+              "tools.ozone.moderation.defs#modEventComment",
+              "tools.ozone.moderation.defs#modEventReport",
+              "tools.ozone.moderation.defs#modEventLabel",
+              "tools.ozone.moderation.defs#modEventAcknowledge",
+              "tools.ozone.moderation.defs#modEventEscalate",
+              "tools.ozone.moderation.defs#modEventMute",
+              "tools.ozone.moderation.defs#modEventUnmute",
+              "tools.ozone.moderation.defs#modEventMuteReporter",
+              "tools.ozone.moderation.defs#modEventUnmuteReporter",
+              "tools.ozone.moderation.defs#modEventEmail",
+              "tools.ozone.moderation.defs#modEventResolveAppeal",
+              "tools.ozone.moderation.defs#modEventDivert",
+              "tools.ozone.moderation.defs#modEventTag",
+              "tools.ozone.moderation.defs#accountEvent",
+              "tools.ozone.moderation.defs#identityEvent",
+              "tools.ozone.moderation.defs#recordEvent",
+              "tools.ozone.moderation.defs#modEventPriorityScore",
+              "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
+              "tools.ozone.moderation.defs#ageAssuranceEvent",
+              "tools.ozone.moderation.defs#ageAssuranceOverrideEvent",
+              "tools.ozone.moderation.defs#timelineEventPlcCreate",
+              "tools.ozone.moderation.defs#timelineEventPlcOperation",
+              "tools.ozone.moderation.defs#timelineEventPlcTombstone",
+              "tools.ozone.hosting.getAccountHistory#accountCreated",
+              "tools.ozone.hosting.getAccountHistory#emailConfirmed",
+              "tools.ozone.hosting.getAccountHistory#passwordUpdated",
+              "tools.ozone.hosting.getAccountHistory#handleUpdated",
+              "tools.ozone.moderation.defs#scheduleTakedownEvent",
+              "tools.ozone.moderation.defs#cancelScheduledTakedownEvent"
+            ]
+          },
+          "count": {
+            "type": "integer"
+          }
+        }
+      },
+      "tools.ozone.moderation.scheduleAction.takedown": {
+        "type": "object",
+        "description": "Schedule a takedown action",
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "durationInHours": {
+            "type": "integer"
+          },
+          "acknowledgeAccountSubjects": {
+            "type": "boolean",
+            "description": "If true, all other reports on content authored by this account will be resolved (acknowledged)."
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5
+          },
+          "severityLevel": {
+            "type": "string",
+            "description": "Severity level of the violation (e.g., 'sev-0', 'sev-1', 'sev-2', etc.)."
+          },
+          "strikeCount": {
+            "type": "integer"
+          },
+          "strikeExpiresAt": {
+            "type": "string",
+            "description": "When the strike should expire. If not provided, the strike never expires.",
+            "format": "date-time"
+          },
+          "emailContent": {
+            "type": "string",
+            "description": "Email content to be sent to the user upon takedown."
+          },
+          "emailSubject": {
+            "type": "string",
+            "description": "Subject of the email to be sent to the user upon takedown."
+          }
+        }
+      },
+      "tools.ozone.moderation.scheduleAction.schedulingConfig": {
+        "type": "object",
+        "description": "Configuration for when the action should be executed",
+        "properties": {
+          "executeAt": {
+            "type": "string",
+            "description": "Exact time to execute the action",
+            "format": "date-time"
+          },
+          "executeAfter": {
+            "type": "string",
+            "description": "Earliest time to execute the action (for randomized scheduling)",
+            "format": "date-time"
+          },
+          "executeUntil": {
+            "type": "string",
+            "description": "Latest time to execute the action (for randomized scheduling)",
+            "format": "date-time"
+          }
+        }
+      },
+      "tools.ozone.moderation.scheduleAction.scheduledActionResults": {
+        "type": "object",
+        "required": [
+          "succeeded",
+          "failed"
+        ],
+        "properties": {
+          "succeeded": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "did"
+            }
+          },
+          "failed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tools.ozone.moderation.scheduleAction.failedScheduling"
+            }
+          }
+        }
+      },
+      "tools.ozone.moderation.scheduleAction.failedScheduling": {
+        "type": "object",
+        "required": [
+          "subject",
+          "error"
+        ],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "format": "did"
+          },
+          "error": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          }
+        }
+      },
+      "tools.ozone.report.defs.reasonType": {
+        "type": "string",
+        "enum": [
+          "tools.ozone.report.defs#reasonAppeal",
+          "tools.ozone.report.defs#reasonOther",
+          "tools.ozone.report.defs#reasonViolenceAnimal",
+          "tools.ozone.report.defs#reasonViolenceThreats",
+          "tools.ozone.report.defs#reasonViolenceGraphicContent",
+          "tools.ozone.report.defs#reasonViolenceGlorification",
+          "tools.ozone.report.defs#reasonViolenceExtremistContent",
+          "tools.ozone.report.defs#reasonViolenceTrafficking",
+          "tools.ozone.report.defs#reasonViolenceOther",
+          "tools.ozone.report.defs#reasonSexualAbuseContent",
+          "tools.ozone.report.defs#reasonSexualNCII",
+          "tools.ozone.report.defs#reasonSexualDeepfake",
+          "tools.ozone.report.defs#reasonSexualAnimal",
+          "tools.ozone.report.defs#reasonSexualUnlabeled",
+          "tools.ozone.report.defs#reasonSexualOther",
+          "tools.ozone.report.defs#reasonChildSafetyCSAM",
+          "tools.ozone.report.defs#reasonChildSafetyGroom",
+          "tools.ozone.report.defs#reasonChildSafetyPrivacy",
+          "tools.ozone.report.defs#reasonChildSafetyHarassment",
+          "tools.ozone.report.defs#reasonChildSafetyOther",
+          "tools.ozone.report.defs#reasonHarassmentTroll",
+          "tools.ozone.report.defs#reasonHarassmentTargeted",
+          "tools.ozone.report.defs#reasonHarassmentHateSpeech",
+          "tools.ozone.report.defs#reasonHarassmentDoxxing",
+          "tools.ozone.report.defs#reasonHarassmentOther",
+          "tools.ozone.report.defs#reasonMisleadingBot",
+          "tools.ozone.report.defs#reasonMisleadingImpersonation",
+          "tools.ozone.report.defs#reasonMisleadingSpam",
+          "tools.ozone.report.defs#reasonMisleadingScam",
+          "tools.ozone.report.defs#reasonMisleadingElections",
+          "tools.ozone.report.defs#reasonMisleadingOther",
+          "tools.ozone.report.defs#reasonRuleSiteSecurity",
+          "tools.ozone.report.defs#reasonRuleProhibitedSales",
+          "tools.ozone.report.defs#reasonRuleBanEvasion",
+          "tools.ozone.report.defs#reasonRuleOther",
+          "tools.ozone.report.defs#reasonSelfHarmContent",
+          "tools.ozone.report.defs#reasonSelfHarmED",
+          "tools.ozone.report.defs#reasonSelfHarmStunts",
+          "tools.ozone.report.defs#reasonSelfHarmSubstances",
+          "tools.ozone.report.defs#reasonSelfHarmOther"
+        ]
+      },
+      "tools.ozone.report.defs.reasonAppeal": {
+        "type": "string",
+        "format": "token",
+        "description": "Appeal a previously taken moderation action"
+      },
+      "tools.ozone.report.defs.reasonOther": {
+        "type": "string",
+        "format": "token",
+        "description": "An issue not included in these options"
+      },
+      "tools.ozone.report.defs.reasonViolenceAnimal": {
+        "type": "string",
+        "format": "token",
+        "description": "Animal welfare violations"
+      },
+      "tools.ozone.report.defs.reasonViolenceThreats": {
+        "type": "string",
+        "format": "token",
+        "description": "Threats or incitement"
+      },
+      "tools.ozone.report.defs.reasonViolenceGraphicContent": {
+        "type": "string",
+        "format": "token",
+        "description": "Graphic violent content"
+      },
+      "tools.ozone.report.defs.reasonViolenceGlorification": {
+        "type": "string",
+        "format": "token",
+        "description": "Glorification of violence"
+      },
+      "tools.ozone.report.defs.reasonViolenceExtremistContent": {
+        "type": "string",
+        "format": "token",
+        "description": "Extremist content. These reports will be sent only be sent to the application's Moderation Authority."
+      },
+      "tools.ozone.report.defs.reasonViolenceTrafficking": {
+        "type": "string",
+        "format": "token",
+        "description": "Human trafficking"
+      },
+      "tools.ozone.report.defs.reasonViolenceOther": {
+        "type": "string",
+        "format": "token",
+        "description": "Other violent content"
+      },
+      "tools.ozone.report.defs.reasonSexualAbuseContent": {
+        "type": "string",
+        "format": "token",
+        "description": "Adult sexual abuse content"
+      },
+      "tools.ozone.report.defs.reasonSexualNCII": {
+        "type": "string",
+        "format": "token",
+        "description": "Non-consensual intimate imagery"
+      },
+      "tools.ozone.report.defs.reasonSexualDeepfake": {
+        "type": "string",
+        "format": "token",
+        "description": "Deepfake adult content"
+      },
+      "tools.ozone.report.defs.reasonSexualAnimal": {
+        "type": "string",
+        "format": "token",
+        "description": "Animal sexual abuse"
+      },
+      "tools.ozone.report.defs.reasonSexualUnlabeled": {
+        "type": "string",
+        "format": "token",
+        "description": "Unlabelled adult content"
+      },
+      "tools.ozone.report.defs.reasonSexualOther": {
+        "type": "string",
+        "format": "token",
+        "description": "Other sexual violence content"
+      },
+      "tools.ozone.report.defs.reasonChildSafetyCSAM": {
+        "type": "string",
+        "format": "token",
+        "description": "Child sexual abuse material (CSAM). These reports will be sent only be sent to the application's Moderation Authority."
+      },
+      "tools.ozone.report.defs.reasonChildSafetyGroom": {
+        "type": "string",
+        "format": "token",
+        "description": "Grooming or predatory behavior. These reports will be sent only be sent to the application's Moderation Authority."
+      },
+      "tools.ozone.report.defs.reasonChildSafetyPrivacy": {
+        "type": "string",
+        "format": "token",
+        "description": "Privacy violation involving a minor"
+      },
+      "tools.ozone.report.defs.reasonChildSafetyHarassment": {
+        "type": "string",
+        "format": "token",
+        "description": "Harassment or bullying of minors"
+      },
+      "tools.ozone.report.defs.reasonChildSafetyOther": {
+        "type": "string",
+        "format": "token",
+        "description": "Other child safety. These reports will be sent only be sent to the application's Moderation Authority."
+      },
+      "tools.ozone.report.defs.reasonHarassmentTroll": {
+        "type": "string",
+        "format": "token",
+        "description": "Trolling"
+      },
+      "tools.ozone.report.defs.reasonHarassmentTargeted": {
+        "type": "string",
+        "format": "token",
+        "description": "Targeted harassment"
+      },
+      "tools.ozone.report.defs.reasonHarassmentHateSpeech": {
+        "type": "string",
+        "format": "token",
+        "description": "Hate speech"
+      },
+      "tools.ozone.report.defs.reasonHarassmentDoxxing": {
+        "type": "string",
+        "format": "token",
+        "description": "Doxxing"
+      },
+      "tools.ozone.report.defs.reasonHarassmentOther": {
+        "type": "string",
+        "format": "token",
+        "description": "Other harassing or hateful content"
+      },
+      "tools.ozone.report.defs.reasonMisleadingBot": {
+        "type": "string",
+        "format": "token",
+        "description": "Fake account or bot"
+      },
+      "tools.ozone.report.defs.reasonMisleadingImpersonation": {
+        "type": "string",
+        "format": "token",
+        "description": "Impersonation"
+      },
+      "tools.ozone.report.defs.reasonMisleadingSpam": {
+        "type": "string",
+        "format": "token",
+        "description": "Spam"
+      },
+      "tools.ozone.report.defs.reasonMisleadingScam": {
+        "type": "string",
+        "format": "token",
+        "description": "Scam"
+      },
+      "tools.ozone.report.defs.reasonMisleadingElections": {
+        "type": "string",
+        "format": "token",
+        "description": "False information about elections"
+      },
+      "tools.ozone.report.defs.reasonMisleadingOther": {
+        "type": "string",
+        "format": "token",
+        "description": "Other misleading content"
+      },
+      "tools.ozone.report.defs.reasonRuleSiteSecurity": {
+        "type": "string",
+        "format": "token",
+        "description": "Hacking or system attacks"
+      },
+      "tools.ozone.report.defs.reasonRuleProhibitedSales": {
+        "type": "string",
+        "format": "token",
+        "description": "Promoting or selling prohibited items or services"
+      },
+      "tools.ozone.report.defs.reasonRuleBanEvasion": {
+        "type": "string",
+        "format": "token",
+        "description": "Banned user returning"
+      },
+      "tools.ozone.report.defs.reasonRuleOther": {
+        "type": "string",
+        "format": "token",
+        "description": "Other"
+      },
+      "tools.ozone.report.defs.reasonSelfHarmContent": {
+        "type": "string",
+        "format": "token",
+        "description": "Content promoting or depicting self-harm"
+      },
+      "tools.ozone.report.defs.reasonSelfHarmED": {
+        "type": "string",
+        "format": "token",
+        "description": "Eating disorders"
+      },
+      "tools.ozone.report.defs.reasonSelfHarmStunts": {
+        "type": "string",
+        "format": "token",
+        "description": "Dangerous challenges or activities"
+      },
+      "tools.ozone.report.defs.reasonSelfHarmSubstances": {
+        "type": "string",
+        "format": "token",
+        "description": "Dangerous substances or drug abuse"
+      },
+      "tools.ozone.report.defs.reasonSelfHarmOther": {
+        "type": "string",
+        "format": "token",
+        "description": "Other dangerous content"
+      },
+      "tools.ozone.safelink.defs.event": {
+        "type": "object",
+        "description": "An event for URL safety decisions",
+        "required": [
+          "id",
+          "eventType",
+          "url",
+          "pattern",
+          "action",
+          "reason",
+          "createdBy",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/tools.ozone.safelink.defs.eventType"
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL that this rule applies to"
+          },
+          "pattern": {
+            "$ref": "#/components/schemas/tools.ozone.safelink.defs.patternType"
+          },
+          "action": {
+            "$ref": "#/components/schemas/tools.ozone.safelink.defs.actionType"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/tools.ozone.safelink.defs.reasonType"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "DID of the user who created this rule",
+            "format": "did"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Optional comment about the decision"
+          }
+        }
+      },
+      "tools.ozone.safelink.defs.eventType": {
+        "type": "string",
+        "enum": [
+          "addRule",
+          "updateRule",
+          "removeRule"
+        ]
+      },
+      "tools.ozone.safelink.defs.patternType": {
+        "type": "string",
+        "enum": [
+          "domain",
+          "url"
+        ]
+      },
+      "tools.ozone.safelink.defs.actionType": {
+        "type": "string",
+        "enum": [
+          "block",
+          "warn",
+          "whitelist"
+        ]
+      },
+      "tools.ozone.safelink.defs.reasonType": {
+        "type": "string",
+        "enum": [
+          "csam",
+          "spam",
+          "phishing",
+          "none"
+        ]
+      },
+      "tools.ozone.safelink.defs.urlRule": {
+        "type": "object",
+        "description": "Input for creating a URL safety rule",
+        "required": [
+          "url",
+          "pattern",
+          "action",
+          "reason",
+          "createdBy",
+          "createdAt",
+          "updatedAt"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL or domain to apply the rule to"
+          },
+          "pattern": {
+            "$ref": "#/components/schemas/tools.ozone.safelink.defs.patternType"
+          },
+          "action": {
+            "$ref": "#/components/schemas/tools.ozone.safelink.defs.actionType"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/tools.ozone.safelink.defs.reasonType"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Optional comment about the decision"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "DID of the user added the rule.",
+            "format": "did"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Timestamp when the rule was created",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Timestamp when the rule was last updated",
+            "format": "date-time"
+          }
+        }
+      },
       "tools.ozone.server.getConfig.serviceConfig": {
         "type": "object",
         "properties": {
@@ -26915,10 +31358,10 @@
           "role": {
             "type": "string",
             "enum": [
-              "#roleAdmin",
-              "#roleModerator",
-              "#roleTriage",
-              "#roleVerifier"
+              "tools.ozone.team.defs#roleAdmin",
+              "tools.ozone.team.defs#roleModerator",
+              "tools.ozone.team.defs#roleTriage",
+              "tools.ozone.team.defs#roleVerifier"
             ]
           }
         }
@@ -27050,7 +31493,8 @@
           },
           "createdAt": {
             "type": "string",
-            "description": "Timestamp for verification record. Defaults to current time when not specified."
+            "description": "Timestamp for verification record. Defaults to current time when not specified.",
+            "format": "date-time"
           }
         }
       },
@@ -27103,6 +31547,12 @@
   "tags": [
     {
       "name": "app.bsky.actor"
+    },
+    {
+      "name": "app.bsky.ageassurance"
+    },
+    {
+      "name": "app.bsky.bookmark"
     },
     {
       "name": "app.bsky.embed"
@@ -27172,6 +31622,12 @@
     },
     {
       "name": "tools.ozone.moderation"
+    },
+    {
+      "name": "tools.ozone.report"
+    },
+    {
+      "name": "tools.ozone.safelink"
     },
     {
       "name": "tools.ozone.server"

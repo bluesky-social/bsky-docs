@@ -1,0 +1,75 @@
+---
+id: app-bsky-bookmark-create-bookmark
+title: "app.bsky.bookmark.createBookmark"
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*"
+sidebar_label: "app.bsky.bookmark.createBookmark"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vGzcQ/SuDuTgx1iu1yGlvshs0RltYsOWigCLAFDnSMtolGZIreyPsfy+Gq5XkOB89FEUP8cWSOJx5bz7ecIdRrAMWcxTO5cuwafOltZta+A0uMlQUpNcuamuwwPNZqQOQUc5qE0EHcMJHsCuIJcFl1VDYtCCcq7QUfAd+pyctrYHJ9DrAq4dDjPOH1zlMm2Wl5cFfgMdSyxKUNWcRPH1stCcQTSzJxMGhFAaWBLVQBEp7krFqQayFNiEmFK53OoCZOPenpkcGUEAZowvFaNTb5MLpHg3DgskxEKkUnkIMIDxBExpRVW0fNdoUpwnkzwJMf7nL4FHHkoHaWkQtIZDfakngvH1qtVl/1feeTBNIwcp6WNpYDgSEUWCsuXCfJSk/f2/em/OZhYqEN1BbTtLSNhGkqCpt1iCi8zZa5nyS3EpvCCIX0BrKIBAlHnO2emcTVaMS0sWrkbIyjITaCiNJXawbrSiMhNMXfc6tb19D+rWHc+VJRAogwHm9FZFgaKLEi+MER1KvdKIvrVc5XDXek4lVm4E1VQvH7lgRqdzZEB/2xn0ZQuOc9ZFUDrd9d4TP2iPHDK0jn75cKyxednUuE9bLockzDCQbr2OLxXyHlyQ8eSzmi26R4b5Sl1a1WOxw35MKi+gbylBaE8lEPjpp+tGHwNOywyBLqgV/iq0jLNAuP5CMmJ04mmPjNWYoteJ5c57hR02Br/HR8XaIXps1ZriyvhaRycULNun669+y5PMu/XHw4KwJfYifx2P+93zOb35jn2++dHQpVEo+BebxrySAvLceM6wpBLGml2noDb5Aj0xTs4drsxWVVkdcb58ce5/ZDRnMhvPh6705dNKVrSqSiduiO0J4EWvI3ZvxTy9zcm+4C63Xn0j990mR1gQuMU/uHzqEBPe7VJJFLC3PCE8aZuhELLHA0ZN3cvSP5sZvyfPuWByH6I7Z9QiHUToAYPnle8kEC1z2BoyFk3N7HLa3T6J2FR1m4Fjy1OgHKhlqs7IphI5sj5MZTFn8pK3gr9vpFYsgx2zqWvgWC7yyhlHzLrErODE/C1D12yqwxt84MpPp9VmAvmDQzxIrzPPqp50Y+iYCrj3vIng3m02TAHtakScjCVhTkxweFiXr7QneIXwOv5JhESMQ0CcJIvdu2j0UYnLMah+OO3DlbZ2ElsMwyj1LLHCcj/MxJ4sLXYvUhUakEnytzHBS52d0d8f2/vEc+PEc+P8/B/baE+kpjlwltOFBaHzFrdwr3hxZ8TD7/lthkWHJWlnMcbdbikD3vuo6/vljQ6wurIRb4bVYshjNeaWUJFR6UOxwQ3sB4vm5mDEwNq+a/SQ+XxVdNtyYSEkuftN2cSLn05u7GWa43D9aaqv4jhePvGLEIxaYXkl8O+l0+m2HlTDrJm0M7H2yLnM+TxR8r9jZ8IFZ7Y+EaU8Q7na9RVq5XYfZnkqSMewWXdf9Df4VZ5E=
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"app.bsky.bookmark.createBookmark"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/app.bsky.bookmark.createBookmark"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually made to the user's PDS, with automatic service proxying. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Creates a private bookmark for the specified record. Currently, only `app.bsky.feed.post` records are supported. Requires authentication.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["uri","cid"],"properties":{"uri":{"type":"string","format":"at-uri"},"cid":{"type":"string","format":"cid"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","UnsupportedCollection"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
