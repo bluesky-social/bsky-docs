@@ -5,7 +5,7 @@ title: "Introducing Tap: Repository Synchronization Made Simple"
 
 Just about every app built on AT needs data from a repository at some point. For many use cases – feed generators, labelers, bots – streaming live data through a Relay or Jetstream works well. But some applications need to go beyond what Jetstream was designed for, like tracking specific subsets of a repo, automatically backfilling a database when adding new repos to monitor, or even mirroring the entire Atmosphere.
 
-We recently released [Tap](https://github.com/bluesky-social/indigo), a tool designed to handle the hard parts of repo synchronization, so you can focus on building your application.
+We recently released [Tap](https://github.com/bluesky-social/indigo/blob/main/cmd/tap/README.md), a tool designed to handle the hard parts of repo synchronization, so you can focus on building your application.
 
 ## The Challenge of AT Sync
 
