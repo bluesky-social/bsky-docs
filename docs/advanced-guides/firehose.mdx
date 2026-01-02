@@ -28,12 +28,15 @@ provider for the `com.atproto.sync.subscribeRepos` endpoint:
 <Tabs groupId="sdk">
   <TabItem value="go" label="Go">
     ```go
-    uri := "wss://bsky.network/xrpc/com.atproto.sync.subscribeRepos"
+    uri := "wss://relay1.us-east.bsky.network/xrpc/com.atproto.sync.subscribeRepos"
     con, _, err := websocket.DefaultDialer.Dial(uri, http.Header{})
     ```
   </TabItem>
 </Tabs>
 
+:::note
+We previously provided a `wss://bsky.network` example URL here. This endpoint does not provide `prevData` which may limit your use of the firehose in some contexts. When in doubt, use the [Sync 1.1 endpoints](https://docs.bsky.app/blog/relay-sync-updates#staged-rollout).
+:::
 
 From there, you need to read off each message as it comes in, and decode the
 CBOR event data. More details on this can be found [here](https://atproto.com/specs/lexicon)
