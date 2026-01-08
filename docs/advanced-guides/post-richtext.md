@@ -102,7 +102,7 @@ Bluesky uses UTF-8 code units to index facets. Put another way, it uses byte off
 
 ## Safely Rendering Link Facets
 
-When rendering link facets (`app.bsky.richtext.facet#link`), care must be taken to santizer the `uri` prior to rendering an anchor tag with it as the `href` attribute. The `uri` property is user-controlled input, and can contain unsafe link schemes such as `javascript:` which would allow for Cross-Site Scripting (XSS) attacks.
+When rendering link facets (`app.bsky.richtext.facet#link`), care must be taken to sanitize the `uri` prior to rendering an anchor tag with it as the `href` attribute. The `uri` property is user-controlled input, and can contain unsafe link schemes such as `javascript:` which would allow for Cross-Site Scripting (XSS) attacks.
 
 Bluesky's social-app uses the [`@braintree/sanitize-url`](https://npm.im/@braintree/sanitize-url) javascript package to perform such URI sanitisation.
 
