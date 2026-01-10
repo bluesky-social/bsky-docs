@@ -29,7 +29,25 @@ import Export from "@theme/ApiExplorer/Export";
 
 
 
-This section contains HTTP API reference docs for Bluesky and AT Protocol lexicons. Generate a bearer token to test API calls directly from the docs.
+This section contains HTTP API reference docs for Bluesky and AT Protocol lexicons.
+
+You could generate a bearer token to test API calls directly from the docs.
+
+You could also use `BskyAgent` directly. In this is an example, `BskyAgent` instance will call actor `getPreferences` api :
+
+```javascript
+import process from "node:process";
+import {BskyAgent} from '@atproto/api';
+const {"BLUESKY_USERNAME": identifier, "BLUESKY_PASSWORD": password} = process.env;// creds from env
+const agent = new BskyAgent({"service": "https://api.bsky.social"})
+await agent.login({identifier, password});
+
+// api call
+const response = await agent.api.app.bsky.actor.getPreferences();
+
+const {preferences} = response.data
+console.log(`${identifier}'s preferences:\n` + JSON.stringify(preferences, null, 2));
+```
 
 <div
   style={{"marginBottom":"2rem"}}
