@@ -35,7 +35,7 @@ Jetstream uses timestamp cursors, so no observable cursor jump will happen. Cons
 
 There should not be any noticeable impact from this transition. The new relay instances have already been consuming from all PDS hosts for many months, "request crawl" messages are mirrored, and rate limits have been synchronized between old and new relay instances.
 
-The new relay implementation does include support for string verification of "MST inversion proofs", part of the [Sync 1.1](https://github.com/bluesky-social/proposals/tree/main/0006-sync-iteration) protocol changes. However, strict verificaiton will still be disabled for now.
+The new relay implementation does include support for string verification of "MST inversion proofs", part of the [Sync 1.1](https://github.com/bluesky-social/proposals/tree/main/0006-sync-iteration) protocol changes. However, strict verification will still be disabled for now.
 
 We do intent to enable strict MST verification in the near future. The reference PDS implementation has included the required changes for some time. We will monitor which PDS instances and implementations might be impacted and work with developers and operators before making that change, and will make public announcements ahead of time.
 
