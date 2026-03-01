@@ -33,7 +33,7 @@ const Users: User[] = [
     preview: require('./showcase/example-1.png'), // Placeholder image
     website:'https://bsky.makeup',
     author: 'https://bsky.app/profile/did:plc:ivvkfsndujdk2vo5zd2gn2e6',
-    tags: ['domains'],
+    tags: ['opensource','domains'],
   },
   {
     title: 'Japanese atproto docs',
@@ -81,6 +81,15 @@ const Users: User[] = [
     preview: require('./showcase/example-1.png'),
     website: 'https://github.com/bluesky-social/atproto',
     tags: ['protocol'],
+  },
+  {
+    title: 'Simple AtProto Handles',
+    description: 'A simple app to let others create a handle with your domain - fully hosted on Cloudflare',
+    preview: require('./showcase/simple-atproto-handles.png'),
+    website: 'https://github.com/furSUDO/simple-atproto-handles',
+    source: 'https://github.com/furSUDO/simple-atproto-handles',
+    author: 'https://bsky.app/profile/did:plc:aakmgpxyqmyzdq27ilyqirev',
+    tags: ['opensource','domains'],
   },
   {
     title: 'indigo',
