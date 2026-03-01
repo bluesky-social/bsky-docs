@@ -31,21 +31,25 @@ BLUESKY_PASSWORD=
 The below script will post 🙂 every three hours.
 
 ```TypeScript
-import { BskyAgent } from '@atproto/api';
+import { Agent, CredentialSession } from '@atproto/api';
 import * as dotenv from 'dotenv';
 import { CronJob } from 'cron';
 import * as process from 'process';
 
 dotenv.config();
 
-// Create a Bluesky Agent 
-const agent = new BskyAgent({
-    service: 'https://bsky.social',
-  })
+// Create a new Credential Session
+const session = new CredentialSession(new URL('https://bsky.social'));
+
+// Create an Agent using the Credential Session 
+const agent = new Agent(session);
 
 
 async function main() {
-    await agent.login({ identifier: process.env.BLUESKY_USERNAME!, password: process.env.BLUESKY_PASSWORD!})
+    await session.login({
+        identifier: process.env.BLUESKY_USERNAME!,
+        password: process.env.BLUESKY_PASSWORD!
+    });
     await agent.post({
         text: "🙂"
     });
