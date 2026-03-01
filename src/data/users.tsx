@@ -1049,6 +1049,14 @@ const Users: User[] = [
     tags: ['bot'],
   },
   {
+    title: 'Roast Master Bot',
+    description: 'Just mention the bot in a post and add a photo. It will roast whatever is in that photo using AI.',
+    preview: require('./showcase/roastmasterbot.png'),
+    website: 'https://bsky.app/profile/roastmaster.bsky.social',
+    author: 'https://bsky.app/profile/stfn.ro',
+    tags: ['bot'],
+  },
+  {
     title: 'Adopt a Pet Bot',
     description: 'Posts an adoptable pet every 10 minutes',
     preview: require('./showcase/example-1.png'),
