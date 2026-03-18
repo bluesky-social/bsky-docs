@@ -1,0 +1,75 @@
+---
+id: app-bsky-contact-remove-data
+title: "app.bsky.contact.removeData"
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*"
+sidebar_label: "app.bsky.contact.removeData"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVlFv20YM/isEX9IGip0Ne9Kb0wRrsA0xUncY4BooLTHWNdLd9Xhy7Bn67wNPcuwka/uwYdhD/WLrxCM/fiQ/eoeRVoL5HMn70VLut6PC2UhFxEWGJUsRjI/GWczxdFYZAbald8ZGMAKeQgR3B7FiuKhblvstkPe1KUjvwK+8MYWzMJleC7z6+Bji9OPrEUzbZW2KR38CD5UpKiidPYkQ+HNrAgO1sWIb9w4LsrBkaKhkKE3gItZboBUZKzGh8L3TPZiJ978bflAAOVQxesnH495mRN70aBQWTA6BuEzhWaIABYZWWqrrLfjgNoZLWBtKsVrhcCIwvXyXQSvGrkA4rE3ByXILFVPJQb7oe0imFS7hzgVYuljtEyBbgnX2zD8jaXT6wX6wpzMHNVOw0DglaenaCAXVtYKg6IOLTnM+Irc29wxRC+gsZyDMKYe5Wr11KVVbJqSLV+PSFTKmck224PJs1ZqSZUzenPWcu7B9Dem0h3PLjVuzANU1SHSBS6hIKpZDbkNTQUOxqIxdZcAbI1HxpiOWLAGQrS1AIsVWRnDbN4E864IRZug8h/RwXWL+ondHISG6pEiYoXDRBhO3mM93eMEUOGA+X3SLDIdaXLhyi/kOh64rMY+h5QzVHduor47aevxJdB52KEXFDemvuPWMObrlJy4iZuiDAoyGBfNdpx+NJd5ZSUf44/m5fj0dsJtf8F+O+dPfhbmgMlHLEv9JvANZc+QQXMAMGxahFat2PIEzGBy8SAzGrjBDtm2jHq7tmmpTHnBdbbx6n7l7tpjt3z97vDRleogcLNVXKciiO+B4EbB7JOaHl8S8t9poLpg/ufzvmSmclYg56gz+ZkQS3G+mkixi5XQMvEvMeYoV5jjeBF+MvzUaYc1B9X9xmJN3mlgPbj8tj7FVQ/VeMsEcl72BwlBebg/zdLWhxteKu8vQ2DuXvJioRziZwVRFqnA1/HE7faNipW7bpqGwxRzfOKvAVPPdHRyZnwjU/VYRiA5uPNvJ9PpEoC+Hik1DUSXiaW3T7hIu+jWiXBgr8HY2myahDHzHgW3BoNqXJOtxoakuHuHdhx/Bz2xVhRgIeh4gansqrsgSk2NVZTnsqrvgmiS8GkZRDllijuej89G5VlzL2FDqMUuJ5S8UEYYqPsl0d+jb7xv7+8b+32zsQUAib+LY12Sstnobau3YXrHmqIqF2VfX+SLDSmUun+NutyTh96HuOj3+3LJKhyrZmoKhpSrNXLdBX9a0/u95UBedkLOZYlLzuh3G7KnKd9n+xqQo2Mev2i6OlHh6826GGS6H/xWNK/VOoAfdDvSAOab/MHo76Ww622FNdtUmscfep+qqUnmkwIPiZvsfmtXwiuz2COFu11ukldl1mA2pJI3CbtF13V9mrj0L
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"app.bsky.contact.removeData"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/app.bsky.contact.removeData"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Removes all stored hashes used for contact matching, existing matches, and sync status. Requires authentication.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","InvalidDid","InternalError"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

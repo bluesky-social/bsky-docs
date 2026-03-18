@@ -1,0 +1,67 @@
+---
+id: app-bsky-contact-get-sync-status
+title: "app.bsky.contact.getSyncStatus"
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*"
+sidebar_label: "app.bsky.contact.getSyncStatus"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vG0cM/SvEXJwY65Vb9LQ3OTEcoykixEpRQBGQ0QylnXh3ZjLkKlaF/e8FZ/UV20UKFO0pumg/uOTjI/k4W8V6RaqaKR1juaD7TWmCZ21YzQtlkUxykV3wqlLn09oRoLcxOM/gCKJODGEJXCNcNR3S/QZ0jI0zWr6Bt/jgTPAwntwSvPh0CHH+6WUJk27ROHPwR/C1dqYGG/wZQ8IvnUsIuuMaPe8dGu1hgdBqi2BdQsPNBvRKO0+cUcTB6R7MOMbfHX4VABXUzJGq0WiwKXV0AxqBBeNjILQ5PBIT6ITQUaebZgMxhQeHFtZO51gdYTojmLy+K6Aj51dAmNbOYLbcQI3aYqK/9b1LpiO0sAwJFoHrfQLaW/DBX8RHJJXnH/1Hfz4N0KBOHtogJC1Cx2B00wgIzTEFDpLzCbmNu0dgKWDwWAAh5hxmYvUm5FS9zUjnL0Y2GBppu9beoL1Ydc4ijXR0FwPnIW1eQn46wLlBplNGTJcSeoZdJ4FrY0gMxJo7KuH9UFt6VNxSFSpETPnm1qrqSUuWK+S7jTd32ZEqFKHpkuONqmZbdYU6YVLVbN7PC5WQYvCEpKqt+vnyUv6+bed3v6pCiWf0LG9PGnf0mcRkq8jU2Gq54k1EVamw+IyGVaFiEqzshgB0RPWM7a6ZrYyZWKIdy+NWs6mRXoXO52l76jIbHh0SJ+dX6vFcvtXEYDUjfK3R71mXecKEO/LRCr3LkFrNqlJifcGuRdU/wnGM5jzjCpMAdd61Xauqy74vFDtu8LnqWFxSecJEn3+F+uU59q+0zY2AxP+mDKfUYkohw0UivcKnlA4Gz/CJXrKbqVu/1o2zR1zXD1G8T8M9elXs3z+6fe1svmFMXjfXOci8P+J4EvBIzE9PifngZSxCcn+i/f+ZMcGTNIgIwW+OKMP9birZgusgQ7vCPB6aa1Wp0UOKZvQP5jitMckamh+H+k5SG+DtR/sQXaRcvssmqlKLwUCAOL8M2XLXpuMpTEQPTWjgj/eTV6KL8mnXtjptVKVeBS/BZb2EJZyYnxE0wwIj4ADvIvrx5PaMYCAdhmkqn8xjXpOEZthYkrLzBG+m00nW5IRLTOgNgshsVv7D7hQJPsG7D1/CDXpRRgQNQ67A0oSCi5E4O5YFQMe1uEyhzaosYQTlLktVqcvysryUusZA3OrcSV63z071ChmkWHCo1jfZbo8d+uOA8OOA8F8fEHbzz/jAo9ho56WLu9RIIw6aM1OiOar43ulhXqg6iNbN1Ha70IQfUtP38vhLhyIMokVrnZxeiI7MRNGHguXTxj2KdoyNwSh6t9ZNtxufbzVaziIHbby5ngqwTnAetGynXcX+QrzvXmm/OfG93Q4Wef30vSp2ILISqH7e9/1fzGwsng==
+sidebar_class_name: "get api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"app.bsky.contact.getSyncStatus"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/xrpc/app.bsky.contact.getSyncStatus"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Gets the user's current contact import status. Requires authentication.
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"syncStatus":{"type":"object","required":["syncedAt","matchesCount"],"properties":{"syncedAt":{"type":"string","description":"Last date when contacts where imported.","format":"date-time"},"matchesCount":{"type":"integer","minimum":0}},"title":"app.bsky.contact.defs.syncStatus"}}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","InvalidDid","InternalError"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

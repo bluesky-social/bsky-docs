@@ -1,0 +1,75 @@
+---
+id: app-bsky-contact-send-notification
+title: "app.bsky.contact.sendNotification"
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*"
+sidebar_label: "app.bsky.contact.sendNotification"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVttu20YQ/ZXBvDgxaMkt+sQ3OQ4aoxcLsVIUUARkxR2JG5O7m52lbEbgvxezpC6+tA1goH2JXiSRszPnzOXMbjGqNWM+R+X9aMm37ahwNqoi4iJDTVwE46NxFnM8nZWGgaz2ztgIhsGrEMGtIJYEF1VDfNuC8r4yhZIz8Cvdm8JZmEyvGF592oc4/fR6BNNmWZli74/hrjRFCdrZkwiBvjQmEKgmlmTjzmGhLCwJaqUJtAlUxKoFtVbGckwofO90B2bi/R+G7gRADmWMnvPxuLcZKW96NAILJodApFN44sigAkHDjaqqFnxw94Y0bIxKsRqmcMIwvbzJoGFj18AUNqagZNlCSUpT4L/1PZBpmDSsXICli+WOgLIarLNn/lGSRqcf7Ud7OnNQkQoWaidJWromQqGqSkCo6IOLTjgfJbcytwRRCugsZcBEicNcrN65RNXqhHTxaqxdwWOlN8oWpM/WjdHEY+XNWZ9zF9rXkJ72cG5ajlQfOiM6YEoEolkNpWMIVCX+0cHQYmBq70LkEbzvy80QXPW46CPM0HkK6c+VxvxJq44k2u9HwTBDpqIJJraYz7d4QSpQwHy+6BYZDgW4cLrFfItDq2nMY2goQ3FKNsqro14ef2YZgi1yUVKt5FdsPWGObvmZiojZkaM5roKrMcPoZIx8EPzREMux9OpwnGMwdo2Ph21WElxeXcp03ZWur9xxPqFwNTGIM0nQyoVaRcxRG41dCvzyEFy6ptKwdhDd0yDpI6zZO8s9tx/Pz+XrYZzrX/AFWX2QvCHmT8+FuVA69RFxfEm84ypSCC5ghjUxqzU9rWVv8EymyTa1eLiyG1UZfcD19t6L95m7JWnT4X3/d9EdQj3x2e25//CU+wcrM+OC+Ur6vydfOMvSFqIevxnmBPdfqSSLWDqZaO9ScryKJeY4vg++GH/blIcNBdlfi8PI3wi9HuJu8PcIZAfIuWSCOS57AwEj2Xl/kIa396r2FR0m9lBcGa49lwyNXfXTZqLY42QGU1HgwlXw5/vpG1FiidnUtQot5vjGWUEtI+ZWcGR+wlD1K5NFJq892cn06oShrxj0Azh6ZpINA1MxCIONshDh3Ww2TVsg0IoC2YJAhD3tmv22FtE/wrsLP4KfyYrmEijokwRRmlRwReKYHMvK4cMiljylrSJhBOXAEnM8H52PziVZUulapTa0KpXg2TrDo0I/4Ls9NPj3S8n3S8n/dSkZJCXSfRz7Shkr/d2EShq0V7I5ipJh9g03lkWGpYhgPsftdqmYPoSq6+Txl4ZENUThNioYtRSRmcuu6GuZbji3NAiLjMXZTJCJedUME/ZwB3TZ7sSkKMjHf7RdHOn09Ppmhhkuh6tT7bScCepOdoe6wxzTZS3lNt2t5NkWK2XXTVoF2PsUvZWEHinzoMTZ7oewGl4p2x4h3G57i7Qzuw6zgUqSJ+wWXdf9BXn6h9k=
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"app.bsky.contact.sendNotification"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/app.bsky.contact.sendNotification"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+System endpoint to send notifications related to contact imports. Requires role authentication.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["from","to"],"properties":{"from":{"type":"string","description":"The DID of who this notification comes from.","format":"did"},"to":{"type":"string","description":"The DID of who this notification should go to.","format":"did"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

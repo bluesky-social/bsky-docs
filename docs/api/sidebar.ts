@@ -104,6 +104,90 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "app.bsky.contact",
+      items: [
+        {
+          type: "doc",
+          id: "api/app-bsky-contact-dismiss-match",
+          label: "app.bsky.contact.dismissMatch",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-contact-get-matches",
+          label: "app.bsky.contact.getMatches",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-contact-get-sync-status",
+          label: "app.bsky.contact.getSyncStatus",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-contact-import-contacts",
+          label: "app.bsky.contact.importContacts",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-contact-remove-data",
+          label: "app.bsky.contact.removeData",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-contact-send-notification",
+          label: "app.bsky.contact.sendNotification",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-contact-start-phone-verification",
+          label: "app.bsky.contact.startPhoneVerification",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-contact-verify-phone",
+          label: "app.bsky.contact.verifyPhone",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "app.bsky.draft",
+      items: [
+        {
+          type: "doc",
+          id: "api/app-bsky-draft-create-draft",
+          label: "app.bsky.draft.createDraft",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-draft-delete-draft",
+          label: "app.bsky.draft.deleteDraft",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-draft-get-drafts",
+          label: "app.bsky.draft.getDrafts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/app-bsky-draft-update-draft",
+          label: "app.bsky.draft.updateDraft",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "app.bsky.feed",
       items: [
         {
