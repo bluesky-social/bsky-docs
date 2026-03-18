@@ -117,6 +117,9 @@ for await (const entry of entries) {
       case "subscription":
         // No way to represent this in OpenAPI
         break;
+      case "permission-set":
+        // No way to represent this in OpenAPI
+        break;
       case "token":
         components.schemas![identifier] = convertToken(id, name, def);
         break;
