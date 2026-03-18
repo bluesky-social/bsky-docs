@@ -1,20 +1,23 @@
 {
   "lexicon": 1,
-  "id": "app.bsky.actor.getSuggestions",
+  "id": "app.bsky.unspecced.getSuggestedOnboardingUsers",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.",
+      "description": "Get a list of suggested users for onboarding",
       "parameters": {
         "type": "params",
         "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category of users to get suggestions for."
+          },
           "limit": {
             "type": "integer",
             "minimum": 1,
-            "maximum": 100,
-            "default": 50
-          },
-          "cursor": { "type": "string" }
+            "maximum": 50,
+            "default": 25
+          }
         }
       },
       "output": {
@@ -23,7 +26,6 @@
           "type": "object",
           "required": ["actors"],
           "properties": {
-            "cursor": { "type": "string" },
             "actors": {
               "type": "array",
               "items": {
@@ -32,7 +34,7 @@
               }
             },
             "recId": {
-              "type": "integer",
+              "type": "string",
               "description": "DEPRECATED: use recIdStr instead."
             },
             "recIdStr": {

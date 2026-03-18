@@ -1,10 +1,10 @@
 {
   "lexicon": 1,
-  "id": "app.bsky.actor.getSuggestions",
+  "id": "app.bsky.contact.getMatches",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.",
+      "description": "Returns the matched contacts (contacts that were mutually imported). Excludes dismissed matches. Requires authentication.",
       "parameters": {
         "type": "params",
         "properties": {
@@ -21,27 +21,33 @@
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["actors"],
+          "required": ["matches"],
           "properties": {
             "cursor": { "type": "string" },
-            "actors": {
+            "matches": {
               "type": "array",
               "items": {
                 "type": "ref",
                 "ref": "app.bsky.actor.defs#profileView"
               }
-            },
-            "recId": {
-              "type": "integer",
-              "description": "DEPRECATED: use recIdStr instead."
-            },
-            "recIdStr": {
-              "type": "string",
-              "description": "Snowflake for this recommendation, use when submitting recommendation events."
             }
           }
         }
-      }
+      },
+      "errors": [
+        {
+          "name": "InvalidDid"
+        },
+        {
+          "name": "InvalidLimit"
+        },
+        {
+          "name": "InvalidCursor"
+        },
+        {
+          "name": "InternalError"
+        }
+      ]
     }
   }
 }
