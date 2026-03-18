@@ -1,0 +1,75 @@
+---
+id: app-bsky-contact-start-phone-verification
+title: "app.bsky.contact.startPhoneVerification"
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*"
+sidebar_label: "app.bsky.contact.startPhoneVerification"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVttu2zgQ/ZXBvKQNFDm72Ce9JW2wDbZFjNgtFnANhCbHFhuJZEnKlxr698VQcqxc9oYCCyzQvMSShjNnzsyc4R6jWAUsZiicyxfhfpdLa6KQEecZKgrSaxe1NVjg6bTUAcgoZ7WJoAM44SPYJcSS4LJqKNzvQDhXaSn4DLynrZbWwMX4OsCru4cQp3evcxg3i0rLB38BNqWWJShrTiJ4+tpoTyCaWJKJB4dSGFgQ1EIRKO1JxmoHYiW0CTGhcJ3TA5gL5z5p2jCAAsoYXShGo84mF053aBgWXBwDkUrhKcQAwhM0oRFVtQPn7VaTgrUWKVYTyJ8EGL+dZNAEbVYQyK+1pGS5g5KEIh/+1HefTBNIwdJ6WNhYHhIQRoGx5sw9ISk//Ww+m9OphYqEN1BbJmlhmwhSVBWDENF5Gy3nPCC30vcEkQtoDWUQiFIOM7Z6Z1OqRiWk81cjZWUYCbUWRpI6WzVaURgJp886zq3fvYb0toMzicKzA3ClNQRr8np5qNiyspscplya9NGJwPludFWBJ0l6TSBAWkWJ18mHCcRSRAilbSrF/PQnooW7pz2ap1C7MXu+y+G2a5rwpGtyzNA68unhWmHxrNfzwBkkN58G4DHDQLLxOu6wmO3xkoQnj8Vs3s4z7Ot4adUOiz32HauwiL6hDNk1mcifBiMx+hJ4lvYYZEm14F9x5wgLtIsvJCNmA0czTJzxJDrPGURNgY90r49nQ/TarPDpwB5ZN029IM8cHjjn4g9Zz7FNfxw/OGtCF+nn83P+99jvzW/4Hfk9SqWP+ctLYS6FSiWlEL8n3pBP8t56zLCmEMTqBWY7gxeYJdPU7OHarEWl1RHX1dax96m9J26Y/vvh8VZEeq9rHa+2kkiROpq81YOH1HvpMZI3orpKOObtEeozTO0Ddz895+6j4RmwXn9LIf9j8qQ1IWKBLCcfdAgJ7t+mkixiaXlCnU3kOhFLLHC09U6O/s3U+jV5Xmvz4whPOMkO6GGQH3DwauBzyQQLXHQGDIk5uj2O+tVW1K6iwRQ+JJGhNkubvOrIJngxhTFrsbQV/H47fsOazGGauhZ+hwW+sYaBslDaJQzMTwJU3fIMPLU3jszF+PokQFcq3he1iPkLI68DBJLdtmSetAnwbjodp33gaUmejCRgiU9b52Fvs/wP8B7C5/ArGRZP1umOF4jc3YwrUojJMS+fcFzJS2/rJDEchlH2WWKB5/l5fs5kcYlrkfrPiMT6ywWGVGF4UuJHae+PDf7jlvLjlvK/vaX0ahRpG0euEtrwnDS+SmqTpHCGLIWY/eMrzDzDkrW0mOF+vxCBPvqqbfn114ZYg1gi18JrsWDJmvHK6VoiXXnuqZcpnq6zKeNj86rp5/XxKmmzw4kLKcnFv7SdD+R+fDOZYoaL/i5VW8VnvNjwChIbLDDd4fh0EvD0bo+VMKsmbRTsfLJgM60Dae+lPDv84Kz6T8LsBgj3+84ire62xaxPJYkdtvO2bf8Aiwep1A==
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"app.bsky.contact.startPhoneVerification"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/app.bsky.contact.startPhoneVerification"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Starts a phone verification flow. The phone passed will receive a code via SMS that should be passed to `app.bsky.contact.verifyPhone`. Requires authentication.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["phone"],"properties":{"phone":{"type":"string","description":"The phone number to receive the code via SMS."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken","RateLimitExceeded","InvalidDid","InvalidPhone","InternalError"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

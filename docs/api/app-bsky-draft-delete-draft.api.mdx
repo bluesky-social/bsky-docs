@@ -1,0 +1,75 @@
+---
+id: app-bsky-draft-delete-draft
+title: "app.bsky.draft.deleteDraft"
+description: "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*"
+sidebar_label: "app.bsky.draft.deleteDraft"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk2P2zYQ/SuDuWyy0MpukZNu3mzQLNpijY1TFHAMhCLHFrMSyZCU16qh/14MZa29H00uQU/xxZY4nHkz8+aN9xjFJmCxROFcXoa7LlderCOuMlQUpNcuamuwwPNFpQOQUc5qE0EHcMJHsGuIFcFl3VK460A4V2sp+A78QTstrYHZ/DrAq88PAc4/v85h3pa1lg/+AtxXWlagrDmL4Olrqz2BaGNFJo4OpTBQEjRCESjtSca6A7ER2oSYULjB6Qhm5txfmu4ZQAFVjC4Uk8lgkwunBzQMC2bHQKRSeAoxgPAEbWhFXXfgvN1pUrDVIsVqA/mzAPOrDxm0QZsNBPJbLSlZdlCRUOTDf/o+JNMGUrC2HkobqzEBYRQYay7ckyLl55/MJ3O+sFCT8AYay0UqbRtBirpmECI6b6PlnE+KW+s7gsgNtIYyCEQphyVbvbcpVaMS0tWribIyTITaCiNJXWxarShMhNMXQ82t715DejvAuaKaIgUQkJgDZQfXVzncDj0MT5qYY4bWkU8P1wqLJ8TLVXJ3lUiYYSDZeh07LJZ7vCThyWOxXPWrDA+VvLSqw2KPB84oLKJvKUNpTSQT+eiElJMvgdm8xyAragT/ip0jLNCWX0hyyKOjJWrFg+A8I46aAttrdXIrRK/NBjNcW9+IiAVGrbBPH3YVnDVhuPfrdMpfj6fq5nfsM3zz0tGlUKmIFBjVD0mHvLceM2woBLGh57kNBi+kR6Zt2MO12YpaqyOudzvH3hf2jgxm4/nwuOqPoZ75HGv0ZvrL89w/GmaN9fofUv9/8tKawK3kefhTh5DgfjeVZBEry5x2NhXHiVhhgZOdd3LyHZ77LXkW4tWR9B84rwHbSP2H0CxnfC+ZYIHlYMAouCy3x+F4txONq2mk7gPoDLVZ2+RSRz7H2QLmLB7S1vD37fwtiwjHaJtG+A4LfGsNo2Qttms4MT8LUA9qHyBauHFkZvPrswBDa2CYDp79x31OOyWQHOTdmshaDu8Xi3kSME9r8mQkAWtSksmHRcN6dYJ3DJ/Db2RYXggEDEWByGxkXJFCTI5ZLcNxh6y9bZIgchhGecgSC5zm03zKxeKWNiLxzYhU8hcbCmNHHyW6P1L45yL9uUh/1CI9aEGkXZy4WmjDRG19zYQbtGeJrD2YfWvLrjKsWK+KJe73pQj00dd9z6+/tsRzz5q0FV6LkmViybI+NCVt5Ts6SAPz+2LBkNi8bg8z8liu+2y8MZOSXPym7epEUuc3HxaYYXlY941VfMeLe5Z5cY8Fpn8WfDspZnq3x1qYTZtUGwefrJBcyRMtPWhnNv7grA5HwnQnCPf7wSKtt77H7JBKEhjsV33f/wucTfjx
+sidebar_class_name: "post api-method"
+info_path: docs/api/at-protocol-xrpc-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"app.bsky.draft.deleteDraft"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/xrpc/app.bsky.draft.deleteDraft"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*
+
+*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](/docs/advanced-guides/api-directory) guide.*
+
+Deletes a draft by ID. Requires authentication.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["id"],"properties":{"id":{"type":"string","format":"tid"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"OK"},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"type":"string","enum":["InvalidRequest","ExpiredToken","InvalidToken"]},"message":{"type":"string"}}}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"type":"object","required":["error","message"],"properties":{"error":{"const":"AuthMissing"},"message":{"type":"string"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
