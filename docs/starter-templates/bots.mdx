@@ -59,6 +59,20 @@ main();
 
 You can deploy a simple bot for no or low cost on a variety of platforms, such as [Heroku](https://www.heroku.com/) or [Fly.io](http://fly.io/).
 
+### Labeling Your Bot
+
+As a best practice, bot accounts should identify themselves by adding a self-label to their profile. This helps users and moderation tools recognize automated accounts. You only need to do this once when setting up your bot:
+
+```ts
+await agent.upsertProfile((existing) => ({
+  ...existing,
+  labels: {
+    $type: 'com.atproto.label.defs#selfLabels',
+    values: [{ val: 'bot' }],
+  },
+}))
+```
+
 ## Rate Limits & Respecting Other Users
 
 Keep in mind that bots should respect the network's [rate limits](/docs/advanced-guides/rate-limits). Automated bots that post to an account on an regular interval are welcome. If your bot interacts with other users, please only interact (like, repost, reply, etc.) if the user has tagged the bot account. It must be an opt-in interaction, or else your bot may be taken for spam.
