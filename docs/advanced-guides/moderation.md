@@ -61,10 +61,11 @@ There are a few label values which are defined by the protocol. They are:
 - `sexual` which behaves like `porn` but is meant to handle less intense sexual content.
 - `graphic-media` which behaves like `porn` but is for violence / gore.
 - `nudity` which puts a warning on images but isn’t 18+ and defaults to ignore.
+- `bot` which marks the account as automated.
 
 There are two reasons global label values exist.
 
-The first is because only label values which are defined globally can be used as self-labels (ie set by a user who is not a Labeler). The porn, sexual, gore, nudity, and !no-unauthenticated labels are global for this reason.
+The first is because only label values which are defined globally can be used as self-labels (ie set by a user who is not a Labeler). The porn, sexual, gore, nudity, bot, and !no-unauthenticated labels are global for this reason.
 
 The second is because some special behaviors, like "non-configurable" and "applies only to logged out users," cannot be applied to custom labels. The !hide, !warn, and !no-unauthenticated labels are global for this reason.
 
@@ -176,6 +177,7 @@ Only global labels can be used for self-labeling, but not all global labels can 
 - `sexual`
 - `nudity`
 - `graphic-media`
+- `bot`
 
 While it may be possible to expand the self-labeling vocabulary by adding more global label definitions, we caution against the aggressive policing culture that can form around self-labeling.
 
