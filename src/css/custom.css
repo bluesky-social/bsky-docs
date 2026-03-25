@@ -82,3 +82,42 @@
 .openapi-right-panel__container {
   visibility: hidden;
 }
+
+/* Kapa AI + Algolia integration */
+.kapa-ask-ai-container {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--docsearch-muted-color);
+}
+
+.kapa-ask-ai-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background: rgba(65, 173, 255, 0.1);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 6px;
+  color: var(--ifm-color-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.kapa-ask-ai-button:hover {
+  background: rgba(65, 173, 255, 0.2);
+}
+
+.kapa-ask-ai-button:active {
+  transform: scale(0.98);
+}
+
+[data-theme='dark'] .kapa-ask-ai-button {
+  background: rgba(117, 188, 255, 0.1);
+}
+
+[data-theme='dark'] .kapa-ask-ai-button:hover {
+  background: rgba(117, 188, 255, 0.2);
+}
