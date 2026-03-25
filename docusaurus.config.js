@@ -6,6 +6,22 @@ const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  scripts: [
+    {
+      src: "https://widget.kapa.ai/kapa-widget.bundle.js",
+      "data-website-id": "58c0dcc5-974f-4718-aeac-6edfafbf3c68",
+      "data-project-name": "Bluesky",
+      "data-project-color": "#41ADFF",
+      "data-project-logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Bluesky_Logo.svg/330px-Bluesky_Logo.svg.png",
+      "data-modal-title": "Bluesky Docs AI",
+      "data-button-hide": "true",
+      "data-modal-ask-ai-input-placeholder": "Find solutions from the docs, Github, forums, and more...",
+      async: true,
+    },
+  ],
+  clientModules: [
+    require.resolve('./src/clientModules/kapaAlgoliaIntegration.js'),
+  ],
   title: "Bluesky",
   tagline: "Get started with the Bluesky API.",
   favicon: "img/favicon.png",
