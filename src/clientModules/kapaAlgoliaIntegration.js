@@ -62,9 +62,11 @@ function injectAskAIButton(modal) {
   });
 }
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initKapaAlgoliaIntegration);
-} else {
-  initKapaAlgoliaIntegration();
+// Initialize when DOM is ready (only in browser environment)
+if (typeof window !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKapaAlgoliaIntegration);
+  } else {
+    initKapaAlgoliaIntegration();
+  }
 }
