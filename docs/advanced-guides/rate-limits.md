@@ -69,14 +69,15 @@ These API services have generous rate-limits. Please contact us if you encounter
 
 ## Relay Limits
 
-The Bluesky-operated Relay (`https://bsky.network`) applies the following limits to new PDS instances:
+The Bluesky-operated Relay (`https://bsky.network`) applies the following limits to new PDS instances by default:
 
 - PDS Repository Stream Events (all types)
   - 50 per second
-  - 1500 per hour
-  - 10,000 per day
-- New Account Creation
-  - 5 per second
+  - 2,600 per hour
+  - 21,000 per day
+- PDS Accounts
+  - 100 account maximum
+  - 5 created per second
 
 These limits are intended to limit abuse while still allowing open federation. If the default limits cause problems for growing PDS instances, please reach out and they can be raised.
 
