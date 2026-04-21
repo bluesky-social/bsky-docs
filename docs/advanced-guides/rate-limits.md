@@ -87,5 +87,5 @@ These limits are intended to limit abuse while still allowing open federation. I
 The Bluesky AppView applies the following limits to all labeling services (eg, Ozone moderation instances):
 
 - 5 per second
-- 5,000 per hour
-- 50,000 per day (24 hour period)
+- 10,000 per hour
+- 100,000 per day (24 hour period)
