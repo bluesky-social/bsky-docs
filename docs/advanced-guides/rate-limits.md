@@ -81,3 +81,11 @@ The Bluesky-operated Relay (`https://bsky.network`) applies the following limits
 
 These limits are intended to limit abuse while still allowing open federation. If the default limits cause problems for growing PDS instances, please reach out and they can be raised.
 
+
+## Label Limits
+
+The Bluesky AppView applies the following limits to all labeling services (eg, Ozone moderation instances):
+
+- 5 per second
+- 5,000 per hour
+- 50,000 per day (24 hour period)
