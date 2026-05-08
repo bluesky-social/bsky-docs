@@ -332,9 +332,9 @@ with open(IMAGE_PATH, "rb") as f:
     img_bytes = f.read()
 
 # this size limit is specified in the app.bsky.embed.images lexicon
-if len(img_bytes) > 1000000:
+if len(img_bytes) > 2000000:
     raise Exception(
-        f"image file size too large. 1000000 bytes maximum, got: {len(img_bytes)}"
+        f"image file size too large. 2000000 bytes maximum, got: {len(img_bytes)}"
     )
 
 # TODO: strip EXIF metadata here, if needed
