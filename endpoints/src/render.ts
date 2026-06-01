@@ -40,6 +40,30 @@ const HTML = `<!doctype html>
         hideModels: true,
         // Follow the spec's tag / x-tagGroups order (app.bsky, com.atproto, ...).
         tagsSorter: 'default',
+        // Hide every auto-generated httpsnippet client. Each operation supplies
+        // its own TS/Go/curl snippets via x-codeSamples; with no clientOptions,
+        // Scalar also drops the otherwise-empty "Client Libraries" intro card.
+        hiddenClients: true,
+        // The spec declares the Bearer scheme in components.securitySchemes
+        // but no document-level security array (to avoid the misleading
+        // "Auth Optional" badge on every endpoint). Pre-select Bearer in the
+        // intro Auth panel so a token entered there is applied to every test
+        // request.
+        authentication: { preferredSecurityScheme: 'Bearer' },
+        // Rename the intro server card's "Server" title-bar label to
+        // "Demo Server" so it's obvious the host picker only powers in-page
+        // test requests. Scalar hard-codes "Server" in ServerSelector.vue.
+        // The title-bar label carries .bg-b-2.rounded-t-xl (other labels
+        // inside the card — e.g. the host variable input's label — don't),
+        // so this selector hits only the title bar.
+        customCss: \`
+          .scalar-reference-intro-server label.bg-b-2.rounded-t-xl { font-size: 0; }
+          .scalar-reference-intro-server label.bg-b-2.rounded-t-xl::before {
+            content: 'Demo Server';
+            font-size: 0.875rem;
+            font-weight: 500;
+          }
+        \`,
       })
     </script>
   </body>

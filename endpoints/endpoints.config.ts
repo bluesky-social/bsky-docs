@@ -12,7 +12,6 @@
  *   narrow scope. Editing it changes what `seed-allowlist` pulls in and what the
  *   converter is willing to emit a path for.
  * - `NAMESPACE_ORDER` biases grouping/order in the rendered reference.
- * - `descriptionPrefixFor` ports the per-namespace auth/proxy guidance.
  */
 
 /** Namespaces this reference covers (and the only ones converted to endpoints). */
@@ -51,55 +50,3 @@ export const NAMESPACE_ORDER: string[] = [
   "tools.ozone.",
 ];
 
-export const DEFAULT_DESCRIPTION_PREFIX =
-  "*To learn more about calling atproto API endpoints like this one, see the [API Hosts and Auth](https://docs.bsky.app/docs/advanced-guides/api-directory) guide.*";
-
-/**
- * Per-namespace auth/proxy guidance, prepended to each operation's description.
- * Ported verbatim (intent-wise) from atproto-openapi-types/main.ts.
- */
-export function descriptionPrefixFor(id: string): string {
-  if (id.startsWith("tools.ozone.")) {
-    return (
-      "*This endpoint is part of the [Ozone moderation service](https://ozone.tools/) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the Ozone instance indicated by the DID in the service proxying header. Admin authentication may also be possible, with request sent directly to the Ozone instance.*\n\n" +
-      DEFAULT_DESCRIPTION_PREFIX
-    );
-  }
-  if (id.startsWith("chat.bsky.")) {
-    return (
-      "*This endpoint is part of the Bluesky Chat (DMs) APIs. Requests usually require authentication, are directed to the user's PDS instance, and proxied to the single central chat service by setting the appropriate service DID (`did:web:api.bsky.chat`) in the service proxying header.*\n\n" +
-      DEFAULT_DESCRIPTION_PREFIX
-    );
-  }
-  if (id.startsWith("com.atproto.admin.")) {
-    return (
-      "*This endpoint is part of the atproto PDS management APIs. Requests usually require admin authentication and are made directly to the PDS instance.*\n\n" +
-      DEFAULT_DESCRIPTION_PREFIX
-    );
-  }
-  if (id.startsWith("com.atproto.sync.")) {
-    return (
-      "*This endpoint is part of the atproto repository synchronization APIs. Requests usually do not require authentication.*\n\n" +
-      DEFAULT_DESCRIPTION_PREFIX
-    );
-  }
-  if (id.startsWith("com.atproto.repo.")) {
-    return (
-      "*This endpoint is part of the atproto PDS repository management APIs. Requests usually require authentication (unlike the `com.atproto.sync.*` endpoints), and are made directly to the user's own PDS instance.*\n\n" +
-      DEFAULT_DESCRIPTION_PREFIX
-    );
-  }
-  if (id.startsWith("com.atproto.server.")) {
-    return (
-      "*This endpoint is part of the atproto PDS server and account management APIs. Requests often require authentication and are made directly to the user's own PDS instance.*\n\n" +
-      DEFAULT_DESCRIPTION_PREFIX
-    );
-  }
-  if (id.startsWith("app.bsky.")) {
-    return (
-      "*This endpoint is part of the Bluesky application Lexicon APIs (`app.bsky.*`). Public endpoints which don't require authentication can be made directly against the public Bluesky AppView API: https://public.api.bsky.app. Authenticated requests are usually proxied via the user's PDS, using service proxy headers. Authenticated requests can be used for both public and non-public endpoints.*\n\n" +
-      DEFAULT_DESCRIPTION_PREFIX
-    );
-  }
-  return DEFAULT_DESCRIPTION_PREFIX;
-}

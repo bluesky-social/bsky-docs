@@ -35,7 +35,8 @@ out/  (index.html + openapi.json + scalar.standalone.js — fully self-contained
   don't dangle) but flagged `deprecated`.
 - **Bluesky-first ordering:** `NAMESPACE_ORDER` biases `app.bsky.*` and
   `com.atproto.*` ahead of the rest (rendered via OpenAPI `x-tagGroups`).
-  Per-namespace auth/proxy guidance lives in `descriptionPrefixFor`.
+  Shared auth/proxy guidance lives in the OpenAPI `info.description` rendered
+  as the reference's Introduction.
 - **No SaaS:** the rendered site embeds Scalar's open-source (MIT) `api-reference`
   bundle, vendored locally. No hosted service, no runtime external calls, and a
   downloadable `openapi.json` for Postman/SDK codegen/etc.
