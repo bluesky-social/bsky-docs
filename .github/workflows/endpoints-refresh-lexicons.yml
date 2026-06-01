@@ -1,0 +1,52 @@
+name: Refresh endpoint lexicons
+
+# Re-enumerates every query/procedure endpoint in the configured namespaces from
+# the canonical on-network schemas (`npm run seed`) and opens a PR if anything
+# changed — picking up newly-published endpoints and new CIDs, and dropping ones
+# removed upstream. Keeps the endpoint reference current with zero manual work;
+# changes are reviewed in the PR before merging.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # weekly, Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: endpoints
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: endpoints/package-lock.json
+
+      - run: npm ci
+
+      - name: Re-enumerate and re-resolve endpoints
+        run: npm run seed
+
+      - name: Open PR if lexicons changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          # Paths are relative to the repository root.
+          add-paths: |
+            endpoints/lexicons.json
+            endpoints/lexicons/**
+          branch: chore/refresh-endpoint-lexicons
+          delete-branch: true
+          title: "Refresh endpoint lexicons"
+          commit-message: "chore: refresh endpoint lexicons from canonical schemas"
+          body: |
+            Automated refresh via `lex install --update`.
+
+            Review the CID changes in `endpoints/lexicons.json` before merging.

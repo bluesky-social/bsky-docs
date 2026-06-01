@@ -1,0 +1,36 @@
+{
+  "id": "tools.ozone.set.addValues",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "name",
+            "values"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the set to add values to"
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "maxLength": 1000,
+              "minLength": 1,
+              "description": "Array of string values to add to the set"
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "description": "Add values to a specific set. Attempting to add values to a set that does not exist will result in an error."
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

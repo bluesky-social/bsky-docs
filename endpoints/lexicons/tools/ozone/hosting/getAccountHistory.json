@@ -1,0 +1,145 @@
+{
+  "id": "tools.ozone.hosting.getAccountHistory",
+  "defs": {
+    "main": {
+      "type": "query",
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "events"
+          ],
+          "properties": {
+            "cursor": {
+              "type": "string"
+            },
+            "events": {
+              "type": "array",
+              "items": {
+                "ref": "#event",
+                "type": "ref"
+              }
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "parameters": {
+        "type": "params",
+        "required": [
+          "did"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "maximum": 100,
+            "minimum": 1
+          },
+          "cursor": {
+            "type": "string"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "knownValues": [
+                "accountCreated",
+                "emailUpdated",
+                "emailConfirmed",
+                "passwordUpdated",
+                "handleUpdated"
+              ]
+            }
+          }
+        }
+      },
+      "description": "Get account history, e.g. log of updated email addresses or other identity information."
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "details",
+        "createdBy",
+        "createdAt"
+      ],
+      "properties": {
+        "details": {
+          "refs": [
+            "#accountCreated",
+            "#emailUpdated",
+            "#emailConfirmed",
+            "#passwordUpdated",
+            "#handleUpdated"
+          ],
+          "type": "union"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime"
+        },
+        "createdBy": {
+          "type": "string"
+        }
+      }
+    },
+    "emailUpdated": {
+      "type": "object",
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "handleUpdated": {
+      "type": "object",
+      "required": [
+        "handle"
+      ],
+      "properties": {
+        "handle": {
+          "type": "string",
+          "format": "handle"
+        }
+      }
+    },
+    "accountCreated": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "handle": {
+          "type": "string",
+          "format": "handle"
+        }
+      }
+    },
+    "emailConfirmed": {
+      "type": "object",
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "passwordUpdated": {
+      "type": "object",
+      "required": [],
+      "properties": {}
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

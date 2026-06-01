@@ -1,0 +1,63 @@
+{
+  "id": "tools.ozone.safelink.updateRule",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "url",
+            "pattern",
+            "action",
+            "reason"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The URL or domain to update the rule for"
+            },
+            "action": {
+              "ref": "tools.ozone.safelink.defs#actionType",
+              "type": "ref"
+            },
+            "reason": {
+              "ref": "tools.ozone.safelink.defs#reasonType",
+              "type": "ref"
+            },
+            "comment": {
+              "type": "string",
+              "description": "Optional comment about the update"
+            },
+            "pattern": {
+              "ref": "tools.ozone.safelink.defs#patternType",
+              "type": "ref"
+            },
+            "createdBy": {
+              "type": "string",
+              "format": "did",
+              "description": "Optional DID to credit as the creator. Only respected for admin_token authentication."
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "errors": [
+        {
+          "name": "RuleNotFound",
+          "description": "No active rule found for this URL/domain"
+        }
+      ],
+      "output": {
+        "schema": {
+          "ref": "tools.ozone.safelink.defs#event",
+          "type": "ref"
+        },
+        "encoding": "application/json"
+      },
+      "description": "Update an existing URL safety rule"
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

@@ -1,0 +1,35 @@
+{
+  "id": "tools.ozone.moderation.getRepo",
+  "defs": {
+    "main": {
+      "type": "query",
+      "errors": [
+        {
+          "name": "RepoNotFound"
+        }
+      ],
+      "output": {
+        "schema": {
+          "ref": "tools.ozone.moderation.defs#repoViewDetail",
+          "type": "ref"
+        },
+        "encoding": "application/json"
+      },
+      "parameters": {
+        "type": "params",
+        "required": [
+          "did"
+        ],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          }
+        }
+      },
+      "description": "Get details about a repository."
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

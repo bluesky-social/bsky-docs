@@ -1,0 +1,67 @@
+{
+  "id": "tools.ozone.setting.listOptions",
+  "defs": {
+    "main": {
+      "type": "query",
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "options"
+          ],
+          "properties": {
+            "cursor": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "ref": "tools.ozone.setting.defs#option",
+                "type": "ref"
+              }
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "nsid"
+            },
+            "maxLength": 100,
+            "description": "Filter for only the specified keys. Ignored if prefix is provided"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "maximum": 100,
+            "minimum": 1
+          },
+          "scope": {
+            "type": "string",
+            "default": "instance",
+            "knownValues": [
+              "instance",
+              "personal"
+            ]
+          },
+          "cursor": {
+            "type": "string"
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Filter keys by prefix"
+          }
+        }
+      },
+      "description": "List settings with optional filtering"
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

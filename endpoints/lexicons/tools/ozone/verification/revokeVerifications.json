@@ -1,0 +1,84 @@
+{
+  "id": "tools.ozone.verification.revokeVerifications",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "uris"
+          ],
+          "properties": {
+            "uris": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "at-uri",
+                "description": "The AT-URI of the verification record to revoke."
+              },
+              "maxLength": 100,
+              "description": "Array of verification record uris to revoke"
+            },
+            "revokeReason": {
+              "type": "string",
+              "maxLength": 1000,
+              "description": "Reason for revoking the verification. This is optional and can be omitted if not needed."
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "revokedVerifications",
+            "failedRevocations"
+          ],
+          "properties": {
+            "failedRevocations": {
+              "type": "array",
+              "items": {
+                "ref": "#revokeError",
+                "type": "ref"
+              },
+              "description": "List of verification uris that couldn't be revoked, including failure reasons"
+            },
+            "revokedVerifications": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "at-uri"
+              },
+              "description": "List of verification uris successfully revoked"
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "description": "Revoke previously granted verifications in batches of up to 100."
+    },
+    "revokeError": {
+      "type": "object",
+      "required": [
+        "uri",
+        "error"
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "at-uri",
+          "description": "The AT-URI of the verification record that failed to revoke."
+        },
+        "error": {
+          "type": "string",
+          "description": "Description of the error that occurred during revocation."
+        }
+      },
+      "description": "Error object for failed revocations"
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

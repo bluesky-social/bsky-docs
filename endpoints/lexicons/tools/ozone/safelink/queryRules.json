@@ -1,0 +1,88 @@
+{
+  "id": "tools.ozone.safelink.queryRules",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "urls": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by specific URLs or domains"
+            },
+            "limit": {
+              "type": "integer",
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Maximum number of results to return"
+            },
+            "cursor": {
+              "type": "string",
+              "description": "Cursor for pagination"
+            },
+            "reason": {
+              "type": "string",
+              "description": "Filter by reason type"
+            },
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by action types"
+            },
+            "createdBy": {
+              "type": "string",
+              "format": "did",
+              "description": "Filter by rule creator"
+            },
+            "patternType": {
+              "type": "string",
+              "description": "Filter by pattern type"
+            },
+            "sortDirection": {
+              "type": "string",
+              "default": "desc",
+              "description": "Sort direction",
+              "knownValues": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "rules"
+          ],
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "ref": "tools.ozone.safelink.defs#urlRule",
+                "type": "ref"
+              }
+            },
+            "cursor": {
+              "type": "string",
+              "description": "Next cursor for pagination. Only present if there are more results."
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "description": "Query URL safety rules"
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

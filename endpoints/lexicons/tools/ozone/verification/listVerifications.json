@@ -1,0 +1,89 @@
+{
+  "id": "tools.ozone.verification.listVerifications",
+  "defs": {
+    "main": {
+      "type": "query",
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "verifications"
+          ],
+          "properties": {
+            "cursor": {
+              "type": "string"
+            },
+            "verifications": {
+              "type": "array",
+              "items": {
+                "ref": "tools.ozone.verification.defs#verificationView",
+                "type": "ref"
+              }
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "maximum": 100,
+            "minimum": 1,
+            "description": "Maximum number of results to return"
+          },
+          "cursor": {
+            "type": "string",
+            "description": "Pagination cursor"
+          },
+          "issuers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "did"
+            },
+            "maxLength": 100,
+            "description": "Filter to verifications from specific issuers"
+          },
+          "subjects": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "did"
+            },
+            "maxLength": 100,
+            "description": "Filter to specific verified DIDs"
+          },
+          "isRevoked": {
+            "type": "boolean",
+            "description": "Filter to verifications that are revoked or not. By default, includes both."
+          },
+          "createdAfter": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Filter to verifications created after this timestamp"
+          },
+          "createdBefore": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Filter to verifications created before this timestamp"
+          },
+          "sortDirection": {
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string",
+            "default": "desc",
+            "description": "Sort direction for creation date"
+          }
+        }
+      },
+      "description": "List verifications"
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

@@ -1,0 +1,51 @@
+{
+  "id": "tools.ozone.team.updateMember",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "did"
+          ],
+          "properties": {
+            "did": {
+              "type": "string",
+              "format": "did"
+            },
+            "role": {
+              "type": "string",
+              "knownValues": [
+                "tools.ozone.team.defs#roleAdmin",
+                "tools.ozone.team.defs#roleModerator",
+                "tools.ozone.team.defs#roleVerifier",
+                "tools.ozone.team.defs#roleTriage"
+              ]
+            },
+            "disabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "errors": [
+        {
+          "name": "MemberNotFound",
+          "description": "The member being updated does not exist in the team"
+        }
+      ],
+      "output": {
+        "schema": {
+          "ref": "tools.ozone.team.defs#member",
+          "type": "ref"
+        },
+        "encoding": "application/json"
+      },
+      "description": "Update a member in the ozone service. Requires admin role."
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

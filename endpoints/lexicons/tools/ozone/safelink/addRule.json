@@ -1,0 +1,67 @@
+{
+  "id": "tools.ozone.safelink.addRule",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "url",
+            "pattern",
+            "action",
+            "reason"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The URL or domain to apply the rule to"
+            },
+            "action": {
+              "ref": "tools.ozone.safelink.defs#actionType",
+              "type": "ref"
+            },
+            "reason": {
+              "ref": "tools.ozone.safelink.defs#reasonType",
+              "type": "ref"
+            },
+            "comment": {
+              "type": "string",
+              "description": "Optional comment about the decision"
+            },
+            "pattern": {
+              "ref": "tools.ozone.safelink.defs#patternType",
+              "type": "ref"
+            },
+            "createdBy": {
+              "type": "string",
+              "format": "did",
+              "description": "Author DID. Only respected when using admin auth"
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "errors": [
+        {
+          "name": "InvalidUrl",
+          "description": "The provided URL is invalid"
+        },
+        {
+          "name": "RuleAlreadyExists",
+          "description": "A rule for this URL/domain already exists"
+        }
+      ],
+      "output": {
+        "schema": {
+          "ref": "tools.ozone.safelink.defs#event",
+          "type": "ref"
+        },
+        "encoding": "application/json"
+      },
+      "description": "Add a new URL safety rule"
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

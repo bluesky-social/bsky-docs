@@ -1,0 +1,62 @@
+{
+  "id": "tools.ozone.set.getValues",
+  "defs": {
+    "main": {
+      "type": "query",
+      "errors": [
+        {
+          "name": "SetNotFound",
+          "description": "set with the given name does not exist"
+        }
+      ],
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "set",
+            "values"
+          ],
+          "properties": {
+            "set": {
+              "ref": "tools.ozone.set.defs#setView",
+              "type": "ref"
+            },
+            "cursor": {
+              "type": "string"
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "parameters": {
+        "type": "params",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 100,
+            "maximum": 1000,
+            "minimum": 1
+          },
+          "cursor": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Get a specific set and its values"
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

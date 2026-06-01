@@ -1,0 +1,105 @@
+{
+  "id": "tools.ozone.verification.grantVerifications",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "verifications"
+          ],
+          "properties": {
+            "verifications": {
+              "type": "array",
+              "items": {
+                "ref": "#verificationInput",
+                "type": "ref"
+              },
+              "maxLength": 100,
+              "description": "Array of verification requests to process"
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "verifications",
+            "failedVerifications"
+          ],
+          "properties": {
+            "verifications": {
+              "type": "array",
+              "items": {
+                "ref": "tools.ozone.verification.defs#verificationView",
+                "type": "ref"
+              }
+            },
+            "failedVerifications": {
+              "type": "array",
+              "items": {
+                "ref": "#grantError",
+                "type": "ref"
+              }
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "description": "Grant verifications to multiple subjects. Allows batch processing of up to 100 verifications at once."
+    },
+    "grantError": {
+      "type": "object",
+      "required": [
+        "error",
+        "subject"
+      ],
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Error message describing the reason for failure."
+        },
+        "subject": {
+          "type": "string",
+          "format": "did",
+          "description": "The did of the subject being verified"
+        }
+      },
+      "description": "Error object for failed verifications."
+    },
+    "verificationInput": {
+      "type": "object",
+      "required": [
+        "subject",
+        "handle",
+        "displayName"
+      ],
+      "properties": {
+        "handle": {
+          "type": "string",
+          "format": "handle",
+          "description": "Handle of the subject the verification applies to at the moment of verifying."
+        },
+        "subject": {
+          "type": "string",
+          "format": "did",
+          "description": "The did of the subject being verified"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp for verification record. Defaults to current time when not specified."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the subject the verification applies to at the moment of verifying."
+        }
+      }
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

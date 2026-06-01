@@ -1,0 +1,29 @@
+{
+  "id": "tools.ozone.communication.listTemplates",
+  "defs": {
+    "main": {
+      "type": "query",
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "communicationTemplates"
+          ],
+          "properties": {
+            "communicationTemplates": {
+              "type": "array",
+              "items": {
+                "ref": "tools.ozone.communication.defs#templateView",
+                "type": "ref"
+              }
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "description": "Get list of all communication templates."
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

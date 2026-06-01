@@ -1,0 +1,68 @@
+{
+  "id": "tools.ozone.setting.defs",
+  "defs": {
+    "option": {
+      "type": "object",
+      "required": [
+        "key",
+        "value",
+        "did",
+        "scope",
+        "createdBy",
+        "lastUpdatedBy"
+      ],
+      "properties": {
+        "did": {
+          "type": "string",
+          "format": "did"
+        },
+        "key": {
+          "type": "string",
+          "format": "nsid"
+        },
+        "scope": {
+          "type": "string",
+          "knownValues": [
+            "instance",
+            "personal"
+          ]
+        },
+        "value": {
+          "type": "unknown"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime"
+        },
+        "createdBy": {
+          "type": "string",
+          "format": "did"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "datetime"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 10240,
+          "maxGraphemes": 1024
+        },
+        "managerRole": {
+          "type": "string",
+          "knownValues": [
+            "tools.ozone.team.defs#roleModerator",
+            "tools.ozone.team.defs#roleTriage",
+            "tools.ozone.team.defs#roleAdmin",
+            "tools.ozone.team.defs#roleVerifier"
+          ]
+        },
+        "lastUpdatedBy": {
+          "type": "string",
+          "format": "did"
+        }
+      }
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

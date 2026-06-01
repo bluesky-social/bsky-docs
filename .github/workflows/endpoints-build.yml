@@ -1,0 +1,54 @@
+name: Build endpoints reference
+
+# Builds the standalone HTTP/XRPC endpoint reference (endpoints/) into a static
+# site. Verifies the committed lexicons match their pinned CIDs, regenerates the
+# OpenAPI spec, and renders the Scalar static site. Deploy/publish is handled at
+# the hosting layer (Render) — add that step once a host + ENDPOINTS_URL exist.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "endpoints/**"
+      - ".github/workflows/endpoints-build.yml"
+  pull_request:
+    paths:
+      - "endpoints/**"
+      - ".github/workflows/endpoints-build.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: endpoints
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: endpoints/package-lock.json
+
+      - run: npm ci
+
+      # Errors if the committed lexicons/ don't match the CIDs in lexicons.json.
+      - name: Verify pinned lexicons
+        run: npm run install-lexicons:ci
+
+      - name: Generate OpenAPI spec
+        run: npm run build:openapi
+
+      - name: Render static site
+        run: npm run build:site
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: endpoints-site
+          path: endpoints/out
+
+      # DEPLOY (deferred): publish endpoints/out to the chosen host. We deploy
+      # via Render today; add the Render deploy hook / publish step here (and set
+      # ENDPOINTS_URL in the docs build) once the host + domain are settled.

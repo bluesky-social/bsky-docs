@@ -1,0 +1,44 @@
+{
+  "id": "tools.ozone.signature.findCorrelation",
+  "defs": {
+    "main": {
+      "type": "query",
+      "output": {
+        "schema": {
+          "type": "object",
+          "required": [
+            "details"
+          ],
+          "properties": {
+            "details": {
+              "type": "array",
+              "items": {
+                "ref": "tools.ozone.signature.defs#sigDetail",
+                "type": "ref"
+              }
+            }
+          }
+        },
+        "encoding": "application/json"
+      },
+      "parameters": {
+        "type": "params",
+        "required": [
+          "dids"
+        ],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "did"
+            }
+          }
+        }
+      },
+      "description": "Find all correlated threat signatures between 2 or more accounts."
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

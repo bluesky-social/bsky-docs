@@ -1,0 +1,97 @@
+{
+  "id": "chat.bsky.group.defs",
+  "defs": {
+    "joinRule": {
+      "type": "string",
+      "knownValues": [
+        "anyone",
+        "followedByOwner"
+      ]
+    },
+    "joinLinkView": {
+      "type": "object",
+      "required": [
+        "code",
+        "enabledStatus",
+        "requireApproval",
+        "joinRule",
+        "createdAt"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "joinRule": {
+          "ref": "#joinRule",
+          "type": "ref"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "datetime"
+        },
+        "enabledStatus": {
+          "ref": "#linkEnabledStatus",
+          "type": "ref"
+        },
+        "requireApproval": {
+          "type": "boolean"
+        }
+      }
+    },
+    "groupPublicView": {
+      "type": "object",
+      "required": [
+        "name",
+        "owner",
+        "memberCount",
+        "requireApproval"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "ref": "chat.bsky.actor.defs#profileViewBasic",
+          "type": "ref"
+        },
+        "memberCount": {
+          "type": "integer"
+        },
+        "requireApproval": {
+          "type": "boolean"
+        }
+      }
+    },
+    "joinRequestView": {
+      "type": "object",
+      "required": [
+        "convoId",
+        "requestedBy",
+        "requestedAt"
+      ],
+      "properties": {
+        "convoId": {
+          "type": "string"
+        },
+        "requestedAt": {
+          "type": "string",
+          "format": "datetime"
+        },
+        "requestedBy": {
+          "ref": "chat.bsky.actor.defs#profileViewBasic",
+          "type": "ref"
+        }
+      }
+    },
+    "linkEnabledStatus": {
+      "type": "string",
+      "knownValues": [
+        "enabled",
+        "disabled"
+      ]
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1,
+  "description": "[NOTE: This is under active development and should be considered unstable while this note is here]."
+}
