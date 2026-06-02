@@ -192,7 +192,7 @@
 .bpsBrand:hover .bpsBrand__w1 { color: #fff; }
 .bpsBrand:hover .bpsBrand__short { color: #5aa6ff; }
 
-/* ----- mono links (Get Started, at://) ----- */
+/* ----- mono links (Get Started, AT Protocol) ----- */
 .bpsNav--link {
   display: inline-flex;
   align-items: center;
@@ -204,7 +204,10 @@
   text-decoration: none;
 }
 .bpsNav--link:hover { color: #3994ff; }
-.bpsNav--plain { text-transform: none; font-size: 12.5px; }
+.bpsNav--plain { text-transform: none; font-size: 14px; transform: translateY(1px); }
+
+/* The short label is mobile-only; the long label is the desktop default. */
+.bpsNav__label--short { display: none; }
 
 /* "Get Started" reads friendlier than the mono masthead links: title case in
  * the default navbar font, to match the GitHub link on the right. */
@@ -236,6 +239,9 @@
   .bpsNav--friendly .bpsNav__label { display: none; }
   .bpsNav--friendly { gap: 0; }
   .bpsNav__butterfly { width: 32px; height: 28px; }
+  /* AT Protocol -> at:// on mobile */
+  .bpsNav__label--long { display: none; }
+  .bpsNav__label--short { display: inline; }
   /* tighten spacing between the entries on narrow screens */
   .navbar__items:not(.navbar__items--right) { gap: 16px; }
 }

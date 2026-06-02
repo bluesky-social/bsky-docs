@@ -109,11 +109,12 @@ const config = {
             to: "/docs/get-started",
           },
           {
-            // "at://" — stays as-is on mobile.
+            // "AT Protocol" — collapses to "at://" on mobile.
             type: "custom-navLink",
             position: "left",
             plain: true,
-            label: "at://",
+            label: "AT Protocol",
+            shortLabel: "at://",
             href: "https://atproto.com",
           },
           {

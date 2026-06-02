@@ -2,7 +2,9 @@
 sidebar_position: 11
 ---
 
-# oEmbed and Post Embed Widget
+# Embeds
+
+## oEmbed and Post Embed Widget
 
 Bluesky posts can be embedded in other websites a couple different ways. For a non-technical guide on how to embed Bluesky posts on other websites, [read here](https://bsky.social/about/blog/post-embeds-guide).
 

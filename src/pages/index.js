@@ -404,14 +404,14 @@ export default function Home() {
               title="Jetstream"
               em="v2"
               endpoint="wss://jetstream1.us-west.bsky.network"
-              what="Sync data from the network in realtime. Replay the data you care about. It’s just JSON."
+              what="Backfill data from the network or stream in real time. Replay the data you care about."
               href="https://github.com/bluesky-social/jetstream"
             />
             <ProtocolCard
               title="The"
               em="Relay"
               endpoint="wss://bsky.network"
-              what="Sync the full Atmosphere in a zero trust setting. Do it yourself. Build infrastructure others rely on."
+              what="Sync the full Atmosphere in a zero trust setting. Build your own independent infrastructure."
               href="https://atproto.com"
             />
             <div className="cell decor" aria-hidden="true">
@@ -421,13 +421,13 @@ export default function Home() {
             {/* Bottom row — friendly / legacy Bluesky */}
             <FriendlyCard
               title="Bluesky API"
-              what="Hack with the same API used by the Bluesky app. Work with profiles, posts, threads, relationships, interactions, and feeds."
+              what="Develop against Bluesky. Work with profiles, posts, threads, relationships, interactions, and feeds."
               cta="Get Started"
               to="/docs/get-started"
             />
             <FriendlyCard
               title="HTTP Reference"
-              what="Browse every XRPC endpoint in the atproto and Bluesky lexicons, with full request and response schemas."
+              what="Browse every API endpoint used by Bluesky, with full request and response schemas."
               cta="Browse the reference"
               // NOTE: temporary target — the HTTP reference is moving off this
               // site to a standalone OpenAPI site. Update when that lands.
@@ -442,13 +442,13 @@ export default function Home() {
             <AtprotoCard
               icon={<TutorialsIcon />}
               title="Tutorials"
-              what="Step-by-step guides for building on the AT Protocol — OAuth, custom feeds, bots, and more."
+              what="Step-by-step guides for building on the AT Protocol — custom feeds, bots, and more."
               href="https://atproto.com/guides/tutorials"
             />
             <AtprotoCard
               icon={<SdkIcon />}
               title="SDKs"
-              what="Official and community SDKs for TypeScript, Python, Go, and more, maintained on atproto.com."
+              what="Reference and community SDKs for TypeScript, Go, and many others."
               href="https://atproto.com/sdks"
             />
             <a

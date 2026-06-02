@@ -88,7 +88,7 @@ You can include multiple values in the array if there are multiple languages pre
 
 ## Mentions and links
 
-Mentions and links are annotations that point into the text of a post. They are actually part of a broader system for [rich-text facets](/docs/get-started/post-richtext). Facets only support links and mentions for now, but can be extended to support features like bold and italics in the future.
+Mentions and links are annotations that point into the text of a post. They are actually part of a broader system for [rich-text facets](/docs/about-bluesky-content/post-richtext). Facets only support links and mentions for now, but can be extended to support features like bold and italics in the future.
 
 Suppose we have a post:
 
