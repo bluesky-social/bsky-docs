@@ -405,14 +405,14 @@ export default function Home() {
               em="v2"
               endpoint="wss://jetstream1.us-west.bsky.network"
               what="Backfill data from the network or stream in real time. Replay the data you care about."
-              href="https://github.com/bluesky-social/jetstream"
+              href="/docs/jetstream"
             />
             <ProtocolCard
               title="The"
               em="Relay"
               endpoint="wss://bsky.network"
               what="Sync the full Atmosphere in a zero trust setting. Build your own independent infrastructure."
-              href="https://atproto.com"
+              href="/docs/relay"
             />
             <div className="cell decor" aria-hidden="true">
               <div className="repeat">{DECOR_WORD}</div>
@@ -431,7 +431,7 @@ export default function Home() {
               cta="Browse the reference"
               // NOTE: temporary target — the HTTP reference is moving off this
               // site to a standalone OpenAPI site. Update when that lands.
-              href="https://docs.bsky.app/docs/category/http-reference"
+              href="https://endpoints-production-21ea.up.railway.app/"
             />
             <div className="cell friendly logocard" aria-hidden="true">
               <Butterfly className="friendlyBfly" />
