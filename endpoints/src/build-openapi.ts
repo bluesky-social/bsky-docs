@@ -252,7 +252,7 @@ async function main() {
       {
         url: "https://{host}",
         description:
-          "Your PDS hostname. Use `bsky.social` if your account is hosted by Bluesky; replace it with your own PDS hostname (e.g. `pds.example.com`) if you're self-hosted. The PDS handles auth and proxies `app.bsky` / `chat.bsky` / `tools.ozone` calls onward. To get a token to make requests from this page, call `com.atproto.server.createSession` with your handle and an [app password](https://bsky.app/settings/app-passwords), and paste the returned `accessJwt` into the **Authentication** panel below. The token is then attached to every test request automatically.",
+          "Provide your PDS hostname. Use `bsky.social` if your account is hosted by Bluesky; replace it with your own PDS hostname (e.g. `pds.example.com`) if you're self-hosted. The PDS handles auth and proxies `app.bsky` / `chat.bsky` / `tools.ozone` calls onward. To get a token to make requests from this page, call `com.atproto.server.createSession` with your handle and an [app password](https://bsky.app/settings/app-passwords), and paste the returned `accessJwt` into the **Authentication** panel below. The token is then attached to every test request automatically.",
         variables: {
           host: { default: "bsky.social" },
         },

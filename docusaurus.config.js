@@ -87,20 +87,43 @@ const config = {
     ({
       image: "img/social-card-default.png",
       navbar: {
-        title: "Bluesky",
-        logo: {
-          alt: "Bluesky Logo",
-          src: "img/favicon.png",
-        },
+        // The brand lockup is rendered by the custom `custom-bpsBrand` item
+        // below (see src/components/Navbar/), so no default logo/title here.
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
+            // "Bluesky Protocol Services" lockup. No link target yet — add a
+            // `to: '/...'` (internal) or `href: 'https://...'` (external) here
+            // when one exists; it renders unlinked until then.
+            type: "custom-bpsBrand",
             position: "left",
-            label: "Docs",
           },
-          { to: "/blog", label: "Blog", position: "left" },
-          { href: "https://blueskydirectory.com/", label: "Directory", position: "left" },
+          {
+            // "Get Started" — old Bluesky butterfly + label; points where the
+            // Docs link used to. `friendly` renders it in title case with the
+            // default navbar font (vs. the mono/uppercase masthead style).
+            // Collapses to just the butterfly on mobile.
+            type: "custom-navLink",
+            position: "left",
+            icon: "butterfly",
+            friendly: true,
+            label: "Get Started",
+            to: "/docs/get-started",
+          },
+          {
+            // "at://" — stays as-is on mobile.
+            type: "custom-navLink",
+            position: "left",
+            plain: true,
+            label: "at://",
+            href: "https://atproto.com",
+          },
+          {
+            // Mobile-only: renders the docs sections into the hamburger on
+            // non-docs routes (the homepage). Null on desktop and on docs
+            // routes (where the real sidebar already fills the drawer).
+            type: "custom-docsMenu",
+            position: "left",
+          },
           {
             href: "https://github.com/bluesky-social",
             label: "GitHub",

@@ -116,3 +116,174 @@
 [data-theme='dark'] .kapa-ask-ai-button:hover {
   background: rgba(117, 188, 255, 0.2);
 }
+
+/* =====================================================================
+ * BPS masthead navbar — adapted from the landing mockup
+ * (../bps-website/prototypes/landing-bsky.html). Applies site-wide and
+ * stays dark in both color modes (the dark/light toggle still controls the
+ * page body). Brand lockup + the three left entries are driven by custom
+ * navbar item components (src/components/Navbar/, registered in
+ * src/theme/NavbarItem/ComponentTypes.js).
+ * ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+.navbar {
+  --ifm-navbar-background-color: #0d1117;
+  --ifm-navbar-link-color: #c4ccd8;
+  --ifm-navbar-link-hover-color: #3994ff;
+  --ifm-navbar-height: 64px;
+  border-bottom: 1px solid #1f2733;
+}
+/* keep the bar dark even in light mode */
+[data-theme='light'] .navbar {
+  --ifm-navbar-background-color: #0d1117;
+}
+/* no default brand link (we render our own lockup as the first item) */
+.navbar__brand:empty { display: none; }
+/* spacing between the left entries */
+.navbar__items:not(.navbar__items--right) { gap: 28px; }
+/* keep right-side controls legible on the dark bar */
+.navbar .clean-btn,
+.navbar__toggle {
+  color: #c4ccd8;
+}
+
+/* ----- brand lockup ----- */
+.bpsBrand {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 12px;
+  text-decoration: none;
+}
+.bpsBrand__pulseWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 34px;
+  color: #3994ff;
+  flex: 0 0 auto;
+}
+.bpsBrand__pulse { height: 36px; width: auto; display: block; }
+.bpsBrand__word {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.bpsBrand__full { display: flex; flex-direction: column; }
+.bpsBrand__w1 {
+  font-size: 17px; font-weight: 600; letter-spacing: -0.012em; color: #f0f6fc;
+}
+.bpsBrand__w2 {
+  margin-top: 3px;
+  font-size: 10.5px; font-weight: 500; letter-spacing: 0.02em; color: #c4ccd8;
+}
+/* On mobile the pulse butterfly is hidden and "bps" carries the brand instead.
+ * Plain lowercase blue monospace wordmark for now — a placeholder to be
+ * replaced by a real dithered "bps" logo asset later in design. */
+.bpsBrand__short {
+  display: none;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 22px; font-weight: 700; letter-spacing: 0.02em;
+  color: #3994ff;
+}
+.bpsBrand:hover .bpsBrand__w1 { color: #fff; }
+.bpsBrand:hover .bpsBrand__short { color: #5aa6ff; }
+
+/* ----- mono links (Get Started, at://) ----- */
+.bpsNav--link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #c4ccd8;
+  text-decoration: none;
+}
+.bpsNav--link:hover { color: #3994ff; }
+.bpsNav--plain { text-transform: none; font-size: 12.5px; }
+
+/* "Get Started" reads friendlier than the mono masthead links: title case in
+ * the default navbar font, to match the GitHub link on the right. */
+.bpsNav--friendly {
+  font-family: var(--ifm-font-family-base);
+  font-weight: var(--ifm-font-weight-semibold);
+  font-size: 1rem;
+  letter-spacing: normal;
+  text-transform: none;
+  gap: 10px;
+}
+
+/* sized to match the brand "pulse" butterfly for consistency */
+.bpsNav__butterfly {
+  width: 41px; height: 36px;
+  color: #3994ff;
+  flex: 0 0 auto;
+}
+
+/* ----- mobile: all three entries STAY in the top bar, abbreviated. The
+ * hamburger holds GitHub + the docs sidebar (docs routes) or the docs sections
+ * surfaced by custom-docsMenu (non-docs routes). ----- */
+@media (max-width: 996px) {
+  /* brand: drop the pulse butterfly, show the dithered "bps" wordmark */
+  .bpsBrand__pulseWrap { display: none; }
+  .bpsBrand__full { display: none; }
+  .bpsBrand__short { display: inline-block; }
+  /* Get Started collapses to just the butterfly (label hidden, no extra gap) */
+  .bpsNav--friendly .bpsNav__label { display: none; }
+  .bpsNav--friendly { gap: 0; }
+  .bpsNav__butterfly { width: 32px; height: 28px; }
+  /* tighten spacing between the entries on narrow screens */
+  .navbar__items:not(.navbar__items--right) { gap: 16px; }
+}
+
+/* ----- dark Algolia search button on the masthead ----- */
+.navbar .DocSearch-Button {
+  background: #161c26;
+  border: 1px solid #2a3340;
+  border-radius: 6px;
+}
+.navbar .DocSearch-Button:hover {
+  background: #1c2330;
+  box-shadow: none;
+}
+.navbar .DocSearch-Button .DocSearch-Search-Icon { color: #9ca3af; }
+.navbar .DocSearch-Button-Placeholder { color: #9ca3af; }
+.navbar .DocSearch-Button-Key {
+  background: #0d1117;
+  border: 1px solid #2a3340;
+  box-shadow: none;
+  color: #9ca3af;
+}
+
+/* ----- mobile hamburger drawer: it inherits the dark navbar background, so
+ * make its menu text legible (light) in both color modes. ----- */
+.navbar-sidebar {
+  --ifm-menu-color: #c4ccd8;
+  --ifm-menu-color-active: #fff;
+}
+.navbar-sidebar .menu__link,
+.navbar-sidebar .menu__list-item-collapsible > .menu__link {
+  color: #c4ccd8;
+}
+.navbar-sidebar .menu__link:hover,
+.navbar-sidebar .menu__link--active,
+.navbar-sidebar .menu__list-item-collapsible:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+.navbar-sidebar .menu__link--sublist-caret::after,
+.navbar-sidebar .menu__caret::before {
+  filter: invert(1) brightness(1.6);
+}
+/* small section label for the docs links surfaced on non-docs routes */
+.navbar-sidebar .bpsDocsMenuHeading {
+  margin-top: 6px;
+  padding: 8px 12px 4px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #6b7686;
+}
