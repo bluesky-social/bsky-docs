@@ -6,6 +6,9 @@ import Butterfly from '../components/Navbar/Butterfly'
 
 import '../css/landing.css'
 
+// Static crop of atproto.com's amber dot-globe, used in the third row's logo card.
+const atprotoGlobe = require('@site/static/img/atproto-globe.png').default
+
 // ---------------------------------------------------------------------------
 // Decorative, static markup carried over verbatim from the design mockup
 // (../bps-website/prototypes/landing-bsky.html). These blocks are pure SVG /
@@ -142,6 +145,37 @@ function FriendlyCard({ title, what, cta, href, to }) {
     <Link className="cell friendly" to={to}>
       {inner}
     </Link>
+  )
+}
+
+// Thin-stroke line icons, echoing atproto.com's card iconography.
+function TutorialsIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 6.5C10.4 5.4 7.8 5 4 5v12c3.8 0 6.4.4 8 1.5 1.6-1.1 4.2-1.5 8-1.5V5c-3.8 0-6.4.4-8 1.5Z" />
+      <path d="M12 6.5v12" />
+    </svg>
+  )
+}
+function SdkIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M8.5 8 4 12l4.5 4M15.5 8 20 12l-4.5 4M13.5 5.5l-3 13" />
+    </svg>
+  )
+}
+
+// Third-row card: atproto.com design language (amber accent, thin line icon).
+function AtprotoCard({ icon, title, what, href }) {
+  return (
+    <a className="cell atproto" href={href} target="_blank" rel="noopener noreferrer">
+      <span className="atproto-icon" aria-hidden="true">{icon}</span>
+      <h3>{title}</h3>
+      <p className="what">{what}</p>
+      <span className="more">Learn more →</span>
+    </a>
   )
 }
 
@@ -292,8 +326,8 @@ export default function Home() {
               <Link className="btn primary" to="/docs/get-started">
                 Get Started
               </Link>
-              <Link className="btn ghost" to="/docs/category/starter-templates">
-                Starter Templates
+              <Link className="btn ghost" to="https://atproto.com/guides/tutorials">
+                Tutorials
               </Link>
             </div>
             <p className="signoff">
@@ -403,6 +437,29 @@ export default function Home() {
               <Butterfly className="friendlyBfly" />
               <span className="friendlyWord">Bluesky</span>
             </div>
+
+            {/* Third row — atproto.com (amber accent, thin line icons) */}
+            <AtprotoCard
+              icon={<TutorialsIcon />}
+              title="Tutorials"
+              what="Step-by-step guides for building on the AT Protocol — OAuth, custom feeds, bots, and more."
+              href="https://atproto.com/guides/tutorials"
+            />
+            <AtprotoCard
+              icon={<SdkIcon />}
+              title="SDKs"
+              what="Official and community SDKs for TypeScript, Python, Go, and more, maintained on atproto.com."
+              href="https://atproto.com/sdks"
+            />
+            <a
+              className="cell atproto globecard"
+              href="https://atproto.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="globeImg" src={atprotoGlobe} alt="" aria-hidden="true" />
+              <span className="globeWord">AT&nbsp;Protocol</span>
+            </a>
           </div>
         </section>
 

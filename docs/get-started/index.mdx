@@ -1,0 +1,154 @@
+---
+slug: /get-started
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get Started
+
+Make your first post to the Bluesky app via the API in under 5 minutes.
+
+## Install the SDK
+
+Choose the SDK you want to work with. Below, we use TypeScript and Python. You can follow the instructions for the community-maintained [atproto.dart package here](https://atprotodart.com/docs/intro).
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Install [@atproto/api](https://www.npmjs.com/package/@atproto/api) using your preferred package manager.
+
+    ```
+    yarn add @atproto/api
+    ```
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+    Install CURL if you need to. It comes pre-installed on most operating systems.
+  </TabItem>
+  <TabItem value="python" label="Python">
+      Install [atproto](https://pypi.org/project/atproto/) using your preferred package manager.
+
+      ```
+      pip install atproto
+      ```
+    </TabItem>
+</Tabs>
+
+## Create a session
+
+Create an authentication session with your username and password.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript
+    import { BskyAgent } from '@atproto/api'
+
+    const agent = new BskyAgent({
+      service: 'https://bsky.social'
+    })
+    await agent.login({
+      identifier: 'handle.example.com',
+      password: 'hunter2'
+    })
+    ```
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+    Replace `$BLUESKY_HANDLE` and `$BLUESKY_PASSWORD` with your credentials, and `$PDSHOST` with your PDS host (including `https://`).
+
+    ```bash
+    curl -X POST $PDSHOST/xrpc/com.atproto.server.createSession \
+        -H "Content-Type: application/json" \
+        -d '{"identifier": "'"$BLUESKY_HANDLE"'", "password": "'"$BLUESKY_PASSWORD"'"}'
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+      ```python
+      from atproto import Client
+
+      client = Client()
+      client.login('handle.example.com', 'hunter2')
+      ```
+    </TabItem>
+</Tabs>
+
+The `com.atproto.server.createSession` API endpoint returns a session object containing two API tokens:
+* `accessJwt`: an access token which is used to authenticate requests but expires after a few minutes
+* `refreshJwt`: a refresh token which lasts longer and is used only to update the session with a new access token
+
+<Tabs groupId="sdk" className="hiddenTabs">
+  <TabItem value="ts" label="Typescript">
+    The agent object stores this session information for you, and will include it in the headers of its requests.
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+  </TabItem>
+  <TabItem value="python" label="Python">
+      The client instance stores and manages this session information for you, and will include it in the headers of its requests.
+  </TabItem>
+</Tabs>
+
+## Create a post
+
+Now you can create a post by sending a POST request to the createRecord endpoint.
+
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript
+    await agent.post({
+      text: 'Hello world! I posted this via the API.',
+      createdAt: new Date().toISOString()
+    })
+    ```
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+    Replace `$BLUESKY_HANDLE` with your handle, `$PDSHOST` with your PDS host (including `https://`), and and `$ACCESS_JWT` with the JWT in the response from createSession.
+
+    ```bash
+    curl -X POST $PDSHOST/xrpc/com.atproto.repo.createRecord \
+        -H "Authorization: Bearer $ACCESS_JWT" \
+        -H "Content-Type: application/json" \
+        -d "{\"repo\": \"$BLUESKY_HANDLE\", \"collection\": \"app.bsky.feed.post\", \"record\": {\"text\": \"Hello world! I posted this via the API.\", \"createdAt\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}}"
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python
+    post = client.send_post('Hello world! I posted this via the Python SDK.')
+    ```
+  </TabItem>
+</Tabs>
+
+This will return an object containing the post's URI and a CID (a hash of the content).
+
+
+<Tabs groupId="sdk" className="hiddenTabs">
+  <TabItem value="ts" label="Typescript">
+    ```json
+    {
+        "uri": "at://did:plc:abc123..../app.bsky.feed.post/xyz...",
+        "cid": "abc..."
+    }
+    ```
+  </TabItem>
+  <TabItem value="curl" label="CURL">
+    ```json
+    {
+        "uri": "at://did:plc:abc123..../app.bsky.feed.post/xyz...",
+        "cid": "abc..."
+    }
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python
+    post.uri  # at://did:plc:abc123..../app.bsky.feed.post/xyz...
+    post.cid  # abc...
+    ```
+  </TabItem>
+</Tabs>
+
+Check out your profile to see the post you just created!
+
+## Next Steps
+
+- Keep going with the Get Started guides, like [creating a post with rich text](/docs/get-started/creating-a-post) or [viewing feeds](/docs/get-started/viewing-feeds).
+- Sync the network in realtime with [Jetstream](/docs/jetstream) or [the Relay](/docs/relay).
+- Find more tutorials and guides on [atproto.com](https://atproto.com/guides/tutorials).

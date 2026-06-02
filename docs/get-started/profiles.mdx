@@ -1,0 +1,128 @@
+---
+sidebar_label: Profiles
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Profiles
+
+A profile is made up of a user's biographical information — display name, avatar, banner, and bio — along with their posts. This guide covers reading any user's profile and editing your own.
+
+## Viewing a profile
+
+:::info
+To learn how to fetch a user's posts, see the [Viewing
+feeds](/docs/get-started/viewing-feeds#author-feeds) tutorial under "Author
+feeds."
+:::
+
+### Fetching a user's profile info
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    To fetch a user's profile info, you can use the `getProfile` method.
+
+    ```typescript title="agent.getProfile"
+    const { data } = await agent.getProfile({ actor: 'did:plc:...' })
+    const { did, displayName, ... } = data
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    To fetch a user's profile info, you can use the `get_profile` method.
+
+    ```python title="agent.get_profile"
+    data = client.get_profile(actor='did:plc:...')
+    did = data.did
+    display_name = data.display_name
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                                           | Required |
+| --------- | -------- | ----------------------------------------------------- | -------- |
+| `actor`   | `string` | The DID (or handle) of the user whose profile you'd like to fetch | Yes      |
+
+### Fetching multiple profiles at once
+
+Fetching multiple profiles is as easy as fetching a single profile:
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.getProfiles"
+    const { data } = await agent.getProfiles({ actors: ['did:plc:...', ...] })
+    const { profiles } = data
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.get_profiles"
+    data = client.get_profiles(actors=['did:plc:...', ...])
+    profiles = data.profiles
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                                           | Required |
+| --------- | -------- | ----------------------------------------------------- | -------- |
+| `actors`   | `string[]` | The DIDs (or handles) of the users whose profiles you'd like to fetch | Yes      |
+
+## Editing a profile
+
+An authenticated user can edit their profile, including updating their display
+name, avatar, banner image, and bio.
+
+Editing a profile works as an "upsert" operation. If the profile does not exist,
+such as immediately after account creation, the profile will be created. And if
+the profile already exists, you must merge in new values manually and return
+result to be updated.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.upsertProfile"
+    await agent.upsertProfile(existingProfile => {
+      const existing = existingProfile ?? {}
+
+      existing.displayName = 'New display name who dis'
+      existing.description = 'New bio who dis'
+
+      return existing
+    })
+    ```
+  </TabItem>
+</Tabs>
+
+:::tip
+Only accounts with a valid profile are indexed for search. When creating a new
+account, we recommend creating a minimal profile with `displayName` set to the
+user's handle.
+:::
+
+### Updating profile avatar or banner
+
+Images are handled as separate records by Bluesky, so adding or updating an
+avatar or profile banner requires an additional step of uploading the image blob
+to your PDS.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.upsertProfile"
+    const avatar = 'data:image/png;base64,...'
+
+    await agent.upsertProfile(existingProfile => {
+      const existing = existingProfile ?? {}
+
+      const { data } = await agent.uploadBlob(convertDataURIToUint8Array(avatar), {
+        encoding,
+      })
+
+      existing.avatar = data.blob
+
+      return existing
+    })
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+_Looking for more? Browse additional tutorials and guides on [atproto.com](https://atproto.com/guides/tutorials)._

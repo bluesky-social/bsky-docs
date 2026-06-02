@@ -82,7 +82,7 @@ You are within your rights to disable Watchtower auto-updates, but we strongly e
 
 # Learn more about atproto federation
 
-Check out the [high-level view of federation](/docs/advanced-guides/federation-architecture).
+Check out the [high-level view of federation](https://atproto.com/guides/overview).
 
 Dive deeper with the [atproto docs](https://atproto.com/docs).
 

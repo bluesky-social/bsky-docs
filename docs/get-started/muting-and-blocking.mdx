@@ -1,0 +1,137 @@
+---
+sidebar_label: Muting and blocking
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Muting and blocking users
+
+Muting and blocking both let you limit your exposure to another user, in
+different ways. Muting quietly hides someone's posts from your feeds, while
+blocking prevents interaction in both directions.
+
+## Muting
+
+Muting a user hides their posts from your feeds. Mutes are private — like Bookmarks, they are stored on the [Bluesky AppView](https://atproto.com/guides/overview#app-views), rather than in your PDS. Muting a user is as easy as liking a post or following a user.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.mute"
+      await agent.mute(did)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.mute"
+      client.mute(did)
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                 | Required |
+| --------- | -------- | --------------------------- | -------- |
+| `did`     | `string` | The DID of the user to mute | Yes      |
+
+### Unmuting a user
+
+Easy peasy:
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.unmute"
+      await agent.unmute(did)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.unmute"
+      client.unmute(did)
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                    | Required |
+| --------- | -------- | ------------------------------ | -------- |
+| `did`     | `string` | The DID of the user to un-mute | Yes      |
+
+## Blocking
+
+Blocking a user prevents interaction and hides the user from the client experience. Blocked accounts will not be able to like, reply, mention, or follow you. Their posts, replies, and profile in search will also be hidden from you. Blocks are [public](/blog/block-implementation).
+
+Blocking users is as simple as muting, but requires creating a record directly.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.app.bsky.graph.block.create"
+    const { uri } = await agent.app.bsky.graph.block.create(
+      { repo: agent.session.did },
+      {
+        subject: blockingUserDid,
+        createdAt: new Date().toISOString()
+      },
+    )
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.app.bsky.graph.block.create"
+    block_record = models.AppBskyGraphBlock.Record(
+      subject=blocked_user_did, 
+      created_at=client.get_current_time_iso()
+    )
+    uri = client.app.bsky.graph.block.create(client.me.did, block_record).uri
+    ```
+  </TabItem>
+</Tabs>
+
+The `agent.app.bsky.graph.block.create` method takes two position parameters.
+First, the repo:
+
+| Parameter | Type     | Description                       | Required |
+| --------- | -------- | --------------------------------- | -------- |
+| `repo`    | `string` | The DID of the authenticated user | Yes      |
+
+And the block record itself:
+
+| Parameter   | Type     | Description                  | Required |
+| ----------- | -------- | ---------------------------- | -------- |
+| `subject`   | `string` | The DID of the user to block | Yes      |
+| `createdAt` | `string` | The current timestamp        | Yes      |
+
+### Unblocking a user
+
+Similar to likes and follows, unblocking a user is as simple as deleting the
+record.
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.app.bsky.graph.block.delete"
+    import { AtUri } from '@atproto/api'
+
+    const { rkey } = new AtUri(uri)
+
+    await agent.app.bsky.graph.block.delete(
+      {
+        repo: agent.session.did,
+        rkey,
+      },
+    )
+    ```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.app.bsky.graph.block.delete"
+    from atproto import AtUri
+
+    rkey = AtUri.from_str(uri).rkey
+    client.app.bsky.graph.block.delete(client.me.did, rkey)
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                               | Required |
+| --------- | -------- | ----------------------------------------- | -------- |
+| `repo`    | `string` | The DID of the authenticated user         | Yes      |
+| `rkey`    | `string` | The record key (rkey) of the block record | Yes      |
+
+---
+
+_Looking for more? Browse additional tutorials and guides on [atproto.com](https://atproto.com/guides/tutorials)._

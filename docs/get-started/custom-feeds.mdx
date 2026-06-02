@@ -1,0 +1,212 @@
+---
+sidebar_position: 11
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Custom feeds
+
+Custom feeds are algorithmic feed generators. To users, this is their timeline. This tutorial will explain how to interact with a feed generator in the network.
+
+:::tip
+Anybody can create a custom feed. See the [custom feed tutorial on atproto.com](https://atproto.com/guides/custom-feed-tutorial) to get started.
+:::
+
+## Getting a feed generator's description
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Call app.bsky.feed.getFeedGenerator to view a feedgen's description.
+
+    ```ts
+    agent.app.bsky.feed.getFeedGenerator({
+      feed: feedUri
+    })
+    ```
+
+    The output will match this interface:
+
+    ```ts title="getFeedGenerator() output"
+    {
+      view: { // AppBskyFeedDefs.GeneratorView 
+        uri: string;
+        cid: string;
+        did: string;
+        creator: AppBskyActorDefs.ProfileView;
+        displayName: string;
+        description?: string;
+        descriptionFacets?: AppBskyRichtextFacet.Main[];
+        avatar?: string;
+        likeCount?: number;
+        viewer?: GeneratorViewerState;
+        indexedAt: string;
+      }
+      isOnline: boolean;
+      isValid: boolean;
+    }
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Call app.bsky.feed.getFeedGenerator to view a feedgen's description.
+
+    ```python
+    client.app.bsky.feed.get_feed_generator({'feed': feed_uri})
+    ```
+
+    The output will match this model:
+    ```python title="get_feed_generator() output"
+    class Response(base.ResponseModelBase):
+        is_online: bool
+        is_valid: bool
+        view: 'models.AppBskyFeedDefs.GeneratorView'
+    ```
+
+    where `view` is:
+    ```python title="GeneratorView model"
+    class GeneratorView(base.ModelBase):
+        cid: str
+        creator: 'models.AppBskyActorDefs.ProfileView'
+        did: str
+        display_name: str
+        indexed_at: str
+        uri: str
+        avatar: t.Optional[str] = None
+        description: t.Optional[str]
+        description_facets: t.Optional[t.List['models.AppBskyRichtextFacet.Main']] = None
+        like_count: t.Optional[int] = None
+        viewer: t.Optional['models.AppBskyFeedDefs.GeneratorViewerState'] = None
+    ```
+  </TabItem>
+</Tabs>
+
+## Viewing a feed generator's posts
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Call app.bsky.feed.getFeed to view posts from a feedgen.
+
+    ```ts
+    agent.app.bsky.feed.getFeed({
+      feed: feedUri,
+      limit: 30,
+      cursor
+    })
+    ```
+
+    The output will match this interface:
+
+    ```ts title="getFeed() output"
+    {
+      cursor?: string;
+      feed: AppBskyFeedDefs.FeedViewPost[];
+    }
+    ```
+
+    Use the returned cursor to fetch additional pages of posts.
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Call app.bsky.feed.getFeed to view posts from a feedgen.
+
+    ```python
+    client.app.bsky.feed.get_feed({'feed': feed_uri, 'limit': 30, 'cursor': cursor})
+    ```
+
+    The output will match this interface:
+
+    ```python title="get_feed() output"
+    class Response(base.ResponseModelBase):
+        feed: t.List['models.AppBskyFeedDefs.FeedViewPost']
+        cursor: t.Optional[str] = None
+    ```
+
+    Use the returned cursor to fetch additional pages of posts.
+  </TabItem>
+</Tabs>
+
+## Has the user liked a feedgen?
+
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    When you call app.bsky.feed.getFeedGenerator, you can examine the `viewer` field to determine if the user has liked the feedgen.
+
+    ```ts title="viewer object"
+    {
+      like?: string; // the URI of the like record if liked
+    }
+    ```
+
+    For example:
+
+    ```ts
+    const res = await agent.app.bsky.feed.getFeedGenerator({
+      feed: feedUri
+    })
+    if (res.data.list.viewer?.like) {
+      // has liked list
+    }
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    When you call app.bsky.feed.getFeedGenerator, you can examine the `viewer` field to determine if the user has liked the feedgen.
+
+    ```python title="viewer model"
+    class GeneratorViewerState(base.ModelBase):
+        like: t.Optional[str] = None  # the URI of the like record if liked
+    ```
+
+    For example:
+
+    ```python
+    feed = client.app.bsky.feed.get_feed_generator({'feed': feed_uri})
+    if feed.view.viewer and feed.view.viewer.like:
+        print('liked')
+    ```
+  </TabItem>
+</Tabs>
+
+## Liking and unliking a feedgen
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Liking a feed is the same as liking any other item in the network. You just use the URI and CID of the feed generator to identify the feed.
+
+    ```ts
+    const {data: feedInfo} = agent.app.bsky.feed.getFeedGenerator({
+      feed: feedUri
+    })
+    await agent.like(feedUri, feedInfo.view.cid)
+    ```
+
+    Unliking a feed works the same way:
+    
+    ```ts
+    const {data: feedInfo} = agent.app.bsky.feed.getFeedGenerator({
+      feed: feedUri
+    })
+    await agent.unlike(feedInfo.view.viewer.like)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Liking a feed is the same as liking any other item in the network. You just use the URI and CID of the feed generator to identify the feed.
+
+    ```python
+    feed = client.app.bsky.feed.get_feed_generator({'feed': feed_uri})
+    client.like(feed.view.uri, feed.view.cid)
+    ```
+
+    Unliking a feed works the same way:
+    
+    ```python
+    feed = client.app.bsky.feed.get_feed_generator({'feed': feed_uri})
+    if feed.view.viewer and feed.view.viewer.like:
+        print(client.unlike(feed.view.viewer.like))
+    ```
+  </TabItem>
+</Tabs>
+
+
+---
+
+_Looking for more? Browse additional tutorials and guides on [atproto.com](https://atproto.com/guides/tutorials)._

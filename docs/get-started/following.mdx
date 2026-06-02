@@ -1,0 +1,59 @@
+---
+sidebar_position: 7
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Following and unfollowing
+
+## Following
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    Following a user is as easy as calling `agent.follow` with the DID of the user you want to follow.
+
+    ```typescript title="agent.follow"
+      const { uri } = await agent.follow(did)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    Following a user is as easy as calling `client.follow` with the DID of the user you want to follow.
+
+    ```python title="client.follow"
+      uri = client.follow(did).uri
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                   | Required |
+| --------- | -------- | ----------------------------- | -------- |
+| `did`     | `string` | The DID of the user to follow | Yes      |
+
+## Unfollowing 
+
+Unfollowing a user involves deleting the follow record via its URI, returned
+from `agent.follow`. This is very similar to what we did when [unliking a
+post](/docs/get-started/like-repost).
+
+<Tabs groupId="sdk">
+  <TabItem value="ts" label="Typescript">
+    ```typescript title="agent.deleteFollow"
+      await agent.deleteFollow(uri)
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python title="client.delete_follow"
+      client.delete_follow(uri)
+    ```
+  </TabItem>
+</Tabs>
+
+| Parameter | Type     | Description                   | Required |
+| --------- | -------- | ----------------------------- | -------- |
+| `uri`     | `string` | The URI of the follow record to delete | Yes      |
+
+
+---
+
+_Looking for more? Browse additional tutorials and guides on [atproto.com](https://atproto.com/guides/tutorials)._

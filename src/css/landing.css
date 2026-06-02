@@ -564,6 +564,68 @@
 }
 .bps-home .prod-grid .cell.decor .repeat .hi { color: var(--bps-rule-2); }
 
+/* ----- third row: atproto.com design language (amber accent, thin icons) ----- */
+.bps-home .prod-grid .cell.atproto {
+  text-decoration: none;
+  color: inherit;
+  background: #0a0e14;
+  transition: background .15s ease;
+}
+.bps-home .prod-grid a.cell.atproto:hover { background: #0e131c; }
+.bps-home .prod-grid .cell.atproto .atproto-icon {
+  display: block;
+  margin: 2px 0 18px;
+  color: #f5b740;
+}
+.bps-home .prod-grid .cell.atproto .atproto-icon svg { width: 42px; height: 42px; display: block; }
+.bps-home .prod-grid .cell.atproto h3 {
+  margin: 0;
+  font-family: var(--bps-font-sans);
+  font-size: 21px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2;
+  color: var(--bps-ink);
+}
+.bps-home .prod-grid .cell.atproto .what {
+  margin: 12px 0 0;
+  font-family: var(--bps-font-sans);
+  font-size: 14.5px; line-height: 1.55;
+  color: var(--bps-ink-soft);
+  max-width: 36ch;
+}
+.bps-home .prod-grid .cell.atproto .more {
+  margin-top: auto;
+  margin-bottom: 28px;
+  align-self: start;
+  font-family: var(--bps-font-mono);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #f5b740;
+  border-bottom: 1.5px solid rgba(245, 183, 64, 0.45);
+  padding-bottom: 1px;
+  transition: border-color .15s ease;
+}
+.bps-home .prod-grid a.cell.atproto:hover .more { border-bottom-color: #f5b740; }
+
+/* atproto logo card — the dot-globe + wordmark, mirrors the other logo cells */
+.bps-home .prod-grid .cell.atproto.globecard {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #080b11;
+}
+.bps-home .prod-grid .globeImg {
+  width: 150px; height: 150px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  -webkit-mask-image: radial-gradient(circle, #000 56%, transparent 72%);
+  mask-image: radial-gradient(circle, #000 56%, transparent 72%);
+}
+.bps-home .prod-grid .globeWord {
+  font-family: var(--bps-font-sans);
+  font-size: 24px; font-weight: 700; letter-spacing: -0.02em;
+  color: var(--bps-ink);
+}
+
 /* ============== QUOTE ============== */
 .bps-home .quote {
   padding: 120px 60px 120px;

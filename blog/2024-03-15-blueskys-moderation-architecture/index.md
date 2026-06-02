@@ -127,7 +127,7 @@ Users can then tune how the application handles these labels to get the outcomes
 
 _Users configure whether they want to use each label._
 
-Learn more about label definitions in the [API Docs on Labelers and Moderation](https://docs.bsky.app/docs/advanced-guides/moderation).
+Learn more about label definitions in the [API Docs on Labelers and Moderation](https://atproto.com/specs/label).
 
 
 ## Running a labeler
@@ -194,6 +194,6 @@ Additional reading:
 
 
 
-* [API Docs on Labelers and Moderation](https://docs.bsky.app/docs/advanced-guides/moderation)
+* [API Docs on Labelers and Moderation](https://atproto.com/specs/label)
 * [Labels specification](https://atproto.com/specs/label)
 * [Blogpost: Bluesky’s Stackable Approach to Moderation](https://bsky.social/about/blog/03-12-2024-stackable-moderation) 

@@ -91,11 +91,10 @@ const config = {
         // below (see src/components/Navbar/), so no default logo/title here.
         items: [
           {
-            // "Bluesky Protocol Services" lockup. No link target yet — add a
-            // `to: '/...'` (internal) or `href: 'https://...'` (external) here
-            // when one exists; it renders unlinked until then.
+            // "Bluesky Protocol Services" lockup → homepage.
             type: "custom-bpsBrand",
             position: "left",
+            to: "/",
           },
           {
             // "Get Started" — old Bluesky butterfly + label; points where the
@@ -138,8 +137,12 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Starter Templates",
-                to: "/docs/category/starter-templates",
+                label: "Get Started",
+                to: "/docs/get-started",
+              },
+              {
+                label: "Tutorials",
+                href: "https://atproto.com/guides/tutorials",
               },
               {
                 label: "AT Protocol",
