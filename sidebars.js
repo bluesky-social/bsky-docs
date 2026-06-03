@@ -52,7 +52,7 @@ const sidebars = {
       ],
     },
     {type: 'link', label: 'Tutorials', href: 'https://atproto.com/guides/tutorials'},
-    {type: 'category', label: 'Jetstream', link: { type: 'doc', id: 'jetstream' }, items: ['jetstream-backfill'] },
+    {type: 'category', label: 'Jetstream', link: { type: 'doc', id: 'jetstream' }, items: ['jetstream-backfill', 'jetstream-webhooks', 'jetstream-analytics'] },
     {type: 'category', label: 'Relay', link: {type: 'doc', id: 'relay'}, items: ['consuming-the-firehose']},
     // A few related docs are nested under a parent doc to keep the top level
     // to ~9-10 items. The category links to the parent doc itself.

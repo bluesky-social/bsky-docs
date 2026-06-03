@@ -1,0 +1,174 @@
+---
+sidebar_label: Forwarding to webhooks
+description: Bridge Jetstream into Discord, Slack, or any HTTP webhook to surface realtime network activity in the channels your team already watches.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Forwarding Jetstream to webhooks
+
+Most teams already have a notification surface — a Discord channel, a Slack
+workspace, an in-house alerting endpoint. Jetstream is a natural source to point
+at those: filter the slice of the network you care about, forward each matching
+event to the webhook, and you have realtime activity landing in the place your
+team already watches.
+
+This is one of the lightest-weight things you can do with Jetstream. There's no
+state to keep, no database, no scheduler — just a WebSocket on one side, an HTTP
+POST on the other, and a few lines of glue in between.
+
+Common patterns this fits:
+
+- **Watching a known set of accounts** — alert when any DID in a watchlist
+  posts, follows, or has its identity updated.
+- **Auditing your own app's writes** — record every commit to a collection your
+  app cares about into an append-only log.
+- **Moderation triage** — push matches against a list into a queue your
+  moderators already read.
+- **Brand or keyword monitoring** — forward posts containing a watched word to
+  a team channel.
+
+## Slice as much as you can on the server
+
+The single biggest lever for keeping this cheap is **not asking for more data
+than you need**. Every Jetstream subscription filters in two places, and the
+order matters:
+
+- **Server-side**, via [`wantedCollections` and `wantedDids`](/docs/jetstream#filtering-ask-for-just-your-slice):
+  Jetstream narrows the stream before it ever reaches your process. Free; use
+  it aggressively.
+- **Client-side**, in your code: only when the server filters can't express
+  what you need — for example, matching the post `text` against a keyword.
+
+A subscription with `wantedDids=<10 accounts>&wantedCollections=app.bsky.feed.post`
+is a couple of events per second instead of the full firehose. The receive
+loop barely does any work; almost everything you read is already a match.
+
+## Example: alert on activity from a watchlist
+
+This script watches a small list of accounts and posts a Discord message
+whenever any of them creates a new post. Because every event the server sends
+is already a match, there's no client-side filtering — the forward function
+just builds a payload and POSTs it.
+
+```python
+import asyncio
+import json
+import aiohttp
+import websockets
+
+# Server-side filter does all the work: only events produced by these DIDs,
+# only post records. Add more DIDs or collections as needed.
+WATCHLIST = [
+    "did:plc:eygmaihciaxprqvxpfvl6flk",
+    "did:plc:wa7b35aakoll7hugkrjtf3xf",
+]
+
+params = "&".join(
+    [f"wantedDids={did}" for did in WATCHLIST]
+    + ["wantedCollections=app.bsky.feed.post"]
+)
+JETSTREAM = f"wss://jetstream2.us-east.bsky.network/subscribe?{params}"
+WEBHOOK = "https://discord.com/api/webhooks/..."  # your webhook URL
+
+async def forward(session, msg):
+    record = msg["commit"]["record"]
+    did = msg["did"]
+    rkey = msg["commit"]["rkey"]
+    url = f"https://bsky.app/profile/{did}/post/{rkey}"
+    payload = {"content": f"New post: {url}\n> {record.get('text', '')[:280]}"}
+    async with session.post(WEBHOOK, json=payload) as resp:
+        await resp.read()
+
+async def main():
+    async with aiohttp.ClientSession() as session:
+        async with websockets.connect(JETSTREAM) as ws:
+            async for raw in ws:
+                msg = json.loads(raw)
+                if msg.get("kind") != "commit":
+                    continue
+                if msg["commit"].get("operation") != "create":
+                    continue
+                # Don't await — let the forward happen in the background
+                # so a slow webhook never stalls the WebSocket read loop.
+                asyncio.create_task(forward(session, msg))
+
+asyncio.run(main())
+```
+
+That's the whole bridge. Each matching post lands in your channel within
+seconds of being created on the network.
+
+## When the server filter isn't enough
+
+`wantedDids` and `wantedCollections` are the only server-side filters, so any
+predicate beyond "who produced it" and "what record type" has to run in your
+process. Keyword and content matching are the common cases. The shape is the
+same as above, but you keep the broad `wantedCollections` filter and add a
+check in the receive loop:
+
+```python
+KEYWORDS = {"bluesky", "atproto"}
+
+# ...inside the receive loop, before asyncio.create_task(forward(...)):
+text = msg["commit"]["record"].get("text", "")
+if not any(k.lower() in text.lower() for k in KEYWORDS):
+    continue
+```
+
+A `wantedCollections=app.bsky.feed.post` subscription still drops every like,
+follow, profile edit, list change, and identity event — it's a much smaller
+stream than the firehose, even without `wantedDids`. Push everything you can
+to the server first; only widen when the question you're asking genuinely
+needs the broader stream.
+
+## Don't block the read loop
+
+Note the `asyncio.create_task(...)` above. The one thing you should *not* do is
+`await` the webhook POST inside the message-receive loop. Webhook endpoints
+generally rate-limit incoming requests, and a single slow response would
+back-pressure the WebSocket — eventually the server disconnects you, you
+reconnect, and you replay history. Letting the POST happen in a separate task
+keeps the read loop draining at full speed regardless of webhook latency.
+
+For higher volume, put a bounded queue between the consumer and the forwarder
+so they scale independently:
+
+- One coroutine reads Jetstream and pushes matched messages onto the queue.
+- One or more workers drain the queue and POST to the webhook, with their own
+  retry and backoff.
+
+If the queue fills up, you have a real signal: either widen workers, narrow
+your filters, or batch multiple matches into a single webhook payload.
+
+## At-least-once delivery and dedup
+
+[Jetstream delivers each event at-least-once](/docs/jetstream#resuming-where-you-left-off),
+so the same record can arrive twice across a reconnect. Most webhook targets
+don't dedupe by content, so you may see a duplicate notification.
+
+Two reasonable options:
+
+- **Accept it** for FYI-style notifications. A double-posted alert is rarely
+  worth the engineering to prevent.
+- **Track seen URIs** in a small TTL set (Redis, an LRU dict, a SQLite table)
+  and skip ones you've already forwarded. Key on the record's `at://` URI
+  (`at://{did}/{collection}/{rkey}`).
+
+## Resuming after a restart
+
+When your forwarder restarts, persist the last `cursor` you successfully
+delivered and reconnect with `?cursor=N`. Jetstream replays from just after
+that point within its lookback window, so you don't lose minutes of activity
+on every deploy. See [Resuming where you left off](/docs/jetstream#resuming-where-you-left-off).
+
+If you need durability beyond the lookback window — or to fill in history
+before going live — pair this pattern with [Backfilling with Jetstream](/docs/jetstream-backfill).
+
+## See also
+
+- **[Jetstream](/docs/jetstream)** — the live tail and filtering primitives this
+  builds on.
+- **[Backfilling with Jetstream](/docs/jetstream-backfill)** — combine
+  historical events with live forwarding through one interface.
