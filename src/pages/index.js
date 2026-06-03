@@ -323,11 +323,11 @@ export default function Home() {
               What will <em className="you">you</em> build on the <em className="atmo">Atmosphere</em>?
             </p>
             <div className="cta-row">
-              <Link className="btn primary" to="/docs/get-started">
-                Get Started
+              <Link className="btn ghost" to="/docs/jetstream">
+                Explore the network
               </Link>
-              <Link className="btn ghost" to="https://atproto.com/guides/tutorials">
-                Tutorials
+              <Link className="btn primary" to="/docs/get-started">
+                Get started with Bluesky
               </Link>
             </div>
             <p className="signoff">
@@ -390,7 +390,7 @@ export default function Home() {
               AT&nbsp;Protocol.
             </h2>
             <p>Lay foundations on top of an open network that can't be taken away.</p>
-            <Link className="more" to="/docs/get-started">
+            <Link className="more" to="/docs/jetstream">
               More examples →
             </Link>
           </aside>
@@ -403,8 +403,8 @@ export default function Home() {
             <ProtocolCard
               title="Jetstream"
               em="v2"
-              endpoint="wss://jetstream1.us-west.bsky.network"
-              what="Backfill data from the network or stream in real time. Replay the data you care about."
+              endpoint="wss://jetstream2.us-east.bsky.network"
+              what="Replay data from the network or stream in real time. Slice the data you care about."
               href="/docs/jetstream"
             />
             <ProtocolCard

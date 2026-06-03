@@ -1,0 +1,97 @@
+---
+sidebar_label: Backfilling with Jetstream
+description: Load historical data and continue live through a single interface — Jetstream handles the archive, the cutover, and the ordering for you.
+---
+
+# Backfilling with Jetstream
+
+Most applications need more than the live tail. To build an
+[App View](https://atproto.com/guides/the-at-stack#app-views), run analysis, or
+catch up after downtime, you need the records that already exist on the network
+*and* every new one as it arrives — with no gap in between.
+
+Done by hand, that's a real project: list every repo, call
+`com.atproto.sync.getRepo` for each one (without getting rate limited), decode
+the CAR files, buffer live firehose events while you work, replay them in the
+right order per account, and track a cursor so you can resume. This is the
+[backfilling-from-the-firehose](/docs/consuming-the-firehose) path, and it's a
+lot to get right.
+
+Jetstream's job is to make that someone else's problem. It keeps a compressed
+archive of the whole network and serves it through the same JSON interface as
+the [live tail](/docs/jetstream) — so you describe the slice you want and read
+it from a single stream, never having to know whether a given event is history
+or real time.
+
+## How it works
+
+Ask Jetstream for a slice of data from some point in the past, and the client
+library:
+
+1. **downloads the archive** — pulls the relevant sealed segment files over
+   plain HTTP (cacheable, parallelizable), filtered to the collections and DIDs
+   you asked for,
+2. **cuts over to live** — once it catches up to the present, it transparently
+   switches to the live WebSocket so no events are missed in the handoff, and
+3. **hands you one stream** — you iterate a single sequence of events; the
+   library hides whether each batch came from the archive or the live tail.
+
+Because the archive is laid out per account, the ordering guarantee you rely on
+for the live firehose still holds: **every event for a single DID is delivered
+in the order it happened** (across accounts, events may interleave).
+
+## Using the client library
+
+Backfill needs a "thick" client that understands segment downloads and the
+cutover, so this is where you'll want the official library (Go and TypeScript to
+start) rather than a bare WebSocket. The shape is roughly:
+
+```go
+// Illustrative — the Jetstream client library is in active development.
+client := jetstream.Subscribe(
+    "jetstream.us-east.bsky.network",
+    jetstream.WithCollections([]string{"app.bsky.feed.post"}),
+    jetstream.WithCursor(since), // start point in the past
+)
+
+for events, err := range client.Events(ctx) {
+    if err != nil {
+        continue // transient; the library keeps its place
+    }
+    if err := db.WriteBatch(events); err != nil {
+        continue
+    }
+    db.SaveCursor(events.LastCursor()) // persist progress
+}
+```
+
+You write events and persist the last cursor; the library handles the archive
+fetch, the live cutover, ordering, and reconnects. Save the cursor as you go so
+a restart resumes from where you stopped instead of re-reading the archive.
+
+## What you don't have to deal with
+
+Compared to rolling your own backfill against the firehose, Jetstream takes the
+following off your plate:
+
+- **`getRepo` fan-out and rate limits** — no per-account crawl of PDSes.
+- **Binary decoding** — events arrive as JSON, already decoded; you never touch
+  CBOR or CAR.
+- **The backfill-to-live handoff** — no buffering live events while history
+  loads, and no manual replay to drain the buffer.
+- **Per-DID ordering** — preserved for you.
+
+## Idempotency
+
+As with the live tail, delivery is **at-least-once** — the archive-to-live
+boundary and any reconnect can re-deliver an event. Keep your writes idempotent
+(keying on each record's `at://` URI is usually enough) and a duplicate becomes
+a harmless no-op.
+
+## See also
+
+- **[Jetstream](/docs/jetstream)** — the live tail, filtering, and endpoints.
+- **[Consuming the firehose](/docs/consuming-the-firehose)** — the raw path, if
+  you need binary records or to verify repository state yourself.
+- **[Backfilling guide](https://atproto.com/guides/backfilling)** on atproto.com
+  — protocol-level background on syncing the network.

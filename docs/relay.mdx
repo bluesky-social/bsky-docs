@@ -1,36 +1,89 @@
 ---
 sidebar_position: 2
+description: The Relay aggregates the whole network into a single firehose. These are the relays Bluesky operates, and how to connect to them.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Relay Firehose
+# Relay
 
-:::info
-This page is being rewritten to cover the Relay. For now it documents the
-underlying *firehose* event stream that the Relay serves.
+Every public action on the network — every post, like, follow, and reply across
+millions of accounts — is an event. The **Relay** bundles all of those events
+into a single realtime stream, the [**firehose**](/docs/consuming-the-firehose),
+and hands it to you over one connection.
+
+Those accounts don't all live in one place. Each is hosted on a *Personal Data
+Server* (**PDS**): a server that stores some users' data and emits an event
+every time that data changes. There are thousands of them across the network.
+Rather than discovering and connecting to each PDS yourself, you connect to a
+relay — it crawls the PDSes for you, verifies what they send, and re-broadcasts
+everything as one ordered, de-duplicated stream.
+
+```
+   ┌────────┐   ┌────────┐   ┌────────┐         thousands of PDSes,
+   │  PDS   │   │  PDS   │   │  PDS   │  ...     each streaming its own
+   └───┬────┘   └───┬────┘   └───┬────┘          repo events
+       │            │            │
+       └────────────┼────────────┘
+                    ▼
+              ┌───────────┐               the Relay aggregates, verifies,
+              │   Relay   │               and de-duplicates them into one
+              └─────┬─────┘               ordered stream
+                    ▼
+          com.atproto.sync.subscribeRepos     ← the firehose
+                    │
+       ┌────────────┼────────────┐
+       ▼            ▼            ▼
+   feed gens     labelers      bots, search, your app
+```
+
+A relay does **not** interpret the records flowing through it — it doesn't know
+what a "post" or a "like" means. It verifies repository structure and identity
+signatures, then forwards events to whoever is listening. Making sense of the
+records is the job of downstream consumers like [App Views](https://atproto.com/guides/the-at-stack#app-views),
+feed generators, and labelers.
+
+This is the AT Protocol's "big world with small world fallbacks" design: a
+relatively small number of large aggregators broadcast the network's data back
+out, so consumers don't have to discover and crawl every PDS themselves.
+
+## Bluesky's relays
+
+Bluesky operates a full-network relay. It tracks every repository across the
+entire network, and it's the default relay that the reference PDS
+implementation crawls, so most self-hosted PDSes are reachable through it. No
+authentication is required; the firehose is public.
+
+| Endpoint | Notes |
+| --- | --- |
+| `wss://relay1.us-east.bsky.network` | The current [Sync 1.1](https://docs.bsky.app/blog/relay-sync-updates#staged-rollout) endpoint, and the one to use for new integrations. Emits `prevData` on each commit. |
+| `wss://bsky.network` | The original firehose endpoint. Still widely used, but does **not** emit `prevData`. |
+
+:::tip Which one should I use?
+Use the **Sync 1.1** endpoint (`wss://relay1.us-east.bsky.network`) for anything
+new. The `prevData` field it adds lets consumers detect gaps and verify
+repository state without re-fetching whole repos. It also let relays stop
+caching their entire broadcast history, which cut storage needs enough to make
+[public, full-network mirrors](https://atproto.com/blog/introducing-hubble-a-public-mirror-for-the-whole-atmosphere)
+practical.
 :::
 
-One of the core primitives of the AT Protocol that underlies Bluesky is the
-*firehose*. It is an authenticated stream of events used to efficiently sync
-user updates (posts, likes, follows, handle changes, etc).
+Bluesky isn't the only relay operator. Relays are part of the open protocol, and
+[several independent relays](https://atproto.com/guides/the-at-stack#relays) run
+at different scales. The endpoints above are the ones Bluesky runs and maintains.
 
-Many applications people will want to build on top of atproto and Bluesky will
-start with the firehose, from feed generators to labelers, to bots and search
-engines.
+## Connecting
 
-In the atproto ecosystem, there are many different endpoints that serve
-firehose APIs. Each PDS serves a stream of all of the activity on the repos it is
-responsible for. From there, *relays* aggregate the streams of any PDS who requests it into a single unified stream.
-
-This makes the job of downstream consumers much easier, as you can get all the data from a single
-location. The main relay for Bluesky is `bsky.network`, which we use in the examples below.
-
-To get started, you will open a WebSocket connection to your favorite firehose
-provider for the `com.atproto.sync.subscribeRepos` endpoint:
+To consume the firehose, open a WebSocket to the
+`com.atproto.sync.subscribeRepos` endpoint on a relay:
 
 <Tabs groupId="sdk">
+  <TabItem value="shell" label="Shell">
+    ```shell
+    websocat wss://relay1.us-east.bsky.network/xrpc/com.atproto.sync.subscribeRepos
+    ```
+  </TabItem>
   <TabItem value="go" label="Go">
     ```go
     uri := "wss://relay1.us-east.bsky.network/xrpc/com.atproto.sync.subscribeRepos"
@@ -39,69 +92,60 @@ provider for the `com.atproto.sync.subscribeRepos` endpoint:
   </TabItem>
 </Tabs>
 
-:::note
-We previously provided a `wss://bsky.network` example URL here. This endpoint does not provide `prevData` which may limit your use of the firehose in some contexts. When in doubt, use the [Sync 1.1 endpoints](https://docs.bsky.app/blog/relay-sync-updates#staged-rollout).
+Each message is binary-encoded ([CBOR](https://atproto.com/specs/data-model)),
+and commits carry [CAR](https://atproto.com/specs/repository#car-file-serialization)
+slices of the underlying repository. Decoding that stream is involved enough to
+warrant its own page. See **[Consuming the firehose](/docs/consuming-the-firehose)**
+for a full, runnable walkthrough.
+
+## Do you need the full firehose?
+
+The firehose is core network infrastructure, and its volume grows with the
+network. If you only care about a few collections (say, just posts and likes)
+and would rather work with plain JSON than binary CBOR, you probably want
+[**Jetstream**](/docs/jetstream) instead. Jetstream consumes the relay's
+firehose on your behalf and fans out a filtered, compressed JSON stream — far
+cheaper to operate for most feed generators, bots, and labelers.
+
+Reach for the relay firehose directly when you need:
+
+- **completeness:** every record on the network, with no filtering
+- **cryptographic verification:** the signed commits and MST proofs needed to
+  validate repository state in a zero-trust setting
+- **your own independent infrastructure:** e.g. running an App View, or your
+  own Jetstream
+
+## Rate limits and abuse protection
+
+In addition to aggregating events, the relay enforces rate limits and abuse
+protections across the PDSes it crawls, which keeps the network available even
+when an individual host misbehaves. If you're consuming at scale, see
+[Rate Limits](/docs/rate-limits) for the limits that apply to relay and PDS
+endpoints, and implement client-side backoff so a dropped connection doesn't
+turn into a thundering herd of reconnects.
+
+## Running your own relay
+
+A full-network relay isn't especially expensive to run and doesn't need
+specialized hardware — its main cost is network bandwidth, since it ingests
+from every PDS and fans out to every consumer. You might run a partial relay
+scoped to a specific community, region, or research use case instead of the
+whole network.
+
+Bluesky's relay is open source: the implementation lives in the
+[`indigo`](https://github.com/bluesky-social/indigo/blob/main/cmd/relay/README.md)
+repository alongside the rest of our Go tooling.
+
+## Next steps
+
+- **[Consuming the firehose](/docs/consuming-the-firehose)**: connect, decode
+  events, and handle them in order.
+- **[Jetstream](/docs/jetstream)**: the simpler, JSON-based alternative.
+- **[Rate Limits](/docs/rate-limits)**: limits that apply to relay endpoints.
+
+:::info
+Looking for protocol-level detail on the event stream and sync model? The
+[AT Protocol docs](https://atproto.com/guides/the-at-stack#relays) cover relays,
+the [event stream](https://atproto.com/specs/event-stream), and the
+[sync spec](https://atproto.com/specs/sync) in depth.
 :::
-
-From there, you need to read off each message as it comes in, and decode the
-CBOR event data. More details on this can be found [here](https://atproto.com/specs/lexicon)
-
-Most SDKs have a nice wrapper for this though, In this example we will just
-print each repo operation in each event we receive. These operations are things
-like "create post", "create like", "delete follow" and so on.
-
-<Tabs groupId="sdk">
-  <TabItem value="go" label="Go">
-    ```go
-    rsc := &events.RepoStreamCallbacks{
-      RepoCommit: func(evt *atproto.SyncSubscribeRepos_Commit) error {
-        fmt.Println("Event from ", evt.Repo)
-        for _, op := range evt.Ops {
-          fmt.Printf(" - %s record %s\n", op.Action, op.Path)
-        }
-        return nil
-      },
-    }
-
-    sched := sequential.NewScheduler("myfirehose", rsc.EventHandler)
-    events.HandleRepoStream(context.Background(), con, sched)
-```
-  </TabItem>
-</Tabs>
-
-
-
-In this snippet we set up a sequential "scheduler", which handles all events
-sequentially in order. Other schedulers run event handling in parallel, or do
-limited concurrency based on who the event is for.
-
-Once we have a scheduler, we call into `HandleRepoStream` which does the actual
-decoding of the data coming over the websocket and calls into the event handler
-we wrote.
-
-If you want a more simplified firehose where events are JSON, you can connect
-to the [JetStream](https://docs.bsky.app/blog/jetstream) websocket:
-<Tabs>
-  <TabItem value="python" label="Python">
-    ```python
-    import asyncio
-    import websockets
-
-    uri = "wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post"
-
-    async def listen_to_websocket():
-      async with websockets.connect(uri) as websocket:
-        while True:
-          try:
-            message = await websocket.recv()
-            print(message)
-          except websockets.ConnectionClosed as e:
-            print(f"Connection closed: {e}")
-            break
-          except Exception as e:
-            print(f"Error: {e}")
-    
-    asyncio.get_event_loop().run_until_complete(listen_to_websocket())
-    ```
-  </TabItem>
-</Tabs>

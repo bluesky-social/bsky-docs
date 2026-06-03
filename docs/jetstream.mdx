@@ -1,0 +1,185 @@
+---
+sidebar_position: 3
+description: Jetstream hands you just the slice of the network you want, as JSON, live or historical, with no sync infrastructure to run yourself.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Jetstream
+
+**Jetstream** is the easiest way to get data off the Bluesky network at scale.
+You tell it which records you care about — posts, likes, follows, or a single
+account — and it streams them back as plain JSON over one WebSocket, the moment
+they happen.
+
+Setup is minimal. There are no API keys, no infrastructure to run, and no binary
+formats to decode. You describe the slice of the network you want, and Jetstream
+delivers it live, replayed from history, or both at once, all through the same
+interface. The same handful of lines works whether you're building a realtime
+bot or backfilling a month of data into a larger application.
+
+Jetstream is [open source](https://github.com/bluesky-social/jetstream),
+implemented in Go, and cheap to self-host. You don't have to, though. Bluesky
+runs public instances you can connect to right now.
+
+## Quickstart: live tail
+
+Open a WebSocket to the `/subscribe` endpoint and start reading events. Add a
+`wantedCollections` filter so you receive just the record types you care about:
+
+<Tabs groupId="lang">
+  <TabItem value="python" label="Python">
+    ```python
+    import asyncio
+    import websockets
+
+    uri = "wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post"
+
+    async def listen():
+      async with websockets.connect(uri) as ws:
+        while True:
+          print(await ws.recv())
+
+    asyncio.run(listen())
+    ```
+  </TabItem>
+  <TabItem value="shell" label="Shell">
+    ```shell
+    websocat "wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post"
+    ```
+  </TabItem>
+</Tabs>
+
+Each message is a self-contained JSON object. A `commit` event — someone
+creating, updating, or deleting a record — looks like this:
+
+```json
+{
+  "did": "did:plc:eygmaihciaxprqvxpfvl6flk",
+  "time_us": 1725911162329308,
+  "cursor": 12345,
+  "kind": "commit",
+  "commit": {
+    "rev": "3l3qo2vutsw2b",
+    "operation": "create",
+    "collection": "app.bsky.feed.like",
+    "rkey": "3l3qo2vuowo2b",
+    "cid": "bafyreidwaivazkwu67xztlmuobx35hs2lnfh3kolmgfmucldvhd3sgzcqi",
+    "record": {
+      "$type": "app.bsky.feed.like",
+      "createdAt": "2024-09-09T19:46:02.102Z",
+      "subject": {
+        "cid": "bafyreidc6sydkkbchcyg62v77wbhzvb2mvytlmsychqgwf2xojjtirmzj4",
+        "uri": "at://did:plc:wa7b35aakoll7hugkrjtf3xf/app.bsky.feed.post/3l3pte3p2e325"
+      }
+    }
+  }
+}
+```
+
+The record arrives already decoded in the `record` field, so there's no second
+parsing step. Alongside `commit` events, the stream also carries `identity` and
+`account` events (handle changes, account status) for the same accounts.
+
+### Public endpoints
+
+| Endpoint | Region |
+| --- | --- |
+| `wss://jetstream1.us-west.bsky.network` | US West |
+| `wss://jetstream2.us-east.bsky.network` | US East |
+
+No authentication is required. These instances serve the full network; your
+`wantedCollections` / `wantedDids` filters decide how much of it reaches you.
+
+## Filtering: ask for just your slice
+
+Filtering happens server-side, so a narrow filter means less bandwidth and less
+work for your client. Two filters are available, and they combine:
+
+- **`wantedCollections`**: one or more [NSIDs](https://atproto.com/specs/nsid).
+  Repeat the parameter for multiple collections. Prefixes work too, so
+  `app.bsky.feed.*`-style scoping lets you take a whole namespace.
+- **`wantedDids`**: restrict the stream to specific accounts by DID. Repeat for
+  multiple accounts.
+
+```
+wss://jetstream2.us-east.bsky.network/subscribe
+  ?wantedCollections=app.bsky.feed.post
+  &wantedCollections=app.bsky.feed.like
+  &wantedDids=did:plc:eygmaihciaxprqvxpfvl6flk
+```
+
+:::tip Long filter lists
+If you're filtering on a large or changing set of collections or DIDs, send them
+in a `options_update` message after connecting (set `requireHello=true` on the
+URL to suppress events until your first update arrives) rather than stuffing
+everything into the query string.
+:::
+
+## Resuming where you left off
+
+Every event carries a `cursor` — a monotonically increasing sequence number. If
+your consumer drops, reconnect with `?cursor=N` (the last value you processed)
+and Jetstream replays from just after it, within a bounded lookback window:
+
+```
+wss://jetstream2.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post&cursor=12345
+```
+
+Delivery is **at-least-once**, so an event may arrive more than once across a
+reconnect. Make your handlers idempotent. Key on each record's `at://` URI and
+duplicates become harmless.
+
+## Getting history, not just live
+
+The cursor window above is meant for short reconnects, not for loading the past.
+When you also need historical data — say, every `app.bsky.feed.post` from the
+last month, then live updates from there — Jetstream can stream the archive and
+cut over to the live tail through one interface. Your code never has to know
+whether a given event is history or real time.
+
+That's involved enough to have its own page:
+**[Backfilling with Jetstream](/docs/jetstream-backfill)**.
+
+## How Jetstream relates to the firehose
+
+Under the hood, Jetstream consumes the network's full
+[firehose](/docs/consuming-the-firehose) from a [Relay](/docs/relay) and does
+the heavy lifting — decoding, filtering, and archiving — so you don't have to.
+You only need the raw firehose directly when you want something Jetstream
+deliberately trades away for simplicity:
+
+| | Jetstream | [Relay firehose](/docs/consuming-the-firehose) |
+| --- | --- | --- |
+| Encoding | **JSON**, already decoded | binary (DAG-CBOR + CAR) |
+| Filtering | by **collection** and/or **DID** | none; you get everything |
+| History | **live, historical, or both** | live only |
+| What you run | a WebSocket client | a CBOR/CAR decoder, cursor logic |
+
+Reach for the [raw firehose](/docs/consuming-the-firehose) when you need every
+record with no filtering, or the cryptographic proofs to verify repository state
+yourself. For nearly everything else, Jetstream is the simpler path.
+
+## Running your own Jetstream
+
+The public instances are enough for most consumers. If you'd rather run your
+own, Jetstream is a single static Go binary built to be cheap to operate — modest
+CPU, a fair bit of RAM for the initial backfill, and a few TB of disk for a
+full-network archive. Reach for it when you want an instance scoped
+to your own collections, an isolated dev environment, or your own archive to
+build an [App View](https://atproto.com/guides/the-at-stack#app-views) on. See
+the [Jetstream repository](https://github.com/bluesky-social/jetstream) to get
+started.
+
+## See also
+
+- **[Backfilling with Jetstream](/docs/jetstream-backfill)**: stream history and
+  live from one interface.
+- **[Relay](/docs/relay)** and **[Consuming the firehose](/docs/consuming-the-firehose)**:
+  the raw, full-fidelity path, for when you need binary records or cryptographic
+  verification.
+- **[Tap](https://github.com/bluesky-social/indigo/tree/main/cmd/tap)**: a
+  related tool focused on cursor management (webhooks and acks) for per-repo
+  subscriptions. It solves a different problem than Jetstream and can be pointed
+  at a firehose today.

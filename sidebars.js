@@ -26,7 +26,7 @@ const sidebars = {
       type: 'category',
       label: 'Get Started',
       link: {type: 'doc', id: 'get-started/index'},
-      collapsed: false,
+      collapsed: true,
       items: [
         'get-started/creating-a-post',
         'get-started/viewing-feeds',
@@ -52,14 +52,15 @@ const sidebars = {
       ],
     },
     {type: 'link', label: 'Tutorials', href: 'https://atproto.com/guides/tutorials'},
-    'relay',
-    'jetstream',
+    {type: 'category', label: 'Jetstream', link: { type: 'doc', id: 'jetstream' }, items: ['jetstream-backfill'] },
+    {type: 'category', label: 'Relay', link: {type: 'doc', id: 'relay'}, items: ['consuming-the-firehose']},
     // A few related docs are nested under a parent doc to keep the top level
     // to ~9-10 items. The category links to the parent doc itself.
     { type: 'category', label: 'API Hosts and Auth', link: { type: 'doc', id: 'api-directory' }, items: ['rate-limits', 'oauth-client']},
     {type: 'category', label: 'Resolving Identities', link: {type: 'doc', id: 'resolving-identities'}, items: ['entryway']},
     'oembed',
     'intent-links',
+    { type: 'link', label: 'HTTP Reference', href: 'https://endpoints-production-21ea.up.railway.app/' },
     {type: 'category', label: 'Bluesky Dev Guidelines', link: {type: 'doc', id: 'developer-guidelines'}, items: ['mailing-list']},
   ],
 

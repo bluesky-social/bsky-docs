@@ -1,0 +1,105 @@
+---
+sidebar_label: Consuming the firehose
+description: A runnable walkthrough. Connect to a Bluesky relay, decode events, and handle them in order.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Consuming the firehose
+
+This page picks up from the [Relay overview](/docs/relay) and walks through
+actually consuming the firehose: opening the connection, decoding events, and
+processing them in order. We use Bluesky's relay
+(`relay1.us-east.bsky.network`) in the examples, but the same code works against
+[any relay](/docs/relay#blueskys-relays).
+
+:::tip Want JSON instead?
+The firehose is a binary stream — efficient, but more work to decode. If you'd
+rather receive filtered JSON and skip the CBOR/CAR decoding entirely, use
+[**Jetstream**](/docs/jetstream). Come back here when you need full coverage or
+cryptographic verification.
+:::
+
+## Open the connection
+
+The firehose is served from the `com.atproto.sync.subscribeRepos` endpoint over
+a WebSocket. No authentication is required.
+
+<Tabs groupId="sdk">
+  <TabItem value="go" label="Go">
+    ```go
+    uri := "wss://relay1.us-east.bsky.network/xrpc/com.atproto.sync.subscribeRepos"
+    con, _, err := websocket.DefaultDialer.Dial(uri, http.Header{})
+    ```
+  </TabItem>
+  <TabItem value="shell" label="Shell">
+    ```shell
+    websocat wss://relay1.us-east.bsky.network/xrpc/com.atproto.sync.subscribeRepos
+    ```
+  </TabItem>
+</Tabs>
+
+Each message that arrives is binary-encoded
+[CBOR](https://atproto.com/specs/data-model). Commit events carry a
+[CAR](https://atproto.com/specs/repository#car-file-serialization) slice of the
+repository holding the changed records. Most SDKs provide a wrapper that handles
+the framing and decoding for you. Our [Go SDK](https://github.com/bluesky-social/indigo)
+is currently the most feature-complete for working with the firehose directly.
+
+## Handle each event
+
+Once the bytes are decoded, you work with a stream of repository operations —
+things like "create post", "create like", or "delete follow". The example below
+sets up a handler that prints each operation as it arrives:
+
+<Tabs groupId="sdk">
+  <TabItem value="go" label="Go">
+    ```go
+    rsc := &events.RepoStreamCallbacks{
+      RepoCommit: func(evt *atproto.SyncSubscribeRepos_Commit) error {
+        fmt.Println("Event from ", evt.Repo)
+        for _, op := range evt.Ops {
+          fmt.Printf(" - %s record %s\n", op.Action, op.Path)
+        }
+        return nil
+      },
+    }
+
+    sched := sequential.NewScheduler("myfirehose", rsc.EventHandler)
+    events.HandleRepoStream(context.Background(), con, sched)
+    ```
+  </TabItem>
+</Tabs>
+
+Here we set up a **sequential scheduler**, which handles events one at a time,
+in order. Other schedulers run handlers in parallel, or do limited concurrency
+keyed on the event's repo — useful once a single-threaded handler can't keep up
+with the network's volume, while still preserving per-repo ordering.
+
+`HandleRepoStream` does the actual decoding of the data coming over the
+WebSocket and dispatches each event to the handler you wrote.
+
+## Keep your place in the stream
+
+The firehose is sequenced: every event carries a monotonically increasing
+cursor. If your consumer disconnects, you can reconnect and pass the last cursor
+you processed back as a `cursor` query parameter to resume roughly where you
+left off, rather than missing everything that happened while you were away.
+
+```
+wss://relay1.us-east.bsky.network/xrpc/com.atproto.sync.subscribeRepos?cursor=<seq>
+```
+
+Relays only buffer a limited backlog, so if you're offline long enough to fall
+outside that window you'll need to [backfill](/docs/jetstream) the gap from
+repository checkpoints. Connecting to a [Sync 1.1 endpoint](/docs/relay#blueskys-relays)
+makes this more robust: the `prevData` field on each commit lets you detect gaps
+and verify you haven't missed an update for a given repo.
+
+## See also
+
+- **[Relay](/docs/relay)**: what the relay is and which endpoints Bluesky runs.
+- **[Jetstream](/docs/jetstream)**: the filtered JSON alternative.
+- **[Event Stream spec](https://atproto.com/specs/event-stream)** and
+  **[Sync spec](https://atproto.com/specs/sync)**: the protocol-level details.
