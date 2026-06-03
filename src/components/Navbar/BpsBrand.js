@@ -67,7 +67,7 @@ function Pulse() {
 // First navbar entry: the "Bluesky Protocol Services" lockup. Link target is
 // left to docusaurus.config.js (`to` or `href`); renders unlinked if neither
 // is set. Returns null in the mobile sidebar — on narrow screens it stays in
-// the top bar (abbreviated to "BPS" via CSS) instead.
+// the top bar at full strength (pulse butterfly + full wordmark).
 export default function BpsBrand({ mobile, to, href }) {
   if (mobile) return null
   const inner = (

@@ -19,6 +19,7 @@ export default function NavCustomLink({
   to,
   href,
   icon,
+  image,
   plain,
   friendly,
 }) {
@@ -30,6 +31,7 @@ export default function NavCustomLink({
   const content = (
     <>
       {icon === 'butterfly' && <Butterfly className="bpsNav__butterfly" />}
+      {image && <img className="bpsNav__image" src={image} alt="" aria-hidden="true" />}
       <span className="bpsNav__label bpsNav__label--long">{label}</span>
       {shortLabel && (
         <span className="bpsNav__label bpsNav__label--short">{shortLabel}</span>

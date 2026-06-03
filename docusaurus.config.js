@@ -109,10 +109,12 @@ const config = {
             to: "/docs/get-started",
           },
           {
-            // "AT Protocol" — collapses to "at://" on mobile.
+            // "AT Protocol" — collapses to "at://" on mobile. The icon is a
+            // masked crop of the amber dot-globe used on the homepage card.
             type: "custom-navLink",
             position: "left",
             plain: true,
+            image: "/img/atproto-globe.png",
             label: "AT Protocol",
             shortLabel: "at://",
             href: "https://atproto.com",

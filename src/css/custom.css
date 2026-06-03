@@ -227,19 +227,27 @@
   flex: 0 0 auto;
 }
 
-/* ----- mobile: all three entries STAY in the top bar, abbreviated. The
- * hamburger holds GitHub + the docs sidebar (docs routes) or the docs sections
- * surfaced by custom-docsMenu (non-docs routes). ----- */
+/* AT Protocol globe — masked to a disc so the amber dots read against the
+ * dark navbar; sized to sit comfortably next to the "plain" 14px label. */
+.bpsNav__image {
+  width: 42px; height: 42px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  -webkit-mask-image: radial-gradient(circle, #000 54%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 54%, transparent 70%);
+}
+.bpsNav--plain { gap: 6px; }
+
+/* ----- mobile: brand stays full-strength; the other two entries abbreviate.
+ * The hamburger holds GitHub + the docs sidebar (docs routes) or the docs
+ * sections surfaced by custom-docsMenu (non-docs routes). ----- */
 @media (max-width: 996px) {
-  /* brand: drop the pulse butterfly, show the dithered "bps" wordmark */
-  .bpsBrand__pulseWrap { display: none; }
-  .bpsBrand__full { display: none; }
-  .bpsBrand__short { display: inline-block; }
   /* Get Started collapses to just the butterfly (label hidden, no extra gap) */
   .bpsNav--friendly .bpsNav__label { display: none; }
   .bpsNav--friendly { gap: 0; }
   .bpsNav__butterfly { width: 32px; height: 28px; }
-  /* AT Protocol -> at:// on mobile */
+  /* AT Protocol -> at:// on mobile (globe icon hidden too) */
+  .bpsNav__image { display: none; }
   .bpsNav__label--long { display: none; }
   .bpsNav__label--short { display: inline; }
   /* tighten spacing between the entries on narrow screens */
