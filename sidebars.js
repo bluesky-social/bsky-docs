@@ -49,6 +49,8 @@ const sidebars = {
         'about-bluesky-content/posts',
         'about-bluesky-content/post-richtext',
         'about-bluesky-content/timestamps',
+        'oembed',
+        'intent-links',
       ],
     },
     {type: 'link', label: 'Tutorials', href: 'https://atproto.com/guides/tutorials'},
@@ -58,8 +60,6 @@ const sidebars = {
     // to ~9-10 items. The category links to the parent doc itself.
     { type: 'category', label: 'API Hosts and Auth', link: { type: 'doc', id: 'api-directory' }, items: ['rate-limits', 'oauth-client']},
     {type: 'category', label: 'Resolving Identities', link: {type: 'doc', id: 'resolving-identities'}, items: ['entryway']},
-    'oembed',
-    'intent-links',
     { type: 'link', label: 'HTTP Reference', href: 'https://endpoints-production-21ea.up.railway.app/' },
     {type: 'category', label: 'Bluesky Dev Guidelines', link: {type: 'doc', id: 'developer-guidelines'}, items: ['mailing-list']},
   ],
