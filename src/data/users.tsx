@@ -1251,6 +1251,14 @@ const Users: User[] = [
     tags: ['socialtools'],
   },
   {
+    title: 'PostPolish',
+    description: 'Chrome extension that adds a Polish button to the Bluesky composer: tightens your draft to fit 300 characters and fixes typos while keeping your voice',
+    preview: require('./showcase/postpolish.png'),
+    website: 'https://postpolish.featherapps.online',
+    author: 'https://bsky.app/profile/swarajban.bsky.social',
+    tags: ['socialtools'],
+  },
+  {
     title: 'bluesky-post',
     description: 'A Web Component to display Bluesky posts and their metadata',
     preview: require('./showcase/example-1.png'),
