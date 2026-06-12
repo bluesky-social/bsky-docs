@@ -18,7 +18,7 @@ const sidebars = {
     {
       type: 'link',
       label: 'HTTP Reference',
-      href: 'http://endpoints-standalone.onrender.com/',
+      href: 'https://endpoints.bsky.app/',
     },
   ],
 };
