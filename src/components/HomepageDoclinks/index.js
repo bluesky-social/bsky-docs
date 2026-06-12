@@ -8,7 +8,7 @@ const FeatureList = [
     title: 'API Reference',
     Svg: require('@site/static/img/http.svg').default,
     description: <>View the complete HTTP API reference.</>,
-    href: '/docs/category/http-reference',
+    href: 'https://endpoints.bsky.app/',
   },
   {
     title: 'Tutorials',

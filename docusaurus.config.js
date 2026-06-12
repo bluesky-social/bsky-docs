@@ -48,27 +48,7 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-  plugins: [
-    "@docusaurus/plugin-ideal-image",
-    [
-      "docusaurus-plugin-openapi-docs",
-      {
-        id: "api", // plugin id
-        docsPluginId: "classic", // id of plugin-content-docs or preset for rendering docs
-        config: {
-          bskyApi: {
-            // the <id> referenced when running CLI commands
-            specPath: "atproto-openapi-types/spec/api.json", // path to OpenAPI spec, URLs supported
-            outputDir: "docs/api", // output directory for generated files
-            sidebarOptions: {
-              // optional, instructs plugin to generate sidebar.js
-              groupPathsBy: "tag", // group sidebar items by operation "tag"
-            },
-          },
-        },
-      },
-    ],
-  ],
+  plugins: ["@docusaurus/plugin-ideal-image"],
   presets: [
     [
       "classic",
@@ -78,7 +58,6 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/bluesky-social/bsky-docs/tree/main/",
-          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
           showReadingTime: true,
@@ -94,7 +73,6 @@ const config = {
       }),
     ],
   ],
-  themes: ["docusaurus-theme-openapi-docs"],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -182,8 +160,6 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      // disable openapi language snippets
-      languageTabs: [],
       algolia: {
         appId: 'T5MN80JFZF',
         // Public API key: it is safe to commit it
