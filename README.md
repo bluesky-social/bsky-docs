@@ -1,3 +1,5 @@
+> [!NOTE]
+> **This repo has been deprecated!** The dedicated Bluesky Protocol Services docs now live in https://github.com/bluesky-social/bps-website.
 
 # docs.bsky.app
 
