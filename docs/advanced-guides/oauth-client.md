@@ -87,11 +87,11 @@ And some optional (but recommended) metadata fields:
 - `tos_uri` (string, optional): HTTP URL to human-readable terms of service ("ToS") for the client
 - `policy_uri` (string, optional): HTTP URL to human-readable privacy policy for the client
 
-Here is an example Browser App client metadata file, that would need to be hosted at https://app.example.com/oauth/client-metadata.json (served with Content-Type `application/json` and HTTP status 200, no redirects):
+Here is an example Browser App client metadata file, that would need to be hosted at `https://app.example.com/oauth-client-metadata.json` (served with Content-Type `application/json` and HTTP status 200, no redirects):
 
 ```json
 {
-  "client_id": "https://app.example.com/oauth/client-metadata.json",
+  "client_id": "https://app.example.com/oauth-client-metadata.json",
   "application_type": "web",
   "client_name": "Example Browser App",
   "client_uri": "https://app.example.com",
@@ -103,6 +103,8 @@ Here is an example Browser App client metadata file, that would need to be hoste
   "token_endpoint_auth_method": "none"
 }
 ```
+
+The `client_id` can use path segment in the URL, eg `/oauth/metadata`. But if the path is exactly `/oauth-client-metadata.json`, then as a convention server will display just the hostname to users, instead of the full URL.
 
 PDS instances (and any supporting servers) also publish public JSON documents containing authorization server metadata.
 
