@@ -20,6 +20,14 @@ export type TagType =
 
 const Users: User[] = [
   {
+    title: 'One Ocean Network',
+    description: 'Join a growing community of ocean lovers sharing updates, concerns, and celebrating the beauty of our waters and coastal environments.',
+    preview: require('./showcase/oneoceannetwork.png'),
+    website:'https://one-ocean-network.com',
+    author: 'https://bsky.app/profile/did:plc:vxwywg6jlbwwdufn3v2jz5je',
+    tags: ['client', 'customfeed'],
+  },
+  {
     title: 'Dragonfly',
     description: 'Mac OS Desktop Client for Bluesky. Windows and Linux coming soon.',
     preview: require('./showcase/dfly_showcase.png'), // Placeholder image
