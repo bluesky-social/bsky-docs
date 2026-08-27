@@ -1378,6 +1378,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/sri.xyz',
     tags: ['othertools'],
   },
+  {
+    title: 'ONYX',
+    description: 'A Bluesky-native, AT-Protocol post scheduler with AI-assisted drafting, analytics, and ~27 free Bluesky tools. $7/mo flat, free tier.',
+    preview: require('./showcase/onyx.png'),
+    website: 'https://onyxhq.us',
+    author: 'https://bsky.app/profile/advantage87.bsky.social',
+    tags: ['socialtools', 'othertools'],
+  },
 ]
 
 export type User = {
