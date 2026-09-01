@@ -1378,6 +1378,14 @@ const Users: User[] = [
     author: 'https://bsky.app/profile/sri.xyz',
     tags: ['othertools'],
   },
+  {
+    title: 'TheBlue.social',
+    description: 'Bluesky analytics, Bluesky+X+Mastodon post scheduling and tools',
+    preview: require('./showcase/the-blue.png'),
+    website: 'https://theblue.social',
+    author: 'https://bsky.app/profile/did:plc:bryys25pc2fnagnyxqgsglhd',
+    tags: ['socialtools', 'stats', 'bot'],
+  },
 ]
 
 export type User = {
